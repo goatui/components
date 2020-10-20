@@ -1,7 +1,7 @@
 ---
 layout: component
-title: Button
-componentName: p4-button
+title: Icon
+componentName: p4-icon
 ---
 
 <script type="module" src="https://unpkg.com/@p4rm/ui@{{site.project_version}}/dist/p4rm-ui/p4rm-ui.esm.js"></script>
@@ -52,7 +52,7 @@ componentName: p4-button
   &lt;script type="module" src="https://unpkg.com/@p4rm/ui@{{site.project_version}}/dist/p4rm-ui/p4rm-ui.esm.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-  &lt;p4-button size=&quot;lg&quot; variant=&quot;primary&quot;&gt;Click me&lt;/p4-button&gt;
+  &lt;p4-icon size=&quot;lg&quot; variant=&quot;primary&quot;&gt;Click me&lt;/p4-icon&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 
@@ -68,19 +68,18 @@ componentName: p4-button
                                  aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
       <p>Here are several predefined button styles, each serving its own semantic purpose.</p>
       <div class="output">
-        <p4-button>Default</p4-button>
-        <p4-button variant="primary">Primary</p4-button>
-        <p4-button variant="danger">Danger</p4-button>
-        <p4-button variant="dashed">Dashed</p4-button>
-        <p4-button variant="link">Link</p4-button>
+        <p4-icon>Default</p4-icon>
+        <p4-icon variant="primary">Primary</p4-icon>
+        <p4-icon variant="danger">Danger</p4-icon>
+        <p4-icon variant="success">Success</p4-icon>
       </div>
 
       <pre class="mb-4">
-                <code class="language-html" data-lang="html"> &lt;p4-button&gt;Default&lt;/p4-button&gt;
-                 &lt;p4-button variant=&quot;primary&quot;&gt;Primary&lt;/p4-button&gt;
-                 &lt;p4-button variant=&quot;danger&quot;&gt;Danger&lt;/p4-button&gt;
-                 &lt;p4-button variant=&quot;dashed&quot;&gt;Dashed&lt;/p4-button&gt;
-                 &lt;p4-button variant=&quot;link&quot;&gt;Link&lt;/p4-button&gt;
+                <code class="language-html" data-lang="html"> &lt;p4-icon&gt;Default&lt;/p4-icon&gt;
+                 &lt;p4-icon variant=&quot;primary&quot;&gt;Primary&lt;/p4-icon&gt;
+                 &lt;p4-icon variant=&quot;danger&quot;&gt;Danger&lt;/p4-icon&gt;
+                 &lt;p4-icon variant=&quot;dashed&quot;&gt;Dashed&lt;/p4-icon&gt;
+                 &lt;p4-icon variant=&quot;success&quot;&gt;Success&lt;/p4-icon&gt;
                 </code>
               </pre>
     </div>
@@ -92,18 +91,18 @@ componentName: p4-button
     <div id="doc-sizes" class="mb-7">
       <h2 class="h4">Sizes <a class="js-anchor-link duik-anchorjs-link" href="#doc-getting-started"
                               aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
-      <p>Fancy larger or smaller buttons? Add size attribute for additional sizes.</p>
+      <p>Fancy larger or smaller icons? Add size attribute for additional sizes.</p>
 
       <div class="output">
-        <p4-button size="lg">Large Button</p4-button>
-        <p4-button>Medium Button</p4-button>
-        <p4-button size="sm">Small Button</p4-button>
+        <p4-icon size="lg">Large Icon</p4-icon>
+        <p4-icon>Medium Icon</p4-icon>
+        <p4-icon size="sm">Small Icon</p4-icon>
       </div>
 
       <pre class="mb-4">
-                  <code class="language-html" data-lang="html">&lt;p4-button size=&quot;lg&quot;&gt;Large Button&lt;/p4-button&gt;
-                  &lt;p4-button&gt;Medium Button&lt;/p4-button&gt;
-                  &lt;p4-button size=&quot;sm&quot;&gt;Small Button&lt;/p4-button&gt;
+                  <code class="language-html" data-lang="html">&lt;p4-icon size=&quot;lg&quot;&gt;Large Button&lt;/p4-icon&gt;
+                  &lt;p4-icon&gt;Medium Button&lt;/p4-icon&gt;
+                  &lt;p4-icon size=&quot;sm&quot;&gt;Small Button&lt;/p4-icon&gt;
                   </code>
                 </pre>
     </div>
@@ -117,14 +116,14 @@ componentName: p4-button
         attribute to any <code class="highlighter-rouge" data-lang="html">&lt;button&gt;</code> element.</p>
 
       <div class="output">
-        <p4-button disabled>Disabled Button</p4-button>
-        <p4-button variant="dashed" disabled="true">Disabled Dashed Button</p4-button>
-        <p4-button variant="link" disabled="true">Disabled Link</p4-button>
+        <p4-icon disabled>Disabled Button</p4-icon>
+        <p4-icon variant="dashed" disabled="true">Disabled Dashed Button</p4-icon>
+        <p4-icon variant="link" disabled="true">Disabled Link</p4-icon>
       </div>
       <pre class="mb-4">
-                    <code class="language-html" data-lang="html">&lt;p4-button disabled&gt;Disabled Button&lt;/p4-button&gt;
-                    &lt;p4-button variant=&quot;dashed&quot; disabled=&quot;true&quot;&gt;Disabled Dashed Button&lt;/p4-button&gt;
-                    &lt;p4-button variant=&quot;link&quot; disabled=&quot;true&quot;&gt;Disabled link&lt;/p4-button&gt;
+                    <code class="language-html" data-lang="html">&lt;p4-icon disabled&gt;Disabled Button&lt;/p4-icon&gt;
+                    &lt;p4-icon variant=&quot;dashed&quot; disabled=&quot;true&quot;&gt;Disabled Dashed Button&lt;/p4-icon&gt;
+                    &lt;p4-icon variant=&quot;link&quot; disabled=&quot;true&quot;&gt;Disabled link&lt;/p4-icon&gt;
                     </code>
                   </pre>
 
@@ -140,8 +139,8 @@ componentName: p4-button
 
       <div class="output">
 
-        <p4-button variant="default" id="click-me-btn">Click me</p4-button>
-        <p4-button disabled id="disabled-btn">Disabled Button</p4-button>
+        <p4-icon variant="default" id="click-me-btn">Click me</p4-icon>
+        <p4-icon disabled id="disabled-btn">Disabled Button</p4-icon>
 
         <script>
           document.querySelector('#click-me-btn').addEventListener('buttonClick', function(event) {

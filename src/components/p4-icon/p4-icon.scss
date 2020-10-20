@@ -1,3 +1,40 @@
+@import "../../theme/variables";
+
 :host {
   display: block;
+}
+
+.icon-component {
+
+  &.size-md {
+    height: 16px;
+    width: 16px;
+  }
+
+  &.size-lg {
+    height: 32px;
+    width: 32px;
+  }
+
+  &.size-sm {
+    height: 12px;
+    width: 12px;
+  }
+
+  &.variant-default {
+    color: $color-black;
+  }
+
+  &.variant-primary {
+    color: $color-primary;
+  }
+
+  &.variant-danger {
+    color: $color-red-6;
+  }
+
+  &.variant-success {
+    color: $color-green-6;
+  }
+
 }

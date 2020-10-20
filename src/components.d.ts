@@ -25,6 +25,53 @@ export namespace Components {
         "variant": 'default' | 'primary' | 'dashed' | 'danger' | 'link';
     }
     interface P4Icon {
+        /**
+          * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size": 'sm' | 'md' | 'lg' | string;
+        "type": string;
+        /**
+          * Button variants Possible values are `"default"`, `"primary"`, `"danger"`, `"success"`. Defaults to `"default"`.
+         */
+        "variant": 'default' | 'primary' | 'danger' | 'success';
+    }
+    interface P4Input {
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled": boolean;
+        /**
+          * If true, the form will be in inline format. Defaults to `false`.
+         */
+        "inline": boolean;
+        /**
+          * The input field label.
+         */
+        "label": string;
+        /**
+          * The input field placeholder.
+         */
+        "placeholder": string;
+        /**
+          * If true, required icon is show. Defaults to `false`.
+         */
+        "required": boolean;
+        /**
+          * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size": 'sm' | 'md' | 'lg';
+        /**
+          * Button variants Possible values are `"text"`. Defaults to `"text"`.
+         */
+        "type": 'text';
+        /**
+          * The input field value.
+         */
+        "value": string;
+        /**
+          * Button variants Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
+         */
+        "variant": 'default' | 'dashed';
     }
 }
 declare global {
@@ -40,9 +87,16 @@ declare global {
         prototype: HTMLP4IconElement;
         new (): HTMLP4IconElement;
     };
+    interface HTMLP4InputElement extends Components.P4Input, HTMLStencilElement {
+    }
+    var HTMLP4InputElement: {
+        prototype: HTMLP4InputElement;
+        new (): HTMLP4InputElement;
+    };
     interface HTMLElementTagNameMap {
         "p4-button": HTMLP4ButtonElement;
         "p4-icon": HTMLP4IconElement;
+        "p4-input": HTMLP4InputElement;
     }
 }
 declare namespace LocalJSX {
@@ -69,10 +123,62 @@ declare namespace LocalJSX {
         "variant"?: 'default' | 'primary' | 'dashed' | 'danger' | 'link';
     }
     interface P4Icon {
+        /**
+          * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size"?: 'sm' | 'md' | 'lg' | string;
+        "type"?: string;
+        /**
+          * Button variants Possible values are `"default"`, `"primary"`, `"danger"`, `"success"`. Defaults to `"default"`.
+         */
+        "variant"?: 'default' | 'primary' | 'danger' | 'success';
+    }
+    interface P4Input {
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled"?: boolean;
+        /**
+          * If true, the form will be in inline format. Defaults to `false`.
+         */
+        "inline"?: boolean;
+        /**
+          * The input field label.
+         */
+        "label"?: string;
+        /**
+          * On change of input a CustomEvent 'inputChange' will be triggered. Event details contains parent event, oldValue, newValue of input.
+         */
+        "onInputChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * The input field placeholder.
+         */
+        "placeholder"?: string;
+        /**
+          * If true, required icon is show. Defaults to `false`.
+         */
+        "required"?: boolean;
+        /**
+          * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size"?: 'sm' | 'md' | 'lg';
+        /**
+          * Button variants Possible values are `"text"`. Defaults to `"text"`.
+         */
+        "type"?: 'text';
+        /**
+          * The input field value.
+         */
+        "value"?: string;
+        /**
+          * Button variants Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
+         */
+        "variant"?: 'default' | 'dashed';
     }
     interface IntrinsicElements {
         "p4-button": P4Button;
         "p4-icon": P4Icon;
+        "p4-input": P4Input;
     }
 }
 export { LocalJSX as JSX };
@@ -81,6 +187,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "p4-button": LocalJSX.P4Button & JSXBase.HTMLAttributes<HTMLP4ButtonElement>;
             "p4-icon": LocalJSX.P4Icon & JSXBase.HTMLAttributes<HTMLP4IconElement>;
+            "p4-input": LocalJSX.P4Input & JSXBase.HTMLAttributes<HTMLP4InputElement>;
         }
     }
 }

@@ -9,6 +9,64 @@
     <script nomodule src="/build/p4rm-ui.js"></script>
   </head>
   <body>
-    <p4-button>Testing</p4-button>
+  <h2>Size</h2>
+  <div>
+    <h3>Small</h3>
+    <p4-button size="sm">Default</p4-button>
+    <p4-button size="sm" variant="primary">Primary</p4-button>
+    <p4-button size="sm" variant="danger">Danger</p4-button>
+    <p4-button size="sm" variant="dashed">Dashed</p4-button>
+    <p4-button size="sm" variant="link">Link</p4-button>
+  </div>
+
+  <div>
+    <h3>Medium</h3>
+    <p4-button>Default</p4-button>
+    <p4-button variant="primary">Primary</p4-button>
+    <p4-button variant="danger">Danger</p4-button>
+    <p4-button variant="dashed">Dashed</p4-button>
+    <p4-button variant="link">Link</p4-button>
+  </div>
+
+  <div>
+    <h3>Large</h3>
+    <p4-button size="lg">Default</p4-button>
+    <p4-button size="lg" variant="primary">Primary</p4-button>
+    <p4-button size="lg" variant="danger">Danger</p4-button>
+    <p4-button size="lg" variant="dashed">Dashed</p4-button>
+    <p4-button size="lg" variant="link">Link</p4-button>
+  </div>
+  <hr>
+  <h2>Disabled</h2>
+  <div>
+    <p4-button disabled>Default (disabled)</p4-button>
+    <p4-button variant="primary" disabled="true">Primary (disabled)</p4-button>
+    <p4-button variant="danger" disabled="true">Danger (disabled)</p4-button>
+    <p4-button variant="dashed" disabled="true">Dashed (disabled)</p4-button>
+    <p4-button variant="link" disabled="true">Link (disabled)</p4-button>
+  </div>
+  <hr>
+  <h2>Block</h2>
+  <div>
+    <div style="width: 300px; border: 1px solid black; padding: 10px">
+      <p>Parent container</p>
+      <p4-button block>Default (block)</p4-button>
+      <p4-button variant="primary" block="true">Primary (block)</p4-button>
+      <p4-button variant="danger" block="true">Danger (block)</p4-button>
+      <p4-button variant="dashed" block="true">Dashed (block)</p4-button>
+      <p4-button variant="link" block="true">Link (block)</p4-button>
+    </div>
+  </div>
+
+  <h2>Event</h2>
+  <div>
+    <p4-button id="click-button">Click me</p4-button>
+  </div>
+
+  <script>
+    document.getElementById('click-button').addEventListener('buttonClick', function() {
+      alert('Button clicked');
+    });
+  </script>
   </body>
 </html>
