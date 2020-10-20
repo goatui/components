@@ -4,6 +4,7 @@ import { inlineSvg } from 'stencil-inline-svg';
 
 export const config: Config = {
   namespace: 'p4rm-ui',
+  buildEs5: true,
   outputTargets: [
     {
       type: 'dist',

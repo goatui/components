@@ -29,6 +29,7 @@ twitter_username: p4rmIco
 github_username:  p4rm
 github_project: ui
 npm_package: '@p4rm/ui'
+project_version: '0.0.3'
 
 include:
   - .well-known

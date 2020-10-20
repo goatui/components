@@ -1,11 +1,10 @@
 ---
 layout: component
 title: Button
-version: 0.6.3
-github_project: idli-button
+github_project: p4-button
 ---
 
-<script src='https://unpkg.com/@idli/idli-button@{{ page.version }}/dist/idli-button.js'></script>
+<script src='https://unpkg.com/@p4rm/ui@{{site.project_version}}/dist/p4rm-ui/p4rm-ui.js'></script>
 <div class="row pt-3">
     <!-- Content Nav -->
     <div class="col-xl-2 order-xl-2 d-none d-xl-inline-block">
@@ -35,8 +34,8 @@ github_project: idli-button
             <ul>
                 <li>
                     Put a script tag similar to this <code class="highlighter-rouge" data-lang="html">&lt;script
-                    src='https://unpkg.com/@idli/idli-button@{{ page.version
-                    }}/dist/idli-button.js'&gt;&lt;/script&gt;</code> in the head of your index.html
+                    src='https://unpkg.com/@idli/p4-button@{{ page.version
+                    }}/dist/p4-button.js'&gt;&lt;/script&gt;</code> in the head of your index.html
                 </li>
                 <li>
                     Then you can use the element anywhere in your template, JSX, html etc
@@ -50,10 +49,10 @@ github_project: idli-button
   &lt;meta charset=&quot;utf-8&quot;&gt;
   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
   &lt;title&gt;{{ page.title }}&lt;/title&gt;
-  &lt;script src='https://unpkg.com/@idli/idli-button@{{ page.version }}/dist/idli-button.js'&gt;&lt;/script&gt;
+  &lt;script src='https://unpkg.com/@idli/p4-button@{{ page.version }}/dist/p4-button.js'&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-  &lt;idli-button size=&quot;lg&quot; variant=&quot;primary&quot;&gt;Click me&lt;/idli-button&gt;
+  &lt;p4-button size=&quot;lg&quot; variant=&quot;primary&quot;&gt;Click me&lt;/p4-button&gt;
 &lt;/body&gt;
 &lt;/html&gt;
                 </code>
@@ -71,19 +70,19 @@ github_project: idli-button
                                        aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
             <p>Here are several predefined button styles, each serving its own semantic purpose.</p>
             <div class="output">
-                <idli-button>Default</idli-button>
-                <idli-button variant="primary">Primary</idli-button>
-                <idli-button variant="danger">Danger</idli-button>
-                <idli-button variant="dashed">Dashed</idli-button>
-                <idli-button variant="link">Link</idli-button>
+                <p4-button>Default</p4-button>
+                <p4-button variant="primary">Primary</p4-button>
+                <p4-button variant="danger">Danger</p4-button>
+                <p4-button variant="dashed">Dashed</p4-button>
+                <p4-button variant="link">Link</p4-button>
             </div>
 
             <pre class="mb-4">
-                <code class="language-html" data-lang="html"> &lt;idli-button&gt;Default&lt;/idli-button&gt;
-                 &lt;idli-button variant=&quot;primary&quot;&gt;Primary&lt;/idli-button&gt;
-                 &lt;idli-button variant=&quot;danger&quot;&gt;Danger&lt;/idli-button&gt;
-                 &lt;idli-button variant=&quot;dashed&quot;&gt;Dashed&lt;/idli-button&gt;
-                 &lt;idli-button variant=&quot;link&quot;&gt;Link&lt;/idli-button&gt;
+                <code class="language-html" data-lang="html"> &lt;p4-button&gt;Default&lt;/p4-button&gt;
+                 &lt;p4-button variant=&quot;primary&quot;&gt;Primary&lt;/p4-button&gt;
+                 &lt;p4-button variant=&quot;danger&quot;&gt;Danger&lt;/p4-button&gt;
+                 &lt;p4-button variant=&quot;dashed&quot;&gt;Dashed&lt;/p4-button&gt;
+                 &lt;p4-button variant=&quot;link&quot;&gt;Link&lt;/p4-button&gt;
                 </code>
               </pre>
         </div>
@@ -98,15 +97,15 @@ github_project: idli-button
             <p>Fancy larger or smaller buttons? Add size attribute for additional sizes.</p>
 
             <div class="output">
-                <idli-button size="lg">Large Button</idli-button>
-                <idli-button>Medium Button</idli-button>
-                <idli-button size="sm">Small Button</idli-button>
+                <p4-button size="lg">Large Button</p4-button>
+                <p4-button>Medium Button</p4-button>
+                <p4-button size="sm">Small Button</p4-button>
             </div>
 
             <pre class="mb-4">
-                  <code class="language-html" data-lang="html">&lt;idli-button size=&quot;lg&quot;&gt;Large Button&lt;/idli-button&gt;
-                  &lt;idli-button&gt;Medium Button&lt;/idli-button&gt;
-                  &lt;idli-button size=&quot;sm&quot;&gt;Small Button&lt;/idli-button&gt;
+                  <code class="language-html" data-lang="html">&lt;p4-button size=&quot;lg&quot;&gt;Large Button&lt;/p4-button&gt;
+                  &lt;p4-button&gt;Medium Button&lt;/p4-button&gt;
+                  &lt;p4-button size=&quot;sm&quot;&gt;Small Button&lt;/p4-button&gt;
                   </code>
                 </pre>
         </div>
@@ -119,14 +118,14 @@ github_project: idli-button
                 attribute to any <code class="highlighter-rouge" data-lang="html">&lt;button&gt;</code> element.</p>
 
             <div class="output">
-                <idli-button disabled>Disabled Button</idli-button>
-                <idli-button variant="dashed" disabled="true">Disabled Dashed Button</idli-button>
-                <idli-button variant="link" disabled="true">Disabled Link</idli-button>
+                <p4-button disabled>Disabled Button</p4-button>
+                <p4-button variant="dashed" disabled="true">Disabled Dashed Button</p4-button>
+                <p4-button variant="link" disabled="true">Disabled Link</p4-button>
             </div>
             <pre class="mb-4">
-                    <code class="language-html" data-lang="html">&lt;idli-button disabled&gt;Disabled Button&lt;/idli-button&gt;
-                    &lt;idli-button variant=&quot;dashed&quot; disabled=&quot;true&quot;&gt;Disabled Dashed Button&lt;/idli-button&gt;
-                    &lt;idli-button variant=&quot;link&quot; disabled=&quot;true&quot;&gt;Disabled link&lt;/idli-button&gt;
+                    <code class="language-html" data-lang="html">&lt;p4-button disabled&gt;Disabled Button&lt;/p4-button&gt;
+                    &lt;p4-button variant=&quot;dashed&quot; disabled=&quot;true&quot;&gt;Disabled Dashed Button&lt;/p4-button&gt;
+                    &lt;p4-button variant=&quot;link&quot; disabled=&quot;true&quot;&gt;Disabled link&lt;/p4-button&gt;
                     </code>
                   </pre>
 
@@ -141,8 +140,8 @@ github_project: idli-button
 
             <div class="output">
 
-                <idli-button variant="default" id="click-me-btn">Click me</idli-button>
-                <idli-button disabled id="disabled-btn">Disabled Button</idli-button>
+                <p4-button variant="default" id="click-me-btn">Click me</p4-button>
+                <p4-button disabled id="disabled-btn">Disabled Button</p4-button>
 
                 <script>
                     document.querySelector('#click-me-btn').addEventListener('buttonClick', function(event) {
