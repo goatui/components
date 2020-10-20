@@ -1,0 +1,196 @@
+---
+layout: component
+title: Input
+version: 0.2.2
+github_project: idli-input
+---
+
+
+<script src='https://unpkg.com/@idli/idli-input@{{ page.version }}/dist/idli-input.js'></script>
+<div class="row pt-3">
+    <!-- Content Nav -->
+    <div class="col-xl-2 order-xl-2 d-none d-xl-inline-block">
+        <ul class="js-scroll-nav duik-content-nav">
+            <li class="duik-content-nav__item"><a href="#doc-usage">Usage</a></li>
+            <li class="duik-content-nav__item"><a href="#doc-examples">Examples</a></li>
+            <li class="duik-content-nav__item"><a href="#doc-inline">Inline</a></li>
+            <li class="duik-content-nav__item"><a href="#doc-sizes">Sizes</a></li>
+            <li class="duik-content-nav__item"><a href="#doc-disabled-state">Disabled state</a></li>
+            <li class="duik-content-nav__item"><a href="#doc-events">Events</a></li>
+        </ul>
+    </div>
+    <!-- End Content Nav -->
+
+    <!-- Content -->
+    <div class="col-xl-10 order-xl-1 duik-content border-bottom">
+        <div class="border-bottom mb-7">
+            <h1>{{ page.title }}</h1>
+            <p class="lead mb-5">Use Idli’s custom input component for capturing input in forms, dialogs, and more with support
+                for multiple sizes, variants and more.</p>
+        </div>
+
+        <!-- Usage -->
+        <div id="doc-usage" class="mb-7">
+            <h2 class="h4">Usage <a class="js-anchor-link duik-anchorjs-link" href="#doc-about" aria-label="Anchor"
+                                    data-anchorjs-icon="#"></a></h2>
+            <h3 class="h5">Script tag</h3>
+            <ul>
+                <li>
+                    Put a script tag similar to this <code class="highlighter-rouge" data-lang="html">&lt;script
+                    src='https://unpkg.com/@idli/{{ page.github_project }}@{{ page.version
+                    }}/dist/idli-input.js'&gt;&lt;/script&gt;</code> in the head of your index.html
+                </li>
+                <li>
+                    Then you can use the element anywhere in your template, JSX, html etc
+                </li>
+            </ul>
+
+            <pre class="mb-4">
+                <code class="language-html" data-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
+  &lt;title&gt;{{ page.title }}&lt;/title&gt;
+  &lt;script src='https://unpkg.com/@idli/{{ page.github_project }}@{{ page.version }}/dist/idli-input.js'&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   &lt;idli-input label=&quot;Name&quot; placeholder=&quot;John Snow&quot;&gt;&lt;/idli-input&gt;
+   &lt;idli-input variant=&quot;dashed&quot; label=&quot;Name&quot; placeholder=&quot;John Snow&quot;&gt;&lt;/idli-input&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                </code>
+              </pre>
+
+
+        </div>
+        <!-- End About -->
+
+        <hr class="mt-7 mb-4">
+
+        <!-- What’s Included -->
+        <div id="doc-examples" class="mb-7">
+            <h2 class="h4">Examples <a class="js-anchor-link duik-anchorjs-link" href="#doc-whats-included"
+                                       aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+            <p>Here are several predefined input styles, each serving its own semantic purpose.</p>
+            <div class="output">
+                <idli-input label="Name" placeholder="Person Name"></idli-input>
+                <idli-input label="Name" placeholder="Person Name" value="Ravi"></idli-input>
+                <idli-input variant="dashed" label="Name" placeholder="Person Name"></idli-input>
+            </div>
+
+            <pre class="mb-4">
+                <code class="language-html" data-lang="html"> &lt;idli-input label=&quot;Name&quot; placeholder=&quot;Person Name&quot;&gt;&lt;/idli-input&gt;
+                 &lt;idli-input label=&quot;Name&quot; placeholder=&quot;Person Name&quot; value=&quot;Ravi&quot;&gt;&lt;/idli-input&gt;
+                 &lt;idli-input variant=&quot;dashed&quot; label=&quot;Name&quot; placeholder=&quot;Person Name&quot;&gt;&lt;/idli-input&gt;
+                </code>
+              </pre>
+
+            <h3 class="h5">Assign value</h3>
+            <div class="output">
+                <idli-input label="Name" id="name-field" placeholder="Person Name"></idli-input>
+                <script>
+                    document.querySelector('#name-field').value = "John Snow";
+                </script>
+            </div>
+            <pre class="mb-4">
+                    <code class="language-html" data-lang="html">&lt;script&gt;
+document.querySelector('#name-field').value = "John Snow";
+&lt;/script&gt;
+                    </code>
+                  </pre>
+        </div>
+        <!-- End What’s Included -->
+
+        <hr class="mt-7 mb-4">
+
+        <!-- Inline -->
+        <div id="doc-inline" class="mb-7">
+            <h2 class="h4">Inline <a class="js-anchor-link duik-anchorjs-link" href="#doc-getting-started"
+                                    aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+            <p>Display label and field on same line.</p>
+
+            <div class="output">
+                <idli-input inline label="Address" value="Hyderabad, Telangana, India"></idli-input>
+            </div>
+
+            <pre class="mb-4">
+                  <code class="language-html" data-lang="html">&lt;idli-input inline label=&quot;Address&quot; value=&quot;Hyderabad, Telangana, India&quot;&gt;&lt;/idli-input&gt;
+                  </code>
+                </pre>
+        </div>
+
+        <!-- Sizes -->
+        <div id="doc-sizes" class="mb-7">
+            <h2 class="h4">Sizes <a class="js-anchor-link duik-anchorjs-link" href="#doc-getting-started"
+                                    aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+            <p>Fancy larger or smaller input? Add size attribute for additional sizes.</p>
+
+            <div class="output">
+                <idli-input size="lg" label="Large Input"></idli-input>
+                <idli-input label="Medium Input"></idli-input>
+                <idli-input size="sm" label="Small Input"></idli-input>
+            </div>
+
+            <pre class="mb-4">
+                  <code class="language-html" data-lang="html">&lt;idli-input size=&quot;lg&quot; label=&quot;Large Input&quot;&gt;&lt;/idli-input&gt;
+                  &lt;idli-input label=&quot;Medium Input&quot;&gt;&lt;/idli-input&gt;
+                  &lt;idli-input size=&quot;sm&quot; label=&quot;small Input&quot;&gt;&lt;/idli-input&gt;
+                  </code>
+                </pre>
+        </div>
+
+        <!-- Disabled State -->
+        <div id="doc-disabled-state" class="mb-7">
+            <h2 class="h4">Disabled state <a class="js-anchor-link duik-anchorjs-link" href="#doc-getting-started"
+                                             aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+            <p>Make input look inactive by adding the disabled <code class="highlighter-rouge" data-lang="html">boolean</code>
+                attribute to any <code class="highlighter-rouge" data-lang="html">&lt;input&gt;</code> element.</p>
+
+            <div class="output">
+                <idli-input disabled label="Disabled Input"></idli-input>
+                <idli-input variant="dashed" disabled="true" label="Disabled Dashed Input"></idli-input>
+            </div>
+            <pre class="mb-4">
+                    <code class="language-html" data-lang="html">&lt;idli-input disabled&gt;Disabled Button&lt;/idli-input&gt;
+                    &lt;idli-input variant=&quot;dashed&quot; disabled=&quot;true&quot;&gt;Disabled Dashed Button&lt;/idli-input&gt;
+                    &lt;idli-input variant=&quot;link&quot; disabled=&quot;true&quot;&gt;Disabled link&lt;/idli-input&gt;
+                    </code>
+                  </pre>
+
+        </div>
+
+        <!-- Events -->
+        <div id="doc-events" class="mb-7">
+            <h2 class="h4">Events <a class="js-anchor-link duik-anchorjs-link" href="#doc-getting-started"
+                                     aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+            <p>On click the button a <code class="highlighter-rouge" data-lang="html">CustomEvent</code> <code class="highlighter-rouge" data-lang="html">buttonClick</code>
+                is triggered by the element.</p>
+
+            <div class="output">
+
+                <idli-input label="Name" variant="default" id="name-input-field"></idli-input>
+
+                <script>
+                    document.querySelector('#name-input-field').addEventListener('inputChange', function(event) {
+                        console.log('Input changed to :: ' + event.detail.newValue + ' - from :: ' + event.detail.oldValue);
+                    });
+                </script>
+
+                <p><b>Note:</b> Check browser console for output.</p>
+            </div>
+            <pre class="mb-4">
+                    <code class="language-html" data-lang="html">&lt;script&gt;
+document.querySelector('#name-input-field').addEventListener('inputChange', function(event) {
+    console.log('Input changed to :: ' + event.detail.newValue + ' - from :: ' + event.detail.oldValue);
+});
+&lt;/script&gt;
+                    </code>
+                  </pre>
+
+        </div>
+
+
+    </div>
+    <!-- End Content -->
+</div>

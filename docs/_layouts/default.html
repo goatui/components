@@ -1,0 +1,110 @@
+---
+
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Title -->
+	<title>{% if page.title %}{{ page.title }} &middot; {{ site.title }}{% else %}{{ site.title }} &middot; {{
+		site.tagline }}{% endif %}</title>
+	<meta name="description"
+		  content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+
+	<meta name="author" content="{{ site.author.name }}">
+	<meta name="copyright" content="(c) {{ site.time | date: '%Y' }} {{ site.author.name }}">
+
+	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+	<!-- Required Meta Tags Always Come First -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="/favicon.png">
+
+	<!--  Meta tags -->
+	<meta name="keywords" content="web components, idli button, idli input, idli grid, idli component library">
+	<meta name="description" content="Idli component library contains most used web components built using Stencil. So you don't need to include any additional framework dependencies, You can simple import required component js, and right away start using it.">
+
+
+	<!-- Google Fonts -->
+	<link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
+
+	<!-- CSS Implementing Plugins -->
+	<link rel="stylesheet" href="/assets/vendor/font-awesome/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" href="/assets/vendor/jquery-ui/themes/base/jquery-ui.min.css">
+	<link rel="stylesheet" href="/assets/vendor/prism/prism.css">
+
+	<!-- CSS Template -->
+	<link rel="stylesheet" href="/assets/css/theme.css">
+	<link rel="stylesheet" href="/assets/css/layout.css">
+
+	<script data-ad-client="ca-pub-3120721550776061" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+
+<body  class="bg-white" itemscope itemtype="http://schema.org/WebPage">
+
+	 <!-- Header -->
+	 <header class="duik-header">
+		<!--nav class="navbar navbar-dark fixed-top bg-primary flex-nowrap p-0">
+		  <a href="/" class="link-unstyled"><h1 class="text-white p-1 ml-2 mb-0 h5">Idli <span class="font-weight-light">component library</span></h1></a>
+		</nav-->
+		 <nav class="navbar navbar-dark fixed-top bg-primary flex-nowrap p-0">
+			 <a class="navbar-brand bg-md-primary-darker col-md-3 col-xl-2 mr-0 py-3" href="/"><h1 class="text-white p-1 ml-2 mb-0 h5">P4RM <span class="font-weight-light">UI library</span></h1></a>
+
+			 <!-- Header Search -->
+			 <input class="js-search border-0 d-none d-md-block form-control form-control-sm w-100 ml-md-4" type="text" placeholder="Search..." aria-label="Search..." data-url="/assets/include/json/autocomplete-data-for-documentation-search.json">
+			 <!-- End Header Search -->
+
+
+			 <!-- Header Links -->
+			 <ul class="navbar-nav duik-header__nav small text-nowrap flex-row px-3 ml-0 ml-sm-3">
+				 {% if page.root %}
+				 <li class="nav-item ml-3 ml-sm-5">
+					 <a class="btn btn-sm btn-light text-primary" href="https://github.com/{{site.github_username}}/{{site.github_project}}" title="Github"><i class="fab fa-github mr-sm-1"></i> Github</a>
+				 </li>
+				 {% else %}
+				 <li class="nav-item ml-3 ml-sm-5">
+					 <a class="btn btn-sm btn-light text-primary" href="https://github.com/{{site.github_username}}/{{site.github_project}}/issues" target="_blank" title="Report Issue"><i class="fab fa-github mr-sm-1"></i> Report Issue</a>
+				 </li>
+				 {% endif %}
+			 </ul>
+			 <!-- End Header Links -->
+
+		 </nav>
+	  </header>
+	  <!-- End Header -->
+
+		{{ content }}
+
+	<!-- JS Global Compulsory -->
+	<script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+	<script src="/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+	<script src="/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+	<script src="/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+	<!-- JS Implementing Plugins -->
+	<script src="/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="/assets/vendor/jquery-ui/jquery-ui.core.min.js"></script>
+	<script src="/assets/vendor/jquery-ui/ui/widgets/menu.js"></script>
+	<script src="/assets/vendor/jquery-ui/ui/widgets/mouse.js"></script>
+	<script src="/assets/vendor/jquery-ui/ui/widgets/autocomplete.js"></script>
+	<script src="/assets/vendor/prism/prism.js"></script>
+
+	<!-- JS -->
+	<script src="/assets/js/main.js"></script>
+	<script src="/assets/js/autocomplete.js"></script>
+	<script src="/assets/js/custom-scrollbar.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-160970697-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-160970697-1');
+</script>
+</body>
+</html>

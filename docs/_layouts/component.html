@@ -1,0 +1,41 @@
+---
+layout: default
+---
+<div class="container-fluid">
+	<div class="row">
+		{% include sidebar.html %}
+
+		<main class="ml-md-auto col-md-9 col-xl-10 px-4 pt-0 pt-md-11">
+
+			{{ content }}
+
+			<div id="disqus_thread"></div>
+			<script>
+
+				/**
+				 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+				 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+                var disqus_config = function () {
+                this.page.url = "{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}";  /* Replace PAGE_URL with your page's canonical URL variable */
+                this.page.identifier = "{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+                };
+				(function() { /* DON'T EDIT BELOW THIS LINE */
+					var d = document, s = d.createElement('script');
+					s.src = 'https://idli-io.disqus.com/embed.js';
+					s.setAttribute('data-timestamp', +new Date());
+					(d.head || d.body).appendChild(s);
+				})();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+			{% include footer.html %}
+		</main>
+	</div>
+</div>
+
+<!-- Go to Top -->
+<a class="js-go-to duik-go-to" href="javascript:;">
+	<span class="fa fa-arrow-up duik-go-to__inner"></span>
+</a>
+<!-- End Go to Top -->

@@ -1,0 +1,173 @@
+---
+layout: component
+title: Button
+version: 0.6.3
+github_project: idli-button
+---
+
+<script src='https://unpkg.com/@idli/idli-button@{{ page.version }}/dist/idli-button.js'></script>
+<div class="row pt-3">
+    <!-- Content Nav -->
+    <div class="col-xl-2 order-xl-2 d-none d-xl-inline-block">
+        <ul class="js-scroll-nav duik-content-nav">
+            <li class="duik-content-nav__item"><a href="#doc-usage">Usage</a></li>
+            <li class="duik-content-nav__item"><a href="#doc-examples">Examples</a></li>
+            <li class="duik-content-nav__item"><a href="#doc-sizes">Sizes</a></li>
+            <li class="duik-content-nav__item"><a href="#doc-disabled-state">Disabled state</a></li>
+            <li class="duik-content-nav__item"><a href="#doc-events">Events</a></li>
+        </ul>
+    </div>
+    <!-- End Content Nav -->
+
+    <!-- Content -->
+    <div class="col-xl-10 order-xl-1 duik-content border-bottom">
+        <div class="border-bottom mb-7">
+            <h1>{{ page.title }}</h1>
+            <p class="lead mb-5">Use Idli’s custom button styles for actions in forms, dialogs, and more with support
+                for multiple sizes, states, and more.</p>
+        </div>
+
+        <!-- Usage -->
+        <div id="doc-usage" class="mb-7">
+            <h2 class="h4">Usage <a class="js-anchor-link duik-anchorjs-link" href="#doc-about" aria-label="Anchor"
+                                    data-anchorjs-icon="#"></a></h2>
+            <h3 class="h5">Script tag</h3>
+            <ul>
+                <li>
+                    Put a script tag similar to this <code class="highlighter-rouge" data-lang="html">&lt;script
+                    src='https://unpkg.com/@idli/idli-button@{{ page.version
+                    }}/dist/idli-button.js'&gt;&lt;/script&gt;</code> in the head of your index.html
+                </li>
+                <li>
+                    Then you can use the element anywhere in your template, JSX, html etc
+                </li>
+            </ul>
+
+            <pre class="mb-4">
+                <code class="language-html" data-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
+  &lt;title&gt;{{ page.title }}&lt;/title&gt;
+  &lt;script src='https://unpkg.com/@idli/idli-button@{{ page.version }}/dist/idli-button.js'&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;idli-button size=&quot;lg&quot; variant=&quot;primary&quot;&gt;Click me&lt;/idli-button&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                </code>
+              </pre>
+
+
+        </div>
+        <!-- End About -->
+
+        <hr class="mt-7 mb-4">
+
+        <!-- What’s Included -->
+        <div id="doc-examples" class="mb-7">
+            <h2 class="h4">Examples <a class="js-anchor-link duik-anchorjs-link" href="#doc-whats-included"
+                                       aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+            <p>Here are several predefined button styles, each serving its own semantic purpose.</p>
+            <div class="output">
+                <idli-button>Default</idli-button>
+                <idli-button variant="primary">Primary</idli-button>
+                <idli-button variant="danger">Danger</idli-button>
+                <idli-button variant="dashed">Dashed</idli-button>
+                <idli-button variant="link">Link</idli-button>
+            </div>
+
+            <pre class="mb-4">
+                <code class="language-html" data-lang="html"> &lt;idli-button&gt;Default&lt;/idli-button&gt;
+                 &lt;idli-button variant=&quot;primary&quot;&gt;Primary&lt;/idli-button&gt;
+                 &lt;idli-button variant=&quot;danger&quot;&gt;Danger&lt;/idli-button&gt;
+                 &lt;idli-button variant=&quot;dashed&quot;&gt;Dashed&lt;/idli-button&gt;
+                 &lt;idli-button variant=&quot;link&quot;&gt;Link&lt;/idli-button&gt;
+                </code>
+              </pre>
+        </div>
+        <!-- End What’s Included -->
+
+        <hr class="mt-7 mb-4">
+
+        <!-- Sizes -->
+        <div id="doc-sizes" class="mb-7">
+            <h2 class="h4">Sizes <a class="js-anchor-link duik-anchorjs-link" href="#doc-getting-started"
+                                    aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+            <p>Fancy larger or smaller buttons? Add size attribute for additional sizes.</p>
+
+            <div class="output">
+                <idli-button size="lg">Large Button</idli-button>
+                <idli-button>Medium Button</idli-button>
+                <idli-button size="sm">Small Button</idli-button>
+            </div>
+
+            <pre class="mb-4">
+                  <code class="language-html" data-lang="html">&lt;idli-button size=&quot;lg&quot;&gt;Large Button&lt;/idli-button&gt;
+                  &lt;idli-button&gt;Medium Button&lt;/idli-button&gt;
+                  &lt;idli-button size=&quot;sm&quot;&gt;Small Button&lt;/idli-button&gt;
+                  </code>
+                </pre>
+        </div>
+
+        <!-- Disabled State -->
+        <div id="doc-disabled-state" class="mb-7">
+            <h2 class="h4">Disabled state <a class="js-anchor-link duik-anchorjs-link" href="#doc-getting-started"
+                                             aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+            <p>Make buttons look inactive by adding the disabled <code class="highlighter-rouge" data-lang="html">boolean</code>
+                attribute to any <code class="highlighter-rouge" data-lang="html">&lt;button&gt;</code> element.</p>
+
+            <div class="output">
+                <idli-button disabled>Disabled Button</idli-button>
+                <idli-button variant="dashed" disabled="true">Disabled Dashed Button</idli-button>
+                <idli-button variant="link" disabled="true">Disabled Link</idli-button>
+            </div>
+            <pre class="mb-4">
+                    <code class="language-html" data-lang="html">&lt;idli-button disabled&gt;Disabled Button&lt;/idli-button&gt;
+                    &lt;idli-button variant=&quot;dashed&quot; disabled=&quot;true&quot;&gt;Disabled Dashed Button&lt;/idli-button&gt;
+                    &lt;idli-button variant=&quot;link&quot; disabled=&quot;true&quot;&gt;Disabled link&lt;/idli-button&gt;
+                    </code>
+                  </pre>
+
+        </div>
+
+        <!-- Events -->
+        <div id="doc-events" class="mb-7">
+            <h2 class="h4">Events <a class="js-anchor-link duik-anchorjs-link" href="#doc-getting-started"
+                                             aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+            <p>On click the button a <code class="highlighter-rouge" data-lang="html">CustomEvent</code> <code class="highlighter-rouge" data-lang="html">buttonClick</code>
+                is triggered by the element.</p>
+
+            <div class="output">
+
+                <idli-button variant="default" id="click-me-btn">Click me</idli-button>
+                <idli-button disabled id="disabled-btn">Disabled Button</idli-button>
+
+                <script>
+                    document.querySelector('#click-me-btn').addEventListener('buttonClick', function(event) {
+                        alert("Button clicked");
+                    });
+                    document.querySelector('#disabled-btn').addEventListener('buttonClick', function(event) {
+                        alert("Button clicked"); // this will not be fired
+                    });
+                </script>
+            </div>
+            <pre class="mb-4">
+                    <code class="language-html" data-lang="html">&lt;script&gt;
+document.querySelector('#click-me-btn').addEventListener('buttonClick', function(event) {
+    alert("Button clicked");
+});
+document.querySelector('#disabled-btn').addEventListener('buttonClick', function(event) {
+    alert("Button clicked"); // this will not be fired
+});
+&lt;/script&gt;
+                    </code>
+                  </pre>
+
+        </div>
+
+
+    </div>
+    <!-- End Content -->
+</div>

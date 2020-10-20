@@ -1,0 +1,129 @@
+---
+layout: component
+title: Script Editor
+version: 0.1.4
+github_project: idli-script-editor
+---
+
+
+<script src='https://unpkg.com/@idli/idli-script-editor@{{ page.version }}/dist/idli-script-editor.js'></script>
+<div class="row pt-3">
+    <!-- Content Nav -->
+    <div class="col-xl-2 order-xl-2 d-none d-xl-inline-block">
+        <ul class="js-scroll-nav duik-content-nav">
+            <li class="duik-content-nav__item"><a href="#doc-usage">Usage</a></li>
+            <li class="duik-content-nav__item"><a href="#doc-examples">Examples</a></li>
+            <li class="duik-content-nav__item"><a href="#doc-disabled-state">Disabled state</a></li>
+        </ul>
+    </div>
+    <!-- End Content Nav -->
+
+    <!-- Content -->
+    <div class="col-xl-10 order-xl-1 duik-content border-bottom">
+        <div class="border-bottom mb-7">
+            <h1>{{ page.title }}</h1>
+            <p class="lead mb-5">Use Idli’s custom script editor component for capturing input in forms, dialogs, and
+                more. Built on <a href="https://microsoft.github.io/monaco-editor/">monaco</a>.</p>
+        </div>
+
+        <!-- Usage -->
+        <div id="doc-usage" class="mb-7">
+            <h2 class="h4">Usage <a class="js-anchor-link duik-anchorjs-link" href="#doc-about" aria-label="Anchor"
+                                    data-anchorjs-icon="#"></a></h2>
+            <h3 class="h5">Script tag</h3>
+            <ul>
+                <li>
+                    Put a script tag similar to this <code class="highlighter-rouge" data-lang="html">&lt;script
+                    src='https://unpkg.com/@idli/{{ page.github_project }}@{{ page.version
+                    }}/dist/idli-script-editor.js'&gt;&lt;/script&gt;</code> in the head of your index.html
+                </li>
+                <li>
+                    Then you can use the element anywhere in your template, JSX, html etc
+                </li>
+            </ul>
+
+            <pre class="mb-4">
+                <code class="language-html" data-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
+  &lt;title&gt;{{ page.title }}&lt;/title&gt;
+  &lt;script src='https://unpkg.com/@idli/{{ page.github_project }}@{{ page.version }}/dist/idli-script-editor.js'&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   &lt;idli-script-editor id=&quot;business-rule-editor&quot;&gt;&lt;/idli-script-editor&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                </code>
+              </pre>
+
+
+        </div>
+        <!-- End About -->
+
+        <hr class="mt-7 mb-4">
+
+        <!-- What’s Included -->
+        <div id="doc-examples" class="mb-7">
+            <h2 class="h4">Examples <a class="js-anchor-link duik-anchorjs-link" href="#doc-whats-included"
+                                       aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+            <p>Here is script editor component, currently supports JS and JSON editing.</p>
+            <div class="output">
+                <input type="checkbox"
+                       onclick="(function(elm) {
+                       document.getElementById('business-rule-editor').disabled = elm.checked;
+                   })(this)"></input> Disable editor<br/>
+
+                <idli-script-editor id="business-rule-editor"></idli-script-editor>
+                <script>
+                    document.getElementById('business-rule-editor').value = `function myBusinessRuleFunction(){
+    const a = 1;
+    const b = 2;
+    let c = a + b;
+    console.log(c);
+}`;
+                </script>
+            </div>
+
+            <pre class="mb-4">
+                <code class="language-html" data-lang="html"> &lt;idli-script-editor id="business-rule-editor"&gt;&lt;/idli-script-editor&gt;
+                </code>
+            </pre>
+            <pre class="mb-4">
+                <code class="language-javascript" data-lang="javascript">
+document.getElementById('business-rule-editor').value = `function myBusinessRuleFunction(){
+    const a = 1;
+    const b = 2;
+    let c = a + b;
+    console.log(c);
+}`;
+                </code>
+            </pre>
+        </div>
+        <!-- End What’s Included -->
+
+        <hr class="mt-7 mb-4">
+
+
+        <!-- Disabled State -->
+        <div id="doc-disabled-state" class="mb-7">
+            <h2 class="h4">Disabled state <a class="js-anchor-link duik-anchorjs-link" href="#doc-getting-started"
+                                             aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+            <p>Make editor look inactive by adding the disabled <code class="highlighter-rouge"
+                                                                      data-lang="html">boolean</code>
+                attribute to any <code class="highlighter-rouge" data-lang="html">&lt;input&gt;</code> element.</p>
+
+            <p>Please click on checkbox and try disabling able editor.</p>
+
+            <pre class="mb-4">
+                    <code class="language-html" data-lang="html">&lt;idli-script-editor disabled&gt;&lt;/idli-script-editor&gt;
+                    </code>
+                  </pre>
+
+        </div>
+
+
+    </div>
+    <!-- End Content -->
+</div>

@@ -1,0 +1,125 @@
+---
+layout: default
+root: true
+components:
+    -   name: Button
+        link: /component/table.html
+        img: /assets/img/button.png
+    -   name: Checkbox
+        link: /component/checkbox.html
+        img: /assets/img/checkbox.png
+    -   name: Input
+        link: /component/input.html
+        img: /assets/img/input.png
+    -   name: Number
+        link: /component/number.html
+        img: /assets/img/number.png
+    -   name: Table
+        link: /component/table.html
+        img: /assets/img/table.png
+    -   name: Script Editor
+        link: /component/script-editor.html
+        img: /assets/img/script-editor.png
+---
+
+<style>
+  .card {
+    margin-bottom: 20px;
+  }
+  .card > a {
+      background: #f7f7f7;
+  }
+  @media (min-width: 768px) {
+    .card > a {
+      height: 210px;
+    }
+  }
+</style>
+<div class="container-fluid">
+    <div class="row">
+        {% include sidebar.html %}
+
+        <main class="ml-md-auto col-md-9 col-xl-10 px-4 pt-0 pt-md-11">
+            <div class="row pt-3">
+                <!-- Content Nav -->
+                <div class="col-xl-2 order-xl-2 d-none d-xl-inline-block">
+                    <ul class="js-scroll-nav duik-content-nav">
+                        <li class="duik-content-nav__item"><a href="#doc-about">About</a></li>
+                        <li class="duik-content-nav__item"><a href="#doc-getting-started">Getting Started</a></li>
+                    </ul>
+                </div>
+                <!-- End Content Nav -->
+
+                <!-- Content -->
+                <div class="col-xl-10 order-xl-1 duik-content border-bottom">
+                    <div class="border-bottom mb-7">
+                        <h1>Introduction</h1>
+                        <p class="lead mb-5"><b>Idli component library</b> contains most used web components built using
+                            Stencil. So you don't need to include any additional framework dependencies, You can simple
+                            import required component js, and right away start using it.</p>
+                    </div>
+
+                    <!-- About -->
+                    <div id="doc-about" class="mb-7">
+                        <h2 class="h4">About <a class="js-anchor-link duik-anchorjs-link" href="#doc-about"
+                                                aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+                        <p>Idli components are beautiful Open Source web components under MIT license.</p>
+
+                        <p>Idli components are maintained by <a href="https://shivajivarma.com">Shivaji Varma</a>. Do
+                            not miss any updates and announcements, stay tuned on our social pages:</p>
+
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item mr-2" data-toggle="tooltip" data-placement="top" title=""
+                                data-original-title="Github">
+                                <a class="text-dark" target="_blank" href="https://www.github.com/idli-io">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- End About -->
+
+                    <hr class="mt-7 mb-4">
+
+                    <!-- Getting Started -->
+                    <div id="doc-getting-started" class="mb-7">
+                        <h2 class="h4">Getting Started <a class="js-anchor-link duik-anchorjs-link"
+                                                          href="#doc-getting-started" aria-label="Anchor"
+                                                          data-anchorjs-icon="#"></a></h2>
+                        <p>Here are list of components available in the library.</p>
+
+                        <div class="row">
+                            {% for component in page.components %}
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <a href="{{component.link}}#"><img class="card-img-top"
+                                                                           src="{{component.img}}"
+                                                                           alt="{{component.name}}"></a>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{component.name}}</h5>
+                                        <a href="{{component.link}}#" class="btn btn-sm btn-primary">View</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- End Content -->
+
+            {% include footer.html %}
+        </main>
+    </div>
+</div>
+
+<!-- Go to Top -->
+<a class="js-go-to duik-go-to" href="javascript:;">
+    <span class="fa fa-arrow-up duik-go-to__inner"></span>
+</a>
+<!-- End Go to Top -->
+
