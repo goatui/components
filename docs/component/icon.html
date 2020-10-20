@@ -12,8 +12,7 @@ componentName: p4-icon
       <li class="duik-content-nav__item"><a href="#doc-usage">Usage</a></li>
       <li class="duik-content-nav__item"><a href="#doc-examples">Examples</a></li>
       <li class="duik-content-nav__item"><a href="#doc-sizes">Sizes</a></li>
-      <li class="duik-content-nav__item"><a href="#doc-disabled-state">Disabled state</a></li>
-      <li class="duik-content-nav__item"><a href="#doc-events">Events</a></li>
+      <li class="duik-content-nav__item"><a href="#doc-types">Types</a></li>
     </ul>
   </div>
   <!-- End Content Nav -->
@@ -22,13 +21,13 @@ componentName: p4-icon
   <div class="col-xl-10 order-xl-1 duik-content border-bottom">
     <div class="border-bottom mb-7">
       <h1>{{ page.title }}</h1>
-      <p class="lead mb-5">Use Idli’s custom button styles for actions in forms, dialogs, and more with support
-        for multiple sizes, states, and more.</p>
+      <p class="lead mb-5">Use P4RM’s custom icon styles for actions in forms, dialogs, and more with support
+        for multiple sizes, types, and more.</p>
     </div>
 
     <!-- Usage -->
     <div id="doc-usage" class="mb-7">
-      <h2 class="h4">Usage <a class="js-anchor-link duik-anchorjs-link" href="#doc-about" aria-label="Anchor"
+      <h2 class="h4">Usage <a class="js-anchor-link duik-anchorjs-link" href="#doc-usage" aria-label="Anchor"
                               data-anchorjs-icon="#"></a></h2>
       <h3 class="h5">Script tag</h3>
       <ul>
@@ -97,72 +96,77 @@ componentName: p4-icon
         <p4-icon size="lg">Large Icon</p4-icon>
         <p4-icon>Medium Icon</p4-icon>
         <p4-icon size="sm">Small Icon</p4-icon>
+        <p4-icon size="75"></p4-icon>
       </div>
 
       <pre class="mb-4">
                   <code class="language-html" data-lang="html">&lt;p4-icon size=&quot;lg&quot;&gt;Large Button&lt;/p4-icon&gt;
                   &lt;p4-icon&gt;Medium Button&lt;/p4-icon&gt;
                   &lt;p4-icon size=&quot;sm&quot;&gt;Small Button&lt;/p4-icon&gt;
+                  &lt;p4-icon size="75"&gt;75px&lt;/p4-icon&gt;
                   </code>
                 </pre>
     </div>
 
-    <!-- Disabled State -->
-    <div id="doc-disabled-state" class="mb-7">
-      <h2 class="h4">Disabled state <a class="js-anchor-link duik-anchorjs-link" href="#doc-getting-started"
-                                       aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
-      <p>Make buttons look inactive by adding the disabled <code class="highlighter-rouge"
-                                                                 data-lang="html">boolean</code>
-        attribute to any <code class="highlighter-rouge" data-lang="html">&lt;button&gt;</code> element.</p>
+    <!-- Types -->
+    <div id="doc-types" class="mb-7">
+      <h2 class="h4">Types <a class="js-anchor-link duik-anchorjs-link" href="#doc-types"
+                              aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+      <p>We use bootstrap icons on the component. Icons available as of now.</p>
 
       <div class="output">
-        <p4-icon disabled>Disabled Button</p4-icon>
-        <p4-icon variant="dashed" disabled="true">Disabled Dashed Button</p4-icon>
-        <p4-icon variant="link" disabled="true">Disabled Link</p4-icon>
+        <div>
+          alarm -> <p4-icon type="alarm"></p4-icon>
+        </div>
+
+        <div>
+          house -> <p4-icon type="house"></p4-icon>
+        </div>
+
+        <div>
+          book -> <p4-icon type="book"></p4-icon>
+        </div>
+
+        <div>
+          x -> <p4-icon type="x"></p4-icon>
+        </div>
+
+        <div>
+          chevron-left -> <p4-icon type="chevron-left"></p4-icon>
+        </div>
+
+        <div>
+          chevron-right -> <p4-icon type="chevron-right"></p4-icon>
+        </div>
+
+        <div>
+          chevron-up -> <p4-icon type="chevron-up"></p4-icon>
+        </div>
+
+        <div>
+          chevron-down -> <p4-icon type="chevron-down"></p4-icon>
+        </div>
+
+        <div>
+          envelope -> <p4-icon type="envelope"></p4-icon>
+        </div>
+
+        <div>
+          trash -> <p4-icon type="trash"></p4-icon>
+        </div>
+
+        <div>
+          tools -> <p4-icon type="tools"></p4-icon>
+        </div>
       </div>
+
       <pre class="mb-4">
-                    <code class="language-html" data-lang="html">&lt;p4-icon disabled&gt;Disabled Button&lt;/p4-icon&gt;
-                    &lt;p4-icon variant=&quot;dashed&quot; disabled=&quot;true&quot;&gt;Disabled Dashed Button&lt;/p4-icon&gt;
-                    &lt;p4-icon variant=&quot;link&quot; disabled=&quot;true&quot;&gt;Disabled link&lt;/p4-icon&gt;
-                    </code>
-                  </pre>
-
-    </div>
-
-    <!-- Events -->
-    <div id="doc-events" class="mb-7">
-      <h2 class="h4">Events <a class="js-anchor-link duik-anchorjs-link" href="#doc-getting-started"
-                               aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
-      <p>On click the button a <code class="highlighter-rouge" data-lang="html">CustomEvent</code> <code
-        class="highlighter-rouge" data-lang="html">buttonClick</code>
-        is triggered by the element.</p>
-
-      <div class="output">
-
-        <p4-icon variant="default" id="click-me-btn">Click me</p4-icon>
-        <p4-icon disabled id="disabled-btn">Disabled Button</p4-icon>
-
-        <script>
-          document.querySelector('#click-me-btn').addEventListener('buttonClick', function(event) {
-            alert('Button clicked');
-          });
-          document.querySelector('#disabled-btn').addEventListener('buttonClick', function(event) {
-            alert('Button clicked'); // this will not be fired
-          });
-        </script>
-      </div>
-      <pre class="mb-4">
-                    <code class="language-html" data-lang="html">&lt;script&gt;
-document.querySelector('#click-me-btn').addEventListener('buttonClick', function(event) {
-    alert("Button clicked");
-});
-document.querySelector('#disabled-btn').addEventListener('buttonClick', function(event) {
-    alert("Button clicked"); // this will not be fired
-});
-&lt;/script&gt;
-                    </code>
-                  </pre>
-
+                  <code class="language-html" data-lang="html">&lt;p4-icon size=&quot;lg&quot;&gt;Large Button&lt;/p4-icon&gt;
+                  &lt;p4-icon&gt;Medium Button&lt;/p4-icon&gt;
+                  &lt;p4-icon size=&quot;sm&quot;&gt;Small Button&lt;/p4-icon&gt;
+                  &lt;p4-icon size="75"&gt;75px&lt;/p4-icon&gt;
+                  </code>
+                </pre>
     </div>
 
 
