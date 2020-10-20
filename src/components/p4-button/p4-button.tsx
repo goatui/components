@@ -9,8 +9,8 @@ export class P4Button {
 
 
   /**
-   * The button size.
-   * Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+   * Button size.
+   * Possible values are `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
    */
   @Prop() size: 'sm' | 'md' | 'lg' = 'md';
 

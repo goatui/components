@@ -16,7 +16,7 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
         "size": 'sm' | 'md' | 'lg';
         /**
@@ -60,7 +60,7 @@ declare namespace LocalJSX {
          */
         "onButtonClick"?: (event: CustomEvent<any>) => void;
         /**
-          * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
         "size"?: 'sm' | 'md' | 'lg';
         /**

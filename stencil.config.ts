@@ -9,25 +9,26 @@ export const config: Config = {
       type: 'dist',
       esmLoaderPath: '../loader',
       copy: [
-        { src: 'theme', dest: 'theme' }
-      ]
+        { src: 'theme', dest: 'theme' },
+      ],
     },
     {
       type: 'dist-custom-elements-bundle',
     },
     {
       type: 'docs-readme',
+      footer: '*Built with love!*',
     },
     {
       type: 'www',
       serviceWorker: null, // disable service workers
       copy: [
-        { src: 'demo', dest: 'demo' }
-      ]
+        { src: 'demo', dest: 'demo' },
+      ],
     },
   ],
   plugins: [
     sass(),
-    inlineSvg()
-  ]
+    inlineSvg(),
+  ],
 };
