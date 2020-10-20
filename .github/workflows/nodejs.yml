@@ -4,23 +4,18 @@ on:
   push:
     # Sequence of patterns matched against refs/heads
     branches:
+      - main
       - master
       - 'releases/**'
 
 jobs:
   build:
 
-    services:
-      mongodb:
-        image: mongo:3.4.23
-        ports:
-          - 27017:27017
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [ 12.x ]
+        node-version: [12.x]
 
     steps:
       - uses: actions/checkout@v1
@@ -30,14 +25,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm install, build, and test
         run: |
-          npm run build
+          npm ci
+          npm run build --if-present
         env:
           CI: true
-      - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          path-to-lcov: ./docs/reports/coverage/lcov.info
-          github-token: ${{ secrets.GITHUB_TOKEN }}
 
   publish-npm:
     needs: build

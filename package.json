@@ -12,7 +12,6 @@
   "unpkg": "dist/p4rm-ui/p4rm-ui.js",
   "files": [
     "dist/",
-    "src/theme/",
     "loader/"
   ],
   "scripts": {
