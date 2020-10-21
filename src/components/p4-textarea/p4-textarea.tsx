@@ -2,14 +2,13 @@ import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, State, 
 import { debounceEvent } from '../../utils/utils';
 
 @Component({
-  tag: 'p4-input',
-  styleUrl: 'p4-input.scss',
+  tag: 'p4-textarea',
+  styleUrl: 'p4-textarea.scss',
   shadow: true,
 })
-export class P4Input {
+export class P4Textarea {
 
-
-  private nativeInput?: HTMLInputElement;
+  private nativeInput?: HTMLTextAreaElement;
   private tabindex?: string | number;
 
   @State() hasFocus = false;
@@ -30,29 +29,30 @@ export class P4Input {
   /**
    * The input field value.
    */
-  @Prop({ mutable: true }) value?: string | number | null = '';
+  @Prop() value: string;
 
   /**
-   * The input field size.
+   * The button size.
    * Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
    */
   @Prop() size: 'sm' | 'md' | 'lg' = 'md';
 
   /**
-   * Input field variants to add additional styling
+   * Button variants
    * Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
    */
   @Prop() variant: 'default' | 'dashed' = 'default';
 
   /**
-   * Whether or not field and label are in inline format. Defaults to `false`.
+   * If true, the form will be in inline format. Defaults to `false`.
    */
   @Prop() inline: boolean = false;
 
   /**
-   * The type of control to display. The default type is text.
+   * Button variants
+   * Possible values are `"text"`. Defaults to `"text"`.
    */
-  @Prop() type: ('text' | 'password' | 'number' | 'email' | 'tel') = 'text';
+  @Prop() type: 'text' | 'number' = 'text';
 
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
@@ -101,9 +101,8 @@ export class P4Input {
    */
   @Event() p4Focus: EventEmitter;
 
-
   getCssClasses() {
-    const cls = ['input-component'];
+    const cls = ['textarea-component'];
     cls.push('variant-' + this.variant);
     cls.push('size-' + this.size);
     cls.push('type-' + this.type);
@@ -111,9 +110,8 @@ export class P4Input {
       cls.push('required');
     if (this.inline)
       cls.push('inline');
-    return cls.join(' ') + ' ';
+    return cls.join(' ');
   }
-
 
   private onInputChange = (ev: Event) => {
     const input = ev.target as HTMLInputElement | null;
@@ -216,23 +214,24 @@ export class P4Input {
 
   render() {
     return (
-      <Host aria-disabled={this.disabled ? 'true' : null}>
-        <div class={this.getCssClasses()}>
+      <Host>
+        <div
+          class={this.getCssClasses()}>
           <label>{this.label}</label>
 
           <div class="input-wrapper">
-            <input
-              class="native-input"
-              ref={input => this.nativeInput = input}
-              type={this.type}
-              placeholder={this.placeholder}
-              value={this.value}
-              tabindex={this.tabindex}
-              required={this.required}
-              onInput={this.onInputChange}
-              onBlur={this.onBlur}
-              onFocus={this.onFocus}
-              disabled={this.disabled} />
+             <textarea
+               rows={4}
+               ref={input => this.nativeInput = input}
+               required={this.required}
+               class="native-input"
+               placeholder={this.placeholder}
+               value={this.value}
+               tabindex={this.tabindex}
+               onInput={this.onInputChange}
+               onBlur={this.onBlur}
+               onFocus={this.onFocus}
+               disabled={this.disabled} />
             {(this.clearInput && !this.disabled) && <button
               aria-label="reset"
               type="button"

@@ -37,6 +37,68 @@ export namespace Components {
     }
     interface P4Input {
         /**
+          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
+         */
+        "clearInput": boolean;
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke.
+         */
+        "debounce": number;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled": boolean;
+        /**
+          * Whether or not field and label are in inline format. Defaults to `false`.
+         */
+        "inline": boolean;
+        /**
+          * The input field label.
+         */
+        "label": string;
+        /**
+          * The input field placeholder.
+         */
+        "placeholder": string;
+        /**
+          * If true, required icon is show. Defaults to `false`.
+         */
+        "required": boolean;
+        /**
+          * Sets blur on the native `input` in `ion-input`. Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `input` in `ion-input`. Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size": 'sm' | 'md' | 'lg';
+        /**
+          * The type of control to display. The default type is text.
+         */
+        "type": ('text' | 'password' | 'number' | 'email' | 'tel');
+        /**
+          * The input field value.
+         */
+        "value"?: string | number | null;
+        /**
+          * Input field variants to add additional styling Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
+         */
+        "variant": 'default' | 'dashed';
+    }
+    interface P4Textarea {
+        /**
+          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
+         */
+        "clearInput": boolean;
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke.
+         */
+        "debounce": number;
+        /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
@@ -57,13 +119,21 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Sets blur on the native `input` in `ion-input`. Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `input` in `ion-input`. Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
+        /**
           * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
         "size": 'sm' | 'md' | 'lg';
         /**
           * Button variants Possible values are `"text"`. Defaults to `"text"`.
          */
-        "type": 'text';
+        "type": 'text' | 'number';
         /**
           * The input field value.
          */
@@ -93,10 +163,17 @@ declare global {
         prototype: HTMLP4InputElement;
         new (): HTMLP4InputElement;
     };
+    interface HTMLP4TextareaElement extends Components.P4Textarea, HTMLStencilElement {
+    }
+    var HTMLP4TextareaElement: {
+        prototype: HTMLP4TextareaElement;
+        new (): HTMLP4TextareaElement;
+    };
     interface HTMLElementTagNameMap {
         "p4-button": HTMLP4ButtonElement;
         "p4-icon": HTMLP4IconElement;
         "p4-input": HTMLP4InputElement;
+        "p4-textarea": HTMLP4TextareaElement;
     }
 }
 declare namespace LocalJSX {
@@ -135,6 +212,76 @@ declare namespace LocalJSX {
     }
     interface P4Input {
         /**
+          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
+         */
+        "clearInput"?: boolean;
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke.
+         */
+        "debounce"?: number;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled"?: boolean;
+        /**
+          * Whether or not field and label are in inline format. Defaults to `false`.
+         */
+        "inline"?: boolean;
+        /**
+          * The input field label.
+         */
+        "label"?: string;
+        /**
+          * Emitted when the input loses focus.
+         */
+        "onP4Blur"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the value has changed..
+         */
+        "onP4Change"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the input has focus.
+         */
+        "onP4Focus"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when a keyboard input occurred.
+         */
+        "onP4Input"?: (event: CustomEvent<any>) => void;
+        /**
+          * The input field placeholder.
+         */
+        "placeholder"?: string;
+        /**
+          * If true, required icon is show. Defaults to `false`.
+         */
+        "required"?: boolean;
+        /**
+          * The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size"?: 'sm' | 'md' | 'lg';
+        /**
+          * The type of control to display. The default type is text.
+         */
+        "type"?: ('text' | 'password' | 'number' | 'email' | 'tel');
+        /**
+          * The input field value.
+         */
+        "value"?: string | number | null;
+        /**
+          * Input field variants to add additional styling Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
+         */
+        "variant"?: 'default' | 'dashed';
+    }
+    interface P4Textarea {
+        /**
+          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
+         */
+        "clearInput"?: boolean;
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke.
+         */
+        "debounce"?: number;
+        /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
@@ -147,9 +294,21 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
-          * On change of input a CustomEvent 'inputChange' will be triggered. Event details contains parent event, oldValue, newValue of input.
+          * Emitted when the input loses focus.
          */
-        "onInputChange"?: (event: CustomEvent<any>) => void;
+        "onP4Blur"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the value has changed..
+         */
+        "onP4Change"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the input has focus.
+         */
+        "onP4Focus"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when a keyboard input occurred.
+         */
+        "onP4Input"?: (event: CustomEvent<any>) => void;
         /**
           * The input field placeholder.
          */
@@ -165,7 +324,7 @@ declare namespace LocalJSX {
         /**
           * Button variants Possible values are `"text"`. Defaults to `"text"`.
          */
-        "type"?: 'text';
+        "type"?: 'text' | 'number';
         /**
           * The input field value.
          */
@@ -179,6 +338,7 @@ declare namespace LocalJSX {
         "p4-button": P4Button;
         "p4-icon": P4Icon;
         "p4-input": P4Input;
+        "p4-textarea": P4Textarea;
     }
 }
 export { LocalJSX as JSX };
@@ -188,6 +348,7 @@ declare module "@stencil/core" {
             "p4-button": LocalJSX.P4Button & JSXBase.HTMLAttributes<HTMLP4ButtonElement>;
             "p4-icon": LocalJSX.P4Icon & JSXBase.HTMLAttributes<HTMLP4IconElement>;
             "p4-input": LocalJSX.P4Input & JSXBase.HTMLAttributes<HTMLP4InputElement>;
+            "p4-textarea": LocalJSX.P4Textarea & JSXBase.HTMLAttributes<HTMLP4TextareaElement>;
         }
     }
 }

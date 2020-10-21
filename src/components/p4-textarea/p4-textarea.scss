@@ -13,11 +13,11 @@
   box-sizing: border-box;
 }
 
-.input-component {
-
+.textarea-component {
   font-family: $font-normal;
 
   label {
+    width: 100%;
     display: inline-block;
     margin-bottom: $space-2;
   }
@@ -41,25 +41,15 @@
     }
   }
 
-
-  &.required label:before {
-    display: inline-block;
-    margin-right: 4px;
-    color: $color-red-6;
-    font-size: 14px;
-    font-family: SimSun, sans-serif;
-    line-height: 1;
-    content: "*"
-  }
-
   .native-input {
     box-sizing: border-box;
     padding: 4px 11px;
+    resize: vertical;
     min-width: 0;
     margin-bottom: $space-3;
+
     background-color: $color-white;
     border: 1px solid $color-gray-6;
-
     font-variant: tabular-nums;
     list-style: none;
     font-feature-settings: 'tnum';
@@ -106,33 +96,21 @@
     * SIZES
     */
   &.size-lg {
-    .native-input {
-      height: 40px;
-    }
-
     font-size: 16px;
   }
 
   &.size-md {
-    .native-input {
-      height: 32px;
-    }
 
     font-size: 15px;
   }
 
   &.size-sm {
-    .native-input {
-      height: 24px;
-    }
-
     font-size: 14px;
   }
 
   /**
    * VARIANTS
    */
-
   &.variant-dashed {
     .native-input {
       border-style: dashed;
@@ -157,14 +135,13 @@
   &.inline {
     display: flex;
     flex-wrap: wrap;
-
     label {
+      width: initial;
       float: left;
       display: block;
       flex: 0 0 16.666667%;
       max-width: 16.666667%;
     }
-
     .input-wrapper {
       float: left;
       flex: 0 0 83.333333%;
@@ -172,6 +149,15 @@
     }
   }
 
+  &.required label:before {
+    display: inline-block;
+    margin-right: 4px;
+    color: $color-red-6;
+    font-size: 14px;
+    font-family: SimSun,sans-serif;
+    line-height: 1;
+    content: "*"
+  }
 }
 
 :host(.danger) {
@@ -184,16 +170,4 @@
     border-color: $color-red-6;
     box-shadow: 0 0 0 2px $color-red-3;
   }
-}
-
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
 }
