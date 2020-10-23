@@ -71,7 +71,7 @@ export class P4Input {
   @Prop() clearInput = false;
 
   /**
-   * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke.
+   * Set the amount of time, in milliseconds, to wait to trigger the `p4Change` event after each keystroke.
    */
   @Prop() debounce = 0;
 
@@ -102,7 +102,7 @@ export class P4Input {
   @Event() p4Focus: EventEmitter;
 
 
-  getCssClasses() {
+  private getCssClasses() {
     const cls = ['input-component'];
     cls.push('variant-' + this.variant);
     cls.push('size-' + this.size);
@@ -115,7 +115,7 @@ export class P4Input {
   }
 
 
-  private onInputChange = (ev: Event) => {
+  private onInput = (ev: Event) => {
     const input = ev.target as HTMLInputElement | null;
     if (input) {
       this.value = input.value || '';
@@ -229,7 +229,7 @@ export class P4Input {
               value={this.value}
               tabindex={this.tabindex}
               required={this.required}
-              onInput={this.onInputChange}
+              onInput={this.onInput}
               onBlur={this.onBlur}
               onFocus={this.onFocus}
               disabled={this.disabled} />
@@ -241,11 +241,7 @@ export class P4Input {
               onMouseDown={this.clearTextInput}
               onKeyDown={this.clearTextOnEnter}
             >
-              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x svg-icon" fill="currentColor"
-                   xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                      d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-              </svg>
+              <p-icon type="x" size="1em"/>
             </button>}
           </div>
         </div>

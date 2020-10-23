@@ -41,35 +41,34 @@ export class P4Icon {
   @Prop() type = 'alarm';
 
   /**
-   * Button variants
+   * Icon variants to add additional styling
    * Possible values are `"default"`, `"primary"`, `"danger"`, `"success"`. Defaults to `"default"`.
    */
   @Prop() variant: 'default' | 'primary' | 'danger' | 'success' = 'default';
 
   /**
-   * The button size.
+   * The Icon size.
    * Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
    */
   @Prop() size: 'sm' | 'md' | 'lg' | string = 'md';
 
-  getSize() {
-    let size = 16;
-    if (/^\d+$/.test(this.size))
-      size = parseInt(this.size);
-    else if (this.size === 'lg')
-      size = 32;
+  private getSize() {
+    let size = '16px';
+    if (this.size === 'lg')
+      size = '32px';
     else if (this.size === 'sm')
-      size = 12;
-    return size + 'px';
+      size = '12px';
+    else if (this.size === 'md')
+      size = '16px';
+    else if (typeof this.size === 'string')
+      size = this.size;
+    return size;
   }
 
-  getVariantClass() {
-    let variant = 'variant-';
-    if (!this.variant)
-      variant = variant + 'default';
-    else
-      variant = variant + this.variant;
-    return variant;
+  private getCssClasses() {
+    const cls = ['icon-component'];
+    cls.push('variant-' + this.variant);
+    return cls.join(' ');
   }
 
 
@@ -80,7 +79,7 @@ export class P4Icon {
     Icon = Icon.replace('width="1em"', 'width="' + this.getSize() + '"').replace('height="1em"', 'height="' + this.getSize() + '"');
     return (
       <Host>
-        <span innerHTML={Icon} class={`icon-component  ${this.getVariantClass()}`} />
+        <div innerHTML={Icon} class={this.getCssClasses()} />
       </Host>
     );
   }

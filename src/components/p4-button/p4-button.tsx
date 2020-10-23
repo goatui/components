@@ -30,7 +30,18 @@ export class P4Button {
    */
   @Prop() disabled: boolean = false;
 
-  getCssClasses() {
+
+  /**
+   * On click of button a CustomEvent 'p4Click' will be triggered.
+   */
+  @Event() p4Click: EventEmitter;
+
+  private onClick = (event: any) => {
+    if (!this.disabled)
+      this.p4Click.emit(event);
+  };
+
+  private getCssClasses() {
     let css = ['button-component'];
     if (this.block)
       css.push('block');
@@ -39,23 +50,13 @@ export class P4Button {
     return css.join(' ');
   }
 
-  /**
-   * On click of button a CustomEvent 'buttonClick' will be triggered.
-   */
-  @Event() buttonClick: EventEmitter;
-
-  handleButtonClick(event: any) {
-    if (!this.disabled)
-      this.buttonClick.emit(event);
-  }
-
   render() {
 
     return (
       <Host>
         <button
           class={this.getCssClasses()}
-          onClick={(evt) => this.handleButtonClick(evt)}
+          onClick={this.onClick}
           disabled={this.disabled}>
           <slot />
         </button>

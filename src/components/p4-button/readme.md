@@ -17,9 +17,9 @@
 
 ## Events
 
-| Event         | Description                                                       | Type               |
-| ------------- | ----------------------------------------------------------------- | ------------------ |
-| `buttonClick` | On click of button a CustomEvent 'buttonClick' will be triggered. | `CustomEvent<any>` |
+| Event     | Description                                                   | Type               |
+| --------- | ------------------------------------------------------------- | ------------------ |
+| `p4Click` | On click of button a CustomEvent 'p4Click' will be triggered. | `CustomEvent<any>` |
 
 
 ----------------------------------------------

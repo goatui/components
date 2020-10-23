@@ -15,10 +15,34 @@
   <li><a href="/demo/icon.html">Icon</a></li>
   <li><a href="/demo/input.html">Input</a></li>
   <li><a href="/demo/textarea.html">Textarea</a></li>
-  <li><a href="/demo/number.html">Number</a></li>
 
-  <p4-input type="number" clear-input="true" label="Testing" required></p4-input>
+  <p4-select id="sel"
+               filter-options="false"
+               label="Name"
+               mode="read"
+               placeholder="Select"
+               options='[{"id": "jack","lb": "Jack"}]'
+               config='{"itemValue": "id", "itemLabel": "lb"}'></p4-select>
+
+
+  <script>
+    const $sel = document.getElementById('sel');
+
+    $sel.addEventListener('inputChange', function (evt) {
+      console.log(evt.detail);
+    });
+
+    $sel.addEventListener('search', function (evt) {
+      $sel.showLoader = true;
+      setTimeout(() => {
+        $sel.options = [{"id": "jack","lb": "Jack"}, {"id": "jill","lb": "Jill"}, {"id": "sun","lb": "Sun"}];
+        $sel.showLoader = false;
+      }, 1000);
+    });
+  </script>
+
 </ul>
 
+<p4-spinner variant="danger"/>
 </body>
 </html>

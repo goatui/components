@@ -15,3 +15,15 @@ export const debounce = (func: (...args: any[]) => void, wait = 0) => {
     timer = setTimeout(func, wait, ...args);
   };
 };
+
+export async function loadScriptModule(src) {
+  return new Promise(resolve => {
+    const script = document.createElement('script');
+    script.src = src;
+    script.type = 'module';
+    script.addEventListener('load', () => {
+      resolve();
+    });
+    document.head.appendChild(script);
+  });
+}

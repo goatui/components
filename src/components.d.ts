@@ -26,12 +26,12 @@ export namespace Components {
     }
     interface P4Icon {
         /**
-          * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+          * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
         "size": 'sm' | 'md' | 'lg' | string;
         "type": string;
         /**
-          * Button variants Possible values are `"default"`, `"primary"`, `"danger"`, `"success"`. Defaults to `"default"`.
+          * Icon variants to add additional styling Possible values are `"default"`, `"primary"`, `"danger"`, `"success"`. Defaults to `"default"`.
          */
         "variant": 'default' | 'primary' | 'danger' | 'success';
     }
@@ -41,7 +41,7 @@ export namespace Components {
          */
         "clearInput": boolean;
         /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke.
+          * Set the amount of time, in milliseconds, to wait to trigger the `p4Change` event after each keystroke.
          */
         "debounce": number;
         /**
@@ -88,6 +88,73 @@ export namespace Components {
           * Input field variants to add additional styling Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
          */
         "variant": 'default' | 'dashed';
+    }
+    interface P4Select {
+        /**
+          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
+         */
+        "clearInput": boolean;
+        "config": any | string;
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
+         */
+        "debounce": number;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled": boolean;
+        "filterOptions": boolean;
+        /**
+          * If true, the form will be in inline format. Defaults to `false`.
+         */
+        "inline": boolean;
+        /**
+          * The input field label.
+         */
+        "label": string;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "options": any[] | string;
+        /**
+          * The input field placeholder.
+         */
+        "placeholder": string;
+        /**
+          * If true, required icon is show. Defaults to `false`.
+         */
+        "required": boolean;
+        /**
+          * Sets blur on the native `input` in `ion-input`. Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `input` in `ion-input`. Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
+        "showLoader": boolean;
+        /**
+          * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size": 'sm' | 'md' | 'lg';
+        /**
+          * The input field value.
+         */
+        "value": string;
+        /**
+          * Button variants Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
+         */
+        "variant": 'default' | 'dashed';
+    }
+    interface P4Spinner {
+        /**
+          * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size": 'sm' | 'md' | 'lg' | string;
+        /**
+          * Spinner variants to add additional styling Possible values are `"default"`, `"primary"`, `"danger"`, `"success"`. Defaults to `"default"`.
+         */
+        "variant": 'default' | 'primary' | 'danger' | 'success';
     }
     interface P4Textarea {
         /**
@@ -163,6 +230,18 @@ declare global {
         prototype: HTMLP4InputElement;
         new (): HTMLP4InputElement;
     };
+    interface HTMLP4SelectElement extends Components.P4Select, HTMLStencilElement {
+    }
+    var HTMLP4SelectElement: {
+        prototype: HTMLP4SelectElement;
+        new (): HTMLP4SelectElement;
+    };
+    interface HTMLP4SpinnerElement extends Components.P4Spinner, HTMLStencilElement {
+    }
+    var HTMLP4SpinnerElement: {
+        prototype: HTMLP4SpinnerElement;
+        new (): HTMLP4SpinnerElement;
+    };
     interface HTMLP4TextareaElement extends Components.P4Textarea, HTMLStencilElement {
     }
     var HTMLP4TextareaElement: {
@@ -173,6 +252,8 @@ declare global {
         "p4-button": HTMLP4ButtonElement;
         "p4-icon": HTMLP4IconElement;
         "p4-input": HTMLP4InputElement;
+        "p4-select": HTMLP4SelectElement;
+        "p4-spinner": HTMLP4SpinnerElement;
         "p4-textarea": HTMLP4TextareaElement;
     }
 }
@@ -187,9 +268,9 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * On click of button a CustomEvent 'buttonClick' will be triggered.
+          * On click of button a CustomEvent 'p4Click' will be triggered.
          */
-        "onButtonClick"?: (event: CustomEvent<any>) => void;
+        "onP4Click"?: (event: CustomEvent<any>) => void;
         /**
           * Button size. Possible values are `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
@@ -201,12 +282,12 @@ declare namespace LocalJSX {
     }
     interface P4Icon {
         /**
-          * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+          * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
         "size"?: 'sm' | 'md' | 'lg' | string;
         "type"?: string;
         /**
-          * Button variants Possible values are `"default"`, `"primary"`, `"danger"`, `"success"`. Defaults to `"default"`.
+          * Icon variants to add additional styling Possible values are `"default"`, `"primary"`, `"danger"`, `"success"`. Defaults to `"default"`.
          */
         "variant"?: 'default' | 'primary' | 'danger' | 'success';
     }
@@ -216,7 +297,7 @@ declare namespace LocalJSX {
          */
         "clearInput"?: boolean;
         /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke.
+          * Set the amount of time, in milliseconds, to wait to trigger the `p4Change` event after each keystroke.
          */
         "debounce"?: number;
         /**
@@ -271,6 +352,82 @@ declare namespace LocalJSX {
           * Input field variants to add additional styling Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
          */
         "variant"?: 'default' | 'dashed';
+    }
+    interface P4Select {
+        /**
+          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
+         */
+        "clearInput"?: boolean;
+        "config"?: any | string;
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
+         */
+        "debounce"?: number;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled"?: boolean;
+        "filterOptions"?: boolean;
+        /**
+          * If true, the form will be in inline format. Defaults to `false`.
+         */
+        "inline"?: boolean;
+        /**
+          * The input field label.
+         */
+        "label"?: string;
+        /**
+          * Emitted when the input loses focus.
+         */
+        "onP4Blur"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the value has changed..
+         */
+        "onP4Change"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the input has focus.
+         */
+        "onP4Focus"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when a keyboard input occurred.
+         */
+        "onP4Input"?: (event: CustomEvent<any>) => void;
+        "onSearch"?: (event: CustomEvent<any>) => void;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "options"?: any[] | string;
+        /**
+          * The input field placeholder.
+         */
+        "placeholder"?: string;
+        /**
+          * If true, required icon is show. Defaults to `false`.
+         */
+        "required"?: boolean;
+        "showLoader"?: boolean;
+        /**
+          * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size"?: 'sm' | 'md' | 'lg';
+        /**
+          * The input field value.
+         */
+        "value"?: string;
+        /**
+          * Button variants Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
+         */
+        "variant"?: 'default' | 'dashed';
+    }
+    interface P4Spinner {
+        /**
+          * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size"?: 'sm' | 'md' | 'lg' | string;
+        /**
+          * Spinner variants to add additional styling Possible values are `"default"`, `"primary"`, `"danger"`, `"success"`. Defaults to `"default"`.
+         */
+        "variant"?: 'default' | 'primary' | 'danger' | 'success';
     }
     interface P4Textarea {
         /**
@@ -338,6 +495,8 @@ declare namespace LocalJSX {
         "p4-button": P4Button;
         "p4-icon": P4Icon;
         "p4-input": P4Input;
+        "p4-select": P4Select;
+        "p4-spinner": P4Spinner;
         "p4-textarea": P4Textarea;
     }
 }
@@ -348,6 +507,8 @@ declare module "@stencil/core" {
             "p4-button": LocalJSX.P4Button & JSXBase.HTMLAttributes<HTMLP4ButtonElement>;
             "p4-icon": LocalJSX.P4Icon & JSXBase.HTMLAttributes<HTMLP4IconElement>;
             "p4-input": LocalJSX.P4Input & JSXBase.HTMLAttributes<HTMLP4InputElement>;
+            "p4-select": LocalJSX.P4Select & JSXBase.HTMLAttributes<HTMLP4SelectElement>;
+            "p4-spinner": LocalJSX.P4Spinner & JSXBase.HTMLAttributes<HTMLP4SpinnerElement>;
             "p4-textarea": LocalJSX.P4Textarea & JSXBase.HTMLAttributes<HTMLP4TextareaElement>;
         }
     }
