@@ -14,6 +14,9 @@ import Trash from 'bootstrap-icons/icons/trash.svg';
 import X from 'bootstrap-icons/icons/x.svg';
 import Envelope from 'bootstrap-icons/icons/envelope.svg';
 import InboxFill from 'bootstrap-icons/icons/inbox-fill.svg';
+import Inbox from 'bootstrap-icons/icons/inbox.svg';
+import InfoCircle from 'bootstrap-icons/icons/info-circle.svg';
+import InfoCircleFill from 'bootstrap-icons/icons/info-circle-fill.svg';
 
 const ICONS = {
   'alarm': Alarm,
@@ -31,6 +34,9 @@ const ICONS = {
   'trash': Trash,
   'x': X,
   'inbox-fill': InboxFill,
+  'inbox': Inbox,
+  'info-circle': InfoCircle,
+  'info-circle-fill': InfoCircleFill
 };
 
 @Component({
