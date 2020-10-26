@@ -13,6 +13,7 @@ import Tools from 'bootstrap-icons/icons/tools.svg';
 import Trash from 'bootstrap-icons/icons/trash.svg';
 import X from 'bootstrap-icons/icons/x.svg';
 import Envelope from 'bootstrap-icons/icons/envelope.svg';
+import InboxFill from 'bootstrap-icons/icons/inbox-fill.svg';
 
 const ICONS = {
   'alarm': Alarm,
@@ -29,6 +30,7 @@ const ICONS = {
   'tools': Tools,
   'trash': Trash,
   'x': X,
+  'inbox-fill': InboxFill,
 };
 
 @Component({

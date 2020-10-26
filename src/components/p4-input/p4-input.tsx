@@ -1,5 +1,7 @@
 import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
-import { debounceEvent } from '../../utils/utils';
+import { debounceEvent, findItemLabel } from '../../utils/utils';
+
+let inputIds = 0;
 
 @Component({
   tag: 'p4-input',
@@ -7,20 +9,17 @@ import { debounceEvent } from '../../utils/utils';
   shadow: true,
 })
 export class P4Input {
-
+  @Element() el!: HTMLElement;
 
   private nativeInput?: HTMLInputElement;
   private tabindex?: string | number;
-
+  private inputId = `p4-input-${inputIds++}`;
   @State() hasFocus = false;
 
-
-  @Element() el!: HTMLElement;
-
   /**
-   * The input field label.
+   * The input field name.
    */
-  @Prop() label: string;
+  @Prop() name: string = this.inputId;
 
   /**
    * The input field placeholder.
@@ -43,11 +42,6 @@ export class P4Input {
    * Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
    */
   @Prop() variant: 'default' | 'dashed' = 'default';
-
-  /**
-   * Whether or not field and label are in inline format. Defaults to `false`.
-   */
-  @Prop() inline: boolean = false;
 
   /**
    * The type of control to display. The default type is text.
@@ -75,11 +69,11 @@ export class P4Input {
    */
   @Prop() debounce = 0;
 
+  /**
+   * Indicates whether the value of the control can be automatically completed by the browser.
+   */
+  @Prop() autocomplete: 'on' | 'off' = 'off';
 
-  @Watch('debounce')
-  protected debounceChanged() {
-    this.p4Change = debounceEvent(this.p4Change, this.debounce);
-  }
 
   /**
    * Emitted when a keyboard input occurred.
@@ -109,8 +103,8 @@ export class P4Input {
     cls.push('type-' + this.type);
     if (this.required)
       cls.push('required');
-    if (this.inline)
-      cls.push('inline');
+    if (this.disabled)
+      cls.push('disabled');
     return cls.join(' ') + ' ';
   }
 
@@ -161,6 +155,11 @@ export class P4Input {
   @Watch('value')
   protected valueChanged() {
     this.p4Change.emit({ value: this.value == null ? this.value : this.value.toString() });
+  }
+
+  @Watch('debounce')
+  protected debounceChanged() {
+    this.p4Change = debounceEvent(this.p4Change, this.debounce);
   }
 
   private clearTextOnEnter = (ev: KeyboardEvent) => {
@@ -214,26 +213,47 @@ export class P4Input {
     }));
   }
 
-  render() {
-    return (
-      <Host aria-disabled={this.disabled ? 'true' : null}>
-        <div class={this.getCssClasses()}>
-          <label>{this.label}</label>
+  private getValue(): string {
+    return typeof this.value === 'number' ? this.value.toString() :
+      (this.value || '').toString();
+  }
 
-          <div class="input-wrapper">
-            <input
-              class="native-input"
-              ref={input => this.nativeInput = input}
-              type={this.type}
-              placeholder={this.placeholder}
-              value={this.value}
-              tabindex={this.tabindex}
-              required={this.required}
-              onInput={this.onInput}
-              onBlur={this.onBlur}
-              onFocus={this.onFocus}
-              disabled={this.disabled} />
-            {(this.clearInput && !this.disabled) && <button
+  private hasValue(): boolean {
+    return this.getValue().length > 0;
+  }
+
+
+  render() {
+    const value = this.getValue();
+    const labelId = this.inputId + '-lbl';
+    const label = findItemLabel(this.el);
+    if (label) {
+      label.id = labelId;
+      if (this.required)
+        label.classList.add('required');
+    }
+
+    return (
+      <Host aria-disabled={this.disabled ? 'true' : null}
+            class={{ 'has-focus': this.hasFocus, 'has-value': this.hasValue() }}>
+        <div class={this.getCssClasses()}>
+          <input
+            class="native-input"
+            name={this.name}
+            aria-labelledby={labelId}
+            ref={input => this.nativeInput = input}
+            type={this.type}
+            placeholder={this.placeholder}
+            autocomplete={this.autocomplete}
+            value={value}
+            tabindex={this.tabindex}
+            required={this.required}
+            onInput={this.onInput}
+            onBlur={this.onBlur}
+            onFocus={this.onFocus}
+            disabled={this.disabled} />
+          <div class="input-actions">
+            {(this.clearInput && !this.disabled && this.hasValue()) && <button
               aria-label="reset"
               type="button"
               class="input-clear-icon"
@@ -241,7 +261,7 @@ export class P4Input {
               onMouseDown={this.clearTextInput}
               onKeyDown={this.clearTextOnEnter}
             >
-              <p-icon type="x" size="1em"/>
+              <p4-icon type="x" size="1.1rem" class="icon" />
             </button>}
           </div>
         </div>

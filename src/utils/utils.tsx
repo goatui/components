@@ -27,3 +27,11 @@ export async function loadScriptModule(src) {
     document.head.appendChild(script);
   });
 }
+
+export const findItemLabel = (componentEl: HTMLElement) => {
+  const itemEl = componentEl.closest('p4-item');
+  if (itemEl) {
+    return itemEl.querySelector('p4-label');
+  }
+  return null;
+};

@@ -15,34 +15,45 @@
   <li><a href="/demo/icon.html">Icon</a></li>
   <li><a href="/demo/input.html">Input</a></li>
   <li><a href="/demo/textarea.html">Textarea</a></li>
-
-  <p4-select id="sel"
-               filter-options="false"
-               label="Name"
-               mode="read"
-               placeholder="Select"
-               options='[{"id": "jack","lb": "Jack"}]'
-               config='{"itemValue": "id", "itemLabel": "lb"}'></p4-select>
-
-
-  <script>
-    const $sel = document.getElementById('sel');
-
-    $sel.addEventListener('inputChange', function (evt) {
-      console.log(evt.detail);
-    });
-
-    $sel.addEventListener('search', function (evt) {
-      $sel.showLoader = true;
-      setTimeout(() => {
-        $sel.options = [{"id": "jack","lb": "Jack"}, {"id": "jill","lb": "Jill"}, {"id": "sun","lb": "Sun"}];
-        $sel.showLoader = false;
-      }, 1000);
-    });
-  </script>
-
+  <li><a href="/demo/select.html">Select</a></li>
 </ul>
 
-<p4-spinner variant="danger"/>
+<p4-select id="sel"
+           filter-options="false"
+           label="Name"
+           mode="read"
+           placeholder="Select"
+           options='[{"id": "jack","lb": "Jack"}]'
+           config='{"itemValue": "id", "itemLabel": "lb"}'></p4-select>
+
+
+<script>
+  const $sel = document.getElementById('sel');
+
+  $sel.addEventListener('inputChange', function(evt) {
+    console.log(evt.detail);
+  });
+
+  $sel.addEventListener('search', function(evt) {
+    $sel.showLoader = true;
+    setTimeout(() => {
+      $sel.options = [{ 'id': 'jack', 'lb': 'Jack' }, { 'id': 'jill', 'lb': 'Jill' }, { 'id': 'sun', 'lb': 'Sun' }];
+      $sel.showLoader = false;
+    }, 1000);
+  });
+</script>
+
+
+<p4-item class="item">
+  <p4-label>Testing</p4-label>
+  <p4-input required="true" name="name" clear-input="true" placeholder="John Snow"></p4-input>
+</p4-item>
+
+
+<p4-item class="item">
+  <p4-label>Testing</p4-label>
+  <p4-textarea name="name" clear-input="true" placeholder="John Snow"></p4-textarea>
+</p4-item>
+
 </body>
 </html>

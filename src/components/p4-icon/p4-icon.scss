@@ -2,24 +2,25 @@
 
 :host {
   display: inline-block;
+  color: $color-gray-10;
 }
 
-.icon-component {
-
-  &.variant-default {
-    color: $color-black;
-  }
-
-  &.variant-primary {
-    color: $color-primary;
-  }
-
-  &.variant-danger {
-    color: $color-red-6;
-  }
-
-  &.variant-success {
-    color: $color-green-6;
-  }
-
+:host-context(.item) {
+  --color: initial;
+  color: var(--color);
 }
+
+
+:host(.danger) {
+  color: $color-red-6;
+}
+
+:host(.success) {
+  color: $color-green-6;
+}
+
+
+:host(.primary) {
+  color: $color-primary;
+}
+

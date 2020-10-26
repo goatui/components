@@ -1,0 +1,31 @@
+# p4-spinner
+
+
+
+<!-- Auto Generated Below -->
+
+
+## Properties
+
+| Property  | Attribute | Description                                                                                                                                | Type                                              | Default     |
+| --------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- | ----------- |
+| `size`    | `size`    | The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.                                                            | `string`                                          | `'md'`      |
+| `variant` | `variant` | Spinner variants to add additional styling Possible values are `"default"`, `"primary"`, `"danger"`, `"success"`. Defaults to `"default"`. | `"danger" \| "default" \| "primary" \| "success"` | `'default'` |
+
+
+## Dependencies
+
+### Used by
+
+ - [p4-select](../p4-select)
+
+### Graph
+```mermaid
+graph TD;
+  p4-select --> p4-spinner
+  style p4-spinner fill:#f9f,stroke:#333,stroke-width:4px
+```
+
+----------------------------------------------
+
+*Built with love!*

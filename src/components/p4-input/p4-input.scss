@@ -1,188 +1,19 @@
-@import "../../theme/variables";
-
-:host {
-  display: block;
-}
-
-::selection {
-  color: #fff;
-  background: #1890ff;
-}
-
-* {
-  box-sizing: border-box;
-}
+@import "../../styles/input";
 
 .input-component {
-
-  font-family: $font-normal;
-
-  label {
-    display: inline-block;
-    margin-bottom: $space-2;
-  }
-
-  .input-wrapper {
-    position: relative;
-
-    .input-clear-icon {
-      border: none;
-      position: absolute;
-      right: 0;
-      background: transparent;
-      top: 0;
-      padding: 0.2em;
-      line-height: 0;
-
-      .svg-icon {
-        height: 2em;
-        width: 2em;
-      }
-    }
-  }
-
-
-  &.required label:before {
-    display: inline-block;
-    margin-right: 4px;
-    color: $color-red-6;
-    font-size: 14px;
-    font-family: SimSun, sans-serif;
-    line-height: 1;
-    content: "*"
-  }
-
-  .native-input {
-    box-sizing: border-box;
-    padding: 4px 11px;
-    min-width: 0;
-    margin-bottom: $space-3;
-    background-color: $color-white;
-    border: 1px solid $color-gray-6;
-
-    font-variant: tabular-nums;
-    list-style: none;
-    font-feature-settings: 'tnum';
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    color: rgba(0, 0, 0, 0.65);
-    font-size: 14px;
-    line-height: 1.5715;
-    background-image: none;
-    border-radius: 2px;
-    transition: all 0.3s;
-    text-align: start;
-    font-weight: 400;
-    letter-spacing: normal;
-    cursor: text;
-
-    &::placeholder {
-      color: #bfbfbf;
-    }
-
-    &:hover {
-      color: $color-primary;
-      border-color: $color-primary;
-      border-right-width: 1px !important;
-    }
-
-    &:focus,
-    &.focused {
-      color: $color-primary;
-      border-color: $color-primary;
-      border-right-width: 1px !important;
-      outline: 0;
-      box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
-    }
-
-    &:after {
-      background: $color-indigo-3;
-    }
-
-  }
-
   /**
-    * SIZES
-    */
+   * SIZES
+   */
   &.size-lg {
-    .native-input {
-      height: 40px;
-    }
-
-    font-size: 16px;
+    height: 2.75rem;
   }
 
   &.size-md {
-    .native-input {
-      height: 32px;
-    }
-
-    font-size: 15px;
+    height: 2rem;
   }
 
   &.size-sm {
-    .native-input {
-      height: 24px;
-    }
-
-    font-size: 14px;
-  }
-
-  /**
-   * VARIANTS
-   */
-
-  &.variant-dashed {
-    .native-input {
-      border-style: dashed;
-    }
-  }
-
-  .native-input {
-    &[disabled], &[disabled="true"] {
-      color: rgba(0, 0, 0, 0.25);
-      background-color: #f5f5f5;
-      cursor: not-allowed;
-      opacity: 1;
-
-      &:hover {
-        color: $color-gray-5;
-        background-color: $color-gray-1;
-        border-color: $color-gray-5;
-      }
-    }
-  }
-
-  &.inline {
-    display: flex;
-    flex-wrap: wrap;
-
-    label {
-      float: left;
-      display: block;
-      flex: 0 0 16.666667%;
-      max-width: 16.666667%;
-    }
-
-    .input-wrapper {
-      float: left;
-      flex: 0 0 83.333333%;
-      max-width: 83.333333%;
-    }
-  }
-
-}
-
-:host(.danger) {
-  /* This works */
-  .native-input, .native-input:hover {
-    border-color: $color-red-6;
-  }
-
-  .native-input:focus, .native-input.focused {
-    border-color: $color-red-6;
-    box-shadow: 0 0 0 2px $color-red-3;
+    height: 1.5rem;
   }
 }
 

@@ -1,0 +1,158 @@
+@import "../theme/variables";
+@import "./common";
+
+:host {
+  display: block;
+}
+
+.input-component {
+  font-family: $font-normal;
+  position: relative;
+  display: flex;
+
+  box-sizing: border-box;
+  min-width: 0;
+  margin-bottom: $space-3;
+  background-color: $color-white;
+  border: 1px solid $color-gray-6;
+
+  font-variant: tabular-nums;
+  list-style: none;
+  font-feature-settings: 'tnum';
+  width: 100%;
+  color: $color-gray-5;
+  line-height: 1.5715;
+  background-image: none;
+  border-radius: 2px;
+  transition: all 0.3s;
+  text-align: start;
+  font-weight: 400;
+  letter-spacing: normal;
+  cursor: text;
+
+
+  .native-input, .display-value {
+    font-family: $font-normal;
+    flex: 1;
+    border: none;
+    outline: none;
+    background: 0 0;
+    height: 100%;
+    width: 100%;
+    cursor: inherit;
+    padding: .25rem .75rem;
+
+    &::placeholder {
+      color: #bfbfbf;
+    }
+
+  }
+
+  .input-actions {
+    line-height: 0;
+
+    > *:last-child {
+      margin-right: .5rem;
+    }
+
+
+    > * {
+      height: 100%;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      margin-left: .5rem;
+      padding: 0;
+      line-height: 0;
+    }
+
+    .input-clear-icon {
+      display: inline-block;
+      cursor: pointer;
+    }
+  }
+
+
+  &:not(.disabled):hover {
+    color: $color-primary;
+    border-color: $color-primary;
+
+    .input-clear-icon {
+      display: inline-block;
+    }
+  }
+
+
+  /**
+    * SIZES
+    */
+  &.size-lg {
+    .native-input, .display-value {
+      font-size: $font-size-5;
+    }
+  }
+
+  &.size-md {
+    .native-input, .display-value {
+      font-size: $font-size-4;
+    }
+  }
+
+  &.size-sm {
+    .native-input, .display-value {
+      font-size: $font-size-3;
+    }
+  }
+
+  /**
+   * VARIANTS
+   */
+
+  &.variant-dashed {
+    border-style: dashed;
+  }
+
+  &.disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+    opacity: 1;
+  }
+
+}
+
+:host(.has-focus) {
+  .input-component {
+    color: $color-primary;
+    border-color: $color-primary;
+    outline: 0;
+    box-shadow: 0 0 0 2px $color-blue-3;
+
+    .input-clear-icon {
+      display: inline-block;
+    }
+  }
+}
+
+:host(.danger) {
+  /* This works */
+  .input-component {
+    border-color: $color-red-6;
+  }
+
+  .input-component:hover {
+    border-color: $color-red-6;
+    box-shadow: 0 0 0 2px $color-red-3;
+  }
+}
+
+:host(.has-focus.danger) {
+  .input-component {
+    box-shadow: 0 0 0 2px $color-red-3;
+  }
+}
+
+:host(.has-value) {
+  .display-value {
+    color: $color-gray-10;
+  }
+}

@@ -1,5 +1,7 @@
 import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
-import { debounceEvent } from '../../utils/utils';
+import { debounceEvent, findItemLabel } from '../../utils/utils';
+
+let inputIds = 0;
 
 @Component({
   tag: 'p4-select',
@@ -8,12 +10,19 @@ import { debounceEvent } from '../../utils/utils';
 })
 export class P4Select {
 
+  @Element() el!: HTMLElement;
+
   private nativeInput?: HTMLInputElement;
+  private tabindex?: string | number;
+  private inputId = `p4-select-${inputIds++}`;
+
+  @State() activeOption;
+  @State() hasFocus = false;
 
   /**
-   * The input field label.
+   * The input field name.
    */
-  @Prop() label: string;
+  @Prop() name: string = this.inputId;
 
   /**
    * The input field placeholder.
@@ -23,7 +32,7 @@ export class P4Select {
   /**
    * The input field value.
    */
-  @Prop() value: string;
+  @Prop({ mutable: true }) value: string;
 
   /**
    * The button size.
@@ -42,10 +51,6 @@ export class P4Select {
    */
   @Prop() required: boolean = false;
 
-  /**
-   * If true, the form will be in inline format. Defaults to `false`.
-   */
-  @Prop() inline: boolean = false;
 
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
@@ -64,12 +69,11 @@ export class P4Select {
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
   @Prop() options: any[] | string = [];
-  private _options: any[];
 
   /**
    * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
    */
-  @Prop() clearInput = false;
+  @Prop() clearInput = true;
 
   /**
    * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
@@ -103,13 +107,9 @@ export class P4Select {
   @Event() p4Focus: EventEmitter;
 
 
-  @Event() search: EventEmitter;
-
-  @Element() private element: HTMLElement;
-
   @State() mode: 'edit' | 'read' = 'read';
 
-  @State() searchString: string;
+  @State() searchString: string = '';
 
   /**
    * Sets focus on the native `input` in `ion-input`. Use this method instead of the global
@@ -134,27 +134,10 @@ export class P4Select {
   }
 
 
-  async componentWillLoad() {
-    const specifiedElement = this.element;
-
-    document.addEventListener('click', (event) => {
-      // @ts-ignore
-      const isClickInside = specifiedElement.shadowRoot.contains(event.path[0]);
-
-      if (!isClickInside)
-        this.mode = 'read';
-    });
-
-    this.optionsWatcher(this.options);
-    this.configWatcher(this.config);
-  }
-
   @Watch('options')
   optionsWatcher(newValue: any[] | string) {
     if (typeof newValue === 'string') {
-      this._options = JSON.parse(newValue);
-    } else {
-      this._options = newValue;
+      this.options = JSON.parse(newValue);
     }
   }
 
@@ -168,88 +151,92 @@ export class P4Select {
 
   private onChange = (item) => {
     if (!this.disabled) {
+      this.setReadable();
       this.value = this.getItemValue(item);
+      this.searchString = '';
       this.p4Change.emit(item);
-      setTimeout(() => this.mode = 'read');
     }
   };
 
   private onInput = (ev: Event) => {
     const input = ev.target as HTMLInputElement | null;
     if (input) {
-      this.value = input.value || '';
+      this.searchString = input.value || '';
     }
-    this.p4Input.emit(ev as KeyboardEvent);
+    this.p4Input.emit(ev);
+  };
+
+  private onKeyDown = (ev: KeyboardEvent) => {
+    if (ev.key === 'Enter') {
+      if (this.activeOption)
+        this.onChange(this.activeOption);
+    } else if (ev.key === 'ArrowDown') {
+      const options = this.getDisplayOptions();
+      if (!this.activeOption)
+        this.activeOption = options[0];
+      else {
+        const index = options.findIndex((option) => {
+          return option.value == this.activeOption.value;
+        });
+        this.activeOption = options[(index + 1) % options.length];
+      }
+    } else if (ev.key === 'ArrowUp') {
+      const options = this.getDisplayOptions();
+      if (!this.activeOption)
+        this.activeOption = options[options.length - 1];
+      else {
+        const index = options.findIndex((option) => {
+          return option.value == this.activeOption.value;
+        });
+        this.activeOption = options[((options.length + index - 1) % options.length)];
+      }
+    }
   };
 
 
   getOptionLabelByValue(value) {
-    const that = this;
-    const item = that._options.find((item) => {
-      return this.getItemValue(item) === value;
-    });
-    if (item)
-      return this.getItemLabel(item);
-    else
-      return this.placeholder;
-  }
-
-  private getOptions() {
-    const that = this;
-    let options = this._options;
-    if (this.filterOptions)
-      options = this._options.filter((item) => {
-        return (!this.searchString || this.getItemLabel(item).toLocaleLowerCase().includes(that.searchString.toLocaleLowerCase()));
+    if (typeof this.options !== 'string') {
+      const item = this.options.find((item) => {
+        return this.getItemValue(item) === value;
       });
-
-    if (this.mode == 'edit')
-      return <div class="select-result">
-        <div class="select-items">
-          {
-            options.length ?
-              options.map((item) => {
-                return <div class="ant-select-option" data-value={this.getItemValue(item)} on-mouseover={(evt) => {
-                  evt.target.classList.add('ant-select-option-active');
-                }} on-mouseleave={(evt) => {
-                  evt.target.classList.remove('ant-select-option-active');
-                }} on-click={() => this.onChange(item)}>
-                  {this.getItemLabel(item)}
-                </div>;
-              })
-              : <div class="no-data">
-                <svg class="bi bi-inbox-fill" width="5em" height="5em" viewBox="0 0 16 16"
-                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd"
-                        d="M3.81 4.063A1.5 1.5 0 0 1 4.98 3.5h6.04a1.5 1.5 0 0 1 1.17.563l3.7 4.625a.5.5 0 0 1-.78.624l-3.7-4.624a.5.5 0 0 0-.39-.188H4.98a.5.5 0 0 0-.39.188L.89 9.312a.5.5 0 1 1-.78-.624l3.7-4.625z" />
-                  <path fill-rule="evenodd"
-                        d="M.125 8.67A.5.5 0 0 1 .5 8.5h5A.5.5 0 0 1 6 9c0 .828.625 2 2 2s2-1.172 2-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .496.562l-.39 3.124a1.5 1.5 0 0 1-1.489 1.314H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .121-.393z" />
-                </svg>
-                <div>No Data</div>
-              </div>
-          }
-        </div>
-      </div>;
+      if (item)
+        return this.getItemLabel(item);
+      else
+        return this.placeholder;
+    }
   }
 
-  private wrapperOnClick = () => {
-    if (this.mode == 'read') {
+
+  private setEditable = () => {
+    if (!this.disabled && this.mode == 'read') {
+      if (this.options.length)
+        this.activeOption = this.options[0];
       this.mode = 'edit';
-      this.searchString = '';
       setTimeout(() => {
         this.setFocus();
       }, 100);
     }
   };
 
-  private wrapperOnFocus = () => {
-    if (this.mode == 'read') {
-      this.mode = 'edit';
-      this.searchString = '';
-      setTimeout(() => {
-        this.setFocus();
-      }, 100);
+  private setReadable = () => {
+    if (!this.disabled && this.mode == 'edit') {
+      this.mode = 'read';
     }
   };
+
+
+  private onBlur = () => {
+    this.hasFocus = false;
+    setTimeout(() => {
+      this.setReadable();
+    }, 300);
+  };
+
+  private onFocus = (ev: FocusEvent) => {
+    this.hasFocus = true;
+    this.p4Focus.emit(ev);
+  };
+
 
   private getItemValue(item) {
     return item[this.config.itemValue];
@@ -259,54 +246,171 @@ export class P4Select {
     return item[this.config.itemLabel];
   }
 
+  private getValue(): string {
+    return (this.value || '').toString();
+  }
 
-
-  private getModeIcon() {
-    if (this.showLoader)
-      return <p4-spinner size="1em" class="icon" />;
-    else if (this.mode === 'read')
-      return <p4-icon type="chevron-down" size="1em" class="icon" />;
-    else
-      return <p4-icon type="search" size="1em" class="icon" />;
+  private hasValue(): boolean {
+    return this.getValue().length > 0;
   }
 
 
-  getComponentStyleClasses() {
-    const cls = ['select-component'];
+  private getComponentStyleClasses() {
+    const cls = ['component input-component select-component'];
     cls.push('variant-' + this.variant);
     cls.push('size-' + this.size);
     cls.push('mode-' + this.mode);
     if (this.required)
       cls.push('required');
-    if (this.inline)
-      cls.push('inline');
-
+    if (this.disabled)
+      cls.push('disabled');
     return cls.join(' ');
   }
 
-  render() {
-    return (
-      <Host>
-        <div class={this.getComponentStyleClasses()}>
-          <label>{this.label}</label>
-          <div class="input-wrapper" tabindex="1" onFocus={this.wrapperOnFocus}
-               onClick={this.wrapperOnClick}>
-            <div class="select-search">
-              <input class="native-input"
-                     ref={input => this.nativeInput = input}
-                     type="text"
-                     placeholder={this.getOptionLabelByValue(this.value)}
-                     onInput={this.onInput}
-              />
-            </div>
-            <div class="select-selection-item">
-              {this.getOptionLabelByValue(this.value)}
-            </div>
-            <div class="select-icons">
-              {this.getModeIcon()}
-            </div>
-            {this.getOptions()}
+  private getModeIcon() {
+    if (this.showLoader)
+      return <button type="button" disabled>
+        <p4-spinner class="icon" size="1.5rem" />
+      </button>;
+    else if (this.mode === 'read') {
+      return <button type="button" onClick={() => setTimeout(() => this.setEditable())}>
+        <p4-icon type="chevron-down" size="1rem" class="icon" />
+      </button>;
+    } else {
+      return <button type="button" disabled>
+        <p4-icon type="search" size="1rem" class="icon" />
+      </button>;
+    }
+  }
+
+  private getDisplayOptions() {
+    let options = [];
+    if (typeof this.options !== 'string') {
+      options = this.options;
+      if (this.filterOptions)
+        options = this.options.filter((item) => {
+          return (!this.searchString || this.getItemLabel(item).toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()));
+        });
+    }
+    return options;
+  }
+
+  private getOptions() {
+    if (typeof this.options !== 'string') {
+      const options = this.getDisplayOptions();
+
+      if (this.mode == 'edit')
+        return <div class="select-result">
+          <div class="select-items">
+            {
+              options.length ?
+                options.map((item) => {
+                  return <div
+                    class={{
+                      'select-option': true,
+                      'select-option-active': this.activeOption && item.value === this.activeOption.value,
+                    }}
+                    data-value={this.getItemValue(item)}
+                    on-mouseover={() => {
+                      this.activeOption = item;
+                    }} on-click={() => this.onChange(item)}>
+                    {this.getItemLabel(item)}
+                  </div>;
+                })
+                : <div class="no-data">
+                  <p4-icon type="inbox-fill" size="5rem" />
+                  <div>No Data</div>
+                </div>
+            }
           </div>
+        </div>;
+    }
+  }
+
+
+  async componentWillLoad() {
+    // If the ion-input has a tabindex attribute we get the value
+    // and pass it down to the native input, then remove it from the
+    // ion-input to avoid causing tabbing twice on the same element
+    if (this.el.hasAttribute('tabindex')) {
+      const tabindex = this.el.getAttribute('tabindex');
+      this.tabindex = tabindex !== null ? tabindex : undefined;
+      this.el.removeAttribute('tabindex');
+    }
+
+    this.optionsWatcher(this.options);
+    this.configWatcher(this.config);
+  }
+
+  private clearTextOnEnter = (ev: KeyboardEvent) => {
+    if (ev.key === 'Enter')
+      this.clearTextInput(ev);
+  };
+
+  private clearTextInput = (ev?: Event) => {
+    if (this.clearInput && !this.disabled && ev) {
+      ev.preventDefault();
+      ev.stopPropagation();
+    }
+
+    this.value = null;
+    this.searchString = '';
+
+    /**
+     * This is needed for clearOnEdit
+     * Otherwise the value will not be cleared
+     * if user is inside the input
+     */
+    if (this.nativeInput) {
+      this.nativeInput.value = '';
+    }
+  };
+
+  render() {
+    const labelId = this.inputId + '-lbl';
+    const label = findItemLabel(this.el);
+    if (label) {
+      label.id = labelId;
+      if (this.required)
+        label.classList.add('required');
+    }
+
+    return (
+      <Host aria-disabled={this.disabled ? 'true' : null}
+            class={{ 'has-focus': this.hasFocus, 'has-value': this.hasValue() }}>
+        <div class={this.getComponentStyleClasses()}>
+          <input class="native-input"
+                 ref={input => this.nativeInput = input}
+                 type="text"
+                 aria-labelledby={labelId}
+                 name={this.name}
+                 value={this.searchString}
+                 placeholder={this.placeholder}
+                 tabindex={this.tabindex}
+                 onBlur={this.onBlur}
+                 onFocus={this.onFocus}
+                 onInput={this.onInput}
+                 onKeyDown={this.onKeyDown}
+          />
+          <div class="select-selection-item display-value" tabindex="1"
+               onFocus={this.setEditable}
+               onClick={this.setEditable}>
+            {this.getOptionLabelByValue(this.value)}
+          </div>
+          <div class="input-actions">
+            {(this.clearInput && !this.disabled && this.hasValue()) && <button
+              aria-label="reset"
+              type="button"
+              class="input-clear-icon"
+              onTouchStart={this.clearTextInput}
+              onMouseDown={this.clearTextInput}
+              onKeyDown={this.clearTextOnEnter}
+            >
+              <p4-icon type="x" size="1.1rem" class="icon" />
+            </button>}
+            {this.getModeIcon()}
+          </div>
+          {this.getOptions()}
         </div>
       </Host>
     );

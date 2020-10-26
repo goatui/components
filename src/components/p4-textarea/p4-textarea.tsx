@@ -1,5 +1,7 @@
 import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
-import { debounceEvent } from '../../utils/utils';
+import { debounceEvent, findItemLabel } from '../../utils/utils';
+
+let inputIds = 0;
 
 @Component({
   tag: 'p4-textarea',
@@ -7,19 +9,18 @@ import { debounceEvent } from '../../utils/utils';
   shadow: true,
 })
 export class P4Textarea {
+  @Element() el!: HTMLElement;
 
   private nativeInput?: HTMLTextAreaElement;
   private tabindex?: string | number;
-
+  private inputId = `p4-textarea-${inputIds++}`;
   @State() hasFocus = false;
 
 
-  @Element() el!: HTMLElement;
-
   /**
-   * The input field label.
+   * The input field name.
    */
-  @Prop() label: string;
+  @Prop() name: string = this.inputId;
 
   /**
    * The input field placeholder.
@@ -102,14 +103,14 @@ export class P4Textarea {
   @Event() p4Focus: EventEmitter;
 
   getCssClasses() {
-    const cls = ['textarea-component'];
+    const cls = ['component input-component textarea-component'];
     cls.push('variant-' + this.variant);
     cls.push('size-' + this.size);
     cls.push('type-' + this.type);
     if (this.required)
       cls.push('required');
-    if (this.inline)
-      cls.push('inline');
+    if (this.disabled)
+      cls.push('disabled');
     return cls.join(' ');
   }
 
@@ -212,27 +213,45 @@ export class P4Textarea {
     }));
   }
 
-  render() {
-    return (
-      <Host>
-        <div
-          class={this.getCssClasses()}>
-          <label>{this.label}</label>
+  private getValue(): string {
+    return (this.value || '').toString();
+  }
 
-          <div class="input-wrapper">
+  private hasValue(): boolean {
+    return this.getValue().length > 0;
+  }
+
+
+  render() {
+    const value = this.getValue();
+    const labelId = this.inputId + '-lbl';
+    const label = findItemLabel(this.el);
+    if (label) {
+      label.id = labelId;
+      if (this.required)
+        label.classList.add('required');
+    }
+
+    return (
+      <Host aria-disabled={this.disabled ? 'true' : null}
+            class={{ 'has-focus': this.hasFocus, 'has-value': this.hasValue() }}>
+        <div class={this.getCssClasses()}>
              <textarea
                rows={4}
                ref={input => this.nativeInput = input}
                required={this.required}
                class="native-input"
+               name={this.name}
+               aria-labelledby={labelId}
                placeholder={this.placeholder}
-               value={this.value}
+               value={value}
                tabindex={this.tabindex}
                onInput={this.onInputChange}
                onBlur={this.onBlur}
                onFocus={this.onFocus}
                disabled={this.disabled} />
-            {(this.clearInput && !this.disabled) && <button
+          <div class="input-actions">
+            {(this.clearInput && !this.disabled && this.hasValue()) && <button
               aria-label="reset"
               type="button"
               class="input-clear-icon"
@@ -240,11 +259,7 @@ export class P4Textarea {
               onMouseDown={this.clearTextInput}
               onKeyDown={this.clearTextOnEnter}
             >
-              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x svg-icon" fill="currentColor"
-                   xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                      d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-              </svg>
+              <p4-icon type="x" size="1.1rem" class="icon" />
             </button>}
           </div>
         </div>

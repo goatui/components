@@ -57,6 +57,19 @@ Type: `Promise<void>`
 
 
 
+## Dependencies
+
+### Depends on
+
+- [p4-icon](../p4-icon)
+
+### Graph
+```mermaid
+graph TD;
+  p4-input --> p4-icon
+  style p4-input fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with love!*

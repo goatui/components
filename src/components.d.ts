@@ -37,6 +37,10 @@ export namespace Components {
     }
     interface P4Input {
         /**
+          * Indicates whether the value of the control can be automatically completed by the browser.
+         */
+        "autocomplete": 'on' | 'off';
+        /**
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
          */
         "clearInput": boolean;
@@ -49,13 +53,9 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * Whether or not field and label are in inline format. Defaults to `false`.
+          * The input field name.
          */
-        "inline": boolean;
-        /**
-          * The input field label.
-         */
-        "label": string;
+        "name": string;
         /**
           * The input field placeholder.
          */
@@ -89,6 +89,10 @@ export namespace Components {
          */
         "variant": 'default' | 'dashed';
     }
+    interface P4Item {
+    }
+    interface P4Label {
+    }
     interface P4Select {
         /**
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
@@ -105,13 +109,9 @@ export namespace Components {
         "disabled": boolean;
         "filterOptions": boolean;
         /**
-          * If true, the form will be in inline format. Defaults to `false`.
+          * The input field name.
          */
-        "inline": boolean;
-        /**
-          * The input field label.
-         */
-        "label": string;
+        "name": string;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -174,9 +174,9 @@ export namespace Components {
          */
         "inline": boolean;
         /**
-          * The input field label.
+          * The input field name.
          */
-        "label": string;
+        "name": string;
         /**
           * The input field placeholder.
          */
@@ -230,6 +230,18 @@ declare global {
         prototype: HTMLP4InputElement;
         new (): HTMLP4InputElement;
     };
+    interface HTMLP4ItemElement extends Components.P4Item, HTMLStencilElement {
+    }
+    var HTMLP4ItemElement: {
+        prototype: HTMLP4ItemElement;
+        new (): HTMLP4ItemElement;
+    };
+    interface HTMLP4LabelElement extends Components.P4Label, HTMLStencilElement {
+    }
+    var HTMLP4LabelElement: {
+        prototype: HTMLP4LabelElement;
+        new (): HTMLP4LabelElement;
+    };
     interface HTMLP4SelectElement extends Components.P4Select, HTMLStencilElement {
     }
     var HTMLP4SelectElement: {
@@ -252,6 +264,8 @@ declare global {
         "p4-button": HTMLP4ButtonElement;
         "p4-icon": HTMLP4IconElement;
         "p4-input": HTMLP4InputElement;
+        "p4-item": HTMLP4ItemElement;
+        "p4-label": HTMLP4LabelElement;
         "p4-select": HTMLP4SelectElement;
         "p4-spinner": HTMLP4SpinnerElement;
         "p4-textarea": HTMLP4TextareaElement;
@@ -293,6 +307,10 @@ declare namespace LocalJSX {
     }
     interface P4Input {
         /**
+          * Indicates whether the value of the control can be automatically completed by the browser.
+         */
+        "autocomplete"?: 'on' | 'off';
+        /**
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
          */
         "clearInput"?: boolean;
@@ -305,13 +323,9 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Whether or not field and label are in inline format. Defaults to `false`.
+          * The input field name.
          */
-        "inline"?: boolean;
-        /**
-          * The input field label.
-         */
-        "label"?: string;
+        "name"?: string;
         /**
           * Emitted when the input loses focus.
          */
@@ -353,6 +367,10 @@ declare namespace LocalJSX {
          */
         "variant"?: 'default' | 'dashed';
     }
+    interface P4Item {
+    }
+    interface P4Label {
+    }
     interface P4Select {
         /**
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
@@ -369,13 +387,9 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "filterOptions"?: boolean;
         /**
-          * If true, the form will be in inline format. Defaults to `false`.
+          * The input field name.
          */
-        "inline"?: boolean;
-        /**
-          * The input field label.
-         */
-        "label"?: string;
+        "name"?: string;
         /**
           * Emitted when the input loses focus.
          */
@@ -392,7 +406,6 @@ declare namespace LocalJSX {
           * Emitted when a keyboard input occurred.
          */
         "onP4Input"?: (event: CustomEvent<any>) => void;
-        "onSearch"?: (event: CustomEvent<any>) => void;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -447,9 +460,9 @@ declare namespace LocalJSX {
          */
         "inline"?: boolean;
         /**
-          * The input field label.
+          * The input field name.
          */
-        "label"?: string;
+        "name"?: string;
         /**
           * Emitted when the input loses focus.
          */
@@ -495,6 +508,8 @@ declare namespace LocalJSX {
         "p4-button": P4Button;
         "p4-icon": P4Icon;
         "p4-input": P4Input;
+        "p4-item": P4Item;
+        "p4-label": P4Label;
         "p4-select": P4Select;
         "p4-spinner": P4Spinner;
         "p4-textarea": P4Textarea;
@@ -507,6 +522,8 @@ declare module "@stencil/core" {
             "p4-button": LocalJSX.P4Button & JSXBase.HTMLAttributes<HTMLP4ButtonElement>;
             "p4-icon": LocalJSX.P4Icon & JSXBase.HTMLAttributes<HTMLP4IconElement>;
             "p4-input": LocalJSX.P4Input & JSXBase.HTMLAttributes<HTMLP4InputElement>;
+            "p4-item": LocalJSX.P4Item & JSXBase.HTMLAttributes<HTMLP4ItemElement>;
+            "p4-label": LocalJSX.P4Label & JSXBase.HTMLAttributes<HTMLP4LabelElement>;
             "p4-select": LocalJSX.P4Select & JSXBase.HTMLAttributes<HTMLP4SelectElement>;
             "p4-spinner": LocalJSX.P4Spinner & JSXBase.HTMLAttributes<HTMLP4SpinnerElement>;
             "p4-textarea": LocalJSX.P4Textarea & JSXBase.HTMLAttributes<HTMLP4TextareaElement>;
