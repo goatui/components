@@ -176,7 +176,7 @@ export class P4Select {
         this.activeOption = options[0];
       else {
         const index = options.findIndex((option) => {
-          return option.value == this.activeOption.value;
+          return this.getItemValue(option) == this.getItemValue(this.activeOption);
         });
         this.activeOption = options[(index + 1) % options.length];
       }
@@ -186,7 +186,7 @@ export class P4Select {
         this.activeOption = options[options.length - 1];
       else {
         const index = options.findIndex((option) => {
-          return option.value == this.activeOption.value;
+          return this.getItemValue(option) == this.getItemValue(this.activeOption);
         });
         this.activeOption = options[((options.length + index - 1) % options.length)];
       }
@@ -308,7 +308,7 @@ export class P4Select {
                   return <div
                     class={{
                       'select-option': true,
-                      'select-option-active': this.activeOption && item.value === this.activeOption.value,
+                      'select-option-active': (this.activeOption && this.getItemValue(item) === this.getItemValue(this.activeOption)),
                     }}
                     data-value={this.getItemValue(item)}
                     on-mouseover={() => {
