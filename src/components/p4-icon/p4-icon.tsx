@@ -17,6 +17,9 @@ import InboxFill from 'bootstrap-icons/icons/inbox-fill.svg';
 import Inbox from 'bootstrap-icons/icons/inbox.svg';
 import InfoCircle from 'bootstrap-icons/icons/info-circle.svg';
 import InfoCircleFill from 'bootstrap-icons/icons/info-circle-fill.svg';
+import CaretDownFill from 'bootstrap-icons/icons/caret-down-fill.svg';
+import CaretUpFill from 'bootstrap-icons/icons/caret-up-fill.svg';
+
 
 const ICONS = {
   'alarm': Alarm,
@@ -36,7 +39,9 @@ const ICONS = {
   'inbox-fill': InboxFill,
   'inbox': Inbox,
   'info-circle': InfoCircle,
-  'info-circle-fill': InfoCircleFill
+  'info-circle-fill': InfoCircleFill,
+  'caret-down-fill': CaretDownFill,
+  'caret-up-fill': CaretUpFill,
 };
 
 @Component({

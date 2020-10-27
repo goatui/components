@@ -50,6 +50,15 @@ export namespace Components {
          */
         "variant": 'default' | 'dashed';
     }
+    interface P4Grid {
+        /**
+          * The grid columns configuration. Sample [{"name":"name","label":"Name","width":300,"fixed":true},{"name":"age","label":"Age"},{"name":"eyeColor","label":"Eye Color","width":500}].
+         */
+        "columnConfig": any[];
+        "data": any[];
+        "rowKey": string;
+        "selectionType": 'checkbox' | undefined;
+    }
     interface P4Icon {
         /**
           * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
@@ -250,6 +259,12 @@ declare global {
         prototype: HTMLP4CheckboxElement;
         new (): HTMLP4CheckboxElement;
     };
+    interface HTMLP4GridElement extends Components.P4Grid, HTMLStencilElement {
+    }
+    var HTMLP4GridElement: {
+        prototype: HTMLP4GridElement;
+        new (): HTMLP4GridElement;
+    };
     interface HTMLP4IconElement extends Components.P4Icon, HTMLStencilElement {
     }
     var HTMLP4IconElement: {
@@ -295,6 +310,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "p4-button": HTMLP4ButtonElement;
         "p4-checkbox": HTMLP4CheckboxElement;
+        "p4-grid": HTMLP4GridElement;
         "p4-icon": HTMLP4IconElement;
         "p4-input": HTMLP4InputElement;
         "p4-item": HTMLP4ItemElement;
@@ -356,6 +372,17 @@ declare namespace LocalJSX {
           * Button variants Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
          */
         "variant"?: 'default' | 'dashed';
+    }
+    interface P4Grid {
+        /**
+          * The grid columns configuration. Sample [{"name":"name","label":"Name","width":300,"fixed":true},{"name":"age","label":"Age"},{"name":"eyeColor","label":"Eye Color","width":500}].
+         */
+        "columnConfig"?: any[];
+        "data"?: any[];
+        "onP4CellClick"?: (event: CustomEvent<any>) => void;
+        "onP4SelectChange"?: (event: CustomEvent<any>) => void;
+        "rowKey"?: string;
+        "selectionType"?: 'checkbox' | undefined;
     }
     interface P4Icon {
         /**
@@ -570,6 +597,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "p4-button": P4Button;
         "p4-checkbox": P4Checkbox;
+        "p4-grid": P4Grid;
         "p4-icon": P4Icon;
         "p4-input": P4Input;
         "p4-item": P4Item;
@@ -585,6 +613,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "p4-button": LocalJSX.P4Button & JSXBase.HTMLAttributes<HTMLP4ButtonElement>;
             "p4-checkbox": LocalJSX.P4Checkbox & JSXBase.HTMLAttributes<HTMLP4CheckboxElement>;
+            "p4-grid": LocalJSX.P4Grid & JSXBase.HTMLAttributes<HTMLP4GridElement>;
             "p4-icon": LocalJSX.P4Icon & JSXBase.HTMLAttributes<HTMLP4IconElement>;
             "p4-input": LocalJSX.P4Input & JSXBase.HTMLAttributes<HTMLP4InputElement>;
             "p4-item": LocalJSX.P4Item & JSXBase.HTMLAttributes<HTMLP4ItemElement>;

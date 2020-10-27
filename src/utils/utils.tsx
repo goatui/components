@@ -35,3 +35,11 @@ export const findItemLabel = (componentEl: HTMLElement) => {
   }
   return null;
 };
+
+export const getSelectedKeys = (map) => {
+  const result = [];
+  for (const key in map)
+    if (map[key])
+      result.push(key);
+  return result;
+};
