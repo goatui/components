@@ -7,19 +7,19 @@
 
 ## Properties
 
-| Property      | Attribute     | Description                                                                                                          | Type                                                   | Default     |
-| ------------- | ------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ----------- |
-| `clearInput`  | `clear-input` | If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.                | `boolean`                                              | `false`     |
-| `debounce`    | `debounce`    | Set the amount of time, in milliseconds, to wait to trigger the `p4Change` event after each keystroke.               | `number`                                               | `0`         |
-| `disabled`    | `disabled`    | If true, the user cannot interact with the button. Defaults to `false`.                                              | `boolean`                                              | `false`     |
-| `inline`      | `inline`      | Whether or not field and label are in inline format. Defaults to `false`.                                            | `boolean`                                              | `false`     |
-| `label`       | `label`       | The input field label.                                                                                               | `string`                                               | `undefined` |
-| `placeholder` | `placeholder` | The input field placeholder.                                                                                         | `string`                                               | `undefined` |
-| `required`    | `required`    | If true, required icon is show. Defaults to `false`.                                                                 | `boolean`                                              | `false`     |
-| `size`        | `size`        | The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.                               | `"lg" \| "md" \| "sm"`                                 | `'md'`      |
-| `type`        | `type`        | The type of control to display. The default type is text.                                                            | `"email" \| "number" \| "password" \| "tel" \| "text"` | `'text'`    |
-| `value`       | `value`       | The input field value.                                                                                               | `number \| string`                                     | `''`        |
-| `variant`     | `variant`     | Input field variants to add additional styling Possible values are `"default"`, `"dashed"`. Defaults to `"default"`. | `"dashed" \| "default"`                                | `'default'` |
+| Property       | Attribute      | Description                                                                                                          | Type                                                   | Default        |
+| -------------- | -------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | -------------- |
+| `autocomplete` | `autocomplete` | Indicates whether the value of the control can be automatically completed by the browser.                            | `"off" \| "on"`                                        | `'off'`        |
+| `clearInput`   | `clear-input`  | If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.                | `boolean`                                              | `false`        |
+| `debounce`     | `debounce`     | Set the amount of time, in milliseconds, to wait to trigger the `p4Change` event after each keystroke.               | `number`                                               | `0`            |
+| `disabled`     | `disabled`     | If true, the user cannot interact with the button. Defaults to `false`.                                              | `boolean`                                              | `false`        |
+| `name`         | `name`         | The input field name.                                                                                                | `string`                                               | `this.inputId` |
+| `placeholder`  | `placeholder`  | The input field placeholder.                                                                                         | `string`                                               | `undefined`    |
+| `required`     | `required`     | If true, required icon is show. Defaults to `false`.                                                                 | `boolean`                                              | `false`        |
+| `size`         | `size`         | The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.                               | `"lg" \| "md" \| "sm"`                                 | `'md'`         |
+| `type`         | `type`         | The type of control to display. The default type is text.                                                            | `"email" \| "number" \| "password" \| "tel" \| "text"` | `'text'`       |
+| `value`        | `value`        | The input field value.                                                                                               | `number \| string`                                     | `''`           |
+| `variant`      | `variant`      | Input field variants to add additional styling Possible values are `"default"`, `"dashed"`. Defaults to `"default"`. | `"dashed" \| "default"`                                | `'default'`    |
 
 
 ## Events

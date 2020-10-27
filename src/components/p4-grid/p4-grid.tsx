@@ -67,17 +67,22 @@ export class P4Grid {
   }
 
   handleScroll = debounce(() => {
+    debugger;
     const $root = this.el.shadowRoot;
-    const $headerPanel: HTMLElement = $root.querySelector('.header');
-    const $bodyPanel = $root.querySelector('.body');
-    const $bodyRightPanel = $bodyPanel.querySelector('.right-panel');
+    const $header: HTMLElement = $root.querySelector('.header');
+    const $headerRightPanel: HTMLElement = $header.querySelector('.right-panel');
     const $leftPanels = $root.querySelectorAll('.left-panel');
+
+
     const $listScrollWrapper = $root.querySelector('.list-scroll-wrapper');
-    const movedBy = $listScrollWrapper.getBoundingClientRect().x - $bodyRightPanel.getBoundingClientRect().x;
-    $headerPanel.style.top = ($listScrollWrapper.getBoundingClientRect().y - $bodyPanel.getBoundingClientRect().y) + 'px';
+    const movedBy = $listScrollWrapper.getBoundingClientRect().x - $headerRightPanel.getBoundingClientRect().x;
     $leftPanels.forEach(function($leftPanel: HTMLElement) {
       $leftPanel.style.left = movedBy + 'px';
     });
+
+    const $body: HTMLElement = $root.querySelector('.body');
+    if ($body)
+      $header.style.top = ($listScrollWrapper.getBoundingClientRect().y - $body.getBoundingClientRect().y) + 'px';
   }, 10);
 
   componentDidRender() {
