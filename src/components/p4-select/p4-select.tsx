@@ -73,7 +73,7 @@ export class P4Select {
   /**
    * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
    */
-  @Prop() clearInput = true;
+  @Prop() clearInput = false;
 
   /**
    * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
