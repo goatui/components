@@ -52,11 +52,15 @@ export namespace Components {
     }
     interface P4Grid {
         /**
-          * The grid columns configuration. Sample [{"name":"name","label":"Name","width":300,"fixed":true},{"name":"age","label":"Age"},{"name":"eyeColor","label":"Eye Color","width":500}].
+          * Grid columns configuration. [{"name":"name","label":"Name","width":300,"fixed":true},{"name":"age","label":"Age"},{"name":"eyeColor","label":"Eye Color","width":500}].
          */
         "columnConfig": any[];
+        /**
+          * Grid data to display on table [{'id': '5e7118ddce4b3d577956457f', 'index': 0, 'age': 21, 'eyeColor': 'blue', 'name': 'John', 'company': 'India', 'email': 'john@example.com', 'phone': '+1 (839) 560-3581', 'address': '326 Irving Street, Grimsley, Texas, 4048'}]
+         */
         "data": any[];
         "rowKey": string;
+        "selectedRows": string[];
         "selectionType": 'checkbox' | undefined;
     }
     interface P4Icon {
@@ -375,13 +379,17 @@ declare namespace LocalJSX {
     }
     interface P4Grid {
         /**
-          * The grid columns configuration. Sample [{"name":"name","label":"Name","width":300,"fixed":true},{"name":"age","label":"Age"},{"name":"eyeColor","label":"Eye Color","width":500}].
+          * Grid columns configuration. [{"name":"name","label":"Name","width":300,"fixed":true},{"name":"age","label":"Age"},{"name":"eyeColor","label":"Eye Color","width":500}].
          */
         "columnConfig"?: any[];
+        /**
+          * Grid data to display on table [{'id': '5e7118ddce4b3d577956457f', 'index': 0, 'age': 21, 'eyeColor': 'blue', 'name': 'John', 'company': 'India', 'email': 'john@example.com', 'phone': '+1 (839) 560-3581', 'address': '326 Irving Street, Grimsley, Texas, 4048'}]
+         */
         "data"?: any[];
         "onP4CellClick"?: (event: CustomEvent<any>) => void;
         "onP4SelectChange"?: (event: CustomEvent<any>) => void;
         "rowKey"?: string;
+        "selectedRows"?: string[];
         "selectionType"?: 'checkbox' | undefined;
     }
     interface P4Icon {

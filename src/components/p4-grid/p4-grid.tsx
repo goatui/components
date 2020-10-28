@@ -1,5 +1,5 @@
 import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core';
-import { debounce, getSelectedKeys } from '../../utils/utils';
+import { debounce } from '../../utils/utils';
 
 const DEFAULT_CELL_WIDTH = 300;
 const CHECKBOX_WIDTH = '3rem';
@@ -15,17 +15,22 @@ export class P4Grid {
 
   @State() private hoverRecord: any;
   @State() private isSelectAll: boolean = false;
-  @State() private selectedRowKeys: {} = {};
 
   /**
-   * The grid columns configuration.
-   * Sample [{"name":"name","label":"Name","width":300,"fixed":true},{"name":"age","label":"Age"},{"name":"eyeColor","label":"Eye Color","width":500}].
+   * Grid columns configuration.
+   * [{"name":"name","label":"Name","width":300,"fixed":true},{"name":"age","label":"Age"},{"name":"eyeColor","label":"Eye Color","width":500}].
    */
   @Prop() columnConfig: any[] = [];
 
+  /**
+   * Grid data to display on table
+   * [{'id': '5e7118ddce4b3d577956457f', 'index': 0, 'age': 21, 'eyeColor': 'blue', 'name': 'John', 'company': 'India', 'email': 'john@example.com', 'phone': '+1 (839) 560-3581', 'address': '326 Irving Street, Grimsley, Texas, 4048'}]
+   */
   @Prop() data: any[] = [];
 
   @Prop() selectionType: 'checkbox' | undefined;
+
+  @Prop() selectedRows: string[] = [];
 
   @Prop() rowKey: string = 'id';
 
@@ -35,20 +40,22 @@ export class P4Grid {
 
 
   onSelectAllClick = () => {
-    const selectedRowKeys = {};
-    this.data.forEach((row) => {
-      selectedRowKeys[row[this.rowKey]] = !this.isSelectAll;
-    });
+    let selectedRows = [];
     this.isSelectAll = !this.isSelectAll;
-    this.onSelectChange(selectedRowKeys);
+    if (this.isSelectAll)
+      selectedRows = this.data.map((row) => row[this.rowKey]);
+    this.onSelectChange(selectedRows);
   };
 
   onRowSelectClick = (row) => {
-    const selectedRowKeys = { ...this.selectedRowKeys };
-    if (selectedRowKeys[row[this.rowKey]])
+    let selectedRows = [...this.selectedRows];
+    if (selectedRows.includes(row[this.rowKey])) {
       this.isSelectAll = false;
-    selectedRowKeys[row[this.rowKey]] = !selectedRowKeys[row[this.rowKey]];
-    this.onSelectChange(selectedRowKeys);
+      selectedRows = selectedRows.filter((rowId) => rowId !== row[this.rowKey]);
+    } else {
+      selectedRows.push(row[this.rowKey]);
+    }
+    this.onSelectChange(selectedRows);
   };
 
   onCellMouseOver = (row: any) => {
@@ -56,10 +63,10 @@ export class P4Grid {
   };
 
 
-  onSelectChange(selectedRowKeys: any) {
-    const oldValue = this.selectedRowKeys;
-    this.selectedRowKeys = selectedRowKeys;
-    this.p4SelectChange.emit({ oldValue: getSelectedKeys(oldValue), newValue: getSelectedKeys(this.selectedRowKeys) });
+  onSelectChange(selectedRows: any) {
+    const oldValue = this.selectedRows;
+    this.selectedRows = selectedRows;
+    this.p4SelectChange.emit({ oldValue: oldValue, newValue: this.selectedRows });
   }
 
   onCellClick(row: any, col: any) {
@@ -149,7 +156,7 @@ export class P4Grid {
       if (this.selectionType === 'checkbox')
         bodyLeftRow.push(<div class={{ 'col': true, 'col-hover': this.hoverRecord === row }}
                               style={{ width: CHECKBOX_WIDTH }}>
-          <p4-checkbox class="checkbox" size="sm" value={this.selectedRowKeys[row[this.rowKey]]}
+          <p4-checkbox class="checkbox" size="sm" value={this.selectedRows.includes(row[this.rowKey])}
                        onP4Change={() => this.onRowSelectClick(row)} />
         </div>);
 
