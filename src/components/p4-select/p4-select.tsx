@@ -32,7 +32,7 @@ export class P4Select {
   /**
    * The input field value.
    */
-  @Prop({ mutable: true }) value: string;
+  @Prop({ mutable: true }) value: string | number | undefined;
 
   /**
    * The button size.
@@ -246,12 +246,9 @@ export class P4Select {
     return item[this.config.itemLabel];
   }
 
-  private getValue(): string {
-    return (this.value || '').toString();
-  }
 
   private hasValue(): boolean {
-    return this.getValue().length > 0;
+    return (this.value || '').toString().length > 0;
   }
 
 

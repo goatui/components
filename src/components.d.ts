@@ -179,7 +179,7 @@ export namespace Components {
         /**
           * The input field value.
          */
-        "value": string;
+        "value": string | number | undefined;
         /**
           * Button variants Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
          */
@@ -524,7 +524,7 @@ declare namespace LocalJSX {
         /**
           * The input field value.
          */
-        "value"?: string;
+        "value"?: string | number | undefined;
         /**
           * Button variants Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
          */
