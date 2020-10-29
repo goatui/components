@@ -314,10 +314,17 @@ export class P4Select {
                     {this.getItemLabel(item)}
                   </div>;
                 })
-                : <div class="no-data">
-                  <p4-icon type="inbox-fill" size="5rem" />
-                  <div>No Data</div>
-                </div>
+                :
+                (!this.searchString && !this.filterOptions &&!this.showLoader) ?
+                  (<div class="no-data">
+                    <p4-icon type="pencil" size="100%" />
+                    <div class="no-data-text">Please enter text to search</div>
+                  </div>)
+                  : (<div class="no-data">
+                    <p4-icon type="inbox-fill" size="100%" />
+                    <div class="no-data-text">No data</div>
+                  </div>)
+
             }
           </div>
         </div>;

@@ -40,6 +40,13 @@
     text-align: center;
     color: $color-gray-8;
     padding: 15px;
+    p4-icon {
+      max-height: 4em;
+      max-width: 4em;
+    }
+    .no-data-text {
+      font-size: 1.2em;
+    }
   }
 
   /**
