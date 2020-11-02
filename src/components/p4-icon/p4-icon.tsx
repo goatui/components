@@ -20,6 +20,7 @@ import InfoCircleFill from 'bootstrap-icons/icons/info-circle-fill.svg';
 import CaretDownFill from 'bootstrap-icons/icons/caret-down-fill.svg';
 import CaretUpFill from 'bootstrap-icons/icons/caret-up-fill.svg';
 import Pencil from 'bootstrap-icons/icons/pencil.svg';
+import Info from 'bootstrap-icons/icons/info.svg';
 
 
 const ICONS = {
@@ -43,7 +44,8 @@ const ICONS = {
   'info-circle-fill': InfoCircleFill,
   'caret-down-fill': CaretDownFill,
   'caret-up-fill': CaretUpFill,
-  'pencil': Pencil
+  'pencil': Pencil,
+  'info': Info
 };
 
 @Component({

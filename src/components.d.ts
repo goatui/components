@@ -133,6 +133,7 @@ export namespace Components {
     interface P4Label {
     }
     interface P4Select {
+        "actions": any[];
         /**
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
          */
@@ -470,6 +471,7 @@ declare namespace LocalJSX {
     interface P4Label {
     }
     interface P4Select {
+        "actions"?: any[];
         /**
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
          */
@@ -488,6 +490,10 @@ declare namespace LocalJSX {
           * The input field name.
          */
         "name"?: string;
+        /**
+          * Emitted when the action button is clicked..
+         */
+        "onP4ActionClick"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the input loses focus.
          */

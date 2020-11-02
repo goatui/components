@@ -50,6 +50,7 @@
 
   .input-actions {
     line-height: 0;
+    display: flex;
 
     > *:last-child {
       margin-right: .5rem;
@@ -67,7 +68,6 @@
     }
 
     .input-clear-icon {
-      display: inline-block;
       cursor: pointer;
     }
   }

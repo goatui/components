@@ -70,6 +70,9 @@ export class P4Select {
    */
   @Prop() options: any[] | string = [];
 
+
+  @Prop() actions: any[] = [{name: 'info', 'label': "Information", 'icon': 'info-circle'}];
+
   /**
    * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
    */
@@ -95,6 +98,11 @@ export class P4Select {
    * Emitted when the value has changed..
    */
   @Event() p4Change: EventEmitter;
+
+  /**
+   * Emitted when the action button is clicked..
+   */
+  @Event() p4ActionClick: EventEmitter;
 
   /**
    * Emitted when the input loses focus.
@@ -193,6 +201,9 @@ export class P4Select {
     }
   };
 
+  onActionClick = (action) => {
+    this.p4ActionClick.emit(action.name)
+  }
 
   getOptionLabelByValue(value) {
     if (typeof this.options !== 'string') {
@@ -264,6 +275,15 @@ export class P4Select {
     return cls.join(' ');
   }
 
+  private getActions() {
+    return this.actions.map((action) => {
+      return <button type="button" onClick={() => this.onActionClick(action)}>
+        <p4-icon type={action.icon} size="1rem" class="icon" />
+      </button>;
+    })
+  }
+
+
   private getModeIcon() {
     if (this.showLoader)
       return <button type="button" disabled>
@@ -315,7 +335,7 @@ export class P4Select {
                   </div>;
                 })
                 :
-                (!this.searchString && !this.filterOptions &&!this.showLoader) ?
+                (!this.searchString && !this.filterOptions && !this.showLoader) ?
                   (<div class="no-data">
                     <p4-icon type="pencil" size="100%" />
                     <div class="no-data-text">Please enter text to search</div>
@@ -412,6 +432,7 @@ export class P4Select {
             >
               <p4-icon type="x" size="1.1rem" class="icon" />
             </button>}
+            {this.getActions()}
             {this.getModeIcon()}
           </div>
           {this.getOptions()}
