@@ -71,7 +71,7 @@ export class P4Select {
   @Prop() options: any[] | string = [];
 
 
-  @Prop() actions: any[] = [{name: 'info', 'label': "Information", 'icon': 'info-circle'}];
+  @Prop() actions: any[] = [];
 
   /**
    * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
