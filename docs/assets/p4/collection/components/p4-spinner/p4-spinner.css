@@ -1,0 +1,16 @@
+:host {
+  display: inline-block;
+}
+
+.spinner-component.variant-default {
+  color: var(--color-black, #000);
+}
+.spinner-component.variant-primary {
+  color: var(--color-primary, var(--color-indigo-6, #4c48ff));
+}
+.spinner-component.variant-danger {
+  color: var(--color-red-6, #ff4c47);
+}
+.spinner-component.variant-success {
+  color: var(--color-green-6, #48ff4d);
+}

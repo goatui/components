@@ -24,6 +24,45 @@ export namespace Components {
          */
         "variant": 'default' | 'primary' | 'dashed' | 'danger' | 'link';
     }
+    interface P4Checkbox {
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled": boolean;
+        /**
+          * The checkbox label.
+         */
+        "label": string;
+        /**
+          * If true, required icon is show. Defaults to `false`.
+         */
+        "required": boolean;
+        /**
+          * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size": 'sm' | 'md' | 'lg';
+        /**
+          * The input field value.
+         */
+        "value": boolean;
+        /**
+          * Button variants Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
+         */
+        "variant": 'default' | 'dashed';
+    }
+    interface P4Grid {
+        /**
+          * Grid columns configuration. [{"name":"name","label":"Name","width":300,"fixed":true},{"name":"age","label":"Age"},{"name":"eyeColor","label":"Eye Color","width":500}].
+         */
+        "columnConfig": any[];
+        /**
+          * Grid data to display on table [{'id': '5e7118ddce4b3d577956457f', 'index': 0, 'age': 21, 'eyeColor': 'blue', 'name': 'John', 'company': 'India', 'email': 'john@example.com', 'phone': '+1 (839) 560-3581', 'address': '326 Irving Street, Grimsley, Texas, 4048'}]
+         */
+        "data": any[];
+        "rowKey": string;
+        "selectedRows": string[];
+        "selectionType": 'checkbox' | undefined;
+    }
     interface P4Icon {
         /**
           * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
@@ -94,6 +133,7 @@ export namespace Components {
     interface P4Label {
     }
     interface P4Select {
+        "actions": any[];
         /**
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
          */
@@ -140,7 +180,7 @@ export namespace Components {
         /**
           * The input field value.
          */
-        "value": string;
+        "value": string | number | undefined;
         /**
           * Button variants Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
          */
@@ -218,6 +258,18 @@ declare global {
         prototype: HTMLP4ButtonElement;
         new (): HTMLP4ButtonElement;
     };
+    interface HTMLP4CheckboxElement extends Components.P4Checkbox, HTMLStencilElement {
+    }
+    var HTMLP4CheckboxElement: {
+        prototype: HTMLP4CheckboxElement;
+        new (): HTMLP4CheckboxElement;
+    };
+    interface HTMLP4GridElement extends Components.P4Grid, HTMLStencilElement {
+    }
+    var HTMLP4GridElement: {
+        prototype: HTMLP4GridElement;
+        new (): HTMLP4GridElement;
+    };
     interface HTMLP4IconElement extends Components.P4Icon, HTMLStencilElement {
     }
     var HTMLP4IconElement: {
@@ -262,6 +314,8 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "p4-button": HTMLP4ButtonElement;
+        "p4-checkbox": HTMLP4CheckboxElement;
+        "p4-grid": HTMLP4GridElement;
         "p4-icon": HTMLP4IconElement;
         "p4-input": HTMLP4InputElement;
         "p4-item": HTMLP4ItemElement;
@@ -293,6 +347,51 @@ declare namespace LocalJSX {
           * Button variants Possible values are `"default"`, `"primary"`, `"dashed"`, `"danger"`, `"link"`. Defaults to `"default"`.
          */
         "variant"?: 'default' | 'primary' | 'dashed' | 'danger' | 'link';
+    }
+    interface P4Checkbox {
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled"?: boolean;
+        /**
+          * The checkbox label.
+         */
+        "label"?: string;
+        /**
+          * On change of input a CustomEvent 'inputChange' will be triggered. Event details contains parent event, oldValue, newValue of input.
+         */
+        "onP4Change"?: (event: CustomEvent<any>) => void;
+        /**
+          * If true, required icon is show. Defaults to `false`.
+         */
+        "required"?: boolean;
+        /**
+          * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size"?: 'sm' | 'md' | 'lg';
+        /**
+          * The input field value.
+         */
+        "value"?: boolean;
+        /**
+          * Button variants Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
+         */
+        "variant"?: 'default' | 'dashed';
+    }
+    interface P4Grid {
+        /**
+          * Grid columns configuration. [{"name":"name","label":"Name","width":300,"fixed":true},{"name":"age","label":"Age"},{"name":"eyeColor","label":"Eye Color","width":500}].
+         */
+        "columnConfig"?: any[];
+        /**
+          * Grid data to display on table [{'id': '5e7118ddce4b3d577956457f', 'index': 0, 'age': 21, 'eyeColor': 'blue', 'name': 'John', 'company': 'India', 'email': 'john@example.com', 'phone': '+1 (839) 560-3581', 'address': '326 Irving Street, Grimsley, Texas, 4048'}]
+         */
+        "data"?: any[];
+        "onP4CellClick"?: (event: CustomEvent<any>) => void;
+        "onP4SelectChange"?: (event: CustomEvent<any>) => void;
+        "rowKey"?: string;
+        "selectedRows"?: string[];
+        "selectionType"?: 'checkbox' | undefined;
     }
     interface P4Icon {
         /**
@@ -372,6 +471,7 @@ declare namespace LocalJSX {
     interface P4Label {
     }
     interface P4Select {
+        "actions"?: any[];
         /**
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
          */
@@ -390,6 +490,10 @@ declare namespace LocalJSX {
           * The input field name.
          */
         "name"?: string;
+        /**
+          * Emitted when the action button is clicked..
+         */
+        "onP4ActionClick"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the input loses focus.
          */
@@ -426,7 +530,7 @@ declare namespace LocalJSX {
         /**
           * The input field value.
          */
-        "value"?: string;
+        "value"?: string | number | undefined;
         /**
           * Button variants Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
          */
@@ -506,6 +610,8 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "p4-button": P4Button;
+        "p4-checkbox": P4Checkbox;
+        "p4-grid": P4Grid;
         "p4-icon": P4Icon;
         "p4-input": P4Input;
         "p4-item": P4Item;
@@ -520,6 +626,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "p4-button": LocalJSX.P4Button & JSXBase.HTMLAttributes<HTMLP4ButtonElement>;
+            "p4-checkbox": LocalJSX.P4Checkbox & JSXBase.HTMLAttributes<HTMLP4CheckboxElement>;
+            "p4-grid": LocalJSX.P4Grid & JSXBase.HTMLAttributes<HTMLP4GridElement>;
             "p4-icon": LocalJSX.P4Icon & JSXBase.HTMLAttributes<HTMLP4IconElement>;
             "p4-input": LocalJSX.P4Input & JSXBase.HTMLAttributes<HTMLP4InputElement>;
             "p4-item": LocalJSX.P4Item & JSXBase.HTMLAttributes<HTMLP4ItemElement>;

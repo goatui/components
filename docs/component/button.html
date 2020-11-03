@@ -30,52 +30,35 @@ componentName: p4-button
     <div id="doc-usage" class="mb-7">
       <h2 class="h4">Usage <a class="js-anchor-link duik-anchorjs-link" href="#doc-usage" aria-label="Anchor"
                               data-anchorjs-icon="#"></a></h2>
-      <h3 class="h5">Script tag</h3>
-      <ul>
-        <li>
-          Put a script tag similar to this <code class="highlighter-rouge" data-lang="html">&lt;script type="module"
-          src="https://unpkg.com/@p4rm/ui@{{site.project_version}}/dist/p4rm-ui/p4rm-ui.esm.js"&gt;&lt;/script&gt;</code>
-          in the head of your index.html
-        </li>
-        <li>
-          Then you can use the element anywhere in your template, JSX, html etc
-        </li>
-      </ul>
 
-      <pre class="mb-4">
-                <code class="language-html" data-lang="html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;meta charset=&quot;utf-8&quot;&gt;
-  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
-  &lt;title&gt;{{ page.title }}&lt;/title&gt;
-  &lt;script type="module" src="https://unpkg.com/@p4rm/ui@{{site.project_version}}/dist/p4rm-ui/p4rm-ui.esm.js"&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;p4-button size=&quot;lg&quot; variant=&quot;primary&quot;&gt;Click me&lt;/p4-button&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+      <pre>
+                <code class="language-html" data-lang="html">
+&lt;script type="module" src="https://unpkg.com/@p4rm/ui@{{site.project_version}}/dist/p4rm-ui/p4rm-ui.esm.js"&gt;&lt;/script&gt;
 
+&lt;!-- Default -->
+&lt;p4-button size=&quot;lg&quot; variant=&quot;primary&quot;&gt;Click me&lt;/p4-button&gt;
 
+</code></pre>
     </div>
-    <!-- End About -->
 
     <hr class="mt-7 mb-4">
 
-    <!-- What’s Included -->
+    <!-- Variants -->
     <div id="doc-examples" class="mb-7">
-      <h2 class="h4">Examples <a class="js-anchor-link duik-anchorjs-link" href="#doc-examples"
+      <h2 class="h4">Variants <a class="js-anchor-link duik-anchorjs-link" href="#doc-examples"
                                  aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
       <p>Here are several predefined button styles, each serving its own semantic purpose.</p>
-      <div class="output">
-        <p4-button>Default</p4-button>
-        <p4-button variant="primary">Primary</p4-button>
-        <p4-button variant="danger">Danger</p4-button>
-        <p4-button variant="dashed">Dashed</p4-button>
-        <p4-button variant="link">Link</p4-button>
-      </div>
 
-      <pre class="mb-4">
+      <div class="card">
+        <div class="card-header">
+          <p4-button>Default</p4-button>
+          <p4-button variant="primary">Primary</p4-button>
+          <p4-button variant="danger">Danger</p4-button>
+          <p4-button variant="dashed">Dashed</p4-button>
+          <p4-button variant="link">Link</p4-button>
+        </div>
+        <div class="card-body">
+      <pre>
                 <code class="language-html" data-lang="html"> &lt;p4-button&gt;Default&lt;/p4-button&gt;
                  &lt;p4-button variant=&quot;primary&quot;&gt;Primary&lt;/p4-button&gt;
                  &lt;p4-button variant=&quot;danger&quot;&gt;Danger&lt;/p4-button&gt;
@@ -83,6 +66,8 @@ componentName: p4-button
                  &lt;p4-button variant=&quot;link&quot;&gt;Link&lt;/p4-button&gt;
                 </code>
               </pre>
+        </div>
+      </div>
     </div>
     <!-- End What’s Included -->
 
@@ -94,18 +79,22 @@ componentName: p4-button
                               aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
       <p>Fancy larger or smaller buttons? Add size attribute for additional sizes.</p>
 
-      <div class="output">
-        <p4-button size="lg">Large Button</p4-button>
-        <p4-button>Medium Button</p4-button>
-        <p4-button size="sm">Small Button</p4-button>
+      <div class="card">
+        <div class="card-header">
+          <p4-button size="lg">Large Button</p4-button>
+          <p4-button>Medium Button</p4-button>
+          <p4-button size="sm">Small Button</p4-button>
+        </div>
+        <div class="card-body">
+      <pre>
+                <code class="language-html" data-lang="html">&lt;p4-button size=&quot;lg&quot;&gt;Large Button&lt;/p4-button&gt;
+&lt;p4-button&gt;Medium Button&lt;/p4-button&gt;
+&lt;p4-button size=&quot;sm&quot;&gt;Small Button&lt;/p4-button&gt;
+                  </code>
+              </pre>
+        </div>
       </div>
 
-      <pre class="mb-4">
-                  <code class="language-html" data-lang="html">&lt;p4-button size=&quot;lg&quot;&gt;Large Button&lt;/p4-button&gt;
-                  &lt;p4-button&gt;Medium Button&lt;/p4-button&gt;
-                  &lt;p4-button size=&quot;sm&quot;&gt;Small Button&lt;/p4-button&gt;
-                  </code>
-                </pre>
     </div>
 
     <!-- Disabled State -->
@@ -116,17 +105,22 @@ componentName: p4-button
                                                                  data-lang="html">boolean</code>
         attribute to any <code class="highlighter-rouge" data-lang="html">&lt;button&gt;</code> element.</p>
 
-      <div class="output">
-        <p4-button disabled>Disabled Button</p4-button>
-        <p4-button variant="dashed" disabled="true">Disabled Dashed Button</p4-button>
-        <p4-button variant="link" disabled="true">Disabled Link</p4-button>
-      </div>
-      <pre class="mb-4">
-                    <code class="language-html" data-lang="html">&lt;p4-button disabled&gt;Disabled Button&lt;/p4-button&gt;
-                    &lt;p4-button variant=&quot;dashed&quot; disabled=&quot;true&quot;&gt;Disabled Dashed Button&lt;/p4-button&gt;
-                    &lt;p4-button variant=&quot;link&quot; disabled=&quot;true&quot;&gt;Disabled link&lt;/p4-button&gt;
+      <div class="card">
+        <div class="card-header">
+          <p4-button disabled>Disabled Button</p4-button>
+          <p4-button variant="dashed" disabled="true">Disabled Dashed Button</p4-button>
+          <p4-button variant="link" disabled="true">Disabled Link</p4-button>
+        </div>
+        <div class="card-body">
+      <pre>
+                <code class="language-html" data-lang="html">&lt;p4-button disabled&gt;Disabled Button&lt;/p4-button&gt;
+ &lt;p4-button variant=&quot;dashed&quot; disabled=&quot;true&quot;&gt;Disabled Dashed Button&lt;/p4-button&gt;
+ &lt;p4-button variant=&quot;link&quot; disabled=&quot;true&quot;&gt;Disabled link&lt;/p4-button&gt;
                     </code>
-                  </pre>
+              </pre>
+        </div>
+      </div>
+
 
     </div>
 
@@ -135,7 +129,7 @@ componentName: p4-button
       <h2 class="h4">Events <a class="js-anchor-link duik-anchorjs-link" href="#doc-events"
                                aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
       <p>On click the button a <code class="highlighter-rouge" data-lang="html">CustomEvent</code> <code
-        class="highlighter-rouge" data-lang="html">buttonClick</code>
+        class="highlighter-rouge" data-lang="html">p4Click</code>
         is triggered by the element.</p>
 
       <div class="output">
@@ -144,23 +138,22 @@ componentName: p4-button
         <p4-button disabled id="disabled-btn">Disabled Button</p4-button>
 
         <script>
-          document.querySelector('#click-me-btn').addEventListener('buttonClick', function(event) {
+          document.querySelector('#click-me-btn').addEventListener('p4Click', function(event) {
             alert('Button clicked');
           });
-          document.querySelector('#disabled-btn').addEventListener('buttonClick', function(event) {
+          document.querySelector('#disabled-btn').addEventListener('p4Click', function(event) {
             alert('Button clicked'); // this will not be fired
           });
         </script>
       </div>
       <pre class="mb-4">
-                    <code class="language-html" data-lang="html">&lt;script&gt;
-document.querySelector('#click-me-btn').addEventListener('buttonClick', function(event) {
+                    <code class="language-js" data-lang="html">document.querySelector('#click-me-btn').addEventListener('p4Click', function(event) {
     alert("Button clicked");
 });
-document.querySelector('#disabled-btn').addEventListener('buttonClick', function(event) {
+
+document.querySelector('#disabled-btn').addEventListener('p4Click', function(event) {
     alert("Button clicked"); // this will not be fired
 });
-&lt;/script&gt;
                     </code>
                   </pre>
 

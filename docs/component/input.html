@@ -4,15 +4,13 @@ title: Input
 github_project: p4-input
 ---
 
-
 <script type="module" src="/assets/p4/p4rm-ui/p4rm-ui.esm.js"></script>
 <div class="row pt-3">
   <!-- Content Nav -->
   <div class="col-xl-2 order-xl-2 d-none d-xl-inline-block">
     <ul class="js-scroll-nav duik-content-nav">
       <li class="duik-content-nav__item"><a href="#doc-usage">Usage</a></li>
-      <li class="duik-content-nav__item"><a href="#doc-examples">Examples</a></li>
-      <li class="duik-content-nav__item"><a href="#doc-inline">Inline</a></li>
+      <li class="duik-content-nav__item"><a href="#doc-variants">Variants</a></li>
       <li class="duik-content-nav__item"><a href="#doc-sizes">Sizes</a></li>
       <li class="duik-content-nav__item"><a href="#doc-disabled-state">Disabled state</a></li>
       <li class="duik-content-nav__item"><a href="#doc-events">Events</a></li>
@@ -33,20 +31,12 @@ github_project: p4-input
     <div id="doc-usage" class="mb-7">
       <h2 class="h4">Usage <a class="js-anchor-link duik-anchorjs-link" href="#doc-usage" aria-label="Anchor"
                               data-anchorjs-icon="#"></a></h2>
-      <h3 class="h5">Script tag</h3>
-      <ul>
-        <li>
-          Put a script tag similar to this <code class="highlighter-rouge" data-lang="html">&lt;script type="module"
-          src="https://unpkg.com/@p4rm/ui@{{site.project_version}}/dist/p4rm-ui/p4rm-ui.esm.js"&gt;&lt;/script&gt;</code>
-          in the head of your index.html
-        </li>
-        <li>
-          Then you can use the element anywhere in your template, JSX, html etc
-        </li>
-      </ul>
 
-      <pre class="mb-4">
-                <code class="language-html" data-lang="html">&lt;!-- Default Input --&gt;
+      <pre>
+                <code class="language-html" data-lang="html">
+&lt;script type="module" src="https://unpkg.com/@p4rm/ui@{{site.project_version}}/dist/p4rm-ui/p4rm-ui.esm.js"&gt;&lt;/script&gt;
+
+&lt;!-- Default Input --&gt;
 &lt;p4-input placeholder="Name"&gt;&lt;/p4-input&gt;
 
 &lt;!--  Input with value --&gt;
@@ -68,55 +58,33 @@ github_project: p4-input
 
     <!-- What’s Included -->
     <div id="doc-examples" class="mb-7">
-      <h2 class="h4">Examples <a class="js-anchor-link duik-anchorjs-link" href="#doc-examples"
+      <h2 class="h4">Variants <a class="js-anchor-link duik-anchorjs-link" href="#doc-examples"
                                  aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
       <p>Here are several predefined input styles, each serving its own semantic purpose.</p>
-      <div class="output">
-        <p4-input label="Name" placeholder="Person Name"></p4-input>
-        <p4-input label="Name" placeholder="Person Name" value="Ravi"></p4-input>
-        <p4-input variant="dashed" label="Name" placeholder="Person Name"></p4-input>
-      </div>
 
-      <pre class="mb-4">
+
+      <div class="card">
+        <div class="card-header">
+          <p4-input label="Name" placeholder="Person Name"></p4-input>
+          <p4-input label="Name" placeholder="Person Name" value="Ravi"></p4-input>
+          <p4-input variant="dashed" label="Name" placeholder="Person Name"></p4-input>
+        </div>
+        <div class="card-body">
+          <pre>
                 <code class="language-html" data-lang="html"> &lt;p4-input label=&quot;Name&quot; placeholder=&quot;Person Name&quot;&gt;&lt;/p4-input&gt;
                  &lt;p4-input label=&quot;Name&quot; placeholder=&quot;Person Name&quot; value=&quot;Ravi&quot;&gt;&lt;/p4-input&gt;
                  &lt;p4-input variant=&quot;dashed&quot; label=&quot;Name&quot; placeholder=&quot;Person Name&quot;&gt;&lt;/p4-input&gt;
                 </code>
               </pre>
-
-      <h3 class="h5">Assign value</h3>
-      <div class="output">
-        <p4-input label="Name" id="name-field" placeholder="Person Name"></p4-input>
-        <script>
-          document.querySelector('#name-field').value = 'John Snow';
-        </script>
+        </div>
       </div>
-      <pre class="mb-4">
-                    <code class="language-html" data-lang="html">&lt;script&gt;
-document.querySelector('#name-field').value = "John Snow";
-&lt;/script&gt;
-                    </code>
-                  </pre>
+
+
     </div>
     <!-- End What’s Included -->
 
     <hr class="mt-7 mb-4">
 
-    <!-- Inline -->
-    <div id="doc-inline" class="mb-7">
-      <h2 class="h4">Inline <a class="js-anchor-link duik-anchorjs-link" href="#doc-inline"
-                               aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
-      <p>Display label and field on same line.</p>
-
-      <div class="output">
-        <p4-input inline label="Address" value="Hyderabad, Telangana, India"></p4-input>
-      </div>
-
-      <pre class="mb-4">
-                  <code class="language-html" data-lang="html">&lt;p4-input inline label=&quot;Address&quot; value=&quot;Hyderabad, Telangana, India&quot;&gt;&lt;/p4-input&gt;
-                  </code>
-                </pre>
-    </div>
 
     <!-- Sizes -->
     <div id="doc-sizes" class="mb-7">
@@ -124,18 +92,22 @@ document.querySelector('#name-field').value = "John Snow";
                               aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
       <p>Fancy larger or smaller input? Add size attribute for additional sizes.</p>
 
-      <div class="output">
-        <p4-input size="lg" label="Large Input"></p4-input>
-        <p4-input label="Medium Input"></p4-input>
-        <p4-input size="sm" label="Small Input"></p4-input>
-      </div>
-
-      <pre class="mb-4">
+      <div class="card">
+        <div class="card-header">
+          <p4-input size="lg" label="Large Input"></p4-input>
+          <p4-input label="Medium Input"></p4-input>
+          <p4-input size="sm" label="Small Input"></p4-input>
+        </div>
+        <div class="card-body">
+           <pre>
                   <code class="language-html" data-lang="html">&lt;p4-input size=&quot;lg&quot; label=&quot;Large Input&quot;&gt;&lt;/p4-input&gt;
                   &lt;p4-input label=&quot;Medium Input&quot;&gt;&lt;/p4-input&gt;
                   &lt;p4-input size=&quot;sm&quot; label=&quot;small Input&quot;&gt;&lt;/p4-input&gt;
                   </code>
                 </pre>
+        </div>
+      </div>
+
     </div>
 
     <!-- Disabled State -->
@@ -146,8 +118,9 @@ document.querySelector('#name-field').value = "John Snow";
         attribute to any <code class="highlighter-rouge" data-lang="html">&lt;input&gt;</code> element.</p>
 
       <div class="output">
-        <p4-input disabled label="Disabled Input"></p4-input>
-        <p4-input variant="dashed" disabled="true" label="Disabled Dashed Input"></p4-input>
+        <p4-input disabled></p4-input>
+        <p4-input variant="dashed" disabled="true"></p4-input>
+        <p4-input variant="link" disabled></p4-input>
       </div>
       <pre class="mb-4">
                     <code class="language-html" data-lang="html">&lt;p4-input disabled&gt;Disabled Button&lt;/p4-input&gt;
@@ -162,26 +135,27 @@ document.querySelector('#name-field').value = "John Snow";
     <div id="doc-events" class="mb-7">
       <h2 class="h4">Events <a class="js-anchor-link duik-anchorjs-link" href="#doc-events"
                                aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
-      <p>On click the button a <code class="highlighter-rouge" data-lang="html">CustomEvent</code> <code
-        class="highlighter-rouge" data-lang="html">buttonClick</code>
+      <p>On input change a <code class="highlighter-rouge" data-lang="html">CustomEvent</code> <code
+        class="highlighter-rouge" data-lang="html">p4Change</code>
         is triggered by the element.</p>
 
       <div class="output">
 
-        <p4-input label="Name" variant="default" id="name-input-field"></p4-input>
+        <p4-input variant="default" id="name-input-field"></p4-input>
 
         <script>
-          document.querySelector('#name-input-field').addEventListener('inputChange', function(event) {
-            console.log('Input changed to :: ' + event.detail.newValue + ' - from :: ' + event.detail.oldValue);
+          document.querySelector('#name-input-field').addEventListener('p4Change', function(event) {
+            document.getElementById('change-output').innerText = event.detail.value;
           });
         </script>
 
-        <p><b>Note:</b> Check browser console for output.</p>
+        <div><b>Output ::</b> <span id="change-output"></span></div>
+
       </div>
       <pre class="mb-4">
                     <code class="language-html" data-lang="html">&lt;script&gt;
-document.querySelector('#name-input-field').addEventListener('inputChange', function(event) {
-    console.log('Input changed to :: ' + event.detail.newValue + ' - from :: ' + event.detail.oldValue);
+document.querySelector('#name-input-field').addEventListener('p4Change', function(event) {
+    console.log('Input changed to :: ' + event.detail);
 });
 &lt;/script&gt;
                     </code>

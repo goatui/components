@@ -8,6 +8,18 @@ export const P4Button: {
   new (): P4Button;
 };
 
+interface P4Checkbox extends Components.P4Checkbox, HTMLElement {}
+export const P4Checkbox: {
+  prototype: P4Checkbox;
+  new (): P4Checkbox;
+};
+
+interface P4Grid extends Components.P4Grid, HTMLElement {}
+export const P4Grid: {
+  prototype: P4Grid;
+  new (): P4Grid;
+};
+
 interface P4Icon extends Components.P4Icon, HTMLElement {}
 export const P4Icon: {
   prototype: P4Icon;

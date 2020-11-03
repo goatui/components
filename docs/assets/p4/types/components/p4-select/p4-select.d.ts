@@ -4,6 +4,7 @@ export declare class P4Select {
   private nativeInput?;
   private tabindex?;
   private inputId;
+  activeOption: any;
   hasFocus: boolean;
   /**
    * The input field name.
@@ -16,7 +17,7 @@ export declare class P4Select {
   /**
    * The input field value.
    */
-  value: string;
+  value: string | number | undefined;
   /**
    * The button size.
    * Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
@@ -42,6 +43,7 @@ export declare class P4Select {
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
   options: any[] | string;
+  actions: any[];
   /**
    * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
    */
@@ -59,6 +61,10 @@ export declare class P4Select {
    * Emitted when the value has changed..
    */
   p4Change: EventEmitter;
+  /**
+   * Emitted when the action button is clicked..
+   */
+  p4ActionClick: EventEmitter;
   /**
    * Emitted when the input loses focus.
    */
@@ -83,17 +89,23 @@ export declare class P4Select {
   configWatcher(newValue: any[] | string): void;
   private onChange;
   private onInput;
+  private onKeyDown;
+  onActionClick: (action: any) => void;
   getOptionLabelByValue(value: any): any;
-  private getOptions;
   private setEditable;
+  private setReadable;
   private onBlur;
   private onFocus;
   private getItemValue;
   private getItemLabel;
-  private getModeIcon;
-  getComponentStyleClasses(): string;
-  private getValue;
   private hasValue;
+  private getComponentStyleClasses;
+  private getActions;
+  private getModeIcon;
+  private getDisplayOptions;
+  private getOptions;
   componentWillLoad(): Promise<void>;
+  private clearTextOnEnter;
+  private clearTextInput;
   render(): any;
 }

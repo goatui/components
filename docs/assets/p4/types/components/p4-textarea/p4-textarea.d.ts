@@ -93,5 +93,6 @@ export declare class P4Textarea {
   connectedCallback(): void;
   disconnectedCallback(): void;
   private getValue;
+  private hasValue;
   render(): any;
 }

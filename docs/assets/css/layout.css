@@ -1764,3 +1764,12 @@ div.code-toolbar > .toolbar a:hover {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+
+.card-body {
+  padding: 0;
+}
+
+pre[class*="language-"] {
+  margin: 0;
+}

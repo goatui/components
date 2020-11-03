@@ -1,39 +1,42 @@
 <!-- Sidebar -->
 <nav class="col-md-3 col-xl-2 bg-light duik-sidebar navbar-expand-md">
-    <div class="d-flex d-md-none justify-content-between mb-5">
-        <!-- Sidebar Search -->
-        <form class="col form-inline input-group-sm">
-            <input class="js-search form-control form-control-sm w-100" type="text" placeholder="Search..." data-url="/assets/include/json/autocomplete-data-for-documentation-search.json">
-        </form>
-        <!-- End Sidebar Search -->
+  <div class="d-flex d-md-none justify-content-between mb-5">
+    <!-- Sidebar Search -->
+    <form class="col form-inline input-group-sm">
+      <input class="js-search form-control form-control-sm w-100" type="text" placeholder="Search..."
+             data-url="/assets/include/json/autocomplete-data-for-documentation-search.json">
+    </form>
+    <!-- End Sidebar Search -->
 
-        <!-- Responsive Toggle Button -->
-        <button class="btn btn-link pl-0" type="button" data-toggle="collapse" data-target="#sidebar-nav" aria-controls="sidebar-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 30 30" width="30" height="30" focusable="false">
-                <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/>
-            </svg>
-        </button>
-        <!-- End Responsive Toggle Button -->
-    </div>
+    <!-- Responsive Toggle Button -->
+    <button class="btn btn-link pl-0" type="button" data-toggle="collapse" data-target="#sidebar-nav"
+            aria-controls="sidebar-nav" aria-expanded="false" aria-label="Toggle navigation">
+      <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 30 30" width="30" height="30" focusable="false">
+        <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10"
+              d="M4 7h22M4 15h22M4 23h22" />
+      </svg>
+    </button>
+    <!-- End Responsive Toggle Button -->
+  </div>
 
-    <!-- Sidebar Nav -->
-    <div class="collapse navbar-collapse" id="sidebar-nav">
-        <div class="js-scrollbar duik-sidebar-sticky">
-            <h5 class="duik-sidebar__heading">Introduction</h5>
-            <ul class="duik-sidebar__nav">
-                <li class="duik-sidebar__item"><a class="duik-sidebar__link {% if page.root == true %}active{% endif %}" href="{% if page.root != true %}/{% endif %}#">About</a></li>
-            </ul>
-            <h5 class="duik-sidebar__heading">Components</h5>
-            <ul class="duik-sidebar__nav">
-                <li class="duik-sidebar__item"><a class="duik-sidebar__link {% if page.title == 'Button' %}active{% endif %}" href="/component/button.html">Button</a></li>
-                <li class="duik-sidebar__item"><a class="duik-sidebar__link {% if page.title == 'Checkbox' %}active{% endif %}" href="/component/checkbox.html">Checkbox</a></li>
-                <li class="duik-sidebar__item"><a class="duik-sidebar__link {% if page.title == 'Input' %}active{% endif %}" href="/component/input.html">Input</a></li>
-                <li class="duik-sidebar__item"><a class="duik-sidebar__link {% if page.title == 'Number' %}active{% endif %}" href="/component/number.html">Number</a></li>
-                <li class="duik-sidebar__item"><a class="duik-sidebar__link {% if page.title == 'Script Editor' %}active{% endif %}" href="/component/script-editor.html">Script Editor</a></li>
-                <li class="duik-sidebar__item"><a class="duik-sidebar__link {% if page.title == 'Table' %}active{% endif %}" href="/component/table.html">Table</a></li>
-            </ul>
-        </div>
+  <!-- Sidebar Nav -->
+  <div class="collapse navbar-collapse" id="sidebar-nav">
+    <div class="js-scrollbar duik-sidebar-sticky">
+      <h5 class="duik-sidebar__heading">Introduction</h5>
+      <ul class="duik-sidebar__nav">
+        <li class="duik-sidebar__item"><a class="duik-sidebar__link {% if page.root == true %}active{% endif %}"
+                                          href="{% if page.root != true %}/{% endif %}#">About</a></li>
+      </ul>
+      <h5 class="duik-sidebar__heading">Components</h5>
+      <ul class="duik-sidebar__nav">
+        {% for component in site.components %}
+        <li class="duik-sidebar__item"><a
+          class="duik-sidebar__link {% if page.title == component.name %}active{% endif %}" href="{{component.link}}">{{component.name}}</a>
+        </li>
+        {% endfor %}
+      </ul>
     </div>
-    <!-- End Sidebar Nav -->
+  </div>
+  <!-- End Sidebar Nav -->
 </nav>
 <!-- End Sidebar -->

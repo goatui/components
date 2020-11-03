@@ -26,10 +26,10 @@ tagline: P4RM UI library contains most used web components built using Stencil. 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://ui.p4rm.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: p4rmIco
-github_username:  p4rm
+github_username: p4rm
 github_project: ui
 npm_package: '@p4rm/ui'
-project_version: '0.0.7'
+project_version: '0.2.3'
 
 include:
   - .well-known
@@ -39,8 +39,8 @@ sass:
 
 compress_html:
   clippings: all
-  comments:  ["<!-- ", " -->"]
-  endings:   all
+  comments: [ "<!-- ", " -->" ]
+  endings: all
 
 # Build settings
 plugins:
@@ -48,11 +48,10 @@ plugins:
   - jekyll-assets
 
 defaults:
-  -
-    scope:
-      path:            "assets/**/*"
+  - scope:
+      path: "assets/**/*"
     values:
-      sitemap:         false
+      sitemap: false
 
 assets:
   compression: true
@@ -65,9 +64,31 @@ assets:
     css: { integrity: false } # true on JEKYLL_ENV=production
     img: { integrity: false } # true on JEKYLL_ENV=production
   plugins:
-    css: { autoprefixer: {}}
-    img: { optim: {}}
+    css: { autoprefixer: { } }
+    img: { optim: { } }
 
+components:
+  - name: Button
+    link: /component/button.html
+    img: /assets/img/button.png
+  - name: Checkbox
+    link: /component/checkbox.html
+    img: /assets/img/checkbox.png
+  - name: Icon
+    link: /component/icon.html
+    img: /assets/img/image-not-found.png
+  - name: Input
+    link: /component/input.html
+    img: /assets/img/input.png
+  - name: Number
+    link: /component/number.html
+    img: /assets/img/number.png
+  - name: Script Editor
+    link: /component/script-editor.html
+    img: /assets/img/script-editor.png
+  - name: Table
+    link: /component/table.html
+    img: /assets/img/table.png
 
 
 # Exclude from processing.

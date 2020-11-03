@@ -1,0 +1,185 @@
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  color: #fff;
+  background: #1890ff;
+}
+
+:host {
+  display: block;
+}
+
+.input-component {
+  font-family: var(--font-normal, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol);
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  min-width: 0;
+  margin-bottom: var(--space-3, 0.75rem);
+  background-color: var(--color-white, #fff);
+  border: 1px solid var(--color-gray-6, #9f9eb2);
+  font-variant: tabular-nums;
+  list-style: none;
+  font-feature-settings: "tnum";
+  width: 100%;
+  color: var(--color-gray-5, #aaa9bb);
+  line-height: 1.5715;
+  background-image: none;
+  border-radius: 2px;
+  transition: all 0.3s;
+  text-align: start;
+  font-weight: 400;
+  letter-spacing: normal;
+  cursor: text;
+  /**
+    * SIZES
+    */
+  /**
+   * VARIANTS
+   */
+}
+.input-component .native-input, .input-component .display-value {
+  font-family: var(--font-normal, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol);
+  flex: 1;
+  border: none;
+  outline: none;
+  background: 0 0;
+  height: 100%;
+  width: 100%;
+  cursor: inherit;
+  padding: 0.25rem 0.75rem;
+}
+.input-component .native-input::placeholder, .input-component .display-value::placeholder {
+  color: #bfbfbf;
+}
+.input-component .input-actions {
+  line-height: 0;
+  display: flex;
+}
+.input-component .input-actions > *:last-child {
+  margin-right: 0.5rem;
+}
+.input-component .input-actions > * {
+  height: 100%;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  margin-left: 0.5rem;
+  padding: 0;
+  line-height: 0;
+}
+.input-component .input-actions .input-clear-icon {
+  cursor: pointer;
+}
+.input-component:not(.disabled):hover {
+  color: var(--color-primary, var(--color-indigo-6, #4c48ff));
+  border-color: var(--color-primary, var(--color-indigo-6, #4c48ff));
+}
+.input-component:not(.disabled):hover .input-clear-icon {
+  display: inline-block;
+}
+.input-component.size-lg .native-input, .input-component.size-lg .display-value {
+  font-size: var(--font-size-5, 1rem);
+}
+.input-component.size-md .native-input, .input-component.size-md .display-value {
+  font-size: var(--font-size-4, 0.875rem);
+}
+.input-component.size-sm .native-input, .input-component.size-sm .display-value {
+  font-size: var(--font-size-3, 0.8125rem);
+}
+.input-component.variant-dashed {
+  border-style: dashed;
+}
+.input-component.disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+:host(.has-focus) .input-component {
+  color: var(--color-primary, var(--color-indigo-6, #4c48ff));
+  border-color: var(--color-primary, var(--color-indigo-6, #4c48ff));
+  outline: 0;
+  box-shadow: 0 0 0 2px var(--color-blue-3, #afd4ff);
+}
+:host(.has-focus) .input-component .input-clear-icon {
+  display: inline-block;
+}
+
+:host(.danger) {
+  /* This works */
+}
+:host(.danger) .input-component {
+  border-color: var(--color-red-6, #ff4c47);
+}
+:host(.danger) .input-component:hover {
+  border-color: var(--color-red-6, #ff4c47);
+  box-shadow: 0 0 0 2px var(--color-red-3, #ffbbb9);
+}
+
+:host(.has-focus.danger) .input-component {
+  box-shadow: 0 0 0 2px var(--color-red-3, #ffbbb9);
+}
+
+:host(.has-value) .display-value {
+  color: var(--color-gray-10, #36363e);
+}
+
+.select-component {
+  /**
+   * SIZES
+   */
+}
+.select-component.mode-read .native-input {
+  display: none;
+}
+.select-component.mode-edit .select-selection-item {
+  display: none;
+}
+.select-component .select-result {
+  position: absolute;
+  top: 110%;
+  width: 100%;
+  left: 0;
+  padding: 0.2rem 0;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.select-component .select-result .select-option {
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+}
+.select-component .select-result .select-option.select-option-active {
+  background-color: var(--color-gray-2, #eef0f2);
+}
+.select-component .no-data {
+  text-align: center;
+  color: var(--color-gray-8, #626175);
+  padding: 15px;
+}
+.select-component .no-data p4-icon {
+  max-height: 4em;
+  max-width: 4em;
+}
+.select-component .no-data .no-data-text {
+  font-size: 1.2em;
+}
+.select-component.size-lg {
+  height: 2.75rem;
+}
+.select-component.size-lg .display-value {
+  line-height: 2;
+}
+.select-component.size-md {
+  height: 2rem;
+}
+.select-component.size-sm {
+  height: 1.5rem;
+}
+.select-component.size-sm .display-value {
+  line-height: 1;
+}
