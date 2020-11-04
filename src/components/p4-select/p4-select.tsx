@@ -277,7 +277,7 @@ export class P4Select {
 
   private getActions() {
     return this.actions.map((action) => {
-      return <button type="button" onClick={() => this.onActionClick(action)}>
+      return <button class="btn-action" type="button" onClick={() => this.onActionClick(action)}>
         <p4-icon type={action.icon} size="1rem" class="icon" />
       </button>;
     })
@@ -290,7 +290,7 @@ export class P4Select {
         <p4-spinner class="icon" size="1.5rem" />
       </button>;
     else if (this.mode === 'read') {
-      return <button type="button" onClick={() => setTimeout(() => this.setEditable())}>
+      return <button class="btn-action" type="button" onClick={() => setTimeout(() => this.setEditable())}>
         <p4-icon type="chevron-down" size="1rem" class="icon" />
       </button>;
     } else {
