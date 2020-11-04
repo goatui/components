@@ -15,6 +15,8 @@ export namespace Components {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
+        "icon": string;
+        "showLoader": boolean;
         /**
           * Button size. Possible values are `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
@@ -335,10 +337,12 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
+        "icon"?: string;
         /**
           * On click of button a CustomEvent 'p4Click' will be triggered.
          */
         "onP4Click"?: (event: CustomEvent<any>) => void;
+        "showLoader"?: boolean;
         /**
           * Button size. Possible values are `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */

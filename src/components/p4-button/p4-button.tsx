@@ -31,6 +31,11 @@ export class P4Button {
   @Prop() disabled: boolean = false;
 
 
+  @Prop() icon: string;
+
+  @Prop() showLoader: boolean = false;
+
+
   /**
    * On click of button a CustomEvent 'p4Click' will be triggered.
    */
@@ -58,7 +63,13 @@ export class P4Button {
           class={this.getCssClasses()}
           onClick={this.onClick}
           disabled={this.disabled}>
-          <slot />
+
+
+          {this.showLoader && <p4-spinner class="icon" size="1rem" />}
+          <div class="slot-container" style={{'visibility': this.showLoader ? 'hidden' : 'visible'}}>
+            {this.icon && <p4-icon type={this.icon} size="1rem" />}
+            <slot />
+          </div>
         </button>
       </Host>
     );

@@ -74,21 +74,18 @@ components:
   - name: Checkbox
     link: /component/checkbox.html
     img: /assets/img/checkbox.png
+  - name: Grid / Table
+    link: /component/grid.html
+    img: /assets/img/grid.png
   - name: Icon
     link: /component/icon.html
     img: /assets/img/image-not-found.png
   - name: Input
     link: /component/input.html
     img: /assets/img/input.png
-  - name: Number
-    link: /component/number.html
-    img: /assets/img/number.png
   - name: Script Editor
     link: /component/script-editor.html
     img: /assets/img/script-editor.png
-  - name: Table
-    link: /component/table.html
-    img: /assets/img/table.png
 
 
 # Exclude from processing.
