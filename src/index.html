@@ -19,32 +19,7 @@
   <li><a href="/demo/select.html">Select</a></li>
 </ul>
 
-<p4-select id="sel"
-           filter-options="false"
-           label="Name"
-           mode="read"
-           placeholder="Select"
-           options='[{"id": "jack","lb": "Jack"}]'
-           config='{"itemValue": "id", "itemLabel": "lb"}'></p4-select>
 
-
-<p4-select label="Name" placeholder="" />
-
-<script>
-  const $sel = document.getElementById('sel');
-
-  $sel.addEventListener('inputChange', function(evt) {
-    console.log(evt.detail);
-  });
-
-  $sel.addEventListener('search', function(evt) {
-    $sel.showLoader = true;
-    setTimeout(() => {
-      $sel.options = [{ 'id': 'jack', 'lb': 'Jack' }, { 'id': 'jill', 'lb': 'Jill' }, { 'id': 'sun', 'lb': 'Sun' }];
-      $sel.showLoader = false;
-    }, 1000);
-  });
-</script>
 
 
 <p4-item class="item">
@@ -57,6 +32,25 @@
   <p4-label>Testing</p4-label>
   <p4-textarea name="name" clear-input="true" placeholder="John Snow"></p4-textarea>
 </p4-item>
+
+
+
+<div>
+  <h2>Language: Javascript</h2>
+  <p4-script-editor id="editor" theme="vs-dark" style="height: 400px"></p4-script-editor>
+
+  <p4-script-editor language="json" theme="vs-dark" line-numbers="off"  style="height: 400px" label="Business Rule"></p4-script-editor>
+</div>
+
+<script>
+  document.getElementById('editor').value = `function helloWorld(){
+    alert('Hello world!');
+}`;
+
+  document.getElementById('editor').addEventListener("p4Change", function() {
+    console.log(event.detail);
+  })
+</script>
 
 </body>
 </html>

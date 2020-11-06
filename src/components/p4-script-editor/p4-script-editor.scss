@@ -1,0 +1,67 @@
+@import "./editor.main";
+@import "../../theme/variables";
+@import "../../styles/common";
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
+
+.script-editor-component {
+  font-family: $font-normal;
+  height: 100%;
+
+  .label {
+    display: inline-block;
+    margin-bottom: $space-2;
+  }
+
+  .editor {
+    height: 100%;
+    min-height: 2rem;
+    border: 1px solid $color-gray-5;
+
+
+    &[disabled], &[disabled="true"] {
+      color: $color-gray-5;
+      background-color: $color-gray-1;
+      border-color: $color-gray-5;
+      cursor: not-allowed;
+    }
+  }
+
+  &.disabled {
+    .monaco-editor, .monaco-editor-background, .monaco-editor .inputarea.ime-input, .view-lines {
+      cursor: default;
+    }
+  }
+
+  &.disabled.vs-light {
+    .monaco-editor, .monaco-editor-background, .monaco-editor .inputarea.ime-input, .monaco-editor .margin {
+      background: $color-gray-2;
+    }
+  }
+  &.disabled.vs-dark {
+    .monaco-editor, .monaco-editor-background, .monaco-editor .inputarea.ime-input, .monaco-editor .margin {
+      background: $color-gray-8;
+    }
+  }
+
+}
+

@@ -40,7 +40,7 @@ export class P4Checkbox {
   @Prop() disabled: boolean = false;
 
   /**
-   * On change of input a CustomEvent 'inputChange' will be triggered. Event details contains parent event, oldValue, newValue of input.
+   * On change of input a CustomEvent 'p4Change' will be triggered. Event details contains parent event, oldValue, newValue of input.
    */
   @Event() p4Change: EventEmitter;
 

@@ -28,6 +28,17 @@ export async function loadScriptModule(src) {
   });
 }
 
+export async function loadScript(src) {
+  return new Promise((resolve) => {
+    const script = document.createElement('script');
+    script.src = src;
+    script.addEventListener('load', () => {
+      resolve();
+    });
+    document.head.appendChild(script);
+  });
+}
+
 export const findItemLabel = (componentEl: HTMLElement) => {
   const itemEl = componentEl.closest('p4-item');
   if (itemEl) {

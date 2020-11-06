@@ -19,9 +19,9 @@
 
 ## Events
 
-| Event      | Description                                                                                                                         | Type               |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `p4Change` | On change of input a CustomEvent 'inputChange' will be triggered. Event details contains parent event, oldValue, newValue of input. | `CustomEvent<any>` |
+| Event      | Description                                                                                                                      | Type               |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `p4Change` | On change of input a CustomEvent 'p4Change' will be triggered. Event details contains parent event, oldValue, newValue of input. | `CustomEvent<any>` |
 
 
 ## Dependencies

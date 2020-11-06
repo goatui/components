@@ -18,6 +18,7 @@
 
 ### Used by
 
+ - [p4-button](../p4-button)
  - [p4-input](../p4-input)
  - [p4-select](../p4-select)
  - [p4-textarea](../p4-textarea)
@@ -25,6 +26,7 @@
 ### Graph
 ```mermaid
 graph TD;
+  p4-button --> p4-icon
   p4-input --> p4-icon
   p4-select --> p4-icon
   p4-textarea --> p4-icon

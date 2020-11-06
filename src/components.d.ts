@@ -134,6 +134,24 @@ export namespace Components {
     }
     interface P4Label {
     }
+    interface P4ScriptEditor {
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
+         */
+        "debounce": number;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled": boolean;
+        "language": 'javascript' | 'json' | 'html';
+        "lineNumbers": 'off' | 'on';
+        /**
+          * The input field name.
+         */
+        "name": string;
+        "theme": 'vs-light' | 'vs-dark';
+        "value": string;
+    }
     interface P4Select {
         "actions": any[];
         /**
@@ -296,6 +314,12 @@ declare global {
         prototype: HTMLP4LabelElement;
         new (): HTMLP4LabelElement;
     };
+    interface HTMLP4ScriptEditorElement extends Components.P4ScriptEditor, HTMLStencilElement {
+    }
+    var HTMLP4ScriptEditorElement: {
+        prototype: HTMLP4ScriptEditorElement;
+        new (): HTMLP4ScriptEditorElement;
+    };
     interface HTMLP4SelectElement extends Components.P4Select, HTMLStencilElement {
     }
     var HTMLP4SelectElement: {
@@ -322,6 +346,7 @@ declare global {
         "p4-input": HTMLP4InputElement;
         "p4-item": HTMLP4ItemElement;
         "p4-label": HTMLP4LabelElement;
+        "p4-script-editor": HTMLP4ScriptEditorElement;
         "p4-select": HTMLP4SelectElement;
         "p4-spinner": HTMLP4SpinnerElement;
         "p4-textarea": HTMLP4TextareaElement;
@@ -362,7 +387,7 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
-          * On change of input a CustomEvent 'inputChange' will be triggered. Event details contains parent event, oldValue, newValue of input.
+          * On change of input a CustomEvent 'p4Change' will be triggered. Event details contains parent event, oldValue, newValue of input.
          */
         "onP4Change"?: (event: CustomEvent<any>) => void;
         /**
@@ -473,6 +498,25 @@ declare namespace LocalJSX {
     interface P4Item {
     }
     interface P4Label {
+    }
+    interface P4ScriptEditor {
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
+         */
+        "debounce"?: number;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled"?: boolean;
+        "language"?: 'javascript' | 'json' | 'html';
+        "lineNumbers"?: 'off' | 'on';
+        /**
+          * The input field name.
+         */
+        "name"?: string;
+        "onP4Change"?: (event: CustomEvent<any>) => void;
+        "theme"?: 'vs-light' | 'vs-dark';
+        "value"?: string;
     }
     interface P4Select {
         "actions"?: any[];
@@ -620,6 +664,7 @@ declare namespace LocalJSX {
         "p4-input": P4Input;
         "p4-item": P4Item;
         "p4-label": P4Label;
+        "p4-script-editor": P4ScriptEditor;
         "p4-select": P4Select;
         "p4-spinner": P4Spinner;
         "p4-textarea": P4Textarea;
@@ -636,6 +681,7 @@ declare module "@stencil/core" {
             "p4-input": LocalJSX.P4Input & JSXBase.HTMLAttributes<HTMLP4InputElement>;
             "p4-item": LocalJSX.P4Item & JSXBase.HTMLAttributes<HTMLP4ItemElement>;
             "p4-label": LocalJSX.P4Label & JSXBase.HTMLAttributes<HTMLP4LabelElement>;
+            "p4-script-editor": LocalJSX.P4ScriptEditor & JSXBase.HTMLAttributes<HTMLP4ScriptEditorElement>;
             "p4-select": LocalJSX.P4Select & JSXBase.HTMLAttributes<HTMLP4SelectElement>;
             "p4-spinner": LocalJSX.P4Spinner & JSXBase.HTMLAttributes<HTMLP4SpinnerElement>;
             "p4-textarea": LocalJSX.P4Textarea & JSXBase.HTMLAttributes<HTMLP4TextareaElement>;

@@ -27,7 +27,7 @@ export declare class P4Checkbox {
    */
   disabled: boolean;
   /**
-   * On change of input a CustomEvent 'inputChange' will be triggered. Event details contains parent event, oldValue, newValue of input.
+   * On change of input a CustomEvent 'p4Change' will be triggered. Event details contains parent event, oldValue, newValue of input.
    */
   p4Change: EventEmitter;
   onChange: (event: any) => void;
