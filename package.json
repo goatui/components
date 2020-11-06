@@ -1,6 +1,6 @@
 {
   "name": "@p4rm/ui",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Stencil Component Starter",
   "main": "dist/index.cjs.js",
   "module": "dist/custom-elements/index.js",
@@ -30,7 +30,8 @@
   },
   "devDependencies": {
     "gulp": "^4.0.2",
-    "gulp-clean": "^0.4.0"
+    "gulp-clean": "^0.4.0",
+    "glob": "^7.1.6"
   },
   "license": "MIT"
 }

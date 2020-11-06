@@ -71,10 +71,6 @@ export namespace Components {
          */
         "size": 'sm' | 'md' | 'lg' | string;
         "type": string;
-        /**
-          * Icon variants to add additional styling Possible values are `"default"`, `"primary"`, `"danger"`, `"success"`. Defaults to `"default"`.
-         */
-        "variant": 'default' | 'primary' | 'danger' | 'success';
     }
     interface P4Input {
         /**
@@ -431,10 +427,6 @@ declare namespace LocalJSX {
          */
         "size"?: 'sm' | 'md' | 'lg' | string;
         "type"?: string;
-        /**
-          * Icon variants to add additional styling Possible values are `"default"`, `"primary"`, `"danger"`, `"success"`. Defaults to `"default"`.
-         */
-        "variant"?: 'default' | 'primary' | 'danger' | 'success';
     }
     interface P4Input {
         /**
