@@ -107,7 +107,7 @@ export class P4ScriptEditor {
 
     this.editorMonacoInstance.onDidChangeModelContent(() => {
       this.value = this.editorMonacoInstance.getValue();
-      this.p4Change.emit(this.value);
+      this.p4Change.emit({value: this.value});
     });
   }
 

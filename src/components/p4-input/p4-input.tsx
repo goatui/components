@@ -112,7 +112,7 @@ export class P4Input {
   private onInput = (ev: Event) => {
     const input = ev.target as HTMLInputElement | null;
     if (input) {
-      this.value = input.value || '';
+      this.value = input.value;
     }
     this.p4Input.emit(ev as KeyboardEvent);
   };
@@ -154,7 +154,14 @@ export class P4Input {
    */
   @Watch('value')
   protected valueChanged() {
-    this.p4Change.emit({ value: this.value == null ? this.value : this.value.toString() });
+    let value = this.value;
+    if (this.type === 'number') {
+      if (value)
+        value = JSON.parse(value + '');
+      else
+        value = null;
+    }
+    this.p4Change.emit({ value });
   }
 
   @Watch('debounce')
@@ -213,18 +220,14 @@ export class P4Input {
     }));
   }
 
-  private getValue(): string {
-    return typeof this.value === 'number' ? this.value.toString() :
-      (this.value || '').toString();
-  }
-
   private hasValue(): boolean {
-    return this.getValue().length > 0;
+    const value = (typeof this.value) === 'number' ? this.value.toString() :
+      (this.value || '').toString();
+    return value.length > 0;
   }
 
 
   render() {
-    const value = this.getValue();
     const labelId = this.inputId + '-lbl';
     const label = findItemLabel(this.el);
     if (label) {
@@ -245,7 +248,7 @@ export class P4Input {
             type={this.type}
             placeholder={this.placeholder}
             autocomplete={this.autocomplete}
-            value={value}
+            value={this.value}
             tabindex={this.tabindex}
             required={this.required}
             onInput={this.onInput}

@@ -24,7 +24,7 @@
 
 <p4-item class="item">
   <p4-label>Testing</p4-label>
-  <p4-input required="true" name="name" clear-input="true" placeholder="John Snow"></p4-input>
+  <p4-input id="input" required="true"  name="name" clear-input="true" placeholder="John Snow"></p4-input>
 </p4-item>
 
 
@@ -48,6 +48,10 @@
 }`;
 
   document.getElementById('editor').addEventListener("p4Change", function() {
+    console.log(event.detail);
+  });
+
+  document.getElementById('input').addEventListener("p4Change", function() {
     console.log(event.detail);
   })
 </script>

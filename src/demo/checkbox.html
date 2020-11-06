@@ -14,13 +14,17 @@
 <div class="section">
     <h2>Basic</h2>
     <p4-checkbox label="Male"></p4-checkbox>
-    <p4-checkbox label="Dashed" variant="dashed"></p4-checkbox>
+    <p4-checkbox label="Dashed" variant="dashed" value="true"></p4-checkbox>
 
 
   <p4-checkbox label="Small" size="sm"></p4-checkbox>
   <p4-checkbox label="Large" size="lg"></p4-checkbox>
     <h2>Disabled</h2>
     <p4-checkbox label="Female" inline="true" disabled></p4-checkbox>
+
+  <script>
+    monitorEvents(window, 'p4Change');
+  </script>
 </div>
 
 

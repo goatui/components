@@ -162,7 +162,7 @@ export class P4Select {
       this.setReadable();
       this.value = this.getItemValue(item);
       this.searchString = '';
-      this.p4Change.emit(item);
+      this.p4Change.emit({ value: this.value, item });
     }
   };
 
@@ -202,8 +202,8 @@ export class P4Select {
   };
 
   onActionClick = (action) => {
-    this.p4ActionClick.emit(action.name)
-  }
+    this.p4ActionClick.emit(action.name);
+  };
 
   getOptionLabelByValue(value) {
     if (typeof this.options !== 'string') {
@@ -280,7 +280,7 @@ export class P4Select {
       return <button class="btn-action" type="button" onClick={() => this.onActionClick(action)}>
         <p4-icon type={action.icon} size="1rem" class="icon" />
       </button>;
-    })
+    });
   }
 
 

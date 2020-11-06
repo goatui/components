@@ -150,6 +150,9 @@ export namespace Components {
          */
         "name": string;
         "theme": 'vs-light' | 'vs-dark';
+        /**
+          * The input field value.
+         */
         "value": string;
     }
     interface P4Select {
@@ -514,8 +517,14 @@ declare namespace LocalJSX {
           * The input field name.
          */
         "name"?: string;
+        /**
+          * Emitted when the value has changed..
+         */
         "onP4Change"?: (event: CustomEvent<any>) => void;
         "theme"?: 'vs-light' | 'vs-dark';
+        /**
+          * The input field value.
+         */
         "value"?: string;
     }
     interface P4Select {
