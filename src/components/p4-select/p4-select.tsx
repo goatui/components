@@ -13,6 +13,7 @@ export class P4Select {
   @Element() el!: HTMLElement;
 
   private nativeInput?: HTMLInputElement;
+  private displayElement?: HTMLElement;
   private tabindex?: string | number;
   private inputId = `p4-select-${inputIds++}`;
 
@@ -61,14 +62,16 @@ export class P4Select {
 
   @Prop() filterOptions: boolean = true;
 
+  @Prop() type: 'select' | 'typeahead' | 'menu' = 'select';
 
-  @Prop() config: any | string = { itemValue: 'value', itemLabel: 'label' };
+
+  @Prop() config: any = { itemValue: 'value', itemLabel: 'label' };
 
 
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
-  @Prop() options: any[] | string = [];
+  @Prop() options: any[] = [];
 
 
   @Prop() actions: any[] = [];
@@ -119,15 +122,17 @@ export class P4Select {
 
   @State() searchString: string = '';
 
+
   /**
    * Sets focus on the native `input` in `ion-input`. Use this method instead of the global
    * `input.focus()`.
    */
   @Method()
   async setFocus() {
-    if (this.nativeInput) {
+    if (this.type === 'select' || this.type === 'menu')
+      this.displayElement.focus();
+    else if (this.nativeInput)
       this.nativeInput.focus();
-    }
   }
 
   /**
@@ -138,21 +143,6 @@ export class P4Select {
   async setBlur() {
     if (this.nativeInput) {
       this.nativeInput.blur();
-    }
-  }
-
-
-  @Watch('options')
-  optionsWatcher(newValue: any[] | string) {
-    if (typeof newValue === 'string') {
-      this.options = JSON.parse(newValue);
-    }
-  }
-
-  @Watch('config')
-  configWatcher(newValue: any[] | string) {
-    if (typeof newValue === 'string') {
-      this.config = JSON.parse(newValue);
     }
   }
 
@@ -206,7 +196,7 @@ export class P4Select {
   };
 
   getOptionLabelByValue(value) {
-    if (typeof this.options !== 'string') {
+    if (this.options) {
       const item = this.options.find((item) => {
         return this.getItemValue(item) === value;
       });
@@ -220,8 +210,14 @@ export class P4Select {
 
   private setEditable = () => {
     if (!this.disabled && this.mode == 'read') {
-      if (this.options.length)
-        this.activeOption = this.options[0];
+      if (this.options.length) {
+        if (this.value)
+          this.activeOption = this.options.find((option) => {
+            return this.getItemValue(option) === this.value;
+          });
+        else
+          this.activeOption = this.options[0];
+      }
       this.mode = 'edit';
       setTimeout(() => {
         this.setFocus();
@@ -236,8 +232,9 @@ export class P4Select {
   };
 
 
-  private onBlur = () => {
+  private onBlur = (evt) => {
     this.hasFocus = false;
+    this.p4Blur.emit(evt);
     setTimeout(() => {
       this.setReadable();
     }, 300);
@@ -268,6 +265,7 @@ export class P4Select {
     cls.push('variant-' + this.variant);
     cls.push('size-' + this.size);
     cls.push('mode-' + this.mode);
+    cls.push('type-' + this.type);
     if (this.required)
       cls.push('required');
     if (this.disabled)
@@ -293,9 +291,13 @@ export class P4Select {
       return <button class="btn-action" type="button" onClick={() => setTimeout(() => this.setEditable())}>
         <p4-icon type="chevron-down" size="1rem" class="icon" />
       </button>;
-    } else {
+    } else if (this.type === 'typeahead') {
       return <button type="button" disabled>
         <p4-icon type="search" size="1rem" class="icon" />
+      </button>;
+    } else {
+      return <button class="btn-action" type="button" onClick={() => setTimeout(() => this.setReadable())}>
+        <p4-icon type="chevron-up" size="1rem" class="icon" />
       </button>;
     }
   }
@@ -361,9 +363,6 @@ export class P4Select {
       this.tabindex = tabindex !== null ? tabindex : undefined;
       this.el.removeAttribute('tabindex');
     }
-
-    this.optionsWatcher(this.options);
-    this.configWatcher(this.config);
   }
 
   private clearTextOnEnter = (ev: KeyboardEvent) => {
@@ -417,12 +416,33 @@ export class P4Select {
                  onKeyDown={this.onKeyDown}
           />
           <div class="select-selection-item display-value" tabindex="1"
-               onFocus={this.setEditable}
+               onFocus={(evt) => {
+                 if (this.type === 'menu' || this.type === 'select') {
+                   this.onFocus(evt);
+                 }
+                 this.setEditable();
+               }}
+               ref={(el) => this.displayElement = el}
+               onBlur={(evt) => {
+                 if (this.type === 'menu' || this.type === 'select') {
+                   this.onBlur(evt);
+                 }
+               }}
+               onKeyDown={(evt) => {
+                 if (this.type === 'menu' || this.type === 'select') {
+                   if (evt.key === 'Enter' || evt.key === 'ArrowUp' || evt.key === 'ArrowDown') {
+                     evt.preventDefault();
+                     this.onKeyDown(evt);
+                   }
+                 }
+               }}
                onClick={this.setEditable}>
-            {this.getOptionLabelByValue(this.value)}
+            {
+              this.type === 'menu' ? <slot></slot> : this.getOptionLabelByValue(this.value)
+            }
           </div>
           <div class="input-actions">
-            {(this.clearInput && !this.disabled && this.hasValue()) && <button
+            {(this.clearInput && this.type !== 'menu' && !this.disabled && this.hasValue()) && <button
               aria-label="reset"
               type="button"
               class="input-clear-icon"

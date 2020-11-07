@@ -1,16 +1,24 @@
 @import "../../styles/input";
 
+
 .select-component {
 
-  &.mode-read {
-    .native-input {
+  .native-input {
+    display: none;
+  }
+
+  &.mode-edit.type-typeahead {
+    .select-selection-item {
       display: none;
+    }
+    .native-input {
+      display: block;
     }
   }
 
-  &.mode-edit {
-    .select-selection-item {
-      display: none;
+  &.type-menu {
+    .display-value {
+      color: $color-gray-10;
     }
   }
 
@@ -19,7 +27,6 @@
       cursor: pointer;
     }
   }
-
 
 
   .select-result {
@@ -47,10 +54,12 @@
     text-align: center;
     color: $color-gray-8;
     padding: 15px;
+
     p4-icon {
       max-height: 4em;
       max-width: 4em;
     }
+
     .no-data-text {
       font-size: 1.2em;
     }
@@ -61,6 +70,7 @@
    */
   &.size-lg {
     height: 2.75rem;
+
     .display-value {
       line-height: 2;
     }
@@ -72,6 +82,7 @@
 
   &.size-sm {
     height: 1.5rem;
+
     .display-value {
       line-height: 1;
     }
@@ -79,3 +90,8 @@
 
 }
 
+:host(.has-value) {
+  .display-value {
+    color: $color-gray-10;
+  }
+}

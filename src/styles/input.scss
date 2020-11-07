@@ -151,8 +151,8 @@
   }
 }
 
-:host(.has-value) {
-  .display-value {
-    color: $color-gray-10;
+:host(.no-border) {
+  .input-component {
+    border: 0;
   }
 }

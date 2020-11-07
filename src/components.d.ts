@@ -157,7 +157,7 @@ export namespace Components {
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
          */
         "clearInput": boolean;
-        "config": any | string;
+        "config": any;
         /**
           * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
          */
@@ -174,7 +174,7 @@ export namespace Components {
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
-        "options": any[] | string;
+        "options": any[];
         /**
           * The input field placeholder.
          */
@@ -196,6 +196,7 @@ export namespace Components {
           * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
         "size": 'sm' | 'md' | 'lg';
+        "type": 'select' | 'typeahead' | 'menu';
         /**
           * The input field value.
          */
@@ -525,7 +526,7 @@ declare namespace LocalJSX {
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
          */
         "clearInput"?: boolean;
-        "config"?: any | string;
+        "config"?: any;
         /**
           * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
          */
@@ -562,7 +563,7 @@ declare namespace LocalJSX {
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
-        "options"?: any[] | string;
+        "options"?: any[];
         /**
           * The input field placeholder.
          */
@@ -576,6 +577,7 @@ declare namespace LocalJSX {
           * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
         "size"?: 'sm' | 'md' | 'lg';
+        "type"?: 'select' | 'typeahead' | 'menu';
         /**
           * The input field value.
          */
