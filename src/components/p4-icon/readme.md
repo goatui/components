@@ -7,11 +7,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description                                                                                                                             | Type                                              | Default     |
-| --------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ----------- |
-| `size`    | `size`    | The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.                                                         | `string`                                          | `'md'`      |
-| `type`    | `type`    |                                                                                                                                         | `string`                                          | `'alarm'`   |
-| `variant` | `variant` | Icon variants to add additional styling Possible values are `"default"`, `"primary"`, `"danger"`, `"success"`. Defaults to `"default"`. | `"danger" \| "default" \| "primary" \| "success"` | `'default'` |
+| Property | Attribute | Description                                                                     | Type     | Default     |
+| -------- | --------- | ------------------------------------------------------------------------------- | -------- | ----------- |
+| `size`   | `size`    | The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`. | `string` | `'md'`      |
+| `type`   | `type`    |                                                                                 | `string` | `undefined` |
 
 
 ## Dependencies

@@ -42,7 +42,7 @@ export class P4Button {
   @Event() p4Click: EventEmitter;
 
   private onClick = (event: any) => {
-    if (!this.disabled)
+    if (!this.disabled && !this.showLoader)
       this.p4Click.emit(event);
   };
 
@@ -62,9 +62,7 @@ export class P4Button {
         <button
           class={this.getCssClasses()}
           onClick={this.onClick}
-          disabled={this.disabled}>
-
-
+          disabled={this.disabled || this.showLoader}>
           {this.showLoader && <p4-spinner class="icon" size="1rem" />}
           <div class="slot-container" style={{'visibility': this.showLoader ? 'hidden' : 'visible'}}>
             {this.icon && <p4-icon type={this.icon} size="1rem" />}
