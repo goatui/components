@@ -4,7 +4,7 @@ title: Button
 componentName: p4-button
 ---
 
-<script type="module" src="https://unpkg.com/@p4rm/ui@{{site.project_version}}/dist/p4rm-ui/p4rm-ui.esm.js"></script>
+<script type="module" src="/assets/p4/p4rm-ui/p4rm-ui.esm.js"></script>
 <div class="row pt-3">
   <!-- Content Nav -->
   <div class="col-xl-2 order-xl-2 d-none d-xl-inline-block">
@@ -13,6 +13,7 @@ componentName: p4-button
       <li class="duik-content-nav__item"><a href="#doc-examples">Examples</a></li>
       <li class="duik-content-nav__item"><a href="#doc-sizes">Sizes</a></li>
       <li class="duik-content-nav__item"><a href="#doc-disabled-state">Disabled state</a></li>
+      <li class="duik-content-nav__item"><a href="#doc-loading-state">Loading state</a></li>
       <li class="duik-content-nav__item"><a href="#doc-events">Events</a></li>
     </ul>
   </div>
@@ -121,8 +122,31 @@ componentName: p4-button
         </div>
       </div>
 
+    </div>
+
+    <!-- Loading State -->
+    <div id="doc-loading-state" class="mb-7">
+      <h2 class="h4">Disabled state <a class="js-anchor-link duik-anchorjs-link" href="#doc-loading-state"
+                                       aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+      <p>Make buttons look inactive by adding the disabled <code class="highlighter-rouge"
+                                                                 data-lang="html">boolean</code>
+        attribute to any <code class="highlighter-rouge" data-lang="html">&lt;button&gt;</code> element.</p>
+
+      <div class="card">
+        <div class="card-header">
+          <p4-button show-loader="true">Loading</p4-button>
+        </div>
+        <div class="card-body">
+      <pre>
+                <code class="language-html" data-lang="html">&lt;p4-button show-loader="true">Loading&lt;/p4-button>
+                </code>
+      </pre>
+        </div>
+      </div>
+
 
     </div>
+
 
     <!-- Events -->
     <div id="doc-events" class="mb-7">

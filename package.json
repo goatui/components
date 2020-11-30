@@ -20,7 +20,7 @@
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "release-to-docs": "stencil build --docs | gulp"
+    "release-to-docs": "gulp"
   },
   "dependencies": {
     "@stencil/core": "^2.1.0",

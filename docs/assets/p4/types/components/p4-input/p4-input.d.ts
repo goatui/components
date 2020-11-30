@@ -91,7 +91,6 @@ export declare class P4Input {
   componentWillLoad(): void;
   connectedCallback(): void;
   disconnectedCallback(): void;
-  private getValue;
   private hasValue;
   render(): any;
 }

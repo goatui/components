@@ -52,19 +52,6 @@ export namespace Components {
          */
         "variant": 'default' | 'dashed';
     }
-    interface P4Grid {
-        /**
-          * Grid columns configuration. [{"name":"name","label":"Name","width":300,"fixed":true},{"name":"age","label":"Age"},{"name":"eyeColor","label":"Eye Color","width":500}].
-         */
-        "columnConfig": any[];
-        /**
-          * Grid data to display on table [{'id': '5e7118ddce4b3d577956457f', 'index': 0, 'age': 21, 'eyeColor': 'blue', 'name': 'John', 'company': 'India', 'email': 'john@example.com', 'phone': '+1 (839) 560-3581', 'address': '326 Irving Street, Grimsley, Texas, 4048'}]
-         */
-        "data": any[];
-        "rowKey": string;
-        "selectedRows": string[];
-        "selectionType": 'checkbox' | undefined;
-    }
     interface P4Icon {
         /**
           * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
@@ -216,6 +203,19 @@ export namespace Components {
          */
         "variant": 'default' | 'primary' | 'danger' | 'success';
     }
+    interface P4Table {
+        /**
+          * Grid columns configuration. [ {    "name":"name",    "label":"Name",    "width":300,    "fixed":true   }, {    "name":"age",    "label":"Age" } ]
+         */
+        "columns": any[];
+        /**
+          * Grid data to display on table [{   'id': '5e7118ddce4b3d577956457f',   'age': 21,   'name': 'John',   'company': 'India',   'email': 'john@example.com',   'phone': '+1 (839) 560-3581',   'address': '326 Irving Street, Grimsley, Texas, 4048'   }]
+         */
+        "dataSource": any[];
+        "keyField": string;
+        "selectedRows": string[];
+        "selectionType": 'checkbox' | undefined;
+    }
     interface P4Textarea {
         /**
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
@@ -284,12 +284,6 @@ declare global {
         prototype: HTMLP4CheckboxElement;
         new (): HTMLP4CheckboxElement;
     };
-    interface HTMLP4GridElement extends Components.P4Grid, HTMLStencilElement {
-    }
-    var HTMLP4GridElement: {
-        prototype: HTMLP4GridElement;
-        new (): HTMLP4GridElement;
-    };
     interface HTMLP4IconElement extends Components.P4Icon, HTMLStencilElement {
     }
     var HTMLP4IconElement: {
@@ -332,6 +326,12 @@ declare global {
         prototype: HTMLP4SpinnerElement;
         new (): HTMLP4SpinnerElement;
     };
+    interface HTMLP4TableElement extends Components.P4Table, HTMLStencilElement {
+    }
+    var HTMLP4TableElement: {
+        prototype: HTMLP4TableElement;
+        new (): HTMLP4TableElement;
+    };
     interface HTMLP4TextareaElement extends Components.P4Textarea, HTMLStencilElement {
     }
     var HTMLP4TextareaElement: {
@@ -341,7 +341,6 @@ declare global {
     interface HTMLElementTagNameMap {
         "p4-button": HTMLP4ButtonElement;
         "p4-checkbox": HTMLP4CheckboxElement;
-        "p4-grid": HTMLP4GridElement;
         "p4-icon": HTMLP4IconElement;
         "p4-input": HTMLP4InputElement;
         "p4-item": HTMLP4ItemElement;
@@ -349,6 +348,7 @@ declare global {
         "p4-script-editor": HTMLP4ScriptEditorElement;
         "p4-select": HTMLP4SelectElement;
         "p4-spinner": HTMLP4SpinnerElement;
+        "p4-table": HTMLP4TableElement;
         "p4-textarea": HTMLP4TextareaElement;
     }
 }
@@ -406,21 +406,6 @@ declare namespace LocalJSX {
           * Button variants Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
          */
         "variant"?: 'default' | 'dashed';
-    }
-    interface P4Grid {
-        /**
-          * Grid columns configuration. [{"name":"name","label":"Name","width":300,"fixed":true},{"name":"age","label":"Age"},{"name":"eyeColor","label":"Eye Color","width":500}].
-         */
-        "columnConfig"?: any[];
-        /**
-          * Grid data to display on table [{'id': '5e7118ddce4b3d577956457f', 'index': 0, 'age': 21, 'eyeColor': 'blue', 'name': 'John', 'company': 'India', 'email': 'john@example.com', 'phone': '+1 (839) 560-3581', 'address': '326 Irving Street, Grimsley, Texas, 4048'}]
-         */
-        "data"?: any[];
-        "onP4CellClick"?: (event: CustomEvent<any>) => void;
-        "onP4SelectChange"?: (event: CustomEvent<any>) => void;
-        "rowKey"?: string;
-        "selectedRows"?: string[];
-        "selectionType"?: 'checkbox' | undefined;
     }
     interface P4Icon {
         /**
@@ -597,6 +582,21 @@ declare namespace LocalJSX {
          */
         "variant"?: 'default' | 'primary' | 'danger' | 'success';
     }
+    interface P4Table {
+        /**
+          * Grid columns configuration. [ {    "name":"name",    "label":"Name",    "width":300,    "fixed":true   }, {    "name":"age",    "label":"Age" } ]
+         */
+        "columns"?: any[];
+        /**
+          * Grid data to display on table [{   'id': '5e7118ddce4b3d577956457f',   'age': 21,   'name': 'John',   'company': 'India',   'email': 'john@example.com',   'phone': '+1 (839) 560-3581',   'address': '326 Irving Street, Grimsley, Texas, 4048'   }]
+         */
+        "dataSource"?: any[];
+        "keyField"?: string;
+        "onP4CellClick"?: (event: CustomEvent<any>) => void;
+        "onP4SelectChange"?: (event: CustomEvent<any>) => void;
+        "selectedRows"?: string[];
+        "selectionType"?: 'checkbox' | undefined;
+    }
     interface P4Textarea {
         /**
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
@@ -662,7 +662,6 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "p4-button": P4Button;
         "p4-checkbox": P4Checkbox;
-        "p4-grid": P4Grid;
         "p4-icon": P4Icon;
         "p4-input": P4Input;
         "p4-item": P4Item;
@@ -670,6 +669,7 @@ declare namespace LocalJSX {
         "p4-script-editor": P4ScriptEditor;
         "p4-select": P4Select;
         "p4-spinner": P4Spinner;
+        "p4-table": P4Table;
         "p4-textarea": P4Textarea;
     }
 }
@@ -679,7 +679,6 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "p4-button": LocalJSX.P4Button & JSXBase.HTMLAttributes<HTMLP4ButtonElement>;
             "p4-checkbox": LocalJSX.P4Checkbox & JSXBase.HTMLAttributes<HTMLP4CheckboxElement>;
-            "p4-grid": LocalJSX.P4Grid & JSXBase.HTMLAttributes<HTMLP4GridElement>;
             "p4-icon": LocalJSX.P4Icon & JSXBase.HTMLAttributes<HTMLP4IconElement>;
             "p4-input": LocalJSX.P4Input & JSXBase.HTMLAttributes<HTMLP4InputElement>;
             "p4-item": LocalJSX.P4Item & JSXBase.HTMLAttributes<HTMLP4ItemElement>;
@@ -687,6 +686,7 @@ declare module "@stencil/core" {
             "p4-script-editor": LocalJSX.P4ScriptEditor & JSXBase.HTMLAttributes<HTMLP4ScriptEditorElement>;
             "p4-select": LocalJSX.P4Select & JSXBase.HTMLAttributes<HTMLP4SelectElement>;
             "p4-spinner": LocalJSX.P4Spinner & JSXBase.HTMLAttributes<HTMLP4SpinnerElement>;
+            "p4-table": LocalJSX.P4Table & JSXBase.HTMLAttributes<HTMLP4TableElement>;
             "p4-textarea": LocalJSX.P4Textarea & JSXBase.HTMLAttributes<HTMLP4TextareaElement>;
         }
     }

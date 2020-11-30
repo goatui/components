@@ -19,7 +19,15 @@
     "category": "Components",
     "label": "Input",
     "url": "/component/input.html"
-  },{
+  }, {
+  "category": "Components",
+  "label": "Number",
+  "url": "/component/input.html#doc-types"
+}, {
+  "category": "Components",
+  "label": "Password",
+  "url": "/component/input.html#doc-types"
+},{
     "category": "Components",
     "label": "Table",
   "url": "/component/table.html"

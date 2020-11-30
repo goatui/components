@@ -48,9 +48,9 @@ export class P4Checkbox {
   onChange = (event: any) => {
     if (!this.disabled) {
       this.value = !JSON.parse(event.target.value);
-      this.p4Change.emit({value: this.value});
+      this.p4Change.emit({ value: this.value });
     }
-  }
+  };
 
 
   private getCssClasses() {

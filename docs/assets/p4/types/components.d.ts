@@ -15,6 +15,8 @@ export namespace Components {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
+        "icon": string;
+        "showLoader": boolean;
         /**
           * Button size. Possible values are `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
@@ -69,10 +71,6 @@ export namespace Components {
          */
         "size": 'sm' | 'md' | 'lg' | string;
         "type": string;
-        /**
-          * Icon variants to add additional styling Possible values are `"default"`, `"primary"`, `"danger"`, `"success"`. Defaults to `"default"`.
-         */
-        "variant": 'default' | 'primary' | 'danger' | 'success';
     }
     interface P4Input {
         /**
@@ -132,13 +130,34 @@ export namespace Components {
     }
     interface P4Label {
     }
+    interface P4ScriptEditor {
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
+         */
+        "debounce": number;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled": boolean;
+        "language": 'javascript' | 'json' | 'html';
+        "lineNumbers": 'off' | 'on';
+        /**
+          * The input field name.
+         */
+        "name": string;
+        "theme": 'vs-light' | 'vs-dark';
+        /**
+          * The input field value.
+         */
+        "value": string;
+    }
     interface P4Select {
         "actions": any[];
         /**
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
          */
         "clearInput": boolean;
-        "config": any | string;
+        "config": any;
         /**
           * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
          */
@@ -155,7 +174,7 @@ export namespace Components {
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
-        "options": any[] | string;
+        "options": any[];
         /**
           * The input field placeholder.
          */
@@ -177,6 +196,7 @@ export namespace Components {
           * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
         "size": 'sm' | 'md' | 'lg';
+        "type": 'select' | 'typeahead' | 'menu';
         /**
           * The input field value.
          */
@@ -294,6 +314,12 @@ declare global {
         prototype: HTMLP4LabelElement;
         new (): HTMLP4LabelElement;
     };
+    interface HTMLP4ScriptEditorElement extends Components.P4ScriptEditor, HTMLStencilElement {
+    }
+    var HTMLP4ScriptEditorElement: {
+        prototype: HTMLP4ScriptEditorElement;
+        new (): HTMLP4ScriptEditorElement;
+    };
     interface HTMLP4SelectElement extends Components.P4Select, HTMLStencilElement {
     }
     var HTMLP4SelectElement: {
@@ -320,6 +346,7 @@ declare global {
         "p4-input": HTMLP4InputElement;
         "p4-item": HTMLP4ItemElement;
         "p4-label": HTMLP4LabelElement;
+        "p4-script-editor": HTMLP4ScriptEditorElement;
         "p4-select": HTMLP4SelectElement;
         "p4-spinner": HTMLP4SpinnerElement;
         "p4-textarea": HTMLP4TextareaElement;
@@ -335,10 +362,12 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
+        "icon"?: string;
         /**
           * On click of button a CustomEvent 'p4Click' will be triggered.
          */
         "onP4Click"?: (event: CustomEvent<any>) => void;
+        "showLoader"?: boolean;
         /**
           * Button size. Possible values are `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
@@ -399,10 +428,6 @@ declare namespace LocalJSX {
          */
         "size"?: 'sm' | 'md' | 'lg' | string;
         "type"?: string;
-        /**
-          * Icon variants to add additional styling Possible values are `"default"`, `"primary"`, `"danger"`, `"success"`. Defaults to `"default"`.
-         */
-        "variant"?: 'default' | 'primary' | 'danger' | 'success';
     }
     interface P4Input {
         /**
@@ -470,13 +495,38 @@ declare namespace LocalJSX {
     }
     interface P4Label {
     }
+    interface P4ScriptEditor {
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
+         */
+        "debounce"?: number;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled"?: boolean;
+        "language"?: 'javascript' | 'json' | 'html';
+        "lineNumbers"?: 'off' | 'on';
+        /**
+          * The input field name.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the value has changed..
+         */
+        "onP4Change"?: (event: CustomEvent<any>) => void;
+        "theme"?: 'vs-light' | 'vs-dark';
+        /**
+          * The input field value.
+         */
+        "value"?: string;
+    }
     interface P4Select {
         "actions"?: any[];
         /**
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
          */
         "clearInput"?: boolean;
-        "config"?: any | string;
+        "config"?: any;
         /**
           * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
          */
@@ -513,7 +563,7 @@ declare namespace LocalJSX {
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
-        "options"?: any[] | string;
+        "options"?: any[];
         /**
           * The input field placeholder.
          */
@@ -527,6 +577,7 @@ declare namespace LocalJSX {
           * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
         "size"?: 'sm' | 'md' | 'lg';
+        "type"?: 'select' | 'typeahead' | 'menu';
         /**
           * The input field value.
          */
@@ -616,6 +667,7 @@ declare namespace LocalJSX {
         "p4-input": P4Input;
         "p4-item": P4Item;
         "p4-label": P4Label;
+        "p4-script-editor": P4ScriptEditor;
         "p4-select": P4Select;
         "p4-spinner": P4Spinner;
         "p4-textarea": P4Textarea;
@@ -632,6 +684,7 @@ declare module "@stencil/core" {
             "p4-input": LocalJSX.P4Input & JSXBase.HTMLAttributes<HTMLP4InputElement>;
             "p4-item": LocalJSX.P4Item & JSXBase.HTMLAttributes<HTMLP4ItemElement>;
             "p4-label": LocalJSX.P4Label & JSXBase.HTMLAttributes<HTMLP4LabelElement>;
+            "p4-script-editor": LocalJSX.P4ScriptEditor & JSXBase.HTMLAttributes<HTMLP4ScriptEditorElement>;
             "p4-select": LocalJSX.P4Select & JSXBase.HTMLAttributes<HTMLP4SelectElement>;
             "p4-spinner": LocalJSX.P4Spinner & JSXBase.HTMLAttributes<HTMLP4SpinnerElement>;
             "p4-textarea": LocalJSX.P4Textarea & JSXBase.HTMLAttributes<HTMLP4TextareaElement>;

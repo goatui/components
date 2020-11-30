@@ -44,6 +44,12 @@ export const P4Label: {
   new (): P4Label;
 };
 
+interface P4ScriptEditor extends Components.P4ScriptEditor, HTMLElement {}
+export const P4ScriptEditor: {
+  prototype: P4ScriptEditor;
+  new (): P4ScriptEditor;
+};
+
 interface P4Select extends Components.P4Select, HTMLElement {}
 export const P4Select: {
   prototype: P4Select;
@@ -63,13 +69,13 @@ export const P4Textarea: {
 };
 
 /**
- * Utility to define all custom elements within this package using the tag name provided in the component's source. 
+ * Utility to define all custom elements within this package using the tag name provided in the component's source.
  * When defining each custom element, it will also check it's safe to define by:
  *
  * 1. Ensuring the "customElements" registry is available in the global context (window).
  * 2. The component tag name is not already defined.
  *
- * Use the standard [customElements.define()](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry/define) 
+ * Use the standard [customElements.define()](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry/define)
  * method instead to define custom elements individually, or to provide a different tag name.
  */
 export declare const defineCustomElements: (opts?: any) => void;

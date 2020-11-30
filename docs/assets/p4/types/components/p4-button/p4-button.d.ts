@@ -18,6 +18,8 @@ export declare class P4Button {
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
   disabled: boolean;
+  icon: string;
+  showLoader: boolean;
   /**
    * On click of button a CustomEvent 'p4Click' will be triggered.
    */

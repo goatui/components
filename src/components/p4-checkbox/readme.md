@@ -28,12 +28,12 @@
 
 ### Used by
 
- - [p4-grid](../p4-grid)
+ - [p4-table](../p4-table)
 
 ### Graph
 ```mermaid
 graph TD;
-  p4-grid --> p4-checkbox
+  p4-table --> p4-checkbox
   style p4-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

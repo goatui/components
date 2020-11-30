@@ -2,6 +2,7 @@ import { EventEmitter } from '../../stencil-public-runtime';
 export declare class P4Select {
   el: HTMLElement;
   private nativeInput?;
+  private displayElement?;
   private tabindex?;
   private inputId;
   activeOption: any;
@@ -38,11 +39,12 @@ export declare class P4Select {
   disabled: boolean;
   showLoader: boolean;
   filterOptions: boolean;
-  config: any | string;
+  type: 'select' | 'typeahead' | 'menu';
+  config: any;
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
-  options: any[] | string;
+  options: any[];
   actions: any[];
   /**
    * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
@@ -85,8 +87,6 @@ export declare class P4Select {
    * `input.blur()`.
    */
   setBlur(): Promise<void>;
-  optionsWatcher(newValue: any[] | string): void;
-  configWatcher(newValue: any[] | string): void;
   private onChange;
   private onInput;
   private onKeyDown;

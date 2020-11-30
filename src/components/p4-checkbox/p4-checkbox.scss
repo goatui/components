@@ -36,11 +36,9 @@
     padding: 0;
     color: rgba(0, 0, 0, 0.65);
     font-variant: tabular-nums;
-    line-height: 1.5715;
     list-style: none;
     font-feature-settings: 'tnum';
     position: relative;
-    top: -0.09em;
     display: inline-block;
     white-space: nowrap;
     vertical-align: middle;
@@ -161,11 +159,10 @@
   }
 
   .checkbox-wrapper {
+    display: flex;
     margin: 0;
     padding: 0;
     color: rgba(0, 0, 0, 0.65);
-    display: inline-block;
-    line-height: unset;
     cursor: pointer;
   }
 
@@ -190,10 +187,16 @@
    */
   &.size-lg {
     font-size: $font-size-5;
+    .checkbox {
+      font-size: $font-size-6;
+    }
   }
 
   &.size-md {
     font-size: $font-size-4;
+    .checkbox {
+      font-size: $font-size-5;
+    }
   }
 
   &.size-sm {

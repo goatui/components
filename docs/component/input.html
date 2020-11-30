@@ -10,6 +10,7 @@ github_project: p4-input
   <div class="col-xl-2 order-xl-2 d-none d-xl-inline-block">
     <ul class="js-scroll-nav duik-content-nav">
       <li class="duik-content-nav__item"><a href="#doc-usage">Usage</a></li>
+      <li class="duik-content-nav__item"><a href="#doc-types">Types</a></li>
       <li class="duik-content-nav__item"><a href="#doc-variants">Variants</a></li>
       <li class="duik-content-nav__item"><a href="#doc-sizes">Sizes</a></li>
       <li class="duik-content-nav__item"><a href="#doc-disabled-state">Disabled state</a></li>
@@ -56,9 +57,59 @@ github_project: p4-input
 
     <hr class="mt-7 mb-4">
 
-    <!-- What’s Included -->
-    <div id="doc-examples" class="mb-7">
-      <h2 class="h4">Variants <a class="js-anchor-link duik-anchorjs-link" href="#doc-examples"
+    <!-- Types -->
+    <div id="doc-types" class="mb-7">
+      <h2 class="h4">Types <a class="js-anchor-link duik-anchorjs-link" href="#doc-types"
+                                 aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+      <p>Here are different types of inputs.</p>
+
+
+      <div class="card">
+        <div class="card-header">
+          <p4-item class="item">
+            <p4-label>Text</p4-label>
+            <p4-input type="text"></p4-input>
+          </p4-item>
+          <p4-item class="item">
+            <p4-label>Password</p4-label>
+            <p4-input type="password"></p4-input>
+          </p4-item>
+          <p4-item class="item">
+            <p4-label>Number</p4-label>
+            <p4-input type="number"></p4-input>
+          </p4-item>
+        </div>
+        <div class="card-body">
+          <pre>
+                <code class="language-html" data-lang="html">&lt;-- Text -->
+&lt;p4-item class="item">
+  &lt;p4-label>Text&lt;/p4-label>
+  &lt;p4-input type="text">&lt;/p4-input>
+&lt;/p4-item>
+
+&lt;-- Password -->
+&lt;p4-item class="item">
+  &lt;p4-label>Password&lt;/p4-label>
+  &lt;p4-input type="password">&lt;/p4-input>
+&lt;/p4-item>
+
+&lt;-- Number -->
+&lt;p4-item class="item">
+  &lt;p4-label>Number&lt;/p4-label>
+  &lt;p4-input type="number">&lt;/p4-input>
+&lt;/p4-item>
+                </code>
+              </pre>
+        </div>
+      </div>
+    </div>
+    <!-- End Variants -->
+
+    <hr class="mt-7 mb-4">
+
+    <!-- Variants -->
+    <div id="doc-variants" class="mb-7">
+      <h2 class="h4">Variants <a class="js-anchor-link duik-anchorjs-link" href="#doc-variants"
                                  aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
       <p>Here are several predefined input styles, each serving its own semantic purpose.</p>
 
@@ -78,10 +129,8 @@ github_project: p4-input
               </pre>
         </div>
       </div>
-
-
     </div>
-    <!-- End What’s Included -->
+    <!-- End Variants -->
 
     <hr class="mt-7 mb-4">
 
@@ -145,7 +194,7 @@ github_project: p4-input
 
         <script>
           document.querySelector('#name-input-field').addEventListener('p4Change', function(event) {
-            document.getElementById('change-output').innerText = event.detail.value;
+            document.getElementById('change-output').innerText = event.target.value;
           });
         </script>
 
@@ -154,8 +203,8 @@ github_project: p4-input
       </div>
       <pre class="mb-4">
                     <code class="language-html" data-lang="html">&lt;script&gt;
-document.querySelector('#name-input-field').addEventListener('p4Change', function(event) {
-    console.log('Input changed to :: ' + event.detail);
+ document.querySelector('#name-input-field').addEventListener('p4Change', function(event) {
+      document.getElementById('change-output').innerText = event.target.value;
 });
 &lt;/script&gt;
                     </code>
