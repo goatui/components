@@ -50,7 +50,7 @@ export class P4Table {
 
   @Prop() selectionType: 'checkbox' | undefined;
 
-  @Prop() selectedRows: string[] = [];
+  @Prop() selectedRowKeys: string[] = [];
 
   @Prop() keyField: string = 'id';
 
@@ -62,22 +62,22 @@ export class P4Table {
 
 
   onSelectAllClick = () => {
-    let selectedRows = [];
+    let selectedRowKeys = [];
     this.isSelectAll = !this.isSelectAll;
     if (this.isSelectAll)
-      selectedRows = this.dataSource.map((row) => row[this.keyField]);
-    this.onSelectChange(selectedRows);
+      selectedRowKeys = this.dataSource.map((row) => row[this.keyField]);
+    this.onSelectChange(selectedRowKeys);
   };
 
   onRowSelectClick = (row) => {
-    let selectedRows = [...this.selectedRows];
-    if (selectedRows.includes(row[this.keyField])) {
+    let selectedRowKeys = [...this.selectedRowKeys];
+    if (selectedRowKeys.includes(row[this.keyField])) {
       this.isSelectAll = false;
-      selectedRows = selectedRows.filter((rowId) => rowId !== row[this.keyField]);
+      selectedRowKeys = selectedRowKeys.filter((rowId) => rowId !== row[this.keyField]);
     } else {
-      selectedRows.push(row[this.keyField]);
+      selectedRowKeys.push(row[this.keyField]);
     }
-    this.onSelectChange(selectedRows);
+    this.onSelectChange(selectedRowKeys);
   };
 
   onCellMouseOver = (row: any) => {
@@ -85,10 +85,10 @@ export class P4Table {
   };
 
 
-  onSelectChange(selectedRows: any) {
-    console.log(selectedRows)
-    this.selectedRows = selectedRows;
-    this.p4SelectChange.emit({ value: this.selectedRows });
+  onSelectChange(selectedRowKeys: any) {
+    console.log(selectedRowKeys)
+    this.selectedRowKeys = selectedRowKeys;
+    this.p4SelectChange.emit({ value: this.selectedRowKeys });
   }
 
   onCellClick(row: any, col: any) {
@@ -177,7 +177,7 @@ export class P4Table {
       if (this.selectionType === 'checkbox')
         bodyLeftRow.push(<div class={{ 'col': true, 'col-hover': this.hoverRecord === row }}
                               style={{ width: CHECKBOX_WIDTH }}>
-          <p4-checkbox class="checkbox" size="sm" value={this.selectedRows.includes(row[this.keyField])}
+          <p4-checkbox class="checkbox" size="sm" value={this.selectedRowKeys.includes(row[this.keyField])}
                        onP4Change={() => this.onRowSelectClick(row)} />
         </div>);
 

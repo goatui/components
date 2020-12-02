@@ -3,9 +3,8 @@ layout: component
 title: Button
 componentName: p4-button
 ---
-
-<script type="module" src="/assets/p4/p4rm-ui/p4rm-ui.esm.js"></script>
 <div class="row pt-3">
+
   <!-- Content Nav -->
   <div class="col-xl-2 order-xl-2 d-none d-xl-inline-block">
     <ul class="js-scroll-nav duik-content-nav">
@@ -13,6 +12,8 @@ componentName: p4-button
       <li class="duik-content-nav__item"><a href="#doc-examples">Examples</a></li>
       <li class="duik-content-nav__item"><a href="#doc-sizes">Sizes</a></li>
       <li class="duik-content-nav__item"><a href="#doc-disabled-state">Disabled state</a></li>
+      <li class="duik-content-nav__item"><a href="#doc-icon">Icon</a></li>
+      <li class="duik-content-nav__item"><a href="#doc-block">Block</a></li>
       <li class="duik-content-nav__item"><a href="#doc-loading-state">Loading state</a></li>
       <li class="duik-content-nav__item"><a href="#doc-events">Events</a></li>
     </ul>
@@ -98,6 +99,8 @@ componentName: p4-button
 
     </div>
 
+    <hr class="mt-7 mb-4">
+
     <!-- Disabled State -->
     <div id="doc-disabled-state" class="mb-7">
       <h2 class="h4">Disabled state <a class="js-anchor-link duik-anchorjs-link" href="#doc-disabled-state"
@@ -124,6 +127,43 @@ componentName: p4-button
 
     </div>
 
+    <hr class="mt-7 mb-4">
+
+    <!-- Icon -->
+    <div id="doc-icon" class="mb-7">
+      <h2 class="h4">Icon <a class="js-anchor-link duik-anchorjs-link" href="#doc-loading-state"
+                             aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+      <div class="card">
+        <div class="card-header">
+          <p4-button icon="alarm"></p4-button>
+        </div>
+        <div class="card-body">
+          <pre><code class="language-html"
+                     data-lang="html">&lt;p4-button icon="alarm">Loading&lt;/p4-button></code></pre>
+        </div>
+      </div>
+    </div>
+
+    <hr class="mt-7 mb-4">
+
+
+    <!-- Block -->
+    <div id="doc-block" class="mb-7">
+      <h2 class="h4">Block <a class="js-anchor-link duik-anchorjs-link" href="#doc-loading-state"
+                             aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+      <div class="card">
+        <div class="card-header">
+          <p4-button block>Block button</p4-button>
+        </div>
+        <div class="card-body">
+          <pre><code class="language-html"
+                     data-lang="html">&lt;p4-button block>Block button&lt;/p4-button></code></pre>
+        </div>
+      </div>
+    </div>
+
+    <hr class="mt-7 mb-4">
+
     <!-- Loading State -->
     <div id="doc-loading-state" class="mb-7">
       <h2 class="h4">Disabled state <a class="js-anchor-link duik-anchorjs-link" href="#doc-loading-state"
@@ -137,16 +177,13 @@ componentName: p4-button
           <p4-button show-loader="true">Loading</p4-button>
         </div>
         <div class="card-body">
-      <pre>
-                <code class="language-html" data-lang="html">&lt;p4-button show-loader="true">Loading&lt;/p4-button>
-                </code>
-      </pre>
+          <pre><code class="language-html"
+                     data-lang="html">&lt;p4-button show-loader="true">Loading&lt;/p4-button></code></pre>
         </div>
       </div>
-
-
     </div>
 
+    <hr class="mt-7 mb-4">
 
     <!-- Events -->
     <div id="doc-events" class="mb-7">

@@ -21,6 +21,7 @@ export const config: Config = {
     },
     {
       type: 'www',
+      dir: 'docs/assets/p4-ui-dev/',
       serviceWorker: null, // disable service workers
       copy: [
         { src: 'demo', dest: 'demo' },

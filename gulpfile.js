@@ -4,14 +4,14 @@ const glob = require('glob');
 const fs = require('fs');
 
 function clear(cb) {
-  src('docs/assets/p4/**', { read: false })
+  src('docs/assets/p4-ui/**', { read: false })
     .pipe(clean());
   cb();
 }
 
 function copy(cb) {
   src('dist/**')
-    .pipe(dest('docs/assets/p4/', { allowEmpty: true }));
+    .pipe(dest('docs/assets/p4-ui/', { allowEmpty: true }));
   cb();
 }
 
@@ -34,8 +34,28 @@ function generateIconImportFile(cb) {
   cb();
 }
 
-exports.generateIconImportFile = generateIconImportFile;
 
+
+function releaseToDocs(cb) {
+  const packageJsonStr = fs.readFileSync('package.json');
+  const packageJson = JSON.parse(packageJsonStr);
+
+  fs.readFile('docs/_config.yml', 'utf8', function(err, data) {
+    if (err) {
+      return console.log(err);
+    }
+    var result = data.replace(/script: '.*'/, `script: 'https://unpkg.com/@p4rm/ui@${packageJson.version}/dist/p4rm-ui/p4rm-ui.esm.js'`);
+    fs.writeFile('docs/_config.yml', result, 'utf8', function(err) {
+      if (err) return console.log(err);
+      cb();
+    });
+  });
+}
+
+exports.releaseToDocs = releaseToDocs;
+exports.generateIconImportFile = generateIconImportFile;
 exports.copy = copy;
 exports.clear = clear;
-exports.default = series(clear, copy);
+
+
+exports.default = series(releaseToDocs);

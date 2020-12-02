@@ -2,7 +2,7 @@
 layout: component
 title: Script Editor
 version: 0.1.4
-github_project: idli-script-editor
+github_project: p4-script-editor
 ---
 
 
@@ -35,7 +35,7 @@ github_project: idli-script-editor
                 <li>
                     Put a script tag similar to this <code class="highlighter-rouge" data-lang="html">&lt;script
                     src='https://unpkg.com/@idli/{{ page.github_project }}@{{ page.version
-                    }}/dist/idli-script-editor.js'&gt;&lt;/script&gt;</code> in the head of your index.html
+                    }}/dist/p4-script-editor.js'&gt;&lt;/script&gt;</code> in the head of your index.html
                 </li>
                 <li>
                     Then you can use the element anywhere in your template, JSX, html etc
@@ -49,10 +49,10 @@ github_project: idli-script-editor
   &lt;meta charset=&quot;utf-8&quot;&gt;
   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
   &lt;title&gt;{{ page.title }}&lt;/title&gt;
-  &lt;script src='https://unpkg.com/@idli/{{ page.github_project }}@{{ page.version }}/dist/idli-script-editor.js'&gt;&lt;/script&gt;
+  &lt;script src='https://unpkg.com/@idli/{{ page.github_project }}@{{ page.version }}/dist/p4-script-editor.js'&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-   &lt;idli-script-editor id=&quot;business-rule-editor&quot;&gt;&lt;/idli-script-editor&gt;
+   &lt;p4-script-editor id=&quot;business-rule-editor&quot;&gt;&lt;/p4-script-editor&gt;
 &lt;/body&gt;
 &lt;/html&gt;
                 </code>
@@ -75,7 +75,7 @@ github_project: idli-script-editor
                        document.getElementById('business-rule-editor').disabled = elm.checked;
                    })(this)"></input> Disable editor<br/>
 
-                <idli-script-editor id="business-rule-editor"></idli-script-editor>
+                <p4-script-editor id="business-rule-editor" style="height: 500px"></p4-script-editor>
                 <script>
                     document.getElementById('business-rule-editor').value = `function myBusinessRuleFunction(){
     const a = 1;
@@ -87,7 +87,7 @@ github_project: idli-script-editor
             </div>
 
             <pre class="mb-4">
-                <code class="language-html" data-lang="html"> &lt;idli-script-editor id="business-rule-editor"&gt;&lt;/idli-script-editor&gt;
+                <code class="language-html" data-lang="html"> &lt;p4-script-editor id="business-rule-editor"&gt;&lt;/p4-script-editor&gt;
                 </code>
             </pre>
             <pre class="mb-4">
@@ -117,7 +117,7 @@ document.getElementById('business-rule-editor').value = `function myBusinessRule
             <p>Please click on checkbox and try disabling able editor.</p>
 
             <pre class="mb-4">
-                    <code class="language-html" data-lang="html">&lt;idli-script-editor disabled&gt;&lt;/idli-script-editor&gt;
+                    <code class="language-html" data-lang="html">&lt;p4-script-editor disabled&gt;&lt;/p4-script-editor&gt;
                     </code>
                   </pre>
 
