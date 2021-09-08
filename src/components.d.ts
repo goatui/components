@@ -205,11 +205,11 @@ export namespace Components {
     }
     interface P4Table {
         /**
-          * Grid columns configuration. [ {    "name":"name",    "label":"Name",    "width":300,    "fixed":true   }, {    "name":"age",    "label":"Age" } ]
+          * Grid columns configuration. [ {   "name":"name",   "label":"Name",   "width":300,   "fixed":true  }, {   "name":"age",   "label":"Age" } ]
          */
         "columns": any[];
         /**
-          * Grid data to display on table [{   'id': '5e7118ddce4b3d577956457f',   'age': 21,   'name': 'John',   'company': 'India',   'email': 'john@example.com',   'phone': '+1 (839) 560-3581',   'address': '326 Irving Street, Grimsley, Texas, 4048'   }]
+          * Grid data to display on table [{  'id': '5e7118ddce4b3d577956457f',  'age': 21,  'name': 'John',  'company': 'India',  'email': 'john@example.com',  'phone': '+1 (839) 560-3581',  'address': '326 Irving Street, Grimsley, Texas, 4048'  }]
          */
         "dataSource": any[];
         "keyField": string;
@@ -584,11 +584,11 @@ declare namespace LocalJSX {
     }
     interface P4Table {
         /**
-          * Grid columns configuration. [ {    "name":"name",    "label":"Name",    "width":300,    "fixed":true   }, {    "name":"age",    "label":"Age" } ]
+          * Grid columns configuration. [ {   "name":"name",   "label":"Name",   "width":300,   "fixed":true  }, {   "name":"age",   "label":"Age" } ]
          */
         "columns"?: any[];
         /**
-          * Grid data to display on table [{   'id': '5e7118ddce4b3d577956457f',   'age': 21,   'name': 'John',   'company': 'India',   'email': 'john@example.com',   'phone': '+1 (839) 560-3581',   'address': '326 Irving Street, Grimsley, Texas, 4048'   }]
+          * Grid data to display on table [{  'id': '5e7118ddce4b3d577956457f',  'age': 21,  'name': 'John',  'company': 'India',  'email': 'john@example.com',  'phone': '+1 (839) 560-3581',  'address': '326 Irving Street, Grimsley, Texas, 4048'  }]
          */
         "dataSource"?: any[];
         "keyField"?: string;

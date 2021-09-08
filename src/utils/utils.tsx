@@ -22,7 +22,7 @@ export async function loadScriptModule(src) {
     script.src = src;
     script.type = 'module';
     script.addEventListener('load', () => {
-      resolve();
+      resolve(true);
     });
     document.head.appendChild(script);
   });
@@ -33,7 +33,7 @@ export async function loadScript(src) {
     const script = document.createElement('script');
     script.src = src;
     script.addEventListener('load', () => {
-      resolve();
+      resolve(true);
     });
     document.head.appendChild(script);
   });

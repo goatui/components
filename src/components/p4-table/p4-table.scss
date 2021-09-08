@@ -5,7 +5,6 @@
   display: block;
 }
 
-
 $col-padding: 12px;
 
 
@@ -29,6 +28,16 @@ $col-padding: 12px;
       left: 0;
       top: 0;
       z-index: 100;
+      .left-panel {
+        .col {
+          background: $color-gray-2;
+        }
+      }
+      .right-panel {
+        .col {
+          background: $color-gray-1;
+        }
+      }
     }
 
     .body {
@@ -63,9 +72,7 @@ $col-padding: 12px;
       }
     }
 
-    .header .col {
-      background: #fafafa;
-    }
+
 
     .body .row .col {
       cursor: pointer;

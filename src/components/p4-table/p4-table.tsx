@@ -111,7 +111,7 @@ export class P4Table {
     const $body: HTMLElement = $root.querySelector('.body');
     if ($body)
       $header.style.top = ($listScrollWrapper.getBoundingClientRect().y - $body.getBoundingClientRect().y) + 'px';
-  }, 10);
+  }, 1);
 
   componentDidRender() {
     const $root = this.el.shadowRoot;
