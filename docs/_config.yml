@@ -29,7 +29,7 @@ twitter_username: p4rmIco
 github_username: p4rm
 github_project: ui
 npm_package: '@p4rm/ui'
-script: 'https://unpkg.com/@p4rm/ui@0.3.1/dist/p4rm-ui/p4rm-ui.esm.js'
+script: 'https://unpkg.com/@p4rm/ui@0.3.2/dist/p4rm-ui/p4rm-ui.esm.js'
 
 include:
   - .well-known
