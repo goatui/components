@@ -20,6 +20,9 @@
     .display-value {
       color: $color-gray-10;
     }
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .input-actions {

@@ -122,7 +122,7 @@ export class P4Select {
 
   @State() searchString: string = '';
 
-
+  @State() focusedOn: Date | null = null;
   /**
    * Sets focus on the native `input` in `ion-input`. Use this method instead of the global
    * `input.focus()`.
@@ -275,8 +275,8 @@ export class P4Select {
 
   private getActions() {
     return this.actions.map((action) => {
-      return <button class="btn-action" type="button" onClick={() => this.onActionClick(action)}>
-        <p4-icon type={action.icon} size="1rem" class="icon" />
+      return <button class='btn-action' type='button' onClick={() => this.onActionClick(action)}>
+        <p4-icon type={action.icon} size='1rem' class='icon' />
       </button>;
     });
   }
@@ -284,20 +284,20 @@ export class P4Select {
 
   private getModeIcon() {
     if (this.showLoader)
-      return <button type="button" disabled>
-        <p4-spinner class="icon" size="1.5rem" />
+      return <button type='button' disabled>
+        <p4-spinner class='icon' size='1.5rem' />
       </button>;
     else if (this.mode === 'read') {
-      return <button class="btn-action" type="button" onClick={() => setTimeout(() => this.setEditable())}>
-        <p4-icon type="chevron-down" size="1rem" class="icon" />
+      return <button class='btn-action' type='button' onClick={() => setTimeout(() => this.setEditable())}>
+        <p4-icon type='chevron-down' size='1rem' class='icon' />
       </button>;
     } else if (this.type === 'typeahead') {
-      return <button type="button" disabled>
-        <p4-icon type="search" size="1rem" class="icon" />
+      return <button type='button' disabled>
+        <p4-icon type='search' size='1rem' class='icon' />
       </button>;
     } else {
-      return <button class="btn-action" type="button" onClick={() => setTimeout(() => this.setReadable())}>
-        <p4-icon type="chevron-up" size="1rem" class="icon" />
+      return <button class='btn-action' type='button' onClick={() => setTimeout(() => this.setReadable())}>
+        <p4-icon type='chevron-up' size='1rem' class='icon' />
       </button>;
     }
   }
@@ -319,8 +319,8 @@ export class P4Select {
       const options = this.getDisplayOptions();
 
       if (this.mode == 'edit')
-        return <div class="select-result">
-          <div class="select-items">
+        return <div class='select-result'>
+          <div class='select-items'>
             {
               options.length ?
                 options.map((item) => {
@@ -338,13 +338,13 @@ export class P4Select {
                 })
                 :
                 (!this.searchString && !this.filterOptions && !this.showLoader) ?
-                  (<div class="no-data">
-                    <p4-icon type="pencil" size="100%" />
-                    <div class="no-data-text">Please enter text to search</div>
+                  (<div class='no-data'>
+                    <p4-icon type='pencil' size='100%' />
+                    <div class='no-data-text'>Please enter text to search</div>
                   </div>)
-                  : (<div class="no-data">
-                    <p4-icon type="inbox-fill" size="100%" />
-                    <div class="no-data-text">No data</div>
+                  : (<div class='no-data'>
+                    <p4-icon type='inbox-fill' size='100%' />
+                    <div class='no-data-text'>No data</div>
                   </div>)
 
             }
@@ -402,9 +402,9 @@ export class P4Select {
       <Host aria-disabled={this.disabled ? 'true' : null}
             class={{ 'has-focus': this.hasFocus, 'has-value': this.hasValue() }}>
         <div class={this.getComponentStyleClasses()}>
-          <input class="native-input"
+          <input class='native-input'
                  ref={input => this.nativeInput = input}
-                 type="text"
+                 type='text'
                  aria-labelledby={labelId}
                  name={this.name}
                  value={this.searchString}
@@ -415,12 +415,16 @@ export class P4Select {
                  onInput={this.onInput}
                  onKeyDown={this.onKeyDown}
           />
-          <div class="select-selection-item display-value" tabindex="1"
+          <div class='select-selection-item display-value' tabindex='1'
                onFocus={(evt) => {
+                 this.focusedOn = new Date();
                  if (this.type === 'menu' || this.type === 'select') {
                    this.onFocus(evt);
                  }
                  this.setEditable();
+                 evt.stopPropagation();
+
+                 return false;
                }}
                ref={(el) => this.displayElement = el}
                onBlur={(evt) => {
@@ -436,21 +440,32 @@ export class P4Select {
                    }
                  }
                }}
-               onClick={this.setEditable}>
+               onClick={() => {
+                 // @ts-ignore
+                 console.log(new Date() - this.focusedOn);
+                 // @ts-ignore
+                 if (this.type === 'menu' && (this.focusedOn && (new Date() - this.focusedOn > 300))) {
+                   if (this.mode == 'edit') {
+                     this.setReadable();
+                   } else
+                     this.setEditable();
+                 } else
+                   this.setEditable();
+               }}>
             {
               this.type === 'menu' ? <slot></slot> : this.getOptionLabelByValue(this.value)
             }
           </div>
-          <div class="input-actions">
+          <div class='input-actions'>
             {(this.clearInput && this.type !== 'menu' && !this.disabled && this.hasValue()) && <button
-              aria-label="reset"
-              type="button"
-              class="input-clear-icon"
+              aria-label='reset'
+              type='button'
+              class='input-clear-icon'
               onTouchStart={this.clearTextInput}
               onMouseDown={this.clearTextInput}
               onKeyDown={this.clearTextOnEnter}
             >
-              <p4-icon type="x" size="1.1rem" class="icon" />
+              <p4-icon type='x' size='1.1rem' class='icon' />
             </button>}
             {this.getActions()}
             {this.getModeIcon()}
