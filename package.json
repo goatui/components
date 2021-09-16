@@ -20,6 +20,7 @@
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
+    "release": "npm version patch | npm run release-to-docs",
     "release-to-docs": "gulp"
   },
   "dependencies": {
