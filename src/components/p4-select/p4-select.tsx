@@ -122,7 +122,6 @@ export class P4Select {
 
   @State() searchString: string = '';
 
-  @State() focusedOn: Date | null = null;
   /**
    * Sets focus on the native `input` in `ion-input`. Use this method instead of the global
    * `input.focus()`.
@@ -417,14 +416,11 @@ export class P4Select {
           />
           <div class='select-selection-item display-value' tabindex='1'
                onFocus={(evt) => {
-                 this.focusedOn = new Date();
                  if (this.type === 'menu' || this.type === 'select') {
                    this.onFocus(evt);
                  }
-                 this.setEditable();
-                 evt.stopPropagation();
-
-                 return false;
+                 if (this.type !== 'menu')
+                   this.setEditable();
                }}
                ref={(el) => this.displayElement = el}
                onBlur={(evt) => {
@@ -442,9 +438,7 @@ export class P4Select {
                }}
                onClick={() => {
                  // @ts-ignore
-                 console.log(new Date() - this.focusedOn);
-                 // @ts-ignore
-                 if (this.type === 'menu' && (this.focusedOn && (new Date() - this.focusedOn > 300))) {
+                 if (this.type === 'menu') {
                    if (this.mode == 'edit') {
                      this.setReadable();
                    } else
@@ -453,7 +447,7 @@ export class P4Select {
                    this.setEditable();
                }}>
             {
-              this.type === 'menu' ? <slot></slot> : this.getOptionLabelByValue(this.value)
+              this.type === 'menu' ? <slot/> : this.getOptionLabelByValue(this.value)
             }
           </div>
           <div class='input-actions'>
