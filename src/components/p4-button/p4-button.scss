@@ -1,7 +1,8 @@
 @import "../../theme/variables";
 
 :host {
-  color: red;
+  display: inline-block;
+  padding-bottom: $space-3;
 }
 
 
@@ -33,7 +34,6 @@
   transition: all .3s cubic-bezier(.645, .045, .355, 1);
   font-family: $font-normal;
   position: relative;
-  margin-bottom: 12px;
 
   /*
    * On Click animation
@@ -170,3 +170,8 @@
     width: 100%;
   }
 }
+
+:host([block]) {
+  display: block;
+}
+
