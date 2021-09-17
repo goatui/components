@@ -302,6 +302,9 @@ export class P4Select {
   }
 
   private getDisplayOptions() {
+    if (this.showLoader) {
+      return [{ [this.config.itemValue]: null, [this.config.itemLabel]: 'Searching...' }];
+    }
     let options = [];
     if (typeof this.options !== 'string') {
       options = this.options;
@@ -447,7 +450,7 @@ export class P4Select {
                    this.setEditable();
                }}>
             {
-              this.type === 'menu' ? <slot/> : this.getOptionLabelByValue(this.value)
+              this.type === 'menu' ? <slot /> : this.getOptionLabelByValue(this.value)
             }
           </div>
           <div class='input-actions'>

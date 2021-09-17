@@ -14,6 +14,7 @@
 <div class="section">
 
   <p4-select id="sel"
+             type='typeahead'
              filter-options="false"
              label="Name"
              mode="read"
@@ -23,7 +24,6 @@
 
 <script>
   const $search = document.getElementById('sel');
-  $search.typeahead = true;
   $search.config = { 'itemValue': 'id', 'itemLabel': 'lb' };
   $search.options = [{ 'id': 'jack', 'lb': 'Jack' }];
   $search.addEventListener('p4Change', function(evt) {

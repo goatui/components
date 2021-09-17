@@ -84,9 +84,7 @@ export class P4Table {
     this.hoverRecord = row;
   };
 
-
   onSelectChange(selectedRowKeys: any) {
-    console.log(selectedRowKeys)
     this.selectedRowKeys = selectedRowKeys;
     this.p4SelectChange.emit({ value: this.selectedRowKeys });
   }
