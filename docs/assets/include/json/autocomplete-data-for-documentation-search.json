@@ -39,5 +39,13 @@
   "category": "Components",
   "label": "Script Editor",
   "url": "/component/script-editor.html"
+},{
+  "category": "Components",
+  "label": "Select",
+  "url": "/component/select.html"
+},{
+  "category": "Components",
+  "label": "Textarea",
+  "url": "/component/textarea.html"
 }
 ]

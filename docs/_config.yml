@@ -74,9 +74,6 @@ components:
   - name: Checkbox
     link: /component/checkbox.html
     img: /assets/img/checkbox.png
-  - name: Table
-    link: /component/table.html
-    img: /assets/img/table.png
   - name: Icon
     link: /component/icon.html
     img: /assets/img/image-not-found.png
@@ -86,6 +83,15 @@ components:
   - name: Script Editor
     link: /component/script-editor.html
     img: /assets/img/script-editor.png
+  - name: Select
+    link: /component/select.html
+    img: /assets/img/image-not-found.png
+  - name: Table
+    link: /component/table.html
+    img: /assets/img/table.png
+  - name: Textarea
+    link: /component/textarea.html
+    img: /assets/img/image-not-found.png
 
 
 # Exclude from processing.

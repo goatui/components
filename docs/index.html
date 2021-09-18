@@ -112,15 +112,14 @@ root: true
             <div class="row">
               {% for component in site.components %}
               <div class="col-md-3">
-                <div class="card">
-                  <a href="{{component.link}}#"><img class="card-img-top"
+                <a href="{{component.link}}#" class="card card-link">
+                  <img class="card-img-top"
                                                      src="{{component.img}}"
-                                                     alt="{{component.name}}"></a>
+                                                     alt="{{component.name}}">
                   <div class="card-body">
                     <h5 class="card-title">{{component.name}}</h5>
-                    <a href="{{component.link}}#" class="btn btn-sm btn-primary">View</a>
                   </div>
-                </div>
+                </a>
               </div>
               {% endfor %}
 

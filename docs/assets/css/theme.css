@@ -5169,14 +5169,8 @@ input[type="button"].btn-block {
 }
 
 .card {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
   background-color: #fff;
@@ -5208,7 +5202,7 @@ input[type="button"].btn-block {
 }
 
 .card-title {
-  margin-bottom: 1rem;
+  padding: 1rem;
 }
 
 .card-subtitle {
@@ -5281,6 +5275,8 @@ input[type="button"].btn-block {
 
 .card-img-top {
   width: 100%;
+  height: 200px;
+  background: #e7eaf3;
   border-top-left-radius: calc(0.25rem - 1px);
   border-top-right-radius: calc(0.25rem - 1px);
 }
