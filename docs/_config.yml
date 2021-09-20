@@ -18,18 +18,20 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-
-title: P4RM UI library
-email: contact@p4rm.com
-description: P4RM UI library contains most used web components built using Stencil. So you don't need to include any additional framework dependencies, You can simple import required component js, and right away start using it.
-tagline: P4RM UI library contains most used web components built using Stencil. So you don't need to include any additional framework dependencies, You can simple import required component js, and right away start using it.
+company: P4RM
+company_url: "https://p4rm.com"
+title: P4RM UI
+email: admin@p4rm.com
+description: P4RM UI contains design system and most used web components built using Stencil. So you don't need to include any additional framework dependencies, You can simple import required component js, and right away start using it.
+tagline: P4RM UI contains design system and most used web components.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://ui.p4rm.com" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: p4rmIco
+twitter_username: P4rmInc
 github_username: p4rm
 github_project: ui
 npm_package: '@p4rm/ui'
 script: 'https://unpkg.com/@p4rm/ui@0.3.6/dist/p4rm-ui/p4rm-ui.esm.js'
+themeCss: 'https://unpkg.com/@p4rm/ui@0.3.6/dist/p4rm-ui/styles/theme.css'
 
 include:
   - .well-known
@@ -85,6 +87,9 @@ components:
     img: /assets/img/script-editor.png
   - name: Select
     link: /component/select.html
+    img: /assets/img/image-not-found.png
+  - name: Spinner
+    link: /component/spinner.html
     img: /assets/img/image-not-found.png
   - name: Table
     link: /component/table.html

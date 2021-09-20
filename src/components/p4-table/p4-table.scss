@@ -1,19 +1,17 @@
-@import "../../theme/variables";
-@import "../../styles/common";
+@import "../../styles/variables";
+
 
 :host {
   display: block;
 }
 
-$col-padding: 12px;
+.table-component {
+  @include font-p1-semi-bold;
 
+  border: 1px solid var(--color-neutral-200);
+  box-sizing: border-box;
+  border-radius: 5px;
 
-.grid-component {
-  font-family: $font-normal;
-  font-size: $font-size-5;
-  font-weight: $font-weight-regular;
-  letter-spacing: var(--letter-spacing-solid, 0em);
-  border: 1px solid $color-gray-3;
   height: 100%;
 
   .list-scroll-wrapper {
@@ -24,18 +22,19 @@ $col-padding: 12px;
     min-height: 20em;
 
     .header {
+      @include font-caption-cap;
       position: absolute;
       left: 0;
       top: 0;
       z-index: 100;
       .left-panel {
         .col {
-          background: $color-gray-2;
+          background: var(--color-neutral-50);
         }
       }
       .right-panel {
         .col {
-          background: $color-gray-1;
+          background: var(--color-neutral-50);
         }
       }
     }
@@ -63,11 +62,13 @@ $col-padding: 12px;
       }
 
       .col {
-        display: table-cell;
         margin: 0;
-        border-right: 1px solid $color-gray-3;
-        border-bottom: 1px solid $color-gray-3;
-        padding: $col-padding;
+        display: table-cell;
+        border-right: 1px solid var(--color-neutral-200);
+        border-bottom: 1px solid var(--color-neutral-200);
+        padding: var(--space-3) var(--space-6);
+        box-sizing: border-box;
+        vertical-align: middle;
         line-height: normal;
       }
     }
@@ -85,7 +86,7 @@ $col-padding: 12px;
       }
 
       &.col-hover {
-        background: #e6f7ff;
+        background: var(--color-success-50);
       }
     }
 
@@ -111,7 +112,7 @@ $col-padding: 12px;
       left: 0;
       border-radius: 3px;
       height: max-content;
-      color: $color-gray-6;
+      color: var(--color-neutral-600);
     }
 
   }
@@ -119,9 +120,10 @@ $col-padding: 12px;
 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
 }
+
 
 /* Track */
 ::-webkit-scrollbar-track {

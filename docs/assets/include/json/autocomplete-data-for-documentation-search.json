@@ -47,5 +47,10 @@
   "category": "Components",
   "label": "Textarea",
   "url": "/component/textarea.html"
-}
+},
+  {
+    "category": "Components",
+    "label": "Spinner",
+    "url": "/component/spinner.html"
+  }
 ]

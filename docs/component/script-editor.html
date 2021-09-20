@@ -26,41 +26,20 @@ github_project: p4-script-editor
                 more. Built on <a href="https://microsoft.github.io/monaco-editor/">monaco</a>.</p>
         </div>
 
-        <!-- Usage -->
-        <div id="doc-usage" class="mb-7">
-            <h2 class="h4">Usage <a class="js-anchor-link duik-anchorjs-link" href="#doc-about" aria-label="Anchor"
-                                    data-anchorjs-icon="#"></a></h2>
-            <h3 class="h5">Script tag</h3>
-            <ul>
-                <li>
-                    Put a script tag similar to this <code class="highlighter-rouge" data-lang="html">&lt;script
-                    src='https://unpkg.com/@idli/{{ page.github_project }}@{{ page.version
-                    }}/dist/p4-script-editor.js'&gt;&lt;/script&gt;</code> in the head of your index.html
-                </li>
-                <li>
-                    Then you can use the element anywhere in your template, JSX, html etc
-                </li>
-            </ul>
+      <div id='doc-usage' class='mb-7'>
+        <h2 class='h4'>Usage <a class='js-anchor-link duik-anchorjs-link' href='#doc-usage' aria-label='Anchor'
+                                data-anchorjs-icon='#'></a></h2>
 
-            <pre class="mb-4">
-                <code class="language-html" data-lang="html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;meta charset=&quot;utf-8&quot;&gt;
-  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
-  &lt;title&gt;{{ page.title }}&lt;/title&gt;
-  &lt;script src='https://unpkg.com/@idli/{{ page.github_project }}@{{ page.version }}/dist/p4-script-editor.js'&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-   &lt;p4-script-editor id=&quot;business-rule-editor&quot;&gt;&lt;/p4-script-editor&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-                </code>
-              </pre>
+        <pre>
+                <code class='language-html' data-lang='html'>
+&lt;link rel="stylesheet" src="https://unpkg.com/@p4rm/ui@{{site.project_version}}/dist/theme/theme.css"&gt;&lt;/script&gt;
+&lt;script type="module" src="https://unpkg.com/@p4rm/ui@{{site.project_version}}/dist/p4rm-ui/p4rm-ui.esm.js"&gt;&lt;/script&gt;
 
+&lt;p4-script-editor id="script-editor">&lt;/p4-script-editor>
 
-        </div>
-        <!-- End About -->
+</code></pre>
+      </div>
+      <!-- End About -->
 
         <hr class="mt-7 mb-4">
 
@@ -75,9 +54,12 @@ github_project: p4-script-editor
                        document.getElementById('business-rule-editor').disabled = elm.checked;
                    })(this)"></input> Disable editor<br/>
 
-                <p4-script-editor id="business-rule-editor" style="height: 500px"></p4-script-editor>
+                <p4-script-editor id="business-rule-editor" style="height: 500px" theme='vs-dark'></p4-script-editor>
                 <script>
-                    document.getElementById('business-rule-editor').value = `function myBusinessRuleFunction(){
+                    document.getElementById('business-rule-editor').value = `/**
+ * Sample Code
+ */
+ function myBusinessRuleFunction(){
     const a = 1;
     const b = 2;
     let c = a + b;
@@ -92,7 +74,10 @@ github_project: p4-script-editor
             </pre>
             <pre class="mb-4">
                 <code class="language-javascript" data-lang="javascript">
-document.getElementById('business-rule-editor').value = `function myBusinessRuleFunction(){
+document.getElementById('business-rule-editor').value = `/**
+ * Sample Code
+ */
+function myBusinessRuleFunction(){
     const a = 1;
     const b = 2;
     let c = a + b;

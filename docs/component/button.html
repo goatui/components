@@ -2,94 +2,71 @@
 layout: component
 title: Button
 componentName: p4-button
+menu:
+- title: Types
+- title: Sizes
+- title: Disabled state
+- title: Icon
+- title: Block
+- title: Loading state
+- title: Events
 ---
-<div class="row pt-3">
+<div class='row pt-3'>
 
-  <!-- Content Nav -->
-  <div class="col-xl-2 order-xl-2 d-none d-xl-inline-block">
-    <ul class="js-scroll-nav duik-content-nav">
-      <li class="duik-content-nav__item"><a href="#doc-usage">Usage</a></li>
-      <li class="duik-content-nav__item"><a href="#doc-examples">Examples</a></li>
-      <li class="duik-content-nav__item"><a href="#doc-sizes">Sizes</a></li>
-      <li class="duik-content-nav__item"><a href="#doc-disabled-state">Disabled state</a></li>
-      <li class="duik-content-nav__item"><a href="#doc-icon">Icon</a></li>
-      <li class="duik-content-nav__item"><a href="#doc-block">Block</a></li>
-      <li class="duik-content-nav__item"><a href="#doc-loading-state">Loading state</a></li>
-      <li class="duik-content-nav__item"><a href="#doc-events">Events</a></li>
-    </ul>
-  </div>
-  <!-- End Content Nav -->
+  {% include content-nav.html %}
+
 
   <!-- Content -->
-  <div class="col-xl-10 order-xl-1 duik-content border-bottom">
-    <div class="border-bottom mb-7">
+  <div class='col-xl-10 order-xl-1 duik-content border-bottom'>
+
+    <div class='border-bottom mb-7'>
       <h1>{{ page.title }}</h1>
-      <p class="lead mb-5">Use P4RM’s custom button styles for actions in forms, dialogs, and more with support
-        for multiple sizes, states, and more.</p>
+      <p class='lead mb-5'>Use P4RM’s custom button styles for actions in forms, dialogs, and more with support for
+        multiple sizes, states, and more.</p>
+       <a class='btn btn-sm btn-outline-secondary mb-3' href='https://github.com/p4rm/ui.git'>Browse code</a>
     </div>
 
-    <!-- Usage -->
-    <div id="doc-usage" class="mb-7">
-      <h2 class="h4">Usage <a class="js-anchor-link duik-anchorjs-link" href="#doc-usage" aria-label="Anchor"
-                              data-anchorjs-icon="#"></a></h2>
 
-      <pre>
-                <code class="language-html" data-lang="html">
-&lt;script type="module" src="https://unpkg.com/@p4rm/ui@{{site.project_version}}/dist/p4rm-ui/p4rm-ui.esm.js"&gt;&lt;/script&gt;
-
-&lt;!-- Default -->
-&lt;p4-button size=&quot;lg&quot; variant=&quot;primary&quot;&gt;Click me&lt;/p4-button&gt;
-
-</code></pre>
-    </div>
-
-    <hr class="mt-7 mb-4">
-
-    <!-- Variants -->
-    <div id="doc-examples" class="mb-7">
-      <h2 class="h4">Variants <a class="js-anchor-link duik-anchorjs-link" href="#doc-examples"
-                                 aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+    <!-- Types -->
+    <div id='doc-types' class='mb-7'>
+      <h2 class='h4'>Types <a class='js-anchor-link duik-anchorjs-link' href='#doc-types' aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
       <p>Here are several predefined button styles, each serving its own semantic purpose.</p>
 
-      <div class="card">
-        <div class="card-header">
-          <p4-button>Default</p4-button>
-          <p4-button variant="primary">Primary</p4-button>
-          <p4-button variant="danger">Danger</p4-button>
-          <p4-button variant="dashed">Dashed</p4-button>
-          <p4-button variant="link">Link</p4-button>
+      <div class='card'>
+        <div class='card-header'>
+          <p4-button type='primary'>Primary</p4-button>
+          <p4-button type='secondary'>Secondary</p4-button>
+          <p4-button type='ghost'>Ghost</p4-button>
         </div>
-        <div class="card-body">
+        <div class='card-body'>
       <pre>
-                <code class="language-html" data-lang="html"> &lt;p4-button&gt;Default&lt;/p4-button&gt;
-                 &lt;p4-button variant=&quot;primary&quot;&gt;Primary&lt;/p4-button&gt;
-                 &lt;p4-button variant=&quot;danger&quot;&gt;Danger&lt;/p4-button&gt;
-                 &lt;p4-button variant=&quot;dashed&quot;&gt;Dashed&lt;/p4-button&gt;
-                 &lt;p4-button variant=&quot;link&quot;&gt;Link&lt;/p4-button&gt;
+                <code class='language-html' data-lang='html'>&lt;p4-button type=&quot;primary&quot;&gt;Primary&lt;/p4-button&gt;
+&lt;p4-button type=&quot;secondary&quot;&gt;Secondary&lt;/p4-button&gt;
+&lt;p4-button type=&quot;ghost&quot;&gt;Ghost&lt;/p4-button&gt;
                 </code>
               </pre>
         </div>
       </div>
     </div>
-    <!-- End What’s Included -->
+    <!-- End Types -->
 
-    <hr class="mt-7 mb-4">
+
 
     <!-- Sizes -->
-    <div id="doc-sizes" class="mb-7">
-      <h2 class="h4">Sizes <a class="js-anchor-link duik-anchorjs-link" href="#doc-getting-started"
-                              aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+    <div id='doc-sizes' class='mb-7'>
+      <h2 class='h4'>Sizes <a class='js-anchor-link duik-anchorjs-link' href='#doc-getting-started'
+                              aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
       <p>Fancy larger or smaller buttons? Add size attribute for additional sizes.</p>
 
-      <div class="card">
-        <div class="card-header">
-          <p4-button size="lg">Large Button</p4-button>
+      <div class='card'>
+        <div class='card-header'>
+          <p4-button size='lg'>Large Button</p4-button>
           <p4-button>Medium Button</p4-button>
-          <p4-button size="sm">Small Button</p4-button>
+          <p4-button size='sm'>Small Button</p4-button>
         </div>
-        <div class="card-body">
+        <div class='card-body'>
       <pre>
-                <code class="language-html" data-lang="html">&lt;p4-button size=&quot;lg&quot;&gt;Large Button&lt;/p4-button&gt;
+                <code class='language-html' data-lang='html'>&lt;p4-button size=&quot;lg&quot;&gt;Large Button&lt;/p4-button&gt;
 &lt;p4-button&gt;Medium Button&lt;/p4-button&gt;
 &lt;p4-button size=&quot;sm&quot;&gt;Small Button&lt;/p4-button&gt;
                   </code>
@@ -98,105 +75,103 @@ componentName: p4-button
       </div>
 
     </div>
-
-    <hr class="mt-7 mb-4">
+    <!-- End Sizes -->
 
     <!-- Disabled State -->
-    <div id="doc-disabled-state" class="mb-7">
-      <h2 class="h4">Disabled state <a class="js-anchor-link duik-anchorjs-link" href="#doc-disabled-state"
-                                       aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
-      <p>Make buttons look inactive by adding the disabled <code class="highlighter-rouge"
-                                                                 data-lang="html">boolean</code>
-        attribute to any <code class="highlighter-rouge" data-lang="html">&lt;button&gt;</code> element.</p>
+    <div id='doc-disabled-state' class='mb-7'>
+      <h2 class='h4'>Disabled state <a class='js-anchor-link duik-anchorjs-link' href='#doc-disabled-state'
+                                       aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      <p>Make buttons look inactive by adding the disabled <code class='highlighter-rouge'
+                                                                 data-lang='html'>boolean</code>
+        attribute to any <code class='highlighter-rouge' data-lang='html'>&lt;button&gt;</code> element.</p>
 
-      <div class="card">
-        <div class="card-header">
+      <div class='card'>
+        <div class='card-header'>
           <p4-button disabled>Disabled Button</p4-button>
-          <p4-button variant="dashed" disabled="true">Disabled Dashed Button</p4-button>
-          <p4-button variant="link" disabled="true">Disabled Link</p4-button>
+          <p4-button type='secondary' disabled='true'>Disabled Secondary Button</p4-button>
+          <p4-button type='ghost' disabled='true'>Disabled Ghost Button</p4-button>
         </div>
-        <div class="card-body">
+        <div class='card-body'>
       <pre>
-                <code class="language-html" data-lang="html">&lt;p4-button disabled&gt;Disabled Button&lt;/p4-button&gt;
- &lt;p4-button variant=&quot;dashed&quot; disabled=&quot;true&quot;&gt;Disabled Dashed Button&lt;/p4-button&gt;
- &lt;p4-button variant=&quot;link&quot; disabled=&quot;true&quot;&gt;Disabled link&lt;/p4-button&gt;
+                <code class='language-html' data-lang='html'>&lt;p4-button disabled&gt;Disabled Button&lt;/p4-button&gt;
+ &lt;p4-button type=&quot;secondary&quot; disabled=&quot;true&quot;&gt;Disabled Secondary Button&lt;/p4-button&gt;
+ &lt;p4-button type=&quot;ghost&quot; disabled=&quot;true&quot;&gt;Disabled Ghost Button&lt;/p4-button&gt;
                     </code>
               </pre>
         </div>
       </div>
 
     </div>
-
-    <hr class="mt-7 mb-4">
+    <!-- End Disabled State -->
 
     <!-- Icon -->
-    <div id="doc-icon" class="mb-7">
-      <h2 class="h4">Icon <a class="js-anchor-link duik-anchorjs-link" href="#doc-loading-state"
-                             aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
-      <div class="card">
-        <div class="card-header">
-          <p4-button icon="alarm"></p4-button>
+    <div id='doc-icon' class='mb-7'>
+      <h2 class='h4'>Icon <a class='js-anchor-link duik-anchorjs-link' href='#doc-loading-state'
+                             aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      <div class='card'>
+        <div class='card-header'>
+          <p4-button icon='alarm'>Alarm</p4-button>
+          <p4-button icon='alarm' size='lg' icon-position='right'>Alarm</p4-button>
+          <p4-button icon='alarm' size='sm'>Alarm</p4-button>
         </div>
-        <div class="card-body">
-          <pre><code class="language-html"
-                     data-lang="html">&lt;p4-button icon="alarm">Loading&lt;/p4-button></code></pre>
+        <div class='card-body'>
+          <pre><code class='language-html'
+                     data-lang='html'>
+            &lt;p4-button icon="alarm">Loading&lt;/p4-button>
+            &lt;p4-button icon="alarm" size='lg' icon-position='right'>Loading&lt;/p4-button>
+            &lt;p4-button icon="alarm" size='sm'>Loading&lt;/p4-button>
+          </code></pre>
         </div>
       </div>
     </div>
-
-    <hr class="mt-7 mb-4">
+    <!-- End Icon -->
 
 
     <!-- Block -->
-    <div id="doc-block" class="mb-7">
-      <h2 class="h4">Block <a class="js-anchor-link duik-anchorjs-link" href="#doc-loading-state"
-                             aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
-      <div class="card">
-        <div class="card-header">
+    <div id='doc-block' class='mb-7'>
+      <h2 class='h4'>Block <a class='js-anchor-link duik-anchorjs-link' href='#doc-loading-state'
+                              aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      <div class='card'>
+        <div class='card-header'>
           <p4-button block>Block button</p4-button>
         </div>
-        <div class="card-body">
-          <pre><code class="language-html"
-                     data-lang="html">&lt;p4-button block>Block button&lt;/p4-button></code></pre>
+        <div class='card-body'>
+          <pre><code class='language-html'
+                     data-lang='html'>&lt;p4-button block>Block button&lt;/p4-button></code></pre>
         </div>
       </div>
     </div>
-
-    <hr class="mt-7 mb-4">
+    <!-- End Block -->
 
     <!-- Loading State -->
-    <div id="doc-loading-state" class="mb-7">
-      <h2 class="h4">Disabled state <a class="js-anchor-link duik-anchorjs-link" href="#doc-loading-state"
-                                       aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
-      <p>Make buttons look inactive by adding the disabled <code class="highlighter-rouge"
-                                                                 data-lang="html">boolean</code>
-        attribute to any <code class="highlighter-rouge" data-lang="html">&lt;button&gt;</code> element.</p>
+    <div id='doc-loading-state' class='mb-7'>
+      <h2 class='h4'>Show loader <a class='js-anchor-link duik-anchorjs-link' href='#doc-loading-state'
+                                       aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
 
-      <div class="card">
-        <div class="card-header">
-          <p4-button show-loader="true">Loading</p4-button>
+      <div class='card'>
+        <div class='card-header'>
+          <p4-button show-loader='true'>Loading</p4-button>
         </div>
-        <div class="card-body">
-          <pre><code class="language-html"
-                     data-lang="html">&lt;p4-button show-loader="true">Loading&lt;/p4-button></code></pre>
+        <div class='card-body'>
+          <pre><code class='language-html'
+                     data-lang='html'>&lt;p4-button show-loader="true">Loading&lt;/p4-button></code></pre>
         </div>
       </div>
     </div>
-
-    <hr class="mt-7 mb-4">
+    <!-- End Loading State -->
 
     <!-- Events -->
-    <div id="doc-events" class="mb-7">
-      <h2 class="h4">Events <a class="js-anchor-link duik-anchorjs-link" href="#doc-events"
-                               aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
-      <p>On click the button a <code class="highlighter-rouge" data-lang="html">CustomEvent</code> <code
-        class="highlighter-rouge" data-lang="html">p4Click</code>
+    <div id='doc-events' class='mb-7'>
+      <h2 class='h4'>Events <a class='js-anchor-link duik-anchorjs-link' href='#doc-events'
+                               aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      <p>On click the button a <code class='highlighter-rouge' data-lang='html'>CustomEvent</code> <code
+        class='highlighter-rouge' data-lang='html'>p4Click</code>
         is triggered by the element.</p>
 
-      <div class="output">
+      <div class='output'>
 
-        <p4-button variant="default" id="click-me-btn">Click me</p4-button>
-        <p4-button disabled id="disabled-btn">Disabled Button</p4-button>
+        <p4-button variant='default' id='click-me-btn'>Click me</p4-button>
+        <p4-button disabled id='disabled-btn'>Disabled Button</p4-button>
 
         <script>
           document.querySelector('#click-me-btn').addEventListener('p4Click', function(event) {
@@ -207,8 +182,8 @@ componentName: p4-button
           });
         </script>
       </div>
-      <pre class="mb-4">
-                    <code class="language-js" data-lang="html">document.querySelector('#click-me-btn').addEventListener('p4Click', function(event) {
+      <pre class='mb-4'>
+                    <code class='language-js' data-lang='html'>document.querySelector('#click-me-btn').addEventListener('p4Click', function(event) {
     alert("Button clicked");
 });
 
@@ -219,7 +194,7 @@ document.querySelector('#disabled-btn').addEventListener('p4Click', function(eve
                   </pre>
 
     </div>
-
+    <!-- End Events -->
 
   </div>
   <!-- End Content -->

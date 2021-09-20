@@ -47,19 +47,29 @@ root: true
           <div id="doc-about" class="mb-7">
             <h2 class="h4">About <a class="js-anchor-link duik-anchorjs-link" href="#doc-about"
                                     aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
-            <p>Idli components are beautiful Open Source web components under MIT license.</p>
+            <p>P4RM components are beautiful Open Source web components under MIT license.</p>
 
-            <p>Idli components are maintained by <a href="https://shivajivarma.com">Shivaji Varma</a>. Do
+            <a class='btn btn-sm btn-outline-secondary mb-3' href='https://github.com/p4rm/ui.git'>Browse code</a>
+
+            <p>P4RM components are maintained by <a href="https://shivajivarma.com">Shivaji Varma</a>. Do
               not miss any updates and announcements, stay tuned on our social pages:</p>
 
             <ul class="list-inline mb-0">
               <li class="list-inline-item mr-2" data-toggle="tooltip" data-placement="top" title=""
                   data-original-title="Github">
-                <a class="text-dark" target="_blank" href="https://www.github.com/idli-io">
+                <a class="text-dark" target="_blank" href="https://www.github.com/{{site.github_username}}">
                   <i class="fab fa-github"></i>
                 </a>
               </li>
+              <li class="list-inline-item mr-2" data-toggle="tooltip" data-placement="top" title=""
+                  data-original-title="Twitter">
+                <a class="text-dark" target="_blank" href="https://www.twitter.com/{{site.twitter_username}}">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
             </ul>
+
+
           </div>
           <!-- End About -->
 
@@ -75,7 +85,12 @@ root: true
             <ul>
               <li>
                 Put a script tag similar to this <code class="highlighter-rouge" data-lang="html">&lt;script type="module"
-                src="https://unpkg.com/@p4rm/ui@{{site.project_version}}/dist/p4rm-ui/p4rm-ui.esm.js"&gt;&lt;/script&gt;</code>
+                src="{{site.script}}"&gt;&lt;/script&gt;</code>
+                in the head of your index.html
+              </li>
+              <li>
+               Include css theme variables, or use default theme by including <code class="highlighter-rouge" data-lang="html">&lt;link rel="stylesheet"
+                href="{{site.themeCss}}"&gt;&lt;/link&gt;</code>
                 in the head of your index.html
               </li>
               <li>
@@ -90,10 +105,15 @@ root: true
   &lt;meta charset=&quot;utf-8&quot;&gt;
   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
   &lt;title&gt;P4RM Component&lt;/title&gt;
-  &lt;script type="module" src="https://unpkg.com/@p4rm/ui@{{site.project_version}}/dist/p4rm-ui/p4rm-ui.esm.js"&gt;&lt;/script&gt;
+
+  &lt;link rel="stylesheet" href="{{site.script}}"&gt;&lt;/link&gt;
+  &lt;script type="module" src="{{site.themeCss}}"&gt;&lt;/script&gt;
+
 &lt;/head&gt;
 &lt;body&gt;
+
   &lt;p4-button size=&quot;lg&quot; variant=&quot;primary&quot;&gt;Click me&lt;/p4-button&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 

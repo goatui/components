@@ -1,58 +1,19 @@
-@import "../../theme/variables";
-@import "../../styles/common";
+@import "../../styles/variables";
 
 :host {
   display: block;
 }
 
-:host-context(.item) {
-  --color: initial;
 
-  display: block;
-
-  color: var(--color);
-
-  font-family: $font-normal;
-  font-size: inherit;
-
-  text-overflow: ellipsis;
-
-  white-space: nowrap;
-
+.label {
+  @include font-p1;
   overflow: hidden;
-  box-sizing: border-box;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+
+  .required {
+    color: var(--color-error-500);
+    padding-right: var(--space-1);
+  }
 }
-
-:host([text-wrap]) {
-  white-space: normal;
-}
-
-// Headings
-// --------------------------------------------------
-
-::slotted(*) h1,
-::slotted(*) h2,
-::slotted(*) h3,
-::slotted(*) h4,
-::slotted(*) h5,
-::slotted(*) h6 {
-  text-overflow: inherit;
-
-  overflow: inherit;
-}
-
-.label-component {
-  padding-bottom: 0.5rem;
-  display: inline-block;
-}
-
-:host(.required)::before {
-  display: inline-block;
-  margin-right: 4px;
-  color: $color-red-6;
-  font-size: 14px;
-  font-family: SimSun, sans-serif;
-  line-height: 1;
-  content: "*"
-}
-

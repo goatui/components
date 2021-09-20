@@ -13,12 +13,6 @@ export class P4Checkbox {
   @Prop() label: string;
 
   /**
-   * Button variants
-   * Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
-   */
-  @Prop() variant: 'default' | 'dashed' = 'default';
-
-  /**
    * The input field value.
    */
   @Prop() value: boolean = false;
@@ -54,8 +48,7 @@ export class P4Checkbox {
 
 
   private getCssClasses() {
-    const cls = ['checkbox-component'];
-    cls.push('variant-' + this.variant);
+    const cls = ['checkbox'];
     cls.push('size-' + this.size);
     if (this.required)
       cls.push('required');
@@ -64,24 +57,52 @@ export class P4Checkbox {
     return cls.join(' ') + ' ';
   }
 
+  getCheckboxSize() {
+    let size;
+    if (!this.size || this.size === 'md')
+      size = '1.25rem';
+    else if (this.size === 'lg')
+      size = '1.5rem';
+    else if (this.size === 'sm')
+      size = '1rem';
+    return size;
+  }
 
   render() {
     return (
       <Host>
-        <div
-          class={this.getCssClasses()}>
-          <label class="checkbox-wrapper">
-            <span class={{ 'checkbox': true, 'checkbox-checked': this.value, 'checkbox-disabled': this.disabled }}>
-                <input type="checkbox"
-                       class="checkbox-input"
-                       value={this.value + ''}
-                       onClick={this.onChange}
-                       disabled={this.disabled} />
-                    <span class="checkbox-inner" />
-             </span>
-            {this.label && <span>{this.label}</span>}
-          </label>
-        </div>
+        <label class={this.getCssClasses()}>
+
+          {
+            this.value &&
+            <svg width={this.getCheckboxSize()} height={this.getCheckboxSize()} viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' class="icon square-checked">
+              <path d='M9 11L12 14L22 4' stroke='#0F172A' stroke-width='2' stroke-linecap='round'
+                    stroke-linejoin='round' />
+              <path
+                d='M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16'
+                stroke='#0F172A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' />
+            </svg>
+          }
+
+          {
+            !this.value &&
+            <svg width={this.getCheckboxSize()} height={this.getCheckboxSize()} viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' class="icon square">
+              <path
+                d='M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z'
+                stroke='#0F172A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' />
+            </svg>
+          }
+
+
+          <input type='checkbox'
+                 class='checkbox-input'
+                 value={this.value + ''}
+                 required={this.required}
+                 onClick={this.onChange}
+                 disabled={this.disabled} />
+
+          {this.label && <span class="label">{this.label}</span>}
+        </label>
       </Host>
     );
   }

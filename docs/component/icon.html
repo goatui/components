@@ -4,171 +4,159 @@ title: Icon
 componentName: p4-icon
 ---
 
-<script type="module" src="/assets/p4/p4rm-ui/p4rm-ui.esm.js"></script>
-<div class="row pt-3">
+<div class='row pt-3'>
+
   <!-- Content Nav -->
-  <div class="col-xl-2 order-xl-2 d-none d-xl-inline-block">
-    <ul class="js-scroll-nav duik-content-nav">
-      <li class="duik-content-nav__item"><a href="#doc-usage">Usage</a></li>
-      <li class="duik-content-nav__item"><a href="#doc-examples">Examples</a></li>
-      <li class="duik-content-nav__item"><a href="#doc-sizes">Sizes</a></li>
-      <li class="duik-content-nav__item"><a href="#doc-types">Types</a></li>
+  <div class='col-xl-2 order-xl-2 d-none d-xl-inline-block'>
+    <ul class='js-scroll-nav duik-content-nav'>
+      <li class='duik-content-nav__item'><a href='#doc-usage'>Usage</a></li>
+      <li class='duik-content-nav__item'><a href='#doc-variants'>Variants</a></li>
+      <li class='duik-content-nav__item'><a href='#doc-sizes'>Sizes</a></li>
+      <li class='duik-content-nav__item'><a href='#doc-types'>Types</a></li>
     </ul>
   </div>
   <!-- End Content Nav -->
 
   <!-- Content -->
-  <div class="col-xl-10 order-xl-1 duik-content border-bottom">
-    <div class="border-bottom mb-7">
+  <div class='col-xl-10 order-xl-1 duik-content border-bottom'>
+    <div class='border-bottom mb-7'>
       <h1>{{ page.title }}</h1>
-      <p class="lead mb-5">Use P4RM’s custom icon styles for actions in forms, dialogs, and more with support
-        for multiple sizes, types, and more.</p>
     </div>
 
     <!-- Usage -->
-    <div id="doc-usage" class="mb-7">
-      <h2 class="h4">Usage <a class="js-anchor-link duik-anchorjs-link" href="#doc-usage" aria-label="Anchor"
-                              data-anchorjs-icon="#"></a></h2>
-      <h3 class="h5">Script tag</h3>
-      <ul>
-        <li>
-          Put a script tag similar to this <code class="highlighter-rouge" data-lang="html">&lt;script type="module"
-          src="https://unpkg.com/@p4rm/ui@{{site.project_version}}/dist/p4rm-ui/p4rm-ui.esm.js"&gt;&lt;/script&gt;</code>
-          in the head of your index.html
-        </li>
-        <li>
-          Then you can use the element anywhere in your template, JSX, html etc
-        </li>
-      </ul>
+    <div id='doc-usage' class='mb-7'>
+      <h2 class='h4'>Usage <a class='js-anchor-link duik-anchorjs-link' href='#doc-usage' aria-label='Anchor'
+                              data-anchorjs-icon='#'></a></h2>
 
-      <pre class="mb-4">
-                <code class="language-html" data-lang="html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;meta charset=&quot;utf-8&quot;&gt;
-  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
-  &lt;title&gt;{{ page.title }}&lt;/title&gt;
-  &lt;script type="module" src="https://unpkg.com/@p4rm/ui@{{site.project_version}}/dist/p4rm-ui/p4rm-ui.esm.js"&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;p4-icon size=&quot;lg&quot; variant=&quot;primary&quot;&gt;Click me&lt;/p4-icon&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+      <pre>
+                <code class='language-html' data-lang='html'>
+&lt;link rel="stylesheet" src="https://unpkg.com/@p4rm/ui@{{site.project_version}}/dist/theme/theme.css"&gt;&lt;/script&gt;
+&lt;script type="module" src="https://unpkg.com/@p4rm/ui@{{site.project_version}}/dist/p4rm-ui/p4rm-ui.esm.js"&gt;&lt;/script&gt;
 
+&lt;p4-icon type="alarm" size="lg"/&gt;
 
+</code></pre>
     </div>
-    <!-- End About -->
 
-    <hr class="mt-7 mb-4">
+    <hr class='mt-7 mb-4'>
 
-    <!-- What’s Included -->
-    <div id="doc-examples" class="mb-7">
-      <h2 class="h4">Examples <a class="js-anchor-link duik-anchorjs-link" href="#doc-whats-included"
-                                 aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
-      <p>Here are several predefined button styles, each serving its own semantic purpose.</p>
-      <div class="output">
-        <p4-icon>Default</p4-icon>
-        <p4-icon variant="primary">Primary</p4-icon>
-        <p4-icon variant="danger">Danger</p4-icon>
-        <p4-icon variant="success">Success</p4-icon>
-      </div>
+    <!-- Styles -->
+    <div id='doc-variants' class='mb-7'>
+      <h2 class='h4'>Variants <a class='js-anchor-link duik-anchorjs-link' href='#doc-examples'
+                                 aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
 
-      <pre class="mb-4">
-                <code class="language-html" data-lang="html"> &lt;p4-icon&gt;Default&lt;/p4-icon&gt;
-                 &lt;p4-icon variant=&quot;primary&quot;&gt;Primary&lt;/p4-icon&gt;
-                 &lt;p4-icon variant=&quot;danger&quot;&gt;Danger&lt;/p4-icon&gt;
-                 &lt;p4-icon variant=&quot;dashed&quot;&gt;Dashed&lt;/p4-icon&gt;
-                 &lt;p4-icon variant=&quot;success&quot;&gt;Success&lt;/p4-icon&gt;
+      <div class='card'>
+        <div class='card-header'>
+          <p4-icon type='alarm'></p4-icon>
+          <p4-icon type='alarm' class='secondary'></p4-icon>
+          <p4-icon type='alarm' class='error'></p4-icon>
+          <p4-icon type='alarm' style='--color:pink'></p4-icon>
+        </div>
+        <div class='card-body'>
+      <pre>
+                <code class='language-html' data-lang='html'>&lt;p4-icon type='alarm'>&lt;/p4-icon>
+          &lt;p4-icon type='alarm' class='secondary'>&lt;/p4-icon>
+          &lt;p4-icon type='alarm' class='error'>&lt;/p4-icon>
+          &lt;p4-icon type='alarm' style="--color:pink">&lt;/p4-icon>
                 </code>
               </pre>
+        </div>
+      </div>
     </div>
     <!-- End What’s Included -->
 
-    <hr class="mt-7 mb-4">
+    <hr class='mt-7 mb-4'>
 
     <!-- Sizes -->
-    <div id="doc-sizes" class="mb-7">
-      <h2 class="h4">Sizes <a class="js-anchor-link duik-anchorjs-link" href="#doc-getting-started"
-                              aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
-      <p>Fancy larger or smaller icons? Add size attribute for additional sizes.</p>
+    <div id='doc-sizes' class='mb-7'>
+      <h2 class='h4'>Sizes <a class='js-anchor-link duik-anchorjs-link' href='#doc-getting-started'
+                              aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      <p>Fancy larger or smaller buttons? Add size attribute for additional sizes.</p>
 
-      <div class="output">
-        <p4-icon size="lg">Large Icon</p4-icon>
-        <p4-icon>Medium Icon</p4-icon>
-        <p4-icon size="sm">Small Icon</p4-icon>
-        <p4-icon size="75"></p4-icon>
+      <div class='card'>
+        <div class='card-header'>
+          <p4-icon type='alarm' size='lg'></p4-icon>
+          <p4-icon type='alarm'></p4-icon>
+          <p4-icon type='alarm' size='sm'></p4-icon>
+          <p4-icon type='alarm' size='100px'></p4-icon>
+        </div>
+        <div class='card-body'>
+      <pre>
+                <code class='language-html' data-lang='html'>&lt;p4-spinner size=&quot;lg&quot;&gt;&lt;/p4-spinner&gt;
+&lt;p4-spinner&gt;&lt;/p4-spinner&gt;
+&lt;p4-spinner size=&quot;sm&quot;&gt;&lt;/p4-spinner&gt;
+&lt;p4-spinner size=&quot;100px&quot;&gt;&lt;/p4-spinner&gt;
+                  </code>
+              </pre>
+        </div>
       </div>
 
-      <pre class="mb-4">
-                  <code class="language-html" data-lang="html">&lt;p4-icon size=&quot;lg&quot;&gt;Large Button&lt;/p4-icon&gt;
-                  &lt;p4-icon&gt;Medium Button&lt;/p4-icon&gt;
-                  &lt;p4-icon size=&quot;sm&quot;&gt;Small Button&lt;/p4-icon&gt;
-                  &lt;p4-icon size="75"&gt;75px&lt;/p4-icon&gt;
-                  </code>
-                </pre>
     </div>
+
 
     <!-- Types -->
-    <div id="doc-types" class="mb-7">
-      <h2 class="h4">Types <a class="js-anchor-link duik-anchorjs-link" href="#doc-types"
-                              aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
-      <p>We use bootstrap icons on the component. Icons available as of now.</p>
-
-      <div class="output">
+    <div id='doc-types' class='mb-7'>
+      <h2 class='h4'>Types <a class='js-anchor-link duik-anchorjs-link' href='#doc-types'
+                              aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      <p>We use bootstrap icons on the component. You can find fill list of icon names in bootstrap website -> <a href='https://icons.getbootstrap.com/'>https://icons.getbootstrap.com/</a></p>
+      <div class='output'>
         <div>
-          alarm -> <p4-icon type="alarm"></p4-icon>
+          alarm ->
+          <p4-icon type='alarm'></p4-icon>
         </div>
 
         <div>
-          house -> <p4-icon type="house"></p4-icon>
+          house ->
+          <p4-icon type='house'></p4-icon>
         </div>
 
         <div>
-          book -> <p4-icon type="book"></p4-icon>
+          book ->
+          <p4-icon type='book'></p4-icon>
         </div>
 
         <div>
-          x -> <p4-icon type="x"></p4-icon>
+          x ->
+          <p4-icon type='x'></p4-icon>
         </div>
 
         <div>
-          chevron-left -> <p4-icon type="chevron-left"></p4-icon>
+          chevron-left ->
+          <p4-icon type='chevron-left'></p4-icon>
         </div>
 
         <div>
-          chevron-right -> <p4-icon type="chevron-right"></p4-icon>
+          chevron-right ->
+          <p4-icon type='chevron-right'></p4-icon>
         </div>
 
         <div>
-          chevron-up -> <p4-icon type="chevron-up"></p4-icon>
+          chevron-up ->
+          <p4-icon type='chevron-up'></p4-icon>
         </div>
 
         <div>
-          chevron-down -> <p4-icon type="chevron-down"></p4-icon>
+          chevron-down ->
+          <p4-icon type='chevron-down'></p4-icon>
         </div>
 
         <div>
-          envelope -> <p4-icon type="envelope"></p4-icon>
+          envelope ->
+          <p4-icon type='envelope'></p4-icon>
         </div>
 
         <div>
-          trash -> <p4-icon type="trash"></p4-icon>
+          trash ->
+          <p4-icon type='trash'></p4-icon>
         </div>
 
         <div>
-          tools -> <p4-icon type="tools"></p4-icon>
+          tools ->
+          <p4-icon type='tools'></p4-icon>
         </div>
       </div>
 
-      <pre class="mb-4">
-                  <code class="language-html" data-lang="html">&lt;p4-icon size=&quot;lg&quot;&gt;Large Button&lt;/p4-icon&gt;
-                  &lt;p4-icon&gt;Medium Button&lt;/p4-icon&gt;
-                  &lt;p4-icon size=&quot;sm&quot;&gt;Small Button&lt;/p4-icon&gt;
-                  &lt;p4-icon size="75"&gt;75px&lt;/p4-icon&gt;
-                  </code>
-                </pre>
     </div>
-
 
   </div>
   <!-- End Content -->

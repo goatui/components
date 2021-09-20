@@ -1,2 +1,3 @@
-title: P4RM DEV UI library
+title: P4RM UI - Local
 script: '/assets/p4-ui-dev/build/p4rm-ui.esm.js'
+themeCss: '/assets/p4-ui-dev/styles/theme.css'

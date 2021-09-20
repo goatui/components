@@ -1,0 +1,1 @@
+const t=(t,n)=>{const o=t._original||t;return{_original:t,emit:e(o.emit.bind(o),n)}},e=(t,e=0)=>{let n;return(...o)=>{clearTimeout(n),n=setTimeout(t,e,...o)}};async function n(t){return new Promise((e=>{const n=document.createElement("script");n.src=t,n.addEventListener("load",(()=>{e(!0)})),document.head.appendChild(n)}))}export{e as a,t as d,n as l}

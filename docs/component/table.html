@@ -3,31 +3,31 @@ layout: component
 title: Table
 ---
 
-<div class="row pt-3">
+<div class='row pt-3'>
   <!-- Content Nav -->
-  <div class="col-xl-2 order-xl-2 d-none d-xl-inline-block">
-    <ul class="js-scroll-nav duik-content-nav">
-      <li class="duik-content-nav__item"><a href="#doc-usage">Usage</a></li>
-      <li class="duik-content-nav__item"><a href="#doc-examples">Examples</a></li>
+  <div class='col-xl-2 order-xl-2 d-none d-xl-inline-block'>
+    <ul class='js-scroll-nav duik-content-nav'>
+      <li class='duik-content-nav__item'><a href='#doc-usage'>Usage</a></li>
+      <li class='duik-content-nav__item'><a href='#doc-examples'>Examples</a></li>
     </ul>
   </div>
   <!-- End Content Nav -->
 
   <!-- Content -->
-  <div class="col-xl-10 order-xl-1 duik-content border-bottom">
-    <div class="border-bottom mb-7">
+  <div class='col-xl-10 order-xl-1 duik-content border-bottom'>
+    <div class='border-bottom mb-7'>
       <h1>{{ page.title }}</h1>
-      <p class="lead mb-5">Use Idli’s table component for displaying information in a way that’s easy to scan, so that
+      <p class='lead mb-5'>Use Idli’s table component for displaying information in a way that’s easy to scan, so that
         users can look for patterns and insights. They can be embedded in primary content, such as cards.</p>
     </div>
 
     <!-- Usage -->
-    <div id="doc-usage" class="mb-7">
-      <h2 class="h4">Usage <a class="js-anchor-link duik-anchorjs-link" href="#doc-about" aria-label="Anchor"
-                              data-anchorjs-icon="#"></a></h2>
+    <div id='doc-usage' class='mb-7'>
+      <h2 class='h4'>Usage <a class='js-anchor-link duik-anchorjs-link' href='#doc-usage' aria-label='Anchor'
+                              data-anchorjs-icon='#'></a></h2>
 
       <pre>
-          <code class="language-html" data-lang="html">&lt;p4-table id="table"
+          <code class='language-html' data-lang='html'>&lt;p4-table id="table"
                     selection-type="checkbox"
                     key-field="_id">&lt;/p4-table></code>
           &lt;script>
@@ -94,28 +94,27 @@ title: Table
     </div>
     <!-- End About -->
 
-    <hr class="mt-7 mb-4">
+    <hr class='mt-7 mb-4'>
 
     <!-- What’s Included -->
-    <div id="doc-examples" class="mb-7">
-      <h2 class="h4">Examples <a class="js-anchor-link duik-anchorjs-link" href="#doc-whats-included"
-                                 aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+    <div id='doc-examples' class='mb-7'>
+      <h2 class='h4'>Examples <a class='js-anchor-link duik-anchorjs-link' href='#doc-examples'
+                                 aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
       <p>A simple example with no frills.</p>
-      <div class="output">
-        <div style="width: 80%">
-          <p4-table id="table"
-                    selection-type="checkbox"
-                    key-field="_id"
-          ></p4-table>
+      <div class='output'>
+        <div style='width: 80%'>
+          <p4-table id='table'
+                    selection-type='checkbox'
+                    key-field='_id'></p4-table>
           <br />
-          <div class="result">
-            <h4 class="h5">Cell Click Result :</h4>
+          <div class='result'>
+            <h4 class='h5'>Cell Click Result :</h4>
             <div><b>Cell Data :</b>
-              <pre id="record"></pre>
+              <pre id='record'></pre>
             </div>
-            <div><b>Column :</b> <span id="column"></span></div>
+            <div><b>Column :</b> <span id='column'></span></div>
             <br />
-            <div><b>Selected Rows :</b> <span id="selected-rows"></span></div>
+            <div><b>Selected Rows :</b> <span id='selected-rows'></span></div>
             <br />
             <div>Check console for full event detail.</div>
           </div>
@@ -124,14 +123,27 @@ title: Table
           const $table = document.getElementById('table');
 
           // Columns
-          $table.columns = [{ 'name': 'name', 'label': 'Name', 'width': 300, 'fixed': true }, {
+          $table.columns = [{
+            'name': 'name',
+            'label': 'Name',
+            'width': 300,
+            'fixed': true,
+          }, {
             'name': 'age',
             'label': 'Age',
-          }, { 'name': 'eyeColor', 'label': 'Eye Color', 'width': 500 }, {
+          }, {
+            'name': 'eyeColor',
+            'label': 'Eye Color',
+            'width': 500,
+          }, {
             'name': 'company',
             'label': 'Company',
             'width': 500,
-          }, { 'name': 'email', 'label': 'Email', 'width': 500 }, {
+          }, {
+            'name': 'email',
+            'label': 'Email',
+            'width': 500,
+          }, {
             'name': 'address',
             'label': 'Address',
             'width': 1000,
@@ -146,7 +158,7 @@ title: Table
             'balance': '$2,443.30',
             'age': 21,
             'eyeColor': 'blue',
-            'name': 'Courtney',
+            'name': 'Courtney Courtney Courtney Courtney Courtney Courtney Courtney Courtney Courtney Courtney Courtney Courtney ',
             'company': 'XYQAG',
             'email': 'undefined.undefined@xyqag.co.uk',
             'phone': '+1 (839) 560-3581',

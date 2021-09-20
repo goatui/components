@@ -55,8 +55,6 @@ export class P4Table {
   @Prop() keyField: string = 'id';
 
 
-
-
   @Event() p4CellClick: EventEmitter;
   @Event() p4SelectChange: EventEmitter;
 
@@ -111,11 +109,21 @@ export class P4Table {
       $header.style.top = ($listScrollWrapper.getBoundingClientRect().y - $body.getBoundingClientRect().y) + 'px';
   }, 1);
 
-  componentDidRender() {
+  componentDidLoad() {
     const $root = this.el.shadowRoot;
     const $headerPanel: HTMLElement = $root.querySelector('.header');
     const $headerLeftPanel: HTMLElement = $headerPanel.querySelector('.left-panel');
     const $headerRightPanel: HTMLElement = $headerPanel.querySelector('.right-panel');
+
+    let maxHeight = $headerLeftPanel.clientHeight;
+    if (maxHeight < $headerRightPanel.clientHeight) {
+      //@ts-ignore
+      $headerLeftPanel.querySelector('.col').style.height = $headerRightPanel.clientHeight + 'px';
+    } else {
+      //@ts-ignore
+      $headerRightPanel.querySelector('.col').style.height = maxHeight + 'px';
+    }
+
     let leftPanelWidth = $headerLeftPanel.clientWidth;
     $headerRightPanel.style.paddingLeft = leftPanelWidth + 'px';
 
@@ -133,29 +141,33 @@ export class P4Table {
 
     if (this.selectionType === 'checkbox') {
       leftHeaderRow.push(
-        <div class="col" style={{ width: CHECKBOX_WIDTH }}>
-          <p4-checkbox class="checkbox" size="sm" value={this.isSelectAll} onP4Change={this.onSelectAllClick} />
+        <div class='col' style={{ width: CHECKBOX_WIDTH }}>
+          <div class='col-content'>
+            <p4-checkbox class='checkbox' size='sm' value={this.isSelectAll} onP4Change={this.onSelectAllClick} />
+          </div>
         </div>);
     }
     this.columns.forEach((col) => {
       let colWidth = DEFAULT_CELL_WIDTH;
       if (col.width)
         colWidth = parseInt(col.width);
-      const colEl = <div class="col" style={{ width: colWidth + 'px', maxWidth: colWidth + 'px' }}>{col.label}</div>;
+      const colEl = <div class='col' style={{ width: colWidth + 'px', maxWidth: colWidth + 'px' }}>
+        <div class='col-content'>{col.label}</div>
+      </div>;
       (col.fixed) ? leftHeaderRow.push(colEl) : rightHeaderRow.push(colEl);
     });
 
-    return <div class="header">
-      <div class="left-panel">
-        <div class="table">
-          <div class="row">
+    return <div class='header'>
+      <div class='left-panel'>
+        <div class='table'>
+          <div class='row'>
             {leftHeaderRow}
           </div>
         </div>
       </div>
-      <div class="right-panel">
-        <div class="table">
-          <div class="row">
+      <div class='right-panel'>
+        <div class='table'>
+          <div class='row'>
             {rightHeaderRow}
           </div>
         </div>
@@ -175,7 +187,7 @@ export class P4Table {
       if (this.selectionType === 'checkbox')
         bodyLeftRow.push(<div class={{ 'col': true, 'col-hover': this.hoverRecord === row }}
                               style={{ width: CHECKBOX_WIDTH }}>
-          <p4-checkbox class="checkbox" size="sm" value={this.selectedRowKeys.includes(row[this.keyField])}
+          <p4-checkbox class='checkbox' size='sm' value={this.selectedRowKeys.includes(row[this.keyField])}
                        onP4Change={() => this.onRowSelectClick(row)} />
         </div>);
 
@@ -192,24 +204,24 @@ export class P4Table {
                              if (selection.type != 'Range')
                                this.onCellClick(row, col);
                            }}>
-          <div class="col-content">{row[col.name] ? row[col.name] : ''}</div>
+          <div class='col-content'>{row[col.name] ? row[col.name] : ''}</div>
         </div>;
 
         col.fixed ? bodyLeftRow.push(colEl) : bodyRightRow.push(colEl);
       });
-      leftBodyRows.push(<div class="row">{bodyLeftRow}</div>);
-      rightBodyRows.push(<div class="row">{bodyRightRow}</div>);
+      leftBodyRows.push(<div class='row'>{bodyLeftRow}</div>);
+      rightBodyRows.push(<div class='row'>{bodyRightRow}</div>);
     });
 
-    return <div class="body">
-      <div class="body-container">
-        <div class="left-panel">
-          <div class="table">
+    return <div class='body'>
+      <div class='body-container'>
+        <div class='left-panel'>
+          <div class='table'>
             {leftBodyRows}
           </div>
         </div>
-        <div class="right-panel">
-          <div class="table">
+        <div class='right-panel'>
+          <div class='table'>
             {rightBodyRows}
           </div>
         </div>
@@ -220,8 +232,8 @@ export class P4Table {
 
   render() {
     return <Host>
-      <div class="grid-component">
-        <div class="list-scroll-wrapper" onScroll={(ev) => this.handleScroll(ev)}>
+      <div class='table-component'>
+        <div class='list-scroll-wrapper' onScroll={(ev) => this.handleScroll(ev)}>
           {this.renderHeader()}
           {(this.dataSource.length) ? this.renderBody() : renderEmptyData()}
         </div>

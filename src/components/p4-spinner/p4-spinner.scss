@@ -1,27 +1,39 @@
-@import "../../theme/variables";
+@import "../../styles/variables";
 
 :host {
   display: inline-block;
+  --color: var(--color-primary-500);
+
+  .spinner path {
+    fill: var(--color);
+  }
 }
 
-
-.spinner-component {
-
-
-  &.variant-default {
-    color: $color-black;
-  }
-
-  &.variant-primary {
-    color: $color-primary;
-  }
-
-  &.variant-danger {
-    color: $color-red-6;
-  }
-
-  &.variant-success {
-    color: $color-green-6;
-  }
-
+.spinner {
+  line-height: 0;
 }
+
+:host(.primary) {
+  .spinner path {
+    fill: var(--color-primary-500);
+  }
+}
+
+:host(.secondary) {
+  .spinner path {
+    fill: var(--color-secondary-500);
+  }
+}
+
+:host(.error) {
+  .spinner path {
+    fill: var(--color-error-500);
+  }
+}
+
+:host(.success) {
+  .spinner path {
+    fill: var(--color-success-500);
+  }
+}
+

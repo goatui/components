@@ -9,7 +9,7 @@ export const config: Config = {
       type: 'dist',
       esmLoaderPath: '../loader',
       copy: [
-        { src: 'theme', dest: 'theme' },
+        { src: 'styles', dest: 'styles' },
       ],
     },
     {
@@ -25,6 +25,7 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
       copy: [
         { src: 'demo', dest: 'demo' },
+        { src: 'styles', dest: 'styles' },
       ],
     },
   ],

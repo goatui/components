@@ -15,10 +15,10 @@ export class P4Button {
   @Prop() size: 'sm' | 'md' | 'lg' = 'md';
 
   /**
-   * Button variants
-   * Possible values are `"default"`, `"primary"`, `"dashed"`, `"danger"`, `"link"`. Defaults to `"default"`.
+   * Button type
+   * Possible values are `"default"`, `"primary"`, `"ghost"`, `"link"`. Defaults to `"primary"`
    */
-  @Prop() variant: 'default' | 'primary' | 'dashed' | 'danger' | 'link' = 'default';
+  @Prop() type: 'primary' | 'secondary' | 'ghost' = 'primary';
 
   /**
    * If true, fits button width to its parent width. Defaults to `false`.
@@ -33,6 +33,8 @@ export class P4Button {
 
   @Prop() icon: string;
 
+  @Prop() iconPosition: 'left' | 'right' = 'left';
+
   @Prop() showLoader: boolean = false;
 
 
@@ -46,13 +48,19 @@ export class P4Button {
       this.p4Click.emit(event);
   };
 
-  private getCssClasses() {
-    let css = ['button-component'];
-    if (this.block)
-      css.push('block');
-    css.push(`variant-${this.variant}`);
-    css.push(`size-${this.size}`);
-    return css.join(' ');
+  getIconSize() {
+    let size;
+    if (!this.size || this.size === 'md')
+      size = '1rem';
+    else if (this.size === 'lg')
+      size = '1.125rem';
+    else if (this.size === 'sm')
+      size = '0.725rem';
+    return size;
+  }
+
+  renderIcon() {
+    return <p4-icon type={this.icon} size={this.getIconSize()} class='icon' />;
   }
 
   render() {
@@ -60,14 +68,24 @@ export class P4Button {
     return (
       <Host>
         <button
-          class={this.getCssClasses()}
+          class={{
+            'button': true,
+            'button-block': this.block,
+            [`button-type-${this.type}`]: true,
+            [`button-size-${this.size}`]: true,
+            [`button-icon-position-${this.iconPosition}`]: true,
+          }}
           onClick={this.onClick}
           disabled={this.disabled || this.showLoader}>
-          {this.showLoader && <p4-spinner class="icon" size="1rem" />}
-          <div class="slot-container" style={{'visibility': this.showLoader ? 'hidden' : 'visible'}}>
-            {this.icon && <p4-icon type={this.icon} size="1rem" />}
-            <slot />
-          </div>
+
+          {this.showLoader && <p4-spinner class='spinner' size={this.getIconSize()} />}
+
+          {!this.showLoader && this.icon && this.renderIcon()}
+
+          {!this.showLoader && <div class='slot-container'>
+            <slot></slot>
+          </div>}
+
         </button>
       </Host>
     );

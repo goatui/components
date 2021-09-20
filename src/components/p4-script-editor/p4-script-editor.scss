@@ -1,6 +1,5 @@
 @import "./editor.main";
-@import "../../theme/variables";
-@import "../../styles/common";
+@import "../../styles/variables";
 
 :host {
   display: block;
@@ -24,24 +23,19 @@
 }
 
 .script-editor-component {
-  font-family: $font-normal;
+  font-family: var(--font-family);
   height: 100%;
-
-  .label {
-    display: inline-block;
-    margin-bottom: $space-2;
-  }
 
   .editor {
     height: 100%;
     min-height: 2rem;
-    border: 1px solid $color-gray-5;
+    border: 1px solid var(--color-neutral-500);
 
 
     &[disabled], &[disabled="true"] {
-      color: $color-gray-5;
-      background-color: $color-gray-1;
-      border-color: $color-gray-5;
+      color: var(--color-neutral-500);
+      background-color: var(--color-neutral-100);
+      border-color: var(--color-neutral-500);
       cursor: not-allowed;
     }
   }
@@ -54,12 +48,12 @@
 
   &.disabled.vs-light {
     .monaco-editor, .monaco-editor-background, .monaco-editor .inputarea.ime-input, .monaco-editor .margin {
-      background: $color-gray-2;
+      background: var(--color-neutral-200);
     }
   }
   &.disabled.vs-dark {
     .monaco-editor, .monaco-editor-background, .monaco-editor .inputarea.ime-input, .monaco-editor .margin {
-      background: $color-gray-8;
+      background: var(--color-neutral-800);
     }
   }
 

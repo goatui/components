@@ -17,22 +17,17 @@ export class P4Icon {
    */
   @Prop() size: 'sm' | 'md' | 'lg' | string = 'md';
 
-  private getSize() {
-    let size = '16px';
-    if (this.size === 'lg')
-      size = '32px';
+  getSize() {
+    let size;
+    if (!this.size || this.size === 'md')
+      size = '1.5rem';
+    else if (this.size === 'lg')
+      size = '3rem';
     else if (this.size === 'sm')
-      size = '12px';
-    else if (this.size === 'md')
-      size = '16px';
+      size = '1rem';
     else if (typeof this.size === 'string')
       size = this.size;
     return size;
-  }
-
-  private getCssClasses() {
-    const cls = ['icon-component'];
-    return cls.join(' ');
   }
 
 
@@ -40,10 +35,10 @@ export class P4Icon {
     let Icon = ICONS[this.type];
     if (!Icon)
       return null;
-    Icon = Icon.replace('width="1em"', 'width="' + this.getSize() + '"').replace('height="1em"', 'height="' + this.getSize() + '"');
+    Icon = Icon.replace(/width="([^"]+)"/, 'width="' + this.getSize() + '"').replace(/height="([^"]+)"/, 'height="' + this.getSize() + '"');
     return (
       <Host>
-        <div innerHTML={Icon} class={this.getCssClasses()} />
+        <div innerHTML={Icon} class='icon' />
       </Host>
     );
   }

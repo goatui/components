@@ -1,26 +1,35 @@
-@import "../../theme/variables";
+@import "../../styles/variables";
 
 :host {
   display: inline-block;
-  color: $color-gray-10;
-}
-
-:host-context(.item) {
-  --color: initial;
+  --color: var(--color-neutral-900);
   color: var(--color);
 }
 
+.icon {
+  line-height: 0;
+}
 
-:host(.danger) {
-  color: $color-red-6;
+:host(.primary) {
+  .icon {
+    color: var(--color-primary-500);
+  }
+}
+
+:host(.secondary) {
+  .icon {
+    color: var(--color-secondary-500);
+  }
+}
+
+:host(.error) {
+  .icon {
+    color: var(--color-error-500);
+  }
 }
 
 :host(.success) {
-  color: $color-green-6;
+  .icon {
+    color: var(--color-success-500);
+  }
 }
-
-
-:host(.primary) {
-  color: $color-primary;
-}
-

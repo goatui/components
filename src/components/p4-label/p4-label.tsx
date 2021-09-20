@@ -1,4 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'p4-label',
@@ -7,11 +7,14 @@ import { Component, Host, h } from '@stencil/core';
 })
 export class P4Label {
 
+  @Prop() required: boolean = false;
+
   render() {
     return (
       <Host>
-        <div class="label-component">
-          <slot/>
+        <div class="label">
+          {this.required && <span class="required">*</span>}
+          <slot></slot>
         </div>
       </Host>
     );
