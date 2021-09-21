@@ -8,6 +8,20 @@ root: true
     margin-bottom: 20px;
   }
 
+  .card section {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card iframe {
+    border: none;
+    height: 100%;
+    width: 100%;
+  }
+
   .card > a {
     background: #f7f7f7;
   }
@@ -18,6 +32,7 @@ root: true
     }
   }
 </style>
+
 <div class="container-fluid">
   <div class="row">
     {% include sidebar.html %}
@@ -49,7 +64,7 @@ root: true
                                     aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
             <p>P4RM components are beautiful Open Source web components under MIT license.</p>
 
-            <a class='btn btn-sm btn-outline-secondary mb-3' href='https://github.com/p4rm/ui.git'>Browse code</a>
+            <p4-button type="ghost" href='https://github.com/p4rm/ui.git'>Browse code</p4-button>
 
             <p>P4RM components are maintained by <a href="https://shivajivarma.com">Shivaji Varma</a>. Do
               not miss any updates and announcements, stay tuned on our social pages:</p>
@@ -106,8 +121,8 @@ root: true
   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
   &lt;title&gt;P4RM Component&lt;/title&gt;
 
-  &lt;link rel="stylesheet" href="{{site.script}}"&gt;&lt;/link&gt;
-  &lt;script type="module" src="{{site.themeCss}}"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" href="{{site.themeCss}}"&gt;&lt;/link&gt;
+  &lt;script type="module" src="{{site.script}}"&gt;&lt;/script&gt;
 
 &lt;/head&gt;
 &lt;body&gt;
@@ -133,11 +148,14 @@ root: true
               {% for component in site.components %}
               <div class="col-md-3">
                 <a href="{{component.link}}#" class="card card-link">
-                  <img class="card-img-top"
-                                                     src="{{component.img}}"
-                                                     alt="{{component.name}}">
+                  <div class="card-header">
+                    {{component.name}}
+                  </div>
                   <div class="card-body">
-                    <h5 class="card-title">{{component.name}}</h5>
+                    <section>
+                      {{component.example}}
+                    </section>
+
                   </div>
                 </a>
               </div>

@@ -1,7 +1,8 @@
-@import "../../styles/variables";
+@import "../../styles/scss/variables";
 
 :host {
-  display: block;
+  display: inline-block;
+  padding-bottom: var(--space-3);
 }
 
 .checkbox {

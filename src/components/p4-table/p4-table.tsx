@@ -130,8 +130,22 @@ export class P4Table {
     if (this.dataSource && this.dataSource.length) {
       const $bodyPanel: HTMLElement = $root.querySelector('.body');
       const $bodyRightPanel: HTMLElement = $bodyPanel.querySelector('.right-panel');
+      const $bodyLeftPanel: HTMLElement = $bodyPanel.querySelector('.left-panel');
       $bodyRightPanel.style.paddingLeft = leftPanelWidth + 'px';
       $bodyPanel.style.paddingTop = $headerPanel.clientHeight + 'px';
+
+      const $bodyRightRows =  $bodyRightPanel.querySelectorAll('.row');
+      $bodyLeftPanel.querySelectorAll('.row').forEach(($leftRow, index) => {
+        let maxHeight = $leftRow.querySelector('.col').clientHeight;
+        if (maxHeight < $bodyRightRows[index].querySelector('.col').clientHeight) {
+          //@ts-ignore
+          $leftRow.querySelector('.col').style.height = $bodyRightRows[index].querySelector('.col').clientHeight + 'px';
+        } else {
+          //@ts-ignore
+          $bodyRightRows[index].querySelector('.col').style.height = maxHeight + 1 + 'px';
+        }
+      })
+
     }
   }
 
@@ -143,7 +157,7 @@ export class P4Table {
       leftHeaderRow.push(
         <div class='col' style={{ width: CHECKBOX_WIDTH }}>
           <div class='col-content'>
-            <p4-checkbox class='checkbox' size='sm' value={this.isSelectAll} onP4Change={this.onSelectAllClick} />
+            <p4-checkbox class='checkbox' value={this.isSelectAll} onP4Change={this.onSelectAllClick} />
           </div>
         </div>);
     }
@@ -187,7 +201,7 @@ export class P4Table {
       if (this.selectionType === 'checkbox')
         bodyLeftRow.push(<div class={{ 'col': true, 'col-hover': this.hoverRecord === row }}
                               style={{ width: CHECKBOX_WIDTH }}>
-          <p4-checkbox class='checkbox' size='sm' value={this.selectedRowKeys.includes(row[this.keyField])}
+          <p4-checkbox class='checkbox' value={this.selectedRowKeys.includes(row[this.keyField])}
                        onP4Change={() => this.onRowSelectClick(row)} />
         </div>);
 

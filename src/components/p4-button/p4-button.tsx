@@ -15,10 +15,10 @@ export class P4Button {
   @Prop() size: 'sm' | 'md' | 'lg' = 'md';
 
   /**
-   * Button type
-   * Possible values are `"default"`, `"primary"`, `"ghost"`, `"link"`. Defaults to `"primary"`
+   * Button variants.
+   * Possible values are `"primary"`, `"secondary"`, `"ghost-primary"`, `"ghost-secondary"`. Defaults to `"primary"`.
    */
-  @Prop() type: 'primary' | 'secondary' | 'ghost' = 'primary';
+  @Prop() variant: 'primary' | 'secondary' | 'ghost-primary' | 'ghost-secondary' = 'primary';
 
   /**
    * If true, fits button width to its parent width. Defaults to `false`.
@@ -31,24 +31,38 @@ export class P4Button {
   @Prop() disabled: boolean = false;
 
 
+  /**
+   * Icon which will displayed on button.
+   * Possible values are bootstrap icon names.
+   */
   @Prop() icon: string;
 
+  /**
+   * Icon position.
+   * Possible values are `"left"`, `"right"`. Defaults to `"left"`.
+   */
   @Prop() iconPosition: 'left' | 'right' = 'left';
 
   @Prop() showLoader: boolean = false;
 
+  @Prop() href: string;
+  @Prop() target: '_self' | '_blank' = '_self';
 
   /**
    * On click of button a CustomEvent 'p4Click' will be triggered.
    */
   @Event() p4Click: EventEmitter;
 
-  private onClick = (event: any) => {
-    if (!this.disabled && !this.showLoader)
+  private onClick = (event: PointerEvent) => {
+    if (!this.disabled && !this.showLoader) {
+      if (this.href) {
+        window.open(this.href, this.target);
+      }
       this.p4Click.emit(event);
+    }
   };
 
-  getIconSize() {
+  private getIconSize = () => {
     let size;
     if (!this.size || this.size === 'md')
       size = '1rem';
@@ -57,11 +71,11 @@ export class P4Button {
     else if (this.size === 'sm')
       size = '0.725rem';
     return size;
-  }
+  };
 
-  renderIcon() {
+  private renderIcon = () => {
     return <p4-icon type={this.icon} size={this.getIconSize()} class='icon' />;
-  }
+  };
 
   render() {
 
@@ -71,7 +85,7 @@ export class P4Button {
           class={{
             'button': true,
             'button-block': this.block,
-            [`button-type-${this.type}`]: true,
+            [`button-variant-${this.variant}`]: true,
             [`button-size-${this.size}`]: true,
             [`button-icon-position-${this.iconPosition}`]: true,
           }}
@@ -83,7 +97,7 @@ export class P4Button {
           {!this.showLoader && this.icon && this.renderIcon()}
 
           {!this.showLoader && <div class='slot-container'>
-            <slot></slot>
+            <slot />
           </div>}
 
         </button>

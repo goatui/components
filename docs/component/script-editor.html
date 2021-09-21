@@ -1,62 +1,40 @@
 ---
 layout: component
 title: Script Editor
-version: 0.1.4
-github_project: p4-script-editor
+menu:
+- title: Usage
+- title: Theme
+- title: Disabled State
 ---
 
 
-<script type="module" src="/assets/p4/p4rm-ui/p4rm-ui.esm.js"></script>
-<div class="row pt-3">
-    <!-- Content Nav -->
-    <div class="col-xl-2 order-xl-2 d-none d-xl-inline-block">
-        <ul class="js-scroll-nav duik-content-nav">
-            <li class="duik-content-nav__item"><a href="#doc-usage">Usage</a></li>
-            <li class="duik-content-nav__item"><a href="#doc-examples">Examples</a></li>
-            <li class="duik-content-nav__item"><a href="#doc-disabled-state">Disabled state</a></li>
-        </ul>
+<div class='row pt-3'>
+
+  {% include content-nav.html %}
+
+  <!-- Content -->
+  <div class='col-xl-10 order-xl-1 duik-content border-bottom'>
+    <div class='border-bottom mb-7'>
+      <h1>{{ page.title }}</h1>
+      <p class='lead mb-5'>Use Idli’s custom script editor component for capturing input in forms, dialogs, and
+        more. Built on <a href='https://microsoft.github.io/monaco-editor/'>monaco</a>.</p>
     </div>
-    <!-- End Content Nav -->
 
-    <!-- Content -->
-    <div class="col-xl-10 order-xl-1 duik-content border-bottom">
-        <div class="border-bottom mb-7">
-            <h1>{{ page.title }}</h1>
-            <p class="lead mb-5">Use Idli’s custom script editor component for capturing input in forms, dialogs, and
-                more. Built on <a href="https://microsoft.github.io/monaco-editor/">monaco</a>.</p>
-        </div>
 
-      <div id='doc-usage' class='mb-7'>
-        <h2 class='h4'>Usage <a class='js-anchor-link duik-anchorjs-link' href='#doc-usage' aria-label='Anchor'
-                                data-anchorjs-icon='#'></a></h2>
+    <!-- Usage -->
+    <div id='doc-usage' class='mb-7'>
 
-        <pre>
-                <code class='language-html' data-lang='html'>
-&lt;link rel="stylesheet" src="https://unpkg.com/@p4rm/ui@{{site.project_version}}/dist/theme/theme.css"&gt;&lt;/script&gt;
-&lt;script type="module" src="https://unpkg.com/@p4rm/ui@{{site.project_version}}/dist/p4rm-ui/p4rm-ui.esm.js"&gt;&lt;/script&gt;
+      <h2 class='h4'>Examples <a class='js-anchor-link duik-anchorjs-link' href='#doc-usage'
+                                 aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      <p>Here is script editor component, currently supports JS and JSON editing.</p>
+      <div class='card'>
+        <div class='card-header'>
+          <p4-checkbox id='disableEditor' label='Disable editor'></p4-checkbox>
+          <p4-checkbox id='darkTheme' label='Dark Theme'></p4-checkbox>
 
-&lt;p4-script-editor id="script-editor">&lt;/p4-script-editor>
-
-</code></pre>
-      </div>
-      <!-- End About -->
-
-        <hr class="mt-7 mb-4">
-
-        <!-- What’s Included -->
-        <div id="doc-examples" class="mb-7">
-            <h2 class="h4">Examples <a class="js-anchor-link duik-anchorjs-link" href="#doc-whats-included"
-                                       aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
-            <p>Here is script editor component, currently supports JS and JSON editing.</p>
-            <div class="output">
-                <input type="checkbox"
-                       onclick="(function(elm) {
-                       document.getElementById('business-rule-editor').disabled = elm.checked;
-                   })(this)"></input> Disable editor<br/>
-
-                <p4-script-editor id="business-rule-editor" style="height: 500px" theme='vs-dark'></p4-script-editor>
-                <script>
-                    document.getElementById('business-rule-editor').value = `/**
+          <p4-script-editor id='business-rule-editor' style='height: 300px'></p4-script-editor>
+        <script>
+          document.getElementById('business-rule-editor').value = `/**
  * Sample Code
  */
  function myBusinessRuleFunction(){
@@ -65,15 +43,23 @@ github_project: p4-script-editor
     let c = a + b;
     console.log(c);
 }`;
-                </script>
-            </div>
 
-            <pre class="mb-4">
-                <code class="language-html" data-lang="html"> &lt;p4-script-editor id="business-rule-editor"&gt;&lt;/p4-script-editor&gt;
-                </code>
-            </pre>
-            <pre class="mb-4">
-                <code class="language-javascript" data-lang="javascript">
+          document.querySelector('#disableEditor').addEventListener('p4Change',  function(evt) {
+            document.getElementById('business-rule-editor').disabled = evt.target.value;
+          })
+          document.querySelector('#darkTheme').addEventListener('p4Change',  function(evt) {
+            document.getElementById('business-rule-editor').theme = evt.target.value ? 'vs-dark' : 'vs-light';
+          })
+        </script>
+      </div>
+
+      <pre>
+                <code class='language-html' data-lang='html'>&lt;link rel="stylesheet" href="{{site.themeCss}}"&gt;&lt;/link&gt;
+&lt;script type="module" src="{{site.script}}"&gt;&lt;/script&gt;
+
+&lt;p4-script-editor id="business-rule-editor"&gt;&lt;/p4-script-editor&gt;
+
+&lt;script>
 document.getElementById('business-rule-editor').value = `/**
  * Sample Code
  */
@@ -83,32 +69,41 @@ function myBusinessRuleFunction(){
     let c = a + b;
     console.log(c);
 }`;
+&lt;/script>
                 </code>
             </pre>
-        </div>
-        <!-- End What’s Included -->
+    </div>
+    </div>
+    <!-- End Usage -->
 
-        <hr class="mt-7 mb-4">
 
+    <!-- Theme -->
+    <div id='doc-theme' class='mb-7'>
+      <h2 class='h4'>Theme <a class='js-anchor-link duik-anchorjs-link' href='#doc-theme'
+                                       aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
 
-        <!-- Disabled State -->
-        <div id="doc-disabled-state" class="mb-7">
-            <h2 class="h4">Disabled state <a class="js-anchor-link duik-anchorjs-link" href="#doc-getting-started"
-                                             aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
-            <p>Make editor look inactive by adding the disabled <code class="highlighter-rouge"
-                                                                      data-lang="html">boolean</code>
-                attribute to any <code class="highlighter-rouge" data-lang="html">&lt;input&gt;</code> element.</p>
+      <p>Please click on checkbox and try disabling able editor.</p>
 
-            <p>Please click on checkbox and try disabling able editor.</p>
-
-            <pre class="mb-4">
-                    <code class="language-html" data-lang="html">&lt;p4-script-editor disabled&gt;&lt;/p4-script-editor&gt;
-                    </code>
-                  </pre>
-
-        </div>
-
+      <pre><code class='language-html' data-lang='html'>&lt;p4-script-editor theme='vs-dark'&gt;&lt;/p4-script-editor&gt;
+      </code></pre>
 
     </div>
-    <!-- End Content -->
+
+    <!-- Disabled State -->
+    <div id='doc-disabled-state' class='mb-7'>
+      <h2 class='h4'>Disabled state <a class='js-anchor-link duik-anchorjs-link' href='#doc-disabled-state'
+                                       aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      <p>Make editor look inactive by adding the disabled <code class='highlighter-rouge'
+                                                                data-lang='html'>boolean</code>
+        attribute to any <code class='highlighter-rouge' data-lang='html'>&lt;input&gt;</code> element.</p>
+
+
+      <pre><code class='language-html' data-lang='html'>&lt;p4-script-editor disabled&gt;&lt;/p4-script-editor&gt;
+      </code></pre>
+
+    </div>
+
+
+  </div>
+  <!-- End Content -->
 </div>

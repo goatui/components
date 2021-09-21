@@ -2,7 +2,7 @@
 <div class='col-xl-2 order-xl-2 d-none d-xl-inline-block'>
   <ul class='js-scroll-nav duik-content-nav'>
     {% for item in page.menu %}
-    <li class='duik-content-nav__item'><a href='#doc-{{item.title | downcase | replace: " ", "-" }}'>{{item.title}}</a></li>
+    <li class='duik-content-nav__item'><a href='#doc-{{item.title | downcase | replace: " ", "-" | "/", "-"}}'>{{item.title}}</a></li>
     {% endfor %}
   </ul>
 </div>

@@ -72,13 +72,13 @@ assets:
 components:
   - name: Button
     link: /component/button.html
-    img: /assets/img/button.png
+    example: <p4-button>Button</p4-button>
   - name: Checkbox
     link: /component/checkbox.html
-    img: /assets/img/checkbox.png
+    example: <p4-checkbox></p4-checkbox>
   - name: Icon
     link: /component/icon.html
-    img: /assets/img/image-not-found.png
+    example: <p4-icon type="alarm"></p4-icon>
   - name: Input
     link: /component/input.html
     img: /assets/img/input.png
@@ -91,6 +91,7 @@ components:
   - name: Spinner
     link: /component/spinner.html
     img: /assets/img/image-not-found.png
+    example: <p4-spinner></p4-spinner>
   - name: Table
     link: /component/table.html
     img: /assets/img/table.png

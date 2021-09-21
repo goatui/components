@@ -1,61 +1,29 @@
 ---
 layout: component
 title: Input
-github_project: p4-input
+menu:
+- title: Types
+- title: Variants
+- title: Sizes
+- title: Disabled state
+- title: Events
 ---
 
 <script type="module" src="/assets/p4/p4rm-ui/p4rm-ui.esm.js"></script>
 <div class="row pt-3">
-  <!-- Content Nav -->
-  <div class="col-xl-2 order-xl-2 d-none d-xl-inline-block">
-    <ul class="js-scroll-nav duik-content-nav">
-      <li class="duik-content-nav__item"><a href="#doc-usage">Usage</a></li>
-      <li class="duik-content-nav__item"><a href="#doc-types">Types</a></li>
-      <li class="duik-content-nav__item"><a href="#doc-variants">Variants</a></li>
-      <li class="duik-content-nav__item"><a href="#doc-sizes">Sizes</a></li>
-      <li class="duik-content-nav__item"><a href="#doc-disabled-state">Disabled state</a></li>
-      <li class="duik-content-nav__item"><a href="#doc-events">Events</a></li>
-    </ul>
-  </div>
-  <!-- End Content Nav -->
+
+  {% include content-nav.html %}
 
   <!-- Content -->
   <div class="col-xl-10 order-xl-1 duik-content border-bottom">
     <div class="border-bottom mb-7">
       <h1>{{ page.title }}</h1>
-      <p class="lead mb-5">Use P4RM’s custom input component for capturing input in forms, dialogs, and more with
+      <p class="lead mb-5">Use {{site.company}}’s custom input component for capturing input in forms, dialogs, and more with
         support
         for multiple sizes, variants and more.</p>
     </div>
 
-    <!-- Usage -->
-    <div id="doc-usage" class="mb-7">
-      <h2 class="h4">Usage <a class="js-anchor-link duik-anchorjs-link" href="#doc-usage" aria-label="Anchor"
-                              data-anchorjs-icon="#"></a></h2>
 
-      <pre>
-                <code class="language-html" data-lang="html">
-&lt;script type="module" src="https://unpkg.com/@p4rm/ui@{{site.project_version}}/dist/p4rm-ui/p4rm-ui.esm.js"&gt;&lt;/script&gt;
-
-&lt;!-- Default Input --&gt;
-&lt;p4-input placeholder="Name"&gt;&lt;/p4-input&gt;
-
-&lt;!--  Input with value --&gt;
-&lt;p4-input value="John Snow"&gt;&lt;/p4-input&gt;
-
-&lt;!-- Input with placeholder -->
-&lt;p4-input placeholder="Enter Input"&gt;&lt;/p4-input&gt;
-
-&lt;!-- Input with clear button when there is a value -->
-&lt;p4-input clear-input value="clear me"&gt;&lt;/p4-input&gt;
-                </code>
-              </pre>
-
-
-    </div>
-    <!-- End About -->
-
-    <hr class="mt-7 mb-4">
 
     <!-- Types -->
     <div id="doc-types" class="mb-7">

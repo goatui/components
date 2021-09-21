@@ -1,9 +1,8 @@
 ---
 layout: component
 title: Button
-componentName: p4-button
 menu:
-- title: Types
+- title: Variants
 - title: Sizes
 - title: Disabled state
 - title: Icon
@@ -21,28 +20,31 @@ menu:
 
     <div class='border-bottom mb-7'>
       <h1>{{ page.title }}</h1>
-      <p class='lead mb-5'>Use P4RM’s custom button styles for actions in forms, dialogs, and more with support for
+      <p class='lead mb-5'>Use {{site.company}}’s custom button styles for actions in forms, dialogs, and more with support for
         multiple sizes, states, and more.</p>
-       <a class='btn btn-sm btn-outline-secondary mb-3' href='https://github.com/p4rm/ui.git'>Browse code</a>
     </div>
 
 
     <!-- Types -->
-    <div id='doc-types' class='mb-7'>
-      <h2 class='h4'>Types <a class='js-anchor-link duik-anchorjs-link' href='#doc-types' aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+    <div id='doc-variants' class='mb-7'>
+      <h2 class='h4'>Variants <a class='js-anchor-link duik-anchorjs-link' href='#doc-variants' aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
       <p>Here are several predefined button styles, each serving its own semantic purpose.</p>
 
       <div class='card'>
         <div class='card-header'>
-          <p4-button type='primary'>Primary</p4-button>
-          <p4-button type='secondary'>Secondary</p4-button>
-          <p4-button type='ghost'>Ghost</p4-button>
+          <p4-button variant='primary'>Primary</p4-button>
+          <p4-button variant='secondary'>Secondary</p4-button>
+          <p4-button variant='ghost-primary'>Ghost Primary</p4-button>
+          <p4-button variant='ghost-secondary'>Ghost Secondary</p4-button>
         </div>
         <div class='card-body'>
       <pre>
-                <code class='language-html' data-lang='html'>&lt;p4-button type=&quot;primary&quot;&gt;Primary&lt;/p4-button&gt;
-&lt;p4-button type=&quot;secondary&quot;&gt;Secondary&lt;/p4-button&gt;
-&lt;p4-button type=&quot;ghost&quot;&gt;Ghost&lt;/p4-button&gt;
+                <code class='language-html' data-lang='html'>&lt;link rel="stylesheet" href="{{site.themeCss}}"&gt;&lt;/link&gt;
+&lt;script type="module" src="{{site.script}}"&gt;&lt;/script&gt;
+
+&lt;p4-button variant=&quot;primary&quot;&gt;Primary&lt;/p4-button&gt;
+&lt;p4-button variant=&quot;secondary&quot;&gt;Secondary&lt;/p4-button&gt;
+&lt;p4-button variant=&quot;ghost&quot;&gt;Ghost&lt;/p4-button&gt;
                 </code>
               </pre>
         </div>
@@ -170,7 +172,7 @@ menu:
 
       <div class='output'>
 
-        <p4-button variant='default' id='click-me-btn'>Click me</p4-button>
+        <p4-button id='click-me-btn'>Click me</p4-button>
         <p4-button disabled id='disabled-btn'>Disabled Button</p4-button>
 
         <script>

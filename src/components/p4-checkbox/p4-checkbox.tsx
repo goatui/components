@@ -15,7 +15,7 @@ export class P4Checkbox {
   /**
    * The input field value.
    */
-  @Prop() value: boolean = false;
+  @Prop({ mutable: true }) value: boolean = false;
 
   /**
    * The button size.
@@ -39,10 +39,11 @@ export class P4Checkbox {
   @Event() p4Change: EventEmitter;
 
 
-  onChange = (event: any) => {
+  onChange = (ev: PointerEvent) => {
+    const input = ev.target as HTMLInputElement;
     if (!this.disabled) {
-      this.value = !JSON.parse(event.target.value);
-      this.p4Change.emit({ value: this.value });
+      this.value = !JSON.parse(input.value);
+      this.p4Change.emit(ev);
     }
   };
 

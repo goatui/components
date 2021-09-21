@@ -18,11 +18,13 @@
 ### Used by
 
  - [p4-button](../p4-button)
+ - [p4-input](../p4-input)
 
 ### Graph
 ```mermaid
 graph TD;
   p4-button --> p4-icon
+  p4-input --> p4-icon
   style p4-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
