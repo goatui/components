@@ -1,157 +1,164 @@
+@import "commons";
+
 :host {
   display: block;
   padding-bottom: var(--space-3);
   --input-border-radius: var(--border-radius);
 }
 
-.input-component {
+.input {
 
   position: relative;
   display: flex;
-
-
+  box-sizing: border-box;
 
   background-color: var(--color-shades-white);
   border: 1px solid var(--border-color);
   border-radius: var(--input-border-radius);
-
-  box-sizing: border-box;
-
-  color: var(--color-neutral-500);
-  line-height: 1.5715;
-  background-image: none;
-
-  transition: all 0.3s;
-  text-align: start;
-  font-weight: 400;
-  letter-spacing: normal;
+  overflow: hidden;
   cursor: text;
-
-
+  align-items: stretch;
+  justify-content: center;
 
 
   .native-input, .display-value {
-   // font-family: $font-normal;
     flex: 1;
     border: none;
     outline: none;
     background: none;
-    height: 100%;
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
     width: 100%;
     cursor: inherit;
-    padding: .25rem .75rem;
 
     &::placeholder {
-      color: #bfbfbf;
+      color: var(--color-neutral-400);
     }
-
   }
+
+  &.input-has-actions {
+    .native-input, .display-value {
+      padding-right: var(--space-2);
+    }
+  }
+
 
   .input-actions {
     line-height: 0;
     display: flex;
 
-    > *:last-child {
-      margin-right: .5rem;
-    }
-
-
-    > * {
-      height: 100%;
-      background: transparent;
+    .action-button {
+      position: relative;
       border: none;
       box-shadow: none;
-      margin-left: .5rem;
-      padding: 0;
+      background: var(--color-neutral-100);
+      padding: 0 var(--space-3_5) 0 var(--space-3_5);
+      margin: 0;
+      border-radius: 0;
       line-height: 0;
-    }
-
-    .input-clear-icon {
+      border-left: 1px solid var(--border-color);
       cursor: pointer;
+
+      .action-icon {
+        padding-bottom: 0;
+        --color: var(--color-neutral-600);
+      }
+
+      &:focus {
+        outline: none;
+        background: var(--color-neutral-300);
+
+        .action-icon {
+          --color: var(--color-neutral-800);
+        }
+      }
+
+      &:not(.action-button-disabled):active {
+        background: var(--color-primary-500);
+
+        .action-icon {
+          --color: var(--color-shades-white);
+        }
+      }
+
+      &.action-button-disabled {
+        cursor: not-allowed;
+
+        .action-icon {
+          --color: var(--color-neutral-300);
+        }
+      }
+    }
+
+
+  }
+
+  /**
+  * SIZES
+  */
+  &.input-size-lg {
+    .native-input, .display-value {
+      height: 3.25rem;
+      @include font-p2;
+      padding-top: var(--space-3_5);
+      padding-bottom: var(--space-3_5);
     }
   }
 
-
-  &:not(.disabled):hover {
-    color: var(--color-primary-500);
-    border-color: var(--color-primary-500);
-
-    .input-clear-icon {
-      display: inline-block;
+  &.input-size-md {
+    .native-input, .display-value {
+      height: var(--space-11);
+      @include font-p1;
+      padding-top: var(--space-3);
+      padding-bottom: var(--space-3);
     }
   }
+
+  &.input-size-sm {
+    .native-input, .display-value {
+      height: var(--space-9);
+      @include font-p1;
+      padding-top: var(--space-2_5);
+      padding-bottom: var(--space-2_5);
+    }
+  }
+
 
   /**
   * VARIANTS
   */
-  &.variant-dashed {
+  &.input-variant-dashed {
     border-style: dashed;
   }
 
-  &.disabled {
-    background-color: #f5f5f5;
+  &.input-disabled {
+    background-color: var(--color-neutral-100);
     cursor: not-allowed;
     opacity: 1;
-  }
 
-  /**
-    * SIZES
-    */
-  &.size-lg {
     .native-input, .display-value {
-  //    font-size: $font-size-5;
+      color: var(--color-neutral-400);
     }
   }
-
-  &.size-md {
-    .native-input, .display-value {
-   //   font-size: $font-size-4;
-    }
-  }
-
-  &.size-sm {
-    .native-input, .display-value {
-  //    font-size: $font-size-3;
-    }
-  }
-
-
 
 }
 
 :host(.has-focus) {
-  .input-component {
-   // color: $color-primary;
-  //  border-color: $color-primary;
+  .input {
     outline: 0;
-  //  box-shadow: 0 0 0 2px $color-blue-3;
 
-    .input-clear-icon {
-      display: inline-block;
+    &:not(.input-disabled) {
+      border-color: var(--color-primary-300);
+      box-shadow: -1px 0px 0px var(--color-neutral-300);
     }
   }
 }
 
 :host(.danger) {
-  /* This works */
-  .input-component {
- //   border-color: $color-red-6;
-  }
-
-  .input-component:hover {
-//    border-color: $color-red-6;
-//    box-shadow: 0 0 0 2px $color-red-3;
-  }
-}
-
-:host(.has-focus.danger) {
-  .input-component {
-  //  box-shadow: 0 0 0 2px $color-red-3;
-  }
-}
-
-:host(.no-border) {
-  .input-component {
-    border: 0;
+  .input {
+    border-color: var(--color-error-500);
+    &:focus:not(.input-disabled):not(.input-variant-no-border) {
+      box-shadow: -1px 0px 0px var(--color-error-700);
+    }
   }
 }

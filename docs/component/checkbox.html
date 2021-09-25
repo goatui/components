@@ -89,9 +89,9 @@ console.log(document.querySelector('#ice-cream-field').value); //get value
 
         <!-- Events -->
         <div id="doc-events" class="mb-7">
-            <h2 class="h4">Events <a class="js-anchor-link duik-anchorjs-link" href="#doc-getting-started"
+            <h2 class="h4">Events <a class="js-anchor-link duik-anchorjs-link" href="#doc-events"
                                      aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
-            <p>On click the button a <code class="highlighter-rouge" data-lang="html">CustomEvent</code> <code class="highlighter-rouge" data-lang="html">buttonClick</code>
+            <p>On change of checkbox value a <b>CustomEvent</b> <code class="highlighter-rouge" data-lang="html">p4:change</code>
                 is triggered by the element.</p>
 
             <div class="output">
@@ -99,16 +99,14 @@ console.log(document.querySelector('#ice-cream-field').value); //get value
                 <p4-checkbox label="Change Event?" variant="default" id="change-checkbox-field"></p4-checkbox>
 
                 <script>
-                    document.querySelector('#change-checkbox-field').addEventListener('p4Change', function(event) {
-                      console.log('Input changed to :: ' + event.detail.value);
+                    document.querySelector('#change-checkbox-field').addEventListener('p4:change', function(event) {
+                      myConsole.log('Input changed to :: ' + event.target.value);
                     });
                 </script>
-
-                <p><b>Note:</b> Check browser console for output.</p>
             </div>
             <pre class="mb-4">
                     <code class="language-js" data-lang="javascript">
-document.querySelector('#change-checkbox-field').addEventListener('p4Change', function(event) {
+document.querySelector('#change-checkbox-field').addEventListener('p4:change', function(event) {
     console.log('Input changed to :: ' + event.target.value);
 });
                     </code>

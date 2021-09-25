@@ -1,11 +1,10 @@
-name: Node CI
+name: Node Build CI
 
 on:
   push:
     # Sequence of patterns matched against refs/heads
     branches:
       - main
-      - master
       - 'releases/**'
 
 jobs:
@@ -15,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [14.x]
 
     steps:
       - uses: actions/checkout@v1

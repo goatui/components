@@ -1,4 +1,4 @@
-@import "../../styles/input";
+@import "../../styles/scss/input";
 
 
 .select-component {
@@ -18,7 +18,7 @@
 
   &.type-menu {
     .display-value {
-      color: $color-gray-10;
+      color: var(--color-neutral-500);
     }
     &:hover {
       cursor: pointer;
@@ -48,14 +48,14 @@
       cursor: pointer;
 
       &.select-option-active {
-        background-color: $color-gray-2;
+        background-color: var(--color-neutral-200);
       }
     }
   }
 
   .no-data {
     text-align: center;
-    color: $color-gray-8;
+    color: var(--color-neutral-800);
     padding: 15px;
 
     p4-icon {
@@ -95,6 +95,6 @@
 
 :host(.has-value) {
   .display-value {
-    color: $color-gray-10;
+    color: var(--color-neutral-900);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, h, Host, Prop } from '@stencil/core';
+import { Component, Event, EventEmitter, h, Host, Method, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'p4-checkbox',
@@ -6,6 +6,9 @@ import { Component, Event, EventEmitter, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class P4Checkbox {
+
+  private nativeInput?: HTMLInputElement;
+  @State() hasFocus = false;
 
   /**
    * The checkbox label.
@@ -34,29 +37,60 @@ export class P4Checkbox {
   @Prop() disabled: boolean = false;
 
   /**
-   * On change of input a CustomEvent 'p4Change' will be triggered. Event details contains parent event, oldValue, newValue of input.
+   * On change of input a CustomEvent 'p4:change' will be triggered. Event details contains parent event, oldValue, newValue of input.
    */
-  @Event() p4Change: EventEmitter;
+  @Event({ eventName: 'p4:change' }) p4Change: EventEmitter;
+
+  /**
+   * Emitted when the input loses focus.
+   */
+  @Event({ eventName: 'p4:blur' }) p4Blur: EventEmitter;
+
+  /**
+   * Emitted when the input has focus.
+   */
+  @Event({ eventName: 'p4:focus' }) p4Focus: EventEmitter;
 
 
-  onChange = (ev: PointerEvent) => {
-    const input = ev.target as HTMLInputElement;
+  private clickHandler = (ev: MouseEvent | KeyboardEvent) => {
     if (!this.disabled) {
-      this.value = !JSON.parse(input.value);
+      this.value = !JSON.parse(this.nativeInput.value);
       this.p4Change.emit(ev);
     }
   };
 
+  private blurHandler = (ev: FocusEvent) => {
+    this.hasFocus = false;
+    this.p4Blur.emit(ev);
+  };
 
-  private getCssClasses() {
-    const cls = ['checkbox'];
-    cls.push('size-' + this.size);
-    if (this.required)
-      cls.push('required');
-    if (this.disabled)
-      cls.push('disabled');
-    return cls.join(' ') + ' ';
+  private focusHandler = (ev: FocusEvent) => {
+    this.hasFocus = true;
+    this.p4Focus.emit(ev);
+  };
+
+  /**
+   * Sets focus on the native `input` in `p4-input`. Use this method instead of the global
+   * `input.focus()`.
+   */
+  @Method()
+  async setFocus() {
+    if (this.nativeInput) {
+      this.nativeInput.focus();
+    }
   }
+
+  /**
+   * Sets blur on the native `input` in `p4-input`. Use this method instead of the global
+   * `input.blur()`.
+   */
+  @Method()
+  async setBlur() {
+    if (this.nativeInput) {
+      this.nativeInput.blur();
+    }
+  }
+
 
   getCheckboxSize() {
     let size;
@@ -71,38 +105,57 @@ export class P4Checkbox {
 
   render() {
     return (
-      <Host>
-        <label class={this.getCssClasses()}>
+      <Host class={{ 'has-focus': this.hasFocus }}>
+        <label class={{
+          'checkbox': true,
+          'checkbox-disabled': this.disabled,
+          [`checkbox-size-${this.size}`]: true,
+        }}>
 
-          {
-            this.value &&
-            <svg width={this.getCheckboxSize()} height={this.getCheckboxSize()} viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' class="icon square-checked">
-              <path d='M9 11L12 14L22 4' stroke='#0F172A' stroke-width='2' stroke-linecap='round'
-                    stroke-linejoin='round' />
-              <path
-                d='M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16'
-                stroke='#0F172A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' />
-            </svg>
-          }
+          <div class='icon-container'
+               tabindex='0'
+               onKeyUp={(evt) => {
+                 if (evt.keyCode === 13) {
+                   this.clickHandler(evt);
+                 }
+               }}
+               aria-disabled={this.disabled}
+               onBlur={this.blurHandler}
+               onFocus={this.focusHandler}>
+            {
+              this.value &&
+              <svg width={this.getCheckboxSize()} height={this.getCheckboxSize()} viewBox='0 0 24 24' fill='none'
+                   xmlns='http://www.w3.org/2000/svg' class='icon square-checked'>
+                <path d='M9 11L12 14L22 4' stroke='#0F172A' stroke-width='2' stroke-linecap='round'
+                      stroke-linejoin='round' />
+                <path
+                  d='M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16'
+                  stroke='#0F172A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' />
+              </svg>
+            }
 
-          {
-            !this.value &&
-            <svg width={this.getCheckboxSize()} height={this.getCheckboxSize()} viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' class="icon square">
-              <path
-                d='M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z'
-                stroke='#0F172A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' />
-            </svg>
-          }
+            {
+              !this.value &&
+              <svg width={this.getCheckboxSize()} height={this.getCheckboxSize()} viewBox='0 0 24 24' fill='none'
+                   xmlns='http://www.w3.org/2000/svg' class='icon square'>
+                <path
+                  d='M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z'
+                  stroke='#0F172A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' />
+              </svg>
+            }
+          </div>
 
 
           <input type='checkbox'
                  class='checkbox-input'
                  value={this.value + ''}
                  required={this.required}
-                 onClick={this.onChange}
-                 disabled={this.disabled} />
+                 ref={input => this.nativeInput = input}
+                 tabindex='-1'
+                 onClick={this.clickHandler}
+                 aria-disabled={this.disabled} />
 
-          {this.label && <span class="label">{this.label}</span>}
+          {this.label && <span class='label'>{this.label}</span>}
         </label>
       </Host>
     );

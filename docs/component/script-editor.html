@@ -16,7 +16,7 @@ menu:
   <div class='col-xl-10 order-xl-1 duik-content border-bottom'>
     <div class='border-bottom mb-7'>
       <h1>{{ page.title }}</h1>
-      <p class='lead mb-5'>Use Idli’s custom script editor component for capturing input in forms, dialogs, and
+      <p class='lead mb-5'>Use {{site.company}}’s custom script editor component for capturing input in forms, dialogs, and
         more. Built on <a href='https://microsoft.github.io/monaco-editor/'>monaco</a>.</p>
     </div>
 
@@ -44,10 +44,10 @@ menu:
     console.log(c);
 }`;
 
-          document.querySelector('#disableEditor').addEventListener('p4Change',  function(evt) {
+          document.querySelector('#disableEditor').addEventListener('p4:change',  function(evt) {
             document.getElementById('business-rule-editor').disabled = evt.target.value;
           })
-          document.querySelector('#darkTheme').addEventListener('p4Change',  function(evt) {
+          document.querySelector('#darkTheme').addEventListener('p4:change',  function(evt) {
             document.getElementById('business-rule-editor').theme = evt.target.value ? 'vs-dark' : 'vs-light';
           })
         </script>
@@ -57,7 +57,7 @@ menu:
                 <code class='language-html' data-lang='html'>&lt;link rel="stylesheet" href="{{site.themeCss}}"&gt;&lt;/link&gt;
 &lt;script type="module" src="{{site.script}}"&gt;&lt;/script&gt;
 
-&lt;p4-script-editor id="business-rule-editor"&gt;&lt;/p4-script-editor&gt;
+&lt;p4-script-editor id="business-rule-editor" style='height: 300px'&gt;&lt;/p4-script-editor&gt;
 
 &lt;script>
 document.getElementById('business-rule-editor').value = `/**

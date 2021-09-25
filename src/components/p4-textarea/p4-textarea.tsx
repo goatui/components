@@ -49,11 +49,6 @@ export class P4Textarea {
    */
   @Prop() inline: boolean = false;
 
-  /**
-   * Button variants
-   * Possible values are `"text"`. Defaults to `"text"`.
-   */
-  @Prop() type: 'text' | 'number' = 'text';
 
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
@@ -66,70 +61,72 @@ export class P4Textarea {
    */
   @Prop() required: boolean = false;
 
-  /**
-   * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
-   */
-  @Prop() clearInput = false;
 
   /**
-   * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke.
+   * Set the amount of time, in milliseconds, to wait to trigger the `p4:change` event after each keystroke.
    */
-  @Prop() debounce = 0;
+  @Prop() debounce = 300;
 
 
-  @Watch('debounce')
-  protected debounceChanged() {
-    this.p4Change = debounceEvent(this.p4Change, this.debounce);
-  }
+  @Prop() actions: any[] = [];
+
+
 
   /**
    * Emitted when a keyboard input occurred.
    */
-  @Event() p4Input: EventEmitter;
+  @Event({ eventName: 'p4:input' }) p4Input: EventEmitter;
 
   /**
    * Emitted when the value has changed..
    */
-  @Event() p4Change: EventEmitter;
+  @Event({ eventName: 'p4:change' }) p4Change: EventEmitter;
 
   /**
    * Emitted when the input loses focus.
    */
-  @Event() p4Blur: EventEmitter;
+  @Event({ eventName: 'p4:blur' }) p4Blur: EventEmitter;
 
   /**
    * Emitted when the input has focus.
    */
-  @Event() p4Focus: EventEmitter;
+  @Event({ eventName: 'p4:focus' }) p4Focus: EventEmitter;
+
+  /**
+   * Emitted when the action button is clicked.
+   */
+  @Event({ eventName: 'p4:action-click' }) p4ActionClick: EventEmitter;
 
   getCssClasses() {
-    const cls = ['component input-component textarea-component'];
-    cls.push('variant-' + this.variant);
-    cls.push('size-' + this.size);
-    cls.push('type-' + this.type);
-    if (this.required)
-      cls.push('required');
+    const cls = ['input textarea'];
+    cls.push('input-variant-' + this.variant);
+    cls.push('input-size-' + this.size);
     if (this.disabled)
-      cls.push('disabled');
+      cls.push('input-disabled');
     return cls.join(' ');
   }
 
-  private onInputChange = (ev: Event) => {
+  private inputHandler = (ev: Event) => {
     const input = ev.target as HTMLInputElement | null;
     if (input) {
       this.value = input.value || '';
     }
     this.p4Input.emit(ev as KeyboardEvent);
+    this.p4Change.emit(ev as KeyboardEvent);
   };
 
-  private onBlur = (ev: FocusEvent) => {
+  private blurHandler = (ev: FocusEvent) => {
     this.hasFocus = false;
     this.p4Blur.emit(ev);
   };
 
-  private onFocus = (ev: FocusEvent) => {
+  private focusHandler = (ev: FocusEvent) => {
     this.hasFocus = true;
     this.p4Focus.emit(ev);
+  };
+
+  private actionClickHandler = (action) => {
+    this.p4ActionClick.emit(action);
   };
 
   /**
@@ -154,40 +151,18 @@ export class P4Textarea {
     }
   }
 
-  /**
-   * Update the native input element when the value changes
-   */
-  @Watch('value')
-  protected valueChanged() {
-    this.p4Change.emit({ value: this.value == null ? this.value : this.value.toString() });
+  @Watch('debounce')
+  protected debounceChanged() {
+    this.p4Change = debounceEvent(this.p4Change, this.debounce);
   }
 
-  private clearTextOnEnter = (ev: KeyboardEvent) => {
-    if (ev.key === 'Enter') {
-      this.clearTextInput(ev);
-    }
-  };
-
-  private clearTextInput = (ev?: Event) => {
-    if (this.clearInput && !this.disabled && ev) {
-      ev.preventDefault();
-      ev.stopPropagation();
-
-      // Attempt to focus input again after pressing clear button
-      this.setFocus();
-    }
-
-    this.value = '';
-
-    /**
-     * This is needed for clearOnEdit
-     * Otherwise the value will not be cleared
-     * if user is inside the input
-     */
-    if (this.nativeInput) {
-      this.nativeInput.value = '';
-    }
-  };
+  private getActionIconSize() {
+    if (this.size == 'lg')
+      return '1.5rem';
+    if (this.size == 'sm')
+      return '1rem';
+    return '1.25rem';
+  }
 
   componentWillLoad() {
     // If the ion-input has a tabindex attribute we get the value
@@ -226,10 +201,10 @@ export class P4Textarea {
     const value = this.getValue();
     const labelId = this.inputId + '-lbl';
     const label = findItemLabel(this.el);
+    const actions = this.actions;
     if (label) {
       label.id = labelId;
-      if (this.required)
-        label.classList.add('required');
+      label.setAttribute('required', this.required + '');
     }
 
     return (
@@ -246,21 +221,22 @@ export class P4Textarea {
                placeholder={this.placeholder}
                value={value}
                tabindex={this.tabindex}
-               onInput={this.onInputChange}
-               onBlur={this.onBlur}
-               onFocus={this.onFocus}
+               onInput={this.inputHandler}
+               onBlur={this.blurHandler}
+               onFocus={this.focusHandler}
                disabled={this.disabled} />
-          <div class="input-actions">
-            {(this.clearInput && !this.disabled && this.hasValue()) && <button
-              aria-label="reset"
-              type="button"
-              class="input-clear-icon"
-              onTouchStart={this.clearTextInput}
-              onMouseDown={this.clearTextInput}
-              onKeyDown={this.clearTextOnEnter}
-            >
-              <p4-icon type="x" size="1.1rem" class="icon" />
-            </button>}
+          <div class='input-actions'>
+            {actions.map((action) => {
+              return <button type='button'
+                             class={{
+                               'action-button': true,
+                               'action-button-disabled': action.disabled,
+                             }}
+                             disabled={!action.eventName || action.disabled}
+                             onClick={() => this.actionClickHandler(action)}>
+                <p4-icon type={action.icon} class='action-icon' size={this.getActionIconSize()} />
+              </button>;
+            })}
           </div>
         </div>
       </Host>

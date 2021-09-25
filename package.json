@@ -1,22 +1,21 @@
 {
   "name": "@p4rm/ui",
-  "version": "1.0.0-alpha-2",
+  "version": "1.0.0-beta",
   "description": "Stencil Component Starter",
+  "license": "MIT",
   "main": "dist/index.cjs.js",
-  "module": "dist/custom-elements/index.js",
-  "es2015": "dist/esm/index.mjs",
-  "es2017": "dist/esm/index.mjs",
-  "types": "dist/custom-elements/index.d.ts",
-  "collection": "dist/collection/collection-manifest.json",
-  "collection:main": "dist/collection/index.js",
   "unpkg": "dist/p4rm-ui/p4rm-ui.js",
+  "module": "dist/custom-elements/index.js",
+  "types": "dist/custom-elements/index.d.ts",
   "files": [
     "dist/",
     "loader/"
   ],
   "scripts": {
     "build": "stencil build --docs",
-    "start": "stencil build --dev --watch --serve",
+    "start-watch": "stencil build --dev --watch --serve",
+    "start-docs-server": "cd docs && serve.cmd",
+    "start": "concurrently --kill-others \"npm run start-watch\" \"npm run start-docs-server\"",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
@@ -30,9 +29,16 @@
     "stencil-inline-svg": "^1.1.0"
   },
   "devDependencies": {
+    "glob": "^7.1.6",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
-    "glob": "^7.1.6"
+    "@types/node": "^16.9.6"
   },
-  "license": "MIT"
+  "engines": {
+    "node": ">=14.x"
+  },
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs"
 }

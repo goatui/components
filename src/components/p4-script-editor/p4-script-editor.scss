@@ -1,5 +1,5 @@
 @import "./editor.main";
-@import "../../styles/scss/variables";
+@import "../../styles/scss/commons";
 
 :host {
   display: block;
@@ -7,14 +7,14 @@
 }
 
 .script-editor-component {
-  font-family: var(--font-family);
   height: 100%;
 
   .editor {
     height: 100%;
     min-height: 2rem;
-    border: 1px solid var(--color-neutral-500);
-
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
 
     &[disabled], &[disabled="true"] {
       color: var(--color-neutral-500);

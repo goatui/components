@@ -1,4 +1,4 @@
-@import "../../styles/scss/variables";
+@import "../../styles/scss/commons";
 
 :host {
   display: inline-block;
@@ -11,7 +11,14 @@
   display: flex;
 
   .checkbox-input {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
   }
 
   .label {
@@ -32,7 +39,7 @@
     stroke: var(--color-primary-500);
   }
 
-  &.disabled {
+  &.checkbox-disabled {
     cursor: not-allowed;
     color: var(--color-neutral-300);
     .icon path {
@@ -44,21 +51,21 @@
   /**
    * SIZES
    */
-  &.size-lg {
+  &.checkbox-size-lg {
     font-size: var(--font-size-p2);
     .label {
       padding-top: var(--space-1);
     }
   }
 
-  &.size-md {
+  &.checkbox-size-md {
     font-size: var(--font-size-p1);
     .label {
       padding-top: var(--space-0_5);
     }
   }
 
-  &.size-sm {
+  &.checkbox-size-sm {
     font-size: var(--font-size-caption);
   }
 

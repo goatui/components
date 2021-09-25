@@ -7,8 +7,7 @@
   background: var(--color-primary-500);
 }
 
-@mixin font-common{
-  color: var(--color-paragraph);
+@mixin font-common {
   font-family: var(--font-family-paragraph);
 }
 
@@ -51,4 +50,21 @@
 @mixin font-p2-semi-bold {
   @include font-p2;
   font-weight: 600;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

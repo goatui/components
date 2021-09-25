@@ -1,4 +1,6 @@
-import { Component, Event, EventEmitter, h, Host, Prop } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, h, Host, Listen, Prop, State } from '@stencil/core';
+
+let buttonIds = 0;
 
 @Component({
   tag: 'p4-button',
@@ -7,6 +9,8 @@ import { Component, Event, EventEmitter, h, Host, Prop } from '@stencil/core';
 })
 export class P4Button {
 
+  @Element() elm!: HTMLElement;
+  private id = buttonIds++;
 
   /**
    * Button size.
@@ -30,7 +34,7 @@ export class P4Button {
    */
   @Prop() disabled: boolean = false;
 
-
+  @Prop() disabledReason: string = '';
   /**
    * Icon which will displayed on button.
    * Possible values are bootstrap icon names.
@@ -39,9 +43,8 @@ export class P4Button {
 
   /**
    * Icon position.
-   * Possible values are `"left"`, `"right"`. Defaults to `"left"`.
    */
-  @Prop() iconPosition: 'left' | 'right' = 'left';
+  @Prop() iconEnd: boolean = false;
 
   @Prop() showLoader: boolean = false;
 
@@ -49,18 +52,27 @@ export class P4Button {
   @Prop() target: '_self' | '_blank' = '_self';
 
   /**
-   * On click of button a CustomEvent 'p4Click' will be triggered.
+   * On click of button, a CustomEvent 'p4:click' will be triggered.
    */
-  @Event() p4Click: EventEmitter;
+  @Event({ eventName: 'p4:click' }) p4Click: EventEmitter;
 
-  private onClick = (event: PointerEvent) => {
-    if (!this.disabled && !this.showLoader) {
-      if (this.href) {
-        window.open(this.href, this.target);
-      }
-      this.p4Click.emit(event);
-    }
-  };
+
+  @State() hasFocus = false;
+  @State() isActive = false;
+  @State() slotHasContent = false;
+
+  @Listen('mouseup', { target: 'window' })
+  windowMouseUp() {
+    if (this.isActive)
+      this.isActive = false;
+  }
+
+  @Listen('keyup', { target: 'window' })
+  windowKeyUp(evt) {
+    if (this.isActive && (evt.key == 'Enter' || evt.key == ' '))
+      this.isActive = false;
+  }
+
 
   private getIconSize = () => {
     let size;
@@ -77,32 +89,74 @@ export class P4Button {
     return <p4-icon type={this.icon} size={this.getIconSize()} class='icon' />;
   };
 
+  private clickHandler = (event: PointerEvent) => {
+    if (!this.disabled && !this.showLoader) {
+      if (this.href) {
+        window.open(this.href, this.target);
+      }
+      this.p4Click.emit(event);
+    } else {
+      event.preventDefault();
+      return;
+    }
+  };
+
+  private blurHandler = () => {
+    this.hasFocus = false;
+  };
+
+  private focusHandler = () => {
+    this.hasFocus = true;
+  };
+
+  private mouseDownHandler = () => {
+    this.isActive = true;
+  };
+
+  private keyDownHandler = (evt) => {
+    if (evt.key == 'Enter' || evt.key == ' ') this.isActive = true;
+  };
+
+  componentDidLoad() {
+    const $slot = this.elm.shadowRoot.querySelector('slot');
+    this.slotHasContent = $slot && !!$slot.assignedNodes().length;
+  }
+
   render() {
+    return (<Host focused={this.hasFocus}
+                  variant={this.variant}
+                  active={this.isActive}
+                  size={this.size}
+                  icon-end={this.iconEnd}>
+      <button
+        class={{
+          'button': true,
+          'slot-has-content': this.slotHasContent,
+        }}
+        onBlur={this.blurHandler}
+        onFocus={this.focusHandler}
+        onClick={this.clickHandler}
+        onMouseDown={this.mouseDownHandler}
+        onKeyDown={this.keyDownHandler}
+        aria-describedby={`disabledReason-${this.id}`}
+        aria-disabled={this.disabled || this.showLoader}>
 
-    return (
-      <Host>
-        <button
-          class={{
-            'button': true,
-            'button-block': this.block,
-            [`button-variant-${this.variant}`]: true,
-            [`button-size-${this.size}`]: true,
-            [`button-icon-position-${this.iconPosition}`]: true,
-          }}
-          onClick={this.onClick}
-          disabled={this.disabled || this.showLoader}>
+        {this.showLoader && <p4-spinner class='spinner' size={this.getIconSize()} />}
 
-          {this.showLoader && <p4-spinner class='spinner' size={this.getIconSize()} />}
+        {!this.showLoader && this.icon && this.renderIcon()}
 
-          {!this.showLoader && this.icon && this.renderIcon()}
+        {!this.showLoader && <div class='slot-container'>
+          <slot />
+        </div>}
+      </button>
 
-          {!this.showLoader && <div class='slot-container'>
-            <slot />
-          </div>}
-
-        </button>
-      </Host>
-    );
+      {
+        this.disabled &&
+        <div id={`disabledReason-${this.id}`} role='tooltip' class='sr-only'>
+          {this.disabledReason ? this.disabledReason : 'Disabled'}
+        </div>
+      }
+    </Host>);
   }
 
 }

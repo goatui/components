@@ -38,7 +38,7 @@ export class P4ScriptEditor {
   /**
    * Emitted when the value has changed..
    */
-  @Event() p4Change: EventEmitter;
+  @Event({ eventName: 'p4:change' }) p4Change: EventEmitter;
 
   /**
    * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
@@ -79,6 +79,7 @@ export class P4ScriptEditor {
     if (!scriptLoaded) {
       scriptLoaded = true;
       const version = '0.21.2';
+      // @ts-ignore
       window['require'] = { paths: { 'vs': `https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/${version}/min/vs` } };
       await loadScript(`https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/${version}/min/vs/loader.js`);
       await loadScript(`https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/${version}/min/vs/editor/editor.main.nls.js`);
@@ -107,7 +108,7 @@ export class P4ScriptEditor {
 
     this.editorMonacoInstance.onDidChangeModelContent(() => {
       this.value = this.editorMonacoInstance.getValue();
-      this.p4Change.emit({value: this.value});
+      this.p4Change.emit({ value: this.value });
     });
   }
 
@@ -124,7 +125,7 @@ export class P4ScriptEditor {
     return (
       <Host>
         <div class={this.getCssClasses()}>
-          <div class="editor" ref={el => this.editorElement = el} />
+          <div class='editor' ref={el => this.editorElement = el} />
         </div>
       </Host>
     );

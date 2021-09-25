@@ -1,8 +1,7 @@
-@import "../../styles/scss/variables";
+@import "../../styles/scss/commons";
 
 :host {
   display: inline-block;
-  padding-bottom: var(--space-3);
   --color: var(--color-neutral-900);
   color: var(--color);
 }

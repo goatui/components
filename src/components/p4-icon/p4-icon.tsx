@@ -17,7 +17,7 @@ export class P4Icon {
    */
   @Prop() size: 'sm' | 'md' | 'lg' | string = 'md';
 
-  getSize() {
+  private getSize() {
     let size;
     if (!this.size || this.size === 'md')
       size = '1.5rem';

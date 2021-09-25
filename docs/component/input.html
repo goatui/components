@@ -9,47 +9,47 @@ menu:
 - title: Events
 ---
 
-<script type="module" src="/assets/p4/p4rm-ui/p4rm-ui.esm.js"></script>
-<div class="row pt-3">
+<script type='module' src='/assets/p4/p4rm-ui/p4rm-ui.esm.js'></script>
+<div class='row pt-3'>
 
   {% include content-nav.html %}
 
   <!-- Content -->
-  <div class="col-xl-10 order-xl-1 duik-content border-bottom">
-    <div class="border-bottom mb-7">
+  <div class='col-xl-10 order-xl-1 duik-content border-bottom'>
+    <div class='border-bottom mb-7'>
       <h1>{{ page.title }}</h1>
-      <p class="lead mb-5">Use {{site.company}}’s custom input component for capturing input in forms, dialogs, and more with
+      <p class='lead mb-5'>Use {{site.company}}’s custom input component for capturing input in forms, dialogs, and more
+        with
         support
         for multiple sizes, variants and more.</p>
     </div>
 
 
-
     <!-- Types -->
-    <div id="doc-types" class="mb-7">
-      <h2 class="h4">Types <a class="js-anchor-link duik-anchorjs-link" href="#doc-types"
-                                 aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+    <div id='doc-types' class='mb-7'>
+      <h2 class='h4'>Types <a class='js-anchor-link duik-anchorjs-link' href='#doc-types'
+                              aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
       <p>Here are different types of inputs.</p>
 
 
-      <div class="card">
-        <div class="card-header">
-          <p4-item class="item">
+      <div class='card'>
+        <div class='card-header'>
+          <p4-item class='item'>
             <p4-label>Text</p4-label>
-            <p4-input type="text"></p4-input>
+            <p4-input type='text'></p4-input>
           </p4-item>
-          <p4-item class="item">
+          <p4-item class='item'>
             <p4-label>Password</p4-label>
-            <p4-input type="password"></p4-input>
+            <p4-input type='password'></p4-input>
           </p4-item>
-          <p4-item class="item">
+          <p4-item class='item'>
             <p4-label>Number</p4-label>
-            <p4-input type="number"></p4-input>
+            <p4-input type='number'></p4-input>
           </p4-item>
         </div>
-        <div class="card-body">
+        <div class='card-body'>
           <pre>
-                <code class="language-html" data-lang="html">&lt;-- Text -->
+                <code class='language-html' data-lang='html'>&lt;-- Text -->
 &lt;p4-item class="item">
   &lt;p4-label>Text&lt;/p4-label>
   &lt;p4-input type="text">&lt;/p4-input>
@@ -71,28 +71,24 @@ menu:
         </div>
       </div>
     </div>
-    <!-- End Variants -->
-
-    <hr class="mt-7 mb-4">
+    <!-- End Types -->
 
     <!-- Variants -->
-    <div id="doc-variants" class="mb-7">
-      <h2 class="h4">Variants <a class="js-anchor-link duik-anchorjs-link" href="#doc-variants"
-                                 aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+    <div id='doc-variants' class='mb-7'>
+      <h2 class='h4'>Variants <a class='js-anchor-link duik-anchorjs-link' href='#doc-variants'
+                                 aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
       <p>Here are several predefined input styles, each serving its own semantic purpose.</p>
 
 
-      <div class="card">
-        <div class="card-header">
-          <p4-input label="Name" placeholder="Person Name"></p4-input>
-          <p4-input label="Name" placeholder="Person Name" value="Ravi"></p4-input>
-          <p4-input variant="dashed" label="Name" placeholder="Person Name"></p4-input>
+      <div class='card'>
+        <div class='card-header'>
+          <p4-input placeholder='Person Name'></p4-input>
+          <p4-input variant='dashed' value='Some Value'></p4-input>
         </div>
-        <div class="card-body">
+        <div class='card-body'>
           <pre>
-                <code class="language-html" data-lang="html"> &lt;p4-input label=&quot;Name&quot; placeholder=&quot;Person Name&quot;&gt;&lt;/p4-input&gt;
-                 &lt;p4-input label=&quot;Name&quot; placeholder=&quot;Person Name&quot; value=&quot;Ravi&quot;&gt;&lt;/p4-input&gt;
-                 &lt;p4-input variant=&quot;dashed&quot; label=&quot;Name&quot; placeholder=&quot;Person Name&quot;&gt;&lt;/p4-input&gt;
+                <code class='language-html' data-lang='html'> &lt;p4-input label=&quot;Name&quot; placeholder=&quot;Person Name&quot;&gt;&lt;/p4-input&gt;
+                 &lt;p4-input variant=&quot;dashed&quot; value="Some Value"&gt;&lt;/p4-input&gt;
                 </code>
               </pre>
         </div>
@@ -100,26 +96,26 @@ menu:
     </div>
     <!-- End Variants -->
 
-    <hr class="mt-7 mb-4">
+    <hr class='mt-7 mb-4'>
 
 
     <!-- Sizes -->
-    <div id="doc-sizes" class="mb-7">
-      <h2 class="h4">Sizes <a class="js-anchor-link duik-anchorjs-link" href="#doc-sizes"
-                              aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+    <div id='doc-sizes' class='mb-7'>
+      <h2 class='h4'>Sizes <a class='js-anchor-link duik-anchorjs-link' href='#doc-sizes'
+                              aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
       <p>Fancy larger or smaller input? Add size attribute for additional sizes.</p>
 
-      <div class="card">
-        <div class="card-header">
-          <p4-input size="lg" label="Large Input"></p4-input>
-          <p4-input label="Medium Input"></p4-input>
-          <p4-input size="sm" label="Small Input"></p4-input>
+      <div class='card'>
+        <div class='card-header'>
+          <p4-input size='lg' placeholder='Large'></p4-input>
+          <p4-input placeholder='Medium'></p4-input>
+          <p4-input size='sm' placeholder='Small'></p4-input>
         </div>
-        <div class="card-body">
+        <div class='card-body'>
            <pre>
-                  <code class="language-html" data-lang="html">&lt;p4-input size=&quot;lg&quot; label=&quot;Large Input&quot;&gt;&lt;/p4-input&gt;
-                  &lt;p4-input label=&quot;Medium Input&quot;&gt;&lt;/p4-input&gt;
-                  &lt;p4-input size=&quot;sm&quot; label=&quot;small Input&quot;&gt;&lt;/p4-input&gt;
+                  <code class='language-html' data-lang='html'>&lt;p4-input size=&quot;lg&quot; placeholder=&quot;Large&quot;&gt;&lt;/p4-input&gt;
+                  &lt;p4-input placeholder=&quot;Medium&quot;&gt;&lt;/p4-input&gt;
+                  &lt;p4-input size=&quot;sm&quot; placeholder=&quot;Small&quot;&gt;&lt;/p4-input&gt;
                   </code>
                 </pre>
         </div>
@@ -127,52 +123,117 @@ menu:
 
     </div>
 
-    <!-- Disabled State -->
-    <div id="doc-disabled-state" class="mb-7">
-      <h2 class="h4">Disabled state <a class="js-anchor-link duik-anchorjs-link" href="#doc-disabled-state"
-                                       aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
-      <p>Make input look inactive by adding the disabled <code class="highlighter-rouge" data-lang="html">boolean</code>
-        attribute to any <code class="highlighter-rouge" data-lang="html">&lt;input&gt;</code> element.</p>
+    <!-- Actions -->
+    <div id='doc-actions' class='mb-7'>
+      <h2 class='h4'>Actions <a class='js-anchor-link duik-anchorjs-link' href='#doc-actions'
+                                aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      <p>Make input look inactive by adding the disabled <code class='highlighter-rouge' data-lang='html'>boolean</code>
+        attribute to any <code class='highlighter-rouge' data-lang='html'>&lt;input&gt;</code> element.</p>
 
-      <div class="output">
-        <p4-input disabled></p4-input>
-        <p4-input variant="dashed" disabled="true"></p4-input>
-        <p4-input variant="link" disabled></p4-input>
+      <div class='card'>
+        <div class='card-header'>
+          <p4-input id='input-with-actions'></p4-input>
+          <script>
+            document.querySelector('#input-with-actions').actions = [{
+              icon: 'search',
+              eventName: 'search-item'
+            }, {
+              icon: 'x',
+              eventName: 'close'
+            }, {
+              icon: 'info-circle',
+              eventName: 'info-circle',
+              disabled: true
+            }];
+            document.querySelector('#input-with-actions').addEventListener('p4:action-click', function(evt) {
+              window.notyf.success('Action clicked :: ' + evt.detail.eventName);
+            });
+          </script>
+        </div>
+        <div class='card-body'>
+           <pre>
+                  <code class='language-html' data-lang='html'> &lt;p4-input id='input-with-actions'>&lt;/p4-input>
+          &lt;script>
+            document.querySelector('#input-with-actions').actions = [{
+              icon: 'search',
+              eventName: 'search-item'
+            }, {
+              icon: 'x',
+              eventName: 'close'
+            }, {
+              icon: 'info-circle',
+              eventName: 'info-circle',
+              disabled: true
+            }];
+            document.querySelector('#input-with-actions').addEventListener('p4:action-click', function(evt) {
+              console.log("Action clicked :: " + evt.detail.eventName);
+            })
+          &lt;/script>
+                  </code>
+                </pre>
+        </div>
       </div>
-      <pre class="mb-4">
-                    <code class="language-html" data-lang="html">&lt;p4-input disabled&gt;Disabled Button&lt;/p4-input&gt;
-                    &lt;p4-input variant=&quot;dashed&quot; disabled=&quot;true&quot;&gt;Disabled Dashed Button&lt;/p4-input&gt;
-                    &lt;p4-input variant=&quot;link&quot; disabled=&quot;true&quot;&gt;Disabled link&lt;/p4-input&gt;
-                    </code>
-                  </pre>
-
     </div>
 
+    <!-- Disabled State -->
+    <div id='doc-disabled-state' class='mb-7'>
+      <h2 class='h4'>Disabled state <a class='js-anchor-link duik-anchorjs-link' href='#doc-disabled-state'
+                                       aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      <p>Make input look inactive by adding the disabled <code class='highlighter-rouge' data-lang='html'>boolean</code>
+        attribute to any <code class='highlighter-rouge' data-lang='html'>&lt;input&gt;</code> element.</p>
+
+      <div class='card'>
+        <div class='card-header'>
+          <p4-input disabled></p4-input>
+          <p4-input disabled value='With Value'></p4-input>
+          <p4-input disabled value='With Value' id='disable-with-actions'></p4-input>
+          <script>
+            document.querySelector('#disable-with-actions').actions = [{
+              icon: 'house',
+              eventName: 'house',
+            }];
+          </script>
+        </div>
+        <div class='card-body'>
+           <pre>
+                  <code class='language-html' data-lang='html'>&lt;p4-input disabled&gt;Disabled Button&lt;/p4-input&gt;
+&lt;p4-input disabled value='With Value'&gt;Disabled Button&lt;/p4-input&gt;
+                  </code>
+                </pre>
+        </div>
+      </div>
+    </div>
+
+
     <!-- Events -->
-    <div id="doc-events" class="mb-7">
-      <h2 class="h4">Events <a class="js-anchor-link duik-anchorjs-link" href="#doc-events"
-                               aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
-      <p>On input change a <code class="highlighter-rouge" data-lang="html">CustomEvent</code> <code
-        class="highlighter-rouge" data-lang="html">p4Change</code>
+    <div id='doc-events' class='mb-7'>
+      <h2 class='h4'>Events <a class='js-anchor-link duik-anchorjs-link' href='#doc-events'
+                               aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      <p>On input change a <b>CustomEvent</b> <code
+        class='highlighter-rouge' data-lang='html'>p4:change</code>
         is triggered by the element.</p>
 
-      <div class="output">
+      <div class='output'>
 
-        <p4-input variant="default" id="name-input-field"></p4-input>
+        <p4-input variant='default' id='name-input-field'></p4-input>
 
         <script>
-          document.querySelector('#name-input-field').addEventListener('p4Change', function(event) {
-            document.getElementById('change-output').innerText = event.target.value;
+          document.querySelector('#name-input-field').addEventListener('p4:input', function(event) {
+            myConsole.log('p4:input :: ' + event.target.value);
+          });
+          document.querySelector('#name-input-field').addEventListener('p4:change', function(event) {
+            myConsole.warn('p4:change :: ' + event.target.value);
           });
         </script>
 
-        <div><b>Output ::</b> <span id="change-output"></span></div>
-
       </div>
-      <pre class="mb-4">
-                    <code class="language-html" data-lang="html">&lt;script&gt;
- document.querySelector('#name-input-field').addEventListener('p4Change', function(event) {
-      document.getElementById('change-output').innerText = event.target.value;
+      <pre class='mb-4'>
+                    <code class='language-html' data-lang='html'>&lt;script&gt;
+document.querySelector('#name-input-field').addEventListener('p4:input', function(event) {
+       console.log("p4:input :: " + event.target.value);
+});
+document.querySelector('#name-input-field').addEventListener('p4:change', function(event) {
+      console.log("p4:change :: " + event.target.value);
 });
 &lt;/script&gt;
                     </code>

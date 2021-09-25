@@ -9,11 +9,19 @@ root: true
   }
 
   .card section {
+    position: relative;
     width: 100%;
     height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .card section:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
   }
 
   .card iframe {
@@ -33,53 +41,53 @@ root: true
   }
 </style>
 
-<div class="container-fluid">
-  <div class="row">
+<div class='container-fluid'>
+  <div class='row'>
     {% include sidebar.html %}
 
-    <main class="ml-md-auto col-md-9 col-xl-10 px-4 pt-0 pt-md-11">
-      <div class="row pt-3">
+    <main class='ml-md-auto col-md-9 col-xl-10 px-4 pt-0 pt-md-11'>
+      <div class='row pt-3'>
         <!-- Content Nav -->
-        <div class="col-xl-2 order-xl-2 d-none d-xl-inline-block">
-          <ul class="js-scroll-nav duik-content-nav">
-            <li class="duik-content-nav__item"><a href="#doc-about">About</a></li>
-            <li class="duik-content-nav__item"><a href="#doc-getting-started">Getting Started</a></li>
-            <li class="duik-content-nav__item"><a href="#doc-components-list">Components</a></li>
+        <div class='col-xl-2 order-xl-2 d-none d-xl-inline-block'>
+          <ul class='js-scroll-nav duik-content-nav'>
+            <li class='duik-content-nav__item'><a href='#doc-about'>About</a></li>
+            <li class='duik-content-nav__item'><a href='#doc-getting-started'>Getting Started</a></li>
+            <li class='duik-content-nav__item'><a href='#doc-components-list'>Components</a></li>
           </ul>
         </div>
         <!-- End Content Nav -->
 
         <!-- Content -->
-        <div class="col-xl-10 order-xl-1 duik-content border-bottom">
-          <div class="border-bottom mb-7">
+        <div class='col-xl-10 order-xl-1 duik-content border-bottom'>
+          <div class='border-bottom mb-7'>
             <h1>Introduction</h1>
-            <p class="lead mb-5"><b>{{site.title}}</b> contains most used web components built using
+            <p class='lead mb-5'><b>{{site.title}}</b> contains most used web components built using
               Stencil. So you don't need to include any additional framework dependencies, You can simple
               import required component js, and right away start using it.</p>
           </div>
 
           <!-- About -->
-          <div id="doc-about" class="mb-7">
-            <h2 class="h4">About <a class="js-anchor-link duik-anchorjs-link" href="#doc-about"
-                                    aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
+          <div id='doc-about' class='mb-7'>
+            <h2 class='h4'>About <a class='js-anchor-link duik-anchorjs-link' href='#doc-about'
+                                    aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
             <p>P4RM components are beautiful Open Source web components under MIT license.</p>
 
-            <p4-button type="ghost" href='https://github.com/p4rm/ui.git'>Browse code</p4-button>
+            <p4-button type='ghost' href='https://github.com/p4rm/ui.git'>Browse code</p4-button>
 
-            <p>P4RM components are maintained by <a href="https://shivajivarma.com">Shivaji Varma</a>. Do
+            <p>P4RM components are maintained by <a href='https://shivajivarma.com'>Shivaji Varma</a>. Do
               not miss any updates and announcements, stay tuned on our social pages:</p>
 
-            <ul class="list-inline mb-0">
-              <li class="list-inline-item mr-2" data-toggle="tooltip" data-placement="top" title=""
-                  data-original-title="Github">
-                <a class="text-dark" target="_blank" href="https://www.github.com/{{site.github_username}}">
-                  <i class="fab fa-github"></i>
+            <ul class='list-inline mb-0'>
+              <li class='list-inline-item mr-2' data-toggle='tooltip' data-placement='top' title=''
+                  data-original-title='Github'>
+                <a class='text-dark' target='_blank' href='https://www.github.com/{{site.github_username}}'>
+                  <i class='fab fa-github'></i>
                 </a>
               </li>
-              <li class="list-inline-item mr-2" data-toggle="tooltip" data-placement="top" title=""
-                  data-original-title="Twitter">
-                <a class="text-dark" target="_blank" href="https://www.twitter.com/{{site.twitter_username}}">
-                  <i class="fab fa-twitter"></i>
+              <li class='list-inline-item mr-2' data-toggle='tooltip' data-placement='top' title=''
+                  data-original-title='Twitter'>
+                <a class='text-dark' target='_blank' href='https://www.twitter.com/{{site.twitter_username}}'>
+                  <i class='fab fa-twitter'></i>
                 </a>
               </li>
             </ul>
@@ -88,23 +96,26 @@ root: true
           </div>
           <!-- End About -->
 
-          <hr class="mt-7 mb-4">
+          <hr class='mt-7 mb-4'>
 
           <!-- Getting Started -->
-          <div id="doc-getting-started" class="mb-7">
-            <h2 class="h4">Getting Started <a class="js-anchor-link duik-anchorjs-link"
-                                              href="#doc-getting-started" aria-label="Anchor"
-                                              data-anchorjs-icon="#"></a></h2>
+          <div id='doc-getting-started' class='mb-7'>
+            <h2 class='h4'>Getting Started <a class='js-anchor-link duik-anchorjs-link'
+                                              href='#doc-getting-started' aria-label='Anchor'
+                                              data-anchorjs-icon='#'></a></h2>
 
-            <h3 class="h5">Script tag</h3>
+            <h3 class='h5'>Script tag</h3>
             <ul>
               <li>
-                Put a script tag similar to this <code class="highlighter-rouge" data-lang="html">&lt;script type="module"
+                Put a script tag similar to this <code class='highlighter-rouge' data-lang='html'>&lt;script
+                type="module"
                 src="{{site.script}}"&gt;&lt;/script&gt;</code>
                 in the head of your index.html
               </li>
               <li>
-               Include css theme variables, or use default theme by including <code class="highlighter-rouge" data-lang="html">&lt;link rel="stylesheet"
+                Include css theme variables, or use default theme by including <code class='highlighter-rouge'
+                                                                                     data-lang='html'>&lt;link
+                rel="stylesheet"
                 href="{{site.themeCss}}"&gt;&lt;/link&gt;</code>
                 in the head of your index.html
               </li>
@@ -113,8 +124,8 @@ root: true
               </li>
             </ul>
 
-            <pre class="mb-4">
-                <code class="language-html" data-lang="html">&lt;!DOCTYPE html&gt;
+            <pre class='mb-4'>
+                <code class='language-html' data-lang='html'>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;meta charset=&quot;utf-8&quot;&gt;
@@ -135,23 +146,23 @@ root: true
           </div>
 
 
-          <hr class="mt-7 mb-4">
+          <hr class='mt-7 mb-4'>
 
           <!-- Components List -->
-          <div id="doc-components-list" class="mb-7">
-            <h2 class="h4">Components <a class="js-anchor-link duik-anchorjs-link"
-                                              href="#doc-components-list" aria-label="Anchor"
-                                              data-anchorjs-icon="#"></a></h2>
+          <div id='doc-components-list' class='mb-7'>
+            <h2 class='h4'>Components <a class='js-anchor-link duik-anchorjs-link'
+                                         href='#doc-components-list' aria-label='Anchor'
+                                         data-anchorjs-icon='#'></a></h2>
             <p>Here are list of components available in the library.</p>
 
-            <div class="row">
+            <div class='row'>
               {% for component in site.components %}
-              <div class="col-md-3">
-                <a href="{{component.link}}#" class="card card-link">
-                  <div class="card-header">
+              <div class='col-md-3'>
+                <a href='{{component.link}}#' class='card card-link'>
+                  <div class='card-header'>
                     {{component.name}}
                   </div>
-                  <div class="card-body">
+                  <div class='card-body'>
                     <section>
                       {{component.example}}
                     </section>
@@ -176,8 +187,8 @@ root: true
 </div>
 
 <!-- Go to Top -->
-<a class="js-go-to duik-go-to" href="javascript:;">
-  <span class="fa fa-arrow-up duik-go-to__inner"></span>
+<a class='js-go-to duik-go-to' href='javascript:;'>
+  <span class='fa fa-arrow-up duik-go-to__inner'></span>
 </a>
 <!-- End Go to Top -->
 

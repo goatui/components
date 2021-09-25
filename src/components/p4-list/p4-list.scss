@@ -1,0 +1,105 @@
+@import "../../styles/scss/commons";
+
+:host {
+  display: inline-block;
+  --list-border-radius: var(--border-radius);
+}
+
+.list {
+  background: var(--color-shades-white);
+  border: 1px solid var(--color-neutral-200);
+  box-sizing: border-box;
+  border-radius: var(--list-border-radius);
+  overflow: hidden;
+
+
+  .group-label {
+    @include font-caption-cap;
+    padding: var(--space-1) var(--space-3);
+    box-sizing: border-box;
+    background: var(--color-neutral-700);
+    color: var(--color-shades-white);
+  }
+
+  .item {
+    @include font-p1;
+    position: relative;
+    cursor: pointer;
+    padding: var(--space-3) var(--space-6);
+    box-sizing: border-box;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    transition: background 0.8s;
+
+    &.item-separator {
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .item-content {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      .item-icon, .item-img {
+        padding-right: var(--space-1_5);
+      }
+    }
+
+    &.item-variant-icon {
+      .item-label {
+        //padding-top: 1px;
+      }
+    }
+
+    &.item-has-focus {
+      background: var(--color-primary-50);
+      outline: none;
+    }
+
+    &.item-active {
+      background: var(--color-neutral-100);
+      border-top-color: var(--border-color);
+      border-bottom-color: var(--border-color);
+      @include font-p1-semi-bold;
+
+      &:first-child {
+        border-top-color: transparent;
+      }
+
+      &:last-child {
+        border-bottom-color: transparent;
+      }
+    }
+
+
+    &:hover {
+      background: var(--color-primary-50) radial-gradient(circle, transparent 1%, var(--color-primary-50) 1%) center/15000%;
+    }
+
+    &:active {
+      background-color: var(--color-neutral-900);
+      background-size: 100%;
+      transition: background 0s;
+    }
+  }
+
+
+  .empty-state {
+    text-align: center;
+    padding: var(--space-4);
+
+    .empty-state-image {
+      padding: 0 var(--space-4) var(--space-4) var(--space-4);
+    }
+
+    .empty-state-title {
+      @include font-p2-semi-bold;
+      padding-bottom: var(--space-2);
+    }
+
+    .empty-state-message {
+      @include font-caption;
+      color: var(--color-neutral-400);
+    }
+  }
+
+}

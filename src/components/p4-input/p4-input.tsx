@@ -3,6 +3,7 @@ import { debounceEvent, findItemLabel } from '../../utils/utils';
 
 let inputIds = 0;
 
+
 @Component({
   tag: 'p4-input',
   styleUrl: 'p4-input.scss',
@@ -44,7 +45,8 @@ export class P4Input {
   @Prop() variant: 'default' | 'dashed' = 'default';
 
   /**
-   * The type of control to display. The default type is text.
+   * The type of control to display.
+   * Possible values are: `"text"`, `"password"`, `"number"`, `"email"`, `"tel"`. Defaults to `"text"`.
    */
   @Prop() type: ('text' | 'password' | 'number' | 'email' | 'tel') = 'text';
 
@@ -67,7 +69,7 @@ export class P4Input {
   /**
    * Set the amount of time, in milliseconds, to wait to trigger the `p4Change` event after each keystroke.
    */
-  @Prop() debounce = 0;
+  @Prop() debounce = 300;
 
   /**
    * Indicates whether the value of the control can be automatically completed by the browser.
@@ -75,60 +77,61 @@ export class P4Input {
   @Prop() autocomplete: 'on' | 'off' = 'off';
 
 
+  @Prop() actions: any[] = [];
+
+
   /**
    * Emitted when a keyboard input occurred.
    */
-  @Event() p4Input: EventEmitter;
+  @Event({ eventName: 'p4:input' }) p4Input: EventEmitter;
 
   /**
-   * Emitted when the value has changed..
+   * Emitted when the value has changed.
    */
-  @Event() p4Change: EventEmitter;
+  @Event({ eventName: 'p4:change' }) p4Change: EventEmitter;
 
   /**
    * Emitted when the input loses focus.
    */
-  @Event() p4Blur: EventEmitter;
+  @Event({ eventName: 'p4:blur' }) p4Blur: EventEmitter;
 
   /**
    * Emitted when the input has focus.
    */
-  @Event() p4Focus: EventEmitter;
+  @Event({ eventName: 'p4:focus' }) p4Focus: EventEmitter;
 
 
-  private getCssClasses() {
-    const cls = ['input-component'];
-    cls.push('variant-' + this.variant);
-    cls.push('size-' + this.size);
-    cls.push('type-' + this.type);
-    if (this.required)
-      cls.push('required');
-    if (this.disabled)
-      cls.push('disabled');
-    return cls.join(' ') + ' ';
-  }
+  /**
+   * Emitted when the action button is clicked.
+   */
+  @Event({ eventName: 'p4:action-click' }) p4ActionClick: EventEmitter;
 
 
-  private onInput = (ev: Event) => {
+  private inputHandler = (ev: Event) => {
     const input = ev.target as HTMLInputElement | null;
     if (input) {
       this.value = input.value;
     }
     this.p4Input.emit(ev as KeyboardEvent);
+    this.p4Change.emit(ev as KeyboardEvent);
   };
 
-  private onBlur = (ev: FocusEvent) => {
+  private blurHandler = (ev: FocusEvent) => {
     this.hasFocus = false;
     this.p4Blur.emit(ev);
   };
 
-  private onFocus = (ev: FocusEvent) => {
+  private focusHandler = (ev: FocusEvent) => {
     this.hasFocus = true;
     this.p4Focus.emit(ev);
   };
 
+  private actionClickHandler = (action) => {
+    this.p4ActionClick.emit(action);
+  };
+
   /**
-   * Sets focus on the native `input` in `ion-input`. Use this method instead of the global
+   * Sets focus on the native `input` in `p4-input`. Use this method instead of the global
    * `input.focus()`.
    */
   @Method()
@@ -139,7 +142,7 @@ export class P4Input {
   }
 
   /**
-   * Sets blur on the native `input` in `ion-input`. Use this method instead of the global
+   * Sets blur on the native `input` in `p4-input`. Use this method instead of the global
    * `input.blur()`.
    */
   @Method()
@@ -157,44 +160,15 @@ export class P4Input {
     let value = this.value;
     if (this.type === 'number') {
       if (value)
-        value = JSON.parse(value + '');
-      else
-        value = null;
+        this.value = JSON.parse(value + '');
     }
-    this.p4Change.emit({ value });
   }
+
 
   @Watch('debounce')
   protected debounceChanged() {
     this.p4Change = debounceEvent(this.p4Change, this.debounce);
   }
-
-  private clearTextOnEnter = (ev: KeyboardEvent) => {
-    if (ev.key === 'Enter') {
-      this.clearTextInput(ev);
-    }
-  };
-
-  private clearTextInput = (ev?: Event) => {
-    if (this.clearInput && !this.disabled && ev) {
-      ev.preventDefault();
-      ev.stopPropagation();
-
-      // Attempt to focus input again after pressing clear button
-      this.setFocus();
-    }
-
-    this.value = '';
-
-    /**
-     * This is needed for clearOnEdit
-     * Otherwise the value will not be cleared
-     * if user is inside the input
-     */
-    if (this.nativeInput) {
-      this.nativeInput.value = '';
-    }
-  };
 
   componentWillLoad() {
     // If the ion-input has a tabindex attribute we get the value
@@ -226,22 +200,37 @@ export class P4Input {
     return value.length > 0;
   }
 
+  private getActionIconSize() {
+    if (this.size == 'lg')
+      return '1.5rem';
+    if (this.size == 'sm')
+      return '1rem';
+    return '1.25rem';
+  }
+
 
   render() {
     const labelId = this.inputId + '-lbl';
     const label = findItemLabel(this.el);
+    const actions = this.actions;
     if (label) {
       label.id = labelId;
-      if (this.required)
-        label.classList.add('required');
+      label.setAttribute('required', this.required + '');
     }
 
     return (
       <Host aria-disabled={this.disabled ? 'true' : null}
             class={{ 'has-focus': this.hasFocus, 'has-value': this.hasValue() }}>
-        <div class={this.getCssClasses()}>
+        <div class={{
+          'input': true,
+          [`input-variant-${this.variant}`]: true,
+          [`input-type-${this.type}`]: true,
+          [`input-size-${this.size}`]: true,
+          'input-has-actions': !!actions.length,
+          'input-disabled': this.disabled,
+        }}>
           <input
-            class="native-input"
+            class='native-input'
             name={this.name}
             aria-labelledby={labelId}
             ref={input => this.nativeInput = input}
@@ -251,21 +240,22 @@ export class P4Input {
             value={this.value}
             tabindex={this.tabindex}
             required={this.required}
-            onInput={this.onInput}
-            onBlur={this.onBlur}
-            onFocus={this.onFocus}
+            onInput={this.inputHandler}
+            onBlur={this.blurHandler}
+            onFocus={this.focusHandler}
             disabled={this.disabled} />
-          <div class="input-actions">
-            {(this.clearInput && !this.disabled && this.hasValue()) && <button
-              aria-label="reset"
-              type="button"
-              class="input-clear-icon"
-              onTouchStart={this.clearTextInput}
-              onMouseDown={this.clearTextInput}
-              onKeyDown={this.clearTextOnEnter}
-            >
-              <p4-icon type="x" size="1.1rem" class="icon" />
-            </button>}
+          <div class='input-actions'>
+            {actions.map((action) => {
+              return <button type='button'
+                             class={{
+                               'action-button': true,
+                               'action-button-disabled': action.disabled,
+                             }}
+                             disabled={!action.eventName || action.disabled}
+                             onClick={() => this.actionClickHandler(action)}>
+                <p4-icon type={action.icon} class='action-icon' size={this.getActionIconSize()} />
+              </button>;
+            })}
           </div>
         </div>
       </Host>

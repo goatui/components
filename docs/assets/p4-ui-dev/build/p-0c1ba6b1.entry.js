@@ -1,0 +1,1 @@
+import{r as s,h as t,H as o}from"./p-29952b49.js";const r=class{constructor(t){s(this,t)}render(){return t(o,null,t("slot",null))}};r.style=":host{display:block;padding-bottom:var(--space-1)}";export{r as p4_item}

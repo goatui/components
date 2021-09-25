@@ -1,7 +1,8 @@
-@import "../../styles/scss/variables";
+@import "../../styles/scss/commons";
 
 :host {
   display: block;
+  padding-bottom: var(--space-2);
 }
 
 

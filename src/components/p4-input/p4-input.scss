@@ -1,23 +1,6 @@
 @import "../../styles/scss/input";
 
 
-.input-component {
-  /**
-   * SIZES
-   */
-  &.size-lg {
-    height: 2.75rem;
-  }
-
-  &.size-md {
-    height: 2rem;
-  }
-
-  &.size-sm {
-    height: 1.5rem;
-  }
-}
-
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

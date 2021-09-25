@@ -76,28 +76,30 @@ components:
   - name: Checkbox
     link: /component/checkbox.html
     example: <p4-checkbox></p4-checkbox>
+  - name: Dropdown
+    link: /component/dropdown.html
+    example: <p4-dropdown></p4-dropdown>
   - name: Icon
     link: /component/icon.html
     example: <p4-icon type="alarm"></p4-icon>
   - name: Input
     link: /component/input.html
-    img: /assets/img/input.png
+    example: <p4-item class="item"><p4-label>Name</p4-label><p4-input type="text" placeholder="Enter you name here"></p4-input></p4-item>
+  - name: List
+    link: /component/list.html
+    example: <p4-item class="item"><p4-label>Name</p4-label><p4-input type="text" placeholder="Enter you name here"></p4-input></p4-item>
   - name: Script Editor
     link: /component/script-editor.html
-    img: /assets/img/script-editor.png
   - name: Select
     link: /component/select.html
-    img: /assets/img/image-not-found.png
   - name: Spinner
     link: /component/spinner.html
-    img: /assets/img/image-not-found.png
     example: <p4-spinner></p4-spinner>
   - name: Table
     link: /component/table.html
-    img: /assets/img/table.png
   - name: Textarea
     link: /component/textarea.html
-    img: /assets/img/image-not-found.png
+    example: <p4-textarea></p4-textarea>
 
 
 # Exclude from processing.

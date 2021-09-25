@@ -260,9 +260,9 @@ export class P4Select {
 
 
   private getComponentStyleClasses() {
-    const cls = ['component input-component select-component'];
-    cls.push('variant-' + this.variant);
-    cls.push('size-' + this.size);
+    const cls = ['input select-component'];
+    cls.push('input-variant-' + this.variant);
+    cls.push('input-size-' + this.size);
     cls.push('mode-' + this.mode);
     cls.push('type-' + this.type);
     if (this.required)

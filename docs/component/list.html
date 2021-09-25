@@ -1,0 +1,254 @@
+---
+layout: component
+title: List
+menu:
+- title: Usage
+---
+<div class='row pt-3'>
+
+  {% include content-nav.html %}
+
+
+  <!-- Content -->
+  <div class='col-xl-10 order-xl-1 duik-content border-bottom'>
+
+    <div class='border-bottom mb-7'>
+      <h1>{{ page.title }}</h1>
+      <p class='lead mb-5'>Use {{site.company}}’s custom button styles for actions in forms, dialogs, and more with
+        support for
+        multiple sizes, states, and more.</p>
+    </div>
+
+    <!-- Types -->
+    <div id='doc-variants' class='mb-7'>
+      <h2 class='h4'>Variants <a class='js-anchor-link duik-anchorjs-link' href='#doc-variants' aria-label='Anchor'
+                                 data-anchorjs-icon='#'></a></h2>
+      <p>Here are a couple of list variants, each serving its own semantic purpose.</p>
+
+      <h4 class='h5'>Simple</h4>
+      <div class='card'>
+        <div class='card-header'>
+          <p4-list class='list'></p4-list>
+          <p4-list class='list' item-variant='icon'></p4-list>
+          <script>
+            const $lists = document.querySelectorAll('.list');
+            $lists.forEach(function($list) {
+              $list.data = [
+                {
+                  'label': 'Axel Mack',
+                  'value': 'BC99E842-A1D1-79A1-5DAC-CAA8A6FE6D8E',
+                  'icon': 'person',
+                },
+                {
+                  'label': 'Phelan Middleton',
+                  'value': '2D115B11-3281-9B97-E1CE-6083C54EA5C0',
+                  'icon': 'person-circle',
+                },
+                {
+                  'label': 'Aiko Long',
+                  'value': '9CDA8C1E-8FC1-5667-A118-226CC314D723',
+                  'icon': 'person-fill',
+                },
+                {
+                  'label': 'Nadine Brooks',
+                  'value': 'A18C6A4B-2329-25D2-987B-E73DBC478595',
+                  'icon': 'person-check-fill',
+                  'separator': true,
+                },
+                {
+                  'label': 'Laura Ballard',
+                  'value': '1D1E7AAD-4A09-E222-5374-53D1824EBDCE',
+                  'icon': 'file-earmark-person',
+                },
+              ];
+              $list.addEventListener('p4:item-click', function(evt) {
+                myConsole.log(`<pre>${JSON.stringify(evt.detail, null, 4)}</pre>`);
+              });
+            });
+          </script>
+        </div>
+        <div class='card-body'>
+    <pre><code class='language-html' data-lang='html'>&lt;link rel="stylesheet" href="{{site.themeCss}}"&gt;&lt;/link&gt;
+&lt;script type="module" src="{{site.script}}"&gt;&lt;/script&gt;
+
+&lt;p4-list class="list">&lt;/p4-list>
+&lt;p4-list class="list" item-variant='icon'>&lt;/p4-list>
+&lt;script>
+const $lists = document.querySelectorAll('.list');
+$lists.forEach(function($list) {
+  $list.data = [
+    {
+      'label': 'Axel Mack',
+      'value': 'BC99E842-A1D1-79A1-5DAC-CAA8A6FE6D8E',
+      'icon': 'person'
+    },
+    {
+      'label': 'Phelan Middleton',
+      'value': '2D115B11-3281-9B97-E1CE-6083C54EA5C0',
+      'icon': 'person-circle'
+    },
+    {
+      'label': 'Aiko Long',
+      'value': '9CDA8C1E-8FC1-5667-A118-226CC314D723',
+      'icon': 'person-fill'
+    },
+    {
+      'label': 'Nadine Brooks',
+      'value': 'A18C6A4B-2329-25D2-987B-E73DBC478595',
+      'icon': 'person-check-fill',
+      'separator': true,
+    },
+    {
+      'label': 'Laura Ballard',
+      'value': '1D1E7AAD-4A09-E222-5374-53D1824EBDCE',
+      'icon': 'file-earmark-person'
+    },
+  ];
+  $list.addEventListener('p4:item-click', function(evt) {
+    myConsole.log(`<pre>${JSON.stringify(evt.detail, null, 4)}</pre>`);
+  });
+});
+&lt;/script>
+    </code></pre>
+
+        </div>
+      </div>
+
+
+      <h4 class='h5 pt-4'>Group</h4>
+      <div class='card'>
+        <div class='card-header'>
+          <p4-list class='list-with-group' variant='group'></p4-list>
+          <p4-list class='list-with-group' variant='group' item-variant='icon'></p4-list>
+          <script>
+            const $listGroups = document.querySelectorAll('.list-with-group');
+            $listGroups.forEach(function($listGroup) {
+              $listGroup.data = [{
+                label: 'Group 1',
+                value: 1,
+                items: [{
+                  'label': 'Axel Mack',
+                  'value': 'BC99E842-A1D1-79A1-5DAC-CAA8A6FE6D8E',
+                  'icon': 'person',
+                },
+                  {
+                    'label': 'Phelan Middleton',
+                    'value': '2D115B11-3281-9B97-E1CE-6083C54EA5C0',
+                    'icon': 'person-circle',
+                  },
+                  {
+                    'label': 'Aiko Long',
+                    'value': '9CDA8C1E-8FC1-5667-A118-226CC314D723',
+                    'icon': 'person-fill',
+                  },
+                  {
+                    'label': 'Nadine Brooks',
+                    'value': 'A18C6A4B-2329-25D2-987B-E73DBC478595',
+                    'icon': 'person-check-fill',
+                  },
+                  {
+                    'label': 'Laura Ballard',
+                    'value': '1D1E7AAD-4A09-E222-5374-53D1824EBDCE',
+                    'icon': 'file-earmark-person',
+                  }],
+              }, {
+                label: 'Group 2',
+                value: 2,
+                items: [
+                  {
+                    'label': 'Gavin Hart',
+                    'value': '0923C858-3172-9B28-1E6B-9C8F4B33FABB',
+                  },
+                  {
+                    'label': 'Tobias Knox',
+                    'value': '2100733C-8738-64D6-1DE4-115BA248C185',
+                  },
+                  {
+                    'label': 'Bruno Harrison',
+                    'value': 'C54C7439-7996-94FA-9BC2-3459A3C9A380',
+                  },
+                  {
+                    'label': 'Sebastian May',
+                    'value': 'mauris.vestibulum@proin.co.uk',
+                  },
+                  {
+                    'label': 'Oliver Fleming',
+                    'value': 'cursus.integer@ad.net',
+                  },
+                ],
+              }];
+              $listGroup.addEventListener('p4:item-click', function(evt) {
+                myConsole.log(`<pre>${JSON.stringify(evt.detail, null, 4)}</pre>`);
+              });
+            });
+          </script>
+        </div>
+        <div class='card-body'>
+    <pre><code class='language-html' data-lang='html'>&lt;link rel="stylesheet" href="{{site.themeCss}}"&gt;&lt;/link&gt;
+&lt;script type="module" src="{{site.script}}"&gt;&lt;/script&gt;
+
+&lt;p4-list id="list-group">&lt;/p4-list>
+&lt;script>
+  const $listGroup = document.getElementById('list-group');
+  $listGroup.data = [{
+    label: 'Group 1',
+    items: [{
+      'label': 'Axel Mack',
+      'value': 'BC99E842-A1D1-79A1-5DAC-CAA8A6FE6D8E',
+    },
+      {
+        'label': 'Phelan Middleton',
+        'value': '2D115B11-3281-9B97-E1CE-6083C54EA5C0',
+      },
+      {
+        'label': 'Aiko Long',
+        'value': '9CDA8C1E-8FC1-5667-A118-226CC314D723',
+      },
+      {
+        'label': 'Nadine Brooks',
+        'value': 'A18C6A4B-2329-25D2-987B-E73DBC478595',
+      },
+      {
+        'label': 'Laura Ballard',
+        'value': '1D1E7AAD-4A09-E222-5374-53D1824EBDCE',
+      }],
+  }, {
+    label: 'Group 2',
+    items: [
+      {
+        'label': 'Gavin Hart',
+        'value': '0923C858-3172-9B28-1E6B-9C8F4B33FABB',
+      },
+      {
+        'label': 'Tobias Knox',
+        'value': '2100733C-8738-64D6-1DE4-115BA248C185',
+      },
+      {
+        'label': 'Bruno Harrison',
+        'value': 'C54C7439-7996-94FA-9BC2-3459A3C9A380',
+      },
+      {
+        'label': 'Sebastian May',
+        'value': 'mauris.vestibulum@proin.co.uk',
+      },
+      {
+        'label': 'Oliver Fleming',
+        'value': 'cursus.integer@ad.net',
+      },
+    ],
+  }];
+  $listGroup.addEventListener('p4:item-click', function(evt) {
+    console.log(`<pre>${JSON.stringify(evt.detail, null, 4)}</pre>`);
+  });
+&lt;/script></code></pre>
+
+        </div>
+      </div>
+
+    </div>
+    <!-- Variants -->
+
+  </div>
+</div>
+
+

@@ -1,44 +1,198 @@
 ---
 layout: component
 title: Textarea
-componentName: p4-textarea
+menu:
+- title: Variants
+- title: Sizes
+- title: Disabled state
+- title: Events
 ---
-<span class="badge badge-danger">Work in progress</span>
-<h2>Basic usage</h2>
-<div class="section">
-  <p4-textarea clear-input="true" label="Name" placeholder="John Snow" id="test"></p4-textarea>
-  <script>
-    document.getElementById('test').addEventListener('inputChange', function(evt) {
-      console.log(evt.detail);
-    });
-  </script>
-  <p4-textarea variant="dashed" label="Name" placeholder="John Snow"></p4-textarea>
-</div>
 
-<h2>Inline</h2>
-<div class="section">
-  <p4-textarea size="lg" inline label="Size Large" value="Rahul"></p4-textarea>
-  <p4-textarea size="md" variant="dashed" inline label="Size Medium" value="John Snow"></p4-textarea>
-  <p4-textarea size="sm" inline label="Size Small" placeholder="Ravi"></p4-textarea>
-</div>
+<script type='module' src='/assets/p4/p4rm-ui/p4rm-ui.esm.js'></script>
+<div class='row pt-3'>
 
-<h2>Sizes</h2>
-<div class="section">
-  <p4-textarea size="lg" label="Size Large" value="Rahul"></p4-textarea>
-  <p4-textarea size="md" label="Size Medium" value="John Snow"></p4-textarea>
-  <p4-textarea size="sm" label="Size Small" placeholder="Ravi"></p4-textarea>
-</div>
+  {% include content-nav.html %}
 
-<h2>Disabled State</h2>
-<div class="section">
-  <p4-textarea size="md" label="Disabled" value="Visakhapatnam" disabled></p4-textarea>
-  <p4-textarea inline size="sm" label="Small Inline Disabled" placeholder="Ravi" disabled></p4-textarea>
-  <p4-textarea variant="dashed" label="Inline" placeholder="Ravi" disabled></p4-textarea>
-</div>
+  <!-- Content -->
+  <div class='col-xl-10 order-xl-1 duik-content border-bottom'>
+    <div class='border-bottom mb-7'>
+      <h1>{{ page.title }}</h1>
+      <p class='lead mb-5'>Use {{site.company}}’s custom input component for capturing input in forms, dialogs, and more
+        with
+        support
+        for multiple sizes, variants and more.</p>
+    </div>
 
-<h2>Required</h2>
-<div class="section">
-  <p4-textarea size="lg" required label="Size Large" value="Rahul"></p4-textarea>
-  <p4-textarea size="md" required label="Size Medium" value="John Snow"></p4-textarea>
-  <p4-textarea size="sm" required label="Size Small" placeholder="Ravi"></p4-textarea>
+
+    <!-- Variants -->
+    <div id='doc-variants' class='mb-7'>
+      <h2 class='h4'>Variants <a class='js-anchor-link duik-anchorjs-link' href='#doc-variants'
+                                 aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      <p>Here are several predefined input styles, each serving its own semantic purpose.</p>
+
+
+      <div class='card'>
+        <div class='card-header'>
+          <p4-textarea placeholder='Person Name'></p4-textarea>
+          <p4-textarea variant='dashed' value='Some Value'></p4-textarea>
+        </div>
+        <div class='card-body'>
+          <pre>
+                <code class='language-html' data-lang='html'> &lt;p4-textarea label=&quot;Name&quot; placeholder=&quot;Person Name&quot;&gt;&lt;/p4-textarea&gt;
+                 &lt;p4-textarea variant=&quot;dashed&quot; value="Some Value"&gt;&lt;/p4-textarea&gt;
+                </code>
+              </pre>
+        </div>
+      </div>
+    </div>
+    <!-- End Variants -->
+
+    <hr class='mt-7 mb-4'>
+
+
+    <!-- Sizes -->
+    <div id='doc-sizes' class='mb-7'>
+      <h2 class='h4'>Sizes <a class='js-anchor-link duik-anchorjs-link' href='#doc-sizes'
+                              aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      <p>Fancy larger or smaller input? Add size attribute for additional sizes.</p>
+
+      <div class='card'>
+        <div class='card-header'>
+          <p4-textarea size='lg' placeholder='Large'></p4-textarea>
+          <p4-textarea placeholder='Medium'></p4-textarea>
+          <p4-textarea size='sm' placeholder='Small'></p4-textarea>
+        </div>
+        <div class='card-body'>
+           <pre>
+                  <code class='language-html' data-lang='html'>&lt;p4-textarea size=&quot;lg&quot; placeholder=&quot;Large&quot;&gt;&lt;/p4-textarea&gt;
+                  &lt;p4-textarea placeholder=&quot;Medium&quot;&gt;&lt;/p4-textarea&gt;
+                  &lt;p4-textarea size=&quot;sm&quot; placeholder=&quot;Small&quot;&gt;&lt;/p4-textarea&gt;
+                  </code>
+                </pre>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Actions -->
+    <div id='doc-actions' class='mb-7'>
+      <h2 class='h4'>Actions <a class='js-anchor-link duik-anchorjs-link' href='#doc-actions'
+                                aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      <p>Make input look inactive by adding the disabled <code class='highlighter-rouge' data-lang='html'>boolean</code>
+        attribute to any <code class='highlighter-rouge' data-lang='html'>&lt;input&gt;</code> element.</p>
+
+      <div class='card'>
+        <div class='card-header'>
+          <p4-textarea id='input-with-actions'></p4-textarea>
+          <script>
+            document.querySelector('#input-with-actions').actions = [{
+              icon: 'search',
+              eventName: 'search-item',
+            }, {
+              icon: 'x',
+              eventName: 'close',
+            }, {
+              icon: 'info-circle',
+              eventName: 'info-circle',
+              disabled: true,
+            }];
+            document.querySelector('#input-with-actions').addEventListener('p4:action-click', function(evt) {
+              window.notyf.success('Action clicked :: ' + evt.detail.eventName);
+            });
+          </script>
+        </div>
+        <div class='card-body'>
+           <pre>
+                  <code class='language-html' data-lang='html'> &lt;p4-textarea id='input-with-actions'>&lt;/p4-textarea>
+          &lt;script>
+            document.querySelector('#input-with-actions').actions = [{
+              icon: 'search',
+              eventName: 'search-item'
+            }, {
+              icon: 'x',
+              eventName: 'close'
+            }, {
+              icon: 'info-circle',
+              eventName: 'info-circle',
+              disabled: true
+            }];
+            document.querySelector('#input-with-actions').addEventListener('p4:action-click', function(evt) {
+              console.log("Action clicked :: " + evt.detail.eventName);
+            })
+          &lt;/script>
+                  </code>
+                </pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Disabled State -->
+    <div id='doc-disabled-state' class='mb-7'>
+      <h2 class='h4'>Disabled state <a class='js-anchor-link duik-anchorjs-link' href='#doc-disabled-state'
+                                       aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      <p>Make input look inactive by adding the disabled <code class='highlighter-rouge' data-lang='html'>boolean</code>
+        attribute to any <code class='highlighter-rouge' data-lang='html'>&lt;input&gt;</code> element.</p>
+
+      <div class='card'>
+        <div class='card-header'>
+          <p4-textarea disabled></p4-textarea>
+          <p4-textarea disabled value='With Value'></p4-textarea>
+          <p4-textarea disabled value='With Value' id='disable-with-actions'></p4-textarea>
+          <script>
+            document.querySelector('#disable-with-actions').actions = [{
+              icon: 'house',
+              eventName: 'house',
+            }];
+          </script>
+        </div>
+        <div class='card-body'>
+           <pre>
+                  <code class='language-html' data-lang='html'>&lt;p4-textarea disabled&gt;Disabled Button&lt;/p4-textarea&gt;
+&lt;p4-textarea disabled value='With Value'&gt;Disabled Button&lt;/p4-textarea&gt;
+                  </code>
+                </pre>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Events -->
+    <div id='doc-events' class='mb-7'>
+      <h2 class='h4'>Events <a class='js-anchor-link duik-anchorjs-link' href='#doc-events'
+                               aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      <p>On input change a <b>CustomEvent</b> <code
+        class='highlighter-rouge' data-lang='html'>p4:change</code>
+        is triggered by the element.</p>
+
+      <div class='output'>
+
+        <p4-textarea variant='default' id='name-input-field'></p4-textarea>
+
+        <script>
+          document.querySelector('#name-input-field').addEventListener('p4:input', function(event) {
+            myConsole.log('p4:input :: <pre>' + event.target.value + '</pre>');
+          });
+          document.querySelector('#name-input-field').addEventListener('p4:change', function(event) {
+            myConsole.warn('p4:change :: <pre>' + event.target.value + '</pre>');
+          });
+        </script>
+
+      </div>
+      <pre class='mb-4'>
+                    <code class='language-html' data-lang='html'>&lt;script&gt;
+document.querySelector('#name-input-field').addEventListener('p4:input', function(event) {
+       console.log("p4:input :: " + event.target.value);
+});
+document.querySelector('#name-input-field').addEventListener('p4:change', function(event) {
+      console.log("p4:change :: " + event.target.value);
+});
+&lt;/script&gt;
+                    </code>
+                  </pre>
+
+    </div>
+
+
+  </div>
+  <!-- End Content -->
 </div>

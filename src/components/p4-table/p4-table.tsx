@@ -55,8 +55,8 @@ export class P4Table {
   @Prop() keyField: string = 'id';
 
 
-  @Event() p4CellClick: EventEmitter;
-  @Event() p4SelectChange: EventEmitter;
+  @Event({eventName: 'p4:table:cell-click'}) p4CellClick: EventEmitter;
+  @Event({eventName: 'p4:table:select-change'}) p4SelectChange: EventEmitter;
 
 
   onSelectAllClick = () => {
@@ -157,7 +157,7 @@ export class P4Table {
       leftHeaderRow.push(
         <div class='col' style={{ width: CHECKBOX_WIDTH }}>
           <div class='col-content'>
-            <p4-checkbox class='checkbox' value={this.isSelectAll} onP4Change={this.onSelectAllClick} />
+            <p4-checkbox class='checkbox' value={this.isSelectAll} onP4:change={this.onSelectAllClick} />
           </div>
         </div>);
     }
@@ -202,7 +202,7 @@ export class P4Table {
         bodyLeftRow.push(<div class={{ 'col': true, 'col-hover': this.hoverRecord === row }}
                               style={{ width: CHECKBOX_WIDTH }}>
           <p4-checkbox class='checkbox' value={this.selectedRowKeys.includes(row[this.keyField])}
-                       onP4Change={() => this.onRowSelectClick(row)} />
+                       onP4:change={() => this.onRowSelectClick(row)} />
         </div>);
 
 
