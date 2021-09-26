@@ -90,8 +90,10 @@ components:
     img: /assets/img/list.png
   - name: Script Editor
     link: /component/script-editor.html
+    img: /assets/img/script-editor.png
   - name: Select
     link: /component/select.html
+    img: /assets/img/select.png
   - name: Spinner
     link: /component/spinner.html
     example: <p4-spinner></p4-spinner>

@@ -3,54 +3,75 @@
     "category": "Introduction",
     "label": "Introduction",
     "url": "/index.html#"
-  },{
+  },
+  {
     "category": "Introduction",
     "label": "About",
     "url": "/index.html#doc-about"
-  },{
+  },
+  {
     "category": "Introduction",
     "label": "Getting Started",
     "url": "/index.html#doc-getting-started"
-  },{
+  },
+  {
     "category": "Components",
     "label": "Button",
     "url": "/component/button.html"
-  },{
+  },
+  {
     "category": "Components",
     "label": "Input",
     "url": "/component/input.html"
-  }, {
-  "category": "Components",
-  "label": "Number",
-  "url": "/component/input.html#doc-types"
-}, {
-  "category": "Components",
-  "label": "Password",
-  "url": "/component/input.html#doc-types"
-},{
+  },
+  {
+    "category": "Components",
+    "label": "Number",
+    "url": "/component/input.html#doc-types"
+  },
+  {
+    "category": "Components",
+    "label": "Password",
+    "url": "/component/input.html#doc-types"
+  },
+  {
     "category": "Components",
     "label": "Table",
-  "url": "/component/table.html"
-  },{
-  "category": "Components",
-  "label": "Checkbox",
-  "url": "/component/checkbox.html"
-},{
-  "category": "Components",
-  "label": "Script Editor",
-  "url": "/component/script-editor.html"
-},{
-  "category": "Components",
-  "label": "Select",
-  "url": "/component/select.html"
-},{
-  "category": "Components",
-  "label": "Textarea",
-  "url": "/component/textarea.html"
-},
+    "url": "/component/table.html"
+  },
+  {
+    "category": "Components",
+    "label": "Checkbox",
+    "url": "/component/checkbox.html"
+  },
+  {
+    "category": "Components",
+    "label": "Script Editor",
+    "url": "/component/script-editor.html"
+  },
+  {
+    "category": "Components",
+    "label": "Dropdown",
+    "url": "/component/dropdown.html"
+  },
+  {
+    "category": "Components",
+    "label": "Select",
+    "url": "/component/select.html"
+  },
+  {
+    "category": "Components",
+    "label": "Textarea",
+    "url": "/component/textarea.html"
+  },
   {
     "category": "Components",
     "label": "Spinner",
     "url": "/component/spinner.html"
+  },
+  {
+    "category": "Components",
+    "label": "Icon",
+    "url": "/component/icon.html"
   }
 ]
