@@ -1,11 +1,11 @@
 import { Component, Host, h } from '@stencil/core';
 
 @Component({
-  tag: 'p4-item',
-  styleUrl: 'p4-item.scss',
+  tag: 'p4-field-group',
+  styleUrl: 'p4-field-group.scss',
   shadow: true,
 })
-export class P4Item {
+export class P4FieldGroup {
 
   render() {
     return (

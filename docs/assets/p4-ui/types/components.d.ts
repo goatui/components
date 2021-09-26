@@ -343,7 +343,7 @@ declare global {
         "p4-checkbox": HTMLP4CheckboxElement;
         "p4-icon": HTMLP4IconElement;
         "p4-input": HTMLP4InputElement;
-        "p4-item": HTMLP4ItemElement;
+        "p4-field-group": HTMLP4ItemElement;
         "p4-label": HTMLP4LabelElement;
         "p4-script-editor": HTMLP4ScriptEditorElement;
         "p4-select": HTMLP4SelectElement;
@@ -664,7 +664,7 @@ declare namespace LocalJSX {
         "p4-checkbox": P4Checkbox;
         "p4-icon": P4Icon;
         "p4-input": P4Input;
-        "p4-item": P4Item;
+        "p4-field-group": P4Item;
         "p4-label": P4Label;
         "p4-script-editor": P4ScriptEditor;
         "p4-select": P4Select;
@@ -681,7 +681,7 @@ declare module "@stencil/core" {
             "p4-checkbox": LocalJSX.P4Checkbox & JSXBase.HTMLAttributes<HTMLP4CheckboxElement>;
             "p4-icon": LocalJSX.P4Icon & JSXBase.HTMLAttributes<HTMLP4IconElement>;
             "p4-input": LocalJSX.P4Input & JSXBase.HTMLAttributes<HTMLP4InputElement>;
-            "p4-item": LocalJSX.P4Item & JSXBase.HTMLAttributes<HTMLP4ItemElement>;
+            "p4-field-group": LocalJSX.P4Item & JSXBase.HTMLAttributes<HTMLP4ItemElement>;
             "p4-label": LocalJSX.P4Label & JSXBase.HTMLAttributes<HTMLP4LabelElement>;
             "p4-script-editor": LocalJSX.P4ScriptEditor & JSXBase.HTMLAttributes<HTMLP4ScriptEditorElement>;
             "p4-select": LocalJSX.P4Select & JSXBase.HTMLAttributes<HTMLP4SelectElement>;

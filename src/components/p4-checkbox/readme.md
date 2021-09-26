@@ -56,9 +56,14 @@ Type: `Promise<void>`
 
  - [p4-table](../p4-table)
 
+### Depends on
+
+- [p4-icon](../p4-icon)
+
 ### Graph
 ```mermaid
 graph TD;
+  p4-checkbox --> p4-icon
   p4-table --> p4-checkbox
   style p4-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 ```

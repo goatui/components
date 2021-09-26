@@ -18,6 +18,7 @@
 ### Used by
 
  - [p4-button](../p4-button)
+ - [p4-checkbox](../p4-checkbox)
  - [p4-input](../p4-input)
  - [p4-list](../p4-list)
  - [p4-select](../p4-select)
@@ -27,6 +28,7 @@
 ```mermaid
 graph TD;
   p4-button --> p4-icon
+  p4-checkbox --> p4-icon
   p4-input --> p4-icon
   p4-list --> p4-icon
   p4-select --> p4-icon

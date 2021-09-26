@@ -1,6 +1,6 @@
 import { Component, Element, Event, EventEmitter, h, Host, Listen, Prop, State } from '@stencil/core';
 
-let buttonIds = 0;
+let index = 0;
 
 @Component({
   tag: 'p4-button',
@@ -8,9 +8,13 @@ let buttonIds = 0;
   shadow: true,
 })
 export class P4Button {
+  private id = ++index;
 
   @Element() elm!: HTMLElement;
-  private id = buttonIds++;
+
+
+  private tabindex?: string | number;
+
 
   /**
    * Button size.
@@ -117,6 +121,17 @@ export class P4Button {
     if (evt.key == 'Enter' || evt.key == ' ') this.isActive = true;
   };
 
+  componentWillLoad() {
+    // If the ion-input has a tabindex attribute we get the value
+    // and pass it down to the native input, then remove it from the
+    // p4-input to avoid causing tabbing twice on the same element
+    if (this.elm.hasAttribute('tabindex')) {
+      const tabindex = this.elm.getAttribute('tabindex');
+      this.tabindex = tabindex !== null ? tabindex : undefined;
+      this.elm.removeAttribute('tabindex');
+    }
+  }
+
   componentDidLoad() {
     const $slot = this.elm.shadowRoot.querySelector('slot');
     this.slotHasContent = $slot && !!$slot.assignedNodes().length;
@@ -133,6 +148,7 @@ export class P4Button {
           'button': true,
           'slot-has-content': this.slotHasContent,
         }}
+        tabindex={this.tabindex}
         onBlur={this.blurHandler}
         onFocus={this.focusHandler}
         onClick={this.clickHandler}

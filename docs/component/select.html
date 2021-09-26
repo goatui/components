@@ -1,6 +1,6 @@
 ---
 layout: component
-title: Dropdown
+title: Select
 menu:
 - title: Variants
 ---
@@ -26,12 +26,10 @@ menu:
       <h4 class='h5'>Simple</h4>
       <div class='card'>
         <div class='card-header'>
-          <p4-dropdown id='dropdown' item-variant='icon'>
-            File
-          </p4-dropdown>
+          <p4-select id='select' placeholder='Select' item-variant='icon' clear-input type='typeahead' managed=true></p4-select>
 
           <script>
-            const $dropDown = document.getElementById('dropdown');
+            const $dropDown = document.getElementById('select');
             $dropDown.data = [
               {
                 'label': 'New',
@@ -69,8 +67,8 @@ menu:
     <pre><code class='language-html' data-lang='html'>&lt;link rel="stylesheet" href="{{site.themeCss}}"&gt;&lt;/link&gt;
 &lt;script type="module" src="{{site.script}}"&gt;&lt;/script&gt;
 
-&lt;p4-dropdown id='dropdown' item-variant='icon'>
-   File
+&lt;p4-dropdown id='dropdown' placeholder='Select' item-variant='icon'>
+   &lt;p class='h6'>File&lt;/p>
 &lt;/p4-dropdown>
 
 &lt;script>

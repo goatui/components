@@ -1,8 +1,6 @@
 @import "../../styles/scss/input";
 
-
-.select {
-
+.select-container {
   position: relative;
 
   .display-value {
@@ -10,14 +8,6 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     cursor: pointer;
-
-  }
-
-
-
-  .display-value {
-
-
   }
 
   .select-options {
@@ -29,21 +19,60 @@
     z-index: 1000;
   }
 
-  &.input-variant-no-border {
-    border-style: none;
-    box-shadow: none;
+  .dropdown-result {
+    position: absolute;
+    width: max-content;
+    line-height: 0;
+    z-index: 1000;
+  }
+
+  .input .input-actions {
+    .action-button.mode-button {
+      .clear-icon {
+        --color: var(--color-error-700);
+        display: none;
+      }
+    }
+  }
+
+
+  &.bottom-left .dropdown-result {
+    top: calc(100% + var(--space-1));
+    left: 0;
+  }
+
+  &.bottom-right .dropdown-result {
+    top: calc(100% + var(--space-1));
+    right: 0;
+  }
+
+  &.top-left .dropdown-result {
+    bottom: calc(100% + var(--space-1));
+    left: 0;
+  }
+
+  &.top-right .dropdown-result {
+    bottom: calc(100% + var(--space-1));
+    right: 0;
+  }
+
+  .search-loader {
+    display: flex;
+    align-items: center;
   }
 
 }
 
+:host([clear-input][has-value]) {
+  .input .input-actions {
+    .action-button.mode-button:hover, .action-button.mode-button:focus {
+      .mode-icon {
+        display: none;
+      }
 
-:host(.has-focus) {
-  .select .input {
-    outline: 0;
-
-    &:not(.input-disabled):not(.input-variant-no-border) {
-      border-color: var(--color-primary-300);
-      box-shadow: -1px 0px 0px var(--color-neutral-300);
+      .clear-icon {
+        display: block !important;
+      }
     }
   }
 }

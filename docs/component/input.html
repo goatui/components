@@ -34,38 +34,38 @@ menu:
 
       <div class='card'>
         <div class='card-header'>
-          <p4-item class='item'>
+          <p4-field-group class='item'>
             <p4-label>Text</p4-label>
             <p4-input type='text'></p4-input>
-          </p4-item>
-          <p4-item class='item'>
+          </p4-field-group>
+          <p4-field-group class='item'>
             <p4-label>Password</p4-label>
             <p4-input type='password'></p4-input>
-          </p4-item>
-          <p4-item class='item'>
+          </p4-field-group>
+          <p4-field-group class='item'>
             <p4-label>Number</p4-label>
             <p4-input type='number'></p4-input>
-          </p4-item>
+          </p4-field-group>
         </div>
         <div class='card-body'>
           <pre>
                 <code class='language-html' data-lang='html'>&lt;-- Text -->
-&lt;p4-item class="item">
+&lt;p4-field-group>
   &lt;p4-label>Text&lt;/p4-label>
   &lt;p4-input type="text">&lt;/p4-input>
-&lt;/p4-item>
+&lt;/p4-field-group>
 
 &lt;-- Password -->
-&lt;p4-item class="item">
+&lt;p4-field-group>
   &lt;p4-label>Password&lt;/p4-label>
   &lt;p4-input type="password">&lt;/p4-input>
-&lt;/p4-item>
+&lt;/p4-field-group>
 
 &lt;-- Number -->
-&lt;p4-item class="item">
+&lt;p4-field-group>
   &lt;p4-label>Number&lt;/p4-label>
   &lt;p4-input type="number">&lt;/p4-input>
-&lt;/p4-item>
+&lt;/p4-field-group>
                 </code>
               </pre>
         </div>
@@ -75,20 +75,24 @@ menu:
 
     <!-- Variants -->
     <div id='doc-variants' class='mb-7'>
-      <h2 class='h4'>Variants <a class='js-anchor-link duik-anchorjs-link' href='#doc-variants'
+      <h2 class='h4'>Slots <a class='js-anchor-link duik-anchorjs-link' href='#doc-variants'
                                  aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
       <p>Here are several predefined input styles, each serving its own semantic purpose.</p>
 
 
       <div class='card'>
         <div class='card-header'>
-          <p4-input placeholder='Person Name'></p4-input>
-          <p4-input variant='dashed' value='Some Value'></p4-input>
+          <p4-field-group class='item'>
+            <p4-label>Slots</p4-label>
+            <p4-input type='text'><p4-icon slot='start' type='mailbox'></p4-icon><p slot='end'>@example.com</p></p4-input>
+          </p4-field-group>
         </div>
         <div class='card-body'>
           <pre>
-                <code class='language-html' data-lang='html'> &lt;p4-input label=&quot;Name&quot; placeholder=&quot;Person Name&quot;&gt;&lt;/p4-input&gt;
-                 &lt;p4-input variant=&quot;dashed&quot; value="Some Value"&gt;&lt;/p4-input&gt;
+                <code class='language-html' data-lang='html'>&lt;p4-field-group class="item">
+  &lt;p4-label>Slots&lt;/p4-label>
+  &lt;p4-input type="text">&lt;p4-icon slot='start' type='mailbox'>&lt;/p4-icon>&lt;p slot='end'>@example.com&lt;/p>&lt;/p4-input>
+&lt;/p4-field-group>
                 </code>
               </pre>
         </div>
@@ -136,14 +140,14 @@ menu:
           <script>
             document.querySelector('#input-with-actions').actions = [{
               icon: 'search',
-              eventName: 'search-item'
+              readonly: true
             }, {
               icon: 'x',
-              eventName: 'close'
+              eventName: 'close',
             }, {
               icon: 'info-circle',
               eventName: 'info-circle',
-              disabled: true
+              disabled: true,
             }];
             document.querySelector('#input-with-actions').addEventListener('p4:action-click', function(evt) {
               window.notyf.success('Action clicked :: ' + evt.detail.eventName);
@@ -156,7 +160,7 @@ menu:
           &lt;script>
             document.querySelector('#input-with-actions').actions = [{
               icon: 'search',
-              eventName: 'search-item'
+              readonly: true
             }, {
               icon: 'x',
               eventName: 'close'
@@ -227,17 +231,12 @@ menu:
         </script>
 
       </div>
-      <pre class='mb-4'>
-                    <code class='language-html' data-lang='html'>&lt;script&gt;
-document.querySelector('#name-input-field').addEventListener('p4:input', function(event) {
-       console.log("p4:input :: " + event.target.value);
+      <pre class='mb-4'><code class='language-js' data-lang='html'>document.querySelector('#name-input-field').addEventListener('p4:input', function(event) {
+    console.log("p4:input :: " + event.target.value);
 });
 document.querySelector('#name-input-field').addEventListener('p4:change', function(event) {
-      console.log("p4:change :: " + event.target.value);
-});
-&lt;/script&gt;
-                    </code>
-                  </pre>
+    console.log("p4:change :: " + event.target.value);
+});</code></pre>
 
     </div>
 

@@ -4,6 +4,7 @@
   display: block;
   padding-bottom: var(--space-3);
   --input-border-radius: var(--border-radius);
+  --input-border-style: solid;
 }
 
 .input {
@@ -13,7 +14,7 @@
   box-sizing: border-box;
 
   background-color: var(--color-shades-white);
-  border: 1px solid var(--border-color);
+  border: 1px var(--input-border-style) var(--border-color);
   border-radius: var(--input-border-radius);
   overflow: hidden;
   cursor: text;
@@ -36,9 +37,28 @@
     }
   }
 
-  &.input-has-actions {
-    .native-input, .display-value {
-      padding-right: var(--space-2);
+
+  .slot-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    slot::slotted(*) {
+      padding-bottom: 0 !important;
+      margin-bottom: 0 !important;
+      color: var(--color-neutral-400);
+
+      p4-icon {
+        --color: var(--color-neutral-400);
+      }
+    }
+
+    &.start {
+      padding-left: var(--space-3_5);
+    }
+
+    &.end {
+      padding-right: var(--space-3_5);
     }
   }
 
@@ -64,7 +84,7 @@
         --color: var(--color-neutral-600);
       }
 
-      &:focus {
+      &:not(.action-button-disabled):focus {
         outline: none;
         background: var(--color-neutral-300);
 
@@ -90,7 +110,30 @@
       }
     }
 
+  }
 
+  &.start-slot-has-content {
+    .native-input, .display-value {
+      padding-left: var(--space-2);
+    }
+  }
+
+  &.input-has-actions, &.end-slot-has-content {
+    .native-input, .display-value {
+      padding-right: var(--space-2);
+    }
+  }
+
+  &:not(.start-slot-has-content) {
+    .slot-container.start {
+      display: none;
+    }
+  }
+
+  &:not(.end-slot-has-content) {
+    .slot-container.end {
+      display: none;
+    }
   }
 
   /**
@@ -123,14 +166,6 @@
     }
   }
 
-
-  /**
-  * VARIANTS
-  */
-  &.input-variant-dashed {
-    border-style: dashed;
-  }
-
   &.input-disabled {
     background-color: var(--color-neutral-100);
     cursor: not-allowed;
@@ -143,22 +178,35 @@
 
 }
 
-:host(.has-focus) {
-  .input {
-    outline: 0;
+:host([focused]) {
+  .input:not(.input-disabled) {
+    border-color: var(--color-primary-500);
+    @include focus-ring;
+  }
 
-    &:not(.input-disabled) {
-      border-color: var(--color-primary-300);
-      box-shadow: -1px 0px 0px var(--color-neutral-300);
+  &:host(.success) {
+    .input:not(.input-disabled) {
+      box-shadow: 0 0 0 0.25rem rgba(#10b981, 25%);
+    }
+  }
+
+  &:host(.error) {
+    .input:not(.input-disabled) {
+      box-shadow: 0 0 0 0.25rem rgba(#ef4444, 25%);
     }
   }
 }
 
-:host(.danger) {
-  .input {
+:host(.success) {
+  .input:not(.input-disabled) {
+    border-color: var(--color-success-500);
+  }
+}
+
+:host(.error) {
+  .input:not(.input-disabled) {
     border-color: var(--color-error-500);
-    &:focus:not(.input-disabled):not(.input-variant-no-border) {
-      box-shadow: -1px 0px 0px var(--color-error-700);
-    }
   }
 }
+
+

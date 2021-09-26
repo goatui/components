@@ -74,6 +74,7 @@ export namespace Components {
         "disabled": boolean;
         "itemVariant": any;
         "listVariant": any;
+        "position": 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
         "setFocus": () => Promise<void>;
         "setOpen": (value?: boolean) => Promise<void>;
         "showLoader": boolean;
@@ -81,6 +82,8 @@ export namespace Components {
           * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
         "size": 'sm' | 'md' | 'lg';
+    }
+    interface P4FieldGroup {
     }
     interface P4Icon {
         /**
@@ -139,12 +142,6 @@ export namespace Components {
           * The input field value.
          */
         "value"?: string | number | null;
-        /**
-          * Input field variants to add additional styling Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
-         */
-        "variant": 'default' | 'dashed';
-    }
-    interface P4Item {
     }
     interface P4Label {
         "required": boolean;
@@ -189,22 +186,21 @@ export namespace Components {
          */
         "clearInput": boolean;
         "config": any;
+        "data": any;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
+        "managed": boolean;
         /**
           * The input field name.
          */
         "name": string;
         /**
-          * If true, the user cannot interact with the button. Defaults to `false`.
-         */
-        "options": any[];
-        /**
           * The input field placeholder.
          */
         "placeholder": string;
+        "position": 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
         /**
           * If true, required icon is show. Defaults to `false`.
          */
@@ -213,20 +209,20 @@ export namespace Components {
           * Sets focus on the native `input` in `ion-input`. Use this method instead of the global `input.focus()`.
          */
         "setFocus": () => Promise<void>;
+        "setOpen": (value?: boolean) => Promise<void>;
         "showLoader": boolean;
         /**
           * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
         "size": 'sm' | 'md' | 'lg';
-        "type": 'select' | 'dropdown';
+        /**
+          * Select type Possible values are `"select"`, `"typeahead"`. Defaults to `"select"`.
+         */
+        "type": 'select' | 'typeahead';
         /**
           * The input field value.
          */
         "value"?: string | number;
-        /**
-          * Button variants Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
-         */
-        "variant": 'default' | 'dashed';
     }
     interface P4Spinner {
         /**
@@ -314,6 +310,12 @@ declare global {
         prototype: HTMLP4DropdownElement;
         new (): HTMLP4DropdownElement;
     };
+    interface HTMLP4FieldGroupElement extends Components.P4FieldGroup, HTMLStencilElement {
+    }
+    var HTMLP4FieldGroupElement: {
+        prototype: HTMLP4FieldGroupElement;
+        new (): HTMLP4FieldGroupElement;
+    };
     interface HTMLP4IconElement extends Components.P4Icon, HTMLStencilElement {
     }
     var HTMLP4IconElement: {
@@ -325,12 +327,6 @@ declare global {
     var HTMLP4InputElement: {
         prototype: HTMLP4InputElement;
         new (): HTMLP4InputElement;
-    };
-    interface HTMLP4ItemElement extends Components.P4Item, HTMLStencilElement {
-    }
-    var HTMLP4ItemElement: {
-        prototype: HTMLP4ItemElement;
-        new (): HTMLP4ItemElement;
     };
     interface HTMLP4LabelElement extends Components.P4Label, HTMLStencilElement {
     }
@@ -378,9 +374,9 @@ declare global {
         "p4-button": HTMLP4ButtonElement;
         "p4-checkbox": HTMLP4CheckboxElement;
         "p4-dropdown": HTMLP4DropdownElement;
+        "p4-field-group": HTMLP4FieldGroupElement;
         "p4-icon": HTMLP4IconElement;
         "p4-input": HTMLP4InputElement;
-        "p4-item": HTMLP4ItemElement;
         "p4-label": HTMLP4LabelElement;
         "p4-list": HTMLP4ListElement;
         "p4-script-editor": HTMLP4ScriptEditorElement;
@@ -471,11 +467,14 @@ declare namespace LocalJSX {
           * Emitted when the item is clicked.
          */
         "onP4:dropdown:item-click"?: (event: CustomEvent<any>) => void;
+        "position"?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
         "showLoader"?: boolean;
         /**
           * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
         "size"?: 'sm' | 'md' | 'lg';
+    }
+    interface P4FieldGroup {
     }
     interface P4Icon {
         /**
@@ -546,12 +545,6 @@ declare namespace LocalJSX {
           * The input field value.
          */
         "value"?: string | number | null;
-        /**
-          * Input field variants to add additional styling Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
-         */
-        "variant"?: 'default' | 'dashed';
-    }
-    interface P4Item {
     }
     interface P4Label {
         "required"?: boolean;
@@ -586,7 +579,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value has changed..
          */
-        "onP4Change"?: (event: CustomEvent<any>) => void;
+        "onP4:change"?: (event: CustomEvent<any>) => void;
         "theme"?: 'vs-light' | 'vs-dark';
         /**
           * The input field value.
@@ -600,10 +593,12 @@ declare namespace LocalJSX {
          */
         "clearInput"?: boolean;
         "config"?: any;
+        "data"?: any;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
+        "managed"?: boolean;
         /**
           * The input field name.
          */
@@ -611,27 +606,20 @@ declare namespace LocalJSX {
         /**
           * Emitted when the action button is clicked..
          */
-        "onP4ActionClick"?: (event: CustomEvent<any>) => void;
-        /**
-          * Emitted when the input loses focus.
-         */
-        "onP4Blur"?: (event: CustomEvent<any>) => void;
+        "onP4:action-click"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the value has changed..
          */
-        "onP4Change"?: (event: CustomEvent<any>) => void;
+        "onP4:change"?: (event: CustomEvent<any>) => void;
         /**
-          * Emitted when the input has focus.
+          * Emitted when a keyboard input occurred.
          */
-        "onP4Focus"?: (event: CustomEvent<any>) => void;
-        /**
-          * If true, the user cannot interact with the button. Defaults to `false`.
-         */
-        "options"?: any[];
+        "onP4:input"?: (event: CustomEvent<any>) => void;
         /**
           * The input field placeholder.
          */
         "placeholder"?: string;
+        "position"?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
         /**
           * If true, required icon is show. Defaults to `false`.
          */
@@ -641,15 +629,14 @@ declare namespace LocalJSX {
           * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
         "size"?: 'sm' | 'md' | 'lg';
-        "type"?: 'select' | 'dropdown';
+        /**
+          * Select type Possible values are `"select"`, `"typeahead"`. Defaults to `"select"`.
+         */
+        "type"?: 'select' | 'typeahead';
         /**
           * The input field value.
          */
         "value"?: string | number;
-        /**
-          * Button variants Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
-         */
-        "variant"?: 'default' | 'dashed';
     }
     interface P4Spinner {
         /**
@@ -667,8 +654,8 @@ declare namespace LocalJSX {
          */
         "dataSource"?: any[];
         "keyField"?: string;
-        "onP4CellClick"?: (event: CustomEvent<any>) => void;
-        "onP4SelectChange"?: (event: CustomEvent<any>) => void;
+        "onP4:table:cell-click"?: (event: CustomEvent<any>) => void;
+        "onP4:table:select-change"?: (event: CustomEvent<any>) => void;
         "selectedRowKeys"?: string[];
         "selectionType"?: 'checkbox' | undefined;
     }
@@ -735,9 +722,9 @@ declare namespace LocalJSX {
         "p4-button": P4Button;
         "p4-checkbox": P4Checkbox;
         "p4-dropdown": P4Dropdown;
+        "p4-field-group": P4FieldGroup;
         "p4-icon": P4Icon;
         "p4-input": P4Input;
-        "p4-item": P4Item;
         "p4-label": P4Label;
         "p4-list": P4List;
         "p4-script-editor": P4ScriptEditor;
@@ -754,9 +741,9 @@ declare module "@stencil/core" {
             "p4-button": LocalJSX.P4Button & JSXBase.HTMLAttributes<HTMLP4ButtonElement>;
             "p4-checkbox": LocalJSX.P4Checkbox & JSXBase.HTMLAttributes<HTMLP4CheckboxElement>;
             "p4-dropdown": LocalJSX.P4Dropdown & JSXBase.HTMLAttributes<HTMLP4DropdownElement>;
+            "p4-field-group": LocalJSX.P4FieldGroup & JSXBase.HTMLAttributes<HTMLP4FieldGroupElement>;
             "p4-icon": LocalJSX.P4Icon & JSXBase.HTMLAttributes<HTMLP4IconElement>;
             "p4-input": LocalJSX.P4Input & JSXBase.HTMLAttributes<HTMLP4InputElement>;
-            "p4-item": LocalJSX.P4Item & JSXBase.HTMLAttributes<HTMLP4ItemElement>;
             "p4-label": LocalJSX.P4Label & JSXBase.HTMLAttributes<HTMLP4LabelElement>;
             "p4-list": LocalJSX.P4List & JSXBase.HTMLAttributes<HTMLP4ListElement>;
             "p4-script-editor": LocalJSX.P4ScriptEditor & JSXBase.HTMLAttributes<HTMLP4ScriptEditorElement>;

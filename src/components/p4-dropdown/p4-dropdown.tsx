@@ -7,8 +7,11 @@ import { Component, Element, Event, EventEmitter, h, Host, Listen, Method, Prop,
   shadow: true,
 })
 export class P4Dropdown {
-
   @Element() elm!: HTMLElement;
+
+  private displayElement?: HTMLElement;
+  private listElement?: HTMLElement;
+
   @State() hasFocus = false;
   @State() isOpen: boolean = false;
 
@@ -30,20 +33,17 @@ export class P4Dropdown {
 
   @Prop() data: any[] = [];
 
-
+  @Prop() position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' = 'bottom-left';
   /**
    * Emitted when the item is clicked.
    */
   @Event({ eventName: 'p4:dropdown:item-click' }) p4ItemClick: EventEmitter;
 
 
-  private displayElement?: HTMLElement;
-  private listElement?: HTMLElement;
-
   @Listen('click', { target: 'window' })
   windowClick(evt) {
     if (evt.target.closest('p4-dropdown') !== this.elm)
-      this.closeList();
+      this.isOpen = false;
   }
 
   @Method()
@@ -57,24 +57,22 @@ export class P4Dropdown {
     this.isOpen = value;
   }
 
-  private itemClickHandler = (item) => {
+  private itemClickHandler = (detail) => {
     if (!this.disabled)
-      this.p4ItemClick.emit(item);
+      this.p4ItemClick.emit(detail);
   };
 
   private closeList = () => {
     if (!this.disabled && this.isOpen) {
       this.isOpen = false;
-      setTimeout(() => {
-        this.setFocus();
-      }, 100);
+      setTimeout(() => this.setFocus(), 100);
     }
   };
 
   private openList = () => {
-    console.log('open');
     if (!this.disabled && !this.isOpen) {
       this.isOpen = true;
+      setTimeout(() => this.setFocus(), 100);
     }
   };
 
@@ -93,46 +91,46 @@ export class P4Dropdown {
     this.hasFocus = true;
   };
 
+  private keyDownHandler = (evt) => {
+    if (evt.key === 'Enter') {
+      evt.preventDefault();
+      this.toggleList();
+    } else if (evt.key === 'ArrowDown') {
+      if (this.isOpen) {
+        evt.preventDefault();
+        //@ts-ignore
+        this.listElement.setFocus();
+      }
+    } else if (evt.key === 'ArrowUp') {
+      if (this.isOpen) {
+        evt.preventDefault();
+        //@ts-ignore
+        this.listElement.setFocus(true); // focus on previous item
+      }
+    }
+  };
+
   render() {
-    return (<Host aria-disabled={this.disabled ? 'true' : null} class={{ 'has-focus': this.hasFocus }}>
-      <div class='dropdown'>
-        <button
-          class='dropdown-button'
-          ref={(el) => this.displayElement = el}
-          onKeyDown={(evt) => {
-            if (evt.key === 'Enter') {
-              evt.preventDefault();
-              this.toggleList();
-            } else if (evt.key === 'ArrowDown') {
-              if (this.isOpen) {
-                evt.preventDefault();
-                //@ts-ignore
-                this.listElement.setFocus();
-              }
-            } else if (evt.key === 'ArrowUp') {
-              if (this.isOpen) {
-                evt.preventDefault();
-                //@ts-ignore
-                this.listElement.setFocus(true); // focus on previous item
-              }
-            }
-          }}
-          onBlur={this.blurHandler}
-          onFocus={this.focusHandler}
-          onClick={this.toggleList}
-        >
+    return (<Host aria-disabled={this.disabled ? 'true' : null} focused={this.hasFocus} position={this.position}>
+      <div class={{ 'dropdown': true, [this.position]: true }}>
+        <button class='dropdown-button'
+                ref={(el) => this.displayElement = el}
+                onKeyDown={this.keyDownHandler}
+                onBlur={this.blurHandler}
+                onFocus={this.focusHandler}
+                onClick={this.toggleList}>
           <div class='slot-container'>
             <slot />
           </div>
         </button>
-        {this.isOpen && this.getOptions()}
+        {this.renderDropdownList()}
       </div>
     </Host>);
   }
 
-  private getOptions() {
-    if (typeof this.data !== 'string') {
-      return <div class='select-options'>
+  private renderDropdownList() {
+    if (this.isOpen && typeof this.data !== 'string') {
+      return <div class='dropdown-result'>
         <p4-list
           ref={(el) => this.listElement = el}
           data={this.data}
@@ -140,10 +138,7 @@ export class P4Dropdown {
           itemVariant={this.itemVariant}
           onP4:item-click={(evt) => {
             this.closeList();
-            this.itemClickHandler(evt.detail.item);
-            setTimeout(() => {
-              this.setFocus();
-            }, 100);
+            this.itemClickHandler(evt.detail);
           }} />
       </div>;
     }

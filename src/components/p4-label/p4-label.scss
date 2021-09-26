@@ -8,6 +8,7 @@
 
 .label {
   @include font-p1;
+  color: var(--color-neutral-900);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

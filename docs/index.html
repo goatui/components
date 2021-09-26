@@ -17,6 +17,11 @@ root: true
     align-items: center;
   }
 
+  .card section img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
   .card section:after {
     content: "";
     width: 100%;
@@ -164,7 +169,11 @@ root: true
                   </div>
                   <div class='card-body'>
                     <section>
-                      {{component.example}}
+                      {% if component.example != undefined %}
+                        {{component.example}}
+                      {% else %}
+                        <img src='{{component.img}}'/>
+                      {% endif %}
                     </section>
 
                   </div>

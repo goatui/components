@@ -187,7 +187,8 @@ $lists.forEach(function($list) {
     <pre><code class='language-html' data-lang='html'>&lt;link rel="stylesheet" href="{{site.themeCss}}"&gt;&lt;/link&gt;
 &lt;script type="module" src="{{site.script}}"&gt;&lt;/script&gt;
 
-&lt;p4-list id="list-group">&lt;/p4-list>
+&lt;p4-list class='list-with-group' variant='group'>&lt;/p4-list>
+&lt;p4-list class='list-with-group' variant='group' item-variant='icon'>&lt;/p4-list>
 &lt;script>
   const $listGroup = document.getElementById('list-group');
   $listGroup.data = [{

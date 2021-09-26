@@ -1,13 +1,14 @@
+@import "../../styles/scss/commons";
 
 :host {
   display: inline-block;
 }
 
 .dropdown {
-
   position: relative;
   height: 100%;
   width: 100%;
+  border-radius: var(--border-radius);
 
   .dropdown-button {
     border: none;
@@ -16,31 +17,50 @@
     width: 100%;
   }
 
-
-  .select-options {
+  .dropdown-result {
     position: absolute;
     width: max-content;
     line-height: 0;
-    top: calc(100% + var(--space-1));
-    left: 0;
     z-index: 1000;
   }
 
-  &.input-variant-no-border {
-    border-style: none;
-    box-shadow: none;
+  slot::slotted(*) {
+    @include font-p1;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    color: var(--color-neutral-400);
+
+    p4-icon {
+      --color: var(--color-neutral-400);
+    }
+  }
+
+  &.bottom-left .dropdown-result {
+    top: calc(100% + var(--space-1));
+    left: 0;
+  }
+
+  &.bottom-right .dropdown-result {
+    top: calc(100% + var(--space-1));
+    right: 0;
+  }
+
+  &.top-left .dropdown-result {
+    bottom: calc(100% + var(--space-1));
+    left: 0;
+  }
+
+  &.top-right .dropdown-result {
+    bottom: calc(100% + var(--space-1));
+    right: 0;
   }
 
 }
 
-
-:host(.has-focus) {
-  .dropdown .input {
-    outline: 0;
-
-    &:not(.input-disabled):not(.input-variant-no-border) {
-      border-color: var(--color-primary-300);
-      box-shadow: -1px 0px 0px var(--color-neutral-300);
+:host([focused]) {
+  .dropdown {
+    .dropdown-button {
+      @include focus-ring;
     }
   }
 }

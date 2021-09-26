@@ -1,18 +1,18 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { P4Item } from '../p4-item';
+import { P4FieldGroup } from '../p4-field-group';
 
-describe('p4-item', () => {
+describe('p4-field-group', () => {
   it('renders', async () => {
     const page = await newSpecPage({
-      components: [P4Item],
-      html: `<p4-item></p4-item>`,
+      components: [P4FieldGroup],
+      html: `<p4-field-group></p4-field-group>`,
     });
     expect(page.root).toEqualHtml(`
-      <p4-item>
+      <p4-field-group>
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-      </p4-item>
+      </p4-field-group>
     `);
   });
 });

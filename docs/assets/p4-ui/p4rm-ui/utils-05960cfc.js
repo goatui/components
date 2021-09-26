@@ -34,7 +34,7 @@ async function loadScript(src) {
   });
 }
 const findItemLabel = (componentEl) => {
-  const itemEl = componentEl.closest('p4-item');
+  const itemEl = componentEl.closest('p4-field-group');
   if (itemEl) {
     return itemEl.querySelector('p4-label');
   }

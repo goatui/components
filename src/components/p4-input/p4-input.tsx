@@ -1,8 +1,7 @@
 import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
 import { debounceEvent, findItemLabel } from '../../utils/utils';
 
-let inputIds = 0;
-
+let index = 0;
 
 @Component({
   tag: 'p4-input',
@@ -10,17 +9,19 @@ let inputIds = 0;
   shadow: true,
 })
 export class P4Input {
-  @Element() el!: HTMLElement;
+  private id = ++index;
+  @Element() elm!: HTMLElement;
 
   private nativeInput?: HTMLInputElement;
   private tabindex?: string | number;
-  private inputId = `p4-input-${inputIds++}`;
+  @State() startSlotHasContent = false;
+  @State() endSlotHasContent = false;
   @State() hasFocus = false;
 
   /**
    * The input field name.
    */
-  @Prop() name: string = this.inputId;
+  @Prop() name: string = `p4-input-${this.id}`;
 
   /**
    * The input field placeholder.
@@ -38,11 +39,6 @@ export class P4Input {
    */
   @Prop() size: 'sm' | 'md' | 'lg' = 'md';
 
-  /**
-   * Input field variants to add additional styling
-   * Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
-   */
-  @Prop() variant: 'default' | 'dashed' = 'default';
 
   /**
    * The type of control to display.
@@ -127,7 +123,8 @@ export class P4Input {
   };
 
   private actionClickHandler = (action) => {
-    this.p4ActionClick.emit(action);
+    if (!action.disabled)
+      this.p4ActionClick.emit(action);
   };
 
   /**
@@ -173,31 +170,37 @@ export class P4Input {
   componentWillLoad() {
     // If the ion-input has a tabindex attribute we get the value
     // and pass it down to the native input, then remove it from the
-    // ion-input to avoid causing tabbing twice on the same element
-    if (this.el.hasAttribute('tabindex')) {
-      const tabindex = this.el.getAttribute('tabindex');
+    // p4-input to avoid causing tabbing twice on the same element
+    if (this.elm.hasAttribute('tabindex')) {
+      const tabindex = this.elm.getAttribute('tabindex');
       this.tabindex = tabindex !== null ? tabindex : undefined;
-      this.el.removeAttribute('tabindex');
+      this.elm.removeAttribute('tabindex');
     }
+    const label = findItemLabel(this.elm);
+    if (label) {
+      label.id = `p4-input-${this.id}-lbl`;
+      label.setAttribute('required', this.required + '');
+    }
+  }
+
+  componentDidLoad() {
+    let $slot = this.elm.shadowRoot.querySelector('.slot-container.start').querySelector('slot');
+    this.startSlotHasContent = $slot && !!$slot.assignedNodes().length;
+    $slot = this.elm.shadowRoot.querySelector('.slot-container.end').querySelector('slot');
+    this.endSlotHasContent = $slot && !!$slot.assignedNodes().length;
   }
 
   connectedCallback() {
     this.debounceChanged();
     document.dispatchEvent(new CustomEvent('p4InputDidLoad', {
-      detail: this.el,
+      detail: this.elm,
     }));
   }
 
   disconnectedCallback() {
     document.dispatchEvent(new CustomEvent('p4InputDidUnload', {
-      detail: this.el,
+      detail: this.elm,
     }));
-  }
-
-  private hasValue(): boolean {
-    const value = (typeof this.value) === 'number' ? this.value.toString() :
-      (this.value || '').toString();
-    return value.length > 0;
   }
 
   private getActionIconSize() {
@@ -210,8 +213,8 @@ export class P4Input {
 
 
   render() {
-    const labelId = this.inputId + '-lbl';
-    const label = findItemLabel(this.el);
+    const labelId = `p4-input-${this.id}-lbl`;
+    const label = findItemLabel(this.elm);
     const actions = this.actions;
     if (label) {
       label.id = labelId;
@@ -220,15 +223,19 @@ export class P4Input {
 
     return (
       <Host aria-disabled={this.disabled ? 'true' : null}
-            class={{ 'has-focus': this.hasFocus, 'has-value': this.hasValue() }}>
+            focused={this.hasFocus}>
         <div class={{
           'input': true,
-          [`input-variant-${this.variant}`]: true,
           [`input-type-${this.type}`]: true,
           [`input-size-${this.size}`]: true,
           'input-has-actions': !!actions.length,
           'input-disabled': this.disabled,
+          'start-slot-has-content': this.startSlotHasContent,
+          'end-slot-has-content': this.endSlotHasContent,
         }}>
+          <div class='slot-container start'>
+            <slot name='start' />
+          </div>
           <input
             class='native-input'
             name={this.name}
@@ -244,6 +251,10 @@ export class P4Input {
             onBlur={this.blurHandler}
             onFocus={this.focusHandler}
             disabled={this.disabled} />
+
+          <div class='slot-container end'>
+            <slot name='end' />
+          </div>
           <div class='input-actions'>
             {actions.map((action) => {
               return <button type='button'
@@ -251,7 +262,7 @@ export class P4Input {
                                'action-button': true,
                                'action-button-disabled': action.disabled,
                              }}
-                             disabled={!action.eventName || action.disabled}
+                             aria-disabled={action.disabled}
                              onClick={() => this.actionClickHandler(action)}>
                 <p4-icon type={action.icon} class='action-icon' size={this.getActionIconSize()} />
               </button>;

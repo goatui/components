@@ -151,7 +151,7 @@ export class P4List {
         'item-has-focus': this.focusItemId == item.__id,
         'item-active': this.activeItemId == item.__id || this.value === item.value,
       }}
-      tabindex='1'
+      tabindex='0'
       onClick={() => this.itemClickHandler(item, group)}
       onFocus={() => {
         this.focusItemId = item.__id;

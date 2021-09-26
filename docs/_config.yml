@@ -30,8 +30,8 @@ twitter_username: P4rmInc
 github_username: p4rm
 github_project: ui
 npm_package: '@p4rm/ui'
-script: 'https://unpkg.com/@p4rm/ui@1.0.0-beta/dist/p4rm-ui/p4rm-ui.esm.js'
-themeCss: 'https://unpkg.com/@p4rm/ui@1.0.0-beta/dist/p4rm-ui/styles/theme.css'
+script: 'https://unpkg.com/@p4rm/ui@1.0.0-rc/dist/p4rm-ui/p4rm-ui.esm.js'
+theme: 'https://unpkg.com/@p4rm/ui@1.0.0-rc/dist/p4rm-ui/styles/theme.css'
 
 include:
   - .well-known
@@ -78,16 +78,16 @@ components:
     example: <p4-checkbox></p4-checkbox>
   - name: Dropdown
     link: /component/dropdown.html
-    example: <p4-dropdown></p4-dropdown>
+    img: /assets/img/dropdown.png
   - name: Icon
     link: /component/icon.html
     example: <p4-icon type="alarm"></p4-icon>
   - name: Input
     link: /component/input.html
-    example: <p4-item class="item"><p4-label>Name</p4-label><p4-input type="text" placeholder="Enter you name here"></p4-input></p4-item>
+    example: <p4-field-group><p4-label>Name</p4-label><p4-input type="text" placeholder="Enter you name here"></p4-input></p4-field-group>
   - name: List
     link: /component/list.html
-    example: <p4-item class="item"><p4-label>Name</p4-label><p4-input type="text" placeholder="Enter you name here"></p4-input></p4-item>
+    img: /assets/img/list.png
   - name: Script Editor
     link: /component/script-editor.html
   - name: Select
@@ -97,9 +97,10 @@ components:
     example: <p4-spinner></p4-spinner>
   - name: Table
     link: /component/table.html
+    img: /assets/img/table.png
   - name: Textarea
     link: /component/textarea.html
-    example: <p4-textarea></p4-textarea>
+    example: <p4-field-group><p4-label>Description</p4-label><p4-textarea></p4-textarea></p4-field-group>
 
 
 # Exclude from processing.

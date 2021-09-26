@@ -7,14 +7,15 @@
 
 ## Properties
 
-| Property      | Attribute      | Description                                                                       | Type                   | Default     |
-| ------------- | -------------- | --------------------------------------------------------------------------------- | ---------------------- | ----------- |
-| `data`        | --             |                                                                                   | `any[]`                | `[]`        |
-| `disabled`    | `disabled`     | If true, the user cannot interact with the button. Defaults to `false`.           | `boolean`              | `false`     |
-| `itemVariant` | `item-variant` |                                                                                   | `any`                  | `'default'` |
-| `listVariant` | `list-variant` |                                                                                   | `any`                  | `'default'` |
-| `showLoader`  | `show-loader`  |                                                                                   | `boolean`              | `false`     |
-| `size`        | `size`         | The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`. | `"lg" \| "md" \| "sm"` | `'md'`      |
+| Property      | Attribute      | Description                                                                       | Type                                                           | Default         |
+| ------------- | -------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------------- | --------------- |
+| `data`        | --             |                                                                                   | `any[]`                                                        | `[]`            |
+| `disabled`    | `disabled`     | If true, the user cannot interact with the button. Defaults to `false`.           | `boolean`                                                      | `false`         |
+| `itemVariant` | `item-variant` |                                                                                   | `any`                                                          | `'default'`     |
+| `listVariant` | `list-variant` |                                                                                   | `any`                                                          | `'default'`     |
+| `position`    | `position`     |                                                                                   | `"bottom-left" \| "bottom-right" \| "top-left" \| "top-right"` | `'bottom-left'` |
+| `showLoader`  | `show-loader`  |                                                                                   | `boolean`                                                      | `false`         |
+| `size`        | `size`         | The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`. | `"lg" \| "md" \| "sm"`                                         | `'md'`          |
 
 
 ## Events

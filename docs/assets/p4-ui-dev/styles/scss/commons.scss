@@ -52,6 +52,11 @@
   font-weight: 600;
 }
 
+@mixin focus-ring {
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(#039be5, 25%);
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

@@ -64,18 +64,32 @@ menu:
 const $table = document.getElementById('table');
 
 // Columns
-$table.columns = [{ 'name': 'name', 'label': 'Name', 'width': 300, 'fixed': true }, {
-  'name': 'age',
-  'label': 'Age',
-}, { 'name': 'eyeColor', 'label': 'Eye Color', 'width': 500 }, {
-  'name': 'company',
-  'label': 'Company',
-  'width': 500,
-}, { 'name': 'email', 'label': 'Email', 'width': 500 }, {
-  'name': 'address',
-  'label': 'Address',
-  'width': 1000,
-}];
+ $table.columns = [{
+    'name': 'name',
+    'label': 'Name',
+    'width': 300,
+    'fixed': true,
+  }, {
+    'name': 'age',
+    'label': 'Age',
+    'width': 100,
+  }, {
+    'name': 'eyeColor',
+    'label': 'Eye Color',
+    'width': 300,
+  }, {
+    'name': 'company',
+    'label': 'Company',
+    'width': 300,
+  }, {
+    'name': 'email',
+    'label': 'Email',
+    'width': 500,
+  }, {
+    'name': 'address',
+    'label': 'Address',
+    'width': 700,
+  }];
 
 // Records
 $table.dataSource = [{

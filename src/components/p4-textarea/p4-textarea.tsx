@@ -30,7 +30,7 @@ export class P4Textarea {
   /**
    * The input field value.
    */
-  @Prop() value: string;
+  @Prop({mutable: true}) value: string;
 
   /**
    * The button size.

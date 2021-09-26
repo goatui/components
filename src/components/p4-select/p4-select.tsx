@@ -1,7 +1,7 @@
 import { Component, Element, Event, EventEmitter, h, Host, Listen, Method, Prop, State } from '@stencil/core';
 import { findItemLabel } from '../../utils/utils';
 
-let inputIds = 0;
+let index = 0;
 
 @Component({
   tag: 'p4-select',
@@ -9,10 +9,18 @@ let inputIds = 0;
   shadow: true,
 })
 export class P4Select {
-
+  private id = ++index;
   @Element() elm!: HTMLElement;
-  @State() activeOption;
+
+  private nativeInput?: HTMLInputElement;
+  private displayElement?: HTMLElement;
+  private listElement?: HTMLElement;
+
   @State() hasFocus = false;
+  @State() isOpen: boolean = false;
+  @State() searchString: string = '';
+
+
   /**
    * The input field placeholder.
    */
@@ -20,17 +28,17 @@ export class P4Select {
   /**
    * The input field value.
    */
-  @Prop() value?: string | number;
+  @Prop({mutable: true}) value?: string | number;
   /**
    * The button size.
    * Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
    */
   @Prop() size: 'sm' | 'md' | 'lg' = 'md';
   /**
-   * Button variants
-   * Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
+   * Select type
+   * Possible values are `"select"`, `"typeahead"`. Defaults to `"select"`.
    */
-  @Prop() variant: 'default' | 'dashed' = 'default';
+  @Prop() type: 'select' | 'typeahead' = 'select';
   /**
    * If true, required icon is show. Defaults to `false`.
    */
@@ -40,44 +48,35 @@ export class P4Select {
    */
   @Prop() disabled: boolean = false;
   @Prop() showLoader: boolean = false;
-  @Prop() type: 'select' | 'dropdown' = 'select';
+
+  @Prop() managed: boolean = false;
   @Prop() config: any = { itemValue: 'value', itemLabel: 'label' };
-  /**
-   * If true, the user cannot interact with the button. Defaults to `false`.
-   */
-  @Prop() options: any[] = [];
+
+  @Prop() data: any = [];
+  @Prop() position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' = 'bottom-left';
   @Prop() actions: any[] = [];
+
   /**
    * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
    */
   @Prop() clearInput = false;
   /**
+   * The input field name.
+   */
+  @Prop() name: string = `p4-select-${this.id}`;
+
+  /**
    * Emitted when the value has changed..
    */
-  @Event() p4Change: EventEmitter;
+  @Event({ eventName: 'p4:change' }) p4Change: EventEmitter;
   /**
    * Emitted when the action button is clicked..
    */
-  @Event() p4ActionClick: EventEmitter;
+  @Event({ eventName: 'p4:action-click' }) p4ActionClick: EventEmitter;
   /**
-   * Emitted when the input loses focus.
+   * Emitted when a keyboard input occurred.
    */
-  @Event() p4Blur: EventEmitter;
-  /**
-   * Emitted when the input has focus.
-   */
-  @Event() p4Focus: EventEmitter;
-
-
-  @State() mode: 'open' | 'close' = 'close';
-  @State() searchString: string = '';
-  private displayElement?: HTMLElement;
-  private listElement?: HTMLElement;
-  private inputId = `p4-select-${inputIds++}`;
-  /**
-   * The input field name.
-   */
-  @Prop() name: string = this.inputId;
+  @Event({ eventName: 'p4:input' }) p4Input: EventEmitter;
 
   /**
    * Sets focus on the native `input` in `ion-input`. Use this method instead of the global
@@ -88,139 +87,65 @@ export class P4Select {
     this.displayElement.focus();
   }
 
+  @Method()
+  async setOpen(value = true) {
+    this.isOpen = value;
+  }
+
+
   @Listen('click', { target: 'window' })
   windowClick(evt) {
     if (evt.target.closest('p4-select') !== this.elm)
-      this.closeList();
+      this.isOpen = false;
   }
 
-  getOptionLabelByValue(value) {
-    if (this.options) {
-      const item = this.options.find((item) => {
-        return this.getItemValue(item) === value;
-      });
-      if (item)
-        return this.getItemLabel(item);
-      else
-        return this.placeholder;
-    }
-  }
-
-  render() {
-    const labelId = this.inputId + '-lbl';
-    const label = findItemLabel(this.elm);
-    if (label) {
-      label.id = labelId;
-      if (this.required)
-        label.classList.add('required');
-    }
-
-
-    return (
-      <Host aria-disabled={this.disabled ? 'true' : null}
-            class={{ 'has-focus': this.hasFocus, 'has-value': this.hasValue() }}>
-        <div class='select'>
-          <div class={{
-            'input': true,
-            [`input-variant-${this.variant}`]: true,
-            [`input-size-${this.size}`]: true,
-            [`input-type-${this.type}`]: true,
-            'input-disabled': this.disabled,
-          }}>
-
-            <div class='display-value'
-                 tabindex='1'
-                 onFocus={this.focusHandler}
-                 ref={(el) => this.displayElement = el}
-                 onBlur={this.blurHandler}
-                 onKeyDown={(evt) => {
-                   if (evt.key === 'Enter') {
-                     evt.preventDefault();
-                     this.toggleList();
-                   } else if (evt.key === 'ArrowDown') {
-                     if (this.mode == 'open') {
-                       evt.preventDefault();
-                       //@ts-ignore
-                       this.listElement.setFocus();
-                     }
-                   } else if (evt.key === 'ArrowUp') {
-                     if (this.mode == 'open') {
-                       evt.preventDefault();
-                       //@ts-ignore
-                       this.listElement.setFocus(true); // focus on previous item
-                     }
-                   }
-                 }}
-                 onClick={() => {
-                   this.toggleList();
-                 }}>
-              {
-                this.getOptionLabelByValue(this.value)
-              }
-            </div>
-            <div class='input-actions'>
-              {this.getModeIcon()}
-            </div>
-          </div>
-          {this.mode == 'open' && this.getOptions()}
-        </div>
-      </Host>
-    );
-  }
-
-  private changeHandler = (item) => {
+  private changeHandler = (item?) => {
     if (!this.disabled) {
       this.value = this.getItemValue(item);
-      this.activeOption = item;
       this.p4Change.emit({ value: this.value, item });
     }
   };
 
+  private blurHandler = () => {
+    this.hasFocus = false;
+  };
+
+  private focusHandler = () => {
+    this.hasFocus = true;
+  };
+
   private closeList = () => {
-    if (!this.disabled && this.mode == 'open') {
-      this.mode = 'close';
-      setTimeout(() => {
-        this.setFocus();
-      }, 100);
+    if (!this.disabled && this.isOpen) {
+      this.isOpen = false;
+      setTimeout(() => this.setFocus(), 100);
     }
   };
 
   private openList = () => {
-    if (!this.disabled && this.mode == 'close') {
-      this.mode = 'open';
+    if (!this.disabled && !this.isOpen) {
+      this.isOpen = true;
+      if (this.type === 'typeahead') {
+        this.searchString = '';
+        setTimeout(() => this.nativeInput.focus(), 100);
+      }
     }
   };
 
   private toggleList = () => {
-    if (this.mode === 'open')
+    if (this.isOpen)
       this.closeList();
     else
       this.openList();
   };
 
-  private blurHandler = (evt) => {
-    this.hasFocus = false;
-    this.p4Blur.emit(evt);
-    setTimeout(() => {
-      this.openList();
-    }, 300);
-  };
-
-  private focusHandler = (ev: FocusEvent) => {
-    this.hasFocus = true;
-    this.p4Focus.emit(ev);
-  };
-
   private getItemValue(item) {
+    if (!item)
+      return null;
     return item[this.config.itemValue];
   }
 
   private getItemLabel(item) {
     return item[this.config.itemLabel];
-  }
-
-  private hasValue(): boolean {
-    return (this.value || '').toString().length > 0;
   }
 
   private getActionIconSize() {
@@ -231,44 +156,179 @@ export class P4Select {
     return '1.25rem';
   }
 
-  private getModeIcon() {
-    return <button class='action-button' type='button' onClick={(evt) => {
+  private actionClickHandler = (action) => {
+    if (!action.disabled)
+      this.p4ActionClick.emit(action);
+  };
+
+  private keyDownHandler = (evt) => {
+    if (evt.key === 'Enter') {
       evt.preventDefault();
-      setTimeout(() => {
-        if (this.mode === 'open')
-          this.closeList();
-        else
-          this.openList();
+      this.toggleList();
+    } else if (evt.key === 'ArrowDown') {
+      if (this.isOpen) {
+        evt.preventDefault();
+        //@ts-ignore
+        this.listElement.setFocus();
+      }
+    } else if (evt.key === 'ArrowUp') {
+      if (this.isOpen) {
+        evt.preventDefault();
+        //@ts-ignore
+        this.listElement.setFocus(true); // focus on previous item
+      }
+    }
+  };
+
+  private onInput = (ev: Event) => {
+    const input = ev.target as HTMLInputElement | null;
+    if (input) {
+      this.searchString = input.value || '';
+    }
+    this.p4Input.emit(ev);
+  };
+
+  private hasValue(): boolean {
+    return (this.value || '').toString().length > 0;
+  }
+
+  getOptionLabelByValue(value) {
+    if (this.data) {
+      const item = this.data.find((item) => {
+        return this.getItemValue(item) === value;
       });
-      return false;
-    }}>
-      <p4-icon type={this.mode == 'open' ? 'chevron-up' : 'chevron-down'} size={this.getActionIconSize()}
-               class='action-icon' />
+      if (item)
+        return this.getItemLabel(item);
+      else
+        return this.placeholder;
+    }
+  }
+
+
+  render() {
+    const labelId = `p4-select-${this.id}-lbl`;
+    const label = findItemLabel(this.elm);
+    if (label) {
+      label.id = labelId;
+      label.setAttribute('required', this.required + '');
+    }
+
+    const actions = this.actions;
+
+    return (<Host aria-disabled={this.disabled ? 'true' : null}
+                  has-value={this.hasValue()}
+                  focused={this.hasFocus}
+                  position={this.position}>
+      <div class={{ 'select-container': true, [this.position]: true }}>
+        <div class={{
+          'select': true,
+          'input': true,
+          [`input-size-${this.size}`]: true,
+          [`input-type-${this.type}`]: true,
+          'input-has-actions': !!actions.length,
+          'input-disabled': this.disabled,
+        }}>
+
+          {
+            ((this.type === 'select') || (this.type === 'typeahead' && !this.isOpen))
+            && <div class='display-value'
+                    ref={(el) => this.displayElement = el}
+                    tabindex='0'
+                    onFocus={this.focusHandler}
+                    onBlur={this.blurHandler}
+                    onKeyDown={this.keyDownHandler}
+                    onClick={() => this.toggleList()}>
+              {this.getOptionLabelByValue(this.value)}
+            </div>
+          }
+
+
+          {
+            ((this.type === 'typeahead' && this.isOpen))
+            && <input class='native-input'
+                      ref={input => this.nativeInput = input}
+                      type='text'
+                      aria-labelledby={labelId}
+                      name={this.name}
+                      value={this.searchString}
+                      placeholder={this.placeholder}
+                      onBlur={this.blurHandler}
+                      onFocus={this.focusHandler}
+                      onInput={this.onInput}
+                      onKeyDown={this.keyDownHandler}
+            />
+          }
+
+
+          <div class='input-actions'>
+            {actions.map((action) => {
+              return <button type='button'
+                             class={{
+                               'action-button': true,
+                               'action-button-disabled': action.disabled,
+                             }}
+                             aria-disabled={action.disabled}
+                             onClick={() => this.actionClickHandler(action)}>
+                <p4-icon type={action.icon} class='action-icon' size={this.getActionIconSize()} />
+              </button>;
+            })}
+            {!this.showLoader && this.getModeIcon()}
+          </div>
+        </div>
+        {this.isOpen && this.renderDropdownList()}
+      </div>
+    </Host>);
+  }
+
+
+  private getModeIcon() {
+    return <button class='action-button mode-button' type='button'
+                   onClick={(evt) => {
+                     evt.preventDefault();
+                     if (this.clearInput && this.hasValue()) {
+                       if (!this.disabled)
+                         this.changeHandler();
+                     } else {
+                       this.toggleList();
+                     }
+                   }}>
+      <p4-icon type={this.isOpen ? 'chevron-up' : 'chevron-down'} size={this.getActionIconSize()}
+               class='action-icon mode-icon' />
+      <p4-icon type='x-circle-fill' size={this.getActionIconSize()} class='action-icon clear-icon' />
     </button>;
   }
 
-  private getOptions() {
-    if (typeof this.options !== 'string') {
-      let options = [];
-      if (typeof this.options !== 'string') {
-        options = this.options;
+  private renderDropdownList() {
+    if (typeof this.data !== 'string') {
+      if (this.showLoader) {
+        return <div class='dropdown-result'>
+          <div class="search-loader">
+            <p4-spinner size={this.getActionIconSize()}/> Loading...
+          </div>
+
+        </div>
+      } else {
+        const data = this.filterData();
+        return <div class='dropdown-result'>
+          <p4-list
+            ref={(el) => this.listElement = el}
+            data={data}
+            value={this.value}
+            onP4:item-click={(evt) => {
+              this.closeList();
+              this.changeHandler(evt.detail.item);
+            }} />
+        </div>;
       }
-      return <div class='select-options'>
-        <p4-list
-          ref={(el) => this.listElement = el}
-          data={options}
-          //  config={this.config}
-          value={this.value}
-          onP4:item-click={(evt) => {
-            this.closeList();
-            // this.
-            this.changeHandler(evt.detail.item);
-            setTimeout(() => {
-              this.setFocus();
-            }, 100);
-          }} />
-      </div>;
     }
+  }
+
+  private filterData(): any {
+    if (this.managed)
+      return this.data;
+    return this.data.filter((item) => {
+      return (!this.searchString || this.getItemLabel(item).toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()));
+    });
   }
 
 }

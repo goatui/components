@@ -17,11 +17,13 @@
 ### Used by
 
  - [p4-button](../p4-button)
+ - [p4-select](../p4-select)
 
 ### Graph
 ```mermaid
 graph TD;
   p4-button --> p4-spinner
+  p4-select --> p4-spinner
   style p4-spinner fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

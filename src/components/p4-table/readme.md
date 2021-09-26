@@ -18,10 +18,10 @@
 
 ## Events
 
-| Event            | Description | Type               |
-| ---------------- | ----------- | ------------------ |
-| `p4CellClick`    |             | `CustomEvent<any>` |
-| `p4SelectChange` |             | `CustomEvent<any>` |
+| Event                    | Description | Type               |
+| ------------------------ | ----------- | ------------------ |
+| `p4:table:cell-click`    |             | `CustomEvent<any>` |
+| `p4:table:select-change` |             | `CustomEvent<any>` |
 
 
 ## Dependencies
@@ -34,6 +34,7 @@
 ```mermaid
 graph TD;
   p4-table --> p4-checkbox
+  p4-checkbox --> p4-icon
   style p4-table fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

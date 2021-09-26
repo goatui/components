@@ -48,7 +48,6 @@
   flex-direction: row;
   cursor: pointer;
   width: 100%;
-  outline: 1px solid transparent;
   border: 1px var(--button-border-style) transparent;
   border-radius: var(--button-border-radius);
 
@@ -157,7 +156,7 @@
 
 :host([focused]:not([active])) {
   .button {
-    outline-color: var(--color-shades-black);
+    @include focus-ring;
   }
 }
 

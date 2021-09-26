@@ -20,9 +20,9 @@
 
 ## Events
 
-| Event      | Description                          | Type               |
-| ---------- | ------------------------------------ | ------------------ |
-| `p4Change` | Emitted when the value has changed.. | `CustomEvent<any>` |
+| Event       | Description                          | Type               |
+| ----------- | ------------------------------------ | ------------------ |
+| `p4:change` | Emitted when the value has changed.. | `CustomEvent<any>` |
 
 
 ----------------------------------------------
