@@ -45,7 +45,7 @@ function releaseToDocs(cb) {
       return console.log(err);
     }
     let result = data.replace(/script: '.*'/, `script: 'https://unpkg.com/@p4rm/ui@${packageJson.version}/dist/p4rm-ui/p4rm-ui.esm.js'`);
-    result = result.replace(/themeCss: '.*'/, `theme: 'https://unpkg.com/@p4rm/ui@${packageJson.version}/dist/p4rm-ui/styles/theme.css'`);
+    result = result.replace(/themeCss: '.*'/, `themeCss: 'https://unpkg.com/@p4rm/ui@${packageJson.version}/dist/p4rm-ui/styles/theme.css'`);
     fs.writeFile('docs/_config.yml', result, 'utf8', function(err) {
       if (err) return console.log(err);
       cb();
