@@ -28,7 +28,7 @@ export class P4Select {
   /**
    * The input field value.
    */
-  @Prop({mutable: true}) value?: string | number;
+  @Prop({ mutable: true }) value?: string | number;
   /**
    * The button size.
    * Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
@@ -237,7 +237,11 @@ export class P4Select {
                     onFocus={this.focusHandler}
                     onBlur={this.blurHandler}
                     onKeyDown={this.keyDownHandler}
-                    onClick={() => this.toggleList()}>
+                    onClick={(evt) => {
+                      evt.preventDefault();
+                      evt.stopPropagation();
+                      this.toggleList();
+                    }}>
               {this.getOptionLabelByValue(this.value)}
             </div>
           }
@@ -302,11 +306,12 @@ export class P4Select {
     if (typeof this.data !== 'string') {
       if (this.showLoader) {
         return <div class='dropdown-result'>
-          <div class="search-loader">
-            <p4-spinner size={this.getActionIconSize()}/> Loading...
+          <div class='search-loader'>
+            <p4-spinner size={this.getActionIconSize()} />
+            Loading...
           </div>
 
-        </div>
+        </div>;
       } else {
         const data = this.filterData();
         return <div class='dropdown-result'>

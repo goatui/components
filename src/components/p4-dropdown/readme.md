@@ -22,7 +22,7 @@
 
 | Event                    | Description                       | Type               |
 | ------------------------ | --------------------------------- | ------------------ |
-| `p4:dropdown:item-click` | Emitted when the item is clicked. | `CustomEvent<any>` |
+| `p4:dropdown-item-click` | Emitted when the item is clicked. | `CustomEvent<any>` |
 
 
 ## Methods

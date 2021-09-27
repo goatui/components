@@ -37,7 +37,7 @@ export class P4Dropdown {
   /**
    * Emitted when the item is clicked.
    */
-  @Event({ eventName: 'p4:dropdown:item-click' }) p4ItemClick: EventEmitter;
+  @Event({ eventName: 'p4:dropdown-item-click' }) p4ItemClick: EventEmitter;
 
 
   @Listen('click', { target: 'window' })
@@ -118,7 +118,11 @@ export class P4Dropdown {
                 onKeyDown={this.keyDownHandler}
                 onBlur={this.blurHandler}
                 onFocus={this.focusHandler}
-                onClick={this.toggleList}>
+                onClick={(evt) => {
+                  evt.preventDefault();
+                  evt.stopPropagation();
+                  this.toggleList();
+                }}>
           <div class='slot-container'>
             <slot />
           </div>

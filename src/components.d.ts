@@ -466,7 +466,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the item is clicked.
          */
-        "onP4:dropdown:item-click"?: (event: CustomEvent<any>) => void;
+        "onP4:dropdown-item-click"?: (event: CustomEvent<any>) => void;
         "position"?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
         "showLoader"?: boolean;
         /**
