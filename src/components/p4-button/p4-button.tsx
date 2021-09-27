@@ -24,9 +24,9 @@ export class P4Button {
 
   /**
    * Button variants.
-   * Possible values are `"primary"`, `"secondary"`, `"ghost-primary"`, `"ghost-secondary"`. Defaults to `"primary"`.
+   * Possible values are `"primary"`, `"secondary"`, `"danger"`, `"ghost-primary"`, `"ghost-secondary"`. Defaults to `"primary"`.
    */
-  @Prop() variant: 'primary' | 'secondary' | 'ghost-primary' | 'ghost-secondary' = 'primary';
+  @Prop() variant: 'primary' | 'secondary' | 'danger' | 'ghost-primary' | 'ghost-secondary' = 'primary';
 
   /**
    * If true, fits button width to its parent width. Defaults to `false`.

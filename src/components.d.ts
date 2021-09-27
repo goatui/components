@@ -32,9 +32,9 @@ export namespace Components {
         "size": 'sm' | 'md' | 'lg';
         "target": '_self' | '_blank';
         /**
-          * Button variants. Possible values are `"primary"`, `"secondary"`, `"ghost-primary"`, `"ghost-secondary"`. Defaults to `"primary"`.
+          * Button variants. Possible values are `"primary"`, `"secondary"`, `"danger"`, `"ghost-primary"`, `"ghost-secondary"`. Defaults to `"primary"`.
          */
-        "variant": 'primary' | 'secondary' | 'ghost-primary' | 'ghost-secondary';
+        "variant": 'primary' | 'secondary' | 'danger' | 'ghost-primary' | 'ghost-secondary';
     }
     interface P4Checkbox {
         /**
@@ -417,9 +417,9 @@ declare namespace LocalJSX {
         "size"?: 'sm' | 'md' | 'lg';
         "target"?: '_self' | '_blank';
         /**
-          * Button variants. Possible values are `"primary"`, `"secondary"`, `"ghost-primary"`, `"ghost-secondary"`. Defaults to `"primary"`.
+          * Button variants. Possible values are `"primary"`, `"secondary"`, `"danger"`, `"ghost-primary"`, `"ghost-secondary"`. Defaults to `"primary"`.
          */
-        "variant"?: 'primary' | 'secondary' | 'ghost-primary' | 'ghost-secondary';
+        "variant"?: 'primary' | 'secondary' | 'danger' | 'ghost-primary' | 'ghost-secondary';
     }
     interface P4Checkbox {
         /**
@@ -654,8 +654,8 @@ declare namespace LocalJSX {
          */
         "dataSource"?: any[];
         "keyField"?: string;
-        "onP4:table:cell-click"?: (event: CustomEvent<any>) => void;
-        "onP4:table:select-change"?: (event: CustomEvent<any>) => void;
+        "onP4:table-cell-click"?: (event: CustomEvent<any>) => void;
+        "onP4:table-select-change"?: (event: CustomEvent<any>) => void;
         "selectedRowKeys"?: string[];
         "selectionType"?: 'checkbox' | undefined;
     }

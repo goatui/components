@@ -154,6 +154,36 @@
   }
 }
 
+:host([variant="danger"]) {
+  &:host(:not([ghost])) {
+    .button {
+      @include buttonVariant(--color-neutral-50, --color-error-500, --color-error-300);
+    }
+
+    &:host([active]) {
+      .button {
+        background: var(--color-error-700);
+        border-color: var(--color-error-700);
+      }
+    }
+  }
+
+  &:host([ghost]) {
+    .button {
+      @include buttonGhostVariant(--color-error-500, --color-error-500, --color-error-300);
+    }
+
+    &:host([active]) {
+      .button {
+        color: var(--color-error-300);
+        background: var(--color-error-50);
+        border-color: var(--color-error-200);
+      }
+    }
+  }
+}
+
+
 :host([focused]:not([active])) {
   .button {
     @include focus-ring;

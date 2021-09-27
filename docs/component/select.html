@@ -57,7 +57,7 @@ menu:
                 'icon': 'file-earmark-person',
               },
             ];
-            $dropDown.addEventListener('p4:dropdown:item-click', function(evt) {
+            $dropDown.addEventListener('p4:dropdown-item-click', function(evt) {
               myConsole.log(`<pre>${JSON.stringify(evt.detail, null, 4)}</pre>`);
             });
           </script>
@@ -97,7 +97,7 @@ $dropDown.data = [
     'icon': 'file-earmark-person',
   },
 ];
-$dropDown.addEventListener('p4:dropdown:item-click', function(evt) {
+$dropDown.addEventListener('p4:dropdown-item-click', function(evt) {
   console.log(`<pre>${JSON.stringify(evt.detail, null, 4)}</pre>`);
 });
 &lt;/script></code></pre>
@@ -139,7 +139,7 @@ $dropDown.addEventListener('p4:dropdown:item-click', function(evt) {
                 'icon': 'file-earmark-person',
               },
             ];
-            $typeahead.addEventListener('p4:dropdown:item-click', function(evt) {
+            $typeahead.addEventListener('p4:dropdown-item-click', function(evt) {
               myConsole.log(`<pre>${JSON.stringify(evt.detail, null, 4)}</pre>`);
             });
           </script>
@@ -179,7 +179,7 @@ $typeahead.data = [
     'icon': 'file-earmark-person',
   },
 ];
-$typeahead.addEventListener('p4:dropdown:item-click', function(evt) {
+$typeahead.addEventListener('p4:dropdown-item-click', function(evt) {
   console.log(`<pre>${JSON.stringify(evt.detail, null, 4)}</pre>`);
 });
 &lt;/script></code></pre>

@@ -1,6 +1,7 @@
 @import './color.css';
 @import './spacing.css';
 @import './typography.css';
+@import './shadow.css';
 
 :root {
   --border-radius: 5px;

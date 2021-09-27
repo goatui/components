@@ -55,8 +55,8 @@ export class P4Table {
   @Prop() keyField: string = 'id';
 
 
-  @Event({eventName: 'p4:table:cell-click'}) p4CellClick: EventEmitter;
-  @Event({eventName: 'p4:table:select-change'}) p4SelectChange: EventEmitter;
+  @Event({eventName: 'p4:table-cell-click'}) p4CellClick: EventEmitter;
+  @Event({eventName: 'p4:table-select-change'}) p4SelectChange: EventEmitter;
 
 
   onSelectAllClick = () => {

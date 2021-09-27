@@ -32,11 +32,11 @@ menu:
             {% include table-data.html %}
 
             // Events
-            $table.addEventListener('p4:table:cell-click', function(evt) {
+            $table.addEventListener('p4:table-cell-click', function(evt) {
              document.getElementById('record').innerText = JSON.stringify(evt.detail.record, null, 3);
               document.getElementById('column').innerText = evt.detail.column.label;
             });
-            $table.addEventListener('p4:table:select-change', function(evt) {
+            $table.addEventListener('p4:table-select-change', function(evt) {
              document.getElementById('selected-rows').innerText = JSON.stringify(evt.detail.value);
             });
           </script>
@@ -121,12 +121,12 @@ $table.dataSource = [{
 }, ...];
 
 // Events
-$table.addEventListener('p4:table:cell-click', function(evt) {
+$table.addEventListener('p4:table-cell-click', function(evt) {
   console.log(evt.detail);
   document.getElementById('record').innerText = JSON.stringify(evt.detail.record, null, 3);
   document.getElementById('column').innerText = evt.detail.column.label;
 });
-$table.addEventListener('p4:table:select-change', function(evt) {
+$table.addEventListener('p4:table-select-change', function(evt) {
   console.log(evt.detail);
   document.getElementById('selected-rows').innerText = JSON.stringify(evt.detail.value);
 });

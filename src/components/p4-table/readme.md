@@ -20,8 +20,8 @@
 
 | Event                    | Description | Type               |
 | ------------------------ | ----------- | ------------------ |
-| `p4:table:cell-click`    |             | `CustomEvent<any>` |
-| `p4:table:select-change` |             | `CustomEvent<any>` |
+| `p4:table-cell-click`    |             | `CustomEvent<any>` |
+| `p4:table-select-change` |             | `CustomEvent<any>` |
 
 
 ## Dependencies

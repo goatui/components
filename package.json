@@ -1,6 +1,6 @@
 {
   "name": "@p4rm/ui",
-  "version": "1.0.0-rc-2",
+  "version": "1.0.0",
   "description": "Stencil Component Starter",
   "license": "MIT",
   "main": "dist/index.cjs.js",
@@ -32,7 +32,8 @@
     "glob": "^7.1.6",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
-    "@types/node": "^16.9.6"
+    "@types/node": "^16.9.6",
+    "concurrently": "^6.2.1"
   },
   "engines": {
     "node": ">=14.x"
