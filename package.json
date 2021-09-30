@@ -1,6 +1,6 @@
 {
   "name": "@p4rm/ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Stencil Component Starter",
   "license": "MIT",
   "main": "dist/index.cjs.js",
@@ -13,14 +13,14 @@
   ],
   "scripts": {
     "build": "stencil build --docs",
-    "start-watch": "stencil build --dev --watch --serve",
+    "start-watch": "stencil build --dev --watch --serve --cors",
     "start-docs-server": "cd docs && serve.cmd",
     "start": "concurrently --kill-others \"npm run start-watch\" \"npm run start-docs-server\"",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
     "release": "npm version patch",
-    "release-to-docs": "gulp"
+    "release-to-docs": "gulp releaseToDocs"
   },
   "dependencies": {
     "@stencil/core": "^2.8.0",
@@ -29,11 +29,14 @@
     "stencil-inline-svg": "^1.1.0"
   },
   "devDependencies": {
+    "@types/node": "^16.9.6",
+    "concurrently": "^6.2.1",
     "glob": "^7.1.6",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
-    "@types/node": "^16.9.6",
-    "concurrently": "^6.2.1"
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "sass": "^1.42.1"
   },
   "engines": {
     "node": ">=14.x"

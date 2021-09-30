@@ -2,7 +2,7 @@
 
 :host {
   display: inline-block;
-  --color: var(--color-neutral-900);
+  --color:  #{v(color-neutral-900)};
   color: var(--color);
 }
 
@@ -12,24 +12,24 @@
 
 :host(.primary) {
   .icon {
-    color: var(--color-primary-500);
+    color: v(color-primary-500);
   }
 }
 
 :host(.secondary) {
   .icon {
-    color: var(--color-secondary-500);
+    color: v(color-secondary-500);
   }
 }
 
 :host(.error) {
   .icon {
-    color: var(--color-error-500);
+    color: v(color-error-500);
   }
 }
 
 :host(.success) {
   .icon {
-    color: var(--color-success-500);
+    color: v(color-success-500);
   }
 }

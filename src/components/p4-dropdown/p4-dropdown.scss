@@ -6,9 +6,10 @@
 
 .dropdown {
   position: relative;
+  z-index: v(z-index-dropdown-content);
   height: 100%;
   width: 100%;
-  border-radius: var(--border-radius);
+  border-radius: v(border-radius);
 
   .dropdown-button {
     border: none;
@@ -21,38 +22,49 @@
     position: absolute;
     width: max-content;
     line-height: 0;
-    z-index: 1000;
+    transform: scale(0);
+    transition: transform 0.1s ease-out 0s;
+  }
+
+  &.is-open {
+    .dropdown-result {
+      transform: scale(1);
+    }
   }
 
   slot::slotted(*) {
-    @include font-p1;
+    @include font-variant(p1);
     padding-bottom: 0 !important;
     margin-bottom: 0 !important;
-    color: var(--color-neutral-400);
+    color: v(color-neutral-400);
 
     p4-icon {
-      --color: var(--color-neutral-400);
+      --color: #{v(color-neutral-400)};
     }
   }
 
   &.bottom-left .dropdown-result {
-    top: calc(100% + var(--space-1));
+    top: calc(100% + #{v(space-1)});
     left: 0;
+    transform-origin: left top;
   }
 
   &.bottom-right .dropdown-result {
-    top: calc(100% + var(--space-1));
+    top: calc(100% + #{v(space-1)});
     right: 0;
+    transform-origin: right top;
   }
 
   &.top-left .dropdown-result {
-    bottom: calc(100% + var(--space-1));
+    bottom: calc(100% + #{v(space-1)});
     left: 0;
+    transform-origin: left bottom;
   }
 
   &.top-right .dropdown-result {
-    bottom: calc(100% + var(--space-1));
+    bottom: calc(100% + #{v(space-1)});
     right: 0;
+    transform-origin: right bottom;
   }
 
 }

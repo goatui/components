@@ -1,19 +1,19 @@
-const { src, dest, series } = require('gulp');
-const clean = require('gulp-clean');
+const { src, dest, watch, series } = require('gulp');
 const glob = require('glob');
 const fs = require('fs');
 
-function clear(cb) {
-  src('docs/assets/p4-ui/**', { read: false })
-    .pipe(clean());
-  cb();
+const sass = require('gulp-sass')(require('sass'));
+const sourcemaps = require('gulp-sourcemaps');
+
+const SRC = './src/styles/theme/theme.scss';
+const DEST = './src/styles/';
+
+function scssTask() {
+  return src(SRC).pipe(sourcemaps.init()).pipe(sass()).pipe(sourcemaps.write('.')).pipe(dest(DEST));
 }
 
-function copy(cb) {
-  src('dist/**')
-    .pipe(dest('docs/assets/p4-ui/', { allowEmpty: true }));
-  cb();
-}
+
+
 
 function generateIconImportFile(cb) {
   const icons = [];
@@ -30,10 +30,9 @@ function generateIconImportFile(cb) {
   icons.forEach((icon, index) => {
     result += 'ICONS[\'' + icon + '\'] = Icon' + index + ';\n';
   });
-  fs.writeFileSync("src/components/p4-icon/bootstrap-icons.ts", result);
+  fs.writeFileSync('src/components/p4-icon/bootstrap-icons.ts', result);
   cb();
 }
-
 
 
 function releaseToDocs(cb) {
@@ -53,10 +52,11 @@ function releaseToDocs(cb) {
   });
 }
 
+exports.themeBuild = scssTask;
 exports.releaseToDocs = releaseToDocs;
 exports.generateIconImportFile = generateIconImportFile;
-exports.copy = copy;
-exports.clear = clear;
-
+exports.themeWatch = function () {
+  watch(SRC, scssTask);
+};
 
 exports.default = series(releaseToDocs);

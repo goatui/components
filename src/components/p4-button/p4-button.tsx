@@ -1,5 +1,6 @@
 import { Component, Element, Event, EventEmitter, h, Host, Listen, Prop, State } from '@stencil/core';
 
+
 let index = 0;
 
 @Component({
@@ -130,12 +131,9 @@ export class P4Button {
       this.tabindex = tabindex !== null ? tabindex : undefined;
       this.elm.removeAttribute('tabindex');
     }
+    this.slotHasContent = this.elm.hasChildNodes();
   }
 
-  componentDidLoad() {
-    const $slot = this.elm.shadowRoot.querySelector('slot');
-    this.slotHasContent = $slot && !!$slot.assignedNodes().length;
-  }
 
   render() {
     return (<Host focused={this.hasFocus}

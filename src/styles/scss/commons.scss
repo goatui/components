@@ -1,3 +1,6 @@
+@import "functions";
+@import "mixins";
+
 * {
   box-sizing: border-box;
 }
@@ -5,56 +8,6 @@
 ::selection {
   color: var(--color-shades-white);
   background: var(--color-primary-500);
-}
-
-@mixin font-common {
-  font-family: var(--font-family-paragraph);
-}
-
-@mixin font-caption {
-  @include font-common;
-  font-size: var(--font-size-caption);
-  line-height: var(--line-height-caption);
-}
-
-@mixin font-caption-semi-bold {
-  @include font-caption;
-  font-weight: 600;
-}
-
-@mixin font-caption-cap {
-  @include font-caption-semi-bold;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-@mixin font-p1 {
-  @include font-common;
-  font-size: var(--font-size-p1);
-  line-height: var(--line-height-p1);
-  font-weight: normal;
-}
-
-@mixin font-p1-semi-bold {
-  @include font-p1;
-  font-weight: 600;
-}
-
-@mixin font-p2 {
-  @include font-common;
-  font-size: var(--font-size-p2);
-  line-height: var(--line-height-p2);
-  font-weight: normal;
-}
-
-@mixin font-p2-semi-bold {
-  @include font-p2;
-  font-weight: 600;
-}
-
-@mixin focus-ring {
-  outline: none;
-  box-shadow: 0 0 0 0.25rem rgba(#039be5, 25%);
 }
 
 .sr-only {

@@ -2,41 +2,40 @@
 
 :host {
   display: inline-block;
-  padding-bottom: var(--space-3);
-  --button-border-radius: var(--border-radius);
+  padding-bottom: v(space-3);
+  --button-border-radius:  #{v(border-radius)};
   --button-border-style: solid;
 }
 
-
 @mixin buttonVariant($color, $bg, $hoverBg) {
-  color: var($color);
+  color: v($color);
 
-  background: var($bg);
-  border-color: var($bg);
+  background: v($bg);
+  border-color: v($bg);
 
   .spinner, .icon {
-    --color: var(#{$color});
+    --color: #{v($color)};
   }
 
   &:hover {
-    background: var($hoverBg);
-    border-color: var($hoverBg);
+    background: v($hoverBg);
+    border-color: v($hoverBg);
   }
 }
 
 @mixin buttonGhostVariant($color, $bg, $hoverBg) {
-  color: var($color);
+  color: v($color);
 
-  background: var(--color-shades-white);
-  border-color: var($bg);
+  background: v(color-shades-white);
+  border-color: v($bg);
 
   .spinner, .icon {
-    --color: var(#{$color});
+    --color: #{v($color)};
   }
 
   &:hover {
-    color: var($hoverBg);
-    border-color: var($hoverBg);
+    color: v($hoverBg);
+    border-color: v($hoverBg);
   }
 }
 
@@ -59,7 +58,7 @@
 
 :host([icon]) {
   .button.slot-has-content {
-    gap: var(--space-1_5);
+    gap: v(space-1_5);
   }
 }
 
@@ -73,22 +72,25 @@
   */
 :host([size="lg"]) {
   .button {
-    padding: var(--space-3_5) var(--space-5);
-    @include font-p2-semi-bold;
+    padding: v(space-3_5) v(space-5);
+    @include font-variant(p2);
+    font-weight: v(font-weight-semi-bold);
   }
 }
 
 :host([size="md"]) {
   .button {
-    padding: var(--space-3) 1.125rem;
-    @include font-p1-semi-bold;
+    padding: v(space-3) 1.125rem;
+    @include font-variant(p1);
+    font-weight: v(font-weight-semi-bold);
   }
 }
 
 :host([size="sm"]) {
   .button {
-    padding: var(--space-2) var(--space-3);
-    @include font-caption-semi-bold;
+    padding: v(space-2) v(space-3);
+    @include font-variant(caption);
+    font-weight: v(font-weight-semi-bold);
   }
 }
 
@@ -98,27 +100,27 @@
 :host([variant="primary"]) {
   &:host(:not([ghost])) {
     .button {
-      @include buttonVariant(--color-neutral-50, --color-primary-500, --color-primary-300);
+      @include buttonVariant(color-neutral-50, color-primary-500, color-primary-300);
     }
 
     &:host([active]) {
       .button {
-        background: var(--color-primary-700);
-        border-color: var(--color-primary-700);
+        background: v(color-primary-700);
+        border-color: v(color-primary-700);
       }
     }
   }
 
   &:host([ghost]) {
     .button {
-      @include buttonGhostVariant(--color-primary-500, --color-primary-500, --color-primary-300);
+      @include buttonGhostVariant(color-primary-500, color-primary-500, color-primary-300);
     }
 
     &:host([active]) {
       .button {
-        color: var(--color-primary-300);
-        background: var(--color-primary-50);
-        border-color: var(--color-primary-200);
+        color: v(color-primary-300);
+        background: v(color-primary-50);
+        border-color: v(color-primary-200);
       }
     }
   }
@@ -127,28 +129,28 @@
 :host([variant="secondary"]) {
   &:host(:not([ghost])) {
     .button {
-      @include buttonVariant(--color-neutral-900, --color-secondary-500, --color-secondary-300);
+      @include buttonVariant(color-neutral-900, color-secondary-500, color-secondary-300);
     }
 
     &:host([active]) {
       .button {
-        color: var(--color-shades-white);
-        background: var(--color-secondary-700);
-        border-color: var(--color-secondary-700);
+        color: v(color-shades-white);
+        background: v(color-secondary-700);
+        border-color: v(color-secondary-700);
       }
     }
   }
 
   &:host([ghost]) {
     .button {
-      @include buttonGhostVariant(--color-secondary-500, --color-secondary-500, --color-secondary-300);
+      @include buttonGhostVariant(color-secondary-500, color-secondary-500, color-secondary-300);
     }
 
     &:host([active]) {
       .button {
-        color: var(--color-secondary-600);
-        background: var(--color-secondary-50);
-        border-color: var(--color-secondary-200);
+        color: v(color-secondary-600);
+        background: v(color-secondary-50);
+        border-color: v(color-secondary-200);
       }
     }
   }
@@ -157,27 +159,27 @@
 :host([variant="danger"]) {
   &:host(:not([ghost])) {
     .button {
-      @include buttonVariant(--color-neutral-50, --color-error-500, --color-error-300);
+      @include buttonVariant(color-neutral-50, color-error-500, color-error-300);
     }
 
     &:host([active]) {
       .button {
-        background: var(--color-error-700);
-        border-color: var(--color-error-700);
+        background: v(color-error-700);
+        border-color: v(color-error-700);
       }
     }
   }
 
   &:host([ghost]) {
     .button {
-      @include buttonGhostVariant(--color-error-500, --color-error-500, --color-error-300);
+      @include buttonGhostVariant(color-error-500, color-error-500, color-error-300);
     }
 
     &:host([active]) {
       .button {
-        color: var(--color-error-300);
-        background: var(--color-error-50);
-        border-color: var(--color-error-200);
+        color: v(color-error-300);
+        background: v(color-error-50);
+        border-color: v(color-error-200);
       }
     }
   }
@@ -199,20 +201,20 @@
 :host([disabled]) {
   .button {
     cursor: not-allowed;
-    color: var(--color-neutral-400) !important;
-    background: var(--color-neutral-200) !important;
-    border-color: var(--color-neutral-200) !important;
+    color: v(color-neutral-400) !important;
+    background: v(color-neutral-200) !important;
+    border-color: v(color-neutral-200) !important;
 
 
     .spinner, .icon {
-      --color: var(--color-neutral-900) !important;
+      --color: #{v(color-neutral-900)} !important;
     }
   }
 
   &:host([ghost]) {
     .button {
-      background: var(--color-neutral-100) !important;
-      border-color: var(--color-neutral-400) !important;
+      background: v(color-neutral-100) !important;
+      border-color: v(color-neutral-400) !important;
     }
   }
 }

@@ -2,13 +2,15 @@
 
 :host {
   display: inline-block;
-  padding-bottom: var(--space-3);
+  padding-bottom:  v(space-3);
 }
+
 
 .checkbox {
   position: relative;
-  @include font-p1;
+  @include font-variant(p1);
   display: flex;
+  align-items: center;
 
   .native-input {
     position: absolute;
@@ -22,26 +24,26 @@
   }
 
   .slot-container {
-    padding-left: var(--space-1);
+    padding-left: v(space-2);
   }
 
   .icon-container {
     line-height: 0;
 
     .checkbox-icon {
-      --color: var(--color-neutral-400);
+      --color: #{v(color-neutral-400)};
     }
   }
 
   &.checkbox-checked {
     .checkbox-icon {
-      --color: var(--color-primary-500);
+      --color: #{v(color-primary-500)};
     }
   }
 
   &:hover {
     .checkbox-icon {
-        --color: var(--color-primary-100);
+        --color: #{v(color-primary-100)};
       }
   }
 
@@ -52,33 +54,25 @@
  */
 :host([size="lg"]) {
   .checkbox {
-    font-size: var(--font-size-p2);
-
-    .slot-container {
-      padding-top: var(--space-1);
-    }
+    font-size: v(font-size-p2);
   }
 }
 
 :host([size="md"]) {
   .checkbox {
-    font-size: var(--font-size-p1);
-
-    .slot-container {
-      padding-top: var(--space-0_5);
-    }
+    font-size: v(font-size-p1);
   }
 }
 
 :host([size="sm"]) {
   .checkbox {
-    font-size: var(--font-size-caption);
+    font-size: v(font-size-caption);
   }
 }
 
 :host([focused]) {
   .icon-container {
-    border-radius: var(--border-radius);
+    border-radius: v(border-radius);
     @include focus-ring;
   }
 }
@@ -86,10 +80,10 @@
 :host([disabled]) {
   .checkbox {
     cursor: not-allowed;
-    color: var(--color-neutral-300);
+    color: v(color-neutral-300);
 
     .checkbox-icon {
-      --color: var(--color-neutral-300);
+      --color: #{v(color-neutral-300)};
     }
   }
 }

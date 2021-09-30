@@ -1,7 +1,0 @@
-:root {
-  --shadow-xs: 0 4px 8px rgba(0, 0, 0, 0.08);
-  --shadow-sm: 0 6px 12px rgba(0, 0, 0, 0.11);
-  --shadow-md: 0 9px 18px rgba(0, 0, 0, 0.15);
-  --shadow-lg: 0 13px 37px rgba(0, 0, 0, 0.21);
-  --shadow-xl: 0 20px 56px rgba(0, 0, 0, 0.29);
-}

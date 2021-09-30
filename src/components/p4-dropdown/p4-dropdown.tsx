@@ -13,7 +13,6 @@ export class P4Dropdown {
   private listElement?: HTMLElement;
 
   @State() hasFocus = false;
-  @State() isOpen: boolean = false;
 
   /**
    * The button size.
@@ -24,6 +23,8 @@ export class P4Dropdown {
 
   @Prop() listVariant: any = 'default';
   @Prop() itemVariant: any = 'default';
+
+  @Prop() isOpen: boolean = false;
 
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
@@ -42,19 +43,17 @@ export class P4Dropdown {
 
   @Listen('click', { target: 'window' })
   windowClick(evt) {
-    if (evt.target.closest('p4-dropdown') !== this.elm)
-      this.isOpen = false;
+    const path = (evt.path || evt.composedPath());
+    for (const elm of path) {
+      if (elm == this.elm)
+        return;
+    }
+    this.isOpen = false;
   }
 
   @Method()
   async setFocus() {
     this.displayElement.focus();
-  }
-
-
-  @Method()
-  async setOpen(value = true) {
-    this.isOpen = value;
   }
 
   private itemClickHandler = (detail) => {
@@ -111,8 +110,8 @@ export class P4Dropdown {
   };
 
   render() {
-    return (<Host aria-disabled={this.disabled ? 'true' : null} focused={this.hasFocus} position={this.position}>
-      <div class={{ 'dropdown': true, [this.position]: true }}>
+    return (<Host aria-disabled={this.disabled ? 'true' : null} focused={this.hasFocus} position={this.position} is-open={this.isOpen}>
+      <div class={{ 'dropdown': true, [this.position]: true, 'is-open': this.isOpen }}>
         <button class='dropdown-button'
                 ref={(el) => this.displayElement = el}
                 onKeyDown={this.keyDownHandler}
@@ -120,31 +119,30 @@ export class P4Dropdown {
                 onFocus={this.focusHandler}
                 onClick={(evt) => {
                   evt.preventDefault();
-                  evt.stopPropagation();
                   this.toggleList();
                 }}>
           <div class='slot-container'>
             <slot />
           </div>
         </button>
-        {this.renderDropdownList()}
+        <div class='dropdown-result'>
+          {this.renderDropdownList()}
+        </div>
       </div>
     </Host>);
   }
 
   private renderDropdownList() {
     if (this.isOpen && typeof this.data !== 'string') {
-      return <div class='dropdown-result'>
-        <p4-list
-          ref={(el) => this.listElement = el}
-          data={this.data}
-          variant={this.listVariant}
-          itemVariant={this.itemVariant}
-          onP4:item-click={(evt) => {
-            this.closeList();
-            this.itemClickHandler(evt.detail);
-          }} />
-      </div>;
+      return <p4-list
+        ref={(el) => this.listElement = el}
+        data={this.data}
+        variant={this.listVariant}
+        itemVariant={this.itemVariant}
+        onP4:item-click={(evt) => {
+          this.closeList();
+          this.itemClickHandler(evt.detail);
+        }} />;
     }
   }
 

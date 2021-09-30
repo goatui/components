@@ -118,11 +118,7 @@ root: true
                 in the head of your index.html
               </li>
               <li>
-                Include css theme variables, or use default theme by including <code class='highlighter-rouge'
-                                                                                     data-lang='html'>&lt;link
-                rel="stylesheet"
-                href="{{site.themeCss}}"&gt;&lt;/link&gt;</code>
-                in the head of your index.html
+                Include default font <code class='highlighter-rouge' data-lang='html'>Roboto</code> in the page
               </li>
               <li>
                 Then you can use the element anywhere in your template, JSX, html etc
@@ -137,8 +133,13 @@ root: true
   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
   &lt;title&gt;P4RM Component&lt;/title&gt;
 
-  &lt;link rel="stylesheet" href="{{site.themeCss}}"&gt;&lt;/link&gt;
+  &lt;!-- include your custom theme variable values, view variable names at {{site.themeCss}} -->
+  &lt;!--link rel="stylesheet" href="/custom-theme.css"&gt;&lt;/link--&gt;
   &lt;script type="module" src="{{site.script}}"&gt;&lt;/script&gt;
+
+  &lt;style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+  &lt;/style>
 
 &lt;/head&gt;
 &lt;body&gt;

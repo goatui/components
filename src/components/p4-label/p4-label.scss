@@ -2,20 +2,20 @@
 
 :host {
   display: block;
-  padding-bottom: var(--space-2);
+  padding-bottom: v(space-2);
 }
 
 
 .label {
-  @include font-p1;
-  color: var(--color-neutral-900);
+  @include font-variant(p1);
+  color: v(color-neutral-900);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   width: 100%;
 
   .required {
-    color: var(--color-error-500);
-    padding-right: var(--space-1);
+    color: v(color-error-500);
+    padding-right: v(space-1);
   }
 }

@@ -1,0 +1,23 @@
+@import "../../styles/scss/commons";
+
+:host {
+  display: block;
+}
+
+@each $heading in h1, h2, h3, h4, h5 {
+
+  #{$heading} {
+    @include font-variant($heading);
+    font-weight: v(font-weight-semi-bold);
+    padding: 0 0 v(space-3) 0;
+    margin: 0;
+
+    &.weight-bold {
+      font-weight: v(font-weight-bold);
+    }
+
+    &.weight-extra-bold {
+      font-weight: v(font-weight-extra-bold);
+    }
+  }
+}

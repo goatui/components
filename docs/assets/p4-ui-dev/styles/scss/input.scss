@@ -2,8 +2,8 @@
 
 :host {
   display: block;
-  padding-bottom: var(--space-3);
-  --input-border-radius: var(--border-radius);
+  padding-bottom: v(space-3);
+  --input-border-radius: #{v(border-radius)};
   --input-border-style: solid;
 }
 
@@ -13,8 +13,8 @@
   display: flex;
   box-sizing: border-box;
 
-  background-color: var(--color-shades-white);
-  border: 1px var(--input-border-style) var(--border-color);
+  background-color: v(color-shades-white);
+  border: 1px var(--input-border-style) v(border-color);
   border-radius: var(--input-border-radius);
   overflow: hidden;
   cursor: text;
@@ -27,13 +27,13 @@
     border: none;
     outline: none;
     background: none;
-    padding-left: var(--space-4);
-    padding-right: var(--space-4);
+    padding-left: v(space-4);
+    padding-right: v(space-4);
     width: 100%;
     cursor: inherit;
 
     &::placeholder {
-      color: var(--color-neutral-400);
+      color: v(color-neutral-400);
     }
   }
 
@@ -46,19 +46,19 @@
     slot::slotted(*) {
       padding-bottom: 0 !important;
       margin-bottom: 0 !important;
-      color: var(--color-neutral-400);
+      color: v(color-neutral-400);
 
       p4-icon {
-        --color: var(--color-neutral-400);
+        --color: v(color-neutral-400);
       }
     }
 
     &.start {
-      padding-left: var(--space-3_5);
+      padding-left: v(space-3_5);
     }
 
     &.end {
-      padding-right: var(--space-3_5);
+      padding-right: v(space-3_5);
     }
   }
 
@@ -71,33 +71,33 @@
       position: relative;
       border: none;
       box-shadow: none;
-      background: var(--color-neutral-100);
-      padding: 0 var(--space-3_5) 0 var(--space-3_5);
+      background: v(color-neutral-100);
+      padding: 0 v(space-3_5) 0 v(space-3_5);
       margin: 0;
       border-radius: 0;
       line-height: 0;
-      border-left: 1px solid var(--border-color);
+      border-left: 1px solid v(border-color);
       cursor: pointer;
 
       .action-icon {
         padding-bottom: 0;
-        --color: var(--color-neutral-600);
+        --color: v(color-neutral-600);
       }
 
       &:not(.action-button-disabled):focus {
         outline: none;
-        background: var(--color-neutral-300);
+        background: v(color-neutral-300);
 
         .action-icon {
-          --color: var(--color-neutral-800);
+          --color: v(color-neutral-800);
         }
       }
 
       &:not(.action-button-disabled):active {
-        background: var(--color-primary-500);
+        background: v(color-primary-500);
 
         .action-icon {
-          --color: var(--color-shades-white);
+          --color: v(color-shades-white);
         }
       }
 
@@ -105,7 +105,7 @@
         cursor: not-allowed;
 
         .action-icon {
-          --color: var(--color-neutral-300);
+          --color: v(color-neutral-300);
         }
       }
     }
@@ -114,13 +114,13 @@
 
   &.start-slot-has-content {
     .native-input, .display-value {
-      padding-left: var(--space-2);
+      padding-left: v(space-2);
     }
   }
 
   &.input-has-actions, &.end-slot-has-content {
     .native-input, .display-value {
-      padding-right: var(--space-2);
+      padding-right: v(space-2);
     }
   }
 
@@ -142,37 +142,37 @@
   &.input-size-lg {
     .native-input, .display-value {
       height: 3.25rem;
-      @include font-p2;
-      padding-top: var(--space-3_5);
-      padding-bottom: var(--space-3_5);
+      @include font-variant(p2);
+      padding-top: v(space-3_5);
+      padding-bottom: v(space-3_5);
     }
   }
 
   &.input-size-md {
     .native-input, .display-value {
-      height: var(--space-11);
-      @include font-p1;
-      padding-top: var(--space-3);
-      padding-bottom: var(--space-3);
+      height: v(space-11);
+      @include font-variant(p1);
+      padding-top: v(space-3);
+      padding-bottom: v(space-3);
     }
   }
 
   &.input-size-sm {
     .native-input, .display-value {
-      height: var(--space-9);
-      @include font-p1;
-      padding-top: var(--space-2_5);
-      padding-bottom: var(--space-2_5);
+      height: v(space-9);
+      @include font-variant(p1);
+      padding-top: v(space-2_5);
+      padding-bottom: v(space-2_5);
     }
   }
 
   &.input-disabled {
-    background-color: var(--color-neutral-100);
+    background-color: v(color-neutral-100);
     cursor: not-allowed;
     opacity: 1;
 
     .native-input, .display-value {
-      color: var(--color-neutral-400);
+      color: v(color-neutral-400);
     }
   }
 
@@ -180,7 +180,7 @@
 
 :host([focused]) {
   .input:not(.input-disabled) {
-    border-color: var(--color-primary-500);
+    border-color: v(color-primary-500);
     @include focus-ring;
   }
 
@@ -199,13 +199,13 @@
 
 :host(.success) {
   .input:not(.input-disabled) {
-    border-color: var(--color-success-500);
+    border-color: v(color-success-500);
   }
 }
 
 :host(.error) {
   .input:not(.input-disabled) {
-    border-color: var(--color-error-500);
+    border-color: v(color-error-500);
   }
 }
 

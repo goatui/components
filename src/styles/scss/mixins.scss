@@ -1,0 +1,29 @@
+@import "functions";
+
+@mixin font-common {
+  font-family: #{v(font-family-paragraph)};
+  font-style: normal;
+  font-weight: normal;
+}
+
+@mixin font-capitalize {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@mixin font-variant($type) {
+  @include font-common;
+  font-size: v(font-size-#{$type});
+  line-height: v(line-height-#{$type});
+  letter-spacing: -0.04em;
+}
+
+@mixin font-heading($type) {
+  @include font-variant($type);
+  font-weight: 600;
+}
+
+@mixin focus-ring {
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(#039be5, 25%);
+}

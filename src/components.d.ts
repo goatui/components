@@ -72,11 +72,11 @@ export namespace Components {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
+        "isOpen": boolean;
         "itemVariant": any;
         "listVariant": any;
         "position": 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
         "setFocus": () => Promise<void>;
-        "setOpen": (value?: boolean) => Promise<void>;
         "showLoader": boolean;
         /**
           * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
@@ -84,6 +84,11 @@ export namespace Components {
         "size": 'sm' | 'md' | 'lg';
     }
     interface P4FieldGroup {
+    }
+    interface P4Heading {
+        "size": 'md' | 'sm';
+        "type": 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
+        "weight": 'semi-bold' | 'bold' | 'extra-bold';
     }
     interface P4Icon {
         /**
@@ -158,6 +163,8 @@ export namespace Components {
         "value"?: string | number;
         "variant": 'default' | 'group';
     }
+    interface P4Paragraph {
+    }
     interface P4ScriptEditor {
         /**
           * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
@@ -191,6 +198,7 @@ export namespace Components {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
+        "isOpen": boolean;
         "managed": boolean;
         /**
           * The input field name.
@@ -209,7 +217,6 @@ export namespace Components {
           * Sets focus on the native `input` in `ion-input`. Use this method instead of the global `input.focus()`.
          */
         "setFocus": () => Promise<void>;
-        "setOpen": (value?: boolean) => Promise<void>;
         "showLoader": boolean;
         /**
           * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
@@ -316,6 +323,12 @@ declare global {
         prototype: HTMLP4FieldGroupElement;
         new (): HTMLP4FieldGroupElement;
     };
+    interface HTMLP4HeadingElement extends Components.P4Heading, HTMLStencilElement {
+    }
+    var HTMLP4HeadingElement: {
+        prototype: HTMLP4HeadingElement;
+        new (): HTMLP4HeadingElement;
+    };
     interface HTMLP4IconElement extends Components.P4Icon, HTMLStencilElement {
     }
     var HTMLP4IconElement: {
@@ -339,6 +352,12 @@ declare global {
     var HTMLP4ListElement: {
         prototype: HTMLP4ListElement;
         new (): HTMLP4ListElement;
+    };
+    interface HTMLP4ParagraphElement extends Components.P4Paragraph, HTMLStencilElement {
+    }
+    var HTMLP4ParagraphElement: {
+        prototype: HTMLP4ParagraphElement;
+        new (): HTMLP4ParagraphElement;
     };
     interface HTMLP4ScriptEditorElement extends Components.P4ScriptEditor, HTMLStencilElement {
     }
@@ -375,10 +394,12 @@ declare global {
         "p4-checkbox": HTMLP4CheckboxElement;
         "p4-dropdown": HTMLP4DropdownElement;
         "p4-field-group": HTMLP4FieldGroupElement;
+        "p4-heading": HTMLP4HeadingElement;
         "p4-icon": HTMLP4IconElement;
         "p4-input": HTMLP4InputElement;
         "p4-label": HTMLP4LabelElement;
         "p4-list": HTMLP4ListElement;
+        "p4-paragraph": HTMLP4ParagraphElement;
         "p4-script-editor": HTMLP4ScriptEditorElement;
         "p4-select": HTMLP4SelectElement;
         "p4-spinner": HTMLP4SpinnerElement;
@@ -461,6 +482,7 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
+        "isOpen"?: boolean;
         "itemVariant"?: any;
         "listVariant"?: any;
         /**
@@ -475,6 +497,11 @@ declare namespace LocalJSX {
         "size"?: 'sm' | 'md' | 'lg';
     }
     interface P4FieldGroup {
+    }
+    interface P4Heading {
+        "size"?: 'md' | 'sm';
+        "type"?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
+        "weight"?: 'semi-bold' | 'bold' | 'extra-bold';
     }
     interface P4Icon {
         /**
@@ -561,6 +588,8 @@ declare namespace LocalJSX {
         "value"?: string | number;
         "variant"?: 'default' | 'group';
     }
+    interface P4Paragraph {
+    }
     interface P4ScriptEditor {
         /**
           * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
@@ -598,6 +627,7 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
+        "isOpen"?: boolean;
         "managed"?: boolean;
         /**
           * The input field name.
@@ -723,10 +753,12 @@ declare namespace LocalJSX {
         "p4-checkbox": P4Checkbox;
         "p4-dropdown": P4Dropdown;
         "p4-field-group": P4FieldGroup;
+        "p4-heading": P4Heading;
         "p4-icon": P4Icon;
         "p4-input": P4Input;
         "p4-label": P4Label;
         "p4-list": P4List;
+        "p4-paragraph": P4Paragraph;
         "p4-script-editor": P4ScriptEditor;
         "p4-select": P4Select;
         "p4-spinner": P4Spinner;
@@ -742,10 +774,12 @@ declare module "@stencil/core" {
             "p4-checkbox": LocalJSX.P4Checkbox & JSXBase.HTMLAttributes<HTMLP4CheckboxElement>;
             "p4-dropdown": LocalJSX.P4Dropdown & JSXBase.HTMLAttributes<HTMLP4DropdownElement>;
             "p4-field-group": LocalJSX.P4FieldGroup & JSXBase.HTMLAttributes<HTMLP4FieldGroupElement>;
+            "p4-heading": LocalJSX.P4Heading & JSXBase.HTMLAttributes<HTMLP4HeadingElement>;
             "p4-icon": LocalJSX.P4Icon & JSXBase.HTMLAttributes<HTMLP4IconElement>;
             "p4-input": LocalJSX.P4Input & JSXBase.HTMLAttributes<HTMLP4InputElement>;
             "p4-label": LocalJSX.P4Label & JSXBase.HTMLAttributes<HTMLP4LabelElement>;
             "p4-list": LocalJSX.P4List & JSXBase.HTMLAttributes<HTMLP4ListElement>;
+            "p4-paragraph": LocalJSX.P4Paragraph & JSXBase.HTMLAttributes<HTMLP4ParagraphElement>;
             "p4-script-editor": LocalJSX.P4ScriptEditor & JSXBase.HTMLAttributes<HTMLP4ScriptEditorElement>;
             "p4-select": LocalJSX.P4Select & JSXBase.HTMLAttributes<HTMLP4SelectElement>;
             "p4-spinner": LocalJSX.P4Spinner & JSXBase.HTMLAttributes<HTMLP4SpinnerElement>;

@@ -2,7 +2,7 @@
 
 :host {
   display: inline-block;
-  --color: var(--color-primary-500);
+  --color: #{v(color-primary-500)};
 
   .spinner path {
     fill: var(--color);
@@ -15,25 +15,25 @@
 
 :host(.primary) {
   .spinner path {
-    fill: var(--color-primary-500);
+    fill: v(color-primary-500);
   }
 }
 
 :host(.secondary) {
   .spinner path {
-    fill: var(--color-secondary-500);
+    fill: v(color-secondary-500);
   }
 }
 
 :host(.error) {
   .spinner path {
-    fill: var(--color-error-500);
+    fill: v(color-error-500);
   }
 }
 
 :host(.success) {
   .spinner path {
-    fill: var(--color-success-500);
+    fill: v(color-success-500);
   }
 }
 

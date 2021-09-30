@@ -17,7 +17,7 @@ export class P4Select {
   private listElement?: HTMLElement;
 
   @State() hasFocus = false;
-  @State() isOpen: boolean = false;
+
   @State() searchString: string = '';
 
 
@@ -48,6 +48,7 @@ export class P4Select {
    */
   @Prop() disabled: boolean = false;
   @Prop() showLoader: boolean = false;
+  @Prop() isOpen: boolean = false;
 
   @Prop() managed: boolean = false;
   @Prop() config: any = { itemValue: 'value', itemLabel: 'label' };
@@ -87,16 +88,14 @@ export class P4Select {
     this.displayElement.focus();
   }
 
-  @Method()
-  async setOpen(value = true) {
-    this.isOpen = value;
-  }
-
-
   @Listen('click', { target: 'window' })
   windowClick(evt) {
-    if (evt.target.closest('p4-select') !== this.elm)
-      this.isOpen = false;
+    const path = (evt.path || evt.composedPath());
+    for (const elm of path) {
+      if (elm == this.elm)
+        return;
+    }
+    this.isOpen = false;
   }
 
   private changeHandler = (item?) => {
@@ -218,8 +217,9 @@ export class P4Select {
     return (<Host aria-disabled={this.disabled ? 'true' : null}
                   has-value={this.hasValue()}
                   focused={this.hasFocus}
+                  is-open={this.isOpen}
                   position={this.position}>
-      <div class={{ 'select-container': true, [this.position]: true }}>
+      <div class={{ 'select-container': true, [this.position]: true, 'is-open': this.isOpen  }}>
         <div class={{
           'select': true,
           'input': true,
@@ -239,7 +239,6 @@ export class P4Select {
                     onKeyDown={this.keyDownHandler}
                     onClick={(evt) => {
                       evt.preventDefault();
-                      evt.stopPropagation();
                       this.toggleList();
                     }}>
               {this.getOptionLabelByValue(this.value)}
@@ -279,7 +278,9 @@ export class P4Select {
             {!this.showLoader && this.getModeIcon()}
           </div>
         </div>
-        {this.isOpen && this.renderDropdownList()}
+        <div class="dropdown-result">
+          {this.isOpen && this.renderDropdownList()}
+        </div>
       </div>
     </Host>);
   }
@@ -305,25 +306,20 @@ export class P4Select {
   private renderDropdownList() {
     if (typeof this.data !== 'string') {
       if (this.showLoader) {
-        return <div class='dropdown-result'>
-          <div class='search-loader'>
+        return <div class='search-loader'>
             <p4-spinner size={this.getActionIconSize()} />
             Loading...
-          </div>
-
-        </div>;
+          </div>;
       } else {
         const data = this.filterData();
-        return <div class='dropdown-result'>
-          <p4-list
+        return <p4-list
             ref={(el) => this.listElement = el}
             data={data}
             value={this.value}
             onP4:item-click={(evt) => {
               this.closeList();
               this.changeHandler(evt.detail.item);
-            }} />
-        </div>;
+            }} />;
       }
     }
   }

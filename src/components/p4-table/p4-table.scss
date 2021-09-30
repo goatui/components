@@ -3,13 +3,13 @@
 
 :host {
   display: block;
-  --table-border-radius: var(--border-radius);
+  --table-border-radius: #{v(border-radius)};
 }
 
 .table-component {
-  @include font-p1-semi-bold;
+  @include font-variant(p1);
 
-  border: 1px solid var(--color-neutral-200);
+  border: 1px solid v(color-neutral-200);
   box-sizing: border-box;
   border-radius: var(--table-border-radius);
   overflow:hidden;
@@ -17,19 +17,22 @@
 
   .list-scroll-wrapper {
     position: relative;
+    z-index: v(z-index-table-header);
     overflow: auto;
     height: 100%;
     width: 100%;
     min-height: 20em;
 
     .header {
-      @include font-caption-cap;
+      z-index: 1; // related to parent element
+      @include font-variant(caption);
+      font-weight: v(font-weight-semi-bold);
+      @include font-capitalize;
       position: absolute;
       left: 0;
       top: 0;
-      z-index: 100;
       .col {
-        background: var(--color-neutral-50);
+        background: v(color-neutral-50);
       }
     }
 
@@ -62,9 +65,9 @@
       .col {
         margin: 0;
         display: table-cell;
-        border-right: 1px solid var(--color-neutral-200);
-        border-bottom: 1px solid var(--color-neutral-200);
-        padding: var(--space-3) var(--space-6);
+        border-right: 1px solid v(color-neutral-200);
+        border-bottom: 1px solid v(color-neutral-200);
+        padding: v(space-3) v(space-6);
         box-sizing: border-box;
         vertical-align: middle;
         line-height: normal;
@@ -84,7 +87,7 @@
       }
 
       &.col-hover {
-        background: var(--color-success-50);
+        background: v(color-success-50);
       }
     }
 
@@ -110,7 +113,7 @@
       left: 0;
       border-radius: 3px;
       height: max-content;
-      color: var(--color-neutral-600);
+      color: v(color-neutral-600);
     }
 
   }

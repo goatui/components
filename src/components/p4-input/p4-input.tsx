@@ -181,14 +181,12 @@ export class P4Input {
       label.id = `p4-input-${this.id}-lbl`;
       label.setAttribute('required', this.required + '');
     }
+
+    this.startSlotHasContent = !!this.elm.querySelector('[slot="start"]');
+    this.endSlotHasContent = !!this.elm.querySelector('[slot="end"]');
   }
 
-  componentDidLoad() {
-    let $slot = this.elm.shadowRoot.querySelector('.slot-container.start').querySelector('slot');
-    this.startSlotHasContent = $slot && !!$slot.assignedNodes().length;
-    $slot = this.elm.shadowRoot.querySelector('.slot-container.end').querySelector('slot');
-    this.endSlotHasContent = $slot && !!$slot.assignedNodes().length;
-  }
+
 
   connectedCallback() {
     this.debounceChanged();
