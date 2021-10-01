@@ -2,6 +2,7 @@
 
 :host {
   display: inline-block;
+  --dropdown-max-height: inherit;
 }
 
 .dropdown {
@@ -24,6 +25,9 @@
     line-height: 0;
     transform: scale(0);
     transition: transform 0.1s ease-out 0s;
+    .dropdown-list {
+      --list-max-height: var(--dropdown-max-height);
+    }
   }
 
   &.is-open {

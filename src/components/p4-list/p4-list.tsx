@@ -14,6 +14,7 @@ export class P4List {
   @State() focusItemId;
   @State() activeItemId;
   @State() invalidData: boolean = false;
+  @State() searchString: string = '';
 
   @Prop({ mutable: true }) data: any[] = [];
 
@@ -22,6 +23,8 @@ export class P4List {
   @Prop() itemVariant: 'default' | 'icon' | 'img' | 'caption' | 'icon-caption' | 'img-caption' = 'default';
 
   @Prop() showLoader: boolean = false;
+
+  @Prop() enableSearch: boolean = false;
 
   @Prop({ mutable: true }) value?: string | number;
 
@@ -109,15 +112,28 @@ export class P4List {
   };
 
   render() {
+    let data;
+    if (this.variant == 'group') {
+       data = this.data;
+    } else {
+      data = [{ items: this.data }];
+    }
+
+    data = data.filter((group) => {
+      group.filteredItems = group.items.filter((item) => {
+        return item.label && (!this.searchString || item.label.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()));
+      });
+      return group.filteredItems.length;
+    })
+
     return (
       <Host>
         <div class={{
           'list': true,
           [`list-variant-${this.variant}`]: true,
         }}>
-          {!!this.data.length && this.variant === 'default' && !this.invalidData && this.renderItems(this.data)}
-          {!!this.data.length && this.variant === 'group' && !this.invalidData && this.renderGroups(this.data)}
-          {this.invalidData && this.renderInvalidState()}
+          {!!this.data.length && !this.invalidData && this.renderGroups(data)}
+          {this.invalidData && P4List.renderInvalidState()}
           {!this.data.length && this.renderEmptyState()}
         </div>
       </Host>
@@ -126,10 +142,24 @@ export class P4List {
 
   private renderGroups(groups) {
     return <div class='group-container'>
+      {this.enableSearch && <p4-input size='sm' class='search' onP4:change={(evt) => {
+        const input = evt.target as HTMLInputElement;
+        this.searchString = input.value;
+      }} onKeyDown={(evt) => {
+        if (evt.key === 'ArrowDown' || evt.key === 'ArrowUp')
+          evt.preventDefault();
+        if (evt.key === 'ArrowDown')
+          this.focusNextItem(0);
+        else if (evt.key === 'ArrowUp')
+          this.focusPreviousItem(this.itemIndex);
+      }}>
+        <p4-icon type='search' size='sm' slot='end' />
+      </p4-input>}
+
       {groups.map((group) => {
         return <div class='group'>
-          <div class='group-label'>{group.label}</div>
-          {this.renderItems(group.items, group)}
+          {this.variant === 'group' && <div class='group-label'>{group.label}</div>}
+          {this.renderItems(group.filteredItems, group)}
         </div>;
       })}
     </div>;
@@ -172,7 +202,7 @@ export class P4List {
             return item.label;
           else if (this.itemVariant == 'icon') {
             return <div class='item-content'>
-              <p4-icon class='item-icon' type={item.icon} size="sm" />
+              <p4-icon class='item-icon' type={item.icon} size='sm' />
               <span class='item-label'>{item.label}</span>
             </div>;
           }
@@ -191,7 +221,7 @@ export class P4List {
     </div>;
   }
 
-  private renderInvalidState() {
+  private static renderInvalidState() {
     return <div class='center-content'>
       <div class='empty-state'>
         <p4-icon class='empty-state-image' type='exclamation-triangle' size='3rem' />

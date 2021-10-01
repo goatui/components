@@ -3,6 +3,7 @@
 :host {
   display: inline-block;
   --list-border-radius: #{v(border-radius)};
+  --list-max-height: inherit;
 }
 
 .list {
@@ -12,6 +13,10 @@
   border-radius: var(--list-border-radius);
   overflow: hidden;
 
+  .group-container {
+    overflow-y: auto;
+    max-height: var(--list-max-height);
+  }
 
   .group-label {
     @include font-variant(caption);
@@ -21,6 +26,10 @@
     box-sizing: border-box;
     background: v(color-neutral-700);
     color: v(color-shades-white);
+  }
+
+  .search {
+    padding: v(space-1) v(space-1) 0 v(space-1);
   }
 
   .item {

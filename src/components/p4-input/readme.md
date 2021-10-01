@@ -60,6 +60,10 @@ Type: `Promise<void>`
 
 ## Dependencies
 
+### Used by
+
+ - [p4-list](../p4-list)
+
 ### Depends on
 
 - [p4-icon](../p4-icon)
@@ -68,6 +72,7 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   p4-input --> p4-icon
+  p4-list --> p4-input
   style p4-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

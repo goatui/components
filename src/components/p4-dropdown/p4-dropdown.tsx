@@ -24,13 +24,15 @@ export class P4Dropdown {
   @Prop() listVariant: any = 'default';
   @Prop() itemVariant: any = 'default';
 
-  @Prop() isOpen: boolean = false;
+  @Prop({ mutable: true }) isOpen: boolean = false;
 
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
   @Prop() disabled: boolean = false;
   @Prop() showLoader: boolean = false;
+
+  @Prop() enableSearch: boolean = false;
 
   @Prop() data: any[] = [];
 
@@ -135,10 +137,12 @@ export class P4Dropdown {
   private renderDropdownList() {
     if (this.isOpen && typeof this.data !== 'string') {
       return <p4-list
+        class="dropdown-list"
         ref={(el) => this.listElement = el}
         data={this.data}
         variant={this.listVariant}
         itemVariant={this.itemVariant}
+        enableSearch={this.enableSearch}
         onP4:item-click={(evt) => {
           this.closeList();
           this.itemClickHandler(evt.detail);

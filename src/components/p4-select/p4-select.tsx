@@ -48,7 +48,7 @@ export class P4Select {
    */
   @Prop() disabled: boolean = false;
   @Prop() showLoader: boolean = false;
-  @Prop() isOpen: boolean = false;
+  @Prop({ mutable: true }) isOpen: boolean = false;
 
   @Prop() managed: boolean = false;
   @Prop() config: any = { itemValue: 'value', itemLabel: 'label' };
@@ -180,10 +180,8 @@ export class P4Select {
   };
 
   private onInput = (ev: Event) => {
-    const input = ev.target as HTMLInputElement | null;
-    if (input) {
-      this.searchString = input.value || '';
-    }
+    const input = ev.target as HTMLInputElement;
+    this.searchString = input.value || '';
     this.p4Input.emit(ev);
   };
 
@@ -219,7 +217,7 @@ export class P4Select {
                   focused={this.hasFocus}
                   is-open={this.isOpen}
                   position={this.position}>
-      <div class={{ 'select-container': true, [this.position]: true, 'is-open': this.isOpen  }}>
+      <div class={{ 'select-container': true, [this.position]: true, 'is-open': this.isOpen }}>
         <div class={{
           'select': true,
           'input': true,
@@ -278,7 +276,7 @@ export class P4Select {
             {!this.showLoader && this.getModeIcon()}
           </div>
         </div>
-        <div class="dropdown-result">
+        <div class='dropdown-result'>
           {this.isOpen && this.renderDropdownList()}
         </div>
       </div>
@@ -307,19 +305,20 @@ export class P4Select {
     if (typeof this.data !== 'string') {
       if (this.showLoader) {
         return <div class='search-loader'>
-            <p4-spinner size={this.getActionIconSize()} />
-            Loading...
-          </div>;
+          <p4-spinner size={this.getActionIconSize()} />
+          Loading...
+        </div>;
       } else {
         const data = this.filterData();
         return <p4-list
-            ref={(el) => this.listElement = el}
-            data={data}
-            value={this.value}
-            onP4:item-click={(evt) => {
-              this.closeList();
-              this.changeHandler(evt.detail.item);
-            }} />;
+          class="dropdown-list"
+          ref={(el) => this.listElement = el}
+          data={data}
+          value={this.value}
+          onP4:item-click={(evt) => {
+            this.closeList();
+            this.changeHandler(evt.detail.item);
+          }} />;
       }
     }
   }

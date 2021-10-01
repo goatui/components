@@ -14,6 +14,7 @@
 | `config`      | `config`      |                                                                                                       | `any`                                                          | `{ itemValue: 'value', itemLabel: 'label' }` |
 | `data`        | `data`        |                                                                                                       | `any`                                                          | `[]`                                         |
 | `disabled`    | `disabled`    | If true, the user cannot interact with the button. Defaults to `false`.                               | `boolean`                                                      | `false`                                      |
+| `isOpen`      | `is-open`     |                                                                                                       | `boolean`                                                      | `false`                                      |
 | `managed`     | `managed`     |                                                                                                       | `boolean`                                                      | `false`                                      |
 | `name`        | `name`        | The input field name.                                                                                 | `string`                                                       | ``p4-select-${this.id}``                     |
 | `placeholder` | `placeholder` | The input field placeholder.                                                                          | `string`                                                       | `undefined`                                  |
@@ -47,16 +48,6 @@ Type: `Promise<void>`
 
 
 
-### `setOpen(value?: boolean) => Promise<void>`
-
-
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
 
 ## Dependencies
 
@@ -73,6 +64,8 @@ graph TD;
   p4-select --> p4-spinner
   p4-select --> p4-list
   p4-list --> p4-icon
+  p4-list --> p4-input
+  p4-input --> p4-icon
   style p4-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

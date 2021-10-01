@@ -1,5 +1,10 @@
 @import "../../styles/scss/input";
 
+:host {
+  display: inline-block;
+  --select-max-height: inherit;
+}
+
 .select-container {
   position: relative;
   z-index: v(z-index-dropdown-content);
@@ -17,6 +22,9 @@
     line-height: 0;
     transform: scale(0);
     transition: transform 0.1s ease-out 0s;
+    .dropdown-list {
+      --list-max-height: var(--select-max-height);
+    }
   }
 
   &.is-open {

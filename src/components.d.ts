@@ -72,6 +72,7 @@ export namespace Components {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
+        "enableSearch": boolean;
         "isOpen": boolean;
         "itemVariant": any;
         "listVariant": any;
@@ -154,6 +155,7 @@ export namespace Components {
     interface P4List {
         "data": any[];
         "emptyState": any;
+        "enableSearch": boolean;
         "itemVariant": 'default' | 'icon' | 'img' | 'caption' | 'icon-caption' | 'img-caption';
         /**
           * Sets focus on the first item of list.
@@ -482,6 +484,7 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
+        "enableSearch"?: boolean;
         "isOpen"?: boolean;
         "itemVariant"?: any;
         "listVariant"?: any;
@@ -579,6 +582,7 @@ declare namespace LocalJSX {
     interface P4List {
         "data"?: any[];
         "emptyState"?: any;
+        "enableSearch"?: boolean;
         "itemVariant"?: 'default' | 'icon' | 'img' | 'caption' | 'icon-caption' | 'img-caption';
         /**
           * Emitted when the item is clicked.
