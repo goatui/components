@@ -81,7 +81,7 @@ components:
     img: /assets/img/dropdown.png
   - name: Heading
     link: /component/heading.html
-    img: <p4-heading>Name</p4-heading>
+    example: <p4-heading>Name</p4-heading>
   - name: Icon
     link: /component/icon.html
     example: <p4-icon type="alarm"></p4-icon>

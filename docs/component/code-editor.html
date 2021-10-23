@@ -32,7 +32,7 @@ menu:
           <p4-checkbox id='disableEditor'>Disable editor</p4-checkbox>
           <p4-checkbox id='darkTheme'>Dark Theme</p4-checkbox>
 
-          <p4-script-editor id='business-rule-editor' style='height: 300px'></p4-script-editor>
+          <p4-code-editor id='business-rule-editor' style='height: 300px'></p4-code-editor>
         <script>
           document.getElementById('business-rule-editor').value = `/**
  * Sample Code
@@ -56,7 +56,7 @@ menu:
       <pre>
                 <code class='language-html' data-lang='html'>&lt;script type="module" src="{{site.script}}"&gt;&lt;/script&gt;
 
-&lt;p4-script-editor id="business-rule-editor" style='height: 300px'&gt;&lt;/p4-script-editor&gt;
+&lt;p4-code-editor id="business-rule-editor" style='height: 300px'&gt;&lt;/p4-code-editor&gt;
 
 &lt;script>
 document.getElementById('business-rule-editor').value = `/**
@@ -83,7 +83,7 @@ function myBusinessRuleFunction(){
 
       <p>Please click on checkbox and try disabling able editor.</p>
 
-      <pre><code class='language-html' data-lang='html'>&lt;p4-script-editor theme='vs-dark'&gt;&lt;/p4-script-editor&gt;
+      <pre><code class='language-html' data-lang='html'>&lt;p4-code-editor theme='vs-dark'&gt;&lt;/p4-code-editor&gt;
       </code></pre>
 
     </div>
@@ -97,7 +97,7 @@ function myBusinessRuleFunction(){
         attribute to any <code class='highlighter-rouge' data-lang='html'>&lt;input&gt;</code> element.</p>
 
 
-      <pre><code class='language-html' data-lang='html'>&lt;p4-script-editor disabled&gt;&lt;/p4-script-editor&gt;
+      <pre><code class='language-html' data-lang='html'>&lt;p4-code-editor disabled&gt;&lt;/p4-code-editor&gt;
       </code></pre>
 
     </div>
