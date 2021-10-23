@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 :root {
   --color-neutral-50: #f8fafc;
   --color-neutral-100: #f1f5f9;
@@ -79,7 +79,6 @@
   --space-3: 0.75rem;
   --space-3_5: 0.875rem;
   --space-4: 1rem;
-  --space-4_5: 1.275rem;
   --space-5: 1.25rem;
   --space-6: 1.5rem;
   --space-7: 1.75rem;
@@ -101,8 +100,8 @@
   --shadow-md: 0 9px 18px rgba(0, 0, 0, 0.15);
   --shadow-lg: 0 13px 37px rgba(0, 0, 0, 0.21);
   --shadow-xl: 0 20px 56px rgba(0, 0, 0, 0.29);
-  --font-family: Roboto, sans-serif;
-  --font-family-paragraph: Roboto, sans-serif;
+  --font-family: Inter, sans-serif;
+  --font-family-paragraph: Inter, sans-serif;
   --font-weight-regular: normal;
   --font-weight-semi-bold: 600;
   --font-weight-bold: bold;
@@ -140,7 +139,7 @@ body {
 }
 
 .p1 {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-p1, 0.875rem);
@@ -149,7 +148,7 @@ body {
 }
 
 .p1-semi-bold {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-p1, 0.875rem);
@@ -159,7 +158,7 @@ body {
 }
 
 .p2 {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-p2, 1rem);
@@ -168,7 +167,7 @@ body {
 }
 
 .p2-semi-bold {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-p2, 1rem);
@@ -178,7 +177,7 @@ body {
 }
 
 .p3 {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-p3, 1.125rem);
@@ -187,7 +186,7 @@ body {
 }
 
 .p3-semi-bold {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-p3, 1.125rem);
@@ -197,7 +196,7 @@ body {
 }
 
 .caption {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-caption, 0.75rem);
@@ -206,7 +205,7 @@ body {
 }
 
 .caption-semi-bold {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-caption, 0.75rem);
@@ -216,7 +215,7 @@ body {
 }
 
 .subheading {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-subheading, 20px);
@@ -225,7 +224,7 @@ body {
 }
 
 .subheading-semi-bold {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-subheading, 20px);
@@ -235,7 +234,7 @@ body {
 }
 
 .h1 {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-h1, 48px);
@@ -245,7 +244,7 @@ body {
 }
 
 .h1-bold {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-h1, 48px);
@@ -255,7 +254,7 @@ body {
 }
 
 .h1-extra-bold {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-h1, 48px);
@@ -265,7 +264,7 @@ body {
 }
 
 .h2 {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-h2, 39px);
@@ -275,7 +274,7 @@ body {
 }
 
 .h2-bold {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-h2, 39px);
@@ -285,7 +284,7 @@ body {
 }
 
 .h2-extra-bold {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-h2, 39px);
@@ -295,7 +294,7 @@ body {
 }
 
 .h3 {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-h3, 33px);
@@ -305,7 +304,7 @@ body {
 }
 
 .h3-bold {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-h3, 33px);
@@ -315,7 +314,7 @@ body {
 }
 
 .h3-extra-bold {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-h3, 33px);
@@ -325,7 +324,7 @@ body {
 }
 
 .h4 {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-h4, 28px);
@@ -335,7 +334,7 @@ body {
 }
 
 .h4-bold {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-h4, 28px);
@@ -345,7 +344,7 @@ body {
 }
 
 .h4-extra-bold {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-h4, 28px);
@@ -355,7 +354,7 @@ body {
 }
 
 .h5 {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-h5, 23px);
@@ -365,7 +364,7 @@ body {
 }
 
 .h5-bold {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-h5, 23px);
@@ -375,7 +374,7 @@ body {
 }
 
 .h5-extra-bold {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-h5, 23px);
@@ -385,7 +384,7 @@ body {
 }
 
 .h6 {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-h6, 19px);
@@ -395,7 +394,7 @@ body {
 }
 
 .h6-bold {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-h6, 19px);
@@ -405,7 +404,7 @@ body {
 }
 
 .h6-extra-bold {
-  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-family: var(--font-family-paragraph, "Inter", sans-serif);
   font-style: normal;
   font-weight: normal;
   font-size: var(--font-size-h6, 19px);
