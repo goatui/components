@@ -1,6 +1,6 @@
 {
   "name": "@p4rm/ui",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "P4RM UI",
   "license": "MIT",
   "main": "dist/index.cjs.js",
