@@ -1,4 +1,4 @@
-# p4-script-editor
+# p4-code-editor
 
 
 

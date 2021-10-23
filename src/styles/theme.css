@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100,0,300,0,400,0,500,0,700,0,900,1,100,1,300,1,400,1,500,1,700,1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 :root {
   --color-neutral-50: #f8fafc;
   --color-neutral-100: #f1f5f9;
@@ -380,6 +380,36 @@ body {
   font-weight: normal;
   font-size: var(--font-size-h5, 23px);
   line-height: var(--line-height-h5, 28px);
+  letter-spacing: -0.04em;
+  font-weight: var(--font-weight-extra-bold);
+}
+
+.h6 {
+  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-style: normal;
+  font-weight: normal;
+  font-size: var(--font-size-h6, 19px);
+  line-height: var(--line-height-h6, 23px);
+  letter-spacing: -0.04em;
+  font-weight: var(--font-weight-semi-bold);
+}
+
+.h6-bold {
+  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-style: normal;
+  font-weight: normal;
+  font-size: var(--font-size-h6, 19px);
+  line-height: var(--line-height-h6, 23px);
+  letter-spacing: -0.04em;
+  font-weight: var(--font-weight-bold);
+}
+
+.h6-extra-bold {
+  font-family: var(--font-family-paragraph, "Roboto", sans-serif);
+  font-style: normal;
+  font-weight: normal;
+  font-size: var(--font-size-h6, 19px);
+  line-height: var(--line-height-h6, 23px);
   letter-spacing: -0.04em;
   font-weight: var(--font-weight-extra-bold);
 }

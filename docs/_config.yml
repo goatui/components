@@ -79,6 +79,9 @@ components:
   - name: Dropdown
     link: /component/dropdown.html
     img: /assets/img/dropdown.png
+  - name: Heading
+    link: /component/heading.html
+    img: <p4-heading>Name</p4-heading>
   - name: Icon
     link: /component/icon.html
     example: <p4-icon type="alarm"></p4-icon>
@@ -88,9 +91,9 @@ components:
   - name: List
     link: /component/list.html
     img: /assets/img/list.png
-  - name: Script Editor
-    link: /component/script-editor.html
-    img: /assets/img/script-editor.png
+  - name: Code Editor
+    link: /component/code-editor.html
+    img: /assets/img/code-editor.png
   - name: Select
     link: /component/select.html
     img: /assets/img/select.png

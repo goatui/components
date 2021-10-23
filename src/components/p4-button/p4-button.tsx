@@ -140,6 +140,7 @@ export class P4Button {
                   variant={this.variant}
                   active={this.isActive}
                   size={this.size}
+                  icon={this.icon}
                   icon-end={this.iconEnd}>
       <button
         class={{

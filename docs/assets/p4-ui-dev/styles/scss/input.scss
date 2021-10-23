@@ -49,7 +49,7 @@
       color: v(color-neutral-400);
 
       p4-icon {
-        --color: v(color-neutral-400);
+        --color: #{v(color-neutral-400)};
       }
     }
 
@@ -69,44 +69,53 @@
 
     .action-button {
       position: relative;
-      border: none;
       box-shadow: none;
-      background: v(color-neutral-100);
-      padding: 0 v(space-3_5) 0 v(space-3_5);
+      background: v(color-shades-white);
+      padding: 0 v(space-3) 0 v(space-3);
+      border: none;
+      border-left: 1px solid v(color-shades-white);
+      border-right: 1px solid v(color-shades-white);
       margin: 0;
       border-radius: 0;
       line-height: 0;
-      border-left: 1px solid v(border-color);
       cursor: pointer;
+
+      &:last-child {
+        border-right: none;
+      }
 
       .action-icon {
         padding-bottom: 0;
-        --color: v(color-neutral-600);
+        --color: #{v(color-neutral-600)};
       }
 
-      &:not(.action-button-disabled):focus {
+      &:focus {
         outline: none;
         background: v(color-neutral-300);
-
+        border-color: v(border-color);
         .action-icon {
-          --color: v(color-neutral-800);
+          --color: #{v(color-neutral-800)};
         }
       }
 
       &:not(.action-button-disabled):active {
         background: v(color-primary-500);
+        border-color: v(border-color);
 
         .action-icon {
-          --color: v(color-shades-white);
+          --color: #{v(color-shades-white)};
         }
       }
 
       &.action-button-disabled {
         cursor: not-allowed;
-
         .action-icon {
-          --color: v(color-neutral-300);
+          --color: #{v(color-neutral-400)};
         }
+      }
+
+      &.action-button-disabled:focus {
+        background: v(color-neutral-50);
       }
     }
 

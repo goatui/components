@@ -4,11 +4,11 @@ import { debounceEvent, loadScript } from '../../utils/utils';
 let scriptLoaded = false;
 
 @Component({
-  tag: 'p4-script-editor',
-  styleUrl: 'p4-script-editor.scss',
+  tag: 'p4-code-editor',
+  styleUrl: 'p4-code-editor.scss',
   shadow: true,
 })
-export class P4ScriptEditor {
+export class P4CodeEditor {
 
   private editorElement?: HTMLElement;
   private editorMonacoInstance;
@@ -113,7 +113,7 @@ export class P4ScriptEditor {
   }
 
   getCssClasses() {
-    const cls = ['component', 'script-editor-component'];
+    const cls = ['component', 'code-editor-component'];
     cls.push(this.theme);
     if (this.disabled)
       cls.push('disabled');

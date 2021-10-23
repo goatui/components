@@ -6,7 +6,7 @@
 @import 'others';
 @import "../scss/mixins";
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100,0,300,0,400,0,500,0,700,0,900,1,100,1,300,1,400,1,500,1,700,1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root {
 
@@ -32,7 +32,6 @@ body {
   font-size: 16px;
 }
 
-
 @each $typography in p1, p2, p3, caption, subheading {
   .#{$typography} {
     @include font-variant($typography)
@@ -43,7 +42,7 @@ body {
   }
 }
 
-@each $heading in h1, h2, h3, h4, h5 {
+@each $heading in h1, h2, h3, h4, h5, h6 {
   .#{$heading} {
     @include font-variant($heading);
     font-weight: var(--font-weight-semi-bold);

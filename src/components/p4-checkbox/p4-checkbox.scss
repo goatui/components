@@ -31,6 +31,7 @@
     line-height: 0;
 
     .checkbox-icon {
+      background: v(color-shades-white);
       --color: #{v(color-neutral-400)};
     }
   }
@@ -41,7 +42,7 @@
     }
   }
 
-  &:hover {
+  &:not(.checkbox-checked):hover {
     .checkbox-icon {
         --color: #{v(color-primary-100)};
       }

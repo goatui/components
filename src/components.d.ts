@@ -66,6 +66,27 @@ export namespace Components {
          */
         "value": boolean;
     }
+    interface P4CodeEditor {
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
+         */
+        "debounce": number;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled": boolean;
+        "language": 'javascript' | 'json' | 'html';
+        "lineNumbers": 'off' | 'on';
+        /**
+          * The input field name.
+         */
+        "name": string;
+        "theme": 'vs-light' | 'vs-dark';
+        /**
+          * The input field value.
+         */
+        "value": string;
+    }
     interface P4Dropdown {
         "data": any[];
         /**
@@ -87,7 +108,7 @@ export namespace Components {
     interface P4FieldGroup {
     }
     interface P4Heading {
-        "size": 'md' | 'sm';
+        "size": string;
         "type": 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
         "weight": 'semi-bold' | 'bold' | 'extra-bold';
     }
@@ -166,27 +187,6 @@ export namespace Components {
         "variant": 'default' | 'group';
     }
     interface P4Paragraph {
-    }
-    interface P4ScriptEditor {
-        /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
-         */
-        "debounce": number;
-        /**
-          * If true, the user cannot interact with the button. Defaults to `false`.
-         */
-        "disabled": boolean;
-        "language": 'javascript' | 'json' | 'html';
-        "lineNumbers": 'off' | 'on';
-        /**
-          * The input field name.
-         */
-        "name": string;
-        "theme": 'vs-light' | 'vs-dark';
-        /**
-          * The input field value.
-         */
-        "value": string;
     }
     interface P4Select {
         "actions": any[];
@@ -313,6 +313,12 @@ declare global {
         prototype: HTMLP4CheckboxElement;
         new (): HTMLP4CheckboxElement;
     };
+    interface HTMLP4CodeEditorElement extends Components.P4CodeEditor, HTMLStencilElement {
+    }
+    var HTMLP4CodeEditorElement: {
+        prototype: HTMLP4CodeEditorElement;
+        new (): HTMLP4CodeEditorElement;
+    };
     interface HTMLP4DropdownElement extends Components.P4Dropdown, HTMLStencilElement {
     }
     var HTMLP4DropdownElement: {
@@ -361,12 +367,6 @@ declare global {
         prototype: HTMLP4ParagraphElement;
         new (): HTMLP4ParagraphElement;
     };
-    interface HTMLP4ScriptEditorElement extends Components.P4ScriptEditor, HTMLStencilElement {
-    }
-    var HTMLP4ScriptEditorElement: {
-        prototype: HTMLP4ScriptEditorElement;
-        new (): HTMLP4ScriptEditorElement;
-    };
     interface HTMLP4SelectElement extends Components.P4Select, HTMLStencilElement {
     }
     var HTMLP4SelectElement: {
@@ -394,6 +394,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "p4-button": HTMLP4ButtonElement;
         "p4-checkbox": HTMLP4CheckboxElement;
+        "p4-code-editor": HTMLP4CodeEditorElement;
         "p4-dropdown": HTMLP4DropdownElement;
         "p4-field-group": HTMLP4FieldGroupElement;
         "p4-heading": HTMLP4HeadingElement;
@@ -402,7 +403,6 @@ declare global {
         "p4-label": HTMLP4LabelElement;
         "p4-list": HTMLP4ListElement;
         "p4-paragraph": HTMLP4ParagraphElement;
-        "p4-script-editor": HTMLP4ScriptEditorElement;
         "p4-select": HTMLP4SelectElement;
         "p4-spinner": HTMLP4SpinnerElement;
         "p4-table": HTMLP4TableElement;
@@ -478,6 +478,31 @@ declare namespace LocalJSX {
          */
         "value"?: boolean;
     }
+    interface P4CodeEditor {
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
+         */
+        "debounce"?: number;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled"?: boolean;
+        "language"?: 'javascript' | 'json' | 'html';
+        "lineNumbers"?: 'off' | 'on';
+        /**
+          * The input field name.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the value has changed..
+         */
+        "onP4:change"?: (event: CustomEvent<any>) => void;
+        "theme"?: 'vs-light' | 'vs-dark';
+        /**
+          * The input field value.
+         */
+        "value"?: string;
+    }
     interface P4Dropdown {
         "data"?: any[];
         /**
@@ -502,7 +527,7 @@ declare namespace LocalJSX {
     interface P4FieldGroup {
     }
     interface P4Heading {
-        "size"?: 'md' | 'sm';
+        "size"?: string;
         "type"?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
         "weight"?: 'semi-bold' | 'bold' | 'extra-bold';
     }
@@ -593,31 +618,6 @@ declare namespace LocalJSX {
         "variant"?: 'default' | 'group';
     }
     interface P4Paragraph {
-    }
-    interface P4ScriptEditor {
-        /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
-         */
-        "debounce"?: number;
-        /**
-          * If true, the user cannot interact with the button. Defaults to `false`.
-         */
-        "disabled"?: boolean;
-        "language"?: 'javascript' | 'json' | 'html';
-        "lineNumbers"?: 'off' | 'on';
-        /**
-          * The input field name.
-         */
-        "name"?: string;
-        /**
-          * Emitted when the value has changed..
-         */
-        "onP4:change"?: (event: CustomEvent<any>) => void;
-        "theme"?: 'vs-light' | 'vs-dark';
-        /**
-          * The input field value.
-         */
-        "value"?: string;
     }
     interface P4Select {
         "actions"?: any[];
@@ -755,6 +755,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "p4-button": P4Button;
         "p4-checkbox": P4Checkbox;
+        "p4-code-editor": P4CodeEditor;
         "p4-dropdown": P4Dropdown;
         "p4-field-group": P4FieldGroup;
         "p4-heading": P4Heading;
@@ -763,7 +764,6 @@ declare namespace LocalJSX {
         "p4-label": P4Label;
         "p4-list": P4List;
         "p4-paragraph": P4Paragraph;
-        "p4-script-editor": P4ScriptEditor;
         "p4-select": P4Select;
         "p4-spinner": P4Spinner;
         "p4-table": P4Table;
@@ -776,6 +776,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "p4-button": LocalJSX.P4Button & JSXBase.HTMLAttributes<HTMLP4ButtonElement>;
             "p4-checkbox": LocalJSX.P4Checkbox & JSXBase.HTMLAttributes<HTMLP4CheckboxElement>;
+            "p4-code-editor": LocalJSX.P4CodeEditor & JSXBase.HTMLAttributes<HTMLP4CodeEditorElement>;
             "p4-dropdown": LocalJSX.P4Dropdown & JSXBase.HTMLAttributes<HTMLP4DropdownElement>;
             "p4-field-group": LocalJSX.P4FieldGroup & JSXBase.HTMLAttributes<HTMLP4FieldGroupElement>;
             "p4-heading": LocalJSX.P4Heading & JSXBase.HTMLAttributes<HTMLP4HeadingElement>;
@@ -784,7 +785,6 @@ declare module "@stencil/core" {
             "p4-label": LocalJSX.P4Label & JSXBase.HTMLAttributes<HTMLP4LabelElement>;
             "p4-list": LocalJSX.P4List & JSXBase.HTMLAttributes<HTMLP4ListElement>;
             "p4-paragraph": LocalJSX.P4Paragraph & JSXBase.HTMLAttributes<HTMLP4ParagraphElement>;
-            "p4-script-editor": LocalJSX.P4ScriptEditor & JSXBase.HTMLAttributes<HTMLP4ScriptEditorElement>;
             "p4-select": LocalJSX.P4Select & JSXBase.HTMLAttributes<HTMLP4SelectElement>;
             "p4-spinner": LocalJSX.P4Spinner & JSXBase.HTMLAttributes<HTMLP4SpinnerElement>;
             "p4-table": LocalJSX.P4Table & JSXBase.HTMLAttributes<HTMLP4TableElement>;
