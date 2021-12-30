@@ -34,7 +34,6 @@
 
   .item {
     @include font-variant(p1);
-    position: relative;
     cursor: pointer;
     padding: v(space-3) v(space-6);
     box-sizing: border-box;
