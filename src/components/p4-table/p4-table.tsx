@@ -116,12 +116,12 @@ export class P4Table {
     const $headerRightPanel: HTMLElement = $headerPanel.querySelector('.right-panel');
 
     let maxHeight = $headerLeftPanel.clientHeight;
-    if (maxHeight < $headerRightPanel.clientHeight) {
-      //@ts-ignore
-      $headerLeftPanel.querySelector('.col').style.height = $headerRightPanel.clientHeight + 'px';
+    if (maxHeight < $headerRightPanel.clientHeight && $headerLeftPanel.querySelector('.col')) {
+      const $col: HTMLElement = $headerLeftPanel.querySelector('.col');
+      $col.style.height = $headerRightPanel.clientHeight + 'px';
     } else {
-      //@ts-ignore
-      $headerRightPanel.querySelector('.col').style.height = maxHeight + 'px';
+      const $col: HTMLElement = $headerRightPanel.querySelector('.col');
+      $col.style.height = maxHeight + 'px';
     }
 
     let leftPanelWidth = $headerLeftPanel.clientWidth;
@@ -136,13 +136,16 @@ export class P4Table {
 
       const $bodyRightRows =  $bodyRightPanel.querySelectorAll('.row');
       $bodyLeftPanel.querySelectorAll('.row').forEach(($leftRow, index) => {
-        let maxHeight = $leftRow.querySelector('.col').clientHeight;
-        if (maxHeight < $bodyRightRows[index].querySelector('.col').clientHeight) {
-          //@ts-ignore
-          $leftRow.querySelector('.col').style.height = $bodyRightRows[index].querySelector('.col').clientHeight + 'px';
-        } else {
-          //@ts-ignore
-          $bodyRightRows[index].querySelector('.col').style.height = maxHeight + 1 + 'px';
+        const $col = $leftRow.querySelector('.col');
+        if ($col) {
+          let maxHeight = $leftRow.querySelector('.col').clientHeight;
+          if (maxHeight < $bodyRightRows[index].querySelector('.col').clientHeight) {
+            //@ts-ignore
+            $leftRow.querySelector('.col').style.height = $bodyRightRows[index].querySelector('.col').clientHeight + 'px';
+          } else {
+            //@ts-ignore
+            $bodyRightRows[index].querySelector('.col').style.height = maxHeight + 1 + 'px';
+          }
         }
       })
 
