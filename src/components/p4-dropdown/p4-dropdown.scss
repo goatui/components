@@ -7,7 +7,6 @@
 
 .dropdown {
   position: relative;
-  z-index: v(z-index-dropdown-content);
   height: 100%;
   width: 100%;
   border-radius: v(border-radius);
@@ -20,6 +19,7 @@
   }
 
   .dropdown-result {
+    z-index: v(z-index-dropdown-content);
     position: absolute;
     width: max-content;
     line-height: 0;
