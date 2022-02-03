@@ -64,7 +64,7 @@ export class P4List {
 
   private setIndexToItem = (item) => {
     item.__id = this.itemIndex++;
-    if (!item.hasOwnProperty('value') || !item.hasOwnProperty('value'))
+    if (!item.hasOwnProperty('label') || !item.hasOwnProperty('value'))
       this.invalidData = true;
     this.itemValueMap[item.value] = item;
   };

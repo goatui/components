@@ -309,7 +309,7 @@ export class P4Select {
           Loading...
         </div>;
       } else {
-        const data = this.filterData();
+        const data = this.filterAndFormatData();
         return <p4-list
           class="dropdown-list"
           ref={(el) => this.listElement = el}
@@ -317,18 +317,31 @@ export class P4Select {
           value={this.value}
           onP4:item-click={(evt) => {
             this.closeList();
-            this.changeHandler(evt.detail.item);
+            this.changeHandler(this.findDataItem(evt.detail.item));
           }} />;
       }
     }
   }
 
-  private filterData(): any {
+  private filterAndFormatData(): any {
     if (this.managed)
       return this.data;
     return this.data.filter((item) => {
       return (!this.searchString || this.getItemLabel(item).toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()));
+    }).map((item) => {
+      return {
+        label: this.getItemLabel(item),
+        value: this.getItemValue(item)
+      }
     });
+  }
+
+  private findDataItem(listItem): any {
+    if (listItem) {
+      return this.data.find((item) => {
+        return this.getItemValue(item) === listItem.value;
+      });
+    }
   }
 
 }
