@@ -25,14 +25,19 @@ export class P4Button {
 
   /**
    * Button variants.
-   * Possible values are `"primary"`, `"secondary"`, `"danger"`, `"ghost-primary"`, `"ghost-secondary"`. Defaults to `"primary"`.
+   * Possible values are `"primary"`, `"secondary"`, `"danger"`. Defaults to `"primary"`.
    */
-  @Prop() variant: 'primary' | 'secondary' | 'danger' | 'ghost-primary' | 'ghost-secondary' = 'primary';
+  @Prop() variant: 'primary' | 'secondary' | 'danger' = 'primary';
 
   /**
    * If true, fits button width to its parent width. Defaults to `false`.
    */
   @Prop() block: boolean = false;
+
+  /**
+   * If true, button styles are updated to work better on white background. Defaults to `false`.
+   */
+  @Prop() ghost: boolean = false;
 
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
@@ -140,6 +145,7 @@ export class P4Button {
                   variant={this.variant}
                   active={this.isActive}
                   size={this.size}
+                  ghost={this.ghost}
                   icon={this.icon}
                   icon-end={this.iconEnd}>
       <button

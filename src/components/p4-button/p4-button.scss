@@ -26,7 +26,7 @@
 @mixin buttonGhostVariant($color, $bg, $hoverBg) {
   color: v($color);
 
-  background: v(color-shades-white);
+  background: transparent;
   border-color: v($bg);
 
   .spinner, .icon {
@@ -151,6 +151,64 @@
         color: v(color-secondary-600);
         background: v(color-secondary-50);
         border-color: v(color-secondary-200);
+      }
+    }
+  }
+}
+
+:host([variant="success"]) {
+  &:host(:not([ghost])) {
+    .button {
+      @include buttonVariant(color-neutral-50, color-success-500, color-success-300);
+    }
+
+    &:host([active]) {
+      .button {
+        background: v(color-success-700);
+        border-color: v(color-success-700);
+      }
+    }
+  }
+
+  &:host([ghost]) {
+    .button {
+      @include buttonGhostVariant(color-success-500, color-success-500, color-success-300);
+    }
+
+    &:host([active]) {
+      .button {
+        color: v(color-success-300);
+        background: v(color-success-50);
+        border-color: v(color-success-200);
+      }
+    }
+  }
+}
+
+:host([variant="warning"]) {
+  &:host(:not([ghost])) {
+    .button {
+      @include buttonVariant(color-neutral-50, color-warning-500, color-warning-300);
+    }
+
+    &:host([active]) {
+      .button {
+        background: v(color-warning-700);
+        border-color: v(color-warning-700);
+      }
+    }
+  }
+
+  &:host([ghost]) {
+    .button {
+      @include buttonGhostVariant(color-warning-500, color-warning-500, color-warning-300);
+    }
+
+    &:host([active]) {
+      .button {
+        color: v(color-warning-300);
+        background: v(color-warning-50);
+        border-color: v(color-warning-200);
       }
     }
   }

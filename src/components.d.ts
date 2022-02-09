@@ -6,6 +6,12 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface P4Alert {
+        "description": string;
+        "dismissible": boolean;
+        "message": string;
+        "state": 'success' | 'error' | 'info' | 'warning';
+    }
     interface P4Button {
         /**
           * If true, fits button width to its parent width. Defaults to `false`.
@@ -16,6 +22,10 @@ export namespace Components {
          */
         "disabled": boolean;
         "disabledReason": string;
+        /**
+          * If true, button styles are updated to work better on white background. Defaults to `false`.
+         */
+        "ghost": boolean;
         "href": string;
         /**
           * Icon which will displayed on button. Possible values are bootstrap icon names.
@@ -32,9 +42,9 @@ export namespace Components {
         "size": 'sm' | 'md' | 'lg';
         "target": '_self' | '_blank';
         /**
-          * Button variants. Possible values are `"primary"`, `"secondary"`, `"danger"`, `"ghost-primary"`, `"ghost-secondary"`. Defaults to `"primary"`.
+          * Button variants. Possible values are `"primary"`, `"secondary"`, `"danger"`. Defaults to `"primary"`.
          */
-        "variant": 'primary' | 'secondary' | 'danger' | 'ghost-primary' | 'ghost-secondary';
+        "variant": 'primary' | 'secondary' | 'danger';
     }
     interface P4Checkbox {
         /**
@@ -301,6 +311,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLP4AlertElement extends Components.P4Alert, HTMLStencilElement {
+    }
+    var HTMLP4AlertElement: {
+        prototype: HTMLP4AlertElement;
+        new (): HTMLP4AlertElement;
+    };
     interface HTMLP4ButtonElement extends Components.P4Button, HTMLStencilElement {
     }
     var HTMLP4ButtonElement: {
@@ -392,6 +408,7 @@ declare global {
         new (): HTMLP4TextareaElement;
     };
     interface HTMLElementTagNameMap {
+        "p4-alert": HTMLP4AlertElement;
         "p4-button": HTMLP4ButtonElement;
         "p4-checkbox": HTMLP4CheckboxElement;
         "p4-code-editor": HTMLP4CodeEditorElement;
@@ -410,6 +427,13 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface P4Alert {
+        "description"?: string;
+        "dismissible"?: boolean;
+        "message"?: string;
+        "onP4:dismiss"?: (event: CustomEvent<any>) => void;
+        "state"?: 'success' | 'error' | 'info' | 'warning';
+    }
     interface P4Button {
         /**
           * If true, fits button width to its parent width. Defaults to `false`.
@@ -420,6 +444,10 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         "disabledReason"?: string;
+        /**
+          * If true, button styles are updated to work better on white background. Defaults to `false`.
+         */
+        "ghost"?: boolean;
         "href"?: string;
         /**
           * Icon which will displayed on button. Possible values are bootstrap icon names.
@@ -440,9 +468,9 @@ declare namespace LocalJSX {
         "size"?: 'sm' | 'md' | 'lg';
         "target"?: '_self' | '_blank';
         /**
-          * Button variants. Possible values are `"primary"`, `"secondary"`, `"danger"`, `"ghost-primary"`, `"ghost-secondary"`. Defaults to `"primary"`.
+          * Button variants. Possible values are `"primary"`, `"secondary"`, `"danger"`. Defaults to `"primary"`.
          */
-        "variant"?: 'primary' | 'secondary' | 'danger' | 'ghost-primary' | 'ghost-secondary';
+        "variant"?: 'primary' | 'secondary' | 'danger';
     }
     interface P4Checkbox {
         /**
@@ -753,6 +781,7 @@ declare namespace LocalJSX {
         "variant"?: 'default' | 'dashed';
     }
     interface IntrinsicElements {
+        "p4-alert": P4Alert;
         "p4-button": P4Button;
         "p4-checkbox": P4Checkbox;
         "p4-code-editor": P4CodeEditor;
@@ -774,6 +803,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "p4-alert": LocalJSX.P4Alert & JSXBase.HTMLAttributes<HTMLP4AlertElement>;
             "p4-button": LocalJSX.P4Button & JSXBase.HTMLAttributes<HTMLP4ButtonElement>;
             "p4-checkbox": LocalJSX.P4Checkbox & JSXBase.HTMLAttributes<HTMLP4CheckboxElement>;
             "p4-code-editor": LocalJSX.P4CodeEditor & JSXBase.HTMLAttributes<HTMLP4CodeEditorElement>;

@@ -1,0 +1,85 @@
+@import "../../styles/scss/commons";
+
+:host {
+  display: block;
+  padding-bottom: v(space-3);
+}
+
+.alert {
+  border-radius: v(border-radius);
+  display: flex;
+  padding: v(space-2) v(space-6);
+
+  .content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+    .message {
+      @include font-variant(p2);
+    }
+
+    .description {
+      color: v(color-neutral-600);
+    }
+  }
+
+  .close-btn {
+    cursor: pointer;
+    --button-border-style: none;
+    padding-bottom: 0;
+  }
+}
+
+:host([state="info"]) {
+  .alert {
+    background-color: v(color-primary-50);
+
+    .content {
+      .message {
+        color: v(color-primary-600);
+      }
+    }
+  }
+}
+
+:host([state="success"]) {
+  .alert {
+    background-color: v(color-success-50);
+
+    .content {
+      .message {
+        color: v(color-success-600);
+      }
+    }
+  }
+}
+
+:host([state="warning"]) {
+  .alert {
+    background-color: v(color-warning-50);
+
+    .content {
+      .message {
+        color: v(color-warning-600);
+      }
+    }
+  }
+}
+
+
+:host([state="error"]) {
+  .alert {
+    background-color: v(color-error-50);
+
+    .content {
+      .message {
+        color: v(color-error-600);
+      }
+    }
+  }
+}
+
+:host([hidden]) {
+  display: none;
+}
