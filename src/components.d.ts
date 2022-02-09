@@ -41,6 +41,7 @@ export namespace Components {
          */
         "size": 'sm' | 'md' | 'lg';
         "target": '_self' | '_blank';
+        "triggerClick": () => Promise<void>;
         /**
           * Button variants. Possible values are `"primary"`, `"secondary"`, `"danger"`. Defaults to `"primary"`.
          */

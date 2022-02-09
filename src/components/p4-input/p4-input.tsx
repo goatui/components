@@ -105,11 +105,20 @@ export class P4Input {
 
   private inputHandler = (ev: Event) => {
     const input = ev.target as HTMLInputElement | null;
+    const oldValue = this.value;
     if (input) {
       this.value = input.value;
     }
     this.p4Input.emit(ev as KeyboardEvent);
-    this.p4Change.emit(ev as KeyboardEvent);
+    if (oldValue !== this.value) {
+      this.p4Change.emit(ev as KeyboardEvent);
+    }
+  };
+
+  private keyDownHandler = (ev: KeyboardEvent) => {
+    if (ev.key === 'Enter') {
+      this.p4Input.emit(ev);
+    }
   };
 
   private blurHandler = (ev: FocusEvent) => {
@@ -245,6 +254,7 @@ export class P4Input {
             value={this.value}
             tabindex={this.tabindex}
             required={this.required}
+            onKeyDown={this.keyDownHandler}
             onInput={this.inputHandler}
             onBlur={this.blurHandler}
             onFocus={this.focusHandler}

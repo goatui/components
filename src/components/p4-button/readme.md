@@ -29,6 +29,19 @@
 | `p4:click` | On click of button, a CustomEvent 'p4:click' will be triggered. | `CustomEvent<any>` |
 
 
+## Methods
+
+### `triggerClick() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Used by

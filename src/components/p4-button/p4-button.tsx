@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, h, Host, Listen, Prop, State } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, h, Host, Listen, Method, Prop, State } from '@stencil/core';
 
 
 let index = 0;
@@ -15,7 +15,7 @@ export class P4Button {
 
 
   private tabindex?: string | number;
-
+  private nativeInput?: HTMLButtonElement;
 
   /**
    * Button size.
@@ -83,6 +83,12 @@ export class P4Button {
       this.isActive = false;
   }
 
+  @Method()
+  async triggerClick() {
+    if (this.nativeInput) {
+      this.nativeInput.click();
+    }
+  }
 
   private getIconSize = () => {
     let size;
@@ -146,6 +152,7 @@ export class P4Button {
                   active={this.isActive}
                   size={this.size}
                   ghost={this.ghost}
+                  block={this.block}
                   icon={this.icon}
                   icon-end={this.iconEnd}>
       <button
@@ -154,6 +161,7 @@ export class P4Button {
           'slot-has-content': this.slotHasContent,
         }}
         tabindex={this.tabindex}
+        ref={input => this.nativeInput = input}
         onBlur={this.blurHandler}
         onFocus={this.focusHandler}
         onClick={this.clickHandler}

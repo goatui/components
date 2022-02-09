@@ -64,7 +64,9 @@
 
 :host([block]) {
   display: block;
-
+  .spinner {
+    margin: auto;
+  }
 }
 
 /**
