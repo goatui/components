@@ -12,6 +12,11 @@ export namespace Components {
         "message": string;
         "state": 'success' | 'error' | 'info' | 'warning';
     }
+    interface P4Avatar {
+        "name": string;
+        "size": 'sm' | 'md' | 'lg';
+        "src": string;
+    }
     interface P4Button {
         /**
           * If true, fits button width to its parent width. Defaults to `false`.
@@ -119,7 +124,7 @@ export namespace Components {
     interface P4FieldGroup {
     }
     interface P4Heading {
-        "size": string;
+        "size": 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
         "type": 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
         "weight": 'semi-bold' | 'bold' | 'extra-bold';
     }
@@ -318,6 +323,12 @@ declare global {
         prototype: HTMLP4AlertElement;
         new (): HTMLP4AlertElement;
     };
+    interface HTMLP4AvatarElement extends Components.P4Avatar, HTMLStencilElement {
+    }
+    var HTMLP4AvatarElement: {
+        prototype: HTMLP4AvatarElement;
+        new (): HTMLP4AvatarElement;
+    };
     interface HTMLP4ButtonElement extends Components.P4Button, HTMLStencilElement {
     }
     var HTMLP4ButtonElement: {
@@ -410,6 +421,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "p4-alert": HTMLP4AlertElement;
+        "p4-avatar": HTMLP4AvatarElement;
         "p4-button": HTMLP4ButtonElement;
         "p4-checkbox": HTMLP4CheckboxElement;
         "p4-code-editor": HTMLP4CodeEditorElement;
@@ -434,6 +446,11 @@ declare namespace LocalJSX {
         "message"?: string;
         "onP4:dismiss"?: (event: CustomEvent<any>) => void;
         "state"?: 'success' | 'error' | 'info' | 'warning';
+    }
+    interface P4Avatar {
+        "name"?: string;
+        "size"?: 'sm' | 'md' | 'lg';
+        "src"?: string;
     }
     interface P4Button {
         /**
@@ -556,7 +573,7 @@ declare namespace LocalJSX {
     interface P4FieldGroup {
     }
     interface P4Heading {
-        "size"?: string;
+        "size"?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
         "type"?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
         "weight"?: 'semi-bold' | 'bold' | 'extra-bold';
     }
@@ -783,6 +800,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "p4-alert": P4Alert;
+        "p4-avatar": P4Avatar;
         "p4-button": P4Button;
         "p4-checkbox": P4Checkbox;
         "p4-code-editor": P4CodeEditor;
@@ -805,6 +823,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "p4-alert": LocalJSX.P4Alert & JSXBase.HTMLAttributes<HTMLP4AlertElement>;
+            "p4-avatar": LocalJSX.P4Avatar & JSXBase.HTMLAttributes<HTMLP4AvatarElement>;
             "p4-button": LocalJSX.P4Button & JSXBase.HTMLAttributes<HTMLP4ButtonElement>;
             "p4-checkbox": LocalJSX.P4Checkbox & JSXBase.HTMLAttributes<HTMLP4CheckboxElement>;
             "p4-code-editor": LocalJSX.P4CodeEditor & JSXBase.HTMLAttributes<HTMLP4CodeEditorElement>;

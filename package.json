@@ -13,9 +13,9 @@
   ],
   "scripts": {
     "build": "stencil build --docs",
-    "start-watch": "stencil build --dev --watch --serve --cors",
-    "start-docs-server": "cd docs && serve.cmd",
-    "start": "concurrently --kill-others \"npm run start-watch\" \"npm run start-docs-server\"",
+    "start": "concurrently --kill-others \"npm run start:watch\" \"npm run start:docs-server\"",
+    "start:watch": "stencil build --dev --watch --serve --cors",
+    "start:docs-server": "cd docs && serve.cmd",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",

@@ -1,0 +1,44 @@
+@import "../../styles/scss/commons";
+
+:host {
+  display: inline-block;
+}
+
+.avatar {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: v(color-neutral-50);
+  .image {
+    width: 100%;
+    height: 100%;
+  }
+  @include font-variant(p2);
+}
+
+:host([type="initials"]) .avatar {
+  background: v(color-primary-500);
+}
+
+:host([type="image"]) .avatar {
+  background: v(color-primary-100);
+}
+
+
+/**
+  * SIZES
+  */
+:host([size="lg"]) {
+  .avatar {
+    @include font-variant(h5);
+    font-weight: v(font-weight-bold);
+  }
+}
+
+:host([size="sm"]) {
+  .avatar {
+    @include font-variant(caption);
+  }
+}

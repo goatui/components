@@ -9,7 +9,7 @@ export class P4Heading {
 
   @Prop() type: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' = 'h1';
 
-  @Prop() size: string;
+  @Prop() size: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' = 'h1';
 
   @Prop() weight: 'semi-bold' | 'bold' | 'extra-bold' = 'semi-bold';
 
