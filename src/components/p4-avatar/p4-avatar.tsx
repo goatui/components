@@ -17,8 +17,8 @@ export class P4Avatar {
 
   private getInitials() {
     const name = this.name.split(' ');
-    let firstName = name[0]?.charAt(0).toUpperCase();
-    let lastName = name[1]?.charAt(0).toUpperCase();
+    let firstName = name[0] ? name[0].charAt(0).toUpperCase() : '';
+    let lastName = name[1]? name[1].charAt(0).toUpperCase() : '';
     return `${firstName}${lastName}`;
   }
 

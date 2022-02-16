@@ -30,8 +30,8 @@ twitter_username: P4rmInc
 github_username: p4rm
 github_project: ui
 npm_package: '@p4rm/ui'
-script: 'https://unpkg.com/@p4rm/ui@1.2.0/dist/p4rm-ui/p4rm-ui.esm.js'
-themeCss: 'https://unpkg.com/@p4rm/ui@1.2.0/dist/p4rm-ui/styles/theme.css'
+script: 'https://unpkg.com/@p4rm/ui@1.2.2/dist/p4rm-ui/p4rm-ui.esm.js'
+themeCss: 'https://unpkg.com/@p4rm/ui@1.2.2/dist/p4rm-ui/styles/theme.css'
 
 include:
   - .well-known
