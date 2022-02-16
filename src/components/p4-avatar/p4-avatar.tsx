@@ -35,12 +35,22 @@ export class P4Avatar {
     return size;
   }
 
+  private getFontSize() {
+    if (this.size === 'sm' || this.size === 'md' || this.size === 'lg')
+      return undefined;
+    else {
+      const size = this.getSize();
+      const fontSize = this.getSize().match(/^\d+(\.\d{1,2})?/)[0];
+      return (fontSize/2) + size.replace(/^\d+(\.\d{1,2})?/, '');
+    }
+  }
+
 
   render() {
 
     return (
       <Host size={this.size} title={this.name} type={this.src ? 'image' : 'initials'}>
-        <div class='avatar' style={{width: this.getSize(), height: this.getSize()}}>
+        <div class='avatar' style={{width: this.getSize(), height: this.getSize(), fontSize: this.getFontSize()}}>
           {this.src ? <img class='image' src={this.src} alt={this.name} /> : <div class='initials'>
             {this.getInitials()}
           </div>}
