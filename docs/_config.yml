@@ -72,7 +72,7 @@ assets:
 components:
   - name: Alert
     link: /component/alert.html
-    example: <p4-alert message="Saved Successfully" state="successas"></p4-alert>
+    example: <p4-alert message="Saved Successfully" state="success"></p4-alert>
   - name: Avatar
     link: /component/avatar.html
     example: <p4-avatar name="Shivaji Varma"></p4-alert>

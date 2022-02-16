@@ -1,6 +1,6 @@
 {
   "name": "@p4rm/ui",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "P4RM UI",
   "license": "MIT",
   "main": "dist/index.cjs.js",
@@ -33,8 +33,7 @@
     "concurrently": "^6.2.1",
     "glob": "^7.1.6",
     "gulp": "^4.0.2",
-    "gulp-clean": "^0.4.0",
-    "gulp-sass": "^5.0.0",
+    "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "sass": "^1.42.1",
     "workbox-build": "^4.3.1"
