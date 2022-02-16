@@ -11,7 +11,7 @@ export class P4Avatar {
 
   @Prop() size: 'sm' | 'md' | 'lg' = 'md';
 
-  @Prop() name: string = 'Shivaji Varma';
+  @Prop() name: string = '';
 
   @Prop() src: string = '';
 
