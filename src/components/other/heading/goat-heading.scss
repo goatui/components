@@ -1,0 +1,34 @@
+@import "../../../styles/scss/commons";
+
+:host {
+  display: block;
+  padding-bottom: v(space-3);
+}
+
+@each $heading in h1, h2, h3, h4, h5, h6 {
+  :host([size="#{$heading}"]) {
+    .heading {
+      @include font-no-weight-variant($heading);
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
+
+:host([weight="semi-bold"]) {
+  .heading {
+    font-weight: v(font-weight-semi-bold);
+  }
+}
+
+:host([weight="bold"]) {
+  .heading {
+    font-weight: v(font-weight-bold);
+  }
+}
+
+:host([weight="extra-bold"]) {
+  .heading {
+    font-weight: v(font-weight-extra-bold);
+  }
+}

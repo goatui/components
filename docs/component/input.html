@@ -34,38 +34,38 @@ menu:
 
       <div class='card'>
         <div class='card-header'>
-          <p4-field-group class='item'>
-            <p4-label>Text</p4-label>
-            <p4-input type='text'></p4-input>
-          </p4-field-group>
-          <p4-field-group class='item'>
-            <p4-label>Password</p4-label>
-            <p4-input type='password'></p4-input>
-          </p4-field-group>
-          <p4-field-group class='item'>
-            <p4-label>Number</p4-label>
-            <p4-input type='number'></p4-input>
-          </p4-field-group>
+          <goat-field-group class='item'>
+            <goat-label>Text</goat-label>
+            <goat-input type='text'></goat-input>
+          </goat-field-group>
+          <goat-field-group class='item'>
+            <goat-label>Password</goat-label>
+            <goat-input type='password'></goat-input>
+          </goat-field-group>
+          <goat-field-group class='item'>
+            <goat-label>Number</goat-label>
+            <goat-input type='number'></goat-input>
+          </goat-field-group>
         </div>
         <div class='card-body'>
           <pre>
                 <code class='language-html' data-lang='html'>&lt;-- Text -->
-&lt;p4-field-group>
-  &lt;p4-label>Text&lt;/p4-label>
-  &lt;p4-input type="text">&lt;/p4-input>
-&lt;/p4-field-group>
+&lt;goat-field-group>
+  &lt;goat-label>Text&lt;/goat-label>
+  &lt;goat-input type="text">&lt;/goat-input>
+&lt;/goat-field-group>
 
 &lt;-- Password -->
-&lt;p4-field-group>
-  &lt;p4-label>Password&lt;/p4-label>
-  &lt;p4-input type="password">&lt;/p4-input>
-&lt;/p4-field-group>
+&lt;goat-field-group>
+  &lt;goat-label>Password&lt;/goat-label>
+  &lt;goat-input type="password">&lt;/goat-input>
+&lt;/goat-field-group>
 
 &lt;-- Number -->
-&lt;p4-field-group>
-  &lt;p4-label>Number&lt;/p4-label>
-  &lt;p4-input type="number">&lt;/p4-input>
-&lt;/p4-field-group>
+&lt;goat-field-group>
+  &lt;goat-label>Number&lt;/goat-label>
+  &lt;goat-input type="number">&lt;/goat-input>
+&lt;/goat-field-group>
                 </code>
               </pre>
         </div>
@@ -82,17 +82,17 @@ menu:
 
       <div class='card'>
         <div class='card-header'>
-          <p4-field-group class='item'>
-            <p4-label>Slots</p4-label>
-            <p4-input type='text'><p4-icon slot='start' type='mailbox'></p4-icon><p slot='end'>@example.com</p></p4-input>
-          </p4-field-group>
+          <goat-field-group class='item'>
+            <goat-label>Slots</goat-label>
+            <goat-input type='text'><goat-icon slot='start' type='mailbox'></goat-icon><p slot='end'>@example.com</p></goat-input>
+          </goat-field-group>
         </div>
         <div class='card-body'>
           <pre>
-                <code class='language-html' data-lang='html'>&lt;p4-field-group class="item">
-  &lt;p4-label>Slots&lt;/p4-label>
-  &lt;p4-input type="text">&lt;p4-icon slot='start' type='mailbox'>&lt;/p4-icon>&lt;p slot='end'>@example.com&lt;/p>&lt;/p4-input>
-&lt;/p4-field-group>
+                <code class='language-html' data-lang='html'>&lt;goat-field-group class="item">
+  &lt;goat-label>Slots&lt;/goat-label>
+  &lt;goat-input type="text">&lt;goat-icon slot='start' type='mailbox'>&lt;/goat-icon>&lt;p slot='end'>@example.com&lt;/p>&lt;/goat-input>
+&lt;/goat-field-group>
                 </code>
               </pre>
         </div>
@@ -111,15 +111,15 @@ menu:
 
       <div class='card'>
         <div class='card-header'>
-          <p4-input size='lg' placeholder='Large'></p4-input>
-          <p4-input placeholder='Medium'></p4-input>
-          <p4-input size='sm' placeholder='Small'></p4-input>
+          <goat-input size='lg' placeholder='Large'></goat-input>
+          <goat-input placeholder='Medium'></goat-input>
+          <goat-input size='sm' placeholder='Small'></goat-input>
         </div>
         <div class='card-body'>
            <pre>
-                  <code class='language-html' data-lang='html'>&lt;p4-input size=&quot;lg&quot; placeholder=&quot;Large&quot;&gt;&lt;/p4-input&gt;
-                  &lt;p4-input placeholder=&quot;Medium&quot;&gt;&lt;/p4-input&gt;
-                  &lt;p4-input size=&quot;sm&quot; placeholder=&quot;Small&quot;&gt;&lt;/p4-input&gt;
+                  <code class='language-html' data-lang='html'>&lt;goat-input size=&quot;lg&quot; placeholder=&quot;Large&quot;&gt;&lt;/goat-input&gt;
+                  &lt;goat-input placeholder=&quot;Medium&quot;&gt;&lt;/goat-input&gt;
+                  &lt;goat-input size=&quot;sm&quot; placeholder=&quot;Small&quot;&gt;&lt;/goat-input&gt;
                   </code>
                 </pre>
         </div>
@@ -136,7 +136,7 @@ menu:
 
       <div class='card'>
         <div class='card-header'>
-          <p4-input id='input-with-actions'></p4-input>
+          <goat-input id='input-with-actions'></goat-input>
           <script>
             document.querySelector('#input-with-actions').actions = [{
               icon: 'search',
@@ -149,14 +149,14 @@ menu:
               eventName: 'info-circle',
               disabled: true,
             }];
-            document.querySelector('#input-with-actions').addEventListener('p4:action-click', function(evt) {
+            document.querySelector('#input-with-actions').addEventListener('goat:action-click', function(evt) {
               window.notyf.success('Action clicked :: ' + evt.detail.eventName);
             });
           </script>
         </div>
         <div class='card-body'>
            <pre>
-                  <code class='language-html' data-lang='html'> &lt;p4-input id='input-with-actions'>&lt;/p4-input>
+                  <code class='language-html' data-lang='html'> &lt;goat-input id='input-with-actions'>&lt;/goat-input>
           &lt;script>
             document.querySelector('#input-with-actions').actions = [{
               icon: 'search',
@@ -169,7 +169,7 @@ menu:
               eventName: 'info-circle',
               disabled: true
             }];
-            document.querySelector('#input-with-actions').addEventListener('p4:action-click', function(evt) {
+            document.querySelector('#input-with-actions').addEventListener('goat:action-click', function(evt) {
               console.log("Action clicked :: " + evt.detail.eventName);
             })
           &lt;/script>
@@ -188,9 +188,9 @@ menu:
 
       <div class='card'>
         <div class='card-header'>
-          <p4-input disabled></p4-input>
-          <p4-input disabled value='With Value'></p4-input>
-          <p4-input disabled value='With Value' id='disable-with-actions'></p4-input>
+          <goat-input disabled></goat-input>
+          <goat-input disabled value='With Value'></goat-input>
+          <goat-input disabled value='With Value' id='disable-with-actions'></goat-input>
           <script>
             document.querySelector('#disable-with-actions').actions = [{
               icon: 'house',
@@ -200,8 +200,8 @@ menu:
         </div>
         <div class='card-body'>
            <pre>
-                  <code class='language-html' data-lang='html'>&lt;p4-input disabled&gt;Disabled Button&lt;/p4-input&gt;
-&lt;p4-input disabled value='With Value'&gt;Disabled Button&lt;/p4-input&gt;
+                  <code class='language-html' data-lang='html'>&lt;goat-input disabled&gt;Disabled Button&lt;/goat-input&gt;
+&lt;goat-input disabled value='With Value'&gt;Disabled Button&lt;/goat-input&gt;
                   </code>
                 </pre>
         </div>
@@ -214,28 +214,28 @@ menu:
       <h2 class='h4'>Events <a class='js-anchor-link duik-anchorjs-link' href='#doc-events'
                                aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
       <p>On input change a <b>CustomEvent</b> <code
-        class='highlighter-rouge' data-lang='html'>p4:change</code>
+        class='highlighter-rouge' data-lang='html'>goat:change</code>
         is triggered by the element.</p>
 
       <div class='output'>
 
-        <p4-input variant='default' id='name-input-field'></p4-input>
+        <goat-input variant='default' id='name-input-field'></goat-input>
 
         <script>
-          document.querySelector('#name-input-field').addEventListener('p4:input', function(event) {
-            myConsole.log('p4:input :: ' + event.target.value);
+          document.querySelector('#name-input-field').addEventListener('goat:input', function(event) {
+            myConsole.log('goat:input :: ' + event.target.value);
           });
-          document.querySelector('#name-input-field').addEventListener('p4:change', function(event) {
-            myConsole.warn('p4:change :: ' + event.target.value);
+          document.querySelector('#name-input-field').addEventListener('goat:change', function(event) {
+            myConsole.warn('goat:change :: ' + event.target.value);
           });
         </script>
 
       </div>
-      <pre class='mb-4'><code class='language-js' data-lang='html'>document.querySelector('#name-input-field').addEventListener('p4:input', function(event) {
-    console.log("p4:input :: " + event.target.value);
+      <pre class='mb-4'><code class='language-js' data-lang='html'>document.querySelector('#name-input-field').addEventListener('goat:input', function(event) {
+    console.log("goat:input :: " + event.target.value);
 });
-document.querySelector('#name-input-field').addEventListener('p4:change', function(event) {
-    console.log("p4:change :: " + event.target.value);
+document.querySelector('#name-input-field').addEventListener('goat:change', function(event) {
+    console.log("goat:change :: " + event.target.value);
 });</code></pre>
 
     </div>

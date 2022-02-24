@@ -29,10 +29,10 @@ menu:
       <p>Here is code editor component, currently supports JS and JSON editing.</p>
       <div class='card'>
         <div class='card-header'>
-          <p4-checkbox id='disableEditor'>Disable editor</p4-checkbox>
-          <p4-checkbox id='darkTheme'>Dark Theme</p4-checkbox>
+          <goat-checkbox id='disableEditor'>Disable editor</goat-checkbox>
+          <goat-checkbox id='darkTheme'>Dark Theme</goat-checkbox>
 
-          <p4-code-editor id='business-rule-editor' style='height: 300px'></p4-code-editor>
+          <goat-code-editor id='business-rule-editor' style='height: 300px'></goat-code-editor>
         <script>
           document.getElementById('business-rule-editor').value = `/**
  * Sample Code
@@ -44,10 +44,10 @@ menu:
     console.log(c);
 }`;
 
-          document.querySelector('#disableEditor').addEventListener('p4:change',  function(evt) {
+          document.querySelector('#disableEditor').addEventListener('goat:change',  function(evt) {
             document.getElementById('business-rule-editor').disabled = evt.target.value;
           })
-          document.querySelector('#darkTheme').addEventListener('p4:change',  function(evt) {
+          document.querySelector('#darkTheme').addEventListener('goat:change',  function(evt) {
             document.getElementById('business-rule-editor').theme = evt.target.value ? 'vs-dark' : 'vs-light';
           })
         </script>
@@ -56,7 +56,7 @@ menu:
       <pre>
                 <code class='language-html' data-lang='html'>&lt;script type="module" src="{{site.script}}"&gt;&lt;/script&gt;
 
-&lt;p4-code-editor id="business-rule-editor" style='height: 300px'&gt;&lt;/p4-code-editor&gt;
+&lt;goat-code-editor id="business-rule-editor" style='height: 300px'&gt;&lt;/goat-code-editor&gt;
 
 &lt;script>
 document.getElementById('business-rule-editor').value = `/**
@@ -83,7 +83,7 @@ function myBusinessRuleFunction(){
 
       <p>Please click on checkbox and try disabling able editor.</p>
 
-      <pre><code class='language-html' data-lang='html'>&lt;p4-code-editor theme='vs-dark'&gt;&lt;/p4-code-editor&gt;
+      <pre><code class='language-html' data-lang='html'>&lt;goat-code-editor theme='vs-dark'&gt;&lt;/goat-code-editor&gt;
       </code></pre>
 
     </div>
@@ -97,7 +97,7 @@ function myBusinessRuleFunction(){
         attribute to any <code class='highlighter-rouge' data-lang='html'>&lt;input&gt;</code> element.</p>
 
 
-      <pre><code class='language-html' data-lang='html'>&lt;p4-code-editor disabled&gt;&lt;/p4-code-editor&gt;
+      <pre><code class='language-html' data-lang='html'>&lt;goat-code-editor disabled&gt;&lt;/goat-code-editor&gt;
       </code></pre>
 
     </div>

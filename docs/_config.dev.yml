@@ -1,6 +1,5 @@
-title: P4RM UI - Local
-script: '/assets/p4-ui-dev/build/p4rm-ui.esm.js'
-themeCss: '/assets/p4-ui-dev/styles/theme.css'
+script: '/assets/dev-build/build/goatui.esm.js'
+themeCss: '/assets/dev-build/styles/theme.css'
 webrick:
   headers:
     Access-Control-Allow-Origin: "*"

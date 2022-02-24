@@ -1,0 +1,190 @@
+@import "../../../styles/scss/commons";
+
+
+@mixin buttonVariant($darker, $variantColor) {
+  .button {
+    @if $darker {
+      color: v(--color-white);
+      .spinner, .icon {
+        --color: #{v(--color-white)};
+      }
+    } @else {
+      color: v(--color-grey-900);
+      .spinner, .icon {
+        --color: #{v(--color-grey-900)};
+      }
+    }
+    background: v(--color-#{$variantColor}-500);
+    border-color: v(--color-#{$variantColor}-500);
+
+    &:hover {
+      background: v(--color-#{$variantColor}-600);
+      border-color: v(--color-#{$variantColor}-600);
+    }
+  }
+
+  &:host([active]), &:host([selected]) {
+    .button {
+      background: v(--color-#{$variantColor}-800);
+      border-color: v(--color-#{$variantColor}-800);
+      @if $darker == false {
+        color: v(--color-white);
+        .spinner, .icon {
+          --color: #{v(--color-white)};
+        }
+      }
+
+    }
+  }
+
+  &:host([disabled]) {
+    .button {
+      cursor: not-allowed;
+      color: v(--color-white) !important;
+      background: v(--color-#{$variantColor}-200) !important;
+      border-color: v(--color-#{$variantColor}-200) !important;
+
+      .spinner, .icon {
+        --color: #{v(--color-white)} !important;
+      }
+    }
+  }
+}
+
+@mixin buttonLight($variantColor) {
+  .button {
+
+    color: v(--color-#{$variantColor}-700);
+
+    .spinner, .icon {
+      --color: #{v(--color-#{$variantColor}-700)};
+    }
+
+    background: v(--color-#{$variantColor}-50);
+    border-color: v(--color-#{$variantColor}-50);
+
+    &:hover {
+      background: v(--color-#{$variantColor}-100);
+      border-color: v(--color-#{$variantColor}-100);
+    }
+  }
+
+  &:host([active]), &:host([selected]) {
+    .button {
+      background: v(--color-#{$variantColor}-800);
+      border-color: v(--color-#{$variantColor}-800);
+      color: v('--color-white');
+
+      .spinner, .icon {
+        --color: #{v(--color-white)};
+      }
+    }
+  }
+
+  &:host([disabled]) {
+    .button {
+      cursor: not-allowed;
+      color: v(--color-white) !important;
+      background: v(--color-#{$variantColor}-200) !important;
+      border-color: v(--color-#{$variantColor}-200) !important;
+
+      .spinner, .icon {
+        --color: #{v(--color-white)} !important;
+      }
+    }
+  }
+}
+
+@mixin buttonOutline($variantColor) {
+  .button {
+    color: v(--color-#{$variantColor}-500);
+
+    .spinner, .icon {
+      --color: #{--color-#{$variantColor}-500};
+    }
+
+    background: transparent;
+    border-color: v(--color-#{$variantColor}-500);
+
+    &:hover {
+      color: v(--color-#{$variantColor}-600);
+      border-color: v(--color-#{$variantColor}-600);
+    }
+  }
+  &:host([active]) {
+    .button {
+      color: v(--color-#{$variantColor}-800);
+      background: v(--color-#{$variantColor}-50);
+      border-color: v(--color-#{$variantColor}-800);
+    }
+  }
+  &:host([selected]) {
+    .button {
+      color: v(--color-#{$variantColor}-900);
+      background: v(--color-#{$variantColor}-100);
+      border-color: v(--color-#{$variantColor}-900);
+      .spinner, .icon {
+        --color: #{--color-#{$variantColor}-900};
+      }
+    }
+  }
+  &:host([disabled]) {
+    .button {
+      cursor: not-allowed;
+      color: white !important;
+      background: v(--color-#{$variantColor}-200) !important;
+      border-color: v(--color-#{$variantColor}-400) !important;
+
+      .spinner, .icon {
+        --color: #{v(--color-#{$variantColor}-900)} !important;
+      }
+    }
+  }
+}
+
+@mixin buttonLink($variantColor) {
+  .button {
+    color: v(--color-#{$variantColor}-500);
+
+    .spinner, .icon {
+      --color: #{v(--color-#{$variantColor}-500)};
+    }
+
+    background: transparent;
+    border-color: transparent;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+  }
+
+  &:host([active]) {
+    .button {
+      background: v(--color-#{$variantColor}-700);
+      border-color: v(--color-#{$variantColor}-700);
+      color: v(--color-white);
+      .spinner, .icon {
+        --color: v(--color-white);
+      }
+    }
+  }
+
+  &:host([disabled]) {
+    .button {
+      cursor: not-allowed;
+      color: v(--color-grey-400) !important;
+      background: transparent !important;
+      border-color: transparent !important;
+      text-decoration: none !important;
+
+      .spinner, .icon {
+        --color: #{v(--color-grey-900)} !important;
+      }
+    }
+  }
+}
+
+@function removeBorder($width) {
+  @return calc(#{$width}rem - 0.0625rem);
+}

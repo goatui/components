@@ -1,6 +1,6 @@
 {
-  "name": "@p4rm/ui",
-  "version": "1.2.5",
+  "name": "@goatui/components",
+  "version": "0.1.0",
   "description": "P4RM UI",
   "license": "MIT",
   "main": "dist/index.cjs.js",
@@ -13,27 +13,28 @@
   ],
   "scripts": {
     "build": "stencil build --docs",
-    "start": "concurrently --kill-others \"npm run start:watch\" \"npm run start:docs-server\"",
-    "start:watch": "stencil build --dev --watch --serve --cors",
-    "start:docs-server": "cd docs && serve.cmd",
-    "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
     "release": "npm version patch",
-    "release-to-docs": "gulp releaseToDocs"
+    "release-to-docs": "gulp releaseToDocs",
+    "start": "concurrently --kill-others \"npm run start:watch\" \"npm run start:docs-server\"",
+    "start:docs-server": "cd docs && serve.cmd",
+    "start:watch": "stencil build --dev --watch --serve --cors",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll"
   },
   "devDependencies": {
-    "@stencil/core": "^2.8.0",
-    "@stencil/sass": "^1.4.1",
-    "bootstrap-icons": "^1.6.1",
-    "stencil-inline-svg": "^1.1.0",
+    "@stencil/core": "^2.14.0",
+    "@stencil/sass": "^1.5.2",
     "@types/node": "^16.9.6",
+
+    "bootstrap-icons": "^1.8.1",
     "concurrently": "^6.2.1",
     "glob": "^7.1.6",
     "gulp": "^4.0.2",
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "sass": "^1.42.1",
+    "stencil-inline-svg": "^1.1.0",
     "workbox-build": "^4.3.1"
   },
   "engines": {

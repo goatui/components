@@ -23,8 +23,8 @@ menu:
                               data-anchorjs-icon='#'></a></h2>
 
       <div class='card'>
-        <div class='card-header'>
-          <p4-table id='table' selection-type='checkbox' key-field='_id'></p4-table>
+        <div class='card-header' style='height: 25rem'>
+          <goat-table id='table' selection-type='checkbox' key-field='_id'></goat-table>
           <script>
             const $table = document.getElementById('table');
             // Columns
@@ -32,11 +32,11 @@ menu:
             {% include table-data.html %}
 
             // Events
-            $table.addEventListener('p4:table-cell-click', function(evt) {
+            $table.addEventListener('goat:table-cell-click', function(evt) {
              document.getElementById('record').innerText = JSON.stringify(evt.detail.record, null, 3);
               document.getElementById('column').innerText = evt.detail.column.label;
             });
-            $table.addEventListener('p4:table-select-change', function(evt) {
+            $table.addEventListener('goat:table-select-change', function(evt) {
              document.getElementById('selected-rows').innerText = JSON.stringify(evt.detail.value);
             });
           </script>
@@ -59,7 +59,7 @@ menu:
           <code class='language-html' data-lang='html'>&lt;link rel="stylesheet" href="{{site.themeCss}}"&gt;&lt;/link&gt;
 &lt;script type="module" src="{{site.script}}"&gt;&lt;/script&gt;
 
-&lt;p4-table id="table" selection-type="checkbox" key-field="_id">&lt;/p4-table></code>
+&lt;goat-table id="table" selection-type="checkbox" key-field="_id">&lt;/goat-table></code>
 &lt;script>
 const $table = document.getElementById('table');
 
@@ -121,12 +121,12 @@ $table.dataSource = [{
 }, ...];
 
 // Events
-$table.addEventListener('p4:table-cell-click', function(evt) {
+$table.addEventListener('goat:table-cell-click', function(evt) {
   console.log(evt.detail);
   document.getElementById('record').innerText = JSON.stringify(evt.detail.record, null, 3);
   document.getElementById('column').innerText = evt.detail.column.label;
 });
-$table.addEventListener('p4:table-select-change', function(evt) {
+$table.addEventListener('goat:table-select-change', function(evt) {
   console.log(evt.detail);
   document.getElementById('selected-rows').innerText = JSON.stringify(evt.detail.value);
 });

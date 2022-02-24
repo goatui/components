@@ -2,14 +2,18 @@
 
 Checkout the complete documentation over here -> https://ui.p4rm.com
 
-# P4RM UI
+# GOAT UI
 
-P4RM UI contains most used web components built using Stencil. So you don't need to include any additional framework dependencies, You can simple import required component js, and right away start using it.
+GOAT UI contains most used web components built using Stencil. So you don't need to include any additional framework
+dependencies, You can simply import required component js, and right away start using it.
+
 ## Getting Started
 
 ### Script tag
 
-- Put a script tag similar to this `<script type="module" src="https://unpkg.com/@p4rm/ui@1.0.3/dist/p4rm-ui/p4rm-ui.esm.js"></script>` in the head of your index.html
+- Put a script tag similar to
+  this `<script type="module" src="https://unpkg.com/@goatui/components@1.0.3/dist/p4rm-ui/p4rm-ui.esm.js"></script>` in the head
+  of your index.html
 - Include default font Roboto in the page
 - Then you can use the element anywhere in your template, JSX, html etc
 
@@ -17,19 +21,71 @@ P4RM UI contains most used web components built using Stencil. So you don't need
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width'>
   <title>P4RM Component</title>
 
-  <!-- include your custom theme variable values, view variable names at https://unpkg.com/@p4rm/ui@1.0.2/dist/p4rm-ui/styles/theme.css -->
+  <!-- include your custom theme variable values, view variable names at https://unpkg.com/@goatui/components@1.0.2/dist/p4rm-ui/styles/theme.css -->
   <!--link rel="stylesheet" href="/custom-theme.css"></link-->
-  <script type="module" src="https://unpkg.com/@p4rm/ui@1.2.5/dist/p4rm-ui/p4rm-ui.esm.js"></script>
+  <script type='module' src='https://unpkg.com/@goatui/components@1.2.5/dist/p4rm-ui/p4rm-ui.esm.js'></script>
 
 </head>
 <body>
 
-  <p4-button size="lg" variant="primary">Click me</p4-button>
+<p4-button size='lg' variant='primary'>Click me</p4-button>
 
 </body>
 </html>
 ```
+
+# Components
+
+- 🟢 ready (feature complete for now)
+- 🟡 beta (changes possible, not feature complete)
+- 🔴 not ready (unstyled / no functions)
+- 🔵 planned (created, but empty files)
+
+| Name                                                          | Component         | State |
+|---------------------------------------------------------------|-------------------|-------|
+| [Alert](https://ui.p4rm.com/component/alert.html)             | p4-alert          | 🟡    |
+| [Avatar](https://ui.p4rm.com/component/avatar.html)           | p4-avatar         | 🟢    |
+| [Button](https://ui.p4rm.com/component/button)                | p4-button         | 🟢    |
+| Card                                                          | p4-card           | 🔵    |
+| Card Select                                                   | p4-cardselect     | 🔵    |
+| [Checkbox](https://ui.p4rm.com/component/checkbox.html)       | p4-checkbox       | 🟡    |
+| Chip                                                          | p4-chip           | 🔵    |
+| [Code Editor](https://ui.p4rm.com/component/code-editor.html) | p4-card-editor    | 🟡    |
+| Column                                                        | p4-col            | 🔵    |
+| Color picker                                                  | p4-colorpicker    | 🔵    |
+| Date picker                                                   | p4-datepicker     | 🔵    |
+| Date Time picker                                              | p4-datetimepicker | 🔵    |
+| Dialog                                                        | p4-dialog         | 🔵    |
+| [Dropdown](https://ui.p4rm.com/component/p4-dropdown)         | p4-dropdown       | 🟡    |
+| Filepicker                                                    | p4-filepicker     | 🔵    |
+| Flow Designer                                                 | p4-flow-designer  | 🔵    |
+| Form                                                          | p4-form           | 🔵    |
+| Grid                                                          | p4-grid           | 🔵    |
+| Group                                                         | p4-group          | 🔵    |
+| [Icon](https://ui.p4rm.com/component/icon)                    | p4-icon           | 🟢    |
+| [Input](https://ui.p4rm.com/component/input)                  | p4-input          | 🟡    |
+| Modal                                                         | p4-modal          | 🔵    |
+| Menu                                                          | p4-menu           | 🔵    |
+| Month picker                                                  | p4-monthpicker    | 🔵    |
+| Notification                                                  | p4-notification   | 🔵    |
+| Observer                                                      | p4-observer       | 🔵    |
+| Pagination                                                    | p4-pagination     | 🔵    |
+| Radio Group                                                   | p4-radiogroup     | 🔵    |
+| Row                                                           | p4-row            | 🔵    |
+| [Select](https://ui.p4rm.com/component/select)                | p4-select         | 🟡    |
+| Slider                                                        | p4-slider         | 🔵    |
+| Spoiler                                                       | p4-spoiler        | 🔵    |
+| Stepper                                                       | p4-stepper        | 🔵    |
+| [Table](https://ui.p4rm.com/component/p4-table)               | p4-table          | 🟡    |
+| Table head                                                    | p4-tablehead      | 🔵    |
+| Table row                                                     | p4-tablerow       | 🔵    |
+| Tabs                                                          | p4-tabs           | 🔵    |
+| [Textarea](https://ui.p4rm.com/component/textarea)            | p4-textarea       | 🔵    |
+| Time picker                                                   | p4-timepicker     | 🔵    |
+| Toggle                                                        | p4-toggle         | 🔵    |
+| Tooltip                                                       | p4-tooltip        | 🔵    |
+| Week picker                                                   | p4-weekpicker     | 🔵    |

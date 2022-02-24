@@ -27,7 +27,20 @@
         <li class="duik-sidebar__item"><a class="duik-sidebar__link {% if page.root == true %}active{% endif %}"
                                           href="{% if page.root != true %}/{% endif %}#">About</a></li>
       </ul>
-      <h5 class="duik-sidebar__heading">Components</h5>
+
+      {% for group in site.groups %}
+      <h5 class="duik-sidebar__heading">{{group.name}}</h5>
+      <ul class="duik-sidebar__nav">
+        {% for component in group.components %}
+        <li class="duik-sidebar__item"><a
+          class="duik-sidebar__link {% if page.title == component.name %}active{% endif %}" href="{{component.link}}">{{component.name}}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endfor %}
+
+
+      <h5 class="duik-sidebar__heading">WIP Components</h5>
       <ul class="duik-sidebar__nav">
         {% for component in site.components %}
         <li class="duik-sidebar__item"><a

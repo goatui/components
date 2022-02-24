@@ -5,32 +5,36 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { ElementColor, ElementSize } from "./utils/utils";
 export namespace Components {
-    interface P4Alert {
+    interface GoatAlert {
         "description": string;
         "dismissible": boolean;
         "message": string;
         "state": 'success' | 'error' | 'info' | 'warning';
     }
-    interface P4Avatar {
+    interface GoatAvatar {
         "name": string;
-        "size": 'sm' | 'md' | 'lg';
+        /**
+          * Avatar size.
+         */
+        "size": string;
         "src": string;
     }
-    interface P4Button {
+    interface GoatButton {
         /**
           * If true, fits button width to its parent width. Defaults to `false`.
          */
         "block": boolean;
         /**
+          * Color variants.
+         */
+        "color": ElementColor;
+        /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
         "disabledReason": string;
-        /**
-          * If true, button styles are updated to work better on white background. Defaults to `false`.
-         */
-        "ghost": boolean;
         "href": string;
         /**
           * Icon which will displayed on button. Possible values are bootstrap icon names.
@@ -40,19 +44,23 @@ export namespace Components {
           * Icon position.
          */
         "iconEnd": boolean;
+        /**
+          * Button selection state.
+         */
+        "selected": boolean;
+        /**
+          * Show loader.
+         */
         "showLoader": boolean;
         /**
-          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`. Defaults to `"md"`.
          */
-        "size": 'sm' | 'md' | 'lg';
+        "size": ElementSize;
         "target": '_self' | '_blank';
         "triggerClick": () => Promise<void>;
-        /**
-          * Button variants. Possible values are `"primary"`, `"secondary"`, `"danger"`. Defaults to `"primary"`.
-         */
-        "variant": 'primary' | 'secondary' | 'danger';
+        "variant": 'default' | 'light' | 'outline' | 'link';
     }
-    interface P4Checkbox {
+    interface GoatCheckbox {
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -66,11 +74,11 @@ export namespace Components {
          */
         "required": boolean;
         /**
-          * Sets blur on the native `input` in `p4-input`. Use this method instead of the global `input.blur()`.
+          * Sets blur on the native `input` in `goat-input`. Use this method instead of the global `input.blur()`.
          */
         "setBlur": () => Promise<void>;
         /**
-          * Sets focus on the native `input` in `p4-input`. Use this method instead of the global `input.focus()`.
+          * Sets focus on the native `input` in `goat-input`. Use this method instead of the global `input.focus()`.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -82,7 +90,7 @@ export namespace Components {
          */
         "value": boolean;
     }
-    interface P4CodeEditor {
+    interface GoatCodeEditor {
         /**
           * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
          */
@@ -103,7 +111,7 @@ export namespace Components {
          */
         "value": string;
     }
-    interface P4Dropdown {
+    interface GoatDropdown {
         "data": any[];
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
@@ -121,21 +129,29 @@ export namespace Components {
          */
         "size": 'sm' | 'md' | 'lg';
     }
-    interface P4FieldGroup {
+    interface GoatFieldGroup {
     }
-    interface P4Heading {
+    interface GoatFlowDesigner {
+        "activities": any[];
+        "disabled": boolean;
+    }
+    interface GoatHeading {
         "size": 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
         "type": 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
         "weight": 'semi-bold' | 'bold' | 'extra-bold';
     }
-    interface P4Icon {
+    interface GoatIcon {
         /**
-          * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+          * Color variants. Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`. Defaults to `"primary"`.
          */
-        "size": 'sm' | 'md' | 'lg' | string;
+        "color": 'primary' | 'success' | 'warning' | 'error' | 'secondary' | 'default';
+        /**
+          * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
+         */
+        "size": ElementSize | string;
         "type": string;
     }
-    interface P4Input {
+    interface GoatInput {
         "actions": any[];
         /**
           * Indicates whether the value of the control can be automatically completed by the browser.
@@ -166,11 +182,11 @@ export namespace Components {
          */
         "required": boolean;
         /**
-          * Sets blur on the native `input` in `p4-input`. Use this method instead of the global `input.blur()`.
+          * Sets blur on the native `input` in `goat-input`. Use this method instead of the global `input.blur()`.
          */
         "setBlur": () => Promise<void>;
         /**
-          * Sets focus on the native `input` in `p4-input`. Use this method instead of the global `input.focus()`.
+          * Sets focus on the native `input` in `goat-input`. Use this method instead of the global `input.focus()`.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -186,10 +202,10 @@ export namespace Components {
          */
         "value"?: string | number | null;
     }
-    interface P4Label {
+    interface GoatLabel {
         "required": boolean;
     }
-    interface P4List {
+    interface GoatList {
         "data": any[];
         "emptyState": any;
         "enableSearch": boolean;
@@ -202,9 +218,9 @@ export namespace Components {
         "value"?: string | number;
         "variant": 'default' | 'group';
     }
-    interface P4Paragraph {
+    interface GoatParagraph {
     }
-    interface P4Select {
+    interface GoatSelect {
         "actions": any[];
         /**
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
@@ -249,13 +265,17 @@ export namespace Components {
          */
         "value"?: string | number;
     }
-    interface P4Spinner {
+    interface GoatSpinner {
         /**
-          * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+          * Color variants. Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`. Defaults to `"primary"`.
          */
-        "size": 'sm' | 'md' | 'lg' | string;
+        "color": 'primary' | 'success' | 'warning' | 'error' | 'secondary' | 'default';
+        /**
+          * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
+         */
+        "size": ElementSize | string;
     }
-    interface P4Table {
+    interface GoatTable {
         /**
           * Grid columns configuration. [ {   "name":"name",   "label":"Name",   "width":300,   "fixed":true  }, {   "name":"age",   "label":"Age" } ]
          */
@@ -268,10 +288,10 @@ export namespace Components {
         "selectedRowKeys": string[];
         "selectionType": 'checkbox' | undefined;
     }
-    interface P4Textarea {
+    interface GoatTextarea {
         "actions": any[];
         /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `p4:change` event after each keystroke.
+          * Set the amount of time, in milliseconds, to wait to trigger the `goat:change` event after each keystroke.
          */
         "debounce": number;
         /**
@@ -317,155 +337,165 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLP4AlertElement extends Components.P4Alert, HTMLStencilElement {
+    interface HTMLGoatAlertElement extends Components.GoatAlert, HTMLStencilElement {
     }
-    var HTMLP4AlertElement: {
-        prototype: HTMLP4AlertElement;
-        new (): HTMLP4AlertElement;
+    var HTMLGoatAlertElement: {
+        prototype: HTMLGoatAlertElement;
+        new (): HTMLGoatAlertElement;
     };
-    interface HTMLP4AvatarElement extends Components.P4Avatar, HTMLStencilElement {
+    interface HTMLGoatAvatarElement extends Components.GoatAvatar, HTMLStencilElement {
     }
-    var HTMLP4AvatarElement: {
-        prototype: HTMLP4AvatarElement;
-        new (): HTMLP4AvatarElement;
+    var HTMLGoatAvatarElement: {
+        prototype: HTMLGoatAvatarElement;
+        new (): HTMLGoatAvatarElement;
     };
-    interface HTMLP4ButtonElement extends Components.P4Button, HTMLStencilElement {
+    interface HTMLGoatButtonElement extends Components.GoatButton, HTMLStencilElement {
     }
-    var HTMLP4ButtonElement: {
-        prototype: HTMLP4ButtonElement;
-        new (): HTMLP4ButtonElement;
+    var HTMLGoatButtonElement: {
+        prototype: HTMLGoatButtonElement;
+        new (): HTMLGoatButtonElement;
     };
-    interface HTMLP4CheckboxElement extends Components.P4Checkbox, HTMLStencilElement {
+    interface HTMLGoatCheckboxElement extends Components.GoatCheckbox, HTMLStencilElement {
     }
-    var HTMLP4CheckboxElement: {
-        prototype: HTMLP4CheckboxElement;
-        new (): HTMLP4CheckboxElement;
+    var HTMLGoatCheckboxElement: {
+        prototype: HTMLGoatCheckboxElement;
+        new (): HTMLGoatCheckboxElement;
     };
-    interface HTMLP4CodeEditorElement extends Components.P4CodeEditor, HTMLStencilElement {
+    interface HTMLGoatCodeEditorElement extends Components.GoatCodeEditor, HTMLStencilElement {
     }
-    var HTMLP4CodeEditorElement: {
-        prototype: HTMLP4CodeEditorElement;
-        new (): HTMLP4CodeEditorElement;
+    var HTMLGoatCodeEditorElement: {
+        prototype: HTMLGoatCodeEditorElement;
+        new (): HTMLGoatCodeEditorElement;
     };
-    interface HTMLP4DropdownElement extends Components.P4Dropdown, HTMLStencilElement {
+    interface HTMLGoatDropdownElement extends Components.GoatDropdown, HTMLStencilElement {
     }
-    var HTMLP4DropdownElement: {
-        prototype: HTMLP4DropdownElement;
-        new (): HTMLP4DropdownElement;
+    var HTMLGoatDropdownElement: {
+        prototype: HTMLGoatDropdownElement;
+        new (): HTMLGoatDropdownElement;
     };
-    interface HTMLP4FieldGroupElement extends Components.P4FieldGroup, HTMLStencilElement {
+    interface HTMLGoatFieldGroupElement extends Components.GoatFieldGroup, HTMLStencilElement {
     }
-    var HTMLP4FieldGroupElement: {
-        prototype: HTMLP4FieldGroupElement;
-        new (): HTMLP4FieldGroupElement;
+    var HTMLGoatFieldGroupElement: {
+        prototype: HTMLGoatFieldGroupElement;
+        new (): HTMLGoatFieldGroupElement;
     };
-    interface HTMLP4HeadingElement extends Components.P4Heading, HTMLStencilElement {
+    interface HTMLGoatFlowDesignerElement extends Components.GoatFlowDesigner, HTMLStencilElement {
     }
-    var HTMLP4HeadingElement: {
-        prototype: HTMLP4HeadingElement;
-        new (): HTMLP4HeadingElement;
+    var HTMLGoatFlowDesignerElement: {
+        prototype: HTMLGoatFlowDesignerElement;
+        new (): HTMLGoatFlowDesignerElement;
     };
-    interface HTMLP4IconElement extends Components.P4Icon, HTMLStencilElement {
+    interface HTMLGoatHeadingElement extends Components.GoatHeading, HTMLStencilElement {
     }
-    var HTMLP4IconElement: {
-        prototype: HTMLP4IconElement;
-        new (): HTMLP4IconElement;
+    var HTMLGoatHeadingElement: {
+        prototype: HTMLGoatHeadingElement;
+        new (): HTMLGoatHeadingElement;
     };
-    interface HTMLP4InputElement extends Components.P4Input, HTMLStencilElement {
+    interface HTMLGoatIconElement extends Components.GoatIcon, HTMLStencilElement {
     }
-    var HTMLP4InputElement: {
-        prototype: HTMLP4InputElement;
-        new (): HTMLP4InputElement;
+    var HTMLGoatIconElement: {
+        prototype: HTMLGoatIconElement;
+        new (): HTMLGoatIconElement;
     };
-    interface HTMLP4LabelElement extends Components.P4Label, HTMLStencilElement {
+    interface HTMLGoatInputElement extends Components.GoatInput, HTMLStencilElement {
     }
-    var HTMLP4LabelElement: {
-        prototype: HTMLP4LabelElement;
-        new (): HTMLP4LabelElement;
+    var HTMLGoatInputElement: {
+        prototype: HTMLGoatInputElement;
+        new (): HTMLGoatInputElement;
     };
-    interface HTMLP4ListElement extends Components.P4List, HTMLStencilElement {
+    interface HTMLGoatLabelElement extends Components.GoatLabel, HTMLStencilElement {
     }
-    var HTMLP4ListElement: {
-        prototype: HTMLP4ListElement;
-        new (): HTMLP4ListElement;
+    var HTMLGoatLabelElement: {
+        prototype: HTMLGoatLabelElement;
+        new (): HTMLGoatLabelElement;
     };
-    interface HTMLP4ParagraphElement extends Components.P4Paragraph, HTMLStencilElement {
+    interface HTMLGoatListElement extends Components.GoatList, HTMLStencilElement {
     }
-    var HTMLP4ParagraphElement: {
-        prototype: HTMLP4ParagraphElement;
-        new (): HTMLP4ParagraphElement;
+    var HTMLGoatListElement: {
+        prototype: HTMLGoatListElement;
+        new (): HTMLGoatListElement;
     };
-    interface HTMLP4SelectElement extends Components.P4Select, HTMLStencilElement {
+    interface HTMLGoatParagraphElement extends Components.GoatParagraph, HTMLStencilElement {
     }
-    var HTMLP4SelectElement: {
-        prototype: HTMLP4SelectElement;
-        new (): HTMLP4SelectElement;
+    var HTMLGoatParagraphElement: {
+        prototype: HTMLGoatParagraphElement;
+        new (): HTMLGoatParagraphElement;
     };
-    interface HTMLP4SpinnerElement extends Components.P4Spinner, HTMLStencilElement {
+    interface HTMLGoatSelectElement extends Components.GoatSelect, HTMLStencilElement {
     }
-    var HTMLP4SpinnerElement: {
-        prototype: HTMLP4SpinnerElement;
-        new (): HTMLP4SpinnerElement;
+    var HTMLGoatSelectElement: {
+        prototype: HTMLGoatSelectElement;
+        new (): HTMLGoatSelectElement;
     };
-    interface HTMLP4TableElement extends Components.P4Table, HTMLStencilElement {
+    interface HTMLGoatSpinnerElement extends Components.GoatSpinner, HTMLStencilElement {
     }
-    var HTMLP4TableElement: {
-        prototype: HTMLP4TableElement;
-        new (): HTMLP4TableElement;
+    var HTMLGoatSpinnerElement: {
+        prototype: HTMLGoatSpinnerElement;
+        new (): HTMLGoatSpinnerElement;
     };
-    interface HTMLP4TextareaElement extends Components.P4Textarea, HTMLStencilElement {
+    interface HTMLGoatTableElement extends Components.GoatTable, HTMLStencilElement {
     }
-    var HTMLP4TextareaElement: {
-        prototype: HTMLP4TextareaElement;
-        new (): HTMLP4TextareaElement;
+    var HTMLGoatTableElement: {
+        prototype: HTMLGoatTableElement;
+        new (): HTMLGoatTableElement;
+    };
+    interface HTMLGoatTextareaElement extends Components.GoatTextarea, HTMLStencilElement {
+    }
+    var HTMLGoatTextareaElement: {
+        prototype: HTMLGoatTextareaElement;
+        new (): HTMLGoatTextareaElement;
     };
     interface HTMLElementTagNameMap {
-        "p4-alert": HTMLP4AlertElement;
-        "p4-avatar": HTMLP4AvatarElement;
-        "p4-button": HTMLP4ButtonElement;
-        "p4-checkbox": HTMLP4CheckboxElement;
-        "p4-code-editor": HTMLP4CodeEditorElement;
-        "p4-dropdown": HTMLP4DropdownElement;
-        "p4-field-group": HTMLP4FieldGroupElement;
-        "p4-heading": HTMLP4HeadingElement;
-        "p4-icon": HTMLP4IconElement;
-        "p4-input": HTMLP4InputElement;
-        "p4-label": HTMLP4LabelElement;
-        "p4-list": HTMLP4ListElement;
-        "p4-paragraph": HTMLP4ParagraphElement;
-        "p4-select": HTMLP4SelectElement;
-        "p4-spinner": HTMLP4SpinnerElement;
-        "p4-table": HTMLP4TableElement;
-        "p4-textarea": HTMLP4TextareaElement;
+        "goat-alert": HTMLGoatAlertElement;
+        "goat-avatar": HTMLGoatAvatarElement;
+        "goat-button": HTMLGoatButtonElement;
+        "goat-checkbox": HTMLGoatCheckboxElement;
+        "goat-code-editor": HTMLGoatCodeEditorElement;
+        "goat-dropdown": HTMLGoatDropdownElement;
+        "goat-field-group": HTMLGoatFieldGroupElement;
+        "goat-flow-designer": HTMLGoatFlowDesignerElement;
+        "goat-heading": HTMLGoatHeadingElement;
+        "goat-icon": HTMLGoatIconElement;
+        "goat-input": HTMLGoatInputElement;
+        "goat-label": HTMLGoatLabelElement;
+        "goat-list": HTMLGoatListElement;
+        "goat-paragraph": HTMLGoatParagraphElement;
+        "goat-select": HTMLGoatSelectElement;
+        "goat-spinner": HTMLGoatSpinnerElement;
+        "goat-table": HTMLGoatTableElement;
+        "goat-textarea": HTMLGoatTextareaElement;
     }
 }
 declare namespace LocalJSX {
-    interface P4Alert {
+    interface GoatAlert {
         "description"?: string;
         "dismissible"?: boolean;
         "message"?: string;
-        "onP4:dismiss"?: (event: CustomEvent<any>) => void;
+        "onGoat:dismiss"?: (event: CustomEvent<any>) => void;
         "state"?: 'success' | 'error' | 'info' | 'warning';
     }
-    interface P4Avatar {
+    interface GoatAvatar {
         "name"?: string;
-        "size"?: 'sm' | 'md' | 'lg';
+        /**
+          * Avatar size.
+         */
+        "size"?: string;
         "src"?: string;
     }
-    interface P4Button {
+    interface GoatButton {
         /**
           * If true, fits button width to its parent width. Defaults to `false`.
          */
         "block"?: boolean;
         /**
+          * Color variants.
+         */
+        "color"?: ElementColor;
+        /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
         "disabledReason"?: string;
-        /**
-          * If true, button styles are updated to work better on white background. Defaults to `false`.
-         */
-        "ghost"?: boolean;
         "href"?: string;
         /**
           * Icon which will displayed on button. Possible values are bootstrap icon names.
@@ -476,21 +506,25 @@ declare namespace LocalJSX {
          */
         "iconEnd"?: boolean;
         /**
-          * On click of button, a CustomEvent 'p4:click' will be triggered.
+          * On click of button, a CustomEvent 'goat:click' will be triggered.
          */
-        "onP4:click"?: (event: CustomEvent<any>) => void;
+        "onGoat:click"?: (event: CustomEvent<any>) => void;
+        /**
+          * Button selection state.
+         */
+        "selected"?: boolean;
+        /**
+          * Show loader.
+         */
         "showLoader"?: boolean;
         /**
-          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`. Defaults to `"md"`.
          */
-        "size"?: 'sm' | 'md' | 'lg';
+        "size"?: ElementSize;
         "target"?: '_self' | '_blank';
-        /**
-          * Button variants. Possible values are `"primary"`, `"secondary"`, `"danger"`. Defaults to `"primary"`.
-         */
-        "variant"?: 'primary' | 'secondary' | 'danger';
+        "variant"?: 'default' | 'light' | 'outline' | 'link';
     }
-    interface P4Checkbox {
+    interface GoatCheckbox {
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -502,15 +536,15 @@ declare namespace LocalJSX {
         /**
           * Emitted when the input loses focus.
          */
-        "onP4:blur"?: (event: CustomEvent<any>) => void;
+        "onGoat:blur"?: (event: CustomEvent<any>) => void;
         /**
-          * On change of input a CustomEvent 'p4:change' will be triggered. Event details contains parent event, oldValue, newValue of input.
+          * On change of input a CustomEvent 'goat:change' will be triggered. Event details contains parent event, oldValue, newValue of input.
          */
-        "onP4:change"?: (event: CustomEvent<any>) => void;
+        "onGoat:change"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the input has focus.
          */
-        "onP4:focus"?: (event: CustomEvent<any>) => void;
+        "onGoat:focus"?: (event: CustomEvent<any>) => void;
         /**
           * If true, required icon is show. Defaults to `false`.
          */
@@ -524,7 +558,7 @@ declare namespace LocalJSX {
          */
         "value"?: boolean;
     }
-    interface P4CodeEditor {
+    interface GoatCodeEditor {
         /**
           * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
          */
@@ -542,14 +576,14 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value has changed..
          */
-        "onP4:change"?: (event: CustomEvent<any>) => void;
+        "onGoat:change"?: (event: CustomEvent<any>) => void;
         "theme"?: 'vs-light' | 'vs-dark';
         /**
           * The input field value.
          */
         "value"?: string;
     }
-    interface P4Dropdown {
+    interface GoatDropdown {
         "data"?: any[];
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
@@ -562,7 +596,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the item is clicked.
          */
-        "onP4:dropdown-item-click"?: (event: CustomEvent<any>) => void;
+        "onGoat:dropdown-item-click"?: (event: CustomEvent<any>) => void;
         "position"?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
         "showLoader"?: boolean;
         /**
@@ -570,21 +604,29 @@ declare namespace LocalJSX {
          */
         "size"?: 'sm' | 'md' | 'lg';
     }
-    interface P4FieldGroup {
+    interface GoatFieldGroup {
     }
-    interface P4Heading {
+    interface GoatFlowDesigner {
+        "activities"?: any[];
+        "disabled"?: boolean;
+    }
+    interface GoatHeading {
         "size"?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
         "type"?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
         "weight"?: 'semi-bold' | 'bold' | 'extra-bold';
     }
-    interface P4Icon {
+    interface GoatIcon {
         /**
-          * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+          * Color variants. Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`. Defaults to `"primary"`.
          */
-        "size"?: 'sm' | 'md' | 'lg' | string;
+        "color"?: 'primary' | 'success' | 'warning' | 'error' | 'secondary' | 'default';
+        /**
+          * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
+         */
+        "size"?: ElementSize | string;
         "type"?: string;
     }
-    interface P4Input {
+    interface GoatInput {
         "actions"?: any[];
         /**
           * Indicates whether the value of the control can be automatically completed by the browser.
@@ -609,23 +651,23 @@ declare namespace LocalJSX {
         /**
           * Emitted when the action button is clicked.
          */
-        "onP4:action-click"?: (event: CustomEvent<any>) => void;
+        "onGoat:action-click"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the input loses focus.
          */
-        "onP4:blur"?: (event: CustomEvent<any>) => void;
+        "onGoat:blur"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the value has changed.
          */
-        "onP4:change"?: (event: CustomEvent<any>) => void;
+        "onGoat:change"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the input has focus.
          */
-        "onP4:focus"?: (event: CustomEvent<any>) => void;
+        "onGoat:focus"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onP4:input"?: (event: CustomEvent<any>) => void;
+        "onGoat:input"?: (event: CustomEvent<any>) => void;
         /**
           * The input field placeholder.
          */
@@ -647,10 +689,10 @@ declare namespace LocalJSX {
          */
         "value"?: string | number | null;
     }
-    interface P4Label {
+    interface GoatLabel {
         "required"?: boolean;
     }
-    interface P4List {
+    interface GoatList {
         "data"?: any[];
         "emptyState"?: any;
         "enableSearch"?: boolean;
@@ -658,14 +700,14 @@ declare namespace LocalJSX {
         /**
           * Emitted when the item is clicked.
          */
-        "onP4:item-click"?: (event: CustomEvent<any>) => void;
+        "onGoat:item-click"?: (event: CustomEvent<any>) => void;
         "showLoader"?: boolean;
         "value"?: string | number;
         "variant"?: 'default' | 'group';
     }
-    interface P4Paragraph {
+    interface GoatParagraph {
     }
-    interface P4Select {
+    interface GoatSelect {
         "actions"?: any[];
         /**
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
@@ -686,15 +728,15 @@ declare namespace LocalJSX {
         /**
           * Emitted when the action button is clicked..
          */
-        "onP4:action-click"?: (event: CustomEvent<any>) => void;
+        "onGoat:action-click"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the value has changed..
          */
-        "onP4:change"?: (event: CustomEvent<any>) => void;
+        "onGoat:change"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onP4:input"?: (event: CustomEvent<any>) => void;
+        "onGoat:input"?: (event: CustomEvent<any>) => void;
         /**
           * The input field placeholder.
          */
@@ -718,13 +760,17 @@ declare namespace LocalJSX {
          */
         "value"?: string | number;
     }
-    interface P4Spinner {
+    interface GoatSpinner {
         /**
-          * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+          * Color variants. Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`. Defaults to `"primary"`.
          */
-        "size"?: 'sm' | 'md' | 'lg' | string;
+        "color"?: 'primary' | 'success' | 'warning' | 'error' | 'secondary' | 'default';
+        /**
+          * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
+         */
+        "size"?: ElementSize | string;
     }
-    interface P4Table {
+    interface GoatTable {
         /**
           * Grid columns configuration. [ {   "name":"name",   "label":"Name",   "width":300,   "fixed":true  }, {   "name":"age",   "label":"Age" } ]
          */
@@ -734,15 +780,15 @@ declare namespace LocalJSX {
          */
         "dataSource"?: any[];
         "keyField"?: string;
-        "onP4:table-cell-click"?: (event: CustomEvent<any>) => void;
-        "onP4:table-select-change"?: (event: CustomEvent<any>) => void;
+        "onGoat:table-cell-click"?: (event: CustomEvent<any>) => void;
+        "onGoat:table-select-change"?: (event: CustomEvent<any>) => void;
         "selectedRowKeys"?: string[];
         "selectionType"?: 'checkbox' | undefined;
     }
-    interface P4Textarea {
+    interface GoatTextarea {
         "actions"?: any[];
         /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `p4:change` event after each keystroke.
+          * Set the amount of time, in milliseconds, to wait to trigger the `goat:change` event after each keystroke.
          */
         "debounce"?: number;
         /**
@@ -760,23 +806,23 @@ declare namespace LocalJSX {
         /**
           * Emitted when the action button is clicked.
          */
-        "onP4:action-click"?: (event: CustomEvent<any>) => void;
+        "onGoat:action-click"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the input loses focus.
          */
-        "onP4:blur"?: (event: CustomEvent<any>) => void;
+        "onGoat:blur"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the value has changed..
          */
-        "onP4:change"?: (event: CustomEvent<any>) => void;
+        "onGoat:change"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the input has focus.
          */
-        "onP4:focus"?: (event: CustomEvent<any>) => void;
+        "onGoat:focus"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onP4:input"?: (event: CustomEvent<any>) => void;
+        "onGoat:input"?: (event: CustomEvent<any>) => void;
         /**
           * The input field placeholder.
          */
@@ -799,46 +845,48 @@ declare namespace LocalJSX {
         "variant"?: 'default' | 'dashed';
     }
     interface IntrinsicElements {
-        "p4-alert": P4Alert;
-        "p4-avatar": P4Avatar;
-        "p4-button": P4Button;
-        "p4-checkbox": P4Checkbox;
-        "p4-code-editor": P4CodeEditor;
-        "p4-dropdown": P4Dropdown;
-        "p4-field-group": P4FieldGroup;
-        "p4-heading": P4Heading;
-        "p4-icon": P4Icon;
-        "p4-input": P4Input;
-        "p4-label": P4Label;
-        "p4-list": P4List;
-        "p4-paragraph": P4Paragraph;
-        "p4-select": P4Select;
-        "p4-spinner": P4Spinner;
-        "p4-table": P4Table;
-        "p4-textarea": P4Textarea;
+        "goat-alert": GoatAlert;
+        "goat-avatar": GoatAvatar;
+        "goat-button": GoatButton;
+        "goat-checkbox": GoatCheckbox;
+        "goat-code-editor": GoatCodeEditor;
+        "goat-dropdown": GoatDropdown;
+        "goat-field-group": GoatFieldGroup;
+        "goat-flow-designer": GoatFlowDesigner;
+        "goat-heading": GoatHeading;
+        "goat-icon": GoatIcon;
+        "goat-input": GoatInput;
+        "goat-label": GoatLabel;
+        "goat-list": GoatList;
+        "goat-paragraph": GoatParagraph;
+        "goat-select": GoatSelect;
+        "goat-spinner": GoatSpinner;
+        "goat-table": GoatTable;
+        "goat-textarea": GoatTextarea;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "p4-alert": LocalJSX.P4Alert & JSXBase.HTMLAttributes<HTMLP4AlertElement>;
-            "p4-avatar": LocalJSX.P4Avatar & JSXBase.HTMLAttributes<HTMLP4AvatarElement>;
-            "p4-button": LocalJSX.P4Button & JSXBase.HTMLAttributes<HTMLP4ButtonElement>;
-            "p4-checkbox": LocalJSX.P4Checkbox & JSXBase.HTMLAttributes<HTMLP4CheckboxElement>;
-            "p4-code-editor": LocalJSX.P4CodeEditor & JSXBase.HTMLAttributes<HTMLP4CodeEditorElement>;
-            "p4-dropdown": LocalJSX.P4Dropdown & JSXBase.HTMLAttributes<HTMLP4DropdownElement>;
-            "p4-field-group": LocalJSX.P4FieldGroup & JSXBase.HTMLAttributes<HTMLP4FieldGroupElement>;
-            "p4-heading": LocalJSX.P4Heading & JSXBase.HTMLAttributes<HTMLP4HeadingElement>;
-            "p4-icon": LocalJSX.P4Icon & JSXBase.HTMLAttributes<HTMLP4IconElement>;
-            "p4-input": LocalJSX.P4Input & JSXBase.HTMLAttributes<HTMLP4InputElement>;
-            "p4-label": LocalJSX.P4Label & JSXBase.HTMLAttributes<HTMLP4LabelElement>;
-            "p4-list": LocalJSX.P4List & JSXBase.HTMLAttributes<HTMLP4ListElement>;
-            "p4-paragraph": LocalJSX.P4Paragraph & JSXBase.HTMLAttributes<HTMLP4ParagraphElement>;
-            "p4-select": LocalJSX.P4Select & JSXBase.HTMLAttributes<HTMLP4SelectElement>;
-            "p4-spinner": LocalJSX.P4Spinner & JSXBase.HTMLAttributes<HTMLP4SpinnerElement>;
-            "p4-table": LocalJSX.P4Table & JSXBase.HTMLAttributes<HTMLP4TableElement>;
-            "p4-textarea": LocalJSX.P4Textarea & JSXBase.HTMLAttributes<HTMLP4TextareaElement>;
+            "goat-alert": LocalJSX.GoatAlert & JSXBase.HTMLAttributes<HTMLGoatAlertElement>;
+            "goat-avatar": LocalJSX.GoatAvatar & JSXBase.HTMLAttributes<HTMLGoatAvatarElement>;
+            "goat-button": LocalJSX.GoatButton & JSXBase.HTMLAttributes<HTMLGoatButtonElement>;
+            "goat-checkbox": LocalJSX.GoatCheckbox & JSXBase.HTMLAttributes<HTMLGoatCheckboxElement>;
+            "goat-code-editor": LocalJSX.GoatCodeEditor & JSXBase.HTMLAttributes<HTMLGoatCodeEditorElement>;
+            "goat-dropdown": LocalJSX.GoatDropdown & JSXBase.HTMLAttributes<HTMLGoatDropdownElement>;
+            "goat-field-group": LocalJSX.GoatFieldGroup & JSXBase.HTMLAttributes<HTMLGoatFieldGroupElement>;
+            "goat-flow-designer": LocalJSX.GoatFlowDesigner & JSXBase.HTMLAttributes<HTMLGoatFlowDesignerElement>;
+            "goat-heading": LocalJSX.GoatHeading & JSXBase.HTMLAttributes<HTMLGoatHeadingElement>;
+            "goat-icon": LocalJSX.GoatIcon & JSXBase.HTMLAttributes<HTMLGoatIconElement>;
+            "goat-input": LocalJSX.GoatInput & JSXBase.HTMLAttributes<HTMLGoatInputElement>;
+            "goat-label": LocalJSX.GoatLabel & JSXBase.HTMLAttributes<HTMLGoatLabelElement>;
+            "goat-list": LocalJSX.GoatList & JSXBase.HTMLAttributes<HTMLGoatListElement>;
+            "goat-paragraph": LocalJSX.GoatParagraph & JSXBase.HTMLAttributes<HTMLGoatParagraphElement>;
+            "goat-select": LocalJSX.GoatSelect & JSXBase.HTMLAttributes<HTMLGoatSelectElement>;
+            "goat-spinner": LocalJSX.GoatSpinner & JSXBase.HTMLAttributes<HTMLGoatSpinnerElement>;
+            "goat-table": LocalJSX.GoatTable & JSXBase.HTMLAttributes<HTMLGoatTableElement>;
+            "goat-textarea": LocalJSX.GoatTextarea & JSXBase.HTMLAttributes<HTMLGoatTextareaElement>;
         }
     }
 }

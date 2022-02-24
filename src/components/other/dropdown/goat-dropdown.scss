@@ -1,0 +1,82 @@
+@import "../../../styles/scss/commons";
+
+:host {
+  display: inline-block;
+  --dropdown-max-height: inherit;
+}
+
+.dropdown {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: v(border-radius);
+
+  .dropdown-button {
+    border: none;
+    background: none;
+    height: 100%;
+    width: 100%;
+  }
+
+  .dropdown-result {
+    z-index: v(z-index-dropdown-content);
+    position: absolute;
+    width: max-content;
+    line-height: 0;
+    transform: scale(0);
+    transition: transform 0.1s ease-out 0s;
+    .dropdown-list {
+      --list-max-height: var(--dropdown-max-height);
+    }
+  }
+
+  &.is-open {
+    .dropdown-result {
+      transform: scale(1);
+    }
+  }
+
+  slot::slotted(*) {
+    @include font-variant(p1);
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    color: v(color-neutral-400);
+
+    goat-icon {
+      --color: #{v(color-neutral-400)};
+    }
+  }
+
+  &.bottom-left .dropdown-result {
+    top: calc(100% + #{v(space-1)});
+    left: 0;
+    transform-origin: left top;
+  }
+
+  &.bottom-right .dropdown-result {
+    top: calc(100% + #{v(space-1)});
+    right: 0;
+    transform-origin: right top;
+  }
+
+  &.top-left .dropdown-result {
+    bottom: calc(100% + #{v(space-1)});
+    left: 0;
+    transform-origin: left bottom;
+  }
+
+  &.top-right .dropdown-result {
+    bottom: calc(100% + #{v(space-1)});
+    right: 0;
+    transform-origin: right bottom;
+  }
+
+}
+
+:host([focused]) {
+  .dropdown {
+    .dropdown-button {
+      @include focus-ring;
+    }
+  }
+}

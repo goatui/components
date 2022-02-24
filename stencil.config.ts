@@ -3,7 +3,8 @@ import { sass } from '@stencil/sass';
 import { inlineSvg } from 'stencil-inline-svg';
 
 export const config: Config = {
-  namespace: 'p4rm-ui',
+  namespace: 'goatui',
+  sourceMap: true,
   outputTargets: [
     {
       type: 'dist',
@@ -21,10 +22,9 @@ export const config: Config = {
     },
     {
       type: 'www',
-      dir: 'docs/assets/p4-ui-dev/',
+      dir: 'docs/assets/dev-build/',
       serviceWorker: null, // disable service workers
       copy: [
-        { src: 'demo', dest: 'demo' },
         { src: 'styles', dest: 'styles' },
       ],
     },

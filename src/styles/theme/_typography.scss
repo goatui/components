@@ -1,48 +1,22 @@
+$font-family-base: 'Inter', sans-serif;
+$font-weights: (
+  regular: normal,
+  medium: 500,
+  semi-bold: 600,
+  bold: 700,
+);
 
 $typography: (
-  /* Font families. */
-  font-family: ("Inter", sans-serif),
-
-  /* Paragraph styles */
-  font-family-paragraph: ("Inter", sans-serif),
-
-  font-weight-regular: normal,
-  font-weight-semi-bold: 600,
-  font-weight-bold: bold,
-  font-weight-extra-bold: 800,
-
-  font-size-caption: 0.75rem,
-  line-height-caption: 1.125rem,
-
-  font-size-p1: 0.875rem,
-  line-height-p1: 1.0625rem,
-
-  font-size-p2: 1rem,
-  line-height-p2: 1.5rem,
-
-  font-size-p3: 1.125rem,
-  line-height-p3: 1.375rem,
-
-  font-size-subheading: 1.25rem,
-  line-height-subheading: 1.75rem,
-
-  font-size-h1: 3rem,
-  line-height-h1: 3.5rem,
-
-  font-size-h2: 2.4375rem,
-  line-height-h2: 2.9375rem,
-
-  font-size-h3: 2.0625rem,
-  line-height-h3: 2.5rem,
-
-  font-size-h4: 1.75rem,
-  line-height-h4: 2.125rem,
-
-  font-size-h5: 1.4375rem,
-  line-height-h5: 1.75rem,
-
-  font-size-h6: 1.1875rem,
-  line-height-h6: 1.4375rem,
-)
+  text-xs: [0.75, 1.125, 0], // font-size, line-height, letter-spacing
+  text-sm: [0.875, 1.25, 0],
+  text-md: [1, 1.5, 0],
+  text-lg: [1.125, 1.75, 0],
+  text-xl: [1.25, 1.875, 0],
+  display-xs: [1.5, 2, 0],
+  display-sm: [1.875, 2.375, 0],
+  display-md: [1, 1.5, 0],
+  display-lg: [1.125, 1.75, -0.02],
+  display-xl: [1.25, 1.875, -0.02],
+);
 
 

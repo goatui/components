@@ -1,0 +1,28 @@
+@import "../../../styles/scss/commons";
+
+:host {
+  display: inline-block;
+  --color:  #{v(--color-grey-900)};
+  color: var(--color);
+}
+
+.icon {
+  line-height: 0;
+}
+
+:host([color="primary"]) .icon {
+  color: v(--color-primary-500);
+}
+
+:host([color="success"]) .icon {
+  color: v(--color-success-500);
+}
+
+:host([color="warning"]) .icon {
+  color: v(--color-warning-500);
+}
+
+:host([color="error"]) .icon {
+  color: v(--color-error-500);
+}
+

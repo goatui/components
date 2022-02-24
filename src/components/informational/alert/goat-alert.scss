@@ -1,0 +1,85 @@
+@import "../../../styles/scss/commons";
+
+:host {
+  display: block;
+  margin-bottom: v(--space-3);
+}
+
+.alert {
+  border-radius: v(--border-radius);
+  display: flex;
+  padding: 0.625rem 1.125rem;
+
+  .content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+
+    .message {
+      @include font-style(text-md);
+    }
+
+    .description {
+      color: v(--color-grey-600);
+      @include font-style(text-sm);
+    }
+  }
+
+  .close-btn {
+    margin: 0;
+  }
+}
+
+:host([state="info"]) {
+  .alert {
+    background-color: v(--color-primary-50);
+
+    .content {
+      .message {
+        color: v(--color-primary-600);
+      }
+    }
+  }
+}
+
+:host([state="success"]) {
+  .alert {
+    background-color: v(--color-success-50);
+
+    .content {
+      .message {
+        color: v(--color-success-600);
+      }
+    }
+  }
+}
+
+:host([state="warning"]) {
+  .alert {
+    background-color: v(--color-warning-50);
+
+    .content {
+      .message {
+        color: v(--color-warning-600);
+      }
+    }
+  }
+}
+
+
+:host([state="error"]) {
+  .alert {
+    background-color: v(--color-error-50);
+
+    .content {
+      .message {
+        color: v(--color-error-600);
+      }
+    }
+  }
+}
+
+:host([hidden]) {
+  display: none;
+}

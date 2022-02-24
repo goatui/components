@@ -26,9 +26,9 @@ menu:
       <h4 class='h5'>Simple</h4>
       <div class='card'>
         <div class='card-header'>
-          <p4-dropdown id='dropdown' item-variant='icon'>
+          <goat-dropdown id='dropdown' item-variant='icon'>
             File
-          </p4-dropdown>
+          </goat-dropdown>
 
           <script>
             const $dropDown = document.getElementById('dropdown');
@@ -60,7 +60,7 @@ menu:
                 'icon': 'box-arrow-right',
               },
             ];
-            $dropDown.addEventListener('p4:dropdown-item-click', function(evt) {
+            $dropDown.addEventListener('goat:dropdown-item-click', function(evt) {
               myConsole.log(`<pre>${JSON.stringify(evt.detail, null, 4)}</pre>`);
             });
           </script>
@@ -68,9 +68,9 @@ menu:
         <div class='card-body'>
     <pre><code class='language-html' data-lang='html'>&lt;script type="module" src="{{site.script}}"&gt;&lt;/script&gt;
 
-&lt;p4-dropdown id='dropdown' item-variant='icon'>
+&lt;goat-dropdown id='dropdown' item-variant='icon'>
    File
-&lt;/p4-dropdown>
+&lt;/goat-dropdown>
 
 &lt;script>
 const $dropDown = document.getElementById('dropdown');
@@ -102,7 +102,7 @@ $dropDown.data = [
     'icon': 'file-earmark-person',
   },
 ];
-$dropDown.addEventListener('p4:dropdown-item-click', function(evt) {
+$dropDown.addEventListener('goat:dropdown-item-click', function(evt) {
   console.log(`<pre>${JSON.stringify(evt.detail, null, 4)}</pre>`);
 });
 &lt;/script></code></pre>

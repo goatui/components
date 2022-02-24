@@ -18,20 +18,19 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-company: P4RM
-company_url: "https://p4rm.com"
-title: P4RM UI
-email: admin@p4rm.com
-description: P4RM UI contains design system and most used web components built using Stencil. So you don't need to include any additional framework dependencies, You can simple import required component js, and right away start using it.
-tagline: P4RM UI contains design system and most used web components.
+company: GOATUI
+title: GOAT UI
+email: contact@shivajivarma.com
+description: GOAT UI contains design system and most used web components built using Stencil. So you don't need to include any additional framework dependencies, You can simple import required component js, and right away start using it.
+tagline: GOAT UI contains design system and most used web components.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://ui.p4rm.com" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: P4rmInc
-github_username: p4rm
-github_project: ui
-npm_package: '@p4rm/ui'
-script: 'https://unpkg.com/@p4rm/ui@1.2.5/dist/p4rm-ui/p4rm-ui.esm.js'
-themeCss: 'https://unpkg.com/@p4rm/ui@1.2.5/dist/p4rm-ui/styles/theme.css'
+url: "https://goatui.com" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: shivajivarma
+github_username: goatui
+github_project: components
+npm_package: '@goatui/components'
+script: 'https://unpkg.com/@goatui/components@0.1.0/dist/p4rm-ui/p4rm-ui.esm.js'
+themeCss: 'https://unpkg.com/@goatui/components@0.1.0/dist/p4rm-ui/styles/theme.css'
 
 include:
   - .well-known
@@ -69,31 +68,52 @@ assets:
     css: { autoprefixer: { } }
     img: { optim: { } }
 
+groups:
+  - name: "Input Controls"
+    components:
+      - name: Button
+        link: /component/button
+        example: <goat-button>Button</goat-button>
+      - name: Checkbox
+        link: /component/checkbox
+        example: <goat-checkbox></goat-checkbox>
+
+  - name: "Informational"
+    components:
+      - name: Alert
+        link: /component/alert
+        example: |
+            <goat-alert color="success">
+              <div slot='message'>Successful</div>
+            </goat-alert>
+      - name: Spinner
+        link: /component/spinner
+        example: <goat-spinner></goat-spinner>
+
+  - name: "Content"
+    components:
+      - name: Avatar
+        link: /component/avatar
+        example: <goat-avatar name="Shivaji Varma"></goat-alert>
+      - name: Icon
+        link: /component/icon
+        example: <goat-icon type="alarm"></goat-icon>
+
 components:
-  - name: Alert
-    link: /component/alert.html
-    example: <p4-alert message="Saved Successfully" state="success"></p4-alert>
-  - name: Avatar
-    link: /component/avatar.html
-    example: <p4-avatar name="Shivaji Varma"></p4-alert>
-  - name: Button
-    link: /component/button.html
-    example: <p4-button>Button</p4-button>
-  - name: Checkbox
-    link: /component/checkbox.html
-    example: <p4-checkbox></p4-checkbox>
+
   - name: Dropdown
     link: /component/dropdown.html
     img: /assets/img/dropdown.png
+  - name: Flow Designer
+    link: /component/flow-designer.html
+    img: /assets/img/image-not-found.png
   - name: Heading
     link: /component/heading.html
-    example: <p4-heading>Name</p4-heading>
-  - name: Icon
-    link: /component/icon.html
-    example: <p4-icon type="alarm"></p4-icon>
+    example: <goat-heading>Name</goat-heading>
+
   - name: Input
     link: /component/input.html
-    example: <p4-field-group><p4-label>Name</p4-label><p4-input type="text" placeholder="Enter you name here"></p4-input></p4-field-group>
+    example: <goat-field-group><goat-label>Name</goat-label><goat-input type="text" placeholder="Enter you name here"></goat-input></goat-field-group>
   - name: List
     link: /component/list.html
     img: /assets/img/list.png
@@ -103,15 +123,13 @@ components:
   - name: Select
     link: /component/select.html
     img: /assets/img/select.png
-  - name: Spinner
-    link: /component/spinner.html
-    example: <p4-spinner></p4-spinner>
+
   - name: Table
     link: /component/table.html
     img: /assets/img/table.png
   - name: Textarea
     link: /component/textarea.html
-    example: <p4-field-group><p4-label>Description</p4-label><p4-textarea></p4-textarea></p4-field-group>
+    example: <goat-field-group><goat-label>Description</goat-label><goat-textarea></goat-textarea></goat-field-group>
 
 
 # Exclude from processing.

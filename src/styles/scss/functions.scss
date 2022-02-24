@@ -1,14 +1,62 @@
 @use "sass:map";
+@use "sass:list";
 @import '../theme/color';
 @import '../theme/shadow';
 @import '../theme/spacing';
 @import '../theme/typography';
 @import '../theme/others';
 
+$css-variables: ();
+$css-variables: map-merge($css-variables, ("--font-family-base": $font-family-base));
+$css-variables: map-merge($css-variables, ("--color-white": $color-white));
+$css-variables: map-merge($css-variables, ("--color-black": $color-black));
+
+@each $key, $value in $font-weights {
+  $map: ();
+  $map: map-merge($map, ("--font-weight-"+$key: $value));
+  $css-variables: map-merge($css-variables, $map);
+}
+
+@each $key, $value in $typography {
+  $map: ();
+  $map: map-merge($map, ("--"+$key+"-font-size": #{list.nth($value,1)}rem));
+  $map: map-merge($map, ("--"+$key+"-line-height": #{list.nth($value,2)}rem));
+  $map: map-merge($map, ("--"+$key+"-letter-spacing": #{list.nth($value,3)}rem));
+  $css-variables: map-merge($css-variables, $map);
+}
+
+@each $key, $value in $space {
+  $map: ();
+  $map: map-merge($map, ("--space-"+$key: #{$value}rem));
+  $css-variables: map-merge($css-variables, $map);
+}
+
+@each $key, $value in $container-space {
+  $map: ();
+  $map: map-merge($map, ("--container-space"+$key: $value));
+  $css-variables: map-merge($css-variables, $map);
+}
+
+@each $colorName, $colorMap in $colors {
+  @each $weight, $value in $colorMap {
+    $map: ();
+    $map: map-merge($map, ("--color-"+$colorName+"-"+$weight: $value));
+    $css-variables: map-merge($css-variables, $map);
+  }
+}
+
+@each $key, $value in $shadows {
+  $map: ();
+  $map: map-merge($map, ("--shadow"+$key: $value));
+  $css-variables: map-merge($css-variables, $map);
+}
+
+@each $key, $value in $others {
+  $map: ();
+  $map: map-merge($map, ("--"+$key: $value));
+  $css-variables: map-merge($css-variables, $map);
+}
+
 @function v($name) {
-  $cssVars: map.merge($spacing, $shadows);
-  $cssVars: map.merge($cssVars, $others);
-  $cssVars: map.merge($cssVars, $typography);
-  $cssVars: map.merge($cssVars, $colors);
-  @return var(--#{$name}, map.get($cssVars, $name));
+  @return var(#{$name}, map.get($css-variables, $name));
 }

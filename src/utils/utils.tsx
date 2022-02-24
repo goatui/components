@@ -1,5 +1,22 @@
 import { EventEmitter } from '@stencil/core';
 
+export enum ElementSize {
+  SMALL = 'sm',
+  MEDIUM = 'md',
+  LARGE = 'lg',
+  X_LARGE = 'xl',
+  XX_LARGE = 'xxl',
+  XXX_LARGE = 'xxxl',
+}
+
+export enum ElementColor {
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary',
+  SUCCESS = 'success',
+  ERROR = 'error',
+  WARNING = 'warning'
+}
+
 export const debounceEvent = (event: EventEmitter, wait: number): EventEmitter => {
   const original = (event as any)._original || event;
   return {

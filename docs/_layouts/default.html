@@ -41,18 +41,14 @@
   <!-- CSS Template -->
   <link rel='stylesheet' href='/assets/css/theme.css'>
   <link rel='stylesheet' href='/assets/css/layout.css'>
+  <link rel='stylesheet' href='/assets/css/layout.css'>
 
-  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css'>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family==Inter:wght@100;200;300;400;500;600;700;&display=swap');
   </style>
 
-  <script type='module' src='{{site.script}}'></script>
-
   <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css'/>
-
-
   <script data-ad-client='ca-pub-3120721550776061' async
           src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
 </head>
@@ -66,7 +62,7 @@
   </nav-->
   <nav class='navbar navbar-dark fixed-top bg-primary flex-nowrap p-0'>
     <a class='navbar-brand bg-md-primary-darker col-md-3 col-xl-2 mr-0 py-3' href='/'>
-      <h1 class='text-white p-1 ml-2 mb-0 h5'>P4RM <span class='font-weight-light'>UI</span></h1>
+      <h1 class='text-white p-1 ml-2 mb-0 h5'>{{site.title}}</h1>
     </a>
 
     <!-- Header Search -->
@@ -100,6 +96,9 @@
 
 {{ content }}
 
+
+<script type='module' src='{{site.script}}'></script>
+
 <!-- JS Global Compulsory -->
 <script src='/assets/vendor/jquery/dist/jquery.min.js'></script>
 <script src='/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js'></script>
@@ -123,6 +122,9 @@
   .toast {
     opacity: 1!important;
     min-width: 100vh!important;
+  }
+  figure.highlight {
+    background: aliceblue;
   }
 </style>
 <script>

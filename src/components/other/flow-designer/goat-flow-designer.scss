@@ -1,0 +1,38 @@
+@import "../../../styles/scss/commons";
+
+:host {
+  display: block;
+  --table-border-radius: #{v(border-radius)};
+}
+.flow-designer {
+  @include font-variant(p1);
+  border: 1px solid v(color-neutral-200);
+  box-sizing: border-box;
+  border-radius: var(--table-border-radius);
+  overflow:hidden;
+  height: 100%;
+  .flow-scroll-wrapper {
+    position: relative;
+    z-index: v(z-index-table-header);
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    min-height: 20em;
+
+    .flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      cursor: grab;
+      position: absolute;
+      min-height: 300rem;
+      min-width: 300rem;
+      background: v(color-neutral-100);
+    }
+  }
+
+  .start-activity {
+
+  }
+}

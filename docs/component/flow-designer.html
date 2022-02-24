@@ -1,0 +1,50 @@
+---
+layout: component
+title: Flow Designer
+menu:
+- title: Usage
+- title: Disabled State
+---
+<div class='row pt-3'>
+
+  {% include content-nav.html %}
+
+  <!-- Content -->
+  <div class='col-xl-10 order-xl-1 duik-content border-bottom'>
+    <div class='border-bottom mb-7'>
+      <h1>{{ page.title }}</h1>
+      <p class='lead mb-5'>Use {{site.company}}’s table component for displaying information in a way that’s easy to scan, so that
+        users can look for patterns and insights. They can be embedded in primary content, such as cards.</p>
+    </div>
+
+    <!-- Usage -->
+    <div id='doc-usage' class='mb-7'>
+      <h2 class='h4'>Usage <a class='js-anchor-link duik-anchorjs-link' href='#doc-usage' aria-label='Anchor'
+                              data-anchorjs-icon='#'></a></h2>
+
+      <div class='card'>
+        <div class='card-header'>
+          <goat-flow-designer></goat-flow-designer>
+
+        </div>
+        <div class='card-body'>
+          <pre>
+          <code class='language-html' data-lang='html'>&lt;link rel="stylesheet" href="{{site.themeCss}}"&gt;&lt;/link&gt;
+&lt;script type="module" src="{{site.script}}"&gt;&lt;/script&gt;
+
+&lt;goat-table id="table" selection-type="checkbox" key-field="_id">&lt;/goat-table></code>
+</pre>
+        </div>
+      </div>
+
+
+    </div>
+    <!-- End About -->
+
+
+
+
+
+  </div>
+  <!-- End Content -->
+</div>

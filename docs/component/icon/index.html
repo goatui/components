@@ -1,0 +1,105 @@
+---
+layout: component
+title: Icon
+menu:
+- title: Types
+- title: Variants
+- title: Sizes
+---
+
+<div class='row pt-3'>
+
+  {% include content-nav.html %}
+
+  <!-- Content -->
+  <div class='col-xl-10 order-xl-1 duik-content border-bottom'>
+    <div class='border-bottom mb-7'>
+      <h1>{{ page.title }}</h1>
+      <p>We use bootstrap icons on this component. You can find full list of icon names in bootstrap website -> <a
+        href='https://icons.getbootstrap.com/'>https://icons.getbootstrap.com/</a></p>
+    </div>
+
+    <!-- Types -->
+    <div id='doc-types' class='mb-7'>
+      <h2 class='h4'>Types <a class='js-anchor-link duik-anchorjs-link' href='#doc-types'
+                              aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+
+      <div class='card'>
+        <div class='card-header'>
+          <goat-icon type='alarm'></goat-icon>
+          <goat-icon type='house'></goat-icon>
+          <goat-icon type='book'></goat-icon>
+          <goat-icon type='x-lg'></goat-icon>
+        </div>
+        <div class='card-body'>
+          {% highlight html %}
+          <goat-icon type='alarm'></goat-icon>
+          <goat-icon type='house'></goat-icon>
+          <goat-icon type='book'></goat-icon>
+          <goat-icon type='x-lg'></goat-icon>
+          {% endhighlight %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Colors -->
+    <div id='doc-colors' class='mb-7'>
+      <h2 class='h4'>Colors <a class='js-anchor-link duik-anchorjs-link' href='#doc-colors'
+                               aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+
+      <div class='card'>
+        <div class='card-header'>
+          <goat-icon type='alarm'></goat-icon>
+          <goat-icon type='alarm' color='primary'></goat-icon>
+          <goat-icon type='alarm' color='success'></goat-icon>
+          <goat-icon type='alarm' color='warning'></goat-icon>
+          <goat-icon type='alarm' color='error'></goat-icon>
+          <goat-icon type='alarm' style='--color:pink'></goat-icon>
+        </div>
+        <div class='card-body'>
+          {% highlight html %}
+          <goat-icon type='alarm'></goat-icon>.
+          <goat-icon type='alarm' color='primary'></goat-icon>
+          <goat-icon type='alarm' color='success'></goat-icon>
+          <goat-icon type='alarm' color='warning'></goat-icon>
+          <goat-icon type='alarm' color='error'></goat-icon>
+          <goat-icon type='alarm' style='--color:pink'></goat-icon>
+          {% endhighlight %}
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Sizes -->
+    <div id='doc-sizes' class='mb-7'>
+      <h2 class='h4'>Sizes <a class='js-anchor-link duik-anchorjs-link' href='#doc-sizes'
+                              aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      <p>Fancy larger or smaller icons? Add size attribute for additional sizes.</p>
+
+      <div class='card'>
+        <div class='card-header'>
+          <goat-icon type='alarm' size='sm'></goat-icon>
+          <goat-icon type='alarm'></goat-icon>
+          <goat-icon type='alarm' size='lg'></goat-icon>
+          <goat-icon type='alarm' size='xl'></goat-icon>
+          <goat-icon type='alarm' size='3rem'></goat-icon>
+          <goat-icon type='alarm' size='100px'></goat-icon>
+        </div>
+        <div class='card-body'>
+          {% highlight html %}
+          <goat-icon type='alarm' size='sm'></goat-icon>
+          <goat-icon type='alarm'></goat-icon>
+          <goat-icon type='alarm' size='lg'></goat-icon>
+          <goat-icon type='alarm' size='xl'></goat-icon>
+          <goat-icon type='alarm' size='3rem'></goat-icon>
+          <goat-icon type='alarm' size='100px'></goat-icon>
+          {% endhighlight %}
+        </div>
+      </div>
+    </div>
+    <!-- End Sizes -->
+
+
+  </div>
+  <!-- End Content -->
+</div>

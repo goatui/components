@@ -1,6 +1,7 @@
 dist/
 www/
 loader/
+docs/assets/dev-build/
 
 *~
 *.sw[mnpcod]

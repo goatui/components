@@ -1,0 +1,131 @@
+@import "../../../styles/scss/commons";
+@import "./goat-checkbox-utils";
+
+:host {
+  display: inline-block;
+  margin-bottom: v(--space-3);
+  margin-inline-end: v(--space-3);
+}
+
+
+.checkbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .native-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .slot-container {
+    padding-left: v(--space-2);
+  }
+
+  .box {
+    position: relative;
+    background: transparent;
+    border: 0.1rem solid v(--color-grey-600);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 250ms cubic-bezier(.4, .0, .23, 1);
+  }
+
+  &.checkbox-checked {
+    .box {
+      background: v(--color-primary-600);
+    }
+
+    .tick {
+      position: absolute;
+      width: 33%;
+      height: 67%;
+      left: 15%;
+      border-right: 3px solid transparent;
+      border-bottom: 3px solid transparent;
+      transform: rotate(45deg);
+      transform-origin: 0 100%;
+
+      &.animate {
+        animation: checkbox-check 125ms 250ms cubic-bezier(.4, .0, .23, 1) forwards;
+      }
+
+      &:not(.animate) {
+        border-color: v(--color-white);
+        top: -15%;
+      }
+    }
+  }
+
+  &:not(.checkbox-checked):hover {
+    .box {
+      background: v(--color-primary-50);
+    }
+  }
+
+}
+
+/**
+ * SIZES
+ */
+:host([size="lg"]) {
+  .checkbox {
+    @include font-style(text-lg);
+
+    .box {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+  }
+}
+
+:host([size="md"]) {
+  .checkbox {
+    @include font-style(text-md);
+
+    .box {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+}
+
+:host([size="sm"]) {
+  .checkbox {
+    @include font-style(text-sm);
+
+    .box {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+}
+
+:host([focused]) {
+  .box {
+    border-radius: v(border-radius);
+    @include focus-ring;
+  }
+}
+
+:host([disabled]) {
+  .checkbox {
+    cursor: not-allowed;
+    color: v(--color-grey-400);
+
+    .box {
+      background: v(--color-grey-200);
+    }
+
+
+    .tick {
+      border-color: #{v(--color-grey-400)};
+    }
+  }
+}
