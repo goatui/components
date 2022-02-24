@@ -7,25 +7,25 @@
 
 ## Properties
 
-| Property       | Attribute      | Description                                                                                                                        | Type                                                   | Default                 |
-| -------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ----------------------- |
-| `actions`      | --             |                                                                                                                                    | `any[]`                                                | `[]`                    |
-| `autocomplete` | `autocomplete` | Indicates whether the value of the control can be automatically completed by the browser.                                          | `"off" \| "on"`                                        | `'off'`                 |
-| `clearInput`   | `clear-input`  | If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.                              | `boolean`                                              | `false`                 |
-| `debounce`     | `debounce`     | Set the amount of time, in milliseconds, to wait to trigger the `p4Change` event after each keystroke.                             | `number`                                               | `300`                   |
-| `disabled`     | `disabled`     | If true, the user cannot interact with the button. Defaults to `false`.                                                            | `boolean`                                              | `false`                 |
+| Property       | Attribute      | Description                                                                                                                        | Type                                                   | Default                   |
+| -------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ------------------------- |
+| `actions`      | --             |                                                                                                                                    | `any[]`                                                | `[]`                      |
+| `autocomplete` | `autocomplete` | Indicates whether the value of the control can be automatically completed by the browser.                                          | `"off" \| "on"`                                        | `'off'`                   |
+| `clearInput`   | `clear-input`  | If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.                              | `boolean`                                              | `false`                   |
+| `debounce`     | `debounce`     | Set the amount of time, in milliseconds, to wait to trigger the `p4Change` event after each keystroke.                             | `number`                                               | `300`                     |
+| `disabled`     | `disabled`     | If true, the user cannot interact with the button. Defaults to `false`.                                                            | `boolean`                                              | `false`                   |
 | `name`         | `name`         | The input field name.                                                                                                              | `string`                                               | ``goat-input-${this.id}`` |
-| `placeholder`  | `placeholder`  | The input field placeholder.                                                                                                       | `string`                                               | `undefined`             |
-| `required`     | `required`     | If true, required icon is show. Defaults to `false`.                                                                               | `boolean`                                              | `false`                 |
-| `size`         | `size`         | The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.                                             | `"lg" \| "md" \| "sm"`                                 | `'md'`                  |
-| `type`         | `type`         | The type of control to display. Possible values are: `"text"`, `"password"`, `"number"`, `"email"`, `"tel"`. Defaults to `"text"`. | `"email" \| "number" \| "password" \| "tel" \| "text"` | `'text'`                |
-| `value`        | `value`        | The input field value.                                                                                                             | `number \| string`                                     | `''`                    |
+| `placeholder`  | `placeholder`  | The input field placeholder.                                                                                                       | `string`                                               | `undefined`               |
+| `required`     | `required`     | If true, required icon is show. Defaults to `false`.                                                                               | `boolean`                                              | `false`                   |
+| `size`         | `size`         | The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.                                             | `"lg" \| "md" \| "sm"`                                 | `'md'`                    |
+| `type`         | `type`         | The type of control to display. Possible values are: `"text"`, `"password"`, `"number"`, `"email"`, `"tel"`. Defaults to `"text"`. | `"email" \| "number" \| "password" \| "tel" \| "text"` | `'text'`                  |
+| `value`        | `value`        | The input field value.                                                                                                             | `number \| string`                                     | `''`                      |
 
 
 ## Events
 
-| Event             | Description                                | Type               |
-| ----------------- | ------------------------------------------ | ------------------ |
+| Event               | Description                                | Type               |
+| ------------------- | ------------------------------------------ | ------------------ |
 | `goat:action-click` | Emitted when the action button is clicked. | `CustomEvent<any>` |
 | `goat:blur`         | Emitted when the input loses focus.        | `CustomEvent<any>` |
 | `goat:change`       | Emitted when the value has changed.        | `CustomEvent<any>` |
@@ -62,11 +62,11 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [goat-list](../goat-list)
+ - [goat-list](../../other/list)
 
 ### Depends on
 
-- [goat-icon](../goat-icon)
+- [goat-icon](../../content/icon)
 
 ### Graph
 ```mermaid

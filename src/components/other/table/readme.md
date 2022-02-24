@@ -18,8 +18,8 @@
 
 ## Events
 
-| Event                    | Description | Type               |
-| ------------------------ | ----------- | ------------------ |
+| Event                      | Description | Type               |
+| -------------------------- | ----------- | ------------------ |
 | `goat:table-cell-click`    |             | `CustomEvent<any>` |
 | `goat:table-select-change` |             | `CustomEvent<any>` |
 
@@ -34,7 +34,6 @@
 ```mermaid
 graph TD;
   goat-table --> goat-checkbox
-  goat-checkbox --> goat-icon
   style goat-table fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

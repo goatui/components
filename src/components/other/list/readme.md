@@ -20,8 +20,8 @@
 
 ## Events
 
-| Event           | Description                       | Type               |
-| --------------- | --------------------------------- | ------------------ |
+| Event             | Description                       | Type               |
+| ----------------- | --------------------------------- | ------------------ |
 | `goat:item-click` | Emitted when the item is clicked. | `CustomEvent<any>` |
 
 
@@ -42,13 +42,13 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [goat-dropdown](../goat-dropdown)
- - [goat-select](../goat-select)
+ - [goat-dropdown](../dropdown)
+ - [goat-select](../../input-controls/select)
 
 ### Depends on
 
-- [goat-icon](../goat-icon)
-- [goat-input](../goat-input)
+- [goat-icon](../../content/icon)
+- [goat-input](../../input-controls/input)
 
 ### Graph
 ```mermaid

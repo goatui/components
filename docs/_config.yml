@@ -29,8 +29,8 @@ twitter_username: shivajivarma
 github_username: goatui
 github_project: components
 npm_package: '@goatui/components'
-script: 'https://unpkg.com/@goatui/components@0.1.0/dist/p4rm-ui/p4rm-ui.esm.js'
-themeCss: 'https://unpkg.com/@goatui/components@0.1.0/dist/p4rm-ui/styles/theme.css'
+script: 'https://unpkg.com/@goatui/components@0.1.0/dist/goatui/goatui.esm.js'
+themeCss: 'https://unpkg.com/@goatui/components@0.1.0/dist/goatui/styles/theme.css'
 
 include:
   - .well-known
@@ -76,14 +76,14 @@ groups:
         example: <goat-button>Button</goat-button>
       - name: Checkbox
         link: /component/checkbox
-        example: <goat-checkbox></goat-checkbox>
+        example: <goat-checkbox value=true></goat-checkbox>
 
   - name: "Informational"
     components:
       - name: Alert
         link: /component/alert
         example: |
-            <goat-alert color="success">
+            <goat-alert state="success">
               <div slot='message'>Successful</div>
             </goat-alert>
       - name: Spinner

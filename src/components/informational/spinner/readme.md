@@ -7,17 +7,18 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                                     | Type     | Default |
-| -------- | --------- | ------------------------------------------------------------------------------- | -------- | ------- |
-| `size`   | `size`    | The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`. | `string` | `'md'`  |
+| Property | Attribute | Description                                                                                                    | Type                                                                         | Default              |
+| -------- | --------- | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | -------------------- |
+| `color`  | `color`   | Color variants. Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`. Defaults to `"primary"`. | `"default" \| "error" \| "primary" \| "secondary" \| "success" \| "warning"` | `'default'`          |
+| `size`   | `size`    | The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.      | `string`                                                                     | `ElementSize.MEDIUM` |
 
 
 ## Dependencies
 
 ### Used by
 
- - [goat-button](../goat-button)
- - [goat-select](../goat-select)
+ - [goat-button](../../input-controls/button)
+ - [goat-select](../../input-controls/select)
 
 ### Graph
 ```mermaid

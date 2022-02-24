@@ -16,7 +16,7 @@
 | `disabled`    | `disabled`    | If true, the user cannot interact with the button. Defaults to `false`.                               | `boolean`                                                      | `false`                                      |
 | `isOpen`      | `is-open`     |                                                                                                       | `boolean`                                                      | `false`                                      |
 | `managed`     | `managed`     |                                                                                                       | `boolean`                                                      | `false`                                      |
-| `name`        | `name`        | The input field name.                                                                                 | `string`                                                       | ``goat-select-${this.id}``                     |
+| `name`        | `name`        | The input field name.                                                                                 | `string`                                                       | ``goat-select-${this.id}``                   |
 | `placeholder` | `placeholder` | The input field placeholder.                                                                          | `string`                                                       | `undefined`                                  |
 | `position`    | `position`    |                                                                                                       | `"bottom-left" \| "bottom-right" \| "top-left" \| "top-right"` | `'bottom-left'`                              |
 | `required`    | `required`    | If true, required icon is show. Defaults to `false`.                                                  | `boolean`                                                      | `false`                                      |
@@ -28,8 +28,8 @@
 
 ## Events
 
-| Event             | Description                                 | Type               |
-| ----------------- | ------------------------------------------- | ------------------ |
+| Event               | Description                                 | Type               |
+| ------------------- | ------------------------------------------- | ------------------ |
 | `goat:action-click` | Emitted when the action button is clicked.. | `CustomEvent<any>` |
 | `goat:change`       | Emitted when the value has changed..        | `CustomEvent<any>` |
 | `goat:input`        | Emitted when a keyboard input occurred.     | `CustomEvent<any>` |
@@ -53,9 +53,9 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [goat-icon](../goat-icon)
-- [goat-spinner](../goat-spinner)
-- [goat-list](../goat-list)
+- [goat-icon](../../content/icon)
+- [goat-spinner](../../informational/spinner)
+- [goat-list](../../other/list)
 
 ### Graph
 ```mermaid

@@ -17,8 +17,8 @@
 
 ## Events
 
-| Event        | Description | Type               |
-| ------------ | ----------- | ------------------ |
+| Event          | Description | Type               |
+| -------------- | ----------- | ------------------ |
 | `goat:dismiss` |             | `CustomEvent<any>` |
 
 
@@ -26,7 +26,7 @@
 
 ### Depends on
 
-- [goat-button](../goat-button)
+- [goat-button](../../input-controls/button)
 
 ### Graph
 ```mermaid

@@ -7,25 +7,26 @@
 
 ## Properties
 
-| Property         | Attribute         | Description                                                                                           | Type                                   | Default     |
-| ---------------- | ----------------- | ----------------------------------------------------------------------------------------------------- | -------------------------------------- | ----------- |
-| `block`          | `block`           | If true, fits button width to its parent width. Defaults to `false`.                                  | `boolean`                              | `false`     |
-| `disabled`       | `disabled`        | If true, the user cannot interact with the button. Defaults to `false`.                               | `boolean`                              | `false`     |
-| `disabledReason` | `disabled-reason` |                                                                                                       | `string`                               | `''`        |
-| `ghost`          | `ghost`           | If true, button styles are updated to work better on white background. Defaults to `false`.           | `boolean`                              | `false`     |
-| `href`           | `href`            |                                                                                                       | `string`                               | `undefined` |
-| `icon`           | `icon`            | Icon which will displayed on button. Possible values are bootstrap icon names.                        | `string`                               | `undefined` |
-| `iconEnd`        | `icon-end`        | Icon position.                                                                                        | `boolean`                              | `false`     |
-| `showLoader`     | `show-loader`     |                                                                                                       | `boolean`                              | `false`     |
-| `size`           | `size`            | Button size. Possible values are `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.                          | `"lg" \| "md" \| "sm"`                 | `'md'`      |
-| `target`         | `target`          |                                                                                                       | `"_blank" \| "_self"`                  | `'_self'`   |
-| `variant`        | `variant`         | Button variants. Possible values are `"primary"`, `"secondary"`, `"danger"`. Defaults to `"primary"`. | `"danger" \| "primary" \| "secondary"` | `'primary'` |
+| Property         | Attribute         | Description                                                                                   | Type                                                                                                                                   | Default                |
+| ---------------- | ----------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `block`          | `block`           | If true, fits button width to its parent width. Defaults to `false`.                          | `boolean`                                                                                                                              | `false`                |
+| `color`          | `color`           | Color variants.                                                                               | `ElementColor.ERROR \| ElementColor.PRIMARY \| ElementColor.SECONDARY \| ElementColor.SUCCESS \| ElementColor.WARNING`                 | `ElementColor.PRIMARY` |
+| `disabled`       | `disabled`        | If true, the user cannot interact with the button. Defaults to `false`.                       | `boolean`                                                                                                                              | `false`                |
+| `disabledReason` | `disabled-reason` |                                                                                               | `string`                                                                                                                               | `''`                   |
+| `href`           | `href`            |                                                                                               | `string`                                                                                                                               | `undefined`            |
+| `icon`           | `icon`            | Icon which will displayed on button. Possible values are bootstrap icon names.                | `string`                                                                                                                               | `undefined`            |
+| `iconEnd`        | `icon-end`        | Icon position.                                                                                | `boolean`                                                                                                                              | `false`                |
+| `selected`       | `selected`        | Button selection state.                                                                       | `boolean`                                                                                                                              | `false`                |
+| `showLoader`     | `show-loader`     | Show loader.                                                                                  | `boolean`                                                                                                                              | `false`                |
+| `size`           | `size`            | Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`. Defaults to `"md"`. | `ElementSize.LARGE \| ElementSize.MEDIUM \| ElementSize.SMALL \| ElementSize.XXX_LARGE \| ElementSize.XX_LARGE \| ElementSize.X_LARGE` | `ElementSize.MEDIUM`   |
+| `target`         | `target`          |                                                                                               | `"_blank" \| "_self"`                                                                                                                  | `'_self'`              |
+| `variant`        | `variant`         |                                                                                               | `"default" \| "light" \| "link" \| "outline"`                                                                                          | `'default'`            |
 
 
 ## Events
 
-| Event      | Description                                                     | Type               |
-| ---------- | --------------------------------------------------------------- | ------------------ |
+| Event        | Description                                                       | Type               |
+| ------------ | ----------------------------------------------------------------- | ------------------ |
 | `goat:click` | On click of button, a CustomEvent 'goat:click' will be triggered. | `CustomEvent<any>` |
 
 
@@ -46,12 +47,12 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [goat-alert](../goat-alert)
+ - [goat-alert](../../informational/alert)
 
 ### Depends on
 
-- [goat-icon](../goat-icon)
-- [goat-spinner](../goat-spinner)
+- [goat-icon](../../content/icon)
+- [goat-spinner](../../informational/spinner)
 
 ### Graph
 ```mermaid

@@ -22,8 +22,8 @@
 
 ## Events
 
-| Event                    | Description                       | Type               |
-| ------------------------ | --------------------------------- | ------------------ |
+| Event                      | Description                       | Type               |
+| -------------------------- | --------------------------------- | ------------------ |
 | `goat:dropdown-item-click` | Emitted when the item is clicked. | `CustomEvent<any>` |
 
 
@@ -44,7 +44,7 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [goat-list](../goat-list)
+- [goat-list](../list)
 
 ### Graph
 ```mermaid

@@ -7,28 +7,27 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                                     | Type     | Default     |
-| -------- | --------- | ------------------------------------------------------------------------------- | -------- | ----------- |
-| `size`   | `size`    | The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`. | `string` | `'md'`      |
-| `type`   | `type`    |                                                                                 | `string` | `undefined` |
+| Property | Attribute | Description                                                                                                    | Type                                                                         | Default              |
+| -------- | --------- | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | -------------------- |
+| `color`  | `color`   | Color variants. Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`. Defaults to `"primary"`. | `"default" \| "error" \| "primary" \| "secondary" \| "success" \| "warning"` | `'default'`          |
+| `size`   | `size`    | The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.      | `string`                                                                     | `ElementSize.MEDIUM` |
+| `type`   | `type`    |                                                                                                                | `string`                                                                     | `undefined`          |
 
 
 ## Dependencies
 
 ### Used by
 
- - [goat-button](../goat-button)
- - [goat-checkbox](../goat-checkbox)
- - [goat-input](../goat-input)
- - [goat-list](../goat-list)
- - [goat-select](../goat-select)
- - [goat-textarea](../goat-textarea)
+ - [goat-button](../../input-controls/button)
+ - [goat-input](../../input-controls/input)
+ - [goat-list](../../other/list)
+ - [goat-select](../../input-controls/select)
+ - [goat-textarea](../../input-controls/textarea)
 
 ### Graph
 ```mermaid
 graph TD;
   goat-button --> goat-icon
-  goat-checkbox --> goat-icon
   goat-input --> goat-icon
   goat-list --> goat-icon
   goat-select --> goat-icon

@@ -18,11 +18,11 @@
 
 ## Events
 
-| Event       | Description                                                                                                                       | Type               |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `goat:blur`   | Emitted when the input loses focus.                                                                                               | `CustomEvent<any>` |
+| Event         | Description                                                                                                                         | Type               |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `goat:blur`   | Emitted when the input loses focus.                                                                                                 | `CustomEvent<any>` |
 | `goat:change` | On change of input a CustomEvent 'goat:change' will be triggered. Event details contains parent event, oldValue, newValue of input. | `CustomEvent<any>` |
-| `goat:focus`  | Emitted when the input has focus.                                                                                                 | `CustomEvent<any>` |
+| `goat:focus`  | Emitted when the input has focus.                                                                                                   | `CustomEvent<any>` |
 
 
 ## Methods
@@ -54,16 +54,11 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [goat-table](../../goat-table)
-
-### Depends on
-
-- [goat-icon](../goat-icon)
+ - [goat-table](../../other/table)
 
 ### Graph
 ```mermaid
 graph TD;
-  goat-checkbox --> goat-icon
   goat-table --> goat-checkbox
   style goat-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 ```
