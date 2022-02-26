@@ -29,8 +29,8 @@ twitter_username: shivajivarma
 github_username: goatui
 github_project: components
 npm_package: '@goatui/components'
-script: 'https://unpkg.com/@goatui/components@0.2.0/dist/goatui/goatui.esm.js'
-themeCss: 'https://unpkg.com/@goatui/components@0.2.0/dist/goatui/styles/theme.css'
+script: 'https://unpkg.com/@goatui/components@0.2.2/dist/goatui/goatui.esm.js'
+themeCss: 'https://unpkg.com/@goatui/components@0.2.2/dist/goatui/styles/theme.css'
 
 include:
   - .well-known
