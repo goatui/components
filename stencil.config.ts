@@ -14,7 +14,7 @@ export const config: Config = {
       ],
     },
     {
-      type: 'dist-custom-elements-bundle',
+      type: 'dist-custom-elements',
     },
     {
       type: 'docs-readme',

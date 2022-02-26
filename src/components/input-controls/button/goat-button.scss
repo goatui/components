@@ -17,7 +17,7 @@
   flex-direction: row;
   cursor: pointer;
   width: 100%;
-  border: 1px var(--button-border-style) transparent;
+  border: 0.0625rem var(--button-border-style) transparent;
   border-radius: v(--border-radius);
 
   .slot-container {
@@ -101,6 +101,8 @@
   }
 }
 
+
+
 :host([color="success"]) {
   &:host([variant="default"]) {
     @include buttonVariant(true, success);
@@ -162,7 +164,6 @@
     .spinner, .icon {
       color: #{--color-grey-900};
     }
-
     background: white;
     border-color: v(--color-grey-900);
 
@@ -217,6 +218,7 @@
     margin: auto;
   }
 }
+
 
 :host([icon-end]) {
   .button {
