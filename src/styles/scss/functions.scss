@@ -33,7 +33,7 @@ $css-variables: map-merge($css-variables, ("--color-black": $color-black));
 
 @each $key, $value in $container-space {
   $map: ();
-  $map: map-merge($map, ("--container-space"+$key: $value));
+  $map: map-merge($map, ("--container-space-"+$key: #{$value}rem));
   $css-variables: map-merge($css-variables, $map);
 }
 
@@ -47,7 +47,7 @@ $css-variables: map-merge($css-variables, ("--color-black": $color-black));
 
 @each $key, $value in $shadows {
   $map: ();
-  $map: map-merge($map, ("--shadow"+$key: $value));
+  $map: map-merge($map, ("--shadow-"+$key: $value));
   $css-variables: map-merge($css-variables, $map);
 }
 

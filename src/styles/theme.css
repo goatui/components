@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 :root {
+  --font-family-base: Inter, sans-serif;
+  --color-white: #ffffff;
+  --color-black: #000000;
   --font-weight-regular: normal;
   --font-weight-medium: 500;
   --font-weight-semi-bold: 600;
@@ -25,36 +28,36 @@
   --display-sm-font-size: 1.875rem;
   --display-sm-line-height: 2.375rem;
   --display-sm-letter-spacing: 0rem;
-  --display-md-font-size: 1rem;
-  --display-md-line-height: 1.5rem;
+  --display-md-font-size: 2.25rem;
+  --display-md-line-height: 2.75rem;
   --display-md-letter-spacing: 0rem;
-  --display-lg-font-size: 1.125rem;
-  --display-lg-line-height: 1.75rem;
+  --display-lg-font-size: 3rem;
+  --display-lg-line-height: 3.75rem;
   --display-lg-letter-spacing: -0.02rem;
-  --display-xl-font-size: 1.25rem;
-  --display-xl-line-height: 1.875rem;
+  --display-xl-font-size: 3.75rem;
+  --display-xl-line-height: 4.625rem;
   --display-xl-letter-spacing: -0.02rem;
-  --space-1: 0.25;
-  --space-2: 0.5;
-  --space-3: 0.75;
-  --space-4: 1;
-  --space-5: 1.25;
-  --space-6: 1.5;
-  --space-8: 2;
-  --space-10: 2.5;
-  --space-12: 3;
-  --space-16: 4;
-  --space-20: 5;
-  --space-24: 6;
-  --space-32: 8;
-  --space-40: 10;
-  --space-48: 12;
-  --space-56: 14;
-  --space-64: 16;
-  --container-spacesm: 40;
-  --container-spacemd: 48;
-  --container-spacelg: 64;
-  --container-spacexl: 80;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+  --space-40: 10rem;
+  --space-48: 12rem;
+  --space-56: 14rem;
+  --space-64: 16rem;
+  --container-space-sm: 40rem;
+  --container-space-md: 48rem;
+  --container-space-lg: 64rem;
+  --container-space-xl: 80rem;
   --color-grey-25: #FCFCFD;
   --color-grey-50: #F9FAFB;
   --color-grey-100: #F2F4F7;
@@ -77,6 +80,39 @@
   --color-primary-700: #175CD3;
   --color-primary-800: #1849A9;
   --color-primary-900: #194185;
+  --color-warning-25: #FFFCF5;
+  --color-warning-50: #FFFAEB;
+  --color-warning-100: #FEF0C7;
+  --color-warning-200: #FEDF89;
+  --color-warning-300: #FEC84B;
+  --color-warning-400: #FDB022;
+  --color-warning-500: #F79009;
+  --color-warning-600: #DC6803;
+  --color-warning-700: #B54708;
+  --color-warning-800: #93370D;
+  --color-warning-900: #7A2E0E;
+  --color-error-25: #FFFBFA;
+  --color-error-50: #FEF3F2;
+  --color-error-100: #FEE4E2;
+  --color-error-200: #FECDCA;
+  --color-error-300: #FDA29B;
+  --color-error-400: #F97066;
+  --color-error-500: #F04438;
+  --color-error-600: #D92D20;
+  --color-error-700: #B42318;
+  --color-error-800: #912018;
+  --color-error-900: #7A271A;
+  --color-success-25: #F6FEF9;
+  --color-success-50: #ECFDF3;
+  --color-success-100: #D1FADF;
+  --color-success-200: #A6F4C5;
+  --color-success-300: #6CE9A6;
+  --color-success-400: #32D583;
+  --color-success-500: #12B76A;
+  --color-success-600: #039855;
+  --color-success-700: #027A48;
+  --color-success-800: #05603A;
+  --color-success-900: #054F31;
   --color-blue-25: #F5FAFF;
   --color-blue-50: #EFF8FF;
   --color-blue-100: #D1E9FF;
@@ -88,13 +124,13 @@
   --color-blue-700: #175CD3;
   --color-blue-800: #1849A9;
   --color-blue-900: #194185;
-  --shadowxs: 0px 1px 2px rgba(16, 24, 40, 0.05);
-  --shadowsm: 0px 1px 3px rgba(16, 24, 40, 0.1), 0px 1px 2px rgba(16, 24, 40, 0.06);
-  --shadowmd: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
-  --shadowlg: 0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03);
-  --shadowxl: 0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03);
-  --shadowxxl: 0px 24px 48px -12px rgba(16, 24, 40, 0.18);
-  --shadowxxxl: 0px 32px 64px -12px rgba(16, 24, 40, 0.14);
+  --shadow-xs: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  --shadow-sm: 0px 1px 3px rgba(16, 24, 40, 0.1), 0px 1px 2px rgba(16, 24, 40, 0.06);
+  --shadow-md: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
+  --shadow-lg: 0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03);
+  --shadow-xl: 0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+  --shadow-xxl: 0px 24px 48px -12px rgba(16, 24, 40, 0.18);
+  --shadow-xxxl: 0px 32px 64px -12px rgba(16, 24, 40, 0.14);
   --border-radius: 5px;
   --border-color: #cbd5e1;
   --z-index-table-header: 100;
@@ -106,68 +142,79 @@ body {
 }
 
 p {
+  font-family: var(--font-family-base, "Inter", sans-serif), serif;
   font-size: var(--text-md-font-size, 1rem);
   line-height: var(--text-md-line-height, 1.5rem);
   letter-spacing: var(--text-md-letter-spacing, 0rem);
 }
 
 .text-xs {
+  font-family: var(--font-family-base, "Inter", sans-serif), serif;
   font-size: var(--text-xs-font-size, 0.75rem);
   line-height: var(--text-xs-line-height, 1.125rem);
   letter-spacing: var(--text-xs-letter-spacing, 0rem);
 }
 
 .text-sm {
+  font-family: var(--font-family-base, "Inter", sans-serif), serif;
   font-size: var(--text-sm-font-size, 0.875rem);
   line-height: var(--text-sm-line-height, 1.25rem);
   letter-spacing: var(--text-sm-letter-spacing, 0rem);
 }
 
 .text-md {
+  font-family: var(--font-family-base, "Inter", sans-serif), serif;
   font-size: var(--text-md-font-size, 1rem);
   line-height: var(--text-md-line-height, 1.5rem);
   letter-spacing: var(--text-md-letter-spacing, 0rem);
 }
 
 .text-lg {
+  font-family: var(--font-family-base, "Inter", sans-serif), serif;
   font-size: var(--text-lg-font-size, 1.125rem);
   line-height: var(--text-lg-line-height, 1.75rem);
   letter-spacing: var(--text-lg-letter-spacing, 0rem);
 }
 
 .text-xl {
+  font-family: var(--font-family-base, "Inter", sans-serif), serif;
   font-size: var(--text-xl-font-size, 1.25rem);
   line-height: var(--text-xl-line-height, 1.875rem);
   letter-spacing: var(--text-xl-letter-spacing, 0rem);
 }
 
 .display-xs {
+  font-family: var(--font-family-base, "Inter", sans-serif), serif;
   font-size: var(--display-xs-font-size, 1.5rem);
   line-height: var(--display-xs-line-height, 2rem);
   letter-spacing: var(--display-xs-letter-spacing, 0rem);
 }
 
 .display-sm {
+  font-family: var(--font-family-base, "Inter", sans-serif), serif;
   font-size: var(--display-sm-font-size, 1.875rem);
   line-height: var(--display-sm-line-height, 2.375rem);
   letter-spacing: var(--display-sm-letter-spacing, 0rem);
 }
 
 .display-md {
-  font-size: var(--display-md-font-size, 1rem);
-  line-height: var(--display-md-line-height, 1.5rem);
+  font-family: var(--font-family-base, "Inter", sans-serif), serif;
+  font-size: var(--display-md-font-size, 2.25rem);
+  line-height: var(--display-md-line-height, 2.75rem);
   letter-spacing: var(--display-md-letter-spacing, 0rem);
 }
 
 .display-lg {
-  font-size: var(--display-lg-font-size, 1.125rem);
-  line-height: var(--display-lg-line-height, 1.75rem);
+  font-family: var(--font-family-base, "Inter", sans-serif), serif;
+  font-size: var(--display-lg-font-size, 3rem);
+  line-height: var(--display-lg-line-height, 3.75rem);
   letter-spacing: var(--display-lg-letter-spacing, -0.02rem);
 }
 
 .display-xl {
-  font-size: var(--display-xl-font-size, 1.25rem);
-  line-height: var(--display-xl-line-height, 1.875rem);
+  font-family: var(--font-family-base, "Inter", sans-serif), serif;
+  font-size: var(--display-xl-font-size, 3.75rem);
+  line-height: var(--display-xl-line-height, 4.625rem);
   letter-spacing: var(--display-xl-letter-spacing, -0.02rem);
 }
 /*# sourceMappingURL=theme.css.map */

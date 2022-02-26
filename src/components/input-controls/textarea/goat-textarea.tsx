@@ -1,7 +1,6 @@
 import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
-import { debounceEvent, findItemLabel } from '../../../utils/utils';
+import { debounceEvent, getGoatIndex } from '../../../utils/utils';
 
-let inputIds = 0;
 
 @Component({
   tag: 'goat-textarea',
@@ -9,18 +8,13 @@ let inputIds = 0;
   shadow: true,
 })
 export class GoatTextarea {
-  @Element() elm!: HTMLElement;
 
-  private nativeInput?: HTMLTextAreaElement;
-  private tabindex?: string | number;
-  private inputId = `goat-textarea-${inputIds++}`;
-  @State() hasFocus = false;
-
+  gid: string = getGoatIndex();
 
   /**
    * The input field name.
    */
-  @Prop() name: string = this.inputId;
+  @Prop() name: string = `goat-input-${this.gid}`;
 
   /**
    * The input field placeholder.
@@ -30,7 +24,7 @@ export class GoatTextarea {
   /**
    * The input field value.
    */
-  @Prop({mutable: true}) value: string;
+  @Prop({ mutable: true }) value: string;
 
   /**
    * The button size.
@@ -71,7 +65,6 @@ export class GoatTextarea {
   @Prop() actions: any[] = [];
 
 
-
   /**
    * Emitted when a keyboard input occurred.
    */
@@ -96,6 +89,11 @@ export class GoatTextarea {
    * Emitted when the action button is clicked.
    */
   @Event({ eventName: 'goat:action-click' }) p4ActionClick: EventEmitter;
+
+  @Element() elm!: HTMLElement;
+  private nativeInput?: HTMLTextAreaElement;
+  private tabindex?: string | number;
+  @State() hasFocus = false;
 
   getCssClasses() {
     const cls = ['input-container textarea'];
@@ -123,9 +121,6 @@ export class GoatTextarea {
     this.p4Focus.emit(ev);
   };
 
-  private actionClickHandler = (action) => {
-    this.p4ActionClick.emit(action);
-  };
 
   /**
    * Sets focus on the native `input` in `ion-input`. Use this method instead of the global
@@ -154,13 +149,6 @@ export class GoatTextarea {
     this.p4Change = debounceEvent(this.p4Change, this.debounce);
   }
 
-  private getActionIconSize() {
-    if (this.size == 'lg')
-      return '1.5rem';
-    if (this.size == 'sm')
-      return '1rem';
-    return '1.25rem';
-  }
 
   componentWillLoad() {
     // If the ion-input has a tabindex attribute we get the value
@@ -194,27 +182,26 @@ export class GoatTextarea {
     return this.getValue().length > 0;
   }
 
+  @Method()
+  async getGid() {
+    return this.gid;
+  }
 
   render() {
+
     const value = this.getValue();
-    const labelId = this.inputId + '-lbl';
-    const label = findItemLabel(this.elm);
-    const actions = this.actions;
-    if (label) {
-      label.id = labelId;
-      label.setAttribute('required', this.required + '');
-    }
 
     return (
-      <Host aria-disabled={this.disabled ? 'true' : null} size={this.size} focused={this.hasFocus} has-value={this.hasValue()}>
+      <Host aria-disabled={this.disabled ? 'true' : null} size={this.size} focused={this.hasFocus}
+            has-value={this.hasValue()}>
         <div class={this.getCssClasses()}>
              <textarea
                rows={4}
                ref={input => this.nativeInput = input}
                required={this.required}
-               class="input input-native"
+               class='input input-native'
                name={this.name}
-               aria-labelledby={labelId}
+               aria-labelledby={`goat-input-${this.gid}-lbl`}
                placeholder={this.placeholder}
                value={value}
                tabindex={this.tabindex}
@@ -222,19 +209,7 @@ export class GoatTextarea {
                onBlur={this.blurHandler}
                onFocus={this.focusHandler}
                disabled={this.disabled} />
-          <div class='input-actions'>
-            {actions.map((action) => {
-              return <button type='button'
-                             class={{
-                               'action-button': true,
-                               'action-button-disabled': action.disabled,
-                             }}
-                             disabled={!action.eventName || action.disabled}
-                             onClick={() => this.actionClickHandler(action)}>
-                <goat-icon type={action.icon} class='action-icon' size={this.getActionIconSize()} />
-              </button>;
-            })}
-          </div>
+
         </div>
       </Host>
     );

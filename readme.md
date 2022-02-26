@@ -33,7 +33,7 @@ dependencies, You can simply import required component js, and right away start 
 </head>
 <body>
 
-<goat-button size='lg' variant='primary'>Click me</goat-button>
+<goat-button size='lg' color='primary'>Click me</goat-button>
 
 </body>
 </html>

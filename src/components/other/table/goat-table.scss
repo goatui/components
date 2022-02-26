@@ -3,21 +3,21 @@
 
 :host {
   display: block;
-  --table-border-radius: #{v(border-radius)};
 }
 
-.table-component {
-  @include font-variant(p1);
 
-  border: 1px solid v(color-neutral-200);
+.table-component {
+  @include font-style(text-md);
+
+  border: 1px solid v(--color-grey-200);
   box-sizing: border-box;
-  border-radius: var(--table-border-radius);
+  border-radius: var(--border-radius);
   overflow: hidden;
   height: 100%;
 
   .list-scroll-wrapper {
     position: relative;
-    z-index: v(z-index-table-header);
+    z-index: v(--z-index-table-header);
     overflow: auto;
     height: 100%;
     width: 100%;
@@ -25,15 +25,14 @@
 
     .header {
       z-index: 1; // related to parent element
-      @include font-variant(caption);
-      font-weight: v(font-weight-semi-bold);
+      font-weight: v(--font-weight-semi-bold);
       text-transform: uppercase;
       position: absolute;
       left: 0;
       top: 0;
 
       .col {
-        background: v(color-neutral-50);
+        background: v(--color-grey-50);
 
         .col-content {
           display: flex;
@@ -53,7 +52,7 @@
     }
 
     .checkbox {
-      padding-bottom: 0;
+      margin: 0;
     }
 
     .body-container {
@@ -76,9 +75,9 @@
       .col {
         margin: 0;
         display: table-cell;
-        border-right: 1px solid v(color-neutral-200);
-        border-bottom: 1px solid v(color-neutral-200);
-        padding: v(space-3) v(space-6);
+        border-right: 1px solid v(--color-grey-200);
+        border-bottom: 1px solid v(--color-grey-200);
+        padding: v(--space-3) v(--space-6);
         box-sizing: border-box;
         vertical-align: middle;
         line-height: normal;
@@ -97,7 +96,7 @@
       }
 
       &.col-hover {
-        background: v(color-success-50);
+        background: v(--color-success-50);
       }
     }
 
@@ -123,17 +122,16 @@
       left: 0;
       border-radius: 3px;
       height: max-content;
-      color: v(color-neutral-600);
+      color: v(--color-grey-600);
     }
 
   }
-
 }
 
 /* width */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 1rem;
+  height: 1rem;
 }
 
 

@@ -1,233 +1,91 @@
 ---
-layout: default
+layout: minimal
 root: true
 ---
-
 <style>
-  .card {
-    margin-bottom: 20px;
-  }
-
-  .card section {
-    position: relative;
-    width: 100%;
-    height: 200px;
+  .banner {
+    height: 25rem;
+    background: var(--color-primary-200);
     display: flex;
-    justify-content: center;
     align-items: center;
-  }
-
-  .card section img {
-    max-width: 100%;
-    max-height: 100%;
-  }
-
-  .card section:after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-  }
-
-  .card iframe {
-    border: none;
-    height: 100%;
-    width: 100%;
-  }
-
-  .card > a {
-    background: #f7f7f7;
-  }
-
-  @media (min-width: 768px) {
-    .card > a {
-      height: 210px;
-    }
+    justify-content: center;
+    flex-direction: column;
   }
 </style>
-
-<div class='container-fluid'>
-  <div class='row'>
-    {% include sidebar.html %}
-
-    <main class='ml-md-auto col-md-9 col-xl-10 px-4 pt-0 pt-md-11'>
-      <div class='row pt-3'>
-        <!-- Content Nav -->
-        <div class='col-xl-2 order-xl-2 d-none d-xl-inline-block'>
-          <ul class='js-scroll-nav duik-content-nav'>
-            <li class='duik-content-nav__item'><a href='#doc-about'>About</a></li>
-            <li class='duik-content-nav__item'><a href='#doc-getting-started'>Getting Started</a></li>
-            <li class='duik-content-nav__item'><a href='#doc-components-list'>Components</a></li>
-          </ul>
-        </div>
-        <!-- End Content Nav -->
-
-        <!-- Content -->
-        <div class='col-xl-10 order-xl-1 duik-content border-bottom'>
-          <div class='border-bottom mb-7'>
-            <h1>Introduction</h1>
-            <p class='lead mb-5'><b>{{site.title}}</b> contains most used web components built using
-              Stencil. So you don't need to include any additional framework dependencies, You can simple
-              import required component js, and right away start using it.</p>
-          </div>
-
-          <!-- About -->
-          <div id='doc-about' class='mb-7'>
-            <h2 class='h4'>About <a class='js-anchor-link duik-anchorjs-link' href='#doc-about'
-                                    aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
-            <p>P4RM components are beautiful Open Source web components under MIT license.</p>
-
-            <goat-button variant='outline' href='https://github.com/p4rm/ui.git'>Browse code</goat-button>
-
-            <p>P4RM components are maintained by <a href='https://shivajivarma.com'>Shivaji Varma</a>. Do
-              not miss any updates and announcements, stay tuned on our social pages:</p>
-
-            <ul class='list-inline mb-0'>
-              <li class='list-inline-item mr-2' data-toggle='tooltip' data-placement='top' title=''
-                  data-original-title='Github'>
-                <a class='text-dark' target='_blank' href='https://www.github.com/{{site.github_username}}'>
-                  <i class='fab fa-github'></i>
-                </a>
-              </li>
-              <li class='list-inline-item mr-2' data-toggle='tooltip' data-placement='top' title=''
-                  data-original-title='Twitter'>
-                <a class='text-dark' target='_blank' href='https://www.twitter.com/{{site.twitter_username}}'>
-                  <i class='fab fa-twitter'></i>
-                </a>
-              </li>
-            </ul>
-
-
-          </div>
-          <!-- End About -->
-
-          <hr class='mt-7 mb-4'>
-
-          <!-- Getting Started -->
-          <div id='doc-getting-started' class='mb-7'>
-            <h2 class='h4'>Getting Started <a class='js-anchor-link duik-anchorjs-link'
-                                              href='#doc-getting-started' aria-label='Anchor'
-                                              data-anchorjs-icon='#'></a></h2>
-
-            <h3 class='h5'>Script tag</h3>
-            <ul>
-              <li>
-                Put a script tag similar to this <code class='highlighter-rouge' data-lang='html'>&lt;script
-                type="module"
-                src="{{site.script}}"&gt;&lt;/script&gt;</code>
-                in the head of your index.html
-              </li>
-              <li>
-                Include default font <code class='highlighter-rouge' data-lang='html'>Roboto</code> in the page
-              </li>
-              <li>
-                Then you can use the element anywhere in your template, JSX, html etc
-              </li>
-            </ul>
-
-            {% highlight html %}
-            <!DOCTYPE html>
-            <html>
-            <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width">
-            <title>{{site.title}}</title>
-
-            <!-- include your custom theme variable values, view variable names at {{site.themeCss}} -->
-            <!--link rel="stylesheet" href="/custom-theme.css"></link-->
-            <script type="module" src="{{site.script}}"></script>
-
-            <style>
-            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-            </style>
-
-            </head>
-            <body>
-
-            <goat-button size="lg" variant="primary">Click me</goat-button>
-
-            </body>
-            </html>
-            {% endhighlight %}
-
-
-          </div>
-
-
-          <hr class='mt-7 mb-4'>
-
-          <!-- Components List -->
-          <div id='doc-components-list' class='mb-7'>
-            <h2 class='h4'>Components <a class='js-anchor-link duik-anchorjs-link'
-                                         href='#doc-components-list' aria-label='Anchor'
-                                         data-anchorjs-icon='#'></a></h2>
-            <p>Here are list of components available in the library.</p>
-            {% for group in site.groups %}
-            <h4>{{group.name}}</h4>
-            <div class='row'>
-              {% for component in group.components %}
-              <div class='col-md-3'>
-                <a href='{{component.link}}#' class='card card-link'>
-                  <div class='card-header'>
-                    {{component.name}}
-                  </div>
-                  <div class='card-body'>
-                    <section>
-                      {% if component.example != undefined %}
-                      {{component.example}}
-                      {% else %}
-                      <img src='{{component.img}}'/>
-                      {% endif %}
-                    </section>
-
-                  </div>
-                </a>
-              </div>
-              {% endfor %}
-
-            </div>
-            {% endfor %}
-
-
-            <h4>WIP</h4>
-            <div class='row'>
-              {% for component in site.components %}
-              <div class='col-md-3'>
-                <a href='{{component.link}}#' class='card card-link'>
-                  <div class='card-header'>
-                    {{component.name}}
-                  </div>
-                  <div class='card-body'>
-                    <section>
-                      {% if component.example != undefined %}
-                        {{component.example}}
-                      {% else %}
-                        <img src='{{component.img}}'/>
-                      {% endif %}
-                    </section>
-
-                  </div>
-                </a>
-              </div>
-              {% endfor %}
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-      <!-- End Content -->
-
-      {% include footer.html %}
-    </main>
-  </div>
+<div class='banner'>
+  <goat-heading class='title'>{{site.title}}</goat-heading>
+  <goat-paragraph size='xl'>Web components build using stenciljs.</goat-paragraph>
+  <goat-button variant='light' href='/components.html'>Browse Components</goat-button>
 </div>
 
-<!-- Go to Top -->
-<a class='js-go-to duik-go-to' href='javascript:;'>
-  <span class='fa fa-arrow-up duik-go-to__inner'></span>
-</a>
-<!-- End Go to Top -->
+<div class='container'>
 
+  <goat-heading level='2' size='md'>Introduction</goat-heading>
+  <goat-paragraph size='md'>{{site.title}} contains most used web components built using Stencil.
+    So you don't need to include any additional framework dependencies, You can simply import required component js, and
+    right away start using it.
+  </goat-paragraph>
+  <goat-paragraph size='md'>Can easily be consumed by any other framework, like Vue, React, Angular, etc.
+  </goat-paragraph>
+
+  <br/>
+
+  <goat-heading level='3' size='sm'>About</goat-heading>
+  <goat-paragraph size='md'>{{site.title}} components are beautiful Open Source web components under MIT license. They are maintained by <goat-link href='https://shivajivarma.com'>Shivaji Varma</goat-link>. Do
+    not miss any updates and announcements, stay tuned on our social pages.
+    You can contribute to the project by creating pull requests or issues.
+  </goat-paragraph>
+  <goat-button icon='github' variant='link' target='_blank' href='https://www.github.com/{{site.github_username}}'></goat-button>
+  <goat-button icon='twitter' variant='link' target='_blank' href='https://www.twitter.com/{{site.twitter_username}}'></goat-button>
+
+  <br/><br/><br/>
+
+  <goat-heading level='3' size='sm'>Getting Started</goat-heading>
+  <goat-heading level='4' size='xs'>Script tag</goat-heading>
+  <ul>
+    <li>
+      Put a script tag similar to this <code class='highlighter-rouge' data-lang='html'>&lt;script
+      type="module"
+      src="{{site.script}}"&gt;&lt;/script&gt;</code>
+      in the head of your index.html
+    </li>
+    <li>
+      Include default font <code class='highlighter-rouge' data-lang='html'>Roboto</code> in the page
+    </li>
+    <li>
+      Then you can use the element anywhere in your template, JSX, html etc
+    </li>
+  </ul>
+
+  {% highlight html %}
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>{{site.title}}</title>
+
+    <!-- include your custom theme variable values, view variable names at {{site.themeCss}} -->
+    <!--link rel="stylesheet" href="/custom-theme.css"></link-->
+    <script type="module" src="{{site.script}}"></script>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    </style>
+
+  </head>
+  <body>
+
+  <goat-button size="lg" color="primary">Click me</goat-button>
+
+  </body>
+  </html>
+  {% endhighlight %}
+
+</div>
+
+
+<div class='footer container'>
+  <hr/>
+  <goat-paragraph size='sm'>&copy; 2021 <goat-link href="https://shivajivarma.com">Shivaji Varma</goat-link>. All Rights Reserved.</goat-paragraph>
+</div>

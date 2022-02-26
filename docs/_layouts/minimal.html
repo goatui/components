@@ -1,0 +1,257 @@
+---
+
+---
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <!-- Title -->
+  <title>{% if page.title %}{{ page.title }} &middot; {{ site.title }}{% else %}{{ site.title }} &middot; {{
+    site.tagline }}{% endif %}</title>
+  <meta name='description'
+        content='{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}'>
+
+  <meta name='author' content='{{ site.author.name }}'>
+  <meta name='copyright' content="(c) {{ site.time | date: '%Y' }} {{ site.author.name }}">
+
+  <link rel='canonical' href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+  <!-- Required Meta Tags Always Come First -->
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+
+  <!-- Favicon -->
+  <link rel='shortcut icon' href='/assets/img/favicon.png'>
+
+  <!--  Meta tags -->
+  <meta name='keywords' content='web components, p4 button, p4 input, p4 grid, p4rm ui library'>
+  <meta name='description'
+        content="{{site.title}} contains most used web components built using Stencil. So you don't need to include any additional framework dependencies, You can simple import required component js, and right away start using it.">
+
+
+  <!-- CSS Implementing Plugins -->
+  <link rel='stylesheet' href='/assets/vendor/jquery-ui/themes/base/jquery-ui.min.css'>
+  <link rel='stylesheet' href='/assets/vendor/prism/prism.css'>
+
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  </style>
+
+  <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css' />
+  <script data-ad-client='ca-pub-3120721550776061' async
+          src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
+  <link rel='stylesheet' href='{{site.themeCss}}'></link>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .nav-wrapper {
+      height: 55px;
+      display: flex;
+      align-content: center;
+      background-color: var(--color-primary-500);
+    }
+
+    .top-nav-left {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      gap: var(--space-4);
+      padding-left: var(--space-5);
+    }
+
+    .top-nav-logo {
+      gap: var(--space-3);
+    }
+
+    .top-nav-logo-img {
+      display: flex;
+      align-items: center;
+      width: 45px;
+      height: 45px;
+    }
+
+    .top-nav .nav-item {
+      display: flex;
+      align-items: center;
+      color: white;
+      text-decoration: none;
+      margin: 0;
+    }
+
+    .top-nav-right {
+      display: flex;
+      align-items: center;
+      padding-right: var(--space-6);
+    }
+
+    .top-nav-left .title {
+      font-weight: var(--font-weight-semi-bold);
+
+    }
+
+    .page-title {
+
+    }
+
+    main {
+      margin-top: 55px;
+    }
+
+    .container {
+      padding: var(--space-3) var(--space-5) ;
+    }
+
+    figure {
+      margin: 0;
+    }
+  </style>
+
+
+</head>
+
+<body itemscope itemtype='http://schema.org/WebPage'>
+
+<nav class='top-nav'>
+
+  <div class='nav-wrapper'>
+
+
+    <div class='top-nav-left'>
+      <a href='/' class='nav-item top-nav-logo'>
+        <img src='/assets/img/logo.svg' alt='{{ site.title }}' class='top-nav-logo-img'> <span class='title'>{{site.title}}</span>
+      </a>
+
+      <goat-button href='/components.html' class='nav-item'>
+        Components
+      </goat-button>
+    </div>
+    <div class='top-nav-right'>
+      {% if page.root %}
+      <goat-button href='https://github.com/{{site.github_username}}/{{site.github_project}}' class='nav-item'
+                   target='_blank'>
+        Github
+      </goat-button>
+      {% else %}
+      <goat-button href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues' class='nav-item'
+                   target='_blank'>
+        Report Issue
+      </goat-button>
+      {% endif %}
+
+    </div>
+  </div>
+
+  {% if page.root != true %}
+  <style>
+    main {
+      margin-top: 117px;
+    }
+    .page-title {
+      background: var(--color-primary-300);
+    }
+    .page-title .title {
+      margin: 0;
+      color: white;
+    }
+  </style>
+  <div class='container page-title'>
+    <goat-heading size='sm' class='title'>{{page.title}}</goat-heading>
+  </div>
+  {% endif %}
+</nav>
+
+<main>
+  {{ content }}
+</main>
+
+
+<script type='module' src='{{site.script}}'></script>
+
+<!-- JS Global Compulsory -->
+<script src='/assets/vendor/jquery/dist/jquery.min.js'></script>
+
+<!-- JS Implementing Plugins -->
+<script src='/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js'></script>
+<script src='/assets/vendor/jquery-ui/jquery-ui.core.min.js'></script>
+<script src='/assets/vendor/jquery-ui/ui/widgets/menu.js'></script>
+<script src='/assets/vendor/jquery-ui/ui/widgets/mouse.js'></script>
+<script src='/assets/vendor/jquery-ui/ui/widgets/autocomplete.js'></script>
+<script src='/assets/vendor/prism/prism.js'></script>
+
+
+<script src='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js'></script>
+<!-- JS -->
+<script src='/assets/js/main.js'></script>
+<script src='/assets/js/autocomplete.js'></script>
+<script src='/assets/js/custom-scrollbar.js'></script>
+<script src='/assets/js/main.js'></script>
+<style>
+  .toast {
+    opacity: 1 !important;
+    min-width: 100vh !important;
+  }
+
+  figure.highlight {
+    background: aliceblue;
+  }
+</style>
+<script>
+  toastr.options = {
+    'closeButton': false,
+    'debug': false,
+    'newestOnTop': false,
+    'progressBar': false,
+    'positionClass': 'toast-top-full-width',
+    'preventDuplicates': false,
+    'onclick': null,
+    'showDuration': '300',
+    'hideDuration': '300',
+    'timeOut': '3000',
+    'extendedTimeOut': '0',
+    'showEasing': 'swing',
+    'hideEasing': 'linear',
+    'showMethod': 'fadeIn',
+    'hideMethod': 'fadeOut',
+  };
+
+  myConsole = {
+    log: function(message) {
+      toastr['success'](message);
+    },
+    warn: function(message) {
+      toastr['warning'](message);
+    },
+  };
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src='https://www.googletagmanager.com/gtag/js?id=UA-160970697-1'></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag('js', new Date());
+
+  gtag('config', 'UA-160970697-1');
+</script>
+</body>
+</html>

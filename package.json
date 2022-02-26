@@ -1,6 +1,6 @@
 {
   "name": "@goatui/components",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "GOAT UI contains most used web components built using Stencil",
   "license": "MIT",
 

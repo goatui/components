@@ -1,5 +1,5 @@
-<div class='card'>
-  <div class='card-header'>
+<goat-card>
+  <goat-card-content>
 
     <goat-button id='click-me-btn'>Click me</goat-button>
     <goat-button disabled id='disabled-btn'>Disabled Button</goat-button>
@@ -12,8 +12,8 @@
         myConsole.log('Button clicked'); // this will not be fired
       });
     </script>
-  </div>
-  <div class='card-body'>
+  </goat-card-content>
+  <goat-card-content>
     {% highlight js %}
     document.querySelector('#click-me-btn').addEventListener('goat:click', function(event) {
       alert("Button clicked");
@@ -23,5 +23,5 @@
       alert("Button clicked"); // this will not be fired
     });
     {% endhighlight %}
-  </div>
-</div>
+  </goat-card-content>
+</goat-card>

@@ -1,7 +1,7 @@
 <p>Fancy larger or smaller input? Add size attribute for additional sizes.</p>
 
-<div class='card'>
-  <div class='card-header'>
+<goat-card>
+  <goat-card-content>
     <goat-form-control label='Email'>
       <goat-input type='text' size='lg'>
         <goat-icon slot='start' type='mailbox' size='lg'></goat-icon>
@@ -16,11 +16,13 @@
     <goat-form-control label='Slots'>
       <goat-input type='number' size='sm'>
         <div slot='start'>$</div>
-        <a slot='end' href='#'><goat-icon size='sm' type='box-arrow-up-right'></goat-icon></a>
+        <a slot='end' href='#'>
+          <goat-icon size='sm' type='box-arrow-up-right'></goat-icon>
+        </a>
       </goat-input>
     </goat-form-control>
-  </div>
-  <div class='card-body'>
+  </goat-card-content>
+  <goat-card-content>
     {% highlight html %}
     <goat-form-control label='Email'>
       <goat-input type='text' size='lg'>
@@ -36,9 +38,11 @@
     <goat-form-control label='Slots'>
       <goat-input type='number' size='sm'>
         <div slot='start'>$</div>
-        <a slot='end' href='#'><goat-icon size='sm' type='box-arrow-up-right'></goat-icon></a>
+        <a slot='end' href='#'>
+          <goat-icon size='sm' type='box-arrow-up-right'></goat-icon>
+        </a>
       </goat-input>
     </goat-form-control>
     {% endhighlight %}
-  </div>
-</div>
+  </goat-card-content>
+</goat-card>

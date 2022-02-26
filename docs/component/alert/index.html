@@ -11,7 +11,7 @@ menu:
 
 
   <!-- Content -->
-  <div class='col-xl-10 order-xl-1 duik-content border-bottom'>
+  <goat-card-content class='col-xl-10 order-xl-1 duik-content border-bottom'>
 
     <div class='border-bottom mb-7'>
       <h1>{{ page.title }}</h1>
@@ -25,79 +25,101 @@ menu:
     <div id='doc-states' class='mb-7'>
       <h2 class='h4'>States <a class='js-anchor-link duik-anchorjs-link' href='#doc-states' aria-label='Anchor'
                                data-anchorjs-icon='#'></a></h2>
-      <div class='card'>
-        <div class='card-header'>
+      <goat-card>
+        <goat-card-content>
           <goat-alert>
-            <div slot='message'>A new <goat-link color='inherit' href='https://google.com'>software</goat-link> update is available. See what’s new in version 2.0</div>
+            <div slot='message'>A new
+              <goat-link color='inherit' href='https://google.com'>software</goat-link>
+              update is available. See what’s new in version 2.0
+            </div>
             <div slot='description'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit non vel nulla sit gravida adipiscing. Gravida fusce enim habitant etiam netus sed
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit non vel nulla sit gravida adipiscing.
+              Gravida fusce enim habitant etiam netus sed
             </div>
           </goat-alert>
           <goat-alert state='success'>
-            <div slot='message'>A new <goat-link color='inherit'>software</goat-link> update is available. See what’s new in version 2.0</div>
+            <div slot='message'>A new
+              <goat-link color='inherit'>software</goat-link>
+              update is available. See what’s new in version 2.0
+            </div>
             <div slot='description'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit non vel nulla sit gravida adipiscing. Gravida fusce enim habitant etiam netus sed
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit non vel nulla sit gravida adipiscing.
+              Gravida fusce enim habitant etiam netus sed
             </div>
           </goat-alert>
           <goat-alert state='warning'>
-            <div slot='message'>A new <goat-link color='inherit'>software</goat-link> update is available. See what’s new in version 2.0</div>
+            <div slot='message'>A new
+              <goat-link color='inherit'>software</goat-link>
+              update is available. See what’s new in version 2.0
+            </div>
             <div slot='description'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit non vel nulla sit gravida adipiscing. Gravida fusce enim habitant etiam netus sed
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit non vel nulla sit gravida adipiscing.
+              Gravida fusce enim habitant etiam netus sed
             </div>
           </goat-alert>
           <goat-alert state='error'>
-            <div slot='message'>A new <goat-link color='inherit'>software</goat-link> update is available. See what’s new in version 2.0</div>
+            <div slot='message'>A new
+              <goat-link color='inherit'>software</goat-link>
+              update is available. See what’s new in version 2.0
+            </div>
             <div slot='description'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit non vel nulla sit gravida adipiscing. Gravida fusce enim habitant etiam netus sed
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit non vel nulla sit gravida adipiscing.
+              Gravida fusce enim habitant etiam netus sed
             </div>
           </goat-alert>
 
-          </div>
-        <div class='card-body'>
+        </goat-card-content>
+        <goat-card-content>
           {% highlight html %}
           <goat-alert>
-            <div slot='message'>A new <goat-link color='inherit'>software</goat-link> update is available. See what’s new in version 2.0</div>
+            <div slot='message'>A new
+              <goat-link color='inherit'>software</goat-link>
+              update is available. See what’s new in version 2.0
+            </div>
             <div slot='description'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit non vel nulla sit gravida adipiscing. Gravida fusce enim habitant etiam netus sed
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit non vel nulla sit gravida adipiscing.
+              Gravida fusce enim habitant etiam netus sed
             </div>
           </goat-alert>
           <goat-alert state='success'>...</goat-alert>
           <goat-alert state='warning'>...</goat-alert>
           <goat-alert state='error'>...</goat-alert>
           {% endhighlight %}
-        </div>
-      </div>
+        </goat-card-content>
+      </goat-card>
 
     </div>
     <!-- End Types -->
 
     <!-- Dismissible -->
     <div id='doc-dismissible' class='mb-7'>
-      <h2 class='h4'>Dismissible <a class='js-anchor-link duik-anchorjs-link' href='#doc-dismissible' aria-label='Anchor'
-                               data-anchorjs-icon='#'></a></h2>
-      <div class='card'>
-        <div class='card-header'>
+      <h2 class='h4'>Dismissible <a class='js-anchor-link duik-anchorjs-link' href='#doc-dismissible'
+                                    aria-label='Anchor'
+                                    data-anchorjs-icon='#'></a></h2>
+      <goat-card>
+        <goat-card-content>
           <goat-alert dismissible>
             <div slot='message'>A new software update is available. See what’s new in version 2.0</div>
             <div slot='description'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit non vel nulla sit gravida adipiscing. Gravida fusce enim habitant etiam netus sed
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit non vel nulla sit gravida adipiscing.
+              Gravida fusce enim habitant etiam netus sed
             </div>
           </goat-alert>
-        </div>
-        <div class='card-body'>
+        </goat-card-content>
+        <goat-card-content>
           {% highlight html %}
           <goat-alert dismissible>
             <div slot='message'>A new software update is available. See what’s new in version 2.0</div>
             <div slot='description'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit non vel nulla sit gravida adipiscing. Gravida fusce enim habitant etiam netus sed
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit non vel nulla sit gravida adipiscing.
+              Gravida fusce enim habitant etiam netus sed
             </div>
           </goat-alert>
           {% endhighlight %}
-        </div>
-      </div>
+        </goat-card-content>
+      </goat-card>
     </div>
     <!-- End Dismissible -->
 
     <!-- End Content -->
-  </div>
 </div>

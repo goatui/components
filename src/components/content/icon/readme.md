@@ -22,7 +22,6 @@
  - [goat-input](../../input-controls/input)
  - [goat-menu](../../pickers/menu)
  - [goat-select](../../input-controls/select)
- - [goat-textarea](../../input-controls/textarea)
 
 ### Graph
 ```mermaid
@@ -31,7 +30,6 @@ graph TD;
   goat-input --> goat-icon
   goat-menu --> goat-icon
   goat-select --> goat-icon
-  goat-textarea --> goat-icon
   style goat-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

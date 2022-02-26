@@ -4,13 +4,10 @@
 
 :host {
   display: inline-block;
-  margin-bottom: v(--space-3);
-  margin-inline-end: v(--space-3);
   --button-border-style: solid;
 }
 
 .button {
-  position: relative;
   box-sizing: border-box;
   display: flex;
   align-items: center;

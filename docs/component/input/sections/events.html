@@ -2,8 +2,8 @@
   class='highlighter-rouge' data-lang='html'>goat:change</code>
   is triggered by the element.</p>
 
-<div class='card'>
-  <div class='card-header'>
+<goat-card>
+  <goat-card-content>
 
     <goat-input variant='default' id='name-input-field'></goat-input>
 
@@ -15,8 +15,8 @@
         myConsole.warn('goat:change :: ' + event.target.value);
       });
     </script>
-  </div>
-  <div class='card-body'>
+  </goat-card-content>
+  <goat-card-content>
     {% highlight js %}
     document.querySelector('#name-input-field').addEventListener('goat:input', function(event) {
       console.log('goat:input :: ' + event.target.value);
@@ -25,5 +25,5 @@
       console.warn('goat:change :: ' + event.target.value);
     });
     {% endhighlight %}
-  </div>
-</div>
+  </goat-card-content>
+</goat-card>

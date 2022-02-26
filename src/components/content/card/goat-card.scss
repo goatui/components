@@ -1,0 +1,48 @@
+@import "../../../styles/scss/commons";
+
+:host {
+  display: block;
+  margin-bottom: v(--space-3);
+  height: 100%;
+}
+
+.card {
+  border: 1px solid v(--color-grey-200);
+  border-radius: v(--border-radius);
+  height: 100%;
+}
+
+:host([shadow-level="xxl"]) .card {
+  box-shadow: v(--shadow-xl);
+}
+
+:host([shadow-level="xl"]) .card {
+  box-shadow: v(--shadow-xl);
+}
+
+:host([shadow-level="lg"]) .card {
+  box-shadow: v(--shadow-xl);
+}
+
+:host([shadow-level="md"]) .card {
+  box-shadow: v(--shadow-xl);
+}
+
+:host([shadow-level="sm"]) .card {
+  box-shadow: v(--shadow-xl);
+}
+
+
+:host([shadow-level="xs"]) .card {
+  box-shadow: v(--shadow-xl);
+}
+
+slot::slotted(goat-card-content) {
+  display: block;
+  padding: 1rem;
+  border-bottom: 1px solid v(--border-color);
+}
+
+slot::slotted(goat-card-content:last-child) {
+  border-bottom: none;
+}

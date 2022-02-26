@@ -77,7 +77,7 @@ export class GoatButton implements ComponentInterface {
   /**
    * Sets or retrieves the window or frame at which to target content.
    */
-  @Prop() target: string;
+  @Prop() target: string = '_self';
 
   /**
    * On click of button, a CustomEvent 'goat:click' will be triggered.

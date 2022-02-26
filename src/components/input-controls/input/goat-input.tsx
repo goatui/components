@@ -19,7 +19,7 @@ import { debounceEvent, getGoatIndex } from '../../../utils/utils';
   styleUrl: 'goat-input.scss',
   shadow: true,
 })
-export class GoatInput implements ComponentInterface {
+export class GoatInput implements ComponentInterface, InputComponentInterface {
 
   gid: string = getGoatIndex();
 
@@ -223,11 +223,17 @@ export class GoatInput implements ComponentInterface {
     return this.getValue().length > 0;
   }
 
+  @Method()
+  async getGid() {
+    return this.gid;
+  }
+
   render() {
 
     return (
       <Host type={this.type}
             focused={this.hasFocus}
+            required={this.required}
             size={this.size}
             state={this.state}
             has-value={this.hasValue()}

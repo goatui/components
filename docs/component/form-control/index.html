@@ -1,31 +1,12 @@
 ---
 layout: component
-title: Button
+title: Form Control
 sections:
-- title: Variants
-  source: sections/variants.html
-- title: Sizes
-  source: sections/sizes.html
-- title: Selected
-  source: sections/selected.html
-- title: Disabled
-  source: sections/disabled.html
-- title: Icon
-  source: sections/icon.html
-- title: Block
-  source: sections/block.html
-- title: Loading
-  source: sections/loading.html
-- title: Events
-  source: sections/events.html
+- title: Usage
+  source: sections/usage.html
 ---
-<div class='row pt-3'>
 
-  <style>
-    goat-button {
-      margin: 0 0.5rem 1rem 0;
-    }
-  </style>
+<div class='row pt-3'>
 
   {% include section-nav.html %}
 
@@ -34,7 +15,7 @@ sections:
 
     <div class='border-bottom mb-7'>
       <h1>{{ page.title }}</h1>
-      <p class='lead mb-5'>Use {{site.company}}’s custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</p>
+      <p class='lead mb-5'>Use {{site.company}}’s custom input styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</p>
     </div>
 
     {% for section in page.sections %}
@@ -47,4 +28,5 @@ sections:
 
   </div>
   <!-- End Content -->
+
 </div>

@@ -66,6 +66,9 @@ export namespace Components {
         "triggerClick": () => Promise<void>;
         "variant": 'default' | 'light' | 'outline' | 'link';
     }
+    interface GoatCard {
+        "shadowLevel": 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | undefined;
+    }
     interface GoatCheckbox {
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
@@ -141,6 +144,7 @@ export namespace Components {
     }
     interface GoatFormControl {
         "label": string;
+        "required": boolean;
     }
     interface GoatHeading {
         "level": 1 | 2 | 3 | 4 | 5;
@@ -174,6 +178,7 @@ export namespace Components {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
+        "getGid": () => Promise<string>;
         /**
           * The input field name.
          */
@@ -320,6 +325,7 @@ export namespace Components {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
+        "getGid": () => Promise<string>;
         /**
           * If true, the form will be in inline format. Defaults to `false`.
          */
@@ -376,6 +382,12 @@ declare global {
     var HTMLGoatButtonElement: {
         prototype: HTMLGoatButtonElement;
         new (): HTMLGoatButtonElement;
+    };
+    interface HTMLGoatCardElement extends Components.GoatCard, HTMLStencilElement {
+    }
+    var HTMLGoatCardElement: {
+        prototype: HTMLGoatCardElement;
+        new (): HTMLGoatCardElement;
     };
     interface HTMLGoatCheckboxElement extends Components.GoatCheckbox, HTMLStencilElement {
     }
@@ -471,6 +483,7 @@ declare global {
         "goat-alert": HTMLGoatAlertElement;
         "goat-avatar": HTMLGoatAvatarElement;
         "goat-button": HTMLGoatButtonElement;
+        "goat-card": HTMLGoatCardElement;
         "goat-checkbox": HTMLGoatCheckboxElement;
         "goat-code-editor": HTMLGoatCodeEditorElement;
         "goat-dropdown": HTMLGoatDropdownElement;
@@ -551,6 +564,9 @@ declare namespace LocalJSX {
          */
         "target"?: string;
         "variant"?: 'default' | 'light' | 'outline' | 'link';
+    }
+    interface GoatCard {
+        "shadowLevel"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | undefined;
     }
     interface GoatCheckbox {
         /**
@@ -638,6 +654,7 @@ declare namespace LocalJSX {
     }
     interface GoatFormControl {
         "label"?: string;
+        "required"?: boolean;
     }
     interface GoatHeading {
         "level"?: 1 | 2 | 3 | 4 | 5;
@@ -891,6 +908,7 @@ declare namespace LocalJSX {
         "goat-alert": GoatAlert;
         "goat-avatar": GoatAvatar;
         "goat-button": GoatButton;
+        "goat-card": GoatCard;
         "goat-checkbox": GoatCheckbox;
         "goat-code-editor": GoatCodeEditor;
         "goat-dropdown": GoatDropdown;
@@ -915,6 +933,7 @@ declare module "@stencil/core" {
             "goat-alert": LocalJSX.GoatAlert & JSXBase.HTMLAttributes<HTMLGoatAlertElement>;
             "goat-avatar": LocalJSX.GoatAvatar & JSXBase.HTMLAttributes<HTMLGoatAvatarElement>;
             "goat-button": LocalJSX.GoatButton & JSXBase.HTMLAttributes<HTMLGoatButtonElement>;
+            "goat-card": LocalJSX.GoatCard & JSXBase.HTMLAttributes<HTMLGoatCardElement>;
             "goat-checkbox": LocalJSX.GoatCheckbox & JSXBase.HTMLAttributes<HTMLGoatCheckboxElement>;
             "goat-code-editor": LocalJSX.GoatCodeEditor & JSXBase.HTMLAttributes<HTMLGoatCodeEditorElement>;
             "goat-dropdown": LocalJSX.GoatDropdown & JSXBase.HTMLAttributes<HTMLGoatDropdownElement>;

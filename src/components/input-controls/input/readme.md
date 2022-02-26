@@ -35,6 +35,16 @@
 
 ## Methods
 
+### `getGid() => Promise<string>`
+
+
+
+#### Returns
+
+Type: `Promise<string>`
+
+
+
 ### `setBlur() => Promise<void>`
 
 Sets blur on the native `input` in `goat-input`. Use this method instead of the global

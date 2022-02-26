@@ -30,19 +30,18 @@ menu:
       <p>Here are several predefined input styles, each serving its own semantic purpose.</p>
 
 
-      <div class='card'>
-        <div class='card-header'>
+      <goat-card>
+        <goat-card-content>
           <goat-textarea placeholder='Person Name'></goat-textarea>
           <goat-textarea variant='dashed' value='Some Value'></goat-textarea>
-        </div>
-        <div class='card-body'>
-          <pre>
-                <code class='language-html' data-lang='html'> &lt;goat-textarea label=&quot;Name&quot; placeholder=&quot;Person Name&quot;&gt;&lt;/goat-textarea&gt;
-                 &lt;goat-textarea variant=&quot;dashed&quot; value="Some Value"&gt;&lt;/goat-textarea&gt;
-                </code>
-              </pre>
-        </div>
-      </div>
+        </goat-card-content>
+        <goat-card-content>
+          {% highlight html %}
+          <goat-textarea placeholder='Person Name'></goat-textarea>
+          <goat-textarea variant='dashed' value='Some Value'></goat-textarea>
+          {% endhighlight %}
+        </goat-card-content>
+      </goat-card>
     </div>
     <!-- End Variants -->
 
@@ -55,21 +54,20 @@ menu:
                               aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
       <p>Fancy larger or smaller input? Add size attribute for additional sizes.</p>
 
-      <div class='card'>
-        <div class='card-header'>
+      <goat-card>
+        <goat-card-content>
           <goat-textarea size='lg' placeholder='Large'></goat-textarea>
           <goat-textarea placeholder='Medium'></goat-textarea>
           <goat-textarea size='sm' placeholder='Small'></goat-textarea>
-        </div>
-        <div class='card-body'>
-           <pre>
-                  <code class='language-html' data-lang='html'>&lt;goat-textarea size=&quot;lg&quot; placeholder=&quot;Large&quot;&gt;&lt;/goat-textarea&gt;
-                  &lt;goat-textarea placeholder=&quot;Medium&quot;&gt;&lt;/goat-textarea&gt;
-                  &lt;goat-textarea size=&quot;sm&quot; placeholder=&quot;Small&quot;&gt;&lt;/goat-textarea&gt;
-                  </code>
-                </pre>
-        </div>
-      </div>
+        </goat-card-content>
+        <goat-card-content>
+          {% highlight html %}
+          <goat-textarea size='lg' placeholder='Large'></goat-textarea>
+          <goat-textarea placeholder='Medium'></goat-textarea>
+          <goat-textarea size='sm' placeholder='Small'></goat-textarea>
+          {% endhighlight %}
+        </goat-card-content>
+      </goat-card>
 
     </div>
 
@@ -80,8 +78,8 @@ menu:
       <p>Make input look inactive by adding the disabled <code class='highlighter-rouge' data-lang='html'>boolean</code>
         attribute to any <code class='highlighter-rouge' data-lang='html'>&lt;input&gt;</code> element.</p>
 
-      <div class='card'>
-        <div class='card-header'>
+      <goat-card>
+        <goat-card-content>
           <goat-textarea id='input-with-actions'></goat-textarea>
           <script>
             document.querySelector('#input-with-actions').actions = [{
@@ -99,30 +97,26 @@ menu:
               window.notyf.success('Action clicked :: ' + evt.detail.eventName);
             });
           </script>
-        </div>
-        <div class='card-body'>
-           <pre>
-                  <code class='language-html' data-lang='html'> &lt;goat-textarea id='input-with-actions'>&lt;/goat-textarea>
-          &lt;script>
-            document.querySelector('#input-with-actions').actions = [{
-              icon: 'search',
-              eventName: 'search-item'
-            }, {
-              icon: 'x',
-              eventName: 'close'
-            }, {
-              icon: 'info-circle',
-              eventName: 'info-circle',
-              disabled: true
-            }];
-            document.querySelector('#input-with-actions').addEventListener('goat:action-click', function(evt) {
-              console.log("Action clicked :: " + evt.detail.eventName);
-            })
-          &lt;/script>
-                  </code>
-                </pre>
-        </div>
-      </div>
+        </goat-card-content>
+        <goat-card-content>
+          {% highlight js %}
+          document.querySelector('#input-with-actions').actions = [{
+            icon: 'search',
+            eventName: 'search-item'
+          }, {
+            icon: 'x',
+            eventName: 'close'
+          }, {
+            icon: 'info-circle',
+            eventName: 'info-circle',
+            disabled: true
+          }];
+          document.querySelector('#input-with-actions').addEventListener('goat:action-click', function(evt) {
+           console.log("Action clicked :: " + evt.detail.eventName);
+          });
+          {% endhighlight %}
+        </goat-card-content>
+      </goat-card>
     </div>
 
     <!-- Disabled State -->
@@ -132,26 +126,17 @@ menu:
       <p>Make input look inactive by adding the disabled <code class='highlighter-rouge' data-lang='html'>boolean</code>
         attribute to any <code class='highlighter-rouge' data-lang='html'>&lt;input&gt;</code> element.</p>
 
-      <div class='card'>
-        <div class='card-header'>
+      <goat-card>
+        <goat-card-content>
           <goat-textarea disabled></goat-textarea>
           <goat-textarea disabled value='With Value'></goat-textarea>
-          <goat-textarea disabled value='With Value' id='disable-with-actions'></goat-textarea>
-          <script>
-            document.querySelector('#disable-with-actions').actions = [{
-              icon: 'house',
-              eventName: 'house',
-            }];
-          </script>
-        </div>
-        <div class='card-body'>
-           <pre>
-                  <code class='language-html' data-lang='html'>&lt;goat-textarea disabled&gt;Disabled Button&lt;/goat-textarea&gt;
-&lt;goat-textarea disabled value='With Value'&gt;Disabled Button&lt;/goat-textarea&gt;
-                  </code>
-                </pre>
-        </div>
-      </div>
+        </goat-card-content>
+        <goat-card-content>
+          <goat-textarea disabled></goat-textarea>
+          <goat-textarea disabled value='With Value'></goat-textarea>
+          {% endhighlight %}
+        </goat-card-content>
+      </goat-card>
     </div>
 
 
@@ -177,17 +162,19 @@ menu:
         </script>
 
       </div>
-      <pre class='mb-4'>
-                    <code class='language-html' data-lang='html'>&lt;script&gt;
-document.querySelector('#name-input-field').addEventListener('goat:input', function(event) {
-       console.log("goat:input :: " + event.target.value);
-});
-document.querySelector('#name-input-field').addEventListener('goat:change', function(event) {
-      console.log("goat:change :: " + event.target.value);
-});
-&lt;/script&gt;
-                    </code>
-                  </pre>
+
+      <goat-card>
+        <goat-card-content>
+          {% highlight js %}
+          document.querySelector('#name-input-field').addEventListener('goat:input', function(event) {
+            console.log("goat:input :: " + event.target.value);
+          });
+          document.querySelector('#name-input-field').addEventListener('goat:change', function(event) {
+            console.log("goat:change :: " + event.target.value);
+          });
+          {% endhighlight %}
+        </goat-card-content>
+      </goat-card>
 
     </div>
 

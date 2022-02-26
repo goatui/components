@@ -1,41 +1,131 @@
 ---
-layout: default
+layout: minimal
 ---
+<style>
+  /* width */
+  ::-webkit-scrollbar {
+    width: 0.5rem;
+  }
 
-<div class="container-fluid">
-	<div class="row">
-		{% include sidebar.html %}
 
-		<main class="ml-md-auto col-md-9 col-xl-10 px-4 pt-0 pt-md-11">
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
 
-			{{ content }}
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
 
-			<div id="disqus_thread"></div>
-			<script>
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 
-				/**
-				 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-				 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 
-                var disqus_config = function () {
-                this.page.url = "{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}";  /* Replace PAGE_URL with your page's canonical URL variable */
-                this.page.identifier = "{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
-                };
-				(function() { /* DON'T EDIT BELOW THIS LINE */
-					var d = document, s = d.createElement('script');
-					s.src = 'https://ui-p4rm-com.disqus.com/embed.js';
-					s.setAttribute('data-timestamp', +new Date());
-					(d.head || d.body).appendChild(s);
-				})();
-			</script>
-			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-			{% include footer.html %}
-		</main>
-	</div>
+  .sidenav {
+    width: 20rem;
+    position: fixed;
+    top: 117px;
+    background: var(--color-grey-100);
+    height: calc(100vh - 117px);
+    overflow-y: auto;
+  }
+
+  .sidenav-title {
+    padding: 0 1rem;
+  }
+  .sidenav-components{
+    padding-bottom: 0.5rem;
+  }
+
+  .sidenav-link {
+    padding: 0.5rem 1rem;
+    width: 100%;
+    text-decoration: none;
+    color: var(--color-grey-500);
+    display: inline-block;
+    font-size: var(--text-lg-font-size);
+  }
+
+  .sidenav-link:hover {
+    color: var(--color-grey-700);
+    background: var(--color-grey-200);
+  }
+
+  .sidenav-link.active {
+    color: var(--color-grey-800);
+    font-weight: 600;
+    background: var(--color-grey-300);
+  }
+
+  .main-content {
+    margin-top: 117px;
+    margin-left: 20rem;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .sidenav {
+      width: 100%;
+      position: absolute;
+      overflow: initial;
+      height: 100%;
+    }
+    .main-content {
+      margin-left: 0;
+      display: none;
+    }
+  }
+  pre[class*="language-"] {
+    margin: 0;
+  }
+</style>
+<div class='sidenav'>
+  {% for group in site.groups %}
+  <goat-heading class='sidenav-title' level='5' size='xs'>{{group.name}}</goat-heading>
+  <div class='sidenav-components'>
+    {% for component in group.components %}
+    <a class='sidenav-link {% if page.title == component.name %}active{% endif %}' href='{{component.link}}'>{{component.name}}</a>
+    {% endfor %}
+  </div>
+
+  {% endfor %}
+
+
+  <goat-heading class='sidenav-title' level='5' size='xs'>WIP</goat-heading>
+    {% for component in site.components %}
+  <a class='sidenav-link {% if page.title == component.name %}active{% endif %}' href='{{component.link}}'>{{component.name}}</a>
+    {% endfor %}
+</div>
+<div class='main-content container'>
+
+  {{content}}
+
+  <div id="disqus_thread"></div>
+  <script>
+
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+    var disqus_config = function () {
+      this.page.url = "{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://ui-p4rm-com.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  <div class='footer'>
+    <hr/>
+    <goat-paragraph size='sm'>&copy; 2021 <goat-link href="https://shivajivarma.com">Shivaji Varma</goat-link>. All Rights Reserved.</goat-paragraph>
+  </div>
+
+
 </div>
 
-<!-- Go to Top -->
-<a class="js-go-to duik-go-to" href="javascript:;">
-	<span class="fa fa-arrow-up duik-go-to__inner"></span>
-</a>
-<!-- End Go to Top -->

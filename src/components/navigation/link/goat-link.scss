@@ -64,15 +64,15 @@
 }
 
 :host([decoration="false"]) .link {
-  background-image: none;
+  background-image: none!important;
 
   &:hover {
-    background-image: none;
+    background-image: none!important;
   }
 
   &:host([active]) {
     .link {
-      background-image: none;
+      background-image: none!important;
     }
   }
 }
