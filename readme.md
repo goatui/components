@@ -12,8 +12,8 @@ dependencies, You can simply import required component js, and right away start 
 ### Script tag
 
 - Put a script tag similar to
-  this `<script type="module" src="https://unpkg.com/@goatui/components@1.0.3/dist/p4rm-ui/p4rm-ui.esm.js"></script>` in the head
-  of your index.html
+  this `<script type="module" src="https://unpkg.com/@goatui/components@1.0.3/dist/p4rm-ui/p4rm-ui.esm.js"></script>` in
+  the head of your index.html
 - Include default font Roboto in the page
 - Then you can use the element anywhere in your template, JSX, html etc
 
@@ -32,7 +32,7 @@ dependencies, You can simply import required component js, and right away start 
 </head>
 <body>
 
-<p4-button size='lg' variant='primary'>Click me</p4-button>
+<goat-button size='lg' variant='primary'>Click me</goat-button>
 
 </body>
 </html>
@@ -45,47 +45,50 @@ dependencies, You can simply import required component js, and right away start 
 - 🔴 not ready (unstyled / no functions)
 - 🔵 planned (created, but empty files)
 
-| Name                                                          | Component         | State |
-|---------------------------------------------------------------|-------------------|-------|
-| [Alert](https://ui.p4rm.com/component/alert.html)             | p4-alert          | 🟡    |
-| [Avatar](https://ui.p4rm.com/component/avatar.html)           | p4-avatar         | 🟢    |
-| [Button](https://ui.p4rm.com/component/button)                | p4-button         | 🟢    |
-| Card                                                          | p4-card           | 🔵    |
-| Card Select                                                   | p4-cardselect     | 🔵    |
-| [Checkbox](https://ui.p4rm.com/component/checkbox.html)       | p4-checkbox       | 🟡    |
-| Chip                                                          | p4-chip           | 🔵    |
-| [Code Editor](https://ui.p4rm.com/component/code-editor.html) | p4-card-editor    | 🟡    |
-| Column                                                        | p4-col            | 🔵    |
-| Color picker                                                  | p4-colorpicker    | 🔵    |
-| Date picker                                                   | p4-datepicker     | 🔵    |
-| Date Time picker                                              | p4-datetimepicker | 🔵    |
-| Dialog                                                        | p4-dialog         | 🔵    |
-| [Dropdown](https://ui.p4rm.com/component/p4-dropdown)         | p4-dropdown       | 🟡    |
-| Filepicker                                                    | p4-filepicker     | 🔵    |
-| Flow Designer                                                 | p4-flow-designer  | 🔵    |
-| Form                                                          | p4-form           | 🔵    |
-| Grid                                                          | p4-grid           | 🔵    |
-| Group                                                         | p4-group          | 🔵    |
-| [Icon](https://ui.p4rm.com/component/icon)                    | p4-icon           | 🟢    |
-| [Input](https://ui.p4rm.com/component/input)                  | p4-input          | 🟡    |
-| Modal                                                         | p4-modal          | 🔵    |
-| Menu                                                          | p4-menu           | 🔵    |
-| Month picker                                                  | p4-monthpicker    | 🔵    |
-| Notification                                                  | p4-notification   | 🔵    |
-| Observer                                                      | p4-observer       | 🔵    |
-| Pagination                                                    | p4-pagination     | 🔵    |
-| Radio Group                                                   | p4-radiogroup     | 🔵    |
-| Row                                                           | p4-row            | 🔵    |
-| [Select](https://ui.p4rm.com/component/select)                | p4-select         | 🟡    |
-| Slider                                                        | p4-slider         | 🔵    |
-| Spoiler                                                       | p4-spoiler        | 🔵    |
-| Stepper                                                       | p4-stepper        | 🔵    |
-| [Table](https://ui.p4rm.com/component/p4-table)               | p4-table          | 🟡    |
-| Table head                                                    | p4-tablehead      | 🔵    |
-| Table row                                                     | p4-tablerow       | 🔵    |
-| Tabs                                                          | p4-tabs           | 🔵    |
-| [Textarea](https://ui.p4rm.com/component/textarea)            | p4-textarea       | 🔵    |
-| Time picker                                                   | p4-timepicker     | 🔵    |
-| Toggle                                                        | p4-toggle         | 🔵    |
-| Tooltip                                                       | p4-tooltip        | 🔵    |
-| Week picker                                                   | p4-weekpicker     | 🔵    |
+| Name                                                     | Component           | State |
+|----------------------------------------------------------|---------------------|-------|
+| [Alert](https://ui.p4rm.com/component/alert)             | goat-alert          | 🟡    |
+| [Avatar](https://ui.p4rm.com/component/avatar)           | goat-avatar         | 🟢    |
+| [Button](https://ui.p4rm.com/component/button)           | goat-button         | 🟢    |
+| Card                                                     | goat-card           | 🔵    |
+| Card Select                                              | goat-cardselect     | 🔵    |
+| [Checkbox](https://ui.p4rm.com/component/checkbox)       | goat-checkbox       | 🟢    |
+| Chip                                                     | goat-chip           | 🔵    |
+| [Code Editor](https://ui.p4rm.com/component/code-editor) | goat-card-editor    | 🟢    |
+| Column                                                   | goat-col            | 🔵    |
+| Color picker                                             | goat-colorpicker    | 🔵    |
+| Date picker                                              | goat-datepicker     | 🔵    |
+| Date Time picker                                         | goat-datetimepicker | 🔵    |
+| Dialog                                                   | goat-dialog         | 🔵    |
+| [Dropdown](https://ui.p4rm.com/component/goat-dropdown)  | goat-dropdown       | 🟡    |
+| Filepicker                                               | goat-filepicker     | 🔵    |
+| Flow Designer                                            | goat-flow-designer  | 🔵    |
+| Form                                                     | goat-form           | 🔵    |
+| Grid                                                     | goat-grid           | 🔵    |
+| Group                                                    | goat-group          | 🔵    |
+| [Heading](https://ui.p4rm.com/component/heading)         | goat-heading        | 🟢    |
+| [Icon](https://ui.p4rm.com/component/icon)               | goat-icon           | 🟢    |
+| [Input](https://ui.p4rm.com/component/input)             | goat-input          | 🟡    |
+| [Link](https://ui.p4rm.com/component/Link)               | goat-link           | 🟢    |
+| Modal                                                    | goat-modal          | 🔵    |
+| Menu                                                     | goat-menu           | 🔵    |
+| Month picker                                             | goat-monthpicker    | 🔵    |
+| Observer                                                 | goat-observer       | 🔵    |
+| Pagination                                               | goat-pagination     | 🔵    |
+| [Paragraph](https://ui.p4rm.com/component/paragraph)     | goat-paragraph      | 🟢    |
+| Radio Group                                              | goat-radiogroup     | 🔵    |
+| Row                                                      | goat-row            | 🔵    |
+| [Select](https://ui.p4rm.com/component/select)           | goat-select         | 🟡    |
+| Slider                                                   | goat-slider         | 🔵    |
+| [Spinner](https://ui.p4rm.com/component/spinner)         | goat-spinner        | 🟢    |
+| Spoiler                                                  | goat-spoiler        | 🔵    |
+| Stepper                                                  | goat-stepper        | 🔵    |
+| [Table](https://ui.p4rm.com/component/goat-table)        | goat-table          | 🟡    |
+| Table head                                               | goat-tablehead      | 🔵    |
+| Table row                                                | goat-tablerow       | 🔵    |
+| Tabs                                                     | goat-tabs           | 🔵    |
+| [Textarea](https://ui.p4rm.com/component/textarea)       | goat-textarea       | 🟡    |
+| Time picker                                              | goat-timepicker     | 🔵    |
+| Toggle                                                   | goat-toggle         | 🔵    |
+| Tooltip                                                  | goat-tooltip        | 🔵    |
+| Week picker                                              | goat-weekpicker     | 🔵    |
