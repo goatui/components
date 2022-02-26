@@ -1,10 +1,10 @@
 {
   "name": "@goatui/components",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "GOAT UI contains most used web components built using Stencil",
   "license": "MIT",
   "main": "dist/index.cjs.js",
-  "unpkg": "dist/p4rm-ui/p4rm-ui.js",
+  "unpkg": "dist/goatui/goatui.js",
   "module": "dist/custom-elements/index.js",
   "types": "dist/custom-elements/index.d.ts",
   "keywords": [
