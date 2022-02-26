@@ -1,5 +1,12 @@
 import { EventEmitter } from '@stencil/core';
 
+export const getGoatIndex = (() => {
+  let counter = 1;
+  return (function() {
+    return `${counter++}`;
+  });
+})();
+
 export enum ElementSize {
   SMALL = 'sm',
   MEDIUM = 'md',

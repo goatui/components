@@ -1,6 +1,7 @@
 @import "../../../styles/scss/commons";
 @import "./button-utils";
 
+
 :host {
   display: inline-block;
   margin-bottom: v(--space-3);
@@ -32,6 +33,7 @@
   padding: removeBorder(0.5);
   @include font-style(text-sm);
   font-weight: v(--font-weight-medium);
+
   &.slot-has-content {
     padding: removeBorder(0.5) removeBorder(0.875);
   }
@@ -42,35 +44,39 @@
   padding: removeBorder(0.625);
   @include font-style(text-sm);
   font-weight: v(--font-weight-medium);
+
   &.slot-has-content {
     padding: removeBorder(0.625) removeBorder(1.125);
   }
 }
 
 :host([size="lg"]) .button, :host([size="large"]) .button {
-  padding:  removeBorder(0.625);
+  padding: removeBorder(0.625);
   @include font-style(text-md);
   font-weight: v(--font-weight-medium);
+
   &.slot-has-content {
-    padding:  removeBorder(0.625)  removeBorder(1);
+    padding: removeBorder(0.625) removeBorder(1);
   }
 }
 
 :host([size="xl"]) .button {
-  padding:  removeBorder(0.75);
+  padding: removeBorder(0.75);
   @include font-style(text-md);
   font-weight: v(--font-weight-medium);
+
   &.slot-has-content {
-    padding:  removeBorder(0.75)  removeBorder(1.25);
+    padding: removeBorder(0.75) removeBorder(1.25);
   }
 }
 
 :host([size="xxl"]) .button {
-  padding:  removeBorder(1);
+  padding: removeBorder(1);
   @include font-style(text-lg);
   font-weight: v(--font-weight-medium);
+
   &.slot-has-content {
-    padding:  removeBorder(1)  removeBorder(1.75);
+    padding: removeBorder(1) removeBorder(1.75);
   }
 }
 
@@ -131,7 +137,6 @@
   }
 }
 
-
 :host([color="error"]) {
   &:host([variant="default"]) {
     @include buttonVariant(true, error);
@@ -155,7 +160,7 @@
     color: v(--color-grey-900);
 
     .spinner, .icon {
-      --color: #{--color-grey-900};
+      color: #{--color-grey-900};
     }
 
     background: white;
@@ -165,16 +170,19 @@
       background: v(--color-grey-100);
     }
   }
+
   &:host([active]) {
     .button {
       background: v(--color-grey-200);
     }
   }
+
   &:host([selected]) {
     .button {
       background: v(--color-grey-300);
     }
   }
+
   &:host([disabled]) {
     .button {
       cursor: not-allowed;
@@ -183,7 +191,7 @@
       border-color: v(--color-grey-400) !important;
 
       .spinner, .icon {
-        --color: #{v(--color-grey-900)} !important;
+        color: #{v(--color-grey-400)} !important;
       }
     }
   }

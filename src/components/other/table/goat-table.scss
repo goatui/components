@@ -27,7 +27,7 @@
       z-index: 1; // related to parent element
       @include font-variant(caption);
       font-weight: v(font-weight-semi-bold);
-      @include font-capitalize;
+      text-transform: uppercase;
       position: absolute;
       left: 0;
       top: 0;

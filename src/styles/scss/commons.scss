@@ -29,7 +29,6 @@
   }
 }
 
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -47,4 +46,6 @@
   justify-content: center;
 }
 
-
+:host([hidden]) {
+  display: none;
+}

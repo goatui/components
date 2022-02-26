@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
 
-  .native-input {
+  .input-native {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -117,15 +117,15 @@
 :host([disabled]) {
   .checkbox {
     cursor: not-allowed;
-    color: v(--color-grey-400);
+    color: v(--color-grey-400) !important;
 
     .box {
-      background: v(--color-grey-200);
+      background: v(--color-grey-200) !important;
     }
 
 
     .tick {
-      border-color: #{v(--color-grey-400)};
+      border-color: #{v(--color-grey-400)} !important;
     }
   }
 }

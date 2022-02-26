@@ -11,10 +11,8 @@ import {
   Prop,
   State,
 } from '@stencil/core';
-import { ElementColor, ElementSize } from '../../../utils/utils';
+import { ElementColor, ElementSize, getGoatIndex } from '../../../utils/utils';
 
-
-let index = 0;
 
 @Component({
   tag: 'goat-button',
@@ -22,7 +20,8 @@ let index = 0;
   shadow: true,
 })
 export class GoatButton implements ComponentInterface {
-  private id = ++index;
+
+  gid = getGoatIndex();
 
   /**
    * Button size.
@@ -70,8 +69,15 @@ export class GoatButton implements ComponentInterface {
    */
   @Prop() showLoader: boolean = false;
 
+  /**
+   * Hyperlink to navigate to on click.
+   */
   @Prop() href: string;
-  @Prop() target: '_self' | '_blank' = '_self';
+
+  /**
+   * Sets or retrieves the window or frame at which to target content.
+   */
+  @Prop() target: string;
 
   /**
    * On click of button, a CustomEvent 'goat:click' will be triggered.
@@ -168,9 +174,9 @@ export class GoatButton implements ComponentInterface {
 
 
   private renderDisabledReason() {
-    if (this.disabled)
-      return <div id={`disabledReason-${this.id}`} role='tooltip' class='sr-only'>
-        {this.disabledReason ? this.disabledReason : 'Disabled'}
+    if (this.disabled && this.disabledReason)
+      return <div id={`disabled-reason-${this.gid}`} role='tooltip' class='sr-only'>
+        {this.disabledReason}
       </div>;
   }
 
@@ -197,7 +203,7 @@ export class GoatButton implements ComponentInterface {
         onClick={this.clickHandler}
         onMouseDown={this.mouseDownHandler}
         onKeyDown={this.keyDownHandler}
-        aria-describedby={this.disabledReason ? `disabledReason-${this.id}` : null}
+        aria-describedby={this.disabled && this.disabledReason ? `disabled-reason-${this.gid}` : null}
         aria-disabled={this.disabled || this.showLoader}>
 
         {this.showLoader && <goat-spinner class='spinner' size={this.size} />}

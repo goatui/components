@@ -30,7 +30,7 @@ function generateIconImportFile(cb) {
   icons.forEach((icon, index) => {
     result += 'ICONS[\'' + icon + '\'] = Icon' + index + ';\n';
   });
-  fs.writeFileSync('src/components/p4-icon/bootstrap-icons.ts', result);
+  fs.writeFileSync('src/components/content/icon/bootstrap-icons.ts', result);
   cb();
 }
 

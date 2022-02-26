@@ -2,8 +2,7 @@
 
 :host {
   display: inline-block;
-  --color:  #{v(--color-grey-900)};
-  color: var(--color);
+  color: inherit;
 }
 
 .icon {
@@ -26,3 +25,6 @@
   color: v(--color-error-500);
 }
 
+:host([color="grey"]) .icon {
+  color: v(--color-grey-900);
+}

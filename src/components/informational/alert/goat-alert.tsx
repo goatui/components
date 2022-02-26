@@ -56,10 +56,8 @@ export class GoatAlert {
       <Host state={this.state} hidden={this.hidden}>
         <div class='alert' role='alert'>
           <div class='content'>
-            <div class='content-wrapper'>
-              <div class='message'><slot name="message"/></div>
-              <div class='description'><slot name="description"/></div>
-            </div>
+            <div class='message'><slot name="message" /></div>
+            <div class='description'><slot name="description" /></div>
           </div>
           {this.renderCloseBtn()}
         </div>

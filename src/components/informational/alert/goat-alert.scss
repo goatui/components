@@ -12,9 +12,6 @@
 
   .content {
     flex: 1;
-    display: flex;
-    align-items: center;
-
 
     .message {
       @include font-style(text-md);
@@ -31,55 +28,32 @@
   }
 }
 
-:host([state="info"]) {
+
+@mixin alertState($color) {
   .alert {
-    background-color: v(--color-primary-50);
+    background-color: v(--color-#{$color}-50);
 
     .content {
       .message {
-        color: v(--color-primary-600);
+        color: v(--color-#{$color}-600);
       }
     }
   }
+}
+
+:host([state="info"]) {
+  @include alertState(primary);
 }
 
 :host([state="success"]) {
-  .alert {
-    background-color: v(--color-success-50);
-
-    .content {
-      .message {
-        color: v(--color-success-600);
-      }
-    }
-  }
+  @include alertState(success);
 }
 
 :host([state="warning"]) {
-  .alert {
-    background-color: v(--color-warning-50);
-
-    .content {
-      .message {
-        color: v(--color-warning-600);
-      }
-    }
-  }
+  @include alertState(warning);
 }
 
 
 :host([state="error"]) {
-  .alert {
-    background-color: v(--color-error-50);
-
-    .content {
-      .message {
-        color: v(--color-error-600);
-      }
-    }
-  }
-}
-
-:host([hidden]) {
-  display: none;
+  @include alertState(error);
 }

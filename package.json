@@ -1,12 +1,27 @@
 {
   "name": "@goatui/components",
-  "version": "0.1.0",
-  "description": "P4RM UI",
+  "version": "0.2.0",
+  "description": "GOAT UI contains most used web components built using Stencil",
   "license": "MIT",
   "main": "dist/index.cjs.js",
   "unpkg": "dist/p4rm-ui/p4rm-ui.js",
   "module": "dist/custom-elements/index.js",
   "types": "dist/custom-elements/index.d.ts",
+  "keywords": [
+    "goatui",
+    "stenciljs",
+    "web components"
+  ],
+  "homepage": "https://goatui.com",
+  "bugs": {
+    "url": "https://github.com/goatui/ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goatui/ui.git"
+  },
+  "author": "Shivaji Varma <contact@shivajivarma.com>",
+  "contributors": [],
   "files": [
     "dist/",
     "loader/"
@@ -26,8 +41,7 @@
     "@stencil/core": "^2.14.0",
     "@stencil/sass": "^1.5.2",
     "@types/node": "^16.9.6",
-
-    "bootstrap-icons": "^1.8.1",
+    "bootstrap-icons": "^1.0.0",
     "concurrently": "^6.2.1",
     "glob": "^7.1.6",
     "gulp": "^4.0.2",

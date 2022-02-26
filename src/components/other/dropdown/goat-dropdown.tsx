@@ -136,13 +136,12 @@ export class GoatDropdown {
 
   private renderDropdownList() {
     if (this.isOpen && typeof this.data !== 'string') {
-      return <goat-list
+      return <goat-menu
         class="dropdown-list"
         ref={(el) => this.listElement = el}
         data={this.data}
         variant={this.listVariant}
         itemVariant={this.itemVariant}
-        enableSearch={this.enableSearch}
         onGoat:item-click={(evt) => {
           this.closeList();
           this.itemClickHandler(evt.detail);

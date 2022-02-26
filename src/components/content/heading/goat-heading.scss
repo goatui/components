@@ -1,0 +1,47 @@
+@import "../../../styles/scss/commons";
+
+:host {
+  display: block;
+  margin-bottom: v(--space-3);
+}
+
+.heading {
+  font-weight: v(--font-weight-semi-bold);
+  color: v(--color-grey-900);
+  margin: 0;
+}
+
+:host([size="xl"]) {
+  .heading {
+    @include font-style(display-xl);
+  }
+}
+
+:host([size="lg"]) {
+  .heading {
+    @include font-style(display-lg);
+  }
+}
+
+:host([size="md"]) {
+  .heading {
+    @include font-style(display-md);
+  }
+}
+
+:host([size="sm"]) {
+  .heading {
+    @include font-style(display-sm);
+  }
+}
+
+:host([size="xs"]) {
+  .heading {
+    @include font-style(display-xs);
+  }
+}
+
+
+
+
+

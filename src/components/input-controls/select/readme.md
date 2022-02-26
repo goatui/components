@@ -55,17 +55,15 @@ Type: `Promise<void>`
 
 - [goat-icon](../../content/icon)
 - [goat-spinner](../../informational/spinner)
-- [goat-list](../../other/list)
+- [goat-menu](../../pickers/menu)
 
 ### Graph
 ```mermaid
 graph TD;
   goat-select --> goat-icon
   goat-select --> goat-spinner
-  goat-select --> goat-list
-  goat-list --> goat-icon
-  goat-list --> goat-input
-  goat-input --> goat-icon
+  goat-select --> goat-menu
+  goat-menu --> goat-icon
   style goat-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

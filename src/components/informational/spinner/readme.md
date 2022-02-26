@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                                                                    | Type                                                                         | Default              |
-| -------- | --------- | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | -------------------- |
-| `color`  | `color`   | Color variants. Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`. Defaults to `"primary"`. | `"default" \| "error" \| "primary" \| "secondary" \| "success" \| "warning"` | `'default'`          |
-| `size`   | `size`    | The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.      | `string`                                                                     | `ElementSize.MEDIUM` |
+| Property | Attribute | Description                                                                                                                                        | Type                                                                                 | Default              |
+| -------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | -------------------- |
+| `color`  | `color`   | Color variants. Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`, `"grey"`, `"rainbow"`, `"inherit"`. Defaults to `"inherit"`. | `"error" \| "grey" \| "inherit" \| "primary" \| "rainbow" \| "success" \| "warning"` | `'inherit'`          |
+| `size`   | `size`    | The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.                                          | `string`                                                                             | `ElementSize.MEDIUM` |
 
 
 ## Dependencies

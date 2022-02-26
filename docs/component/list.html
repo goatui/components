@@ -28,8 +28,8 @@ menu:
       <h4 class='h5'>Simple</h4>
       <div class='card'>
         <div class='card-header'>
-          <goat-list class='list'></goat-list>
-          <goat-list class='list' item-variant='icon'></goat-list>
+          <goat-menu class='list'></goat-menu>
+          <goat-menu class='list' item-variant='icon'></goat-menu>
           <script>
             const $lists = document.querySelectorAll('.list');
             $lists.forEach(function($list) {
@@ -70,8 +70,8 @@ menu:
         <div class='card-body'>
     <pre><code class='language-html' data-lang='html'>&lt;script type="module" src="{{site.script}}"&gt;&lt;/script&gt;
 
-&lt;goat-list class="list">&lt;/goat-list>
-&lt;goat-list class="list" item-variant='icon'>&lt;/goat-list>
+&lt;goat-menu class="list">&lt;/goat-menu>
+&lt;goat-menu class="list" item-variant='icon'>&lt;/goat-menu>
 &lt;script>
 const $lists = document.querySelectorAll('.list');
 $lists.forEach(function($list) {
@@ -117,8 +117,8 @@ $lists.forEach(function($list) {
       <h4 class='h5 pt-4'>Group</h4>
       <div class='card'>
         <div class='card-header'>
-          <goat-list class='list-with-group' variant='group'></goat-list>
-          <goat-list class='list-with-group' variant='group' item-variant='icon'></goat-list>
+          <goat-menu class='list-with-group' variant='group'></goat-menu>
+          <goat-menu class='list-with-group' variant='group' item-variant='icon'></goat-menu>
           <script>
             const $listGroups = document.querySelectorAll('.list-with-group');
             $listGroups.forEach(function($listGroup) {
@@ -183,8 +183,8 @@ $lists.forEach(function($list) {
           </script>
         </div>
         <div class='card-body'>
-    <pre><code class='language-html' data-lang='html'>&lt;goat-list class='list-with-group' variant='group'>&lt;/goat-list>
-&lt;goat-list class='list-with-group' variant='group' item-variant='icon'>&lt;/goat-list>
+    <pre><code class='language-html' data-lang='html'>&lt;goat-menu class='list-with-group' variant='group'>&lt;/goat-menu>
+&lt;goat-menu class='list-with-group' variant='group' item-variant='icon'>&lt;/goat-menu>
 &lt;script>
   const $listGroup = document.getElementById('list-group');
   $listGroup.data = [{

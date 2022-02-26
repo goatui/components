@@ -1,27 +1,32 @@
-import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
-import { debounceEvent, findItemLabel } from '../../../utils/utils';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core';
+import { debounceEvent, getGoatIndex } from '../../../utils/utils';
 
-let index = 0;
 
 @Component({
   tag: 'goat-input',
   styleUrl: 'goat-input.scss',
   shadow: true,
 })
-export class GoatInput {
-  private id = ++index;
-  @Element() elm!: HTMLElement;
+export class GoatInput implements ComponentInterface {
 
-  private nativeInput?: HTMLInputElement;
-  private tabindex?: string | number;
-  @State() startSlotHasContent = false;
-  @State() endSlotHasContent = false;
-  @State() hasFocus = false;
+  gid: string = getGoatIndex();
 
   /**
    * The input field name.
    */
-  @Prop() name: string = `goat-input-${this.id}`;
+  @Prop() name: string = `goat-input-${this.gid}`;
 
   /**
    * The input field placeholder.
@@ -39,6 +44,11 @@ export class GoatInput {
    */
   @Prop() size: 'sm' | 'md' | 'lg' = 'md';
 
+  /**
+   * The input state.
+   * Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
+   */
+  @Prop() state: 'success' | 'error' | 'warning' | 'default' = 'default';
 
   /**
    * The type of control to display.
@@ -60,10 +70,10 @@ export class GoatInput {
   /**
    * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
    */
-  @Prop() clearInput = false;
+  @Prop() clearable = false;
 
   /**
-   * Set the amount of time, in milliseconds, to wait to trigger the `p4Change` event after each keystroke.
+   * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
    */
   @Prop() debounce = 300;
 
@@ -73,34 +83,40 @@ export class GoatInput {
   @Prop() autocomplete: 'on' | 'off' = 'off';
 
 
-  @Prop() actions: any[] = [];
-
-
   /**
    * Emitted when a keyboard input occurred.
    */
-  @Event({ eventName: 'goat:input' }) p4Input: EventEmitter;
+  @Event({ eventName: 'goat:input' }) goatInput: EventEmitter;
 
   /**
    * Emitted when the value has changed.
    */
-  @Event({ eventName: 'goat:change' }) p4Change: EventEmitter;
+  @Event({ eventName: 'goat:change' }) goatChange: EventEmitter;
 
   /**
    * Emitted when the input loses focus.
    */
-  @Event({ eventName: 'goat:blur' }) p4Blur: EventEmitter;
+  @Event({ eventName: 'goat:blur' }) goatBlur: EventEmitter;
 
   /**
    * Emitted when the input has focus.
    */
-  @Event({ eventName: 'goat:focus' }) p4Focus: EventEmitter;
+  @Event({ eventName: 'goat:focus' }) goatFocus: EventEmitter;
 
 
   /**
    * Emitted when the action button is clicked.
    */
-  @Event({ eventName: 'goat:action-click' }) p4ActionClick: EventEmitter;
+  @Event({ eventName: 'goat:action-click' }) goatActionClick: EventEmitter;
+
+
+  @Element() elm!: HTMLElement;
+  private nativeInput?: HTMLInputElement;
+  private tabindex?: string | number;
+
+  @State() startSlotHasContent = false;
+  @State() endSlotHasContent = false;
+  @State() hasFocus = false;
 
 
   private inputHandler = (ev: Event) => {
@@ -109,31 +125,26 @@ export class GoatInput {
     if (input) {
       this.value = input.value;
     }
-    this.p4Input.emit(ev as KeyboardEvent);
+    this.goatInput.emit(ev as KeyboardEvent);
     if (oldValue !== this.value) {
-      this.p4Change.emit(ev as KeyboardEvent);
+      this.goatChange.emit(ev as KeyboardEvent);
     }
   };
 
   private keyDownHandler = (ev: KeyboardEvent) => {
     if (ev.key === 'Enter') {
-      this.p4Input.emit(ev);
+      this.goatInput.emit(ev);
     }
   };
 
   private blurHandler = (ev: FocusEvent) => {
     this.hasFocus = false;
-    this.p4Blur.emit(ev);
+    this.goatBlur.emit(ev);
   };
 
   private focusHandler = (ev: FocusEvent) => {
     this.hasFocus = true;
-    this.p4Focus.emit(ev);
-  };
-
-  private actionClickHandler = (action) => {
-    if (!action.disabled)
-      this.p4ActionClick.emit(action);
+    this.goatFocus.emit(ev);
   };
 
   /**
@@ -173,7 +184,7 @@ export class GoatInput {
 
   @Watch('debounce')
   protected debounceChanged() {
-    this.p4Change = debounceEvent(this.p4Change, this.debounce);
+    this.goatChange = debounceEvent(this.goatChange, this.debounce);
   }
 
   componentWillLoad() {
@@ -185,68 +196,57 @@ export class GoatInput {
       this.tabindex = tabindex !== null ? tabindex : undefined;
       this.elm.removeAttribute('tabindex');
     }
-    const label = findItemLabel(this.elm);
-    if (label) {
-      label.id = `goat-input-${this.id}-lbl`;
-      label.setAttribute('required', this.required + '');
-    }
 
     this.startSlotHasContent = !!this.elm.querySelector('[slot="start"]');
     this.endSlotHasContent = !!this.elm.querySelector('[slot="end"]');
   }
 
 
-
   connectedCallback() {
     this.debounceChanged();
-    document.dispatchEvent(new CustomEvent('p4InputDidLoad', {
+    document.dispatchEvent(new CustomEvent('goatInputDidLoad', {
       detail: this.elm,
     }));
   }
 
   disconnectedCallback() {
-    document.dispatchEvent(new CustomEvent('p4InputDidUnload', {
+    document.dispatchEvent(new CustomEvent('goatInputDidUnload', {
       detail: this.elm,
     }));
   }
 
-  private getActionIconSize() {
-    if (this.size == 'lg')
-      return '1.5rem';
-    if (this.size == 'sm')
-      return '1rem';
-    return '1.25rem';
+  private getValue(): string {
+    return (this.value || '').toString();
   }
 
+  private hasValue(): boolean {
+    return this.getValue().length > 0;
+  }
 
   render() {
-    const labelId = `goat-input-${this.id}-lbl`;
-    const label = findItemLabel(this.elm);
-    const actions = this.actions;
-    if (label) {
-      label.id = labelId;
-      label.setAttribute('required', this.required + '');
-    }
 
     return (
-      <Host aria-disabled={this.disabled ? 'true' : null}
-            focused={this.hasFocus}>
+      <Host type={this.type}
+            focused={this.hasFocus}
+            size={this.size}
+            state={this.state}
+            has-value={this.hasValue()}
+            disabled={this.disabled}>
         <div class={{
-          'input': true,
-          [`input-type-${this.type}`]: true,
-          [`input-size-${this.size}`]: true,
-          'input-has-actions': !!actions.length,
+          'input-container': true,
           'input-disabled': this.disabled,
           'start-slot-has-content': this.startSlotHasContent,
           'end-slot-has-content': this.endSlotHasContent,
         }}>
-          <div class='slot-container start'>
+
+          <div class='slot-wrapper start'>
             <slot name='start' />
           </div>
+
           <input
-            class='native-input'
+            class='input input-native'
             name={this.name}
-            aria-labelledby={labelId}
+            aria-labelledby={`goat-input-${this.gid}-lbl`}
             ref={input => this.nativeInput = input}
             type={this.type}
             placeholder={this.placeholder}
@@ -260,22 +260,14 @@ export class GoatInput {
             onFocus={this.focusHandler}
             disabled={this.disabled} />
 
-          <div class='slot-container end'>
+          {this.clearable ? <goat-icon type="x-circle-fill"/> : null}
+
+          <div class='slot-wrapper end'>
             <slot name='end' />
           </div>
-          <div class='input-actions'>
-            {actions.map((action) => {
-              return <button type='button'
-                             class={{
-                               'action-button': true,
-                               'action-button-disabled': action.disabled,
-                             }}
-                             aria-disabled={action.disabled}
-                             onClick={() => this.actionClickHandler(action)}>
-                <goat-icon type={action.icon} class='action-icon' size={this.getActionIconSize()} />
-              </button>;
-            })}
-          </div>
+
+
+
         </div>
       </Host>
     );

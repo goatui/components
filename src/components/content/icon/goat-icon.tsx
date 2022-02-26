@@ -20,9 +20,9 @@ export class GoatIcon {
 
   /**
    * Color variants.
-   * Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`. Defaults to `"primary"`.
+   * Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`, `"grey"`, `"inherit"`. Defaults to `"inherit"`.
    */
-  @Prop() color: 'primary' | 'success' | 'warning' | 'error' | 'secondary' | 'default' = 'default';
+  @Prop() color: 'primary' | 'success' | 'warning' | 'error' | 'grey' | 'inherit' = 'inherit';
 
   private getSize() {
     let size;

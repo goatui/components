@@ -18,10 +18,6 @@
   font-style: normal;
 }
 
-@mixin font-capitalize {
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
 
 @mixin font-no-weight-variant($type) {
   @include font-common;

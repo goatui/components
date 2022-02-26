@@ -35,6 +35,9 @@ export namespace Components {
          */
         "disabled": boolean;
         "disabledReason": string;
+        /**
+          * Hyperlink to navigate to on click.
+         */
         "href": string;
         /**
           * Icon which will displayed on button. Possible values are bootstrap icon names.
@@ -56,7 +59,10 @@ export namespace Components {
           * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`. Defaults to `"md"`.
          */
         "size": ElementSize;
-        "target": '_self' | '_blank';
+        /**
+          * Sets or retrieves the window or frame at which to target content.
+         */
+        "target": string;
         "triggerClick": () => Promise<void>;
         "variant": 'default' | 'light' | 'outline' | 'link';
     }
@@ -129,22 +135,22 @@ export namespace Components {
          */
         "size": 'sm' | 'md' | 'lg';
     }
-    interface GoatFieldGroup {
-    }
     interface GoatFlowDesigner {
         "activities": any[];
         "disabled": boolean;
     }
+    interface GoatFormControl {
+        "label": string;
+    }
     interface GoatHeading {
-        "size": 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
-        "type": 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
-        "weight": 'semi-bold' | 'bold' | 'extra-bold';
+        "level": 1 | 2 | 3 | 4 | 5;
+        "size": 'xs' | 'sm' | 'md' | 'lg' | 'xl';
     }
     interface GoatIcon {
         /**
-          * Color variants. Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`. Defaults to `"primary"`.
+          * Color variants. Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`, `"grey"`, `"inherit"`. Defaults to `"inherit"`.
          */
-        "color": 'primary' | 'success' | 'warning' | 'error' | 'secondary' | 'default';
+        "color": 'primary' | 'success' | 'warning' | 'error' | 'grey' | 'inherit';
         /**
           * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
          */
@@ -152,7 +158,6 @@ export namespace Components {
         "type": string;
     }
     interface GoatInput {
-        "actions": any[];
         /**
           * Indicates whether the value of the control can be automatically completed by the browser.
          */
@@ -160,9 +165,9 @@ export namespace Components {
         /**
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
          */
-        "clearInput": boolean;
+        "clearable": boolean;
         /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `p4Change` event after each keystroke.
+          * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
          */
         "debounce": number;
         /**
@@ -194,6 +199,10 @@ export namespace Components {
          */
         "size": 'sm' | 'md' | 'lg';
         /**
+          * The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
+         */
+        "state": 'success' | 'error' | 'warning' | 'default';
+        /**
           * The type of control to display. Possible values are: `"text"`, `"password"`, `"number"`, `"email"`, `"tel"`. Defaults to `"text"`.
          */
         "type": ('text' | 'password' | 'number' | 'email' | 'tel');
@@ -202,13 +211,25 @@ export namespace Components {
          */
         "value"?: string | number | null;
     }
-    interface GoatLabel {
-        "required": boolean;
+    interface GoatLink {
+        /**
+          * Color variants. Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`, `"grey"`, `"rainbow"`, `"inherit"`. Defaults to `"inherit"`.
+         */
+        "color": 'primary' | 'success' | 'warning' | 'error' | 'grey' | 'inherit';
+        "decoration": boolean;
+        /**
+          * Hyperlink to navigate to on click.
+         */
+        "href": string;
+        /**
+          * Sets or retrieves the window or frame at which to target content.
+         */
+        "target": string;
+        "triggerClick": () => Promise<void>;
     }
-    interface GoatList {
+    interface GoatMenu {
         "data": any[];
         "emptyState": any;
-        "enableSearch": boolean;
         "itemVariant": 'default' | 'icon' | 'img' | 'caption' | 'icon-caption' | 'img-caption';
         /**
           * Sets focus on the first item of list.
@@ -219,6 +240,7 @@ export namespace Components {
         "variant": 'default' | 'group';
     }
     interface GoatParagraph {
+        "size": 'xs' | 'sm' | 'md' | 'lg' | 'xl';
     }
     interface GoatSelect {
         "actions": any[];
@@ -267,9 +289,9 @@ export namespace Components {
     }
     interface GoatSpinner {
         /**
-          * Color variants. Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`. Defaults to `"primary"`.
+          * Color variants. Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`, `"grey"`, `"rainbow"`, `"inherit"`. Defaults to `"inherit"`.
          */
-        "color": 'primary' | 'success' | 'warning' | 'error' | 'secondary' | 'default';
+        "color": 'primary' | 'success' | 'warning' | 'error' | 'grey' | 'rainbow' | 'inherit';
         /**
           * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
          */
@@ -373,17 +395,17 @@ declare global {
         prototype: HTMLGoatDropdownElement;
         new (): HTMLGoatDropdownElement;
     };
-    interface HTMLGoatFieldGroupElement extends Components.GoatFieldGroup, HTMLStencilElement {
-    }
-    var HTMLGoatFieldGroupElement: {
-        prototype: HTMLGoatFieldGroupElement;
-        new (): HTMLGoatFieldGroupElement;
-    };
     interface HTMLGoatFlowDesignerElement extends Components.GoatFlowDesigner, HTMLStencilElement {
     }
     var HTMLGoatFlowDesignerElement: {
         prototype: HTMLGoatFlowDesignerElement;
         new (): HTMLGoatFlowDesignerElement;
+    };
+    interface HTMLGoatFormControlElement extends Components.GoatFormControl, HTMLStencilElement {
+    }
+    var HTMLGoatFormControlElement: {
+        prototype: HTMLGoatFormControlElement;
+        new (): HTMLGoatFormControlElement;
     };
     interface HTMLGoatHeadingElement extends Components.GoatHeading, HTMLStencilElement {
     }
@@ -403,17 +425,17 @@ declare global {
         prototype: HTMLGoatInputElement;
         new (): HTMLGoatInputElement;
     };
-    interface HTMLGoatLabelElement extends Components.GoatLabel, HTMLStencilElement {
+    interface HTMLGoatLinkElement extends Components.GoatLink, HTMLStencilElement {
     }
-    var HTMLGoatLabelElement: {
-        prototype: HTMLGoatLabelElement;
-        new (): HTMLGoatLabelElement;
+    var HTMLGoatLinkElement: {
+        prototype: HTMLGoatLinkElement;
+        new (): HTMLGoatLinkElement;
     };
-    interface HTMLGoatListElement extends Components.GoatList, HTMLStencilElement {
+    interface HTMLGoatMenuElement extends Components.GoatMenu, HTMLStencilElement {
     }
-    var HTMLGoatListElement: {
-        prototype: HTMLGoatListElement;
-        new (): HTMLGoatListElement;
+    var HTMLGoatMenuElement: {
+        prototype: HTMLGoatMenuElement;
+        new (): HTMLGoatMenuElement;
     };
     interface HTMLGoatParagraphElement extends Components.GoatParagraph, HTMLStencilElement {
     }
@@ -452,13 +474,13 @@ declare global {
         "goat-checkbox": HTMLGoatCheckboxElement;
         "goat-code-editor": HTMLGoatCodeEditorElement;
         "goat-dropdown": HTMLGoatDropdownElement;
-        "goat-field-group": HTMLGoatFieldGroupElement;
         "goat-flow-designer": HTMLGoatFlowDesignerElement;
+        "goat-form-control": HTMLGoatFormControlElement;
         "goat-heading": HTMLGoatHeadingElement;
         "goat-icon": HTMLGoatIconElement;
         "goat-input": HTMLGoatInputElement;
-        "goat-label": HTMLGoatLabelElement;
-        "goat-list": HTMLGoatListElement;
+        "goat-link": HTMLGoatLinkElement;
+        "goat-menu": HTMLGoatMenuElement;
         "goat-paragraph": HTMLGoatParagraphElement;
         "goat-select": HTMLGoatSelectElement;
         "goat-spinner": HTMLGoatSpinnerElement;
@@ -496,6 +518,9 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         "disabledReason"?: string;
+        /**
+          * Hyperlink to navigate to on click.
+         */
         "href"?: string;
         /**
           * Icon which will displayed on button. Possible values are bootstrap icon names.
@@ -521,7 +546,10 @@ declare namespace LocalJSX {
           * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`. Defaults to `"md"`.
          */
         "size"?: ElementSize;
-        "target"?: '_self' | '_blank';
+        /**
+          * Sets or retrieves the window or frame at which to target content.
+         */
+        "target"?: string;
         "variant"?: 'default' | 'light' | 'outline' | 'link';
     }
     interface GoatCheckbox {
@@ -604,22 +632,22 @@ declare namespace LocalJSX {
          */
         "size"?: 'sm' | 'md' | 'lg';
     }
-    interface GoatFieldGroup {
-    }
     interface GoatFlowDesigner {
         "activities"?: any[];
         "disabled"?: boolean;
     }
+    interface GoatFormControl {
+        "label"?: string;
+    }
     interface GoatHeading {
-        "size"?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
-        "type"?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
-        "weight"?: 'semi-bold' | 'bold' | 'extra-bold';
+        "level"?: 1 | 2 | 3 | 4 | 5;
+        "size"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
     }
     interface GoatIcon {
         /**
-          * Color variants. Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`. Defaults to `"primary"`.
+          * Color variants. Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`, `"grey"`, `"inherit"`. Defaults to `"inherit"`.
          */
-        "color"?: 'primary' | 'success' | 'warning' | 'error' | 'secondary' | 'default';
+        "color"?: 'primary' | 'success' | 'warning' | 'error' | 'grey' | 'inherit';
         /**
           * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
          */
@@ -627,7 +655,6 @@ declare namespace LocalJSX {
         "type"?: string;
     }
     interface GoatInput {
-        "actions"?: any[];
         /**
           * Indicates whether the value of the control can be automatically completed by the browser.
          */
@@ -635,9 +662,9 @@ declare namespace LocalJSX {
         /**
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
          */
-        "clearInput"?: boolean;
+        "clearable"?: boolean;
         /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `p4Change` event after each keystroke.
+          * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
          */
         "debounce"?: number;
         /**
@@ -681,6 +708,10 @@ declare namespace LocalJSX {
          */
         "size"?: 'sm' | 'md' | 'lg';
         /**
+          * The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
+         */
+        "state"?: 'success' | 'error' | 'warning' | 'default';
+        /**
           * The type of control to display. Possible values are: `"text"`, `"password"`, `"number"`, `"email"`, `"tel"`. Defaults to `"text"`.
          */
         "type"?: ('text' | 'password' | 'number' | 'email' | 'tel');
@@ -689,13 +720,24 @@ declare namespace LocalJSX {
          */
         "value"?: string | number | null;
     }
-    interface GoatLabel {
-        "required"?: boolean;
+    interface GoatLink {
+        /**
+          * Color variants. Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`, `"grey"`, `"rainbow"`, `"inherit"`. Defaults to `"inherit"`.
+         */
+        "color"?: 'primary' | 'success' | 'warning' | 'error' | 'grey' | 'inherit';
+        "decoration"?: boolean;
+        /**
+          * Hyperlink to navigate to on click.
+         */
+        "href"?: string;
+        /**
+          * Sets or retrieves the window or frame at which to target content.
+         */
+        "target"?: string;
     }
-    interface GoatList {
+    interface GoatMenu {
         "data"?: any[];
         "emptyState"?: any;
-        "enableSearch"?: boolean;
         "itemVariant"?: 'default' | 'icon' | 'img' | 'caption' | 'icon-caption' | 'img-caption';
         /**
           * Emitted when the item is clicked.
@@ -706,6 +748,7 @@ declare namespace LocalJSX {
         "variant"?: 'default' | 'group';
     }
     interface GoatParagraph {
+        "size"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
     }
     interface GoatSelect {
         "actions"?: any[];
@@ -762,9 +805,9 @@ declare namespace LocalJSX {
     }
     interface GoatSpinner {
         /**
-          * Color variants. Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`. Defaults to `"primary"`.
+          * Color variants. Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`, `"grey"`, `"rainbow"`, `"inherit"`. Defaults to `"inherit"`.
          */
-        "color"?: 'primary' | 'success' | 'warning' | 'error' | 'secondary' | 'default';
+        "color"?: 'primary' | 'success' | 'warning' | 'error' | 'grey' | 'rainbow' | 'inherit';
         /**
           * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
          */
@@ -851,13 +894,13 @@ declare namespace LocalJSX {
         "goat-checkbox": GoatCheckbox;
         "goat-code-editor": GoatCodeEditor;
         "goat-dropdown": GoatDropdown;
-        "goat-field-group": GoatFieldGroup;
         "goat-flow-designer": GoatFlowDesigner;
+        "goat-form-control": GoatFormControl;
         "goat-heading": GoatHeading;
         "goat-icon": GoatIcon;
         "goat-input": GoatInput;
-        "goat-label": GoatLabel;
-        "goat-list": GoatList;
+        "goat-link": GoatLink;
+        "goat-menu": GoatMenu;
         "goat-paragraph": GoatParagraph;
         "goat-select": GoatSelect;
         "goat-spinner": GoatSpinner;
@@ -875,13 +918,13 @@ declare module "@stencil/core" {
             "goat-checkbox": LocalJSX.GoatCheckbox & JSXBase.HTMLAttributes<HTMLGoatCheckboxElement>;
             "goat-code-editor": LocalJSX.GoatCodeEditor & JSXBase.HTMLAttributes<HTMLGoatCodeEditorElement>;
             "goat-dropdown": LocalJSX.GoatDropdown & JSXBase.HTMLAttributes<HTMLGoatDropdownElement>;
-            "goat-field-group": LocalJSX.GoatFieldGroup & JSXBase.HTMLAttributes<HTMLGoatFieldGroupElement>;
             "goat-flow-designer": LocalJSX.GoatFlowDesigner & JSXBase.HTMLAttributes<HTMLGoatFlowDesignerElement>;
+            "goat-form-control": LocalJSX.GoatFormControl & JSXBase.HTMLAttributes<HTMLGoatFormControlElement>;
             "goat-heading": LocalJSX.GoatHeading & JSXBase.HTMLAttributes<HTMLGoatHeadingElement>;
             "goat-icon": LocalJSX.GoatIcon & JSXBase.HTMLAttributes<HTMLGoatIconElement>;
             "goat-input": LocalJSX.GoatInput & JSXBase.HTMLAttributes<HTMLGoatInputElement>;
-            "goat-label": LocalJSX.GoatLabel & JSXBase.HTMLAttributes<HTMLGoatLabelElement>;
-            "goat-list": LocalJSX.GoatList & JSXBase.HTMLAttributes<HTMLGoatListElement>;
+            "goat-link": LocalJSX.GoatLink & JSXBase.HTMLAttributes<HTMLGoatLinkElement>;
+            "goat-menu": LocalJSX.GoatMenu & JSXBase.HTMLAttributes<HTMLGoatMenuElement>;
             "goat-paragraph": LocalJSX.GoatParagraph & JSXBase.HTMLAttributes<HTMLGoatParagraphElement>;
             "goat-select": LocalJSX.GoatSelect & JSXBase.HTMLAttributes<HTMLGoatSelectElement>;
             "goat-spinner": LocalJSX.GoatSpinner & JSXBase.HTMLAttributes<HTMLGoatSpinnerElement>;

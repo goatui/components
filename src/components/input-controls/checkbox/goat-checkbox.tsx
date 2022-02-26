@@ -10,7 +10,7 @@ export class GoatCheckbox implements ComponentInterface{
   private nativeInput?: HTMLInputElement;
   private iconContainer?: HTMLElement;
   @State() hasFocus = false;
-  @State() animate = false;
+  @State() animate = true;
 
   /**
    * The checkbox label.
@@ -94,11 +94,6 @@ export class GoatCheckbox implements ComponentInterface{
     }
   }
 
-  componentDidRender() {
-    this.animate = true;
-  }
-
-
   getCheckboxSize() {
     let size;
     if (!this.size || this.size === 'md')
@@ -117,7 +112,6 @@ export class GoatCheckbox implements ComponentInterface{
           'checkbox': true,
           'checkbox-checked': this.value,
         }}>
-
           <div class='box'
                tabindex='0'
                ref={elm => this.iconContainer = elm}
@@ -136,7 +130,7 @@ export class GoatCheckbox implements ComponentInterface{
           </div>
 
           <input type='checkbox'
-                 class='native-input'
+                 class='input-native'
                  value={this.value + ''}
                  required={this.required}
                  ref={elm => this.nativeInput = elm}

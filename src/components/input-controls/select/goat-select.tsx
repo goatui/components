@@ -246,7 +246,7 @@ export class GoatSelect {
 
           {
             ((this.type === 'typeahead' && this.isOpen))
-            && <input class='native-input'
+            && <input class='input-native'
                       ref={input => this.nativeInput = input}
                       type='text'
                       aria-labelledby={labelId}
@@ -310,7 +310,7 @@ export class GoatSelect {
         </div>;
       } else {
         const data = this.filterAndFormatData();
-        return <goat-list
+        return <goat-menu
           class="dropdown-list"
           ref={(el) => this.listElement = el}
           data={data}

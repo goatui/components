@@ -98,9 +98,7 @@ export class GoatTextarea {
   @Event({ eventName: 'goat:action-click' }) p4ActionClick: EventEmitter;
 
   getCssClasses() {
-    const cls = ['input textarea'];
-    cls.push('input-variant-' + this.variant);
-    cls.push('input-size-' + this.size);
+    const cls = ['input-container textarea'];
     if (this.disabled)
       cls.push('input-disabled');
     return cls.join(' ');
@@ -208,14 +206,13 @@ export class GoatTextarea {
     }
 
     return (
-      <Host aria-disabled={this.disabled ? 'true' : null}
-            class={{ 'has-focus': this.hasFocus, 'has-value': this.hasValue() }}>
+      <Host aria-disabled={this.disabled ? 'true' : null} size={this.size} focused={this.hasFocus} has-value={this.hasValue()}>
         <div class={this.getCssClasses()}>
              <textarea
                rows={4}
                ref={input => this.nativeInput = input}
                required={this.required}
-               class="native-input"
+               class="input input-native"
                name={this.name}
                aria-labelledby={labelId}
                placeholder={this.placeholder}

@@ -44,15 +44,13 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [goat-list](../list)
+- [goat-menu](../../pickers/menu)
 
 ### Graph
 ```mermaid
 graph TD;
-  goat-dropdown --> goat-list
-  goat-list --> goat-icon
-  goat-list --> goat-input
-  goat-input --> goat-icon
+  goat-dropdown --> goat-menu
+  goat-menu --> goat-icon
   style goat-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

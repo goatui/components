@@ -2,10 +2,8 @@
 
 :host {
   display: inline-block;
-  --color: #{v(--color-grey-900)};
-
   .spinner path {
-    fill: var(--color);
+    fill: currentColor;
   }
 }
 
@@ -29,4 +27,25 @@
 :host([color="error"]) .spinner path {
   fill: v(--color-error-500);
 }
+
+:host([color="grey"]) .spinner path {
+  fill: v(--color-grey-900);
+}
+
+@keyframes rainbow {
+  0%   {fill:v(--color-primary-500);}
+  20%  {fill:v(--color-success-500);}
+  40%  {fill:v(--color-warning-500);}
+  60%  {fill:v(--color-error-500);}
+  80% {fill:v(--color-grey-900);}
+  100% {fill:v(--color-primary-500);}
+}
+
+:host([color="rainbow"]) .spinner path {
+  fill: v(--color-primary-500);
+  animation-name: rainbow;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
 
