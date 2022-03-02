@@ -11,17 +11,19 @@
   align-items: center;
   overflow: hidden;
   color: v(--color-white);
+
   .image {
     width: 100%;
     height: 100%;
   }
+
   @include font-style(text-md);
 }
 
-:host([type="initials"]) .avatar {
+.avatar.avatar-initials {
   background: v(--color-primary-500);
 }
 
-:host([type="image"]) .avatar {
+.avatar.avatar-image {
   background: v(--color-primary-100);
 }

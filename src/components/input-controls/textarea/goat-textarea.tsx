@@ -1,13 +1,29 @@
-import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core';
 import { debounceEvent, getGoatIndex } from '../../../utils/utils';
 
-
+/**
+ * @name Textarea
+ * @description Enables native inputs to be used within a Form field.
+ * @example <goat-textarea placeholder="Enter some description over here"></goat-textarea>
+ */
 @Component({
   tag: 'goat-textarea',
   styleUrl: 'goat-textarea.scss',
   shadow: true,
 })
-export class GoatTextarea {
+export class GoatTextarea implements ComponentInterface, InputComponentInterface {
 
   gid: string = getGoatIndex();
 

@@ -1,0 +1,35 @@
+---
+layout: component
+title: Typography
+sections:
+- title: Heading
+  source: sections/heading.html
+- title: Paragraph
+  source: sections/paragraph.html
+- title: Text
+  source: sections/text.html
+---
+<div class='row pt-3'>
+
+  {% include section-nav.html %}
+
+  <!-- Content -->
+  <div class='col-xl-10 order-xl-1 duik-content border-bottom'>
+
+    <div class='border-bottom mb-7'>
+      <h1>{{ page.title }}</h1>
+      <p class='lead mb-5'>Use {{site.company}}’s custom input styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</p>
+    </div>
+
+    {% for section in page.sections %}
+    <div id='section-{{section.title | downcase | replace: " ", "-" | "/", "-"}}' class='mb-7'>
+      <h2 class='h4'>{{ section.title }} <a class='js-anchor-link duik-anchorjs-link' href='#section-{{section.title | downcase | replace: " ", "-" | "/", "-"}}' aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+
+      {% include_relative {{ section.source }} %}
+    </div>
+    {% endfor %}
+
+  </div>
+  <!-- End Content -->
+
+</div>

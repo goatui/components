@@ -1,6 +1,8 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 import { inlineSvg } from 'stencil-inline-svg';
+import { JsonDocs } from '@stencil/core/internal';
+import * as fs from 'fs';
 
 export const config: Config = {
   namespace: 'goatui',
@@ -19,6 +21,22 @@ export const config: Config = {
     {
       type: 'docs-readme',
       footer: '*Built with love!*',
+    },
+    {
+      type: 'docs-custom',
+      generator: (docs: JsonDocs) => {
+        docs.components.forEach((component) => {
+          // @ts-ignore
+          component.metadata = {};
+
+          component.docsTags.forEach((tag) =>{
+            // @ts-ignore
+            component.metadata[tag.name] = tag.text;
+          });
+
+        })
+        fs.writeFileSync(__dirname + '/docs/_data/components.json', JSON.stringify(docs.components, null, 2));
+      }
     },
     {
       type: 'www',

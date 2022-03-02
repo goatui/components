@@ -10,6 +10,9 @@ $css-variables: ();
 $css-variables: map-merge($css-variables, ("--font-family-base": $font-family-base));
 $css-variables: map-merge($css-variables, ("--color-white": $color-white));
 $css-variables: map-merge($css-variables, ("--color-black": $color-black));
+$css-variables: map-merge($css-variables, ("--border-color": $border-color));
+$css-variables: map-merge($css-variables, ("--primary-text-color": $primary-text-color));
+$css-variables: map-merge($css-variables, ("--secondary-text-color": $secondary-text-color));
 
 @each $key, $value in $font-weights {
   $map: ();

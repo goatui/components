@@ -1,6 +1,11 @@
 import { Component, h, Host, Prop } from '@stencil/core';
 import { ElementSize } from '../../../utils/utils';
 
+/**
+ * @name Spinner
+ * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
+ * @example <goat-spinner color="rainbow"></goat-spinner>
+ */
 @Component({
   tag: 'goat-spinner',
   styleUrl: 'goat-spinner.scss',

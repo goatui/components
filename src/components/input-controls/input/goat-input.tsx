@@ -14,6 +14,11 @@ import {
 import { debounceEvent, getGoatIndex } from '../../../utils/utils';
 
 
+/**
+ * @name Input
+ * @description Enables native inputs to be used within a Form field.
+ * @example <goat-input placeholder="Enter your name"></goat-input>
+ */
 @Component({
   tag: 'goat-input',
   styleUrl: 'goat-input.scss',
@@ -104,12 +109,6 @@ export class GoatInput implements ComponentInterface, InputComponentInterface {
   @Event({ eventName: 'goat:focus' }) goatFocus: EventEmitter;
 
 
-  /**
-   * Emitted when the action button is clicked.
-   */
-  @Event({ eventName: 'goat:action-click' }) goatActionClick: EventEmitter;
-
-
   @Element() elm!: HTMLElement;
   private nativeInput?: HTMLInputElement;
   private tabindex?: string | number;
@@ -147,6 +146,11 @@ export class GoatInput implements ComponentInterface, InputComponentInterface {
     this.goatFocus.emit(ev);
   };
 
+  @Method()
+  async getGid() {
+    return this.gid;
+  }
+
   /**
    * Sets focus on the native `input` in `goat-input`. Use this method instead of the global
    * `input.focus()`.
@@ -168,6 +172,7 @@ export class GoatInput implements ComponentInterface, InputComponentInterface {
       this.nativeInput.blur();
     }
   }
+
 
   /**
    * Update the native input element when the value changes
@@ -223,10 +228,6 @@ export class GoatInput implements ComponentInterface, InputComponentInterface {
     return this.getValue().length > 0;
   }
 
-  @Method()
-  async getGid() {
-    return this.gid;
-  }
 
   render() {
 
@@ -266,12 +267,11 @@ export class GoatInput implements ComponentInterface, InputComponentInterface {
             onFocus={this.focusHandler}
             disabled={this.disabled} />
 
-          {this.clearable ? <goat-icon type="x-circle-fill"/> : null}
+          {this.clearable ? <goat-icon type='x-circle-fill' /> : null}
 
           <div class='slot-wrapper end'>
             <slot name='end' />
           </div>
-
 
 
         </div>

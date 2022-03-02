@@ -1,7 +1,11 @@
 import { Component, ComponentInterface, Element, h, Host, Listen, Method, Prop, State } from '@stencil/core';
 import { getGoatIndex } from '../../../utils/utils';
 
-
+/**
+ * @name Link
+ * @description Links allow users to click their way from page to page.
+ * @example <goat-link>Link</goat-link>
+ */
 @Component({
   tag: 'goat-link',
   styleUrl: 'goat-link.scss',

@@ -13,7 +13,13 @@ import {
 } from '@stencil/core';
 import { ElementColor, ElementSize, getGoatIndex } from '../../../utils/utils';
 
-
+/**
+ * @name Button
+ * @description An interactive button with a range of presentation options.
+ * @example <goat-button>
+ *   Button CTA
+ *   </goat-button>
+ */
 @Component({
   tag: 'goat-button',
   styleUrl: 'goat-button.scss',
@@ -45,12 +51,12 @@ export class GoatButton implements ComponentInterface {
   /**
    * Button selection state.
    */
-  @Prop() selected: boolean = false;
+  @Prop({ reflect: true }) selected: boolean = false;
 
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
-  @Prop() disabled: boolean = false;
+  @Prop({ reflect: true }) disabled: boolean = false;
 
   @Prop() disabledReason: string = '';
   /**
@@ -182,19 +188,21 @@ export class GoatButton implements ComponentInterface {
 
   render() {
 
-    return (<Host variant={this.variant}
-                  disabled={this.disabled}
-                  size={this.size}
-                  color={this.color}
-                  block={this.block}
-                  focused={this.hasFocus}
-                  active={this.isActive}
-                  icon={this.icon}
-                  icon-end={this.iconEnd}>
+    return (<Host has-focus={this.hasFocus} active={this.isActive}>
       <button
         class={{
           button: true,
-          'slot-has-content': this.slotHasContent,
+          [`color-${this.color}`]: true,
+          [`size-${this.size}`]: true,
+          [`variant-${this.variant}`]: true,
+          [`disabled`]: this.disabled,
+          [`block`]: this.block,
+          [`selected`]: this.selected,
+          [`has-focus`]: this.hasFocus,
+          [`active`]: this.isActive,
+          [`has-content`]: this.slotHasContent,
+          [`icon-end`]: this.iconEnd,
+          [`show-loader`]: this.showLoader,
         }}
         tabindex={this.tabindex}
         ref={input => this.nativeInput = input}

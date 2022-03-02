@@ -3,6 +3,11 @@ import { findItemLabel } from '../../../utils/utils';
 
 let index = 0;
 
+/**
+ * @name Select
+ * @description Allows the user to select one or more options using a dropdown.
+ * @img /assets/img/select.png
+ */
 @Component({
   tag: 'goat-select',
   styleUrl: 'goat-select.scss',

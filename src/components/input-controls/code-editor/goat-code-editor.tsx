@@ -3,6 +3,11 @@ import { debounceEvent, loadScript } from '../../../utils/utils';
 
 let scriptLoaded = false;
 
+/**
+ * @name Code Editor
+ * @description A browser based code editor.
+ * @img /assets/img/code-editor.png
+ */
 @Component({
   tag: 'goat-code-editor',
   styleUrl: 'goat-code-editor.scss',

@@ -1,5 +1,10 @@
 import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, State } from '@stencil/core';
 
+/**
+ * @name Menu
+ * @description Menus display a list of choices on temporary surfaces.
+ * @img /assets/img/menu.png
+ */
 @Component({
   tag: 'goat-menu',
   styleUrl: 'goat-menu.scss',
@@ -109,6 +114,12 @@ export class GoatMenu {
   };
 
   render() {
+    return <div class='menu'>
+      <slot/>
+    </div>
+  }
+
+  renderOld() {
     let data;
     if (this.variant == 'group') {
        data = this.data;

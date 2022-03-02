@@ -3,15 +3,13 @@
 
 :host {
   display: inline-block;
-  margin-bottom: v(--space-3);
-  margin-inline-end: v(--space-3);
 }
-
 
 .checkbox {
   position: relative;
   display: flex;
   align-items: center;
+  gap: v(--space-2);
 
   .input-native {
     position: absolute;
@@ -24,29 +22,79 @@
     border: 0;
   }
 
-  .slot-container {
-    padding-left: v(--space-2);
-  }
-
   .box {
     position: relative;
     background: transparent;
-    border: 0.1rem solid v(--color-grey-600);
+    border: 1px solid v(--border-color);
     border-radius: 3px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: all 250ms cubic-bezier(.4, .0, .23, 1);
   }
 
-  &.checkbox-checked {
+  &.rounded {
     .box {
-      background: v(--color-primary-600);
+      border-radius: 50%;
+    }
+  }
+
+  .tick {
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+
+  &:hover {
+    .box {
+      border: 1px solid v(--color-grey-500);
+      background: v(--color-primary-100);
+    }
+  }
+
+  &.state-intermediate {
+    .box {
+      background: v(--color-blue-light-500);
+    }
+
+
+    .tick {
+      position: absolute;
+      width: 67%;
+      height: 0;
+      margin: auto;
+      border-right: 3px solid transparent;
+      border-bottom: 3px solid transparent;
+      transform-origin: 0 100%;
+
+      &.animate {
+        animation: checkbox-slash 125ms 250ms cubic-bezier(.4, .0, .23, 1) forwards;
+      }
+
+      &:not(.animate) {
+        border-color: v(--color-white);
+      }
+    }
+
+    &:hover .box {
+      background: v(--color-blue-light-500);
+    }
+
+    &.active .box {
+      background: v(--color-blue-light-700);
+    }
+  }
+
+  &.state-checked {
+    .box {
+      background: v(--color-primary-500);
     }
 
     .tick {
       position: absolute;
       width: 33%;
       height: 67%;
-      left: 15%;
       border-right: 3px solid transparent;
       border-bottom: 3px solid transparent;
       transform: rotate(45deg);
@@ -59,73 +107,78 @@
       &:not(.animate) {
         border-color: v(--color-white);
         top: -15%;
+        left: 15%;
       }
+    }
+
+    &:hover .box {
+      background: v(--color-primary-600);
+    }
+
+    &.active .box {
+      background: v(--color-primary-800);
     }
   }
 
-  &:not(.checkbox-checked):hover {
-    .box {
-      background: v(--color-primary-50);
-    }
-  }
 
 }
 
 /**
  * SIZES
  */
-:host([size="lg"]) {
-  .checkbox {
-    @include font-style(text-lg);
+.checkbox.size-sm {
 
-    .box {
-      width: 1.75rem;
-      height: 1.75rem;
-    }
-  }
-}
+  @include font-style(text-sm);
 
-:host([size="md"]) {
-  .checkbox {
-    @include font-style(text-md);
-
-    .box {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
-  }
-}
-
-:host([size="sm"]) {
-  .checkbox {
-    @include font-style(text-sm);
-
-    .box {
-      width: 1.25rem;
-      height: 1.25rem;
-    }
-  }
-}
-
-:host([focused]) {
   .box {
-    border-radius: v(border-radius);
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+}
+
+.checkbox.size-md {
+  @include font-style(text-md);
+
+  .box {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+.checkbox.size-lg {
+  @include font-style(text-lg);
+
+  .box {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+}
+
+
+.checkbox.has-focus:not(.active) {
+  .box {
     @include focus-ring;
   }
 }
 
-:host([disabled]) {
-  .checkbox {
-    cursor: not-allowed;
-    color: v(--color-grey-400) !important;
+.checkbox.disabled {
+  cursor: not-allowed;
+  color: v(--color-grey-400) !important;
+  border-color: v(--color-grey-400) !important;
 
+  .box {
+    background: v(--color-grey-200) !important;
+  }
+
+  &:hover {
     .box {
-      background: v(--color-grey-200) !important;
-    }
-
-
-    .tick {
-      border-color: #{v(--color-grey-400)} !important;
+      border: 1px solid v(--border-color);
     }
   }
+
+  .tick {
+    border-color: #{v(--color-grey-400)} !important;
+  }
+
 }

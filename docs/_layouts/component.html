@@ -32,9 +32,6 @@ layout: minimal
     overflow-y: auto;
   }
 
-  .sidenav-title {
-    padding: 0 1rem;
-  }
   .sidenav-components{
     padding-bottom: 0.5rem;
   }
@@ -64,38 +61,35 @@ layout: minimal
     margin-left: 20rem;
   }
 
-  @media only screen and (max-width: 600px) {
-    .sidenav {
-      width: 100%;
-      position: absolute;
-      overflow: initial;
-      height: 100%;
-    }
-    .main-content {
-      margin-left: 0;
-      display: none;
-    }
-  }
   pre[class*="language-"] {
     margin: 0;
   }
+
+  @media only screen and (max-width: 600px) {
+    .sidenav {
+      width: 100%;
+      position: inherit;
+      overflow: initial;
+    }
+    .main-content {
+      margin-left: 0;
+    }
+    .sidenav.m-hide, .main-content.m-hide {
+      display: none;
+    }
+  }
+
 </style>
-<div class='sidenav'>
-  {% for group in site.groups %}
-  <goat-heading class='sidenav-title' level='5' size='xs'>{{group.name}}</goat-heading>
+<div class='sidenav m-hide'>
+
   <div class='sidenav-components'>
-    {% for component in group.components %}
-    <a class='sidenav-link {% if page.title == component.name %}active{% endif %}' href='{{component.link}}'>{{component.name}}</a>
+    {% for component in site.data.components %}
+    {% if component.metadata.name %}
+    <a class='sidenav-link {% if page.title == component.metadata.name %}active{% endif %}' href='/components/{{component.tag | replace: "goat-", ""}}'>{{component.metadata.name}}</a>
+    {% endif %}
     {% endfor %}
   </div>
 
-  {% endfor %}
-
-
-  <goat-heading class='sidenav-title' level='5' size='xs'>WIP</goat-heading>
-    {% for component in site.components %}
-  <a class='sidenav-link {% if page.title == component.name %}active{% endif %}' href='{{component.link}}'>{{component.name}}</a>
-    {% endfor %}
 </div>
 <div class='main-content container'>
 

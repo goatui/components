@@ -1,0 +1,82 @@
+---
+layout: component
+title: Table
+menu:
+- title: Usage
+- title: Disabled State
+---
+<div class='row pt-3'>
+
+  {% include content-nav.html %}
+
+  <!-- Content -->
+  <div class='col-xl-10 order-xl-1 duik-content border-bottom'>
+    <div class='border-bottom mb-7'>
+      <h1>{{ page.title }}</h1>
+      <p class='lead mb-5'>Use {{site.company}}’s table component for displaying information in a way that’s easy to
+        scan, so that
+        users can look for patterns and insights. They can be embedded in primary content, such as cards.</p>
+    </div>
+
+    <!-- Usage -->
+    <div class='mb-7' id='doc-usage'>
+      <h2 class='h4'>Usage <a aria-label='Anchor' class='js-anchor-link duik-anchorjs-link' data-anchorjs-icon='#'
+                              href='#doc-usage'></a></h2>
+
+      <goat-card>
+        <goat-card-content style='height: 25rem'>
+          <goat-table id='table' key-field='_id' selection-type='checkbox'></goat-table>
+          <script>
+            const $table = document.getElementById('table');
+            // Columns
+            $table.columns = {% include_relative column-config.json %};
+            // Data
+            $table.dataSource = {% include_relative data-source.json full = true %};
+
+            // Events
+            $table.addEventListener('goat:table-cell-click', function(evt) {
+              document.getElementById('record').innerText = JSON.stringify(evt.detail.record, null, 3);
+              document.getElementById('column').innerText = evt.detail.column.label;
+            });
+            $table.addEventListener('goat:table-select-change', function(evt) {
+              document.getElementById('selected-rows').innerText = JSON.stringify(evt.detail.value);
+            });
+          </script>
+        </goat-card-content>
+        <goat-card-content>
+          <div class='result'>
+            <goat-heading level='5'>Cell Click Result :</goat-heading>
+            <div><b>Cell Data :</b>
+              <pre id='record'></pre>
+            </div>
+            <div><b>Column :</b> <span id='column'></span></div>
+            <br />
+            <div><b>Selected Rows :</b> <span id='selected-rows'></span></div>
+            <br />
+            <div>Check console for full event detail.</div>
+          </div>
+        </goat-card-content>
+        <goat-card-content>
+          {% highlight html %}
+          <goat-table id='table' key-field='_id' selection-type='checkbox'></goat-table>
+          {% endhighlight %}
+        </goat-card-content>
+        <goat-card-content>
+          {% highlight js %}
+const $table = document.getElementById('table');
+// Columns
+$table.columns = {% include_relative column-config.json %};
+// Data
+$table.dataSource = {% include_relative data-source.json %};
+          {% endhighlight %}
+        </goat-card-content>
+      </goat-card>
+
+
+    </div>
+    <!-- End About -->
+
+
+  </div>
+  <!-- End Content -->
+</div>

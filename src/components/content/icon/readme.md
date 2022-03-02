@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                                                                                           | Type                                                                    | Default              |
-| -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | -------------------- |
-| `color`  | `color`   | Color variants. Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`, `"grey"`, `"inherit"`. Defaults to `"inherit"`. | `"error" \| "grey" \| "inherit" \| "primary" \| "success" \| "warning"` | `'inherit'`          |
-| `size`   | `size`    | The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.                             | `string`                                                                | `ElementSize.MEDIUM` |
-| `type`   | `type`    |                                                                                                                                       | `string`                                                                | `undefined`          |
+| Property | Attribute | Description                                                                                                                           | Type                                                                    | Default     |
+| -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------- |
+| `color`  | `color`   | Color variants. Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`, `"grey"`, `"inherit"`. Defaults to `"inherit"`. | `"error" \| "grey" \| "inherit" \| "primary" \| "success" \| "warning"` | `'inherit'` |
+| `size`   | `size`    | The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.                             | `string`                                                                | `'md'`      |
+| `type`   | `type`    |                                                                                                                                       | `string`                                                                | `'house'`   |
 
 
 ## Dependencies

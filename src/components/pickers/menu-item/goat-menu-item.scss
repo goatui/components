@@ -1,0 +1,56 @@
+@import "../../../styles/scss/commons";
+
+:host {
+  display: block;
+}
+
+.menu-item {
+  cursor: pointer;
+  @include font-style(text-md);
+  padding: v(--space-2) v(--space-4);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: v(--space-2);
+  color: v(--color-grey-700);
+
+  .item-section {
+    display: flex;
+    align-items: center;
+  }
+
+  .slot-main {
+    flex: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .slot-end {
+    color: v(--secondary-text-color);
+  }
+
+  &:hover {
+    background: v(--color-grey-100);
+    color: v(--primary-text-color);
+  }
+
+}
+
+.menu-item.active, .menu-item.selected {
+  background: v(--color-grey-300);
+  color: v(--primary-text-color);
+}
+
+.menu-item.has-focus:not(.active) {
+  @include focus-ring;
+}
+
+
+.menu-item.disabled {
+  cursor: not-allowed;
+  color: v(--color-grey-400) !important;
+  background: v(--color-grey-100) !important;
+  border-color: v(--color-grey-100) !important;
+}
+
+

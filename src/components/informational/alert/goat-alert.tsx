@@ -1,6 +1,13 @@
 import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core';
 import { ElementColor, ElementSize } from '../../../utils/utils';
 
+/**
+ * @name Alert
+ * @description Alerts provide important information inline with the content body within a view.
+ * @example <goat-alert state="success" dismissible>
+ *               <div slot='message'>Successful saved the record</div>
+ *             </goat-alert>
+ */
 @Component({
   tag: 'goat-alert',
   styleUrl: 'goat-alert.scss',

@@ -1,5 +1,10 @@
 import { Component, Element, h, Host, Prop } from '@stencil/core';
 
+/**
+ * @name Avatar
+ * @description Avatars in their simplest form display content within a circular container.
+ * @example <goat-avatar name="Shivaji Varma"></goat-avatar>
+ */
 @Component({
   tag: 'goat-avatar',
   styleUrl: 'goat-avatar.scss',
@@ -35,12 +40,27 @@ export class GoatAvatar {
 
 
   render() {
+    const cssCls = ['avatar'];
+    if (this.src) {
+      cssCls.push('avatar-image');
+    } else {
+      cssCls.push('avatar-initials');
+    }
     return (
-      <Host size={this.size} title={this.name} type={this.src ? 'image' : 'initials'}>
-        <div class='avatar' style={{ width: this.size, height: this.size, fontSize: this.getFontSize() }}>
-          {this.src ? <img class='image' src={this.src} alt={this.name} /> : <div class='initials'>
-            {this.getInitials()}
-          </div>}
+      <Host title={this.name}>
+        <div class={cssCls.join(' ')}
+             style={{ width: this.size, height: this.size, fontSize: this.getFontSize() }}>
+          {
+            (() => {
+              if (this.src) {
+                return <img class='image' src={this.src} alt={this.name} />;
+              } else {
+                return <div class='initials'>
+                  {this.getInitials()}
+                </div>;
+              }
+            })()
+          }
         </div>
       </Host>
     );

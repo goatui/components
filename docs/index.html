@@ -13,20 +13,20 @@ root: true
   }
 </style>
 <div class='banner'>
-  <goat-heading class='title'>{{site.title}}</goat-heading>
-  <goat-paragraph size='xl'>Web components build using stenciljs.</goat-paragraph>
+  <goat-typography variant='heading' class='title'>{{site.title}}</goat-typography>
+  <goat-typography variant='paragraph' size='xl'>Web components build using stenciljs.</goat-typography>
   <goat-button variant='light' href='/components.html'>Browse Components</goat-button>
 </div>
 
 <div class='container'>
 
-  <goat-heading level='2' size='md'>Introduction</goat-heading>
-  <goat-paragraph size='md'>{{site.title}} contains most used web components built using Stencil.
+  <goat-typography variant='heading' level='2' size='md'>Introduction</goat-typography>
+  <goat-typography variant='paragraph' size='md'>{{site.title}} contains most used web components built using Stencil.
     So you don't need to include any additional framework dependencies, You can simply import required component js, and
     right away start using it.
-  </goat-paragraph>
-  <goat-paragraph size='md'>Can easily be consumed by any other framework, like Vue, React, Angular, etc.
-  </goat-paragraph>
+  </goat-typography>
+  <goat-typography variant='paragraph' size='md'>Can easily be consumed by any other framework, like Vue, React, Angular, etc.
+  </goat-typography>
 
   <br/>
 
@@ -40,11 +40,11 @@ root: true
 
   <br/><br/><br/>
 
-  <goat-heading level='3' size='sm'>Getting Started</goat-heading>
-  <goat-heading level='4' size='xs'>Script tag</goat-heading>
+  <goat-typography variant='heading' level='3' size='sm'>Getting Started</goat-typography>
+  <goat-typography variant='heading' level='4' size='xs'>Script tag</goat-typography>
   <ul>
     <li>
-      Put a script tag similar to this <code class='highlighter-rouge' data-lang='html'>&lt;script
+      Put a script tag similar to this <code class="language-html">&lt;script
       type="module"
       src="{{site.script}}"&gt;&lt;/script&gt;</code>
       in the head of your index.html

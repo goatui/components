@@ -5,6 +5,11 @@ import { renderEmptyData } from './utils';
 const DEFAULT_CELL_WIDTH = 300;
 const CHECKBOX_WIDTH = '3rem';
 
+/**
+ * @name Table
+ * @description A configurable component for displaying tabular data.
+ * @img /assets/img/table.png
+ */
 @Component({
   tag: 'goat-table',
   styleUrl: 'goat-table.scss',
@@ -47,7 +52,7 @@ export class GoatTable {
    */
   @Prop() dataSource: any[] = [];
   @Prop() selectionType: 'checkbox' | undefined;
-  @Prop() selectedRowKeys: string[] = [];
+  @Prop({mutable: true}) selectedRowKeys: string[] = [];
   @Prop() keyField: string = 'id';
 
   @State() private hoveredCell: any = {};
@@ -158,7 +163,7 @@ export class GoatTable {
       leftHeaderRow.push(
         <div class='col' style={{ width: CHECKBOX_WIDTH }}>
           <div class='col-content'>
-            <goat-checkbox class='checkbox' value={this.isSelectAll} onGoat:change={this.onSelectAllClick} />
+            <goat-checkbox class='checkbox' size="sm"  value={this.isSelectAll} onGoat:change={this.onSelectAllClick} />
           </div>
         </div>);
     }
@@ -202,7 +207,7 @@ export class GoatTable {
       if (this.selectionType === 'checkbox')
         bodyLeftRow.push(<div class={{ 'col': true }}
                               style={{ width: CHECKBOX_WIDTH }}>
-          <goat-checkbox class='checkbox' value={this.selectedRowKeys.includes(row[this.keyField])}
+          <goat-checkbox class='checkbox' size="sm" value={this.selectedRowKeys.includes(row[this.keyField])}
                        onGoat:change={() => this.onRowSelectClick(row)} />
         </div>);
 

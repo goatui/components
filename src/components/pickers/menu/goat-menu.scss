@@ -6,14 +6,23 @@
   --list-max-height: inherit;
 }
 
-.list {
+
+.menu {
   background: v(--color-white);
+  padding: v(--space-2) 0;
   border: 1px solid v(--color-grey-200);
   box-sizing: border-box;
   border-radius: var(--list-border-radius);
-  overflow: hidden;
+  box-shadow: v(--shadow-sm);
 
-  .group-container {
+  slot::slotted(divider) {
+    display: block;
+    width: 100%;
+    margin: v(--space-1) 0;
+    border-top: 1px solid v(--color-grey-200);
+  }
+
+ /* .group-container {
     overflow-y: auto;
     max-height: var(--list-max-height);
   }
@@ -26,68 +35,6 @@
     box-sizing: border-box;
     background: v(--color-grey-700);
     color: v(--color-white);
-  }
-
-  .item {
-    @include font-style(text-md);
-    cursor: pointer;
-    padding: v(--space-2) v(--space-4);
-    box-sizing: border-box;
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
-    transition: background 0.8s;
-
-    &.item-separator {
-      border-bottom: 1px solid v(--border-color);
-    }
-
-    .item-content {
-      display: flex;
-      align-items: center;
-      flex-direction: row;
-
-      .item-icon, .item-img {
-        padding-right: v(--space-2);
-      }
-    }
-
-    &.item-variant-icon {
-      .item-label {
-        //padding-top: 1px;
-      }
-    }
-
-    &.item-has-focus {
-      background: v(--color-primary-50);
-      outline: none;
-    }
-
-    &.item-active {
-      background: v(--color-grey-100);
-      border-top-color: v(--border-color);
-      border-bottom-color: v(--border-color);
-      @include font-variant(p1);
-      font-weight: v(--font-weight-semi-bold);
-
-      &:first-child {
-        border-top-color: transparent;
-      }
-
-      &:last-child {
-        border-bottom-color: transparent;
-      }
-    }
-
-
-    &:hover {
-      background: v(--color-primary-50) radial-gradient(circle, transparent 1%, v(--color-primary-50) 1%) center/15000%;
-    }
-
-    &:active {
-      background-color: v(--color-grey-900);
-      background-size: 100%;
-      transition: background 0s;
-    }
   }
 
 
@@ -109,6 +56,6 @@
       @include font-variant(caption);
       color: v(--color-grey-400);
     }
-  }
+  }*/
 
 }

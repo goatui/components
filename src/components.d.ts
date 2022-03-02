@@ -74,6 +74,8 @@ export namespace Components {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
+        "getGid": () => Promise<string>;
+        "intermediate": boolean;
         /**
           * The checkbox label.
          */
@@ -82,6 +84,7 @@ export namespace Components {
           * If true, required icon is show. Defaults to `false`.
          */
         "required": boolean;
+        "rounded": boolean;
         /**
           * Sets blur on the native `input` in `goat-input`. Use this method instead of the global `input.blur()`.
          */
@@ -146,10 +149,6 @@ export namespace Components {
         "label": string;
         "required": boolean;
     }
-    interface GoatHeading {
-        "level": 1 | 2 | 3 | 4 | 5;
-        "size": 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-    }
     interface GoatIcon {
         /**
           * Color variants. Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`, `"grey"`, `"inherit"`. Defaults to `"inherit"`.
@@ -158,7 +157,7 @@ export namespace Components {
         /**
           * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
          */
-        "size": ElementSize | string;
+        "size": 'sm' | 'md' | 'lg' | 'xl' | string;
         "type": string;
     }
     interface GoatInput {
@@ -244,8 +243,27 @@ export namespace Components {
         "value"?: string | number;
         "variant": 'default' | 'group';
     }
-    interface GoatParagraph {
-        "size": 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+    interface GoatMenuItem {
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled": boolean;
+        /**
+          * Menu item selection state.
+         */
+        "selected": boolean;
+        /**
+          * Sets blur on the native `input` in `goat-input`. Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `input` in `goat-input`. Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * The menu item value.
+         */
+        "value"?: string | number | null;
     }
     interface GoatSelect {
         "actions": any[];
@@ -363,6 +381,18 @@ export namespace Components {
          */
         "variant": 'default' | 'dashed';
     }
+    interface GoatTypography {
+        /**
+          * The heading level.
+         */
+        "level": 1 | 2 | 3 | 4 | 5;
+        "secondary": boolean;
+        /**
+          * Text size.
+         */
+        "size": 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+        "variant": 'heading' | 'paragraph' | 'text';
+    }
 }
 declare global {
     interface HTMLGoatAlertElement extends Components.GoatAlert, HTMLStencilElement {
@@ -419,12 +449,6 @@ declare global {
         prototype: HTMLGoatFormControlElement;
         new (): HTMLGoatFormControlElement;
     };
-    interface HTMLGoatHeadingElement extends Components.GoatHeading, HTMLStencilElement {
-    }
-    var HTMLGoatHeadingElement: {
-        prototype: HTMLGoatHeadingElement;
-        new (): HTMLGoatHeadingElement;
-    };
     interface HTMLGoatIconElement extends Components.GoatIcon, HTMLStencilElement {
     }
     var HTMLGoatIconElement: {
@@ -449,11 +473,11 @@ declare global {
         prototype: HTMLGoatMenuElement;
         new (): HTMLGoatMenuElement;
     };
-    interface HTMLGoatParagraphElement extends Components.GoatParagraph, HTMLStencilElement {
+    interface HTMLGoatMenuItemElement extends Components.GoatMenuItem, HTMLStencilElement {
     }
-    var HTMLGoatParagraphElement: {
-        prototype: HTMLGoatParagraphElement;
-        new (): HTMLGoatParagraphElement;
+    var HTMLGoatMenuItemElement: {
+        prototype: HTMLGoatMenuItemElement;
+        new (): HTMLGoatMenuItemElement;
     };
     interface HTMLGoatSelectElement extends Components.GoatSelect, HTMLStencilElement {
     }
@@ -479,6 +503,12 @@ declare global {
         prototype: HTMLGoatTextareaElement;
         new (): HTMLGoatTextareaElement;
     };
+    interface HTMLGoatTypographyElement extends Components.GoatTypography, HTMLStencilElement {
+    }
+    var HTMLGoatTypographyElement: {
+        prototype: HTMLGoatTypographyElement;
+        new (): HTMLGoatTypographyElement;
+    };
     interface HTMLElementTagNameMap {
         "goat-alert": HTMLGoatAlertElement;
         "goat-avatar": HTMLGoatAvatarElement;
@@ -489,16 +519,16 @@ declare global {
         "goat-dropdown": HTMLGoatDropdownElement;
         "goat-flow-designer": HTMLGoatFlowDesignerElement;
         "goat-form-control": HTMLGoatFormControlElement;
-        "goat-heading": HTMLGoatHeadingElement;
         "goat-icon": HTMLGoatIconElement;
         "goat-input": HTMLGoatInputElement;
         "goat-link": HTMLGoatLinkElement;
         "goat-menu": HTMLGoatMenuElement;
-        "goat-paragraph": HTMLGoatParagraphElement;
+        "goat-menu-item": HTMLGoatMenuItemElement;
         "goat-select": HTMLGoatSelectElement;
         "goat-spinner": HTMLGoatSpinnerElement;
         "goat-table": HTMLGoatTableElement;
         "goat-textarea": HTMLGoatTextareaElement;
+        "goat-typography": HTMLGoatTypographyElement;
     }
 }
 declare namespace LocalJSX {
@@ -573,6 +603,7 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
+        "intermediate"?: boolean;
         /**
           * The checkbox label.
          */
@@ -593,6 +624,7 @@ declare namespace LocalJSX {
           * If true, required icon is show. Defaults to `false`.
          */
         "required"?: boolean;
+        "rounded"?: boolean;
         /**
           * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
@@ -656,10 +688,6 @@ declare namespace LocalJSX {
         "label"?: string;
         "required"?: boolean;
     }
-    interface GoatHeading {
-        "level"?: 1 | 2 | 3 | 4 | 5;
-        "size"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-    }
     interface GoatIcon {
         /**
           * Color variants. Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`, `"grey"`, `"inherit"`. Defaults to `"inherit"`.
@@ -668,7 +696,7 @@ declare namespace LocalJSX {
         /**
           * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
          */
-        "size"?: ElementSize | string;
+        "size"?: 'sm' | 'md' | 'lg' | 'xl' | string;
         "type"?: string;
     }
     interface GoatInput {
@@ -692,10 +720,6 @@ declare namespace LocalJSX {
           * The input field name.
          */
         "name"?: string;
-        /**
-          * Emitted when the action button is clicked.
-         */
-        "onGoat:action-click"?: (event: CustomEvent<any>) => void;
         /**
           * Emitted when the input loses focus.
          */
@@ -764,8 +788,23 @@ declare namespace LocalJSX {
         "value"?: string | number;
         "variant"?: 'default' | 'group';
     }
-    interface GoatParagraph {
-        "size"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+    interface GoatMenuItem {
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled"?: boolean;
+        /**
+          * Emitted when the menu item is clicked.
+         */
+        "onGoat:menu-item-click"?: (event: CustomEvent<any>) => void;
+        /**
+          * Menu item selection state.
+         */
+        "selected"?: boolean;
+        /**
+          * The menu item value.
+         */
+        "value"?: string | number | null;
     }
     interface GoatSelect {
         "actions"?: any[];
@@ -904,6 +943,18 @@ declare namespace LocalJSX {
          */
         "variant"?: 'default' | 'dashed';
     }
+    interface GoatTypography {
+        /**
+          * The heading level.
+         */
+        "level"?: 1 | 2 | 3 | 4 | 5;
+        "secondary"?: boolean;
+        /**
+          * Text size.
+         */
+        "size"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+        "variant"?: 'heading' | 'paragraph' | 'text';
+    }
     interface IntrinsicElements {
         "goat-alert": GoatAlert;
         "goat-avatar": GoatAvatar;
@@ -914,16 +965,16 @@ declare namespace LocalJSX {
         "goat-dropdown": GoatDropdown;
         "goat-flow-designer": GoatFlowDesigner;
         "goat-form-control": GoatFormControl;
-        "goat-heading": GoatHeading;
         "goat-icon": GoatIcon;
         "goat-input": GoatInput;
         "goat-link": GoatLink;
         "goat-menu": GoatMenu;
-        "goat-paragraph": GoatParagraph;
+        "goat-menu-item": GoatMenuItem;
         "goat-select": GoatSelect;
         "goat-spinner": GoatSpinner;
         "goat-table": GoatTable;
         "goat-textarea": GoatTextarea;
+        "goat-typography": GoatTypography;
     }
 }
 export { LocalJSX as JSX };
@@ -939,16 +990,16 @@ declare module "@stencil/core" {
             "goat-dropdown": LocalJSX.GoatDropdown & JSXBase.HTMLAttributes<HTMLGoatDropdownElement>;
             "goat-flow-designer": LocalJSX.GoatFlowDesigner & JSXBase.HTMLAttributes<HTMLGoatFlowDesignerElement>;
             "goat-form-control": LocalJSX.GoatFormControl & JSXBase.HTMLAttributes<HTMLGoatFormControlElement>;
-            "goat-heading": LocalJSX.GoatHeading & JSXBase.HTMLAttributes<HTMLGoatHeadingElement>;
             "goat-icon": LocalJSX.GoatIcon & JSXBase.HTMLAttributes<HTMLGoatIconElement>;
             "goat-input": LocalJSX.GoatInput & JSXBase.HTMLAttributes<HTMLGoatInputElement>;
             "goat-link": LocalJSX.GoatLink & JSXBase.HTMLAttributes<HTMLGoatLinkElement>;
             "goat-menu": LocalJSX.GoatMenu & JSXBase.HTMLAttributes<HTMLGoatMenuElement>;
-            "goat-paragraph": LocalJSX.GoatParagraph & JSXBase.HTMLAttributes<HTMLGoatParagraphElement>;
+            "goat-menu-item": LocalJSX.GoatMenuItem & JSXBase.HTMLAttributes<HTMLGoatMenuItemElement>;
             "goat-select": LocalJSX.GoatSelect & JSXBase.HTMLAttributes<HTMLGoatSelectElement>;
             "goat-spinner": LocalJSX.GoatSpinner & JSXBase.HTMLAttributes<HTMLGoatSpinnerElement>;
             "goat-table": LocalJSX.GoatTable & JSXBase.HTMLAttributes<HTMLGoatTableElement>;
             "goat-textarea": LocalJSX.GoatTextarea & JSXBase.HTMLAttributes<HTMLGoatTextareaElement>;
+            "goat-typography": LocalJSX.GoatTypography & JSXBase.HTMLAttributes<HTMLGoatTypographyElement>;
         }
     }
 }

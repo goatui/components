@@ -1,5 +1,5 @@
-$color-white: #ffffff;
-$color-black: #000000;
+@use "sass:map";
+
 $colors: (
   grey: (
     25: #FCFCFD,
@@ -83,4 +83,22 @@ $colors: (
     800: #1849A9,
     900: #194185,
   ),
+  blue-light: (
+    25: #F5FBFF,
+    50: #F0F9FF,
+    100: #E0F2FE,
+    200: #B9E6FE,
+    300: #7CD4FD,
+    400: #36BFFA,
+    500: #0BA5EC,
+    600: #0086C9,
+    700: #026AA2,
+    800: #065986,
+    900: #0B4A6F,
+  ),
 );
+$color-white: #ffffff;
+$color-black: #000000;
+$primary-text-color: map-get(map-get($colors, grey), 900);
+$secondary-text-color: map.get(map.get($colors, grey), 500);
+$border-color:  map.get(map.get($colors, grey), 300);

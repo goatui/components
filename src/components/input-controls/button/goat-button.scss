@@ -16,9 +16,15 @@
   width: 100%;
   border: 0.0625rem var(--button-border-style) transparent;
   border-radius: v(--border-radius);
+  gap: v(--space-2);
 
   .slot-container {
     width: 100%;
+    display: none;
+  }
+
+  &.has-content .slot-container {
+    display: block;
   }
 }
 
@@ -26,53 +32,53 @@
 /**
   * SIZES
   */
-:host([size="sm"]) .button, :host([size="small"]) .button {
+.button.size-sm, .button.size-small {
   padding: removeBorder(0.5);
   @include font-style(text-sm);
   font-weight: v(--font-weight-medium);
 
-  &.slot-has-content {
+  &.has-content {
     padding: removeBorder(0.5) removeBorder(0.875);
   }
 }
 
 
-:host([size="md"]) .button, :host([size="medium"]) .button {
+.button.size-md, .button.size-medium {
   padding: removeBorder(0.625);
   @include font-style(text-sm);
   font-weight: v(--font-weight-medium);
 
-  &.slot-has-content {
+  &.has-content {
     padding: removeBorder(0.625) removeBorder(1.125);
   }
 }
 
-:host([size="lg"]) .button, :host([size="large"]) .button {
+.button.size-lg, .button.size-large {
   padding: removeBorder(0.625);
   @include font-style(text-md);
   font-weight: v(--font-weight-medium);
 
-  &.slot-has-content {
+  &.has-content {
     padding: removeBorder(0.625) removeBorder(1);
   }
 }
 
-:host([size="xl"]) .button {
+.button.size-xl {
   padding: removeBorder(0.75);
   @include font-style(text-md);
   font-weight: v(--font-weight-medium);
 
-  &.slot-has-content {
+  &.has-content {
     padding: removeBorder(0.75) removeBorder(1.25);
   }
 }
 
-:host([size="xxl"]) .button {
+.button.size-xxl {
   padding: removeBorder(1);
   @include font-style(text-lg);
   font-weight: v(--font-weight-medium);
 
-  &.slot-has-content {
+  &.has-content {
     padding: removeBorder(1) removeBorder(1.75);
   }
 }
@@ -80,135 +86,119 @@
 /**
   * Variants
   */
-:host([color="primary"]) {
-  &:host([variant="default"]) {
+.button.color-primary {
+  &.variant-default {
     @include buttonVariant(true, primary);
   }
 
-  &:host([variant="light"]) {
+  &.variant-light {
     @include buttonLight(primary);
   }
 
-  &:host([variant="link"]) {
+  &.variant-link {
     @include buttonLink(primary);
   }
 
-  &:host([variant="outline"]) {
+  &.variant-outline {
     @include buttonOutline(primary);
   }
 }
 
 
-
-:host([color="success"]) {
-  &:host([variant="default"]) {
+.button.color-success {
+  &.variant-default {
     @include buttonVariant(true, success);
   }
 
-  &:host([variant="light"]) {
+  &.variant-light {
     @include buttonLight(success);
   }
 
-  &:host([variant="link"]) {
+  &.variant-link {
     @include buttonLink(success);
   }
 
-  &:host([variant="outline"]) {
+  &.variant-outline {
     @include buttonOutline(success);
   }
 }
 
-:host([color="warning"]) {
-  &:host([variant="default"]) {
+.button.color-warning {
+  &.variant-default {
     @include buttonVariant(true, warning);
   }
 
-  &:host([variant="light"]) {
+  &.variant-light {
     @include buttonLight(warning);
   }
 
-  &:host([variant="link"]) {
+  &.variant-link {
     @include buttonLink(warning);
   }
 
-  &:host([variant="outline"]) {
+  &.variant-outline {
     @include buttonOutline(warning);
   }
 }
 
-:host([color="error"]) {
-  &:host([variant="default"]) {
+.button.color-error {
+  &.variant-default {
     @include buttonVariant(true, error);
   }
 
-  &:host([variant="light"]) {
+  &.variant-light {
     @include buttonLight(error);
   }
 
-  &:host([variant="link"]) {
+  &.variant-link {
     @include buttonLink(error);
   }
 
-  &:host([variant="outline"]) {
+  &.variant-outline {
     @include buttonOutline(error);
   }
 }
 
-:host([color="secondary"]) {
-  .button {
-    color: v(--color-grey-900);
+.button.color-secondary {
+
+  color: v(--primary-text-color);
+
+  .spinner, .icon {
+    color: #{--primary-text-color};
+  }
+
+  background: white;
+  border-color: v(--color-grey-900);
+
+  &:hover {
+    background: v(--color-grey-100);
+  }
+
+  &.active {
+    background: v(--color-grey-200);
+  }
+
+  &.selected {
+    background: v(--color-grey-300);
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    color: v(--color-grey-400) !important;
+    background: v(--color-grey-100) !important;
+    border-color: v(--color-grey-400) !important;
 
     .spinner, .icon {
-      color: #{--color-grey-900};
-    }
-    background: white;
-    border-color: v(--color-grey-900);
-
-    &:hover {
-      background: v(--color-grey-100);
-    }
-  }
-
-  &:host([active]) {
-    .button {
-      background: v(--color-grey-200);
-    }
-  }
-
-  &:host([selected]) {
-    .button {
-      background: v(--color-grey-300);
-    }
-  }
-
-  &:host([disabled]) {
-    .button {
-      cursor: not-allowed;
-      color: v(--color-grey-400) !important;
-      background: v(--color-grey-100) !important;
-      border-color: v(--color-grey-400) !important;
-
-      .spinner, .icon {
-        color: #{v(--color-grey-400)} !important;
-      }
+      color: #{v(--color-grey-400)} !important;
     }
   }
 }
 
-
-:host([focused]:not([active])) {
-  .button {
-    @include focus-ring;
-  }
+.button.has-focus:not(.active) {
+  @include focus-ring;
 }
 
-:host([icon]) {
-  .button.slot-has-content {
-    gap: v(--space-2);
-  }
-}
-
-:host([block]) {
+.button.block {
   display: block;
 
   .spinner {
@@ -217,9 +207,8 @@
 }
 
 
-:host([icon-end]) {
-  .button {
-    flex-direction: row-reverse;
-  }
+.button.icon-end {
+  flex-direction: row-reverse;
 }
+
 

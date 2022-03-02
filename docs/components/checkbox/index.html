@@ -1,0 +1,121 @@
+---
+layout: component
+title: Checkbox
+menu:
+- title: Usage
+- title: Intermediate
+- title: Sizes
+- title: Disabled state
+- title: Script Get or Set value
+- title: Events
+---
+
+<style>
+  goat-checkbox {
+    margin: 0 0.5rem 1rem 0;
+  }
+</style>
+
+
+
+<div class='row pt-3'>
+
+  {% include content-nav.html %}
+
+  <!-- Content -->
+  <div class='col-xl-10 order-xl-1 duik-content border-bottom'>
+    <div class='border-bottom mb-7'>
+      <h1>{{ page.title }}</h1>
+      <p class='lead mb-5'>Use {{site.company}}’s custom checkbox component for capturing input in forms, dialogs, and
+        more with support
+        for multiple sizes, variants and more.</p>
+    </div>
+
+
+    <!-- Usage -->
+    <div id='doc-usage' class='mb-7'>
+      <h2 class='h4'>Usage <a class='js-anchor-link duik-anchorjs-link' href='#doc-usage'
+                              aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      <p>Here are several predefined checkbox styles, each serving its own semantic purpose.</p>
+
+      {% capture sample-code %}
+      <goat-checkbox>Male</goat-checkbox>
+      <goat-checkbox value='true'>Want ice cream?</goat-checkbox>
+      <goat-checkbox rounded>Join the group?</goat-checkbox>
+      {% endcapture %}
+      {% include demo-html.html content=sample-code %}
+
+    </div>
+
+    <!-- Intermediate -->
+    <div id='doc-intermediate' class='mb-7'>
+      <h2 class='h4'>Intermediate <a class='js-anchor-link duik-anchorjs-link' href='#doc-intermediate'
+                              aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      {% capture sample-code %}
+      <goat-checkbox value='false' intermediate='true'>All</goat-checkbox>
+      {% endcapture %}
+      {% include demo-html.html content=sample-code %}
+
+    </div>
+
+    <!-- Sizes -->
+    <div id='doc-sizes' class='mb-7'>
+      <h2 class='h4'>Size <a class='js-anchor-link duik-anchorjs-link' href='#doc-sizes'
+                              aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      <p>Here are several predefined checkbox sizes, each serving its own semantic purpose.</p>
+
+      {% capture sample-code %}
+      <goat-checkbox size='lg'>Large</goat-checkbox>
+      <goat-checkbox>Medium</goat-checkbox>
+      <goat-checkbox size='sm'>Small</goat-checkbox>
+      {% endcapture %}
+      {% include demo-html.html content=sample-code %}
+    </div>
+
+    <!-- Disabled State -->
+    <div id='doc-disabled-state' class='mb-7'>
+      <h2 class='h4'>Disabled state <a class='js-anchor-link duik-anchorjs-link' href='#doc-getting-started'
+                                       aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      <p>Make input look inactive by adding the disabled <code class='highlighter-rouge' data-lang='html'>boolean</code>
+        attribute to any <code class='highlighter-rouge' data-lang='html'>&lt;input&gt;</code> element.</p>
+
+      {% capture sample-code %}
+      <goat-checkbox disabled>Disabled Input</goat-checkbox>
+      <goat-checkbox disabled value=true>Disabled Input</goat-checkbox>
+      {% endcapture %}
+      {% include demo-html.html content=sample-code %}
+
+    </div>
+
+
+    <!-- Events -->
+    <div id='doc-events' class='mb-7'>
+      <h2 class='h4'>Events <a class='js-anchor-link duik-anchorjs-link' href='#doc-events'
+                               aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      <p>On change of checkbox value a <b>CustomEvent</b> <code class='highlighter-rouge'
+                                                                data-lang='html'>goat:change</code>
+        is triggered by the element.</p>
+
+      <goat-card>
+        <goat-card-content>
+          <goat-checkbox id='change-checkbox-field'>Change Event?</goat-checkbox>
+          <script>
+            document.querySelector('#change-checkbox-field').addEventListener('goat:change', function(event) {
+              myConsole.log('Input changed to :: ' + event.target.value);
+            });
+          </script>
+        </goat-card-content>
+        <goat-card-content>
+          {% highlight js %}
+          document.querySelector('#change-checkbox-field').addEventListener('goat:change', function(event) {
+            console.log('Input changed to :: ' + event.target.value);
+          });
+          {% endhighlight %}
+        </goat-card-content>
+      </goat-card>
+    </div>
+
+
+  </div>
+  <!-- End Content -->
+</div>

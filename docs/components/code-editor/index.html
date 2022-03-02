@@ -1,0 +1,127 @@
+---
+layout: component
+title: Code Editor
+menu:
+- title: Usage
+- title: Theme
+- title: Disabled State
+---
+
+<style>
+  goat-checkbox {
+    margin: 0 0.5rem 1rem 0;
+  }
+</style>
+
+
+<div class='row pt-3'>
+
+  {% include content-nav.html %}
+
+  <!-- Content -->
+  <div class='col-xl-10 order-xl-1 duik-content border-bottom'>
+    <div class='border-bottom mb-7'>
+      <h1>{{ page.title }}</h1>
+      <p class='lead mb-5'>Use {{site.company}}’s custom code editor component for capturing input in forms, dialogs,
+        and
+        more. Built on <a href='https://microsoft.github.io/monaco-editor/'>monaco</a>.</p>
+    </div>
+
+
+    <!-- Usage -->
+    <div id='doc-usage' class='mb-7'>
+
+      <h2 class='h4'>Examples <a class='js-anchor-link duik-anchorjs-link' href='#doc-usage'
+                                 aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      <p>Here is code editor component, currently supports JS and JSON editing.</p>
+      <div class='card'>
+        <div class='card-header'>
+          <goat-checkbox id='disableEditor'>Disable editor</goat-checkbox>
+          <goat-checkbox id='darkTheme'>Dark Theme</goat-checkbox>
+
+          <goat-code-editor id='business-rule-editor' style='height: 300px'></goat-code-editor>
+          <script>
+            document.getElementById('business-rule-editor').value = `/**
+ * Sample Code
+ */
+ function myBusinessRuleFunction(){
+    const a = 1;
+    const b = 2;
+    let c = a + b;
+    console.log(c);
+}`;
+
+            document.querySelector('#disableEditor').addEventListener('goat:change', function(evt) {
+              document.getElementById('business-rule-editor').disabled = evt.target.value;
+            });
+            document.querySelector('#darkTheme').addEventListener('goat:change', function(evt) {
+              document.getElementById('business-rule-editor').theme = evt.target.value ? 'vs-dark' : 'vs-light';
+            });
+          </script>
+        </div>
+        <div class='card-body'>
+          {% highlight html %}
+          <goat-code-editor id='business-rule-editor' style='height: 300px'></goat-code-editor>
+          {% endhighlight %}
+        </div>
+        <div class='card-body'>
+          {% highlight js %}
+          document.getElementById('business-rule-editor').value = `
+          /**
+          * Sample Code
+          */
+          function myBusinessRuleFunction(){
+            const a = 1;
+            const b = 2;
+            let c = a + b;
+            console.log(c);
+          }
+          `;
+          {% endhighlight %}
+
+        </div>
+      </div>
+    </div>
+    <!-- End Usage -->
+
+
+    <!-- Theme -->
+    <div id='doc-theme' class='mb-7'>
+      <h2 class='h4'>Theme <a class='js-anchor-link duik-anchorjs-link' href='#doc-theme'
+                              aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+
+      <p>Please click on checkbox and try disabling able editor.</p>
+
+      <div class='card'>
+        <div class='card-body'>
+          {% highlight html %}
+          <goat-code-editor theme='vs-dark'></goat-code-editor>
+          {% endhighlight %}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Disabled State -->
+    <div id='doc-disabled-state' class='mb-7'>
+      <h2 class='h4'>Disabled state <a class='js-anchor-link duik-anchorjs-link' href='#doc-disabled-state'
+                                       aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
+      <p>Make editor look inactive by adding the disabled <code class='highlighter-rouge'
+                                                                data-lang='html'>boolean</code>
+        attribute to any <code class='highlighter-rouge' data-lang='html'>&lt;input&gt;</code> element.</p>
+
+
+      <div class='card'>
+        <div class='card-body'>
+          {% highlight html %}
+          <goat-code-editor disabled></goat-code-editor>
+          {% endhighlight %}
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+  <!-- End Content -->
+</div>

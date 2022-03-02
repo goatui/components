@@ -7,13 +7,15 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                                                       | Type                   | Default     |
-| ---------- | ---------- | --------------------------------------------------------------------------------- | ---------------------- | ----------- |
-| `disabled` | `disabled` | If true, the user cannot interact with the button. Defaults to `false`.           | `boolean`              | `false`     |
-| `label`    | `label`    | The checkbox label.                                                               | `string`               | `undefined` |
-| `required` | `required` | If true, required icon is show. Defaults to `false`.                              | `boolean`              | `false`     |
-| `size`     | `size`     | The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`. | `"lg" \| "md" \| "sm"` | `'md'`      |
-| `value`    | `value`    | The input field value.                                                            | `boolean`              | `false`     |
+| Property       | Attribute      | Description                                                                       | Type                   | Default     |
+| -------------- | -------------- | --------------------------------------------------------------------------------- | ---------------------- | ----------- |
+| `disabled`     | `disabled`     | If true, the user cannot interact with the button. Defaults to `false`.           | `boolean`              | `false`     |
+| `intermediate` | `intermediate` |                                                                                   | `boolean`              | `false`     |
+| `label`        | `label`        | The checkbox label.                                                               | `string`               | `undefined` |
+| `required`     | `required`     | If true, required icon is show. Defaults to `false`.                              | `boolean`              | `false`     |
+| `rounded`      | `rounded`      |                                                                                   | `boolean`              | `false`     |
+| `size`         | `size`         | The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`. | `"lg" \| "md" \| "sm"` | `'md'`      |
+| `value`        | `value`        | The input field value.                                                            | `boolean`              | `false`     |
 
 
 ## Events
@@ -26,6 +28,16 @@
 
 
 ## Methods
+
+### `getGid() => Promise<string>`
+
+
+
+#### Returns
+
+Type: `Promise<string>`
+
+
 
 ### `setBlur() => Promise<void>`
 

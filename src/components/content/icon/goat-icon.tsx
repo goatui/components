@@ -1,8 +1,11 @@
 import { Component, h, Host, Prop } from '@stencil/core';
 import { ICONS } from './bootstrap-icons';
-import { ElementSize } from '../../../utils/utils';
 
-
+/**
+ * @name Icon
+ * @description Renders a specified icon.
+ * @example <goat-icon type="house"></goat-icon>
+ */
 @Component({
   tag: 'goat-icon',
   styleUrl: 'goat-icon.scss',
@@ -10,29 +13,29 @@ import { ElementSize } from '../../../utils/utils';
 })
 export class GoatIcon {
 
-  @Prop() type: string;
+  @Prop({ reflect: true }) type: string = 'house';
 
   /**
    * The Icon size.
    * Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
    */
-  @Prop() size: ElementSize | string = ElementSize.MEDIUM;
+  @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' | 'xl' | string = 'md';
 
   /**
    * Color variants.
    * Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`, `"grey"`, `"inherit"`. Defaults to `"inherit"`.
    */
-  @Prop() color: 'primary' | 'success' | 'warning' | 'error' | 'grey' | 'inherit' = 'inherit';
+  @Prop({ reflect: true }) color: 'primary' | 'success' | 'warning' | 'error' | 'grey' | 'inherit' = 'inherit';
 
   private getSize() {
     let size;
-    if (this.size === ElementSize.SMALL)
+    if (this.size === 'sm')
       size = '1.25rem';
-    else if (!this.size || this.size === ElementSize.MEDIUM)
+    else if (!this.size || this.size === 'md')
       size = '1.5rem';
-    else if (this.size === ElementSize.LARGE)
+    else if (this.size === 'lg')
       size = '1.75rem';
-    else if (this.size === ElementSize.X_LARGE)
+    else if (this.size === 'xl')
       size = '2rem';
     else
       size = this.size;

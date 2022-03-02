@@ -29,8 +29,8 @@ twitter_username: shivajivarma
 github_username: goatui
 github_project: ui
 npm_package: '@goatui/components'
-script: 'https://unpkg.com/@goatui/components@0.2.3/dist/goatui/goatui.esm.js'
-themeCss: 'https://unpkg.com/@goatui/components@0.2.3/dist/goatui/styles/theme.css'
+script: 'https://unpkg.com/@goatui/components@0.2.4/dist/goatui/goatui.esm.js'
+themeCss: 'https://unpkg.com/@goatui/components@0.2.4/dist/goatui/styles/theme.css'
 
 include:
   - .well-known
@@ -71,12 +71,6 @@ assets:
 groups:
   - name: "Input Controls"
     components:
-      - name: Button
-        link: /component/button
-        example: <goat-button>Button</goat-button>
-      - name: Checkbox
-        link: /component/checkbox
-        example: <goat-checkbox value=true></goat-checkbox>
       - name: Input
         link: /component/input
         example: <goat-input type="text" placeholder="Enter you name here"></goat-input>
@@ -95,21 +89,13 @@ groups:
             <goat-alert state="success">
               <div slot='message'>Successful</div>
             </goat-alert>
-      - name: Spinner
-        link: /component/spinner
-        example: <goat-spinner></goat-spinner>
 
   - name: "Content"
     components:
       - name: Avatar
         link: /component/avatar
         example: <goat-avatar name="Shivaji Varma"></goat-avatar>
-      - name: Icon
-        link: /component/icon
-        example: <goat-icon type="alarm"></goat-icon>
-      - name: Typography
-        link: /component/typography
-        example: <goat-heading>Heading</goat-heading>
+
 
   - name: "Navigation"
     components:
