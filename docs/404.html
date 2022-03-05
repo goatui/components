@@ -2,11 +2,16 @@
 permalink: /404.html
 layout: default
 ---
-
-<div class="container-fluid">
-  <h1>404</h1>
-
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
-
+<style>
+  goat-empty-state {
+    height: 100vh;
+    width: 100vw;
+  }
+</style>
+<goat-empty-state vertical=''>
+  <div slot="title">404 : Page not found :(</div>
+  <div slot='description'>The requested page could not be found.</div>
+  <div slot='actions'>
+    <goat-link variant='link' href='/'>Go to home page &nbsp;<goat-icon type='arrow-right'></goat-icon></goat-link>
+  </div>
+</goat-empty-state>

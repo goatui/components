@@ -1,18 +1,27 @@
-import { Component, Element, Event, EventEmitter, h, Host, Listen, Method, Prop, State } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  h,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  State,
+} from '@stencil/core';
+import { isOutOfViewport } from '../../../utils/utils';
 
-
+/**
+ * @name Dropdown
+ * @description Enables native inputs to be used within a Form field.
+ * @img /assets/img/dropdown.png
+ */
 @Component({
   tag: 'goat-dropdown',
   styleUrl: 'goat-dropdown.scss',
   shadow: true,
 })
-export class GoatDropdown {
-  @Element() elm!: HTMLElement;
-
-  private displayElement?: HTMLElement;
-  private listElement?: HTMLElement;
-
-  @State() hasFocus = false;
+export class GoatDropdown implements ComponentInterface {
 
   /**
    * The button size.
@@ -31,17 +40,9 @@ export class GoatDropdown {
    */
   @Prop() disabled: boolean = false;
   @Prop() showLoader: boolean = false;
-
   @Prop() enableSearch: boolean = false;
-
   @Prop() data: any[] = [];
-
-  @Prop() position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' = 'bottom-left';
-  /**
-   * Emitted when the item is clicked.
-   */
-  @Event({ eventName: 'goat:dropdown-item-click' }) p4ItemClick: EventEmitter;
-
+  @Prop() positions: string = "bottom-right,top-right,bottom-left,top-left";
 
   @Listen('click', { target: 'window' })
   windowClick(evt) {
@@ -58,10 +59,34 @@ export class GoatDropdown {
     this.displayElement.focus();
   }
 
-  private itemClickHandler = (detail) => {
-    if (!this.disabled)
-      this.p4ItemClick.emit(detail);
-  };
+  @Listen('goat:menu-item-click', { target: 'window' })
+  listenMenuItemClick() {
+    this.closeList();
+  }
+
+  @Listen('goat:click', { target: 'window' })
+  listenClick() {
+    this.closeList();
+  }
+
+  @Listen('keydown', { target: 'window' })
+  listenKeyDown(evt: KeyboardEvent) {
+    const path = evt.composedPath();
+    for (const elm of path) {
+      if (elm !== this.elm)
+        continue;
+      if (evt.key === 'Escape') {
+        this.closeList();
+      }
+    }
+  }
+
+  @Element() elm!: HTMLElement;
+  @State() hasFocus = false;
+  @State() position: string;
+  private displayElement?: HTMLElement;
+  private dropdownContentHeight: any;
+  private dropdownContentWidth: any;
 
   private closeList = () => {
     if (!this.disabled && this.isOpen) {
@@ -73,7 +98,54 @@ export class GoatDropdown {
   private openList = () => {
     if (!this.disabled && !this.isOpen) {
       this.isOpen = true;
-      setTimeout(() => this.setFocus(), 100);
+      setTimeout(() => {
+        const dropdownContent = this.elm.querySelector('[slot="dropdown-content"]');
+        this.dropdownContentHeight = dropdownContent.getBoundingClientRect().height;
+        this.dropdownContentWidth = dropdownContent.getBoundingClientRect().width;
+        this.fixPosition();
+      }, 100);
+    }
+  };
+
+  componentWillLoad() {
+    this.position = this.positions.split(',')[0];
+  }
+
+  @Listen('scroll', { target: 'window' })
+  fixPosition() {
+    if (this.isOpen && this.dropdownContentHeight && this.dropdownContentWidth) {
+
+      const positions = this.positions.split(',');
+      for(let i = 0; i < positions.length; i++) {
+        const dropdownButtonRect: any = this.elm.getBoundingClientRect();
+        const dropdownContentRect: any = {};
+        if (positions[i] === 'bottom-right') {
+          dropdownContentRect.top = dropdownButtonRect.top + dropdownButtonRect.height;
+          dropdownContentRect.bottom = dropdownContentRect.top + this.dropdownContentHeight;
+          dropdownContentRect.left = dropdownButtonRect.left;
+          dropdownContentRect.right = dropdownButtonRect.left + this.dropdownContentWidth;
+        } else if (positions[i] === 'top-right') {
+          dropdownContentRect.top = dropdownButtonRect.top - this.dropdownContentHeight;
+          dropdownContentRect.bottom = dropdownButtonRect.top;
+          dropdownContentRect.left = dropdownButtonRect.left;
+          dropdownContentRect.right = dropdownButtonRect.left + this.dropdownContentWidth;
+        } else if (positions[i] === 'bottom-left') {
+          dropdownContentRect.top = dropdownButtonRect.top + dropdownButtonRect.height;
+          dropdownContentRect.bottom = dropdownContentRect.top + this.dropdownContentHeight;
+          dropdownContentRect.left = dropdownButtonRect.left - this.dropdownContentWidth;
+          dropdownContentRect.right = dropdownButtonRect.left;
+        } else if (positions[i] === 'top-left') {
+          dropdownContentRect.top = dropdownButtonRect.top - this.dropdownContentHeight;
+          dropdownContentRect.bottom = dropdownButtonRect.top;
+          dropdownContentRect.left = dropdownButtonRect.left - this.dropdownContentWidth;
+          dropdownContentRect.right = dropdownButtonRect.left;
+        }
+        const isOut = isOutOfViewport(dropdownContentRect);
+        if (!isOut.any) {
+          this.position = positions[i];
+          break;
+        }
+      }
     }
   };
 
@@ -93,60 +165,48 @@ export class GoatDropdown {
   };
 
   private keyDownHandler = (evt) => {
+    const $menuElm = this.getMenuElement();
     if (evt.key === 'Enter') {
       evt.preventDefault();
       this.toggleList();
     } else if (evt.key === 'ArrowDown') {
       if (this.isOpen) {
         evt.preventDefault();
-        //@ts-ignore
-        this.listElement.setFocus();
+        $menuElm?.setFocus();
       }
     } else if (evt.key === 'ArrowUp') {
       if (this.isOpen) {
         evt.preventDefault();
-        //@ts-ignore
-        this.listElement.setFocus(true); // focus on previous item
+        $menuElm?.setFocus(); // focus on previous item
       }
     }
   };
 
+  private getMenuElement() {
+    return this.elm.querySelector('goat-menu');
+  }
+
   render() {
-    return (<Host aria-disabled={this.disabled ? 'true' : null} focused={this.hasFocus} position={this.position} is-open={this.isOpen}>
+    return (<Host aria-disabled={this.disabled ? 'true' : null} focused={this.hasFocus} position={this.position}
+                  is-open={this.isOpen}>
       <div class={{ 'dropdown': true, [this.position]: true, 'is-open': this.isOpen }}>
         <button class='dropdown-button'
                 ref={(el) => this.displayElement = el}
                 onKeyDown={this.keyDownHandler}
                 onBlur={this.blurHandler}
                 onFocus={this.focusHandler}
-                onClick={(evt) => {
-                  evt.preventDefault();
+                onClick={() => {
                   this.toggleList();
                 }}>
           <div class='slot-container'>
             <slot />
           </div>
         </button>
-        <div class='dropdown-result'>
-          {this.renderDropdownList()}
+        <div class='dropdown-content'>
+          <slot name='dropdown-content' />
         </div>
       </div>
     </Host>);
-  }
-
-  private renderDropdownList() {
-    if (this.isOpen && typeof this.data !== 'string') {
-      return <goat-menu
-        class="dropdown-list"
-        ref={(el) => this.listElement = el}
-        data={this.data}
-        variant={this.listVariant}
-        itemVariant={this.itemVariant}
-        onGoat:item-click={(evt) => {
-          this.closeList();
-          this.itemClickHandler(evt.detail);
-        }} />;
-    }
   }
 
 }

@@ -1,50 +1,44 @@
-<p>Here are several predefined button styles, each serving its own semantic purpose.</p>
+<goat-text type='paragraph'>Here are several predefined button styles, each serving its own semantic purpose.
+</goat-text>
 
-<goat-card>
-  <goat-card-content>
-    <goat-button>Primary</goat-button>
-    <goat-button color='success'>Success</goat-button>
-    <goat-button color='warning'>Warning</goat-button>
-    <goat-button color='error'>Error</goat-button>
-    <goat-button color='secondary'>Secondary</goat-button>
-    <br />
-    <goat-button color='primary' variant='light'>Primary</goat-button>
-    <goat-button color='success' variant='light'>Success</goat-button>
-    <goat-button color='warning' variant='light'>Warning</goat-button>
-    <goat-button color='error' variant='light'>Error</goat-button>
-    <br />
-    <goat-button color='primary' variant='outline'>Primary</goat-button>
-    <goat-button color='success' variant='outline'>Success</goat-button>
-    <goat-button color='warning' variant='outline'>Warning</goat-button>
-    <goat-button color='error' variant='outline'>Error</goat-button>
-    <br />
-    <goat-button color='primary' variant='link'>Primary</goat-button>
-    <goat-button color='success' variant='link'>Success</goat-button>
-    <goat-button color='warning' variant='link'>Warning</goat-button>
-    <goat-button color='error' variant='link'>Error</goat-button>
-  </goat-card-content>
-  <goat-card-content>
-    {% highlight html %}
-    <goat-button>Primary</goat-button>
-    <goat-button color='success'>Success</goat-button>
-    <goat-button color='warning'>Warning</goat-button>
-    <goat-button color='error'>Error</goat-button>
-    <goat-button color='secondary'>Secondary</goat-button>
+{% capture sample-code %}
+<goat-button>Primary</goat-button>
+<goat-button color='secondary'>Secondary</goat-button>
+<goat-button color='success'>Success</goat-button>
+<goat-button color='warning'>Warning</goat-button>
+<goat-button color='error'>Error</goat-button>
+<goat-button color='info'>Info</goat-button>
+<goat-button color='dark'>Dark</goat-button>
 
-    <goat-button color='primary' variant='light'>Primary</goat-button>
-    <goat-button color='success' variant='light'>Success</goat-button>
-    <goat-button color='warning' variant='light'>Warning</goat-button>
-    <goat-button color='error' variant='light'>Error</goat-button>
+<br />
 
-    <goat-button color='primary' variant='outline'>Primary</goat-button>
-    <goat-button color='success' variant='outline'>Success</goat-button>
-    <goat-button color='warning' variant='outline'>Warning</goat-button>
-    <goat-button color='error' variant='outline'>Error</goat-button>
+<goat-button color='primary' variant='light'>Primary</goat-button>
+<goat-button color='secondary' variant='light'>Secondary</goat-button>
+<goat-button color='success' variant='light'>Success</goat-button>
+<goat-button color='warning' variant='light'>Warning</goat-button>
+<goat-button color='error' variant='light'>Error</goat-button>
+<goat-button color='info' variant='light'>Info</goat-button>
+<goat-button color='dark' variant='light'>Dark</goat-button>
 
-    <goat-button color='primary' variant='link'>Primary</goat-button>
-    <goat-button color='success' variant='link'>Success</goat-button>
-    <goat-button color='warning' variant='link'>Warning</goat-button>
-    <goat-button color='error' variant='link'>Error</goat-button>
-    {% endhighlight %}
-  </goat-card-content>
-</goat-card>
+<br />
+
+<goat-button color='primary' variant='outline'>Primary</goat-button>
+<goat-button color='secondary' variant='outline'>Secondary</goat-button>
+<goat-button color='success' variant='outline'>Success</goat-button>
+<goat-button color='warning' variant='outline'>Warning</goat-button>
+<goat-button color='error' variant='outline'>Error</goat-button>
+<goat-button color='info' variant='outline'>Info</goat-button>
+<goat-button color='dark' variant='outline'>Dark</goat-button>
+
+<br />
+
+<goat-button color='primary' variant='link'>Primary</goat-button>
+<goat-button color='secondary' variant='link'>Secondary</goat-button>
+<goat-button color='success' variant='link'>Success</goat-button>
+<goat-button color='warning' variant='link'>Warning</goat-button>
+<goat-button color='error' variant='link'>Error</goat-button>
+<goat-button color='info' variant='link'>Info</goat-button>
+<goat-button color='dark' variant='link'>Dark</goat-button>
+
+{% endcapture %}
+{% include demo-html.html content=sample-code %}

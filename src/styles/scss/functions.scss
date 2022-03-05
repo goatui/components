@@ -8,11 +8,48 @@
 
 $css-variables: ();
 $css-variables: map-merge($css-variables, ("--font-family-base": $font-family-base));
-$css-variables: map-merge($css-variables, ("--color-white": $color-white));
-$css-variables: map-merge($css-variables, ("--color-black": $color-black));
-$css-variables: map-merge($css-variables, ("--border-color": $border-color));
-$css-variables: map-merge($css-variables, ("--primary-text-color": $primary-text-color));
-$css-variables: map-merge($css-variables, ("--secondary-text-color": $secondary-text-color));
+$css-variables: map-merge($css-variables, ("--color-white": #ffffff));
+$css-variables: map-merge($css-variables, ("--color-black": #000000));
+$css-variables: map-merge($css-variables, ("--border-color": map.get(map.get($colors, neutral), 300)));
+
+$primary-color-weight: 900;
+$secondary-color-weight: 600;
+$tertiary-color-weight: 500;
+$placeholder-color-weight: 300;
+
+/**
+Primary text;
+Body copy;
+Headers;
+Hover text color for --text-color-secondary
+ */
+$css-variables: map-merge($css-variables, ("--text-color-primary": map-get(map-get($colors, neutral), 900)));
+
+/**
+Secondary text;
+Input labels
+ */
+$css-variables: map-merge($css-variables, ("--text-color-secondary": map.get(map.get($colors, neutral), 600)));
+
+/**
+Tertiary text;
+Help text
+ */
+$css-variables: map-merge($css-variables, ("--text-color-tertiary":  map.get(map.get($colors, neutral), 500)));
+
+/**
+Placeholder text
+ */
+$css-variables: map-merge($css-variables, ("--text-color-placeholder": map.get(map.get($colors, neutral), 400)));
+
+/**
+Text on interactive colors
+ */
+$css-variables: map-merge($css-variables, ("--text-color-interactive": white));
+
+$css-variables: map-merge($css-variables, ("--ui-background-color": white));
+
+$css-variables: map-merge($css-variables, ("--ui-background-secondary": map.get(map.get($colors, neutral), 100)));
 
 @each $key, $value in $font-weights {
   $map: ();

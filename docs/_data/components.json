@@ -39,23 +39,6 @@
     },
     "props": [
       {
-        "name": "description",
-        "type": "string",
-        "mutable": false,
-        "attr": "description",
-        "reflectToAttr": false,
-        "docs": "",
-        "docsTags": [],
-        "default": "''",
-        "values": [
-          {
-            "type": "string"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
         "name": "dismissible",
         "type": "boolean",
         "mutable": false,
@@ -67,23 +50,6 @@
         "values": [
           {
             "type": "boolean"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "message",
-        "type": "string",
-        "mutable": false,
-        "attr": "message",
-        "reflectToAttr": false,
-        "docs": "",
-        "docsTags": [],
-        "default": "''",
-        "values": [
-          {
-            "type": "string"
           }
         ],
         "optional": false,
@@ -296,28 +262,37 @@
       },
       {
         "name": "color",
-        "type": "ElementColor.ERROR | ElementColor.PRIMARY | ElementColor.SECONDARY | ElementColor.SUCCESS | ElementColor.WARNING",
+        "type": "\"error\" | \"info\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
         "mutable": false,
         "attr": "color",
         "reflectToAttr": false,
         "docs": "Color variants.",
         "docsTags": [],
-        "default": "ElementColor.PRIMARY",
+        "default": "'primary'",
         "values": [
           {
-            "type": "ElementColor.ERROR"
+            "value": "error",
+            "type": "string"
           },
           {
-            "type": "ElementColor.PRIMARY"
+            "value": "info",
+            "type": "string"
           },
           {
-            "type": "ElementColor.SECONDARY"
+            "value": "primary",
+            "type": "string"
           },
           {
-            "type": "ElementColor.SUCCESS"
+            "value": "secondary",
+            "type": "string"
           },
           {
-            "type": "ElementColor.WARNING"
+            "value": "success",
+            "type": "string"
+          },
+          {
+            "value": "warning",
+            "type": "string"
           }
         ],
         "optional": false,
@@ -1068,6 +1043,65 @@
     }
   },
   {
+    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/content/divider",
+    "filePath": "./src/components/content/divider/goat-divider.tsx",
+    "fileName": "goat-divider.tsx",
+    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/content/divider/readme.md",
+    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/content/divider/usage",
+    "tag": "goat-divider",
+    "readme": "# goat-heading\n\n\n",
+    "usage": {},
+    "docs": "",
+    "docsTags": [
+      {
+        "name": "name",
+        "text": "Divider"
+      },
+      {
+        "name": "description",
+        "text": "A divider can be used to segment content vertically or horizontally."
+      },
+      {
+        "name": "example",
+        "text": "<goat-divider style=\"width: 12rem;\">or</goat-divider>"
+      }
+    ],
+    "encapsulation": "shadow",
+    "dependents": [],
+    "dependencies": [],
+    "dependencyGraph": {},
+    "props": [
+      {
+        "name": "vertical",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "vertical",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      }
+    ],
+    "methods": [],
+    "events": [],
+    "styles": [],
+    "slots": [],
+    "parts": [],
+    "listeners": [],
+    "metadata": {
+      "name": "Divider",
+      "description": "A divider can be used to segment content vertically or horizontally.",
+      "example": "<goat-divider style=\"width: 12rem;\">or</goat-divider>"
+    }
+  },
+  {
     "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/other/dropdown",
     "filePath": "./src/components/other/dropdown/goat-dropdown.tsx",
     "fileName": "goat-dropdown.tsx",
@@ -1077,20 +1111,24 @@
     "readme": "# goat-dropdown\n\n\n",
     "usage": {},
     "docs": "",
-    "docsTags": [],
+    "docsTags": [
+      {
+        "name": "name",
+        "text": "Dropdown"
+      },
+      {
+        "name": "description",
+        "text": "Enables native inputs to be used within a Form field."
+      },
+      {
+        "name": "img",
+        "text": "/assets/img/dropdown.png"
+      }
+    ],
     "encapsulation": "shadow",
     "dependents": [],
-    "dependencies": [
-      "goat-menu"
-    ],
-    "dependencyGraph": {
-      "goat-dropdown": [
-        "goat-menu"
-      ],
-      "goat-menu": [
-        "goat-icon"
-      ]
-    },
+    "dependencies": [],
+    "dependencyGraph": {},
     "props": [
       {
         "name": "data",
@@ -1194,29 +1232,16 @@
         "required": false
       },
       {
-        "name": "position",
-        "type": "\"bottom-left\" | \"bottom-right\" | \"top-left\" | \"top-right\"",
+        "name": "positions",
+        "type": "string",
         "mutable": false,
-        "attr": "position",
+        "attr": "positions",
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
-        "default": "'bottom-left'",
+        "default": "\"bottom-right,top-right,bottom-left,top-left\"",
         "values": [
           {
-            "value": "bottom-left",
-            "type": "string"
-          },
-          {
-            "value": "bottom-right",
-            "type": "string"
-          },
-          {
-            "value": "top-left",
-            "type": "string"
-          },
-          {
-            "value": "top-right",
             "type": "string"
           }
         ],
@@ -1280,17 +1305,7 @@
         "docsTags": []
       }
     ],
-    "events": [
-      {
-        "event": "goat:dropdown-item-click",
-        "detail": "any",
-        "bubbles": true,
-        "cancelable": true,
-        "composed": true,
-        "docs": "Emitted when the item is clicked.",
-        "docsTags": []
-      }
-    ],
+    "events": [],
     "styles": [],
     "slots": [],
     "parts": [],
@@ -1300,9 +1315,120 @@
         "target": "window",
         "capture": false,
         "passive": false
+      },
+      {
+        "event": "goat:menu-item-click",
+        "target": "window",
+        "capture": false,
+        "passive": false
+      },
+      {
+        "event": "goat:click",
+        "target": "window",
+        "capture": false,
+        "passive": false
+      },
+      {
+        "event": "keydown",
+        "target": "window",
+        "capture": false,
+        "passive": false
+      },
+      {
+        "event": "scroll",
+        "target": "window",
+        "capture": false,
+        "passive": true
       }
     ],
-    "metadata": {}
+    "metadata": {
+      "name": "Dropdown",
+      "description": "Enables native inputs to be used within a Form field.",
+      "img": "/assets/img/dropdown.png"
+    }
+  },
+  {
+    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/informational/empty-state",
+    "filePath": "./src/components/informational/empty-state/goat-empty-state.tsx",
+    "fileName": "goat-empty-state.tsx",
+    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/informational/empty-state/readme.md",
+    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/informational/empty-state/usage",
+    "tag": "goat-empty-state",
+    "readme": "# goat-heading\n\n\n",
+    "usage": {},
+    "docs": "",
+    "docsTags": [
+      {
+        "name": "name",
+        "text": "Empty State"
+      },
+      {
+        "name": "description",
+        "text": "A message that displays when there is no information to display."
+      },
+      {
+        "name": "example",
+        "text": "<goat-empty-state>\n<div slot=\"title\">Empty</div>\n<div slot='description'>\nNothing to display\n</div>\n</goat-empty-state>"
+      }
+    ],
+    "encapsulation": "shadow",
+    "dependents": [
+      "goat-menu"
+    ],
+    "dependencies": [],
+    "dependencyGraph": {
+      "goat-menu": [
+        "goat-empty-state"
+      ]
+    },
+    "props": [
+      {
+        "name": "illustration",
+        "type": "\"no-data\"",
+        "mutable": false,
+        "attr": "illustration",
+        "reflectToAttr": true,
+        "docs": "",
+        "docsTags": [],
+        "default": "'no-data'",
+        "values": [
+          {
+            "value": "no-data",
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "vertical",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "vertical",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      }
+    ],
+    "methods": [],
+    "events": [],
+    "styles": [],
+    "slots": [],
+    "parts": [],
+    "listeners": [],
+    "metadata": {
+      "name": "Empty State",
+      "description": "A message that displays when there is no information to display.",
+      "example": "<goat-empty-state>\n<div slot=\"title\">Empty</div>\n<div slot='description'>\nNothing to display\n</div>\n</goat-empty-state>"
+    }
   },
   {
     "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/other/flow-designer",
@@ -1453,9 +1579,7 @@
     "encapsulation": "shadow",
     "dependents": [
       "goat-button",
-      "goat-input",
-      "goat-menu",
-      "goat-select"
+      "goat-input"
     ],
     "dependencies": [],
     "dependencyGraph": {
@@ -1464,47 +1588,29 @@
       ],
       "goat-input": [
         "goat-icon"
-      ],
-      "goat-menu": [
-        "goat-icon"
-      ],
-      "goat-select": [
-        "goat-icon"
       ]
     },
     "props": [
       {
-        "name": "color",
-        "type": "\"error\" | \"grey\" | \"inherit\" | \"primary\" | \"success\" | \"warning\"",
+        "name": "shade",
+        "type": "\"primary\" | \"secondary\" | \"tertiary\"",
         "mutable": false,
-        "attr": "color",
+        "attr": "shade",
         "reflectToAttr": true,
-        "docs": "Color variants.\nPossible values are `\"primary\"`, `\"success\"`, `\"warning\"`, `\"error\"`, `\"grey\"`, `\"inherit\"`. Defaults to `\"inherit\"`.",
+        "docs": "",
         "docsTags": [],
-        "default": "'inherit'",
+        "default": "'primary'",
         "values": [
-          {
-            "value": "error",
-            "type": "string"
-          },
-          {
-            "value": "grey",
-            "type": "string"
-          },
-          {
-            "value": "inherit",
-            "type": "string"
-          },
           {
             "value": "primary",
             "type": "string"
           },
           {
-            "value": "success",
+            "value": "secondary",
             "type": "string"
           },
           {
-            "value": "warning",
+            "value": "tertiary",
             "type": "string"
           }
         ],
@@ -1654,7 +1760,7 @@
         "type": "boolean",
         "mutable": false,
         "attr": "disabled",
-        "reflectToAttr": false,
+        "reflectToAttr": true,
         "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
         "docsTags": [],
         "default": "false",
@@ -1704,7 +1810,7 @@
         "type": "boolean",
         "mutable": false,
         "attr": "required",
-        "reflectToAttr": false,
+        "reflectToAttr": true,
         "docs": "If true, required icon is show. Defaults to `false`.",
         "docsTags": [],
         "default": "false",
@@ -1941,11 +2047,11 @@
     "props": [
       {
         "name": "color",
-        "type": "\"error\" | \"grey\" | \"inherit\" | \"primary\" | \"success\" | \"warning\"",
+        "type": "\"error\" | \"info\" | \"inherit\" | \"primary\" | \"success\" | \"warning\"",
         "mutable": false,
         "attr": "color",
         "reflectToAttr": false,
-        "docs": "Color variants.\nPossible values are `\"primary\"`, `\"success\"`, `\"warning\"`, `\"error\"`, `\"grey\"`, `\"rainbow\"`, `\"inherit\"`. Defaults to `\"inherit\"`.",
+        "docs": "Color variants\nPossible values are `\"primary\"`, `\"success\"`, `\"warning\"`, `\"error\"`, `\"info\"`, `\"inherit\"`. Defaults to `\"inherit\"`.",
         "docsTags": [],
         "default": "'primary'",
         "values": [
@@ -1954,7 +2060,7 @@
             "type": "string"
           },
           {
-            "value": "grey",
+            "value": "info",
             "type": "string"
           },
           {
@@ -2089,36 +2195,28 @@
       }
     ],
     "encapsulation": "shadow",
-    "dependents": [
-      "goat-dropdown",
-      "goat-select"
-    ],
+    "dependents": [],
     "dependencies": [
-      "goat-icon"
+      "goat-empty-state"
     ],
     "dependencyGraph": {
       "goat-menu": [
-        "goat-icon"
-      ],
-      "goat-dropdown": [
-        "goat-menu"
-      ],
-      "goat-select": [
-        "goat-menu"
+        "goat-empty-state"
       ]
     },
     "props": [
       {
-        "name": "data",
-        "type": "any[]",
+        "name": "empty",
+        "type": "boolean",
         "mutable": true,
+        "attr": "empty",
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
-        "default": "[]",
+        "default": "false",
         "values": [
           {
-            "type": "any[]"
+            "type": "boolean"
           }
         ],
         "optional": false,
@@ -2126,53 +2224,14 @@
       },
       {
         "name": "emptyState",
-        "type": "any",
+        "type": "string",
         "mutable": true,
         "attr": "empty-state",
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
-        "default": "{\n    title: 'Empty List!',\n    message: 'There are no items to display at the moment',\n  }",
         "values": [
           {
-            "type": "any"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "itemVariant",
-        "type": "\"caption\" | \"default\" | \"icon\" | \"icon-caption\" | \"img\" | \"img-caption\"",
-        "mutable": false,
-        "attr": "item-variant",
-        "reflectToAttr": false,
-        "docs": "",
-        "docsTags": [],
-        "default": "'default'",
-        "values": [
-          {
-            "value": "caption",
-            "type": "string"
-          },
-          {
-            "value": "default",
-            "type": "string"
-          },
-          {
-            "value": "icon",
-            "type": "string"
-          },
-          {
-            "value": "icon-caption",
-            "type": "string"
-          },
-          {
-            "value": "img",
-            "type": "string"
-          },
-          {
-            "value": "img-caption",
             "type": "string"
           }
         ],
@@ -2214,28 +2273,6 @@
         ],
         "optional": true,
         "required": false
-      },
-      {
-        "name": "variant",
-        "type": "\"default\" | \"group\"",
-        "mutable": false,
-        "attr": "variant",
-        "reflectToAttr": false,
-        "docs": "",
-        "docsTags": [],
-        "default": "'default'",
-        "values": [
-          {
-            "value": "default",
-            "type": "string"
-          },
-          {
-            "value": "group",
-            "type": "string"
-          }
-        ],
-        "optional": false,
-        "required": false
       }
     ],
     "methods": [
@@ -2245,27 +2282,24 @@
           "type": "Promise<void>",
           "docs": ""
         },
-        "signature": "setFocus(previousItem?: boolean) => Promise<void>",
+        "signature": "setFocus() => Promise<void>",
         "parameters": [],
-        "docs": "Sets focus on the first item of list.",
+        "docs": "Sets focus on first menu item. Use this method instead of the global\n`element.focus()`.",
         "docsTags": []
       }
     ],
-    "events": [
-      {
-        "event": "goat:item-click",
-        "detail": "any",
-        "bubbles": true,
-        "cancelable": true,
-        "composed": true,
-        "docs": "Emitted when the item is clicked.",
-        "docsTags": []
-      }
-    ],
+    "events": [],
     "styles": [],
     "slots": [],
     "parts": [],
-    "listeners": [],
+    "listeners": [
+      {
+        "event": "keydown",
+        "target": "window",
+        "capture": false,
+        "passive": false
+      }
+    ],
     "metadata": {
       "name": "Menu",
       "description": "Menus display a list of choices on temporary surfaces.",
@@ -2288,6 +2322,40 @@
     "dependencies": [],
     "dependencyGraph": {},
     "props": [
+      {
+        "name": "color",
+        "type": "\"error\" | \"neutral\" | \"primary\" | \"success\" | \"warning\"",
+        "mutable": false,
+        "attr": "color",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "'primary'",
+        "values": [
+          {
+            "value": "error",
+            "type": "string"
+          },
+          {
+            "value": "neutral",
+            "type": "string"
+          },
+          {
+            "value": "primary",
+            "type": "string"
+          },
+          {
+            "value": "success",
+            "type": "string"
+          },
+          {
+            "value": "warning",
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
       {
         "name": "disabled",
         "type": "boolean",
@@ -2397,390 +2465,6 @@
     "metadata": {}
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/input-controls/select",
-    "filePath": "./src/components/input-controls/select/goat-select.tsx",
-    "fileName": "goat-select.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/input-controls/select/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/input-controls/select/usage",
-    "tag": "goat-select",
-    "readme": "# goat-select\n\n\n",
-    "usage": {},
-    "docs": "",
-    "docsTags": [
-      {
-        "name": "name",
-        "text": "Select"
-      },
-      {
-        "name": "description",
-        "text": "Allows the user to select one or more options using a dropdown."
-      },
-      {
-        "name": "img",
-        "text": "/assets/img/select.png"
-      }
-    ],
-    "encapsulation": "shadow",
-    "dependents": [],
-    "dependencies": [
-      "goat-icon",
-      "goat-spinner",
-      "goat-menu"
-    ],
-    "dependencyGraph": {
-      "goat-select": [
-        "goat-icon",
-        "goat-spinner",
-        "goat-menu"
-      ],
-      "goat-menu": [
-        "goat-icon"
-      ]
-    },
-    "props": [
-      {
-        "name": "actions",
-        "type": "any[]",
-        "mutable": false,
-        "reflectToAttr": false,
-        "docs": "",
-        "docsTags": [],
-        "default": "[]",
-        "values": [
-          {
-            "type": "any[]"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "clearInput",
-        "type": "boolean",
-        "mutable": false,
-        "attr": "clear-input",
-        "reflectToAttr": false,
-        "docs": "If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.",
-        "docsTags": [],
-        "default": "false",
-        "values": [
-          {
-            "type": "boolean"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "config",
-        "type": "any",
-        "mutable": false,
-        "attr": "config",
-        "reflectToAttr": false,
-        "docs": "",
-        "docsTags": [],
-        "default": "{ itemValue: 'value', itemLabel: 'label' }",
-        "values": [
-          {
-            "type": "any"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "data",
-        "type": "any",
-        "mutable": false,
-        "attr": "data",
-        "reflectToAttr": false,
-        "docs": "",
-        "docsTags": [],
-        "default": "[]",
-        "values": [
-          {
-            "type": "any"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "disabled",
-        "type": "boolean",
-        "mutable": false,
-        "attr": "disabled",
-        "reflectToAttr": false,
-        "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
-        "docsTags": [],
-        "default": "false",
-        "values": [
-          {
-            "type": "boolean"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "isOpen",
-        "type": "boolean",
-        "mutable": true,
-        "attr": "is-open",
-        "reflectToAttr": false,
-        "docs": "",
-        "docsTags": [],
-        "default": "false",
-        "values": [
-          {
-            "type": "boolean"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "managed",
-        "type": "boolean",
-        "mutable": false,
-        "attr": "managed",
-        "reflectToAttr": false,
-        "docs": "",
-        "docsTags": [],
-        "default": "false",
-        "values": [
-          {
-            "type": "boolean"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "name",
-        "type": "string",
-        "mutable": false,
-        "attr": "name",
-        "reflectToAttr": false,
-        "docs": "The input field name.",
-        "docsTags": [],
-        "default": "`goat-select-${this.id}`",
-        "values": [
-          {
-            "type": "string"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "placeholder",
-        "type": "string",
-        "mutable": false,
-        "attr": "placeholder",
-        "reflectToAttr": false,
-        "docs": "The input field placeholder.",
-        "docsTags": [],
-        "values": [
-          {
-            "type": "string"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "position",
-        "type": "\"bottom-left\" | \"bottom-right\" | \"top-left\" | \"top-right\"",
-        "mutable": false,
-        "attr": "position",
-        "reflectToAttr": false,
-        "docs": "",
-        "docsTags": [],
-        "default": "'bottom-left'",
-        "values": [
-          {
-            "value": "bottom-left",
-            "type": "string"
-          },
-          {
-            "value": "bottom-right",
-            "type": "string"
-          },
-          {
-            "value": "top-left",
-            "type": "string"
-          },
-          {
-            "value": "top-right",
-            "type": "string"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "required",
-        "type": "boolean",
-        "mutable": false,
-        "attr": "required",
-        "reflectToAttr": false,
-        "docs": "If true, required icon is show. Defaults to `false`.",
-        "docsTags": [],
-        "default": "false",
-        "values": [
-          {
-            "type": "boolean"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "showLoader",
-        "type": "boolean",
-        "mutable": false,
-        "attr": "show-loader",
-        "reflectToAttr": false,
-        "docs": "",
-        "docsTags": [],
-        "default": "false",
-        "values": [
-          {
-            "type": "boolean"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "size",
-        "type": "\"lg\" | \"md\" | \"sm\"",
-        "mutable": false,
-        "attr": "size",
-        "reflectToAttr": false,
-        "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
-        "docsTags": [],
-        "default": "'md'",
-        "values": [
-          {
-            "value": "lg",
-            "type": "string"
-          },
-          {
-            "value": "md",
-            "type": "string"
-          },
-          {
-            "value": "sm",
-            "type": "string"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "type",
-        "type": "\"select\" | \"typeahead\"",
-        "mutable": false,
-        "attr": "type",
-        "reflectToAttr": false,
-        "docs": "Select type\nPossible values are `\"select\"`, `\"typeahead\"`. Defaults to `\"select\"`.",
-        "docsTags": [],
-        "default": "'select'",
-        "values": [
-          {
-            "value": "select",
-            "type": "string"
-          },
-          {
-            "value": "typeahead",
-            "type": "string"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "value",
-        "type": "number | string",
-        "mutable": true,
-        "attr": "value",
-        "reflectToAttr": false,
-        "docs": "The input field value.",
-        "docsTags": [],
-        "values": [
-          {
-            "type": "number"
-          },
-          {
-            "type": "string"
-          }
-        ],
-        "optional": true,
-        "required": false
-      }
-    ],
-    "methods": [
-      {
-        "name": "setFocus",
-        "returns": {
-          "type": "Promise<void>",
-          "docs": ""
-        },
-        "signature": "setFocus() => Promise<void>",
-        "parameters": [],
-        "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\n`input.focus()`.",
-        "docsTags": []
-      }
-    ],
-    "events": [
-      {
-        "event": "goat:action-click",
-        "detail": "any",
-        "bubbles": true,
-        "cancelable": true,
-        "composed": true,
-        "docs": "Emitted when the action button is clicked..",
-        "docsTags": []
-      },
-      {
-        "event": "goat:change",
-        "detail": "any",
-        "bubbles": true,
-        "cancelable": true,
-        "composed": true,
-        "docs": "Emitted when the value has changed..",
-        "docsTags": []
-      },
-      {
-        "event": "goat:input",
-        "detail": "any",
-        "bubbles": true,
-        "cancelable": true,
-        "composed": true,
-        "docs": "Emitted when a keyboard input occurred.",
-        "docsTags": []
-      }
-    ],
-    "styles": [],
-    "slots": [],
-    "parts": [],
-    "listeners": [
-      {
-        "event": "click",
-        "target": "window",
-        "capture": false,
-        "passive": false
-      }
-    ],
-    "metadata": {
-      "name": "Select",
-      "description": "Allows the user to select one or more options using a dropdown.",
-      "img": "/assets/img/select.png"
-    }
-  },
-  {
     "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/informational/spinner",
     "filePath": "./src/components/informational/spinner/goat-spinner.tsx",
     "fileName": "goat-spinner.tsx",
@@ -2801,66 +2485,20 @@
       },
       {
         "name": "example",
-        "text": "<goat-spinner color=\"rainbow\"></goat-spinner>"
+        "text": "<goat-spinner class=\"rainbow\"></goat-spinner>"
       }
     ],
     "encapsulation": "shadow",
     "dependents": [
-      "goat-button",
-      "goat-select"
+      "goat-button"
     ],
     "dependencies": [],
     "dependencyGraph": {
       "goat-button": [
         "goat-spinner"
-      ],
-      "goat-select": [
-        "goat-spinner"
       ]
     },
     "props": [
-      {
-        "name": "color",
-        "type": "\"error\" | \"grey\" | \"inherit\" | \"primary\" | \"rainbow\" | \"success\" | \"warning\"",
-        "mutable": false,
-        "attr": "color",
-        "reflectToAttr": false,
-        "docs": "Color variants.\nPossible values are `\"primary\"`, `\"success\"`, `\"warning\"`, `\"error\"`, `\"grey\"`, `\"rainbow\"`, `\"inherit\"`. Defaults to `\"inherit\"`.",
-        "docsTags": [],
-        "default": "'inherit'",
-        "values": [
-          {
-            "value": "error",
-            "type": "string"
-          },
-          {
-            "value": "grey",
-            "type": "string"
-          },
-          {
-            "value": "inherit",
-            "type": "string"
-          },
-          {
-            "value": "primary",
-            "type": "string"
-          },
-          {
-            "value": "rainbow",
-            "type": "string"
-          },
-          {
-            "value": "success",
-            "type": "string"
-          },
-          {
-            "value": "warning",
-            "type": "string"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
       {
         "name": "size",
         "type": "string",
@@ -2869,7 +2507,7 @@
         "reflectToAttr": false,
         "docs": "The Icon size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"` and size in pixel. Defaults to `\"md\"`.",
         "docsTags": [],
-        "default": "ElementSize.MEDIUM",
+        "default": "'md'",
         "values": [
           {
             "type": "string"
@@ -2888,7 +2526,7 @@
     "metadata": {
       "name": "Spinner",
       "description": "Spinners provide a visual cue that an action is processing awaiting a course of change or a result.",
-      "example": "<goat-spinner color=\"rainbow\"></goat-spinner>"
+      "example": "<goat-spinner class=\"rainbow\"></goat-spinner>"
     }
   },
   {
@@ -3038,6 +2676,167 @@
       "name": "Table",
       "description": "A configurable component for displaying tabular data.",
       "img": "/assets/img/table.png"
+    }
+  },
+  {
+    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/content/text",
+    "filePath": "./src/components/content/text/goat-text.tsx",
+    "fileName": "goat-text.tsx",
+    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/content/text/readme.md",
+    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/content/text/usage",
+    "tag": "goat-text",
+    "readme": "# goat-heading\n\n\n",
+    "usage": {},
+    "docs": "",
+    "docsTags": [
+      {
+        "name": "name",
+        "text": "Text"
+      },
+      {
+        "name": "description",
+        "text": "Typography are used for rendering headlines, paragraphs and captions."
+      },
+      {
+        "name": "example",
+        "text": "<goat-text type=\"heading\" level=\"1\">Heading</goat-typography>"
+      }
+    ],
+    "encapsulation": "shadow",
+    "dependents": [],
+    "dependencies": [],
+    "dependencyGraph": {},
+    "props": [
+      {
+        "name": "level",
+        "type": "1 | 2 | 3 | 4 | 5",
+        "mutable": false,
+        "attr": "level",
+        "reflectToAttr": false,
+        "docs": "The heading level.",
+        "docsTags": [],
+        "default": "1",
+        "values": [
+          {
+            "value": "1",
+            "type": "number"
+          },
+          {
+            "value": "2",
+            "type": "number"
+          },
+          {
+            "value": "3",
+            "type": "number"
+          },
+          {
+            "value": "4",
+            "type": "number"
+          },
+          {
+            "value": "5",
+            "type": "number"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "shade",
+        "type": "\"primary\" | \"secondary\" | \"tertiary\"",
+        "mutable": false,
+        "attr": "shade",
+        "reflectToAttr": true,
+        "docs": "",
+        "docsTags": [],
+        "default": "'primary'",
+        "values": [
+          {
+            "value": "primary",
+            "type": "string"
+          },
+          {
+            "value": "secondary",
+            "type": "string"
+          },
+          {
+            "value": "tertiary",
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "size",
+        "type": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
+        "mutable": true,
+        "attr": "size",
+        "reflectToAttr": true,
+        "docs": "Text size.",
+        "docsTags": [],
+        "values": [
+          {
+            "value": "lg",
+            "type": "string"
+          },
+          {
+            "value": "md",
+            "type": "string"
+          },
+          {
+            "value": "sm",
+            "type": "string"
+          },
+          {
+            "value": "xl",
+            "type": "string"
+          },
+          {
+            "value": "xs",
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "type",
+        "type": "\"heading\" | \"paragraph\" | \"text\"",
+        "mutable": false,
+        "attr": "type",
+        "reflectToAttr": true,
+        "docs": "",
+        "docsTags": [],
+        "default": "'text'",
+        "values": [
+          {
+            "value": "heading",
+            "type": "string"
+          },
+          {
+            "value": "paragraph",
+            "type": "string"
+          },
+          {
+            "value": "text",
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      }
+    ],
+    "methods": [],
+    "events": [],
+    "styles": [],
+    "slots": [],
+    "parts": [],
+    "listeners": [],
+    "metadata": {
+      "name": "Text",
+      "description": "Typography are used for rendering headlines, paragraphs and captions.",
+      "example": "<goat-text type=\"heading\" level=\"1\">Heading</goat-typography>"
     }
   },
   {
@@ -3341,158 +3140,6 @@
       "name": "Textarea",
       "description": "Enables native inputs to be used within a Form field.",
       "example": "<goat-textarea placeholder=\"Enter some description over here\"></goat-textarea>"
-    }
-  },
-  {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/content/heading",
-    "filePath": "./src/components/content/heading/goat-typography.tsx",
-    "fileName": "goat-typography.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/content/heading/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/content/heading/usage",
-    "tag": "goat-typography",
-    "readme": "# goat-heading\n\n\n",
-    "usage": {},
-    "docs": "",
-    "docsTags": [
-      {
-        "name": "name",
-        "text": "Typography"
-      },
-      {
-        "name": "description",
-        "text": "Typography are used for rendering headlines, paragraphs and captions."
-      },
-      {
-        "name": "example",
-        "text": "<goat-typography variant=\"heading\" level=\"1\">Heading</goat-typography>"
-      }
-    ],
-    "encapsulation": "shadow",
-    "dependents": [],
-    "dependencies": [],
-    "dependencyGraph": {},
-    "props": [
-      {
-        "name": "level",
-        "type": "1 | 2 | 3 | 4 | 5",
-        "mutable": false,
-        "attr": "level",
-        "reflectToAttr": false,
-        "docs": "The heading level.",
-        "docsTags": [],
-        "default": "1",
-        "values": [
-          {
-            "value": "1",
-            "type": "number"
-          },
-          {
-            "value": "2",
-            "type": "number"
-          },
-          {
-            "value": "3",
-            "type": "number"
-          },
-          {
-            "value": "4",
-            "type": "number"
-          },
-          {
-            "value": "5",
-            "type": "number"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "secondary",
-        "type": "boolean",
-        "mutable": false,
-        "attr": "secondary",
-        "reflectToAttr": true,
-        "docs": "",
-        "docsTags": [],
-        "default": "false",
-        "values": [
-          {
-            "type": "boolean"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "size",
-        "type": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
-        "mutable": false,
-        "attr": "size",
-        "reflectToAttr": true,
-        "docs": "Text size.",
-        "docsTags": [],
-        "values": [
-          {
-            "value": "lg",
-            "type": "string"
-          },
-          {
-            "value": "md",
-            "type": "string"
-          },
-          {
-            "value": "sm",
-            "type": "string"
-          },
-          {
-            "value": "xl",
-            "type": "string"
-          },
-          {
-            "value": "xs",
-            "type": "string"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "variant",
-        "type": "\"heading\" | \"paragraph\" | \"text\"",
-        "mutable": false,
-        "attr": "variant",
-        "reflectToAttr": true,
-        "docs": "",
-        "docsTags": [],
-        "default": "'text'",
-        "values": [
-          {
-            "value": "heading",
-            "type": "string"
-          },
-          {
-            "value": "paragraph",
-            "type": "string"
-          },
-          {
-            "value": "text",
-            "type": "string"
-          }
-        ],
-        "optional": false,
-        "required": false
-      }
-    ],
-    "methods": [],
-    "events": [],
-    "styles": [],
-    "slots": [],
-    "parts": [],
-    "listeners": [],
-    "metadata": {
-      "name": "Typography",
-      "description": "Typography are used for rendering headlines, paragraphs and captions.",
-      "example": "<goat-typography variant=\"heading\" level=\"1\">Heading</goat-typography>"
     }
   }
 ]

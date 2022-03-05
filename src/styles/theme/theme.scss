@@ -15,8 +15,19 @@
   }
 }
 
-body {
+[data-theme="dark"] {
+  --ui-background-color: var(--color-neutral-900);
+  --ui-background-secondary: var(--color-neutral-800);
+  --text-color-primary: var(--color-neutral-100);
+  --text-color-secondary: var(--color-neutral-400);
+  --text-color-tertiary: var(--color-neutral-500);
+  --text-color-placeholder: var(--color-neutral-600);
+}
+
+html {
   font-size: 16px;
+  background-color: var(--ui-background-color);
+  color: var(--text-color-primary);
 }
 
 p {

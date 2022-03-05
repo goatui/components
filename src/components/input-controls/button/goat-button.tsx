@@ -11,7 +11,7 @@ import {
   Prop,
   State,
 } from '@stencil/core';
-import { ElementColor, ElementSize, getGoatIndex } from '../../../utils/utils';
+import { ElementSize, getGoatIndex } from '../../../utils/utils';
 
 /**
  * @name Button
@@ -38,7 +38,8 @@ export class GoatButton implements ComponentInterface {
   /**
    * Color variants.
    */
-  @Prop() color: ElementColor = ElementColor.PRIMARY;
+  @Prop() color: 'primary' | 'secondary' | 'info' | 'success' | 'error' | 'warning'
+    = 'primary';
 
   @Prop() variant: 'default' | 'light' | 'outline' | 'link' = 'default';
 
@@ -94,6 +95,7 @@ export class GoatButton implements ComponentInterface {
   @State() hasFocus = false;
   @State() isActive = false;
   @State() slotHasContent = false;
+  @State() ariaProps: any = {};
 
   @Element() elm!: HTMLElement;
   private tabindex?: string | number;
@@ -163,7 +165,10 @@ export class GoatButton implements ComponentInterface {
   };
 
   private keyDownHandler = (evt) => {
-    if (evt.key == 'Enter' || evt.key == ' ') this.isActive = true;
+    if (evt.key == 'Enter' || evt.key == ' ') {
+      this.isActive = true;
+      this.clickHandler(evt);
+    }
   };
 
   componentWillLoad() {
@@ -175,6 +180,12 @@ export class GoatButton implements ComponentInterface {
       this.tabindex = tabindex !== null ? tabindex : undefined;
       this.elm.removeAttribute('tabindex');
     }
+    this.elm.getAttributeNames().forEach((name: string) => {
+      if (name.includes('aria-')) {
+        this.ariaProps[name] = this.elm.getAttribute(name);
+        this.elm.removeAttribute(name);
+      }
+    });
     this.slotHasContent = this.elm.hasChildNodes();
   }
 
@@ -195,14 +206,14 @@ export class GoatButton implements ComponentInterface {
           [`color-${this.color}`]: true,
           [`size-${this.size}`]: true,
           [`variant-${this.variant}`]: true,
-          [`disabled`]: this.disabled,
-          [`block`]: this.block,
-          [`selected`]: this.selected,
-          [`has-focus`]: this.hasFocus,
-          [`active`]: this.isActive,
-          [`has-content`]: this.slotHasContent,
-          [`icon-end`]: this.iconEnd,
-          [`show-loader`]: this.showLoader,
+          'disabled': this.disabled,
+          'block': this.block,
+          'selected': this.selected,
+          'has-focus': this.hasFocus,
+          'active': this.isActive,
+          'has-content': this.slotHasContent,
+          'icon-end': this.iconEnd,
+          'show-loader': this.showLoader
         }}
         tabindex={this.tabindex}
         ref={input => this.nativeInput = input}
@@ -212,7 +223,8 @@ export class GoatButton implements ComponentInterface {
         onMouseDown={this.mouseDownHandler}
         onKeyDown={this.keyDownHandler}
         aria-describedby={this.disabled && this.disabledReason ? `disabled-reason-${this.gid}` : null}
-        aria-disabled={this.disabled || this.showLoader}>
+        aria-disabled={this.disabled || this.showLoader}
+        {...this.ariaProps}>
 
         {this.showLoader && <goat-spinner class='spinner' size={this.size} />}
 

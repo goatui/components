@@ -11,49 +11,67 @@ root: true
     justify-content: center;
     flex-direction: column;
   }
+
+  [data-theme="dark"] .banner {
+    background: var(--color-grey-700);
+  }
+
+  .section {
+    padding-bottom: var(--space-2);
+  }
 </style>
 <div class='banner'>
-  <goat-typography variant='heading' class='title'>{{site.title}}</goat-typography>
-  <goat-typography variant='paragraph' size='xl'>Web components build using stenciljs.</goat-typography>
+  <goat-text type='heading' class='title'>{{site.title}}</goat-text>
+  <goat-text type='paragraph' size='xl'>Web components build using stenciljs.</goat-text>
   <goat-button variant='light' href='/components.html'>Browse Components</goat-button>
 </div>
 
 <div class='container'>
 
-  <goat-typography variant='heading' level='2' size='md'>Introduction</goat-typography>
-  <goat-typography variant='paragraph' size='md'>{{site.title}} contains most used web components built using Stencil.
-    So you don't need to include any additional framework dependencies, You can simply import required component js, and
-    right away start using it.
-  </goat-typography>
-  <goat-typography variant='paragraph' size='md'>Can easily be consumed by any other framework, like Vue, React, Angular, etc.
-  </goat-typography>
+  <div class='section'>
+    <goat-text type='heading' level='2' size='md'>Introduction</goat-text>
+    <goat-text type='paragraph' size='md'>{{site.title}} contains most used web components built using Stencil.
+      So you don't need to include any additional framework dependencies, You can simply import required component js,
+      and
+      right away start using it.
+    </goat-text>
+    <goat-text type='paragraph' size='md'>Can easily be consumed by any other framework, like Vue, React, Angular,
+      etc.
+    </goat-text>
+  </div>
 
-  <br/>
 
-  <goat-heading level='3' size='sm'>About</goat-heading>
-  <goat-paragraph size='md'>{{site.title}} components are beautiful Open Source web components under MIT license. They are maintained by <goat-link href='https://shivajivarma.com'>Shivaji Varma</goat-link>. Do
+  <goat-text type='heading' level='3' size='sm'>About</goat-text>
+  <goat-text type='paragraph' size='md'>{{site.title}} components are beautiful Open Source web components under MIT
+    license. They are maintained by
+    <goat-link href='https://shivajivarma.com'>Shivaji Varma</goat-link>
+    . Do
     not miss any updates and announcements, stay tuned on our social pages.
     You can contribute to the project by creating pull requests or issues.
-  </goat-paragraph>
-  <goat-button icon='github' variant='link' target='_blank' href='https://www.github.com/{{site.github_username}}'></goat-button>
-  <goat-button icon='twitter' variant='link' target='_blank' href='https://www.twitter.com/{{site.twitter_username}}'></goat-button>
+  </goat-text>
+  <goat-button icon='github' variant='link' target='_blank' aria-label='Github'
+               href='https://www.github.com/{{site.github_username}}'></goat-button>
+  <goat-button icon='twitter' variant='link' target='_blank' aria-label='Twitter'
+               href='https://www.twitter.com/{{site.twitter_username}}'></goat-button>
 
-  <br/><br/><br/>
+  <br /><br /><br />
 
-  <goat-typography variant='heading' level='3' size='sm'>Getting Started</goat-typography>
-  <goat-typography variant='heading' level='4' size='xs'>Script tag</goat-typography>
+  <goat-text type='heading' level='3' size='sm'>Getting Started</goat-text>
+  <goat-text type='heading' level='4' size='xs'>Script tag</goat-text>
   <ul>
     <li>
-      Put a script tag similar to this <code class="language-html">&lt;script
-      type="module"
-      src="{{site.script}}"&gt;&lt;/script&gt;</code>
-      in the head of your index.html
+      <goat-text> Put a script tag similar to this <code class='language-html'>&lt;script
+        type="module"
+        src="{{site.script}}"&gt;&lt;/script&gt;</code>
+        in the head of your index.html
+      </goat-text>
     </li>
     <li>
-      Include default font <code class='highlighter-rouge' data-lang='html'>Roboto</code> in the page
+      <goat-text>Include default font <code class='highlighter-rouge' data-lang='html'>Roboto</code> in the page
+      </goat-text>
     </li>
     <li>
-      Then you can use the element anywhere in your template, JSX, html etc
+      <goat-text>Then you can use the element anywhere in your template, JSX, html etc</goat-text>
     </li>
   </ul>
 
@@ -61,13 +79,13 @@ root: true
   <!DOCTYPE html>
   <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width'>
     <title>{{site.title}}</title>
 
     <!-- include your custom theme variable values, view variable names at {{site.themeCss}} -->
     <!--link rel="stylesheet" href="/custom-theme.css"></link-->
-    <script type="module" src="{{site.script}}"></script>
+    <script type='module' src='{{site.script}}'></script>
 
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
@@ -76,7 +94,7 @@ root: true
   </head>
   <body>
 
-  <goat-button size="lg" color="primary">Click me</goat-button>
+  <goat-button size='lg' color='primary'>Click me</goat-button>
 
   </body>
   </html>
@@ -86,6 +104,9 @@ root: true
 
 
 <div class='footer container'>
-  <hr/>
-  <goat-paragraph size='sm'>&copy; 2021 <goat-link href="https://shivajivarma.com">Shivaji Varma</goat-link>. All Rights Reserved.</goat-paragraph>
+  <goat-divider></goat-divider>
+  <goat-text type='paragraph' size='sm'>&copy; 2021
+    <goat-link href='https://shivajivarma.com'>Shivaji Varma</goat-link>
+    . All Rights Reserved.
+  </goat-text>
 </div>

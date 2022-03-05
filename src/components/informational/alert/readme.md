@@ -9,9 +9,7 @@
 
 | Property      | Attribute     | Description | Type                                          | Default  |
 | ------------- | ------------- | ----------- | --------------------------------------------- | -------- |
-| `description` | `description` |             | `string`                                      | `''`     |
 | `dismissible` | `dismissible` |             | `boolean`                                     | `false`  |
-| `message`     | `message`     |             | `string`                                      | `''`     |
 | `state`       | `state`       |             | `"error" \| "info" \| "success" \| "warning"` | `'info'` |
 
 

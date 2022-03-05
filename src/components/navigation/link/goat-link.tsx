@@ -16,10 +16,10 @@ export class GoatLink implements ComponentInterface {
   gid = getGoatIndex();
 
   /**
-   * Color variants.
-   * Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`, `"grey"`, `"rainbow"`, `"inherit"`. Defaults to `"inherit"`.
+   * Color variants
+   * Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`, `"info"`, `"inherit"`. Defaults to `"inherit"`.
    */
-  @Prop() color: 'primary' | 'success' | 'warning' | 'error' | 'grey' | 'inherit' = 'primary';
+  @Prop() color: 'primary' | 'success' | 'warning' | 'error' | 'info' | 'inherit' = 'primary';
 
   @Prop() decoration: boolean = true;
 
@@ -38,7 +38,7 @@ export class GoatLink implements ComponentInterface {
   @State() isActive = false;
 
   @Element() elm!: HTMLElement;
-  private tabindex?: string | number;
+  private tabindex?: string | number = 1;
   private nativeInput?: HTMLAnchorElement;
 
   @Listen('mouseup', { target: 'window' })
@@ -73,7 +73,9 @@ export class GoatLink implements ComponentInterface {
   };
 
   private keyDownHandler = (evt) => {
-    if (evt.key == 'Enter' || evt.key == ' ') this.isActive = true;
+    if (evt.key == 'Enter' || evt.key == ' ') {
+      this.isActive = true;
+    }
   };
 
   componentWillLoad() {
@@ -90,8 +92,13 @@ export class GoatLink implements ComponentInterface {
 
   render() {
 
-    return (<Host focused={this.hasFocus} active={this.isActive} color={this.color} decoration={this.decoration}>
-      <a class='link'
+    return (<Host has-focus={this.hasFocus} active={this.isActive} color={this.color} decoration={this.decoration}>
+      <a class={{
+        'link': true,
+        [`color-${this.color}`]: true,
+        'has-focus': this.hasFocus,
+        'active': this.isActive,
+      }}
          href={this.href}
          target={this.target}
          ref={input => this.nativeInput = input}

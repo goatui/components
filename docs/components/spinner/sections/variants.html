@@ -1,0 +1,21 @@
+{% capture sample-code %}
+
+<span class='text-color-primary'>
+  <goat-spinner></goat-spinner>
+</span>
+
+<goat-spinner class='text-color-success'></goat-spinner>
+<goat-spinner class='text-color-warning'></goat-spinner>
+<goat-spinner class='text-color-error'></goat-spinner>
+<goat-spinner class='text-color-info'></goat-spinner>
+
+<span style='--text-color:pink'>
+  <goat-spinner></goat-spinner>
+</span>
+
+<br/>
+
+<goat-spinner class='rainbow'></goat-spinner>
+
+{% endcapture %}
+{% include demo-html.html content=sample-code %}

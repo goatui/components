@@ -86,111 +86,74 @@
 /**
   * Variants
   */
-.button.color-primary {
-  &.variant-default {
-    @include buttonVariant(true, primary);
-  }
-
-  &.variant-light {
-    @include buttonLight(primary);
-  }
-
-  &.variant-link {
-    @include buttonLink(primary);
-  }
-
-  &.variant-outline {
-    @include buttonOutline(primary);
-  }
-}
-
-
-.button.color-success {
-  &.variant-default {
-    @include buttonVariant(true, success);
-  }
-
-  &.variant-light {
-    @include buttonLight(success);
-  }
-
-  &.variant-link {
-    @include buttonLink(success);
-  }
-
-  &.variant-outline {
-    @include buttonOutline(success);
-  }
-}
-
-.button.color-warning {
-  &.variant-default {
-    @include buttonVariant(true, warning);
-  }
-
-  &.variant-light {
-    @include buttonLight(warning);
-  }
-
-  &.variant-link {
-    @include buttonLink(warning);
-  }
-
-  &.variant-outline {
-    @include buttonOutline(warning);
-  }
-}
-
-.button.color-error {
-  &.variant-default {
-    @include buttonVariant(true, error);
-  }
-
-  &.variant-light {
-    @include buttonLight(error);
-  }
-
-  &.variant-link {
-    @include buttonLink(error);
-  }
-
-  &.variant-outline {
-    @include buttonOutline(error);
-  }
-}
-
-.button.color-secondary {
-
-  color: v(--primary-text-color);
-
-  .spinner, .icon {
-    color: #{--primary-text-color};
-  }
-
-  background: white;
-  border-color: v(--color-grey-900);
-
-  &:hover {
-    background: v(--color-grey-100);
-  }
-
-  &.active {
-    background: v(--color-grey-200);
-  }
-
-  &.selected {
-    background: v(--color-grey-300);
-  }
-
-  &.disabled {
-    cursor: not-allowed;
-    color: v(--color-grey-400) !important;
-    background: v(--color-grey-100) !important;
-    border-color: v(--color-grey-400) !important;
-
-    .spinner, .icon {
-      color: #{v(--color-grey-400)} !important;
+@each $color in [primary, info, success, warning, error] {
+  .button.color-#{$color} {
+    &.variant-default {
+      @include buttonVariant($color);
     }
+
+    &.variant-light {
+      @include buttonLight($color);
+    }
+
+    &.variant-link {
+      @include buttonLink($color);
+    }
+
+    &.variant-outline {
+      @include buttonOutline($color);
+    }
+  }
+}
+
+@each $color in [secondary] {
+  .button.color-#{$color} {
+    &.variant-default {
+      @include buttonVariant($color, true);
+    }
+
+    &.variant-light {
+      @include buttonLight($color);
+    }
+
+    &.variant-link {
+      @include buttonLink($color);
+    }
+
+    &.variant-outline {
+      @include buttonOutline($color);
+    }
+  }
+}
+
+.button.color-dark {
+  &.variant-default {
+    @include buttonVariant(dark);
+  }
+
+  &.variant-light {
+    @include buttonLight(dark);
+  }
+
+  &.variant-link {
+    @include buttonLink(dark);
+  }
+
+  &.variant-outline {
+    @include buttonOutline(dark);
+  }
+}
+
+
+:host-context([data-theme="dark"]) .button.color-dark {
+
+
+  &.variant-link {
+    @include buttonLink(light);
+  }
+
+  &.variant-outline {
+    @include buttonOutline(light);
   }
 }
 
@@ -205,7 +168,6 @@
     margin: auto;
   }
 }
-
 
 .button.icon-end {
   flex-direction: row-reverse;

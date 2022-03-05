@@ -1,125 +1,34 @@
 ---
 layout: component
 title: Alert
-menu:
-- title: States
-- title: Dismissible
+sections:
+  - title: States
+    source: sections/states.html
+  - title: Dismissible
+    source: sections/dismissible.html
 ---
 <div class='row pt-3'>
 
-  {% include content-nav.html %}
+  {% include section-nav.html %}
 
 
   <!-- Content -->
-  <goat-card-content class='col-xl-10 order-xl-1 duik-content border-bottom'>
+  <div class='component-content'>
 
-    <div class='border-bottom mb-7'>
-      <h1>{{ page.title }}</h1>
-      <p class='lead mb-5'>Use {{site.company}}’s custom alert styles for actions in forms, dialogs, and more with
-        support for
-        multiple states and more.</p>
+    <div style='padding-bottom: var(--space-6)'>
+      <goat-text type='heading' size='md'>{{ page.title }}</goat-text>
+      <goat-text type='paragraph'>Use {{site.company}}’s custom input styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</goat-text>
     </div>
 
+    {% for section in page.sections %}
+    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style='padding-bottom: var(--space-4)'>
+      <goat-text type='heading' level='2' size='sm'>{{ section.title }}</goat-text>
 
-    <!-- Types -->
-    <div id='doc-states' class='mb-7'>
-      <h2 class='h4'>States <a class='js-anchor-link duik-anchorjs-link' href='#doc-states' aria-label='Anchor'
-                               data-anchorjs-icon='#'></a></h2>
-      <goat-card>
-        <goat-card-content>
-          <goat-alert>
-            <div slot='message'>A new
-              <goat-link color='inherit' href='https://google.com'>software</goat-link>
-              update is available. See what’s new in version 2.0
-            </div>
-            <div slot='description'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit non vel nulla sit gravida adipiscing.
-              Gravida fusce enim habitant etiam netus sed
-            </div>
-          </goat-alert>
-          <goat-alert state='success'>
-            <div slot='message'>A new
-              <goat-link color='inherit'>software</goat-link>
-              update is available. See what’s new in version 2.0
-            </div>
-            <div slot='description'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit non vel nulla sit gravida adipiscing.
-              Gravida fusce enim habitant etiam netus sed
-            </div>
-          </goat-alert>
-          <goat-alert state='warning'>
-            <div slot='message'>A new
-              <goat-link color='inherit'>software</goat-link>
-              update is available. See what’s new in version 2.0
-            </div>
-            <div slot='description'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit non vel nulla sit gravida adipiscing.
-              Gravida fusce enim habitant etiam netus sed
-            </div>
-          </goat-alert>
-          <goat-alert state='error'>
-            <div slot='message'>A new
-              <goat-link color='inherit'>software</goat-link>
-              update is available. See what’s new in version 2.0
-            </div>
-            <div slot='description'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit non vel nulla sit gravida adipiscing.
-              Gravida fusce enim habitant etiam netus sed
-            </div>
-          </goat-alert>
-
-        </goat-card-content>
-        <goat-card-content>
-          {% highlight html %}
-          <goat-alert>
-            <div slot='message'>A new
-              <goat-link color='inherit'>software</goat-link>
-              update is available. See what’s new in version 2.0
-            </div>
-            <div slot='description'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit non vel nulla sit gravida adipiscing.
-              Gravida fusce enim habitant etiam netus sed
-            </div>
-          </goat-alert>
-          <goat-alert state='success'>...</goat-alert>
-          <goat-alert state='warning'>...</goat-alert>
-          <goat-alert state='error'>...</goat-alert>
-          {% endhighlight %}
-        </goat-card-content>
-      </goat-card>
-
+      {% include_relative {{ section.source }} %}
     </div>
-    <!-- End Types -->
+    {% endfor %}
 
-    <!-- Dismissible -->
-    <div id='doc-dismissible' class='mb-7'>
-      <h2 class='h4'>Dismissible <a class='js-anchor-link duik-anchorjs-link' href='#doc-dismissible'
-                                    aria-label='Anchor'
-                                    data-anchorjs-icon='#'></a></h2>
-      <goat-card>
-        <goat-card-content>
-          <goat-alert dismissible>
-            <div slot='message'>A new software update is available. See what’s new in version 2.0</div>
-            <div slot='description'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit non vel nulla sit gravida adipiscing.
-              Gravida fusce enim habitant etiam netus sed
-            </div>
-          </goat-alert>
-        </goat-card-content>
-        <goat-card-content>
-          {% highlight html %}
-          <goat-alert dismissible>
-            <div slot='message'>A new software update is available. See what’s new in version 2.0</div>
-            <div slot='description'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit non vel nulla sit gravida adipiscing.
-              Gravida fusce enim habitant etiam netus sed
-            </div>
-          </goat-alert>
-          {% endhighlight %}
-        </goat-card-content>
-      </goat-card>
-    </div>
-    <!-- End Dismissible -->
+  </div>
+  <!-- End Content -->
 
-    <!-- End Content -->
 </div>

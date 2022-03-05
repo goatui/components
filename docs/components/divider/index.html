@@ -1,0 +1,42 @@
+---
+layout: component
+title: Divider
+sections:
+- title: Usage
+  source: sections/usage.html
+---
+
+<style>
+  goat-checkbox {
+    margin: 0 0.5rem 1rem 0;
+  }
+</style>
+
+
+<div class='row pt-3'>
+
+  {% include section-nav.html %}
+
+
+  <!-- Content -->
+  <div class='component-content'>
+
+    <div style='padding-bottom: var(--space-6)'>
+      <goat-text type='heading' size='md'>{{ page.title }}</goat-text>
+      <goat-text type='paragraph'>A divider can used to segment content vertically or horizontally.
+      </goat-text>
+    </div>
+
+    {% for section in page.sections %}
+    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}'
+         style='padding-bottom: var(--space-4)'>
+      <goat-text type='heading' level='2' size='sm'>{{ section.title }}</goat-text>
+
+      {% include_relative {{ section.source }} %}
+    </div>
+    {% endfor %}
+
+  </div>
+  <!-- End Content -->
+
+</div>

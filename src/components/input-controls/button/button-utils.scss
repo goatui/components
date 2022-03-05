@@ -1,12 +1,12 @@
 @import "../../../styles/scss/commons";
 
 
-@mixin buttonVariant($darker, $variantColor) {
+@mixin buttonVariant($variantColor, $light:false) {
 
-  @if $darker {
-    color: v(--color-white);
+  @if $light {
+    @include text-color(v(--color-black));
   } @else {
-    color: v(--primary-text-color);
+    @include text-color(v(--color-white));
   }
   background: v(--color-#{$variantColor}-500);
   border-color: v(--color-#{$variantColor}-500);
@@ -20,23 +20,22 @@
   &.active, &.selected {
     background: v(--color-#{$variantColor}-800);
     border-color: v(--color-#{$variantColor}-800);
-    @if $darker == false {
-      color: v(--color-white);
+    @if $light == false {
+      @include text-color(v(--color-white));
     }
   }
 
   &.disabled {
     cursor: not-allowed;
-    color: v(--color-white) !important;
+    @include text-color(v(--color-white), true);
     background: v(--color-#{$variantColor}-200) !important;
     border-color: v(--color-#{$variantColor}-200) !important;
-
   }
 }
 
 @mixin buttonLight($variantColor) {
 
-  color: v(--color-#{$variantColor}-700);
+  @include text-color(v(--color-#{$variantColor}-700));
 
   background: v(--color-#{$variantColor}-50);
   border-color: v(--color-#{$variantColor}-50);
@@ -49,12 +48,12 @@
   &.active, &.selected {
     background: v(--color-#{$variantColor}-800);
     border-color: v(--color-#{$variantColor}-800);
-    color: v(--color-white);
+    @include text-color(v(--color-white));
   }
 
   &.disabled {
     cursor: not-allowed;
-    color: v(--color-white) !important;
+    @include text-color(v(--color-white),  true);
     background: v(--color-#{$variantColor}-200) !important;
     border-color: v(--color-#{$variantColor}-200) !important;
   }
@@ -62,28 +61,28 @@
 
 @mixin buttonOutline($variantColor) {
 
-  color: v(--color-#{$variantColor}-500);
+  @include text-color(v(--color-#{$variantColor}-500));
   background: transparent;
   border-color: v(--color-#{$variantColor}-500);
 
   &:hover {
-    color: v(--color-#{$variantColor}-600);
+    @include text-color(v(--color-#{$variantColor}-600));
     border-color: v(--color-#{$variantColor}-600);
   }
 
   &.active {
-    color: v(--color-#{$variantColor}-800);
+    @include text-color(v(--color-#{$variantColor}-800));
     background: v(--color-#{$variantColor}-50);
     border-color: v(--color-#{$variantColor}-800);
   }
   &.selected {
-    color: v(--color-#{$variantColor}-900);
+    @include text-color(v(--color-#{$variantColor}-900));
     background: v(--color-#{$variantColor}-100);
     border-color: v(--color-#{$variantColor}-900);
   }
   &.disabled {
     cursor: not-allowed;
-    color: white !important;
+    @include text-color(v(--color-white), true);
     background: v(--color-#{$variantColor}-200) !important;
     border-color: v(--color-#{$variantColor}-400) !important;
   }
@@ -91,7 +90,7 @@
 
 @mixin buttonLink($variantColor) {
 
-  color: v(--color-#{$variantColor}-500);
+  @include text-color(v(--color-#{$variantColor}-500));
 
   background: transparent;
   border-color: transparent;
@@ -109,7 +108,7 @@
 
   &.disabled {
     cursor: not-allowed;
-    color: v(--color-grey-400) !important;
+    @include text-color(v(--color-neutral-400), true);
     background: transparent !important;
     border-color: transparent !important;
   }

@@ -1,5 +1,5 @@
-import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core';
-import { ElementColor, ElementSize } from '../../../utils/utils';
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core';
+import { ElementSize, isDarkMode, observeThemeChange } from '../../../utils/utils';
 
 /**
  * @name Alert
@@ -13,47 +13,44 @@ import { ElementColor, ElementSize } from '../../../utils/utils';
   styleUrl: 'goat-alert.scss',
   shadow: true,
 })
-export class GoatAlert {
+export class GoatAlert implements ComponentInterface {
 
   @Element() elm!: HTMLElement;
 
   @Prop() state: 'success' | 'error' | 'info' | 'warning' = 'info';
 
-  @Prop() message: string = '';
-
   @Prop() dismissible: boolean = false;
-
-  @Prop() description: string = '';
 
   @Event({ eventName: 'goat:dismiss' }) goatDismiss: EventEmitter;
 
   @State() hidden: boolean = false;
 
-  private getColor(): ElementColor {
-    switch (this.state) {
-      case 'success':
-        return ElementColor.SUCCESS;
-      case 'error':
-        return ElementColor.ERROR;
-      case 'info':
-        return ElementColor.PRIMARY;
-      case 'warning':
-        return ElementColor.WARNING;
-    }
+  @State() isDarkTheme: boolean = isDarkMode();
+
+  componentWillLoad() {
+    observeThemeChange(() => {
+      this.isDarkTheme = isDarkMode();
+    });
+  }
+
+  private getColor(): any {
+    return this.state;
   }
 
   renderCloseBtn() {
+    const variant = this.isDarkTheme ? 'default' : 'link';
     if (this.dismissible) {
       return (
         <goat-button class='close-btn'
-                   size={ElementSize.SMALL}
-                   color={this.getColor()}
-                   variant={'light'}
-                   icon='x-lg'
-                   onGoat:click={(evt) => {
-                     this.hidden = true;
-                     this.goatDismiss.emit(evt);
-                   }} />
+                     aria-label="Close alert"
+                     size={ElementSize.SMALL}
+                     color={this.getColor()}
+                     variant={variant}
+                     icon='x-lg'
+                     onGoat:click={(evt) => {
+                       this.hidden = true;
+                       this.goatDismiss.emit(evt);
+                     }} />
       );
     }
   }
@@ -63,8 +60,13 @@ export class GoatAlert {
       <Host state={this.state} hidden={this.hidden}>
         <div class='alert' role='alert'>
           <div class='content'>
-            <div class='message'><slot name="message" /></div>
-            <div class='description'><slot name="description" /></div>
+            <div class='message'>
+              <slot name='message' />
+              <slot/>
+            </div>
+            <div class='description'>
+              <slot name='description' />
+            </div>
           </div>
           {this.renderCloseBtn()}
         </div>

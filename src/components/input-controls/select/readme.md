@@ -37,6 +37,17 @@
 
 ## Methods
 
+### `setBlur() => Promise<void>`
+
+Sets blur on the native `input` in `goat-input`. Use this method instead of the global
+`input.blur()`.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 ### `setFocus() => Promise<void>`
 
 Sets focus on the native `input` in `ion-input`. Use this method instead of the global
@@ -63,7 +74,6 @@ graph TD;
   goat-select --> goat-icon
   goat-select --> goat-spinner
   goat-select --> goat-menu
-  goat-menu --> goat-icon
   style goat-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

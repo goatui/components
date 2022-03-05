@@ -1,0 +1,10 @@
+{% capture sample-code %}
+<goat-empty-state vertical>
+  <div slot="title">404 : Page not found :(</div>
+  <div slot='description'>The requested page could not be found.</div>
+  <div slot='actions'>
+    <goat-link variant='link' href='/'>Go to home page <goat-icon type='arrow-right'></goat-icon></goat-link>
+  </div>
+</goat-empty-state>
+{% endcapture %}
+{% include demo-html.html content=sample-code %}

@@ -1,19 +1,32 @@
-import { Component, Element, Event, EventEmitter, h, Host, Listen, Method, Prop, State } from '@stencil/core';
+/*
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  State,
+} from '@stencil/core';
 import { findItemLabel } from '../../../utils/utils';
 
 let index = 0;
 
-/**
+/!**
  * @name Select
  * @description Allows the user to select one or more options using a dropdown.
  * @img /assets/img/select.png
- */
+ *!/
 @Component({
   tag: 'goat-select',
   styleUrl: 'goat-select.scss',
   shadow: true,
 })
-export class GoatSelect {
+export class GoatSelect implements ComponentInterface, InputComponentInterface {
   private id = ++index;
   @Element() elm!: HTMLElement;
 
@@ -26,31 +39,31 @@ export class GoatSelect {
   @State() searchString: string = '';
 
 
-  /**
+  /!**
    * The input field placeholder.
-   */
+   *!/
   @Prop() placeholder: string;
-  /**
+  /!**
    * The input field value.
-   */
+   *!/
   @Prop({ mutable: true }) value?: string | number;
-  /**
+  /!**
    * The button size.
    * Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
-   */
+   *!/
   @Prop() size: 'sm' | 'md' | 'lg' = 'md';
-  /**
+  /!**
    * Select type
    * Possible values are `"select"`, `"typeahead"`. Defaults to `"select"`.
-   */
+   *!/
   @Prop() type: 'select' | 'typeahead' = 'select';
-  /**
+  /!**
    * If true, required icon is show. Defaults to `false`.
-   */
+   *!/
   @Prop() required: boolean = false;
-  /**
+  /!**
    * If true, the user cannot interact with the button. Defaults to `false`.
-   */
+   *!/
   @Prop() disabled: boolean = false;
   @Prop() showLoader: boolean = false;
   @Prop({ mutable: true }) isOpen: boolean = false;
@@ -62,35 +75,46 @@ export class GoatSelect {
   @Prop() position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' = 'bottom-left';
   @Prop() actions: any[] = [];
 
-  /**
+  /!**
    * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
-   */
+   *!/
   @Prop() clearInput = false;
-  /**
+  /!**
    * The input field name.
-   */
+   *!/
   @Prop() name: string = `goat-select-${this.id}`;
 
-  /**
+  /!**
    * Emitted when the value has changed..
-   */
+   *!/
   @Event({ eventName: 'goat:change' }) p4Change: EventEmitter;
-  /**
+  /!**
    * Emitted when the action button is clicked..
-   */
+   *!/
   @Event({ eventName: 'goat:action-click' }) p4ActionClick: EventEmitter;
-  /**
+  /!**
    * Emitted when a keyboard input occurred.
-   */
+   *!/
   @Event({ eventName: 'goat:input' }) p4Input: EventEmitter;
 
-  /**
+  /!**
    * Sets focus on the native `input` in `ion-input`. Use this method instead of the global
    * `input.focus()`.
-   */
+   *!/
   @Method()
   async setFocus() {
     this.displayElement.focus();
+  }
+
+  /!**
+   * Sets blur on the native `input` in `goat-input`. Use this method instead of the global
+   * `input.blur()`.
+   *!/
+  @Method()
+  async setBlur() {
+    if (this.nativeInput) {
+      this.nativeInput.blur();
+    }
   }
 
   @Listen('click', { target: 'window' })
@@ -225,7 +249,7 @@ export class GoatSelect {
       <div class={{ 'select-container': true, [this.position]: true, 'is-open': this.isOpen }}>
         <div class={{
           'select': true,
-          'input': true,
+          'input-container': true,
           [`input-size-${this.size}`]: true,
           [`input-type-${this.type}`]: true,
           'input-has-actions': !!actions.length,
@@ -234,7 +258,7 @@ export class GoatSelect {
 
           {
             ((this.type === 'select') || (this.type === 'typeahead' && !this.isOpen))
-            && <div class='display-value'
+            && <div class='input display-value'
                     ref={(el) => this.displayElement = el}
                     tabindex='0'
                     onFocus={this.focusHandler}
@@ -251,7 +275,7 @@ export class GoatSelect {
 
           {
             ((this.type === 'typeahead' && this.isOpen))
-            && <input class='input-native'
+            && <input class='input input-native'
                       ref={input => this.nativeInput = input}
                       type='text'
                       aria-labelledby={labelId}
@@ -301,7 +325,7 @@ export class GoatSelect {
                      }
                    }}>
       <goat-icon type={this.isOpen ? 'chevron-up' : 'chevron-down'} size={this.getActionIconSize()}
-               class='action-icon mode-icon' />
+                 class='action-icon mode-icon' />
       <goat-icon type='x-circle-fill' size={this.getActionIconSize()} class='action-icon clear-icon' />
     </button>;
   }
@@ -316,7 +340,7 @@ export class GoatSelect {
       } else {
         const data = this.filterAndFormatData();
         return <goat-menu
-          class="dropdown-list"
+          class='dropdown-list'
           ref={(el) => this.listElement = el}
           data={data}
           value={this.value}
@@ -336,8 +360,8 @@ export class GoatSelect {
     }).map((item) => {
       return {
         label: this.getItemLabel(item),
-        value: this.getItemValue(item)
-      }
+        value: this.getItemValue(item),
+      };
     });
   }
 
@@ -349,4 +373,11 @@ export class GoatSelect {
     }
   }
 
+  [memberName: string]: any;
+
+  getGid(): Promise<string> {
+    return Promise.resolve('');
+  }
+
 }
+*/

@@ -64,13 +64,13 @@ export class GoatInput implements ComponentInterface, InputComponentInterface {
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
-  @Prop() disabled: boolean = false;
+  @Prop({reflect: true}) disabled: boolean = false;
 
 
   /**
    * If true, required icon is show. Defaults to `false`.
    */
-  @Prop() required: boolean = false;
+  @Prop({reflect: true}) required: boolean = false;
 
   /**
    * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
@@ -232,16 +232,14 @@ export class GoatInput implements ComponentInterface, InputComponentInterface {
   render() {
 
     return (
-      <Host type={this.type}
-            focused={this.hasFocus}
-            required={this.required}
-            size={this.size}
+      <Host size={this.size}
             state={this.state}
-            has-value={this.hasValue()}
-            disabled={this.disabled}>
+            has-focus={this.hasFocus}
+            has-value={this.hasValue()}>
         <div class={{
           'input-container': true,
-          'input-disabled': this.disabled,
+          'disabled': this.disabled,
+          'has-focus': this.hasFocus,
           'start-slot-has-content': this.startSlotHasContent,
           'end-slot-has-content': this.endSlotHasContent,
         }}>

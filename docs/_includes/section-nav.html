@@ -1,8 +1,8 @@
 <!-- Content Nav -->
-<div class='col-xl-2 order-xl-2 d-none d-xl-inline-block'>
-  <ul class='js-scroll-nav duik-content-nav'>
+<div class='section-nav'>
+  <ul class='js-scroll-nav'>
     {% for section in page.sections %}
-    <li class='duik-content-nav__item'><a href='#section-{{section.title | downcase | replace: " ", "-" | "/", "-"}}'>{{section.title}}</a></li>
+    <li><goat-link class='link' href='#section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}'>{{section.title}}</goat-link></li>
     {% endfor %}
   </ul>
 </div>

@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, State } from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Listen, Method, Prop, State, Watch } from '@stencil/core';
 
 /**
  * @name Menu
@@ -10,212 +10,108 @@ import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, State }
   styleUrl: 'goat-menu.scss',
   shadow: true,
 })
-export class GoatMenu {
+export class GoatMenu implements ComponentInterface {
 
-  private itemIndex;
-  private itemValueMap;
 
   @Element() elm!: HTMLElement;
-  @State() focusItemId;
-  @State() activeItemId;
-  @State() invalidData: boolean = false;
-
-  @Prop({ mutable: true }) data: any[] = [];
-
-  @Prop() variant: 'default' | 'group' = 'default';
-
-  @Prop() itemVariant: 'default' | 'icon' | 'img' | 'caption' | 'icon-caption' | 'img-caption' = 'default';
 
   @Prop() showLoader: boolean = false;
 
   @Prop({ mutable: true }) value?: string | number;
 
+  @Prop({ mutable: true }) empty: boolean = false;
 
-  @Prop({ mutable: true }) emptyState: any = {
-    title: 'Empty List!',
-    message: 'There are no items to display at the moment',
-  };
+  @Prop({ mutable: true }) emptyState: string;
 
+  @State()
+  internalEmptyState: {title: string, description: string};
+
+  @Watch('emptyState')
+  parseEmptyState() {
+    if (this.emptyState) {
+      this.internalEmptyState = JSON.parse(this.emptyState);
+    }
+  }
+
+  @Listen('keydown', { target: 'window' })
+  handleKeyDown(evt: KeyboardEvent) {
+    const path = evt.composedPath();
+    for (const elm of path) {
+      if (elm !== this.elm)
+        continue;
+      if (evt.key === 'ArrowDown') {
+        evt.preventDefault();
+        this.focusNextItem(evt.target);
+      } else if (evt.key === 'ArrowUp') {
+        evt.preventDefault();
+        this.focusPreviousItem(evt.target);
+      }
+    }
+  }
 
   /**
-   * Emitted when the item is clicked.
-   */
-  @Event({ eventName: 'goat:item-click' }) p4ItemClick: EventEmitter;
-
-
-  /**
-   * Sets focus on the first item of list.
+   * Sets focus on first menu item. Use this method instead of the global
+   * `element.focus()`.
    */
   @Method()
-  async setFocus(previousItem: boolean = false) {
-    let focusItemId;
-    if (this.value) {
-      focusItemId = this.itemValueMap[this.value].__id;
-    } else {
-      if (previousItem)
-        focusItemId = this.itemIndex;
-      else
-        focusItemId = 0;
-    }
-    if (previousItem)
-      this.focusPreviousItem(focusItemId);
-    else
-      this.focusNextItem(focusItemId);
+  async setFocus() {
+    const firstMenuItem = this.getFirstItem();
+    firstMenuItem?.setFocus();
+  }
+
+  private getFirstItem() {
+    return this.elm.querySelector('goat-menu-item');
+  }
+
+  private focusNextItem(currentItem) {
+    let nextItem: any = currentItem.nextElementSibling;
+    do {
+      if (nextItem && nextItem.tagName === 'GOAT-MENU-ITEM' && !nextItem.disabled) {
+        nextItem.setFocus();
+        return;
+      }
+      if (!nextItem) {
+        nextItem = this.elm.querySelector('goat-menu-item');
+      } else {
+        nextItem = nextItem.nextElementSibling;
+      }
+    } while (nextItem !== currentItem);
+  }
+
+  private focusPreviousItem(currentItem) {
+    let previousItem: any = currentItem.previousElementSibling;
+    do {
+      if (previousItem && previousItem.tagName === 'GOAT-MENU-ITEM' && !previousItem.disabled) {
+        previousItem.setFocus();
+        return;
+      }
+      if (!previousItem) {
+        previousItem = this.elm.querySelector('goat-menu-item:last-child');
+      } else {
+        previousItem = previousItem.previousElementSibling;
+      }
+    } while (previousItem !== currentItem);
   }
 
 
-  private setIndexToItem = (item) => {
-    item.__id = this.itemIndex++;
-    if (!item.hasOwnProperty('label') || !item.hasOwnProperty('value'))
-      this.invalidData = true;
-    this.itemValueMap[item.value] = item;
-  };
-
-  async componentWillLoad() {
-    this.itemIndex = 1;
-    this.itemValueMap = {};
-    this.invalidData = false;
-    if (this.data) {
-      if (this.variant == 'group') {
-        this.data.forEach((group) => {
-          if (group && group.items)
-            group.items.forEach(this.setIndexToItem);
-        });
-      } else
-        this.data.forEach(this.setIndexToItem);
-    } else {
-      this.invalidData = true;
-    }
+  componentWillLoad() {
+    this.parseEmptyState();
   }
 
-  private getItemElement(itemId): HTMLElement {
-    return this.elm.shadowRoot.querySelector(`[data-item-id="item-${itemId}"]`);
-  }
-
-  private focusNextItem(focusItemId) {
-    if (focusItemId < this.itemIndex - 1)
-      this.getItemElement(focusItemId + 1).focus();
-  }
-
-  private focusPreviousItem(focusItemId) {
-    if (focusItemId > 1)
-      this.getItemElement(focusItemId - 1).focus();
-  }
-
-  private itemClickHandler = (item, group: any = {}) => {
-    this.activeItemId = item.__id;
-    this.focusItemId = item.__id;
-    this.value = item.value;
-    const result: any = { value: this.value, item };
-    if (this.variant == 'group') {
-      result.groupValue = group.value;
-    }
-    this.p4ItemClick.emit(result);
-  };
 
   render() {
     return <div class='menu'>
-      <slot/>
-    </div>
-  }
-
-  renderOld() {
-    let data;
-    if (this.variant == 'group') {
-       data = this.data;
-    } else {
-      data = [{ items: this.data }];
-    }
-
-    return (
-      <Host>
-        <div class={{
-          'list': true,
-          [`list-variant-${this.variant}`]: true,
-        }}>
-          {!!this.data.length && !this.invalidData && this.renderGroups(data)}
-          {this.invalidData && GoatMenu.renderInvalidState()}
-          {!this.data.length && this.renderEmptyState()}
-        </div>
-      </Host>
-    );
-  }
-
-  private renderGroups(groups) {
-    return <div class='group-container'>
-
-      {groups.map((group) => {
-        return <div class='group'>
-          {this.variant === 'group' && <div class='group-label'>{group.label}</div>}
-          {this.renderItems(group.filteredItems, group)}
-        </div>;
-      })}
+      <slot />
+      {this.renderEmptyState()}
     </div>;
   }
-
-  private renderItems(items, group?) {
-    return <div class='items-container'>
-      {items.map((item) => this.renderItem(item, group))}
-    </div>;
-  }
-
-  private renderItem = (item, group?) => {
-    return <div
-      data-item-id={`item-${item.__id}`}
-      class={{
-        'item': true,
-        'item-separator': item.separator,
-        [`item-variant-${this.itemVariant}`]: true,
-        'item-has-focus': this.focusItemId == item.__id,
-        'item-active': this.activeItemId == item.__id || this.value === item.value,
-      }}
-      tabindex='0'
-      onClick={() => this.itemClickHandler(item, group)}
-      onFocus={() => {
-        this.focusItemId = item.__id;
-      }}
-      onKeyDown={(evt) => {
-        if (evt.key === 'Enter' || evt.key === 'ArrowDown' || evt.key === 'ArrowUp')
-          evt.preventDefault();
-        if (evt.key === 'Enter')
-          this.itemClickHandler(item);
-        else if (evt.key === 'ArrowDown')
-          this.focusNextItem(this.focusItemId);
-        else if (evt.key === 'ArrowUp')
-          this.focusPreviousItem(this.focusItemId);
-      }}>
-      {
-        (() => {
-          if (this.itemVariant == 'default')
-            return item.label;
-          else if (this.itemVariant == 'icon') {
-            return <div class='item-content'>
-              <goat-icon class='item-icon' type={item.icon} size='sm' />
-              <span class='item-label'>{item.label}</span>
-            </div>;
-          }
-        })()
-      }
-    </div>;
-  };
 
   private renderEmptyState() {
-    return <div class='center-content'>
-      <div class='empty-state'>
-        <goat-icon class='empty-state-image' type='list-task' size='3rem' />
-        <div class='empty-state-title'>{this.emptyState.title}</div>
-        <div class='empty-state-message'>{this.emptyState.message}</div>
-      </div>
-    </div>;
+    if (this.empty)
+      return <goat-empty-state class="empty-menu" data-theme="dark">
+        <div slot='title'>{this.internalEmptyState.title}</div>
+        <div slot='description'>{this.internalEmptyState.description}</div>
+      </goat-empty-state>;
   }
 
-  private static renderInvalidState() {
-    return <div class='center-content'>
-      <div class='empty-state'>
-        <goat-icon class='empty-state-image' type='exclamation-triangle' size='3rem' />
-        <div class='empty-state-title'>Invalid Data</div>
-        <div class='empty-state-message'>Check if all items have labels and values</div>
-      </div>
-    </div>;
-  }
 }

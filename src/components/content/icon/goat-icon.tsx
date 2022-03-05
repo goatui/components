@@ -21,11 +21,7 @@ export class GoatIcon {
    */
   @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' | 'xl' | string = 'md';
 
-  /**
-   * Color variants.
-   * Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`, `"grey"`, `"inherit"`. Defaults to `"inherit"`.
-   */
-  @Prop({ reflect: true }) color: 'primary' | 'success' | 'warning' | 'error' | 'grey' | 'inherit' = 'inherit';
+  @Prop({ reflect: true }) shade: 'primary' | 'secondary' | 'tertiary' = 'primary';
 
   private getSize() {
     let size;
@@ -49,7 +45,7 @@ export class GoatIcon {
       return null;
     Icon = Icon.replace(/width="([^"]+)"/, 'width="' + this.getSize() + '"').replace(/height="([^"]+)"/, 'height="' + this.getSize() + '"');
     return (
-      <Host color={this.color}>
+      <Host>
         <div innerHTML={Icon} class='icon' />
       </Host>
     );

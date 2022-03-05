@@ -3,7 +3,7 @@
 
 :host {
   display: block;
-  padding-bottom: v(--space-3);
+  margin-bottom: v(--space-3);
   --input-border-radius: #{v(--border-radius)};
   --input-border-style: solid;
 }
@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: center;
 
-  background-color: v(--color-white);
+  background-color: v(--ui-background-color);
   border: 1px var(--input-border-style) v(--border-color);
   border-radius: var(--input-border-radius);
   overflow: hidden;
@@ -29,9 +29,10 @@
     width: 100%;
     cursor: inherit;
     padding: 0;
+    color: v(--text-color-primary);
 
     &::placeholder {
-      color: v(--color-grey-400);
+      color: v(--text-color-placeholder);
     }
   }
 
@@ -44,10 +45,10 @@
     slot::slotted(*) {
       padding-bottom: 0 !important;
       margin-bottom: 0 !important;
-      color: v(--color-grey-400);
+      color: v(--color-neutral-400);
 
       goat-icon {
-        --color: #{v(--color-grey-400)};
+        --color: #{v(--color-neutral-400)};
       }
     }
 
@@ -83,10 +84,8 @@
     border-color: v(--color-#{$color}-500);
   }
 
-  &:host([focused]) {
-    .input-container {
-      box-shadow: 0 0 0 0.25rem rgba(map.get(map.get($colors, $color), 500), 25%);
-    }
+  .input-container.has-focus {
+    @include focus-ring($color);
   }
 }
 
@@ -94,10 +93,8 @@
  * States
  */
 :host([state="default"]) {
-  &:host([focused]) {
-    .input-container {
-      @include focus-ring
-    }
+  .input-container.has-focus {
+    @include focus-ring
   }
 }
 
@@ -167,13 +164,24 @@
 :host([disabled]) {
   .input-container {
     cursor: not-allowed;
-    background-color: v(--color-grey-100) !important;
+    background-color: v(--color-neutral-100) !important;
     border-color: v(--border-color) !important;
     opacity: 1 !important;
 
     .input {
-      color: v(--color-grey-400) !important;
+      color: v(--color-neutral-400) !important;
     }
   }
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

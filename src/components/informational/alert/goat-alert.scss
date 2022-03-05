@@ -18,7 +18,6 @@
     }
 
     .description {
-      color: v(--color-grey-600);
       @include font-style(text-sm);
     }
   }
@@ -29,31 +28,43 @@
 }
 
 
-@mixin alertState($color) {
-  .alert {
-    background-color: v(--color-#{$color}-50);
+@mixin alertState($color, $dark) {
+  @if $dark {
+    .alert {
+      background-color: v(--color-#{$color}-500);
 
-    .content {
-      .message {
-        color: v(--color-#{$color}-600);
+      .content {
+        .message {
+          color: white;
+        }
+
+        .description {
+          color: v(--color-neutral-100);
+        }
+      }
+    }
+  } @else {
+    .alert {
+      background-color: v(--color-#{$color}-100);
+
+      .content {
+        .message {
+          color: v(--color-#{$color}-600);
+        }
+
+        .description {
+          color: v(--text-color-secondary);
+        }
       }
     }
   }
 }
 
-:host([state="info"]) {
-  @include alertState(primary);
-}
-
-:host([state="success"]) {
-  @include alertState(success);
-}
-
-:host([state="warning"]) {
-  @include alertState(warning);
-}
-
-
-:host([state="error"]) {
-  @include alertState(error);
+@each $state in [info, success, warning, error] {
+  :host([state="#{$state}"]) {
+    @include alertState($state, false);
+  }
+  :host-context([data-theme="dark"]):host([state="#{$state}"]) {
+    @include alertState($state, true);
+  }
 }

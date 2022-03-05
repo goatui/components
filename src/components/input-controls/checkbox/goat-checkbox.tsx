@@ -116,13 +116,16 @@ export class GoatCheckbox implements ComponentInterface, InputComponentInterface
   };
 
   private keyDownHandler = (evt) => {
-    if (evt.key == 'Enter' || evt.key == ' ') this.isActive = true;
+    if (evt.key == 'Enter' || evt.key == ' ') {
+      this.isActive = true;
+      this.clickHandler(evt);
+    }
   };
 
   @Element() elm!: HTMLElement;
   private nativeInput?: HTMLInputElement;
   private iconContainer?: HTMLElement;
-  private tabindex?: string | number = 0;
+  private tabindex?: string | number = 1;
   @State() hasFocus = false;
   @State() animate = true;
   @State() isActive = false;

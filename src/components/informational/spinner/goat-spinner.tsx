@@ -4,7 +4,7 @@ import { ElementSize } from '../../../utils/utils';
 /**
  * @name Spinner
  * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
- * @example <goat-spinner color="rainbow"></goat-spinner>
+ * @example <goat-spinner class="rainbow"></goat-spinner>
  */
 @Component({
   tag: 'goat-spinner',
@@ -17,13 +17,7 @@ export class GoatSpinner {
    * The Icon size.
    * Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
    */
-  @Prop() size: ElementSize | string = ElementSize.MEDIUM;
-
-  /**
-   * Color variants.
-   * Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`, `"grey"`, `"rainbow"`, `"inherit"`. Defaults to `"inherit"`.
-   */
-  @Prop() color: 'primary' | 'success' | 'warning' | 'error' | 'grey' | 'rainbow' | 'inherit' = 'inherit';
+  @Prop() size: 'sm' | 'md' | 'lg' | 'xl' | string = 'md';
 
   private getSize() {
     let size;

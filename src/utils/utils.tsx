@@ -7,6 +7,41 @@ export const getGoatIndex = (() => {
   });
 })();
 
+export const isOutOfViewport = function(bounding: DOMRect) {
+
+  // Check if it's out of the viewport on each side
+  const out: any = {};
+  out.top = bounding.top < 0;
+  out.left = bounding.left < 0;
+  out.bottom = bounding.bottom > (window.innerHeight || document.documentElement.clientHeight);
+  out.right = bounding.right > (window.innerWidth || document.documentElement.clientWidth);
+  out.any = out.top || out.left || out.bottom || out.right;
+  out.all = out.top && out.left && out.bottom && out.right;
+
+  return out;
+
+};
+
+export const observeThemeChange = (() => {
+  let callbacks = [];
+  const elem = document.querySelector('html');
+  let lastClassName = elem.className;
+  window.setInterval(function() {
+    let className = elem.className;
+    if (className !== lastClassName) {
+      callbacks.forEach(callback => callback());
+      lastClassName = className;
+    }
+  }, 10);
+  return (function(callback) {
+    callbacks.push(callback);
+  });
+})();
+
+export const isDarkMode = () => {
+  return document.querySelector('html').classList.contains('dark');
+};
+
 export enum ElementSize {
   SMALL = 'sm',
   MEDIUM = 'md',
@@ -16,13 +51,8 @@ export enum ElementSize {
   XXX_LARGE = 'xxxl',
 }
 
-export enum ElementColor {
-  PRIMARY = 'primary',
-  SECONDARY = 'secondary',
-  SUCCESS = 'success',
-  ERROR = 'error',
-  WARNING = 'warning'
-}
+
+// 'primary' | 'secondary' | 'info' | 'success' | 'error' | 'warning'
 
 export const debounceEvent = (event: EventEmitter, wait: number): EventEmitter => {
   const original = (event as any)._original || event;

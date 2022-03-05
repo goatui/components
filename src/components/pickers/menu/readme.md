@@ -7,28 +7,20 @@
 
 ## Properties
 
-| Property      | Attribute      | Description | Type                                                                           | Default                                                                                       |
-| ------------- | -------------- | ----------- | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
-| `data`        | --             |             | `any[]`                                                                        | `[]`                                                                                          |
-| `emptyState`  | `empty-state`  |             | `any`                                                                          | `{     title: 'Empty List!',     message: 'There are no items to display at the moment',   }` |
-| `itemVariant` | `item-variant` |             | `"caption" \| "default" \| "icon" \| "icon-caption" \| "img" \| "img-caption"` | `'default'`                                                                                   |
-| `showLoader`  | `show-loader`  |             | `boolean`                                                                      | `false`                                                                                       |
-| `value`       | `value`        |             | `number \| string`                                                             | `undefined`                                                                                   |
-| `variant`     | `variant`      |             | `"default" \| "group"`                                                         | `'default'`                                                                                   |
-
-
-## Events
-
-| Event             | Description                       | Type               |
-| ----------------- | --------------------------------- | ------------------ |
-| `goat:item-click` | Emitted when the item is clicked. | `CustomEvent<any>` |
+| Property     | Attribute     | Description | Type               | Default     |
+| ------------ | ------------- | ----------- | ------------------ | ----------- |
+| `empty`      | `empty`       |             | `boolean`          | `false`     |
+| `emptyState` | `empty-state` |             | `string`           | `undefined` |
+| `showLoader` | `show-loader` |             | `boolean`          | `false`     |
+| `value`      | `value`       |             | `number \| string` | `undefined` |
 
 
 ## Methods
 
-### `setFocus(previousItem?: boolean) => Promise<void>`
+### `setFocus() => Promise<void>`
 
-Sets focus on the first item of list.
+Sets focus on first menu item. Use this method instead of the global
+`element.focus()`.
 
 #### Returns
 
@@ -39,21 +31,14 @@ Type: `Promise<void>`
 
 ## Dependencies
 
-### Used by
-
- - [goat-dropdown](../../other/dropdown)
- - [goat-select](../../input-controls/select)
-
 ### Depends on
 
-- [goat-icon](../../content/icon)
+- [goat-empty-state](../../informational/empty-state)
 
 ### Graph
 ```mermaid
 graph TD;
-  goat-menu --> goat-icon
-  goat-dropdown --> goat-menu
-  goat-select --> goat-menu
+  goat-menu --> goat-empty-state
   style goat-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

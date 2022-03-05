@@ -1,0 +1,28 @@
+{% capture sample-code %}
+<goat-text type="text">Primary</goat-text>
+<goat-text type="text" shade='secondary'>Secondary</goat-text>
+<goat-text type="text" shade='tertiary'>Tertiary</goat-text>
+
+<div class='text-color-error'>
+  <goat-text type="text">Primary</goat-text>
+  <goat-text type="text" shade='secondary'>Secondary</goat-text>
+  <goat-text type="text" shade='tertiary'>Tertiary</goat-text>
+</div>
+
+<div class='text-color-primary'>
+  <goat-text type="text">Primary</goat-text>
+  <goat-text type="text" shade='secondary'>Secondary</goat-text>
+  <goat-text type="text" shade='tertiary'>Tertiary</goat-text>
+</div>
+
+<div class='text-color-success'>
+  <goat-text type="text">Primary</goat-text>
+  <goat-text type="text" shade='secondary'>Secondary</goat-text>
+  <goat-text type="text" shade='tertiary'>Tertiary</goat-text>
+</div>
+
+<div style='--text-color:pink'>
+  <goat-text type="text">Primary</goat-text>
+</div>
+{% endcapture %}
+{% include demo-html.html content=sample-code %}

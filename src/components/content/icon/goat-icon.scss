@@ -9,22 +9,31 @@
   line-height: 0;
 }
 
-:host([color="primary"]) .icon {
-  color: v(--color-primary-500);
+
+@mixin colorType($color) {
+  color: v(--color-#{$color}-500);
+  &:host([shade="secondary"]) {
+    color: v(--color-#{$color}-300);
+  }
+  &:host([shade="tertiary"]) {
+    color: v(--color-#{$color}-200);
+  }
 }
 
-:host([color="success"]) .icon {
-  color: v(--color-success-500);
+:host {
+  color: var(--text-color, v(--text-color-primary));
+
+  &:host([shade="secondary"]) {
+    color: var(--text-color, v(--text-color-secondary));
+  }
+
+  &:host([shade="tertiary"]) {
+    color: var(--text-color, v(--text-color-tertiary));
+  }
 }
 
-:host([color="warning"]) .icon {
-  color: v(--color-warning-500);
-}
-
-:host([color="error"]) .icon {
-  color: v(--color-error-500);
-}
-
-:host([color="grey"]) .icon {
-  color: v(--color-grey-900);
+@each $color in [primary, info, success, warning, error] {
+  :host-context(.text-color-#{$color}) {
+    @include colorType($color);
+  }
 }

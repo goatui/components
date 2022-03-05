@@ -2,7 +2,6 @@
 
 $colors: (
   grey: (
-    25: #FCFCFD,
     50: #F9FAFB,
     100: #F2F4F7,
     200: #EAECF0,
@@ -14,21 +13,7 @@ $colors: (
     800: #1D2939,
     900: #101828,
   ),
-  primary: (
-    25: #F5FAFF,
-    50: #EFF8FF,
-    100: #D1E9FF,
-    200: #B2DDFF,
-    300: #84CAFF,
-    400: #53B1FD,
-    500: #2E90FA,
-    600: #1570EF,
-    700: #175CD3,
-    800: #1849A9,
-    900: #194185,
-  ),
-  warning: (
-    25: #FFFCF5,
+  yellow: (
     50: #FFFAEB,
     100: #FEF0C7,
     200: #FEDF89,
@@ -40,8 +25,7 @@ $colors: (
     800: #93370D,
     900: #7A2E0E,
   ),
-  error: (
-    25: #FFFBFA,
+  red: (
     50: #FEF3F2,
     100: #FEE4E2,
     200: #FECDCA,
@@ -53,8 +37,7 @@ $colors: (
     800: #912018,
     900: #7A271A,
   ),
-  success: (
-    25: #F6FEF9,
+  green: (
     50: #ECFDF3,
     100: #D1FADF,
     200: #A6F4C5,
@@ -66,12 +49,19 @@ $colors: (
     800: #05603A,
     900: #054F31,
   ),
-
-  /*
-   * Other colors
-   */
+  blue-old: (
+    50: #e8edfb,
+    100: #bbcaf3,
+    200: #8ea7ec,
+    300: #6183e4,
+    400: #3460dc,
+    500: #1d4ed8,
+    600: #173ead,
+    700: #112f82,
+    800: #0c1f56,
+    900: #06102b,
+  ),
   blue: (
-    25: #F5FAFF,
     50: #EFF8FF,
     100: #D1E9FF,
     200: #B2DDFF,
@@ -84,7 +74,6 @@ $colors: (
     900: #194185,
   ),
   blue-light: (
-    25: #F5FBFF,
     50: #F0F9FF,
     100: #E0F2FE,
     200: #B9E6FE,
@@ -96,9 +85,38 @@ $colors: (
     800: #065986,
     900: #0B4A6F,
   ),
+  blue-green: (
+    50: #f1fdfb,
+    100: #e3faf8,
+    200: #c8f5f0,
+    300: #acf0e9,
+    400: #91ebe1,
+    500: #75e6da,
+    600: #5eb8ae,
+    700: #468a83,
+    800: #2f5c57,
+    900: #172e2c,
+  ),
+  dark: (
+    50: #ECECF2,
+    100: #DADAE6,
+    200: #4C4F59,
+    300: #424651,
+    400: #60606A,
+    500: #070708,
+    600: #050506,
+    700: #030305,
+    800: #020204,
+    900: #010103,
+  ),
 );
-$color-white: #ffffff;
-$color-black: #000000;
-$primary-text-color: map-get(map-get($colors, grey), 900);
-$secondary-text-color: map.get(map.get($colors, grey), 500);
-$border-color:  map.get(map.get($colors, grey), 300);
+
+$colors: map-merge($colors, ("neutral":  map.get($colors, grey)));
+$colors: map-merge($colors, ("primary":  map.get($colors, blue-old)));
+$colors: map-merge($colors, ("secondary":  map.get($colors, blue-green)));
+
+$colors: map-merge($colors, ("info":  map.get($colors, blue-light)));
+$colors: map-merge($colors, ("success":  map.get($colors, green)));
+$colors: map-merge($colors, ("warning":  map.get($colors, yellow)));
+$colors: map-merge($colors, ("error":  map.get($colors, red)));
+

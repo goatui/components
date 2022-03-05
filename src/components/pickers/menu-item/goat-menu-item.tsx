@@ -13,7 +13,7 @@ export class GoatMenu {
 
   private nativeInput?: HTMLElement;
 
-  private tabindex?: string | number = 0;
+  private tabindex?: string | number = 1;
 
 
   /**
@@ -30,6 +30,9 @@ export class GoatMenu {
    * Menu item selection state.
    */
   @Prop({ reflect: true }) selected: boolean = false;
+
+
+  @Prop() color: 'primary' | 'error' | 'warning' | 'success' | 'neutral' = 'primary';
 
   /**
    * Emitted when the menu item is clicked.
@@ -100,7 +103,10 @@ export class GoatMenu {
   };
 
   private keyDownHandler = (evt) => {
-    if (evt.key == 'Enter' || evt.key == ' ') this.isActive = true;
+    if (evt.key == 'Enter' || evt.key == ' ') {
+      this.isActive = true;
+      this.clickHandler(evt);
+    }
   };
 
 
@@ -118,12 +124,13 @@ export class GoatMenu {
   render = () => {
     return <Host active={this.isActive} has-focus={this.hasFocus}>
       <div
-        data-item-id={`item-${this.gid}`}
         ref={(el) => this.nativeInput = el as HTMLElement}
         class={{
           'menu-item': true,
           'selected': this.selected,
+          [`color-${this.color}`]: true,
           'active': this.isActive,
+          'disabled': this.disabled,
           'has-focus': this.hasFocus,
         }}
         tabindex={this.tabindex}

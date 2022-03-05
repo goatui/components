@@ -17,9 +17,9 @@
     overflow: hidden;
 
     &[disabled], &[disabled="true"] {
-      color: v(--color-grey-500);
-      background-color: v(--color-grey-100);
-      border-color: v(--color-grey-500);
+      color: v(--color-neutral-500);
+      background-color: v(--color-neutral-100);
+      border-color: v(--color-neutral-500);
       cursor: not-allowed;
     }
   }
@@ -32,12 +32,12 @@
 
   &.disabled.vs-light {
     .monaco-editor, .monaco-editor-background, .monaco-editor .inputarea.ime-input, .monaco-editor .margin {
-      background: v(--color-grey-200);
+      background: v(--color-neutral-200);
     }
   }
   &.disabled.vs-dark {
     .monaco-editor, .monaco-editor-background, .monaco-editor .inputarea.ime-input, .monaco-editor .margin {
-      background: v(--color-grey-800);
+      background: v(--color-neutral-800);
     }
   }
 

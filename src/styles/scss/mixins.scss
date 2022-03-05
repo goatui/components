@@ -1,3 +1,4 @@
+@use "sass:map";
 @import "functions";
 
 @mixin font-style($type) {
@@ -34,7 +35,38 @@
   letter-spacing: -0.04em;
 }
 
-@mixin focus-ring {
+@mixin focus-ring($color:primary) {
   outline: none;
-  box-shadow: 0 0 0 0.25rem rgba(#039be5, 25%);
+  @if $color {
+    box-shadow: 0 0 0 0.25rem rgba(map.get(map.get($colors, $color), 500), 25%);
+  } @else {
+    box-shadow: 0 0 0 0.25rem rgba(map.get(map.get($colors, blue-light), 500), 25%);
+  }
+}
+
+@mixin text-color($color, $important: false) {
+
+  @if $important {
+    color: $color !important;
+    --text-color: $color !important;
+  } @else {
+    color: $color;
+    --text-color: $color;
+  }
+}
+
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
 }

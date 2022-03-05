@@ -11,25 +11,24 @@
   line-height: 0;
 }
 
-:host([color="primary"]) .spinner path {
-  fill: v(--color-primary-500);
+
+
+@mixin colorType($color) {
+  .spinner path {
+    fill: v(--color-#{$color}-500);
+  }
 }
 
-:host([color="success"]) .spinner path {
-  fill: v(--color-success-500);
+:host {
+  .spinner path {
+    fill:  var(--text-color, v(--text-color-primary));
+  }
 }
 
-
-:host([color="warning"]) .spinner path {
-  fill: v(--color-warning-500);
-}
-
-:host([color="error"]) .spinner path {
-  fill: v(--color-error-500);
-}
-
-:host([color="grey"]) .spinner path {
-  fill: v(--color-grey-900);
+@each $color in [primary, info, success, warning, error] {
+  :host-context(.text-color-#{$color}) {
+    @include colorType($color);
+  }
 }
 
 @keyframes rainbow {
@@ -37,15 +36,13 @@
   20%  {fill:v(--color-success-500);}
   40%  {fill:v(--color-warning-500);}
   60%  {fill:v(--color-error-500);}
-  80% {fill:v(--color-grey-900);}
+  80% {fill:v(--text-color-primary);}
   100% {fill:v(--color-primary-500);}
 }
 
-:host([color="rainbow"]) .spinner path {
+:host(.rainbow) .spinner path {
   fill: v(--color-primary-500);
   animation-name: rainbow;
-  animation-duration: 4s;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
 }
-
-

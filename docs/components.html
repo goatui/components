@@ -31,22 +31,26 @@ title: Components
   }
 
   .card-wrapper .body {
-    height: 10rem;
+    height: 9rem;
   }
 
   .card-wrapper:hover .body {
-    background: var(--color-primary-100);
+    background: var(--color-neutral-100);
+  }
+
+  html[data-theme="dark"] .card-wrapper:hover .body {
+    background-color: var(--color-neutral-700);
   }
 
   .card-wrapper .header {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 10rem;
+    height: 14rem;
   }
 
-  goat-paragraph {
-    color: black;
+  .text {
+    --text-color: var(--text-color-primary);
   }
 </style>
 
@@ -64,8 +68,8 @@ title: Components
       </goat-card-content>
 
       <goat-card-content class='body'>
-        <goat-typography variant='heading' level='5'>{{component.metadata.name}}</goat-typography>
-        <goat-typography variant='paragraph' size='sm'>{{component.metadata.description}}</goat-typography>
+        <goat-text class="text" type='heading' level='5'>{{component.metadata.name}}</goat-text>
+        <goat-text class="text" type='paragraph' size='sm'>{{component.metadata.description}}</goat-text>
       </goat-card-content>
 
     </goat-card>

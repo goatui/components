@@ -1,55 +1,9 @@
 <!-- Sidebar -->
-<nav class="col-md-3 col-xl-2 bg-light duik-sidebar navbar-expand-md">
-  <div class="d-flex d-md-none justify-content-between mb-5">
-    <!-- Sidebar Search -->
-    <form class="col form-inline input-group-sm">
-      <input class="js-search form-control form-control-sm w-100" type="text" placeholder="Search..."
-             data-url="/assets/include/json/autocomplete-data-for-documentation-search.json">
-    </form>
-    <!-- End Sidebar Search -->
-
-    <!-- Responsive Toggle Button -->
-    <button class="btn btn-link pl-0" type="button" data-toggle="collapse" data-target="#sidebar-nav"
-            aria-controls="sidebar-nav" aria-expanded="false" aria-label="Toggle navigation">
-      <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 30 30" width="30" height="30" focusable="false">
-        <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10"
-              d="M4 7h22M4 15h22M4 23h22" />
-      </svg>
-    </button>
-    <!-- End Responsive Toggle Button -->
-  </div>
-
-  <!-- Sidebar Nav -->
-  <div class="collapse navbar-collapse" id="sidebar-nav">
-    <div class="js-scrollbar duik-sidebar-sticky">
-      <h5 class="duik-sidebar__heading">Introduction</h5>
-      <ul class="duik-sidebar__nav">
-        <li class="duik-sidebar__item"><a class="duik-sidebar__link {% if page.root == true %}active{% endif %}"
-                                          href="{% if page.root != true %}/{% endif %}#">About</a></li>
-      </ul>
-
-      {% for group in site.groups %}
-      <h5 class="duik-sidebar__heading">{{group.name}}</h5>
-      <ul class="duik-sidebar__nav">
-        {% for component in group.components %}
-        <li class="duik-sidebar__item"><a
-          class="duik-sidebar__link {% if page.title == component.name %}active{% endif %}" href="{{component.link}}">{{component.name}}</a>
-        </li>
-        {% endfor %}
-      </ul>
-      {% endfor %}
-
-
-      <h5 class="duik-sidebar__heading">WIP Components</h5>
-      <ul class="duik-sidebar__nav">
-        {% for component in site.components %}
-        <li class="duik-sidebar__item"><a
-          class="duik-sidebar__link {% if page.title == component.name %}active{% endif %}" href="{{component.link}}">{{component.name}}</a>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-  </div>
-  <!-- End Sidebar Nav -->
-</nav>
+<div class='col-xl-2 order-xl-2 d-none d-xl-inline-block'>
+  <ul class='js-scroll-nav duik-sidebar'>
+    {% for item in page.menu %}
+    <li class='duik-sidebar__item'><goat-link href='#doc-{{item.title | downcase | replace: " ", "-" | replace: "/", "-"}}'>{{item.title}}</goat-link></li>
+    {% endfor %}
+  </ul>
+</div>
 <!-- End Sidebar -->

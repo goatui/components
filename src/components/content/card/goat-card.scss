@@ -7,9 +7,13 @@
 }
 
 .card {
-  border: 1px solid v(--color-grey-200);
+  border: 1px solid v(--color-neutral-200);
   border-radius: v(--border-radius);
   height: 100%;
+  background-color: v(--color-white);
+}
+:host-context([data-theme="dark"]) .card {
+  background-color: v(--color-neutral-800);
 }
 
 :host([shadow-level="xxl"]) .card {

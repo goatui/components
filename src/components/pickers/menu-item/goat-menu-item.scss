@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   gap: v(--space-2);
-  color: v(--color-grey-700);
+  @include text-color(v(--color-neutral-700));
 
   .item-section {
     display: flex;
@@ -26,20 +26,45 @@
   }
 
   .slot-end {
-    color: v(--secondary-text-color);
-  }
-
-  &:hover {
-    background: v(--color-grey-100);
-    color: v(--primary-text-color);
+    @include text-color(v(--color-neutral-500));
   }
 
 }
 
-.menu-item.active, .menu-item.selected {
-  background: v(--color-grey-300);
-  color: v(--primary-text-color);
+@mixin menuItemColorVariant($color) {
+  &:hover, &.has-focus:not(.active) {
+    background: v(--color-#{$color}-100);
+    @include text-color(v(--color-#{$color}-500));
+    .slot-end {
+      @include text-color(v(--color-#{$color}-300));
+    }
+  }
+
+  &.active, &.selected {
+    background: v(--color-#{$color}-300);
+    @include text-color(v(--color-white));
+    .slot-end {
+      @include text-color(v(--color-white));
+    }
+  }
 }
+
+.menu-item.color-primary {
+  @include menuItemColorVariant(primary);
+}
+
+.menu-item.color-success {
+  @include menuItemColorVariant(success);
+}
+
+.menu-item.color-warning {
+  @include menuItemColorVariant(warning);
+}
+
+.menu-item.color-neutral {
+  @include menuItemColorVariant(neutral);
+}
+
 
 .menu-item.has-focus:not(.active) {
   @include focus-ring;
@@ -48,9 +73,17 @@
 
 .menu-item.disabled {
   cursor: not-allowed;
-  color: v(--color-grey-400) !important;
-  background: v(--color-grey-100) !important;
-  border-color: v(--color-grey-100) !important;
+  @include text-color(v(--color-neutral-400), true);
+
+  &:hover, &.has-focus:not(.active) {
+    background: transparent !important;
+    @include text-color(v(--color-neutral-400), true);
+  }
+
+  &.active, &.selected {
+    background: transparent !important;
+    @include text-color(v(--color-neutral-400), true);
+  }
 }
 
 

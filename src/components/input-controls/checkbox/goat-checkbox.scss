@@ -3,6 +3,7 @@
 
 :host {
   display: inline-block;
+  color: v(--text-color-primary);
 }
 
 .checkbox {
@@ -48,7 +49,7 @@
 
   &:hover {
     .box {
-      border: 1px solid v(--color-grey-500);
+      border: 1px solid v(--color-neutral-500);
       background: v(--color-primary-100);
     }
   }
@@ -164,11 +165,11 @@
 
 .checkbox.disabled {
   cursor: not-allowed;
-  color: v(--color-grey-400) !important;
-  border-color: v(--color-grey-400) !important;
+  color: v(--color-neutral-400) !important;
+  border-color: v(--color-neutral-400) !important;
 
   .box {
-    background: v(--color-grey-200) !important;
+    background: v(--color-neutral-200) !important;
   }
 
   &:hover {
@@ -178,7 +179,7 @@
   }
 
   .tick {
-    border-color: #{v(--color-grey-400)} !important;
+    border-color: #{v(--color-neutral-400)} !important;
   }
 
 }

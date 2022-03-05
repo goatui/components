@@ -7,10 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                                                                                                        | Type                                                                                 | Default              |
-| -------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | -------------------- |
-| `color`  | `color`   | Color variants. Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`, `"grey"`, `"rainbow"`, `"inherit"`. Defaults to `"inherit"`. | `"error" \| "grey" \| "inherit" \| "primary" \| "rainbow" \| "success" \| "warning"` | `'inherit'`          |
-| `size`   | `size`    | The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.                                          | `string`                                                                             | `ElementSize.MEDIUM` |
+| Property | Attribute | Description                                                                                               | Type     | Default |
+| -------- | --------- | --------------------------------------------------------------------------------------------------------- | -------- | ------- |
+| `size`   | `size`    | The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`. | `string` | `'md'`  |
 
 
 ## Dependencies
@@ -18,13 +17,11 @@
 ### Used by
 
  - [goat-button](../../input-controls/button)
- - [goat-select](../../input-controls/select)
 
 ### Graph
 ```mermaid
 graph TD;
   goat-button --> goat-spinner
-  goat-select --> goat-spinner
   style goat-spinner fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -1,82 +1,34 @@
 ---
 layout: component
 title: Spinner
-menu:
-- title: Usage
+sections:
+- title: Color Variants
+  source: sections/variants.html
 - title: Sizes
+  source: sections/sizes.html
 ---
 <div class="row pt-3">
 
-  {% include content-nav.html %}
+
+  {% include section-nav.html %}
 
   <!-- Content -->
-  <div class="col-xl-10 order-xl-1 duik-content border-bottom">
-    <div class="border-bottom mb-7">
-      <h1>{{ page.title }}</h1>
+  <div class='component-content'>
+
+    <div style='padding-bottom: var(--space-6)'>
+      <goat-text type='heading' size='md'>{{ page.title }}</goat-text>
+      <goat-text type='paragraph'>Use {{site.company}}’s custom input styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</goat-text>
     </div>
 
+    {% for section in page.sections %}
+    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style='padding-bottom: var(--space-4)'>
+      <goat-text type='heading' level='2' size='sm'>{{ section.title }}</goat-text>
 
-
-    <!-- Styles -->
-    <div id="doc-usage" class="mb-7">
-      <h2 class="h4">Usage <a class="js-anchor-link duik-anchorjs-link" href="#doc-usage"
-                                 aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
-
-      <goat-card>
-        <goat-card-content>
-          <goat-spinner color='grey'></goat-spinner>
-          <goat-spinner color="primary"></goat-spinner>
-          <goat-spinner color="success"></goat-spinner>
-          <goat-spinner color="warning"></goat-spinner>
-          <goat-spinner color="error"></goat-spinner>
-          <goat-spinner style="color:pink"></goat-spinner>
-
-          <br/>
-
-          <goat-spinner color="rainbow"></goat-spinner>
-        </goat-card-content>
-        <goat-card-content>
-          {% highlight html %}
-          <goat-spinner color='grey'></goat-spinner>
-          <goat-spinner color="primary"></goat-spinner>
-          <goat-spinner color="success"></goat-spinner>
-          <goat-spinner color="warning"></goat-spinner>
-          <goat-spinner color="error"></goat-spinner>
-          <goat-spinner style="color:pink"></goat-spinner>
-
-          <goat-spinner color="rainbow"></goat-spinner>
-          {% endhighlight %}
-        </goat-card-content>
-      </goat-card>
+      {% include_relative {{ section.source }} %}
     </div>
-    <!-- End Styles -->
-
-    <!-- Sizes -->
-    <div id="doc-sizes" class="mb-7">
-      <h2 class="h4">Sizes <a class="js-anchor-link duik-anchorjs-link" href="#doc-sizes"
-                              aria-label="Anchor" data-anchorjs-icon="#"></a></h2>
-      <p>Fancy larger or smaller spinners? Add size attribute for additional sizes.</p>
-
-      <goat-card>
-        <goat-card-content>
-          <goat-spinner size="sm"></goat-spinner>
-          <goat-spinner></goat-spinner>
-          <goat-spinner size="lg"></goat-spinner>
-          <goat-spinner size="xl"></goat-spinner>
-          <goat-spinner size="100px"></goat-spinner>
-        </goat-card-content>
-        <goat-card-content>
-          {% highlight html %}
-          <goat-spinner size="lg"></goat-spinner>
-          <goat-spinner></goat-spinner>
-          <goat-spinner size="sm"></goat-spinner>
-          <goat-spinner size="100px"></goat-spinner>
-          {% endhighlight %}
-          </goat-card-content>
-      </goat-card>
-
-    </div>
+    {% endfor %}
 
   </div>
   <!-- End Content -->
+
 </div>

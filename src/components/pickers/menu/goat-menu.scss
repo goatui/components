@@ -10,7 +10,7 @@
 .menu {
   background: v(--color-white);
   padding: v(--space-2) 0;
-  border: 1px solid v(--color-grey-200);
+  border: 1px solid v(--color-neutral-200);
   box-sizing: border-box;
   border-radius: var(--list-border-radius);
   box-shadow: v(--shadow-sm);
@@ -19,43 +19,12 @@
     display: block;
     width: 100%;
     margin: v(--space-1) 0;
-    border-top: 1px solid v(--color-grey-200);
+    border-top: 1px solid v(--color-neutral-200);
   }
 
- /* .group-container {
-    overflow-y: auto;
-    max-height: var(--list-max-height);
+  .empty-menu {
+    --text-color-primary: var(--color-neutral-900);
+    --text-color-secondary: var(--color-neutral-700);
   }
-
-  .group-label {
-    @include font-style(text-sm);
-    font-weight: v(--font-weight-semi-bold);
-    text-transform: uppercase;
-    padding: v(--space-1) v(--space-3);
-    box-sizing: border-box;
-    background: v(--color-grey-700);
-    color: v(--color-white);
-  }
-
-
-  .empty-state {
-    text-align: center;
-    padding: v(--space-4);
-
-    .empty-state-image {
-      padding: 0 v(--space-4) v(--space-4) v(--space-4);
-    }
-
-    .empty-state-title {
-      @include font-variant(p2);
-      font-weight: v(--font-weight-semi-bold);
-      padding-bottom: v(--space-2);
-    }
-
-    .empty-state-message {
-      @include font-variant(caption);
-      color: v(--color-grey-400);
-    }
-  }*/
 
 }

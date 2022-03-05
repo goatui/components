@@ -27,9 +27,14 @@ layout: minimal
     width: 20rem;
     position: fixed;
     top: 117px;
-    background: var(--color-grey-100);
+    background: var(--ui-background-secondary);
     height: calc(100vh - 117px);
     overflow-y: auto;
+    border-right: 1px solid var(--border-color);
+  }
+
+  [data-theme="dark"] .sidenav{
+    background: var(--color-neutral-800);
   }
 
   .sidenav-components{
@@ -40,20 +45,30 @@ layout: minimal
     padding: 0.5rem 1rem;
     width: 100%;
     text-decoration: none;
-    color: var(--color-grey-500);
+    color: var(--color-neutral-500);
     display: inline-block;
     font-size: var(--text-lg-font-size);
   }
 
   .sidenav-link:hover {
-    color: var(--color-grey-700);
-    background: var(--color-grey-200);
+    color: var(--color-neutral-700);
+    background: var(--color-neutral-200);
+  }
+
+  [data-theme="dark"] .sidenav-link:hover{
+    color: var(--color-neutral-200);
+    background: var(--color-neutral-700);
   }
 
   .sidenav-link.active {
-    color: var(--color-grey-800);
+    color: var(--color-neutral-800);
     font-weight: 600;
-    background: var(--color-grey-300);
+    background: var(--color-neutral-300);
+  }
+
+  [data-theme="dark"] .sidenav-link.active{
+    color: var(--color-neutral-100);
+    background: var(--color-neutral-700);
   }
 
   .main-content {
@@ -79,13 +94,19 @@ layout: minimal
     }
   }
 
+  .js-scroll-nav {
+    color: var(--text-color-primary);
+  }
+
 </style>
 <div class='sidenav m-hide'>
 
   <div class='sidenav-components'>
     {% for component in site.data.components %}
     {% if component.metadata.name %}
-    <a class='sidenav-link {% if page.title == component.metadata.name %}active{% endif %}' href='/components/{{component.tag | replace: "goat-", ""}}'>{{component.metadata.name}}</a>
+    <a class='sidenav-link {% if page.title == component.metadata.name %}active{% endif %}' href='/components/{{component.tag | replace: "goat-", ""}}'>
+      <goat-text>{{component.metadata.name}}</goat-text>
+    </a>
     {% endif %}
     {% endfor %}
   </div>
@@ -97,18 +118,20 @@ layout: minimal
 
   <div id="disqus_thread"></div>
   <script>
-
     /**
      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
     var disqus_config = function () {
-      this.page.url = "{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}";  /* Replace PAGE_URL with your page's canonical URL variable */
-      this.page.identifier = "{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
-    (function() { /* DON'T EDIT BELOW THIS LINE */
-      var d = document, s = d.createElement('script');
-      s.src = 'https://ui-p4rm-com.disqus.com/embed.js';
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+      if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "")
+        return;
+      const d = document, s = d.createElement('script');
+      s.src = 'https://goatui.disqus.com/embed.js';
       s.setAttribute('data-timestamp', +new Date());
       (d.head || d.body).appendChild(s);
     })();
@@ -116,9 +139,10 @@ layout: minimal
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
   <div class='footer'>
-    <hr/>
-    <goat-paragraph size='sm'>&copy; 2021 <goat-link href="https://shivajivarma.com">Shivaji Varma</goat-link>. All Rights Reserved.</goat-paragraph>
+    <goat-divider></goat-divider>
+    <goat-text type='paragraph' size='sm'>&copy; 2021 <goat-link href="https://shivajivarma.com">Shivaji Varma</goat-link>. All Rights Reserved.</goat-text>
   </div>
+
 
 
 </div>

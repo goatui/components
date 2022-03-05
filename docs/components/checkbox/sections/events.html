@@ -1,0 +1,21 @@
+<goat-text type='paragraph'>On change of checkbox value a <b>CustomEvent</b> <code class='highlighter-rouge'
+                                                                                   data-lang='html'>goat:change</code>
+  is triggered by the element.</goat-text>
+
+<goat-card>
+  <goat-card-content>
+    <goat-checkbox id='change-checkbox-field'>Change Event?</goat-checkbox>
+    <script>
+      document.querySelector('#change-checkbox-field').addEventListener('goat:change', function(event) {
+        myConsole.log('Input changed to :: ' + event.target.value);
+      });
+    </script>
+  </goat-card-content>
+  <goat-card-content>
+    {% highlight js %}
+    document.querySelector('#change-checkbox-field').addEventListener('goat:change', function(event) {
+    console.log('Input changed to :: ' + event.target.value);
+    });
+    {% endhighlight %}
+  </goat-card-content>
+</goat-card>
