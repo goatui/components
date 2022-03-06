@@ -1,5 +1,5 @@
-import { Component, Event, EventEmitter, h, Host, Prop, Watch } from '@stencil/core';
-import { debounceEvent, loadScript } from '../../../utils/utils';
+import { Component, ComponentInterface, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
+import { debounceEvent, getGoatIndex, loadScript } from '../../../utils/utils';
 
 let scriptLoaded = false;
 
@@ -13,20 +13,25 @@ let scriptLoaded = false;
   styleUrl: 'goat-code-editor.scss',
   shadow: true,
 })
-export class GoatCodeEditor {
+export class GoatCodeEditor implements ComponentInterface, InputComponentInterface {
 
-  private editorElement?: HTMLElement;
-  private editorMonacoInstance;
+  gid: string = getGoatIndex();
+
 
   /**
    * The input field name.
    */
-  @Prop() name: string;
+  @Prop() name: string = `goat-input-${this.gid}`;
 
   /**
    * The input field value.
    */
   @Prop({ mutable: true }) value: string;
+
+  /**
+   * If true, required icon is show. Defaults to `false`.
+   */
+  @Prop({ reflect: true }) required: boolean = false;
 
 
   /**
@@ -49,6 +54,8 @@ export class GoatCodeEditor {
    * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
    */
   @Prop() debounce = 250;
+
+  @State() hasFocus = false;
 
 
   @Watch('debounce')
@@ -78,6 +85,35 @@ export class GoatCodeEditor {
     }
   }
 
+  @Method()
+  async getGid() {
+    return this.gid;
+  }
+
+  /**
+   * Sets focus on the native `input` in `goat-input`. Use this method instead of the global
+   * `input.focus()`.
+   */
+  @Method()
+  async setFocus() {
+    if (this.editorMonacoInstance) {
+      this.editorMonacoInstance.focus();
+    }
+  }
+
+  /**
+   * Sets blur on the native `input` in `goat-input`. Use this method instead of the global
+   * `input.blur()`.
+   */
+  @Method()
+  async setBlur() {
+    if (this.editorMonacoInstance) {
+      this.editorMonacoInstance.blur();
+    }
+  }
+
+  private editorElement?: HTMLElement;
+  private editorMonacoInstance;
 
   async componentWillLoad() {
     this.debounceChanged();
@@ -111,25 +147,31 @@ export class GoatCodeEditor {
       readOnly: this.disabled,
     });
 
+
     this.editorMonacoInstance.onDidChangeModelContent(() => {
       this.value = this.editorMonacoInstance.getValue();
       this.p4Change.emit({ value: this.value });
     });
-  }
 
-  getCssClasses() {
-    const cls = ['component', 'code-editor-component'];
-    cls.push(this.theme);
-    if (this.disabled)
-      cls.push('disabled');
-    return cls.join(' ');
-  }
+    this.editorMonacoInstance.onDidFocusEditorText(() => {
+      this.hasFocus = true;
+    });
 
+    this.editorMonacoInstance.onDidBlurEditorText(() => {
+      this.hasFocus = false;
+    });
+  }
 
   render() {
     return (
       <Host>
-        <div class={this.getCssClasses()}>
+        <div class={{
+          'component': true,
+          'code-editor-component': true,
+          [this.theme]: true,
+          'disabled': this.disabled,
+          'has-focus': this.hasFocus,
+        }}>
           <div class='editor' ref={el => this.editorElement = el} />
         </div>
       </Host>

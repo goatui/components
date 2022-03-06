@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   gap: v(--space-2);
-  @include text-color(v(--color-neutral-700));
+  @include text-color(v(--text-color-secondary));
 
   .item-section {
     display: flex;
@@ -28,7 +28,7 @@
   }
 
   .slot-end {
-    @include text-color(v(--color-neutral-500));
+    @include text-color(v(--text-color-tertiary));
   }
 
 }

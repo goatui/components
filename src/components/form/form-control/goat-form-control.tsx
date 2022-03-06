@@ -24,6 +24,13 @@ export class GoatFormControl implements ComponentInterface {
    */
   @Prop() caption: string;
 
+
+  @Prop() error: string;
+
+  @Prop() warning: string;
+
+  @Prop() success: string;
+
   /**
    * Whether the form control is required.
    */
@@ -31,35 +38,41 @@ export class GoatFormControl implements ComponentInterface {
 
   @Element() elm!: HTMLElement;
 
+  private controlElm!: HTMLElement;
+
   componentDidLoad() {
     this.elm.setAttribute('role', 'group');
     for (const compName of ['goat-input', 'goat-textarea', 'goat-select', 'goat-checkbox', 'goat-radio', 'goat-code-editor']) {
-      const comp = this.elm.querySelector(`${compName}`);
-      if (comp) {
-        // @ts-ignore
-        comp.required = this.required;
-        if (this.label) {
-          // @ts-ignore
-          const oldProps = comp.configAria;
-          // @ts-ignore
-          comp.configAria = {
-            'aria-label': this.label,
-            ...oldProps
-          };
-        }
-      }
+      this.controlElm = this.elm.querySelector(`${compName}`);
+      this.passRequiredToField(this.required);
+      this.passLabelToField(this.label);
+    }
+  }
+
+  passRequiredToField(required: boolean) {
+    if (this.controlElm) {
+      // @ts-ignore
+      this.controlElm.required = required;
+    }
+  }
+
+  passLabelToField(label: string) {
+    if (this.controlElm) {
+      // @ts-ignore
+      const oldProps = this.controlElm.configAria;
+      // @ts-ignore
+      comp.configAria = {
+        'aria-label': label,
+        ...oldProps,
+      };
     }
   }
 
   componentShouldUpdate(newVal: any, _oldVal, propName: string): boolean | void {
     if (propName === 'required') {
-      for (const compName of ['goat-input', 'goat-textarea', 'goat-select']) {
-        const comp = this.elm.querySelector(`${compName}`);
-        if (comp) {
-          // @ts-ignore
-          comp.required = newVal;
-        }
-      }
+      this.passRequiredToField(newVal);
+    } else if (propName === 'label') {
+      this.passLabelToField(newVal);
     }
   }
 
@@ -71,20 +84,49 @@ export class GoatFormControl implements ComponentInterface {
       </label>;
   }
 
-  renderCaption() {
-    if (this.caption)
-      return 'Caption';
+
+  renderSubtitle() {
+    if (this.error)
+      return <div class='subtitle-error'>
+        {this.error}
+      </div>;
+    else if (this.success)
+      return <div class='subtitle-success'>
+        {this.success}
+      </div>;
+    else if (this.warning)
+      return <div class='subtitle-warning'>
+        {this.warning}
+      </div>;
+    else if (this.caption)
+      return <div class='subtitle-caption'>
+        {this.caption}
+      </div>;
+  }
+
+  getInputState() {
+    if (this.error)
+      return 'input-state-error';
+    else if (this.success)
+      return 'input-state-success';
+    else if (this.warning)
+      return 'input-state-warning';
+    return 'input-state-default';
   }
 
   render() {
     return (
-      <Host>
+      <Host class={{
+        [this.getInputState()]: true,
+      }}>
         <div class='form-control'>
           {this.renderLabel()}
           <div class='field'>
             <slot />
           </div>
-          {this.renderCaption()}
+          <div class='subtitle'>
+            {this.renderSubtitle()}
+          </div>
         </div>
       </Host>
     );

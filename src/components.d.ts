@@ -114,12 +114,25 @@ export namespace Components {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
+        "getGid": () => Promise<string>;
         "language": 'javascript' | 'json' | 'html';
         "lineNumbers": 'off' | 'on';
         /**
           * The input field name.
          */
         "name": string;
+        /**
+          * If true, required icon is show. Defaults to `false`.
+         */
+        "required": boolean;
+        /**
+          * Sets blur on the native `input` in `goat-input`. Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `input` in `goat-input`. Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
         "theme": 'vs-light' | 'vs-dark';
         /**
           * The input field value.
@@ -155,6 +168,7 @@ export namespace Components {
           * The caption for the form control.
          */
         "caption": string;
+        "error": string;
         /**
           * The label for the form control.
          */
@@ -163,6 +177,8 @@ export namespace Components {
           * Whether the form control is required.
          */
         "required": boolean;
+        "success": string;
+        "warning": string;
     }
     interface GoatIcon {
         "shade": 'primary' | 'secondary' | 'tertiary';
@@ -697,6 +713,10 @@ declare namespace LocalJSX {
           * Emitted when the value has changed..
          */
         "onGoat:change"?: (event: CustomEvent<any>) => void;
+        /**
+          * If true, required icon is show. Defaults to `false`.
+         */
+        "required"?: boolean;
         "theme"?: 'vs-light' | 'vs-dark';
         /**
           * The input field value.
@@ -731,6 +751,7 @@ declare namespace LocalJSX {
           * The caption for the form control.
          */
         "caption"?: string;
+        "error"?: string;
         /**
           * The label for the form control.
          */
@@ -739,6 +760,8 @@ declare namespace LocalJSX {
           * Whether the form control is required.
          */
         "required"?: boolean;
+        "success"?: string;
+        "warning"?: string;
     }
     interface GoatIcon {
         "shade"?: 'primary' | 'secondary' | 'tertiary';

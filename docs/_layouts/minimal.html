@@ -74,6 +74,22 @@ layout: default
   figure {
     margin: 0;
   }
+
+  .show-desktop {
+    display: block;
+  }
+  .show-mobile {
+    display: none;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .show-desktop {
+      display: none;
+    }
+    .show-mobile {
+      display: block;
+    }
+  }
 </style>
 
 <nav class='top-nav'>
@@ -110,15 +126,17 @@ layout: default
         applyTheme(localStorage.getItem('theme') || 'light');
       </script>
       {% if page.root %}
-      <goat-button href='https://github.com/{{site.github_username}}/{{site.github_project}}' class='nav-item'
-                   target='_blank'>
+      <goat-button class='show-desktop' href='https://github.com/{{site.github_username}}/{{site.github_project}}' class='nav-item' target='_blank'>
         Github
       </goat-button>
+      <goat-button class='show-mobile' icon='github' aria-label='Github' href='https://github.com/{{site.github_username}}/{{site.github_project}}' class='nav-item' target='_blank'></goat-button>
       {% else %}
-      <goat-button href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues' class='nav-item'
+      <goat-button class='show-desktop' href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues' class='nav-item'
                    target='_blank'>
         Report Issue
       </goat-button>
+      <goat-button class='show-mobile' icon='bug' aria-label='Report Issue' href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues' class='nav-item'
+                   target='_blank'></goat-button>
       {% endif %}
 
     </div>

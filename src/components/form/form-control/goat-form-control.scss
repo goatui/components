@@ -2,12 +2,20 @@
 
 :host {
   display: block;
-  margin-bottom: v(--space-2);
+  margin-bottom: v(--space-4);
 }
 
 .form-control {
   display: flex;
   flex-direction: column;
+
+  slot::slotted(goat-input),
+  slot::slotted(goat-textarea),
+  slot::slotted(goat-checkbox),
+  slot::slotted(goat-radio),
+  slot::slotted(goat-code-editor){
+    margin-bottom: 0.375rem;
+  }
 }
 
 .label {
@@ -26,8 +34,21 @@
   }
 }
 
-.caption {
+.subtitle {
   @include font-style(text-xs);
+  font-weight: v(--font-weight-regular);
+  .subtitle-caption {
+    color: v(--text-color-tertiary);
+  }
+  .subtitle-error {
+    color: v(--color-error-500);
+  }
+  .subtitle-success {
+    color: v(--color-success-500);
+  }
+  .subtitle-warning {
+    color: v(--color-warning-500);
+  }
 }
 
 

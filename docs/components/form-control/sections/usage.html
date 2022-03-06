@@ -1,15 +1,18 @@
 {% capture sample-code %}
-<goat-form-control label='Full Name' required>
+<goat-form-control label='Full Name' required caption='Write your first and last name'>
   <goat-input type='text'></goat-input>
 </goat-form-control>
-<goat-form-control label='Description' required>
-  <goat-textarea></goat-textarea>
+<goat-form-control label='Description' required error='Not a valid input'>
+  <goat-textarea value='Some random invalid text'></goat-textarea>
 </goat-form-control>
-<goat-form-control label='Age'>
+<goat-form-control label='Age'  success='Thanks for filling age'>
   <goat-input type='number'></goat-input>
 </goat-form-control>
-<goat-form-control label='Do you like ice cream?' required>
+<goat-form-control label='Do you like ice cream?' required warning='Dude check this fast!'>
   <goat-checkbox></goat-checkbox>
+</goat-form-control>
+<goat-form-control label='Write some script' required warning='You can code here!' >
+  <goat-code-editor style='height: 20rem' value='function add(a,b){ return a+b;}'></goat-code-editor>
 </goat-form-control>
 {% endcapture %}
 {% include demo-html.html content=sample-code %}

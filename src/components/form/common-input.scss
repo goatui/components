@@ -81,43 +81,38 @@
 
   .input-action {
     cursor: pointer;
+
     &:hover {
       --text-color: var(--text-color-secondary);
     }
   }
 }
 
-@mixin inputState($color) {
-  .input-container {
-    border-color: v(--color-#{$color}-500);
-  }
 
-  .input-container.has-focus {
-    @include focus-ring($color);
-  }
-}
 
 /**
  * States
  */
-:host([state="default"]) {
-  .input-container.has-focus {
-    @include focus-ring
+.input-container.has-focus {
+  @include focus-ring
+}
+
+@each $state in [success, warning, error] {
+  :host-context(.input-state-#{$state}) {
+    .input-container {
+      border-color: v(--color-#{$state}-500);
+
+      &.has-focus {
+        @include focus-ring($state);
+      }
+    }
   }
 }
 
-:host([state="success"]) {
-  @include inputState(success);
-}
 
-:host([state="error"]) {
-  @include inputState(error);
-}
-
-:host([state="warning"]) {
-  @include inputState(warning);
-}
-
+/**
+ * Sizes
+ */
 :host([size="sm"]) .input-container {
   padding: 0.5rem 0.75rem;
 

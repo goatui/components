@@ -35,11 +35,36 @@
       background: v(--color-neutral-200);
     }
   }
+
   &.disabled.vs-dark {
     .monaco-editor, .monaco-editor-background, .monaco-editor .inputarea.ime-input, .monaco-editor .margin {
       background: v(--color-neutral-800);
     }
   }
 
+}
+
+
+/**
+ * States
+ */
+.code-editor-component.has-focus .editor {
+  @include focus-ring
+}
+
+@each $state in [success, warning, error] {
+  :host-context(.input-state-#{$state}) {
+    .code-editor-component {
+      .editor {
+        border-color: v(--color-#{$state}-500);
+      }
+
+      &.has-focus {
+        .editor {
+          @include focus-ring($state);
+        }
+      }
+    }
+  }
 }
 

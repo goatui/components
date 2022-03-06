@@ -1026,9 +1026,27 @@
         "reflectToAttr": false,
         "docs": "The input field name.",
         "docsTags": [],
+        "default": "`goat-input-${this.gid}`",
         "values": [
           {
             "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "required",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "required",
+        "reflectToAttr": true,
+        "docs": "If true, required icon is show. Defaults to `false`.",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
           }
         ],
         "optional": false,
@@ -1073,7 +1091,41 @@
         "required": false
       }
     ],
-    "methods": [],
+    "methods": [
+      {
+        "name": "getGid",
+        "returns": {
+          "type": "Promise<string>",
+          "docs": ""
+        },
+        "signature": "getGid() => Promise<string>",
+        "parameters": [],
+        "docs": "",
+        "docsTags": []
+      },
+      {
+        "name": "setBlur",
+        "returns": {
+          "type": "Promise<void>",
+          "docs": ""
+        },
+        "signature": "setBlur() => Promise<void>",
+        "parameters": [],
+        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+        "docsTags": []
+      },
+      {
+        "name": "setFocus",
+        "returns": {
+          "type": "Promise<void>",
+          "docs": ""
+        },
+        "signature": "setFocus() => Promise<void>",
+        "parameters": [],
+        "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+        "docsTags": []
+      }
+    ],
     "events": [
       {
         "event": "goat:change",
@@ -1509,6 +1561,22 @@
         "required": false
       },
       {
+        "name": "error",
+        "type": "string",
+        "mutable": false,
+        "attr": "error",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "values": [
+          {
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
         "name": "label",
         "type": "string",
         "mutable": false,
@@ -1536,6 +1604,38 @@
         "values": [
           {
             "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "success",
+        "type": "string",
+        "mutable": false,
+        "attr": "success",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "values": [
+          {
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "warning",
+        "type": "string",
+        "mutable": false,
+        "attr": "warning",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "values": [
+          {
+            "type": "string"
           }
         ],
         "optional": false,

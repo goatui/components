@@ -69,18 +69,13 @@
     }
   }
 
-  .search-loader {
-    display: flex;
-    align-items: center;
-  }
-
   .start-search {
     height: 10rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: v(--space-3)
+    gap: v(--space-3);
   }
 
 }

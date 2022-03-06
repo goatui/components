@@ -31,11 +31,12 @@ menu:
     <!-- Usage -->
     <div id='doc-usage' class='mb-7'>
 
-      <h2 class='h4'>Examples <a class='js-anchor-link duik-anchorjs-link' href='#doc-usage'
+      <h2 class='h4'>Usage <a class='js-anchor-link duik-anchorjs-link' href='#doc-usage'
                                  aria-label='Anchor' data-anchorjs-icon='#'></a></h2>
-      <p>Here is code editor component, currently supports JS and JSON editing.</p>
-      <div class='card'>
-        <div class='card-header'>
+
+      <goat-text type='paragraph'>Here is code editor component, currently supports JS and JSON editing.</goat-text>
+      <goat-card>
+        <goat-card-content>
           <goat-checkbox id='disableEditor'>Disable editor</goat-checkbox>
           <goat-checkbox id='darkTheme'>Dark Theme</goat-checkbox>
 
@@ -58,29 +59,29 @@ menu:
               document.getElementById('business-rule-editor').theme = evt.target.value ? 'vs-dark' : 'vs-light';
             });
           </script>
-        </div>
-        <div class='card-body'>
+        </goat-card-content>
+        <goat-card-content>
           {% highlight html %}
           <goat-code-editor id='business-rule-editor' style='height: 300px'></goat-code-editor>
           {% endhighlight %}
-        </div>
-        <div class='card-body'>
+        </goat-card-content>
+        <goat-card-content>
           {% highlight js %}
           document.getElementById('business-rule-editor').value = `
           /**
           * Sample Code
           */
           function myBusinessRuleFunction(){
-            const a = 1;
-            const b = 2;
-            let c = a + b;
-            console.log(c);
+          const a = 1;
+          const b = 2;
+          let c = a + b;
+          console.log(c);
           }
           `;
           {% endhighlight %}
 
-        </div>
-      </div>
+        </goat-card-content>
+      </goat-card>
     </div>
     <!-- End Usage -->
 
