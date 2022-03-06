@@ -18,14 +18,18 @@
 
 ### Used by
 
- - [goat-button](../../input-controls/button)
- - [goat-input](../../input-controls/input)
+ - [goat-button](../../form/button)
+ - [goat-input](../../form/input)
+ - [goat-select](../../form/select)
+ - [goat-textarea](../../form/textarea)
 
 ### Graph
 ```mermaid
 graph TD;
   goat-button --> goat-icon
   goat-input --> goat-icon
+  goat-select --> goat-icon
+  goat-textarea --> goat-icon
   style goat-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

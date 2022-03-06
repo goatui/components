@@ -1,0 +1,23 @@
+@import "../../../styles/scss/commons";
+
+:host {
+  display: inline-block;
+  --list-border-radius: #{v(--border-radius)};
+  --list-max-height: inherit;
+}
+
+
+.menu {
+  background: v(--color-white);
+  padding: v(--space-2) 0;
+  border: 1px solid v(--color-neutral-200);
+  box-sizing: border-box;
+  border-radius: var(--list-border-radius);
+  box-shadow: v(--shadow-sm);
+
+  .empty-menu {
+    --text-color-primary: var(--color-neutral-900);
+    --text-color-secondary: var(--color-neutral-700);
+  }
+
+}

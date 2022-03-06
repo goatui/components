@@ -93,22 +93,6 @@ export async function loadScript(src) {
   });
 }
 
-export const findItemLabel = (componentEl: HTMLElement) => {
-  const itemEl = componentEl.closest('p4-field-group');
-  if (itemEl) {
-    return itemEl.querySelector('p4-label');
-  }
-  return null;
-};
-
-export const getSelectedKeys = (map) => {
-  const result = [];
-  for (const key in map)
-    if (map[key])
-      result.push(key);
-  return result;
-};
-
 export const getFromObject = (obj, path, defaultValue = undefined) => {
   const travel = regexp =>
     String.prototype.split

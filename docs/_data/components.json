@@ -1,10 +1,10 @@
 [
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/informational/alert",
-    "filePath": "./src/components/informational/alert/goat-alert.tsx",
+    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/content/alert",
+    "filePath": "./src/components/content/alert/goat-alert.tsx",
     "fileName": "goat-alert.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/informational/alert/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/informational/alert/usage",
+    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/content/alert/readme.md",
+    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/content/alert/usage",
     "tag": "goat-alert",
     "readme": "# goat-alert\n\n\n",
     "usage": {},
@@ -202,11 +202,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/input-controls/button",
-    "filePath": "./src/components/input-controls/button/goat-button.tsx",
+    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/form/button",
+    "filePath": "./src/components/form/button/goat-button.tsx",
     "fileName": "goat-button.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/input-controls/button/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/input-controls/button/usage",
+    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/form/button/readme.md",
+    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/form/button/usage",
     "tag": "goat-button",
     "readme": "# goat-button\n\n\n",
     "usage": {},
@@ -293,6 +293,23 @@
           {
             "value": "warning",
             "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "configAria",
+        "type": "any",
+        "mutable": true,
+        "attr": "config-aria",
+        "reflectToAttr": true,
+        "docs": "",
+        "docsTags": [],
+        "default": "{}",
+        "values": [
+          {
+            "type": "any"
           }
         ],
         "optional": false,
@@ -417,31 +434,33 @@
       },
       {
         "name": "size",
-        "type": "ElementSize.LARGE | ElementSize.MEDIUM | ElementSize.SMALL | ElementSize.XXX_LARGE | ElementSize.XX_LARGE | ElementSize.X_LARGE",
+        "type": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xxl\"",
         "mutable": false,
         "attr": "size",
         "reflectToAttr": false,
         "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`. Defaults to `\"md\"`.",
         "docsTags": [],
-        "default": "ElementSize.MEDIUM",
+        "default": "'md'",
         "values": [
           {
-            "type": "ElementSize.LARGE"
+            "value": "lg",
+            "type": "string"
           },
           {
-            "type": "ElementSize.MEDIUM"
+            "value": "md",
+            "type": "string"
           },
           {
-            "type": "ElementSize.SMALL"
+            "value": "sm",
+            "type": "string"
           },
           {
-            "type": "ElementSize.XXX_LARGE"
+            "value": "xl",
+            "type": "string"
           },
           {
-            "type": "ElementSize.XX_LARGE"
-          },
-          {
-            "type": "ElementSize.X_LARGE"
+            "value": "xxl",
+            "type": "string"
           }
         ],
         "optional": false,
@@ -605,11 +624,11 @@
     "metadata": {}
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/input-controls/checkbox",
-    "filePath": "./src/components/input-controls/checkbox/goat-checkbox.tsx",
+    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/form/checkbox",
+    "filePath": "./src/components/form/checkbox/goat-checkbox.tsx",
     "fileName": "goat-checkbox.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/input-controls/checkbox/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/input-controls/checkbox/usage",
+    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/form/checkbox/readme.md",
+    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/form/checkbox/usage",
     "tag": "goat-checkbox",
     "readme": "# goat-checkbox\n\n\n",
     "usage": {},
@@ -639,6 +658,23 @@
       ]
     },
     "props": [
+      {
+        "name": "configAria",
+        "type": "any",
+        "mutable": true,
+        "attr": "config-aria",
+        "reflectToAttr": true,
+        "docs": "",
+        "docsTags": [],
+        "default": "{}",
+        "values": [
+          {
+            "type": "any"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
       {
         "name": "disabled",
         "type": "boolean",
@@ -681,6 +717,23 @@
         "reflectToAttr": false,
         "docs": "The checkbox label.",
         "docsTags": [],
+        "values": [
+          {
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "mutable": false,
+        "attr": "name",
+        "reflectToAttr": false,
+        "docs": "The input field name.",
+        "docsTags": [],
+        "default": "`goat-input-${this.gid}`",
         "values": [
           {
             "type": "string"
@@ -855,11 +908,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/input-controls/code-editor",
-    "filePath": "./src/components/input-controls/code-editor/goat-code-editor.tsx",
+    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/form/code-editor",
+    "filePath": "./src/components/form/code-editor/goat-code-editor.tsx",
     "fileName": "goat-code-editor.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/input-controls/code-editor/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/input-controls/code-editor/usage",
+    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/form/code-editor/readme.md",
+    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/form/code-editor/usage",
     "tag": "goat-code-editor",
     "readme": "# goat-code-editor\n\n\n",
     "usage": {},
@@ -1102,11 +1155,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/other/dropdown",
-    "filePath": "./src/components/other/dropdown/goat-dropdown.tsx",
+    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/menus/dropdown",
+    "filePath": "./src/components/menus/dropdown/goat-dropdown.tsx",
     "fileName": "goat-dropdown.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/other/dropdown/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/other/dropdown/usage",
+    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/menus/dropdown/readme.md",
+    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/menus/dropdown/usage",
     "tag": "goat-dropdown",
     "readme": "# goat-dropdown\n\n\n",
     "usage": {},
@@ -1131,45 +1184,12 @@
     "dependencyGraph": {},
     "props": [
       {
-        "name": "data",
-        "type": "any[]",
-        "mutable": false,
-        "reflectToAttr": false,
-        "docs": "",
-        "docsTags": [],
-        "default": "[]",
-        "values": [
-          {
-            "type": "any[]"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
         "name": "disabled",
         "type": "boolean",
         "mutable": false,
         "attr": "disabled",
         "reflectToAttr": false,
         "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
-        "docsTags": [],
-        "default": "false",
-        "values": [
-          {
-            "type": "boolean"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "enableSearch",
-        "type": "boolean",
-        "mutable": false,
-        "attr": "enable-search",
-        "reflectToAttr": false,
-        "docs": "",
         "docsTags": [],
         "default": "false",
         "values": [
@@ -1198,40 +1218,6 @@
         "required": false
       },
       {
-        "name": "itemVariant",
-        "type": "any",
-        "mutable": false,
-        "attr": "item-variant",
-        "reflectToAttr": false,
-        "docs": "",
-        "docsTags": [],
-        "default": "'default'",
-        "values": [
-          {
-            "type": "any"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "listVariant",
-        "type": "any",
-        "mutable": false,
-        "attr": "list-variant",
-        "reflectToAttr": false,
-        "docs": "",
-        "docsTags": [],
-        "default": "'default'",
-        "values": [
-          {
-            "type": "any"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
         "name": "positions",
         "type": "string",
         "mutable": false,
@@ -1239,27 +1225,10 @@
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
-        "default": "\"bottom-right,top-right,bottom-left,top-left\"",
+        "default": "'bottom-right,top-right,bottom-left,top-left'",
         "values": [
           {
             "type": "string"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "showLoader",
-        "type": "boolean",
-        "mutable": false,
-        "attr": "show-loader",
-        "reflectToAttr": false,
-        "docs": "",
-        "docsTags": [],
-        "default": "false",
-        "values": [
-          {
-            "type": "boolean"
           }
         ],
         "optional": false,
@@ -1348,11 +1317,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/informational/empty-state",
-    "filePath": "./src/components/informational/empty-state/goat-empty-state.tsx",
+    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/content/empty-state",
+    "filePath": "./src/components/content/empty-state/goat-empty-state.tsx",
     "fileName": "goat-empty-state.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/informational/empty-state/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/informational/empty-state/usage",
+    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/content/empty-state/readme.md",
+    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/content/empty-state/usage",
     "tag": "goat-empty-state",
     "readme": "# goat-heading\n\n\n",
     "usage": {},
@@ -1431,11 +1400,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/other/flow-designer",
-    "filePath": "./src/components/other/flow-designer/goat-flow-designer.tsx",
+    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/flow-designer/flow-designer",
+    "filePath": "./src/components/flow-designer/flow-designer/goat-flow-designer.tsx",
     "fileName": "goat-flow-designer.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/other/flow-designer/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/other/flow-designer/usage",
+    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/flow-designer/flow-designer/readme.md",
+    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/flow-designer/flow-designer/usage",
     "tag": "goat-flow-designer",
     "readme": "# goat-flow-designer\n\n\n",
     "usage": {},
@@ -1495,28 +1464,57 @@
     "metadata": {}
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/input-controls/form-control",
-    "filePath": "./src/components/input-controls/form-control/goat-form-control.tsx",
+    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/form/form-control",
+    "filePath": "./src/components/form/form-control/goat-form-control.tsx",
     "fileName": "goat-form-control.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/input-controls/form-control/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/input-controls/form-control/usage",
+    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/form/form-control/readme.md",
+    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/form/form-control/usage",
     "tag": "goat-form-control",
     "readme": "# goat-field-group\n\n\n",
     "usage": {},
     "docs": "",
-    "docsTags": [],
+    "docsTags": [
+      {
+        "name": "name",
+        "text": "Form Control"
+      },
+      {
+        "name": "description",
+        "text": "The Form Control component adds a label and caption for its child control."
+      },
+      {
+        "name": "example",
+        "text": "<goat-form-control label='Full Name' required>\n<goat-input type='text'></goat-input>\n</goat-form-control>"
+      }
+    ],
     "encapsulation": "shadow",
     "dependents": [],
     "dependencies": [],
     "dependencyGraph": {},
     "props": [
       {
+        "name": "caption",
+        "type": "string",
+        "mutable": false,
+        "attr": "caption",
+        "reflectToAttr": false,
+        "docs": "The caption for the form control.",
+        "docsTags": [],
+        "values": [
+          {
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
         "name": "label",
         "type": "string",
         "mutable": false,
         "attr": "label",
         "reflectToAttr": false,
-        "docs": "",
+        "docs": "The label for the form control.",
         "docsTags": [],
         "values": [
           {
@@ -1532,7 +1530,7 @@
         "mutable": false,
         "attr": "required",
         "reflectToAttr": false,
-        "docs": "",
+        "docs": "Whether the form control is required.",
         "docsTags": [],
         "default": "false",
         "values": [
@@ -1550,7 +1548,11 @@
     "slots": [],
     "parts": [],
     "listeners": [],
-    "metadata": {}
+    "metadata": {
+      "name": "Form Control",
+      "description": "The Form Control component adds a label and caption for its child control.",
+      "example": "<goat-form-control label='Full Name' required>\n<goat-input type='text'></goat-input>\n</goat-form-control>"
+    }
   },
   {
     "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/content/icon",
@@ -1579,7 +1581,9 @@
     "encapsulation": "shadow",
     "dependents": [
       "goat-button",
-      "goat-input"
+      "goat-input",
+      "goat-select",
+      "goat-textarea"
     ],
     "dependencies": [],
     "dependencyGraph": {
@@ -1587,6 +1591,12 @@
         "goat-icon"
       ],
       "goat-input": [
+        "goat-icon"
+      ],
+      "goat-select": [
+        "goat-icon"
+      ],
+      "goat-textarea": [
         "goat-icon"
       ]
     },
@@ -1665,11 +1675,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/input-controls/input",
-    "filePath": "./src/components/input-controls/input/goat-input.tsx",
+    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/form/input",
+    "filePath": "./src/components/form/input/goat-input.tsx",
     "fileName": "goat-input.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/input-controls/input/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/input-controls/input/usage",
+    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/form/input/readme.md",
+    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/form/input/usage",
     "tag": "goat-input",
     "readme": "# goat-input\n\n\n",
     "usage": {},
@@ -1733,6 +1743,23 @@
         "values": [
           {
             "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "configAria",
+        "type": "any",
+        "mutable": true,
+        "attr": "config-aria",
+        "reflectToAttr": true,
+        "docs": "",
+        "docsTags": [],
+        "default": "{}",
+        "values": [
+          {
+            "type": "any"
           }
         ],
         "optional": false,
@@ -1806,6 +1833,23 @@
         "required": false
       },
       {
+        "name": "readonly",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "readonly",
+        "reflectToAttr": true,
+        "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
         "name": "required",
         "type": "boolean",
         "mutable": false,
@@ -1827,7 +1871,7 @@
         "type": "\"lg\" | \"md\" | \"sm\"",
         "mutable": false,
         "attr": "size",
-        "reflectToAttr": false,
+        "reflectToAttr": true,
         "docs": "The input field size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
         "docsTags": [],
         "default": "'md'",
@@ -1853,7 +1897,7 @@
         "type": "\"default\" | \"error\" | \"success\" | \"warning\"",
         "mutable": false,
         "attr": "state",
-        "reflectToAttr": false,
+        "reflectToAttr": true,
         "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
         "docsTags": [],
         "default": "'default'",
@@ -2171,11 +2215,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/pickers/menu",
-    "filePath": "./src/components/pickers/menu/goat-menu.tsx",
+    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/menus/menu",
+    "filePath": "./src/components/menus/menu/goat-menu.tsx",
     "fileName": "goat-menu.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/pickers/menu/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/pickers/menu/usage",
+    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/menus/menu/readme.md",
+    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/menus/menu/usage",
     "tag": "goat-menu",
     "readme": "# goat-menu\n\n\n",
     "usage": {},
@@ -2195,13 +2239,18 @@
       }
     ],
     "encapsulation": "shadow",
-    "dependents": [],
+    "dependents": [
+      "goat-select"
+    ],
     "dependencies": [
       "goat-empty-state"
     ],
     "dependencyGraph": {
       "goat-menu": [
         "goat-empty-state"
+      ],
+      "goat-select": [
+        "goat-menu"
       ]
     },
     "props": [
@@ -2230,6 +2279,7 @@
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
+        "default": "`{\n    \"title\": \"No items\",\n    \"description\": \"There are no items to display\"\n  }`",
         "values": [
           {
             "type": "string"
@@ -2307,20 +2357,26 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/pickers/menu-item",
-    "filePath": "./src/components/pickers/menu-item/goat-menu-item.tsx",
+    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/menus/menu-item",
+    "filePath": "./src/components/menus/menu-item/goat-menu-item.tsx",
     "fileName": "goat-menu-item.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/pickers/menu-item/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/pickers/menu-item/usage",
+    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/menus/menu-item/readme.md",
+    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/menus/menu-item/usage",
     "tag": "goat-menu-item",
     "readme": "# goat-menu-item\n\n\n",
     "usage": {},
     "docs": "",
     "docsTags": [],
     "encapsulation": "shadow",
-    "dependents": [],
+    "dependents": [
+      "goat-select"
+    ],
     "dependencies": [],
-    "dependencyGraph": {},
+    "dependencyGraph": {
+      "goat-select": [
+        "goat-menu-item"
+      ]
+    },
     "props": [
       {
         "name": "color",
@@ -2465,11 +2521,448 @@
     "metadata": {}
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/informational/spinner",
-    "filePath": "./src/components/informational/spinner/goat-spinner.tsx",
+    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/form/select",
+    "filePath": "./src/components/form/select/goat-select.tsx",
+    "fileName": "goat-select.tsx",
+    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/form/select/readme.md",
+    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/form/select/usage",
+    "tag": "goat-select",
+    "readme": "# goat-select\n\n\n",
+    "usage": {},
+    "docs": "",
+    "docsTags": [
+      {
+        "name": "name",
+        "text": "Select"
+      },
+      {
+        "name": "description",
+        "text": "Allows the user to select one or more options using a dropdown."
+      },
+      {
+        "name": "img",
+        "text": "/assets/img/select.png"
+      }
+    ],
+    "encapsulation": "shadow",
+    "dependents": [],
+    "dependencies": [
+      "goat-icon",
+      "goat-spinner",
+      "goat-menu",
+      "goat-text",
+      "goat-menu-item"
+    ],
+    "dependencyGraph": {
+      "goat-select": [
+        "goat-icon",
+        "goat-spinner",
+        "goat-menu",
+        "goat-text",
+        "goat-menu-item"
+      ],
+      "goat-menu": [
+        "goat-empty-state"
+      ]
+    },
+    "props": [
+      {
+        "name": "clearable",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "clearable",
+        "reflectToAttr": false,
+        "docs": "If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "configAria",
+        "type": "any",
+        "mutable": true,
+        "attr": "config-aria",
+        "reflectToAttr": true,
+        "docs": "",
+        "docsTags": [],
+        "default": "{}",
+        "values": [
+          {
+            "type": "any"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "debounce",
+        "type": "number",
+        "mutable": false,
+        "attr": "debounce",
+        "reflectToAttr": false,
+        "docs": "Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.",
+        "docsTags": [],
+        "default": "300",
+        "values": [
+          {
+            "type": "number"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "disabled",
+        "reflectToAttr": false,
+        "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "isOpen",
+        "type": "boolean",
+        "mutable": true,
+        "attr": "is-open",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "items",
+        "type": "any",
+        "mutable": false,
+        "attr": "items",
+        "reflectToAttr": false,
+        "docs": "[{\n  label: 'Shivaji Varma',\n  value: 'shivaji-varma'\n}]",
+        "docsTags": [],
+        "default": "[]",
+        "values": [
+          {
+            "type": "any"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "mutable": false,
+        "attr": "name",
+        "reflectToAttr": false,
+        "docs": "The input field name.",
+        "docsTags": [],
+        "default": "`goat-input-${this.gid}`",
+        "values": [
+          {
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "mutable": false,
+        "attr": "placeholder",
+        "reflectToAttr": false,
+        "docs": "The input field placeholder.",
+        "docsTags": [],
+        "values": [
+          {
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "position",
+        "type": "\"bottom-left\" | \"bottom-right\" | \"top-left\" | \"top-right\"",
+        "mutable": false,
+        "attr": "position",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "'bottom-left'",
+        "values": [
+          {
+            "value": "bottom-left",
+            "type": "string"
+          },
+          {
+            "value": "bottom-right",
+            "type": "string"
+          },
+          {
+            "value": "top-left",
+            "type": "string"
+          },
+          {
+            "value": "top-right",
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "required",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "required",
+        "reflectToAttr": false,
+        "docs": "If true, required icon is show. Defaults to `false`.",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "search",
+        "type": "\"contains\" | \"initial\" | \"managed\" | \"none\"",
+        "mutable": false,
+        "attr": "search",
+        "reflectToAttr": false,
+        "docs": "Search type\nPossible values are `\"none\"`, `\"initial\"`, `\"contains\"`, `\"managed\"`. Defaults to `\"none\"`.",
+        "docsTags": [],
+        "default": "'none'",
+        "values": [
+          {
+            "value": "contains",
+            "type": "string"
+          },
+          {
+            "value": "initial",
+            "type": "string"
+          },
+          {
+            "value": "managed",
+            "type": "string"
+          },
+          {
+            "value": "none",
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "showLoader",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "show-loader",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "size",
+        "type": "\"lg\" | \"md\" | \"sm\"",
+        "mutable": false,
+        "attr": "size",
+        "reflectToAttr": true,
+        "docs": "The select input size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+        "docsTags": [],
+        "default": "'md'",
+        "values": [
+          {
+            "value": "lg",
+            "type": "string"
+          },
+          {
+            "value": "md",
+            "type": "string"
+          },
+          {
+            "value": "sm",
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "state",
+        "type": "\"default\" | \"error\" | \"success\" | \"warning\"",
+        "mutable": false,
+        "attr": "state",
+        "reflectToAttr": true,
+        "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+        "docsTags": [],
+        "default": "'default'",
+        "values": [
+          {
+            "value": "default",
+            "type": "string"
+          },
+          {
+            "value": "error",
+            "type": "string"
+          },
+          {
+            "value": "success",
+            "type": "string"
+          },
+          {
+            "value": "warning",
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "value",
+        "type": "number | string",
+        "mutable": true,
+        "attr": "value",
+        "reflectToAttr": false,
+        "docs": "The input field value.",
+        "docsTags": [],
+        "values": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "string"
+          }
+        ],
+        "optional": true,
+        "required": false
+      }
+    ],
+    "methods": [
+      {
+        "name": "getGid",
+        "returns": {
+          "type": "Promise<string>",
+          "docs": ""
+        },
+        "signature": "getGid() => Promise<string>",
+        "parameters": [],
+        "docs": "",
+        "docsTags": []
+      },
+      {
+        "name": "setBlur",
+        "returns": {
+          "type": "Promise<void>",
+          "docs": ""
+        },
+        "signature": "setBlur() => Promise<void>",
+        "parameters": [],
+        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+        "docsTags": []
+      },
+      {
+        "name": "setFocus",
+        "returns": {
+          "type": "Promise<void>",
+          "docs": ""
+        },
+        "signature": "setFocus() => Promise<void>",
+        "parameters": [],
+        "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\n`input.focus()`.",
+        "docsTags": []
+      }
+    ],
+    "events": [
+      {
+        "event": "goat:action-click",
+        "detail": "any",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": "Emitted when the action button is clicked..",
+        "docsTags": []
+      },
+      {
+        "event": "goat:change",
+        "detail": "any",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": "Emitted when the value has changed.",
+        "docsTags": []
+      },
+      {
+        "event": "goat:search",
+        "detail": "any",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": "Emitted when a keyboard input occurred.",
+        "docsTags": []
+      }
+    ],
+    "styles": [],
+    "slots": [],
+    "parts": [],
+    "listeners": [
+      {
+        "event": "click",
+        "target": "window",
+        "capture": false,
+        "passive": false
+      },
+      {
+        "event": "goat:menu-item-click",
+        "capture": false,
+        "passive": false
+      }
+    ],
+    "metadata": {
+      "name": "Select",
+      "description": "Allows the user to select one or more options using a dropdown.",
+      "img": "/assets/img/select.png"
+    }
+  },
+  {
+    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/content/spinner",
+    "filePath": "./src/components/content/spinner/goat-spinner.tsx",
     "fileName": "goat-spinner.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/informational/spinner/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/informational/spinner/usage",
+    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/content/spinner/readme.md",
+    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/content/spinner/usage",
     "tag": "goat-spinner",
     "readme": "# goat-spinner\n\n\n",
     "usage": {},
@@ -2490,11 +2983,15 @@
     ],
     "encapsulation": "shadow",
     "dependents": [
-      "goat-button"
+      "goat-button",
+      "goat-select"
     ],
     "dependencies": [],
     "dependencyGraph": {
       "goat-button": [
+        "goat-spinner"
+      ],
+      "goat-select": [
         "goat-spinner"
       ]
     },
@@ -2530,11 +3027,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/other/table",
-    "filePath": "./src/components/other/table/goat-table.tsx",
+    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/tables/table",
+    "filePath": "./src/components/tables/table/goat-table.tsx",
     "fileName": "goat-table.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/other/table/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/other/table/usage",
+    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/tables/table/readme.md",
+    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/tables/table/usage",
     "tag": "goat-table",
     "readme": "# goat-table\n\n\n",
     "usage": {},
@@ -2703,9 +3200,15 @@
       }
     ],
     "encapsulation": "shadow",
-    "dependents": [],
+    "dependents": [
+      "goat-select"
+    ],
     "dependencies": [],
-    "dependencyGraph": {},
+    "dependencyGraph": {
+      "goat-select": [
+        "goat-text"
+      ]
+    },
     "props": [
       {
         "name": "level",
@@ -2840,11 +3343,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/input-controls/textarea",
-    "filePath": "./src/components/input-controls/textarea/goat-textarea.tsx",
+    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/form/textarea",
+    "filePath": "./src/components/form/textarea/goat-textarea.tsx",
     "fileName": "goat-textarea.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/input-controls/textarea/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/input-controls/textarea/usage",
+    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/form/textarea/readme.md",
+    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/form/textarea/usage",
     "tag": "goat-textarea",
     "readme": "# goat-textarea\n\n\n",
     "usage": {},
@@ -2865,20 +3368,44 @@
     ],
     "encapsulation": "shadow",
     "dependents": [],
-    "dependencies": [],
-    "dependencyGraph": {},
+    "dependencies": [
+      "goat-icon"
+    ],
+    "dependencyGraph": {
+      "goat-textarea": [
+        "goat-icon"
+      ]
+    },
     "props": [
       {
-        "name": "actions",
-        "type": "any[]",
+        "name": "clearable",
+        "type": "boolean",
         "mutable": false,
+        "attr": "clearable",
         "reflectToAttr": false,
-        "docs": "",
+        "docs": "If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.",
         "docsTags": [],
-        "default": "[]",
+        "default": "false",
         "values": [
           {
-            "type": "any[]"
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "configAria",
+        "type": "any",
+        "mutable": true,
+        "attr": "config-aria",
+        "reflectToAttr": true,
+        "docs": "",
+        "docsTags": [],
+        "default": "{}",
+        "values": [
+          {
+            "type": "any"
           }
         ],
         "optional": false,
@@ -2908,23 +3435,6 @@
         "attr": "disabled",
         "reflectToAttr": false,
         "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
-        "docsTags": [],
-        "default": "false",
-        "values": [
-          {
-            "type": "boolean"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "inline",
-        "type": "boolean",
-        "mutable": false,
-        "attr": "inline",
-        "reflectToAttr": false,
-        "docs": "If true, the form will be in inline format. Defaults to `false`.",
         "docsTags": [],
         "default": "false",
         "values": [
@@ -2990,7 +3500,7 @@
         "type": "\"lg\" | \"md\" | \"sm\"",
         "mutable": false,
         "attr": "size",
-        "reflectToAttr": false,
+        "reflectToAttr": true,
         "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
         "docsTags": [],
         "default": "'md'",
@@ -3012,6 +3522,36 @@
         "required": false
       },
       {
+        "name": "state",
+        "type": "\"default\" | \"error\" | \"success\" | \"warning\"",
+        "mutable": false,
+        "attr": "state",
+        "reflectToAttr": true,
+        "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+        "docsTags": [],
+        "default": "'default'",
+        "values": [
+          {
+            "value": "default",
+            "type": "string"
+          },
+          {
+            "value": "error",
+            "type": "string"
+          },
+          {
+            "value": "success",
+            "type": "string"
+          },
+          {
+            "value": "warning",
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
         "name": "value",
         "type": "string",
         "mutable": true,
@@ -3021,28 +3561,6 @@
         "docsTags": [],
         "values": [
           {
-            "type": "string"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "variant",
-        "type": "\"dashed\" | \"default\"",
-        "mutable": false,
-        "attr": "variant",
-        "reflectToAttr": false,
-        "docs": "Button variants\nPossible values are `\"default\"`, `\"dashed\"`. Defaults to `\"default\"`.",
-        "docsTags": [],
-        "default": "'default'",
-        "values": [
-          {
-            "value": "dashed",
-            "type": "string"
-          },
-          {
-            "value": "default",
             "type": "string"
           }
         ],

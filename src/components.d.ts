@@ -5,7 +5,6 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ElementSize } from "./utils/utils";
 export namespace Components {
     interface GoatAlert {
         "dismissible": boolean;
@@ -28,6 +27,7 @@ export namespace Components {
           * Color variants.
          */
         "color": 'primary' | 'secondary' | 'info' | 'success' | 'error' | 'warning';
+        "configAria": any;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -56,7 +56,7 @@ export namespace Components {
         /**
           * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`. Defaults to `"md"`.
          */
-        "size": ElementSize;
+        "size": 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
         /**
           * Sets or retrieves the window or frame at which to target content.
          */
@@ -68,6 +68,7 @@ export namespace Components {
         "shadowLevel": 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | undefined;
     }
     interface GoatCheckbox {
+        "configAria": any;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -78,6 +79,10 @@ export namespace Components {
           * The checkbox label.
          */
         "label": string;
+        /**
+          * The input field name.
+         */
+        "name": string;
         /**
           * If true, required icon is show. Defaults to `false`.
          */
@@ -125,18 +130,13 @@ export namespace Components {
         "vertical": boolean;
     }
     interface GoatDropdown {
-        "data": any[];
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
-        "enableSearch": boolean;
         "isOpen": boolean;
-        "itemVariant": any;
-        "listVariant": any;
         "positions": string;
         "setFocus": () => Promise<void>;
-        "showLoader": boolean;
         /**
           * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
@@ -151,7 +151,17 @@ export namespace Components {
         "disabled": boolean;
     }
     interface GoatFormControl {
+        /**
+          * The caption for the form control.
+         */
+        "caption": string;
+        /**
+          * The label for the form control.
+         */
         "label": string;
+        /**
+          * Whether the form control is required.
+         */
         "required": boolean;
     }
     interface GoatIcon {
@@ -171,6 +181,7 @@ export namespace Components {
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
          */
         "clearable": boolean;
+        "configAria": any;
         /**
           * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
          */
@@ -188,6 +199,10 @@ export namespace Components {
           * The input field placeholder.
          */
         "placeholder": string;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "readonly": boolean;
         /**
           * If true, required icon is show. Defaults to `false`.
          */
@@ -266,6 +281,65 @@ export namespace Components {
          */
         "value"?: string | number | null;
     }
+    interface GoatSelect {
+        /**
+          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
+         */
+        "clearable": boolean;
+        "configAria": any;
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
+         */
+        "debounce": number;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled": boolean;
+        "getGid": () => Promise<string>;
+        "isOpen": boolean;
+        /**
+          * [{   label: 'Shivaji Varma',   value: 'shivaji-varma' }]
+         */
+        "items": any;
+        /**
+          * The input field name.
+         */
+        "name": string;
+        /**
+          * The input field placeholder.
+         */
+        "placeholder": string;
+        "position": 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+        /**
+          * If true, required icon is show. Defaults to `false`.
+         */
+        "required": boolean;
+        /**
+          * Search type Possible values are `"none"`, `"initial"`, `"contains"`, `"managed"`. Defaults to `"none"`.
+         */
+        "search": 'none' | 'initial' | 'contains' | 'managed';
+        /**
+          * Sets blur on the native `input` in `goat-input`. Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `input` in `ion-input`. Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
+        "showLoader": boolean;
+        /**
+          * The select input size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size": 'sm' | 'md' | 'lg';
+        /**
+          * The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
+         */
+        "state": 'success' | 'error' | 'warning' | 'default';
+        /**
+          * The input field value.
+         */
+        "value"?: string | number;
+    }
     interface GoatSpinner {
         /**
           * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
@@ -298,7 +372,11 @@ export namespace Components {
         "type": 'heading' | 'paragraph' | 'text';
     }
     interface GoatTextarea {
-        "actions": any[];
+        /**
+          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
+         */
+        "clearable": boolean;
+        "configAria": any;
         /**
           * Set the amount of time, in milliseconds, to wait to trigger the `goat:change` event after each keystroke.
          */
@@ -308,10 +386,6 @@ export namespace Components {
          */
         "disabled": boolean;
         "getGid": () => Promise<string>;
-        /**
-          * If true, the form will be in inline format. Defaults to `false`.
-         */
-        "inline": boolean;
         /**
           * The input field name.
          */
@@ -337,13 +411,13 @@ export namespace Components {
          */
         "size": 'sm' | 'md' | 'lg';
         /**
+          * The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
+         */
+        "state": 'success' | 'error' | 'warning' | 'default';
+        /**
           * The input field value.
          */
         "value": string;
-        /**
-          * Button variants Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
-         */
-        "variant": 'default' | 'dashed';
     }
 }
 declare global {
@@ -443,6 +517,12 @@ declare global {
         prototype: HTMLGoatMenuItemElement;
         new (): HTMLGoatMenuItemElement;
     };
+    interface HTMLGoatSelectElement extends Components.GoatSelect, HTMLStencilElement {
+    }
+    var HTMLGoatSelectElement: {
+        prototype: HTMLGoatSelectElement;
+        new (): HTMLGoatSelectElement;
+    };
     interface HTMLGoatSpinnerElement extends Components.GoatSpinner, HTMLStencilElement {
     }
     var HTMLGoatSpinnerElement: {
@@ -484,6 +564,7 @@ declare global {
         "goat-link": HTMLGoatLinkElement;
         "goat-menu": HTMLGoatMenuElement;
         "goat-menu-item": HTMLGoatMenuItemElement;
+        "goat-select": HTMLGoatSelectElement;
         "goat-spinner": HTMLGoatSpinnerElement;
         "goat-table": HTMLGoatTableElement;
         "goat-text": HTMLGoatTextElement;
@@ -513,6 +594,7 @@ declare namespace LocalJSX {
           * Color variants.
          */
         "color"?: 'primary' | 'secondary' | 'info' | 'success' | 'error' | 'warning';
+        "configAria"?: any;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -545,7 +627,7 @@ declare namespace LocalJSX {
         /**
           * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`. Defaults to `"md"`.
          */
-        "size"?: ElementSize;
+        "size"?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
         /**
           * Sets or retrieves the window or frame at which to target content.
          */
@@ -556,6 +638,7 @@ declare namespace LocalJSX {
         "shadowLevel"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | undefined;
     }
     interface GoatCheckbox {
+        "configAria"?: any;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -565,6 +648,10 @@ declare namespace LocalJSX {
           * The checkbox label.
          */
         "label"?: string;
+        /**
+          * The input field name.
+         */
+        "name"?: string;
         /**
           * Emitted when the input loses focus.
          */
@@ -620,17 +707,12 @@ declare namespace LocalJSX {
         "vertical"?: boolean;
     }
     interface GoatDropdown {
-        "data"?: any[];
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
-        "enableSearch"?: boolean;
         "isOpen"?: boolean;
-        "itemVariant"?: any;
-        "listVariant"?: any;
         "positions"?: string;
-        "showLoader"?: boolean;
         /**
           * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
@@ -645,7 +727,17 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
     }
     interface GoatFormControl {
+        /**
+          * The caption for the form control.
+         */
+        "caption"?: string;
+        /**
+          * The label for the form control.
+         */
         "label"?: string;
+        /**
+          * Whether the form control is required.
+         */
         "required"?: boolean;
     }
     interface GoatIcon {
@@ -665,6 +757,7 @@ declare namespace LocalJSX {
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
          */
         "clearable"?: boolean;
+        "configAria"?: any;
         /**
           * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
          */
@@ -697,6 +790,10 @@ declare namespace LocalJSX {
           * The input field placeholder.
          */
         "placeholder"?: string;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "readonly"?: boolean;
         /**
           * If true, required icon is show. Defaults to `false`.
          */
@@ -758,6 +855,68 @@ declare namespace LocalJSX {
          */
         "value"?: string | number | null;
     }
+    interface GoatSelect {
+        /**
+          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
+         */
+        "clearable"?: boolean;
+        "configAria"?: any;
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
+         */
+        "debounce"?: number;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled"?: boolean;
+        "isOpen"?: boolean;
+        /**
+          * [{   label: 'Shivaji Varma',   value: 'shivaji-varma' }]
+         */
+        "items"?: any;
+        /**
+          * The input field name.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the action button is clicked..
+         */
+        "onGoat:action-click"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the value has changed.
+         */
+        "onGoat:change"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when a keyboard input occurred.
+         */
+        "onGoat:search"?: (event: CustomEvent<any>) => void;
+        /**
+          * The input field placeholder.
+         */
+        "placeholder"?: string;
+        "position"?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+        /**
+          * If true, required icon is show. Defaults to `false`.
+         */
+        "required"?: boolean;
+        /**
+          * Search type Possible values are `"none"`, `"initial"`, `"contains"`, `"managed"`. Defaults to `"none"`.
+         */
+        "search"?: 'none' | 'initial' | 'contains' | 'managed';
+        "showLoader"?: boolean;
+        /**
+          * The select input size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size"?: 'sm' | 'md' | 'lg';
+        /**
+          * The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
+         */
+        "state"?: 'success' | 'error' | 'warning' | 'default';
+        /**
+          * The input field value.
+         */
+        "value"?: string | number;
+    }
     interface GoatSpinner {
         /**
           * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
@@ -792,7 +951,11 @@ declare namespace LocalJSX {
         "type"?: 'heading' | 'paragraph' | 'text';
     }
     interface GoatTextarea {
-        "actions"?: any[];
+        /**
+          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
+         */
+        "clearable"?: boolean;
+        "configAria"?: any;
         /**
           * Set the amount of time, in milliseconds, to wait to trigger the `goat:change` event after each keystroke.
          */
@@ -801,10 +964,6 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
-        /**
-          * If true, the form will be in inline format. Defaults to `false`.
-         */
-        "inline"?: boolean;
         /**
           * The input field name.
          */
@@ -842,13 +1001,13 @@ declare namespace LocalJSX {
          */
         "size"?: 'sm' | 'md' | 'lg';
         /**
+          * The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
+         */
+        "state"?: 'success' | 'error' | 'warning' | 'default';
+        /**
           * The input field value.
          */
         "value"?: string;
-        /**
-          * Button variants Possible values are `"default"`, `"dashed"`. Defaults to `"default"`.
-         */
-        "variant"?: 'default' | 'dashed';
     }
     interface IntrinsicElements {
         "goat-alert": GoatAlert;
@@ -867,6 +1026,7 @@ declare namespace LocalJSX {
         "goat-link": GoatLink;
         "goat-menu": GoatMenu;
         "goat-menu-item": GoatMenuItem;
+        "goat-select": GoatSelect;
         "goat-spinner": GoatSpinner;
         "goat-table": GoatTable;
         "goat-text": GoatText;
@@ -893,6 +1053,7 @@ declare module "@stencil/core" {
             "goat-link": LocalJSX.GoatLink & JSXBase.HTMLAttributes<HTMLGoatLinkElement>;
             "goat-menu": LocalJSX.GoatMenu & JSXBase.HTMLAttributes<HTMLGoatMenuElement>;
             "goat-menu-item": LocalJSX.GoatMenuItem & JSXBase.HTMLAttributes<HTMLGoatMenuItemElement>;
+            "goat-select": LocalJSX.GoatSelect & JSXBase.HTMLAttributes<HTMLGoatSelectElement>;
             "goat-spinner": LocalJSX.GoatSpinner & JSXBase.HTMLAttributes<HTMLGoatSpinnerElement>;
             "goat-table": LocalJSX.GoatTable & JSXBase.HTMLAttributes<HTMLGoatTableElement>;
             "goat-text": LocalJSX.GoatText & JSXBase.HTMLAttributes<HTMLGoatTextElement>;

@@ -1,0 +1,195 @@
+@use "sass:map";
+@import "../../styles/scss/commons";
+
+:host {
+  display: block;
+  margin-bottom: v(--space-3);
+  --input-border-radius: #{v(--border-radius)};
+  --input-border-style: solid;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: v(--ui-background-color);
+  border: 1px var(--input-border-style) v(--border-color);
+  border-radius: var(--input-border-radius);
+  overflow: hidden;
+  cursor: text;
+  font-weight: var(--font-weight-regular);
+  gap: v(--space-2);
+
+  .input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: none;
+    width: 100%;
+    cursor: inherit;
+    padding: 0;
+    color: v(--text-color-primary);
+
+    &::placeholder {
+      color: v(--text-color-placeholder);
+    }
+  }
+
+  .slot-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+
+    slot::slotted(*) {
+      padding-bottom: 0 !important;
+      margin-bottom: 0 !important;
+      color: v(--color-neutral-400);
+
+      goat-icon {
+        --color: #{v(--color-neutral-400)};
+      }
+    }
+
+  }
+
+  &.start-slot-has-content {
+    .input {
+      padding-left: v(--space-2);
+    }
+  }
+
+  &.end-slot-has-content {
+    .input {
+      padding-right: v(--space-2);
+    }
+  }
+
+  &:not(.start-slot-has-content) {
+    .slot-container.start {
+      display: none;
+    }
+  }
+
+  &:not(.end-slot-has-content) {
+    .slot-container.end {
+      display: none;
+    }
+  }
+
+  .input-action {
+    cursor: pointer;
+    &:hover {
+      --text-color: var(--text-color-secondary);
+    }
+  }
+}
+
+@mixin inputState($color) {
+  .input-container {
+    border-color: v(--color-#{$color}-500);
+  }
+
+  .input-container.has-focus {
+    @include focus-ring($color);
+  }
+}
+
+/**
+ * States
+ */
+:host([state="default"]) {
+  .input-container.has-focus {
+    @include focus-ring
+  }
+}
+
+:host([state="success"]) {
+  @include inputState(success);
+}
+
+:host([state="error"]) {
+  @include inputState(error);
+}
+
+:host([state="warning"]) {
+  @include inputState(warning);
+}
+
+:host([size="sm"]) .input-container {
+  padding: 0.5rem 0.75rem;
+
+  .input {
+    @include font-style(text-sm);
+  }
+
+  slot::slotted(*) {
+    @include font-style(text-sm);
+  }
+}
+
+:host([size="md"]) .input-container {
+  padding: 0.625rem 0.875rem;
+
+  .input {
+    @include font-style(text-md);
+  }
+
+  slot::slotted(*) {
+    @include font-style(text-md);
+  }
+}
+
+:host([size="lg"]) .input-container {
+  padding: 0.75rem 1rem;
+
+  .input {
+    @include font-style(text-lg);
+  }
+
+  slot::slotted(*) {
+    @include font-style(text-lg);
+  }
+}
+
+
+:host([success]) {
+  .input-container {
+    border-color: v(--color-success-500);
+
+  }
+}
+
+:host([error]) {
+  .input-container {
+    border-color: v(--color-error-500);
+    box-shadow: 0 0 0 0.25rem rgba(#ef4444, 25%);
+  }
+}
+
+:host([disabled]) {
+  .input-container {
+    cursor: not-allowed;
+    background-color: v(--color-neutral-100) !important;
+    border-color: v(--border-color) !important;
+    opacity: 1 !important;
+
+    .input {
+      color: v(--color-neutral-400) !important;
+    }
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

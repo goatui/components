@@ -15,6 +15,19 @@
 | `type`   | `type`    |                    | `"heading" \| "paragraph" \| "text"`     | `'text'`    |
 
 
+## Dependencies
+
+### Used by
+
+ - [goat-select](../../form/select)
+
+### Graph
+```mermaid
+graph TD;
+  goat-select --> goat-text
+  style goat-text fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with love!*

@@ -1,0 +1,33 @@
+@import "../../../styles/scss/commons";
+
+:host {
+  display: block;
+  margin-bottom: v(--space-2);
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  @include font-style(text-sm);
+  font-weight: v(--font-weight-medium);
+  margin-bottom: 0.375rem;
+
+  color: v(--text-color-secondary);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  .required {
+    color: v(--color-error-500);
+    padding-right: v(--space-1);
+  }
+}
+
+.caption {
+  @include font-style(text-xs);
+}
+
+

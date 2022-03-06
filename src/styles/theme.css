@@ -254,8 +254,8 @@ Text on interactive colors
   --shadow-xxl: 0px 24px 48px -12px rgba(16, 24, 40, 0.18);
   --shadow-xxxl: 0px 32px 64px -12px rgba(16, 24, 40, 0.14);
   --border-radius: 5px;
-  --z-index-table-header: 1;
-  --z-index-dropdown-content: 1;
+  --z-index-table-header: 10;
+  --z-index-dropdown-content: 20;
 }
 
 [data-theme=dark] {

@@ -1,26 +1,15 @@
-<goat-card>
-  <goat-card-content>
-    <goat-form-control label='Text' required>
-      <goat-input type='text' ></goat-input>
-    </goat-form-control>
-    <goat-form-control label='Textarea' required>
-      <goat-textarea></goat-textarea>
-    </goat-form-control>
-    <goat-form-control label='Number'>
-      <goat-input type='number'></goat-input>
-    </goat-form-control>
-  </goat-card-content>
-<goat-card-content>
-    {% highlight html %}
-    <goat-form-control label='Text'>
-      <goat-input type='text'></goat-input>
-    </goat-form-control>
-    <goat-form-control label='Password'>
-      <goat-input type='password'></goat-input>
-    </goat-form-control>
-    <goat-form-control label='Number'>
-      <goat-input type='number'></goat-input>
-    </goat-form-control>
-    {% endhighlight %}
-  </div>
-</div>
+{% capture sample-code %}
+<goat-form-control label='Full Name' required>
+  <goat-input type='text'></goat-input>
+</goat-form-control>
+<goat-form-control label='Description' required>
+  <goat-textarea></goat-textarea>
+</goat-form-control>
+<goat-form-control label='Age'>
+  <goat-input type='number'></goat-input>
+</goat-form-control>
+<goat-form-control label='Do you like ice cream?' required>
+  <goat-checkbox></goat-checkbox>
+</goat-form-control>
+{% endcapture %}
+{% include demo-html.html content=sample-code %}

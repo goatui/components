@@ -1,0 +1,34 @@
+---
+layout: component
+title: Select
+sections:
+- title: Basic Select
+  source: sections/basic-select.html
+- title: Search
+  source: sections/search.html
+- title: Managed search
+  source: sections/managed.html
+---
+<div class='row pt-3'>
+
+  {% include section-nav.html %}
+
+  <!-- Content -->
+  <div class='component-content'>
+
+    <div style='padding-bottom: var(--space-6)'>
+      <goat-text type='heading' size='md'>{{ page.title }}</goat-text>
+      <goat-text type='paragraph'>Use {{site.company}}’s custom input styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</goat-text>
+    </div>
+
+    {% for section in page.sections %}
+    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style='padding-bottom: var(--space-4)'>
+      <goat-text type='heading' level='2' size='sm'>{{ section.title }}</goat-text>
+
+      {% include_relative {{ section.source }} %}
+    </div>
+    {% endfor %}
+
+  </div>
+  <!-- End Content -->
+</div>
