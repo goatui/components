@@ -1,11 +1,8 @@
 name: "Custom CodeQL Config"
-
   queries:
     - uses: security-and-quality
-
   paths:
     - src
-
   paths-ignore:
     - src/node_modules
     - '**/*.test.js'
