@@ -21,8 +21,6 @@ export class GoatIcon {
    */
   @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' | 'xl' | string = 'md';
 
-  @Prop({ reflect: true }) shade: 'primary' | 'secondary' | 'tertiary' = 'primary';
-
   private getSize() {
     let size;
     if (this.size === 'sm')

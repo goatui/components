@@ -1,6 +1,6 @@
 $base-space: 0.25;
 
-$space: (
+$spacing: (
   1: $base-space,
   2: 2 * $base-space,
   3: 3 * $base-space,
@@ -20,9 +20,23 @@ $space: (
   64: 64 * $base-space,
 );
 
-$container-space: (
+$container-spacing: (
   sm: 40,
   md: 48,
   lg: 64,
   xl: 80,
 );
+
+$spacing-css-variables: ();
+
+@each $key, $value in $spacing {
+  $map: ();
+  $map: map-merge($map, (--spacing-#{$key}: #{$value}rem));
+  $spacing-css-variables: map-merge($spacing-css-variables, $map);
+}
+
+@each $key, $value in $container-spacing {
+  $map: ();
+  $map: map-merge($map, (--container-#{$key}: #{$value}rem));
+  $spacing-css-variables: map-merge($spacing-css-variables, $map);
+}

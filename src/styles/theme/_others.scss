@@ -1,11 +1,3 @@
 @use "sass:map";
 @import 'color';
 
-$others: (
-  border-radius: 5px,
-  /**
-   * TIP: use against position:relative elements
-   */
-  z-index-table-header: 10,
-  z-index-dropdown-content: 20,
-)

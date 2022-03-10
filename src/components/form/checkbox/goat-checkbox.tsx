@@ -114,7 +114,7 @@ export class GoatCheckbox implements ComponentInterface, InputComponentInterface
 
   @Listen('keyup', { target: 'window' })
   windowKeyUp(evt) {
-    if (this.isActive && (evt.key == 'Enter' || evt.key == ' '))
+    if (this.isActive && (evt.key == ' '))
       this.isActive = false;
   }
 
@@ -123,7 +123,8 @@ export class GoatCheckbox implements ComponentInterface, InputComponentInterface
   };
 
   private keyDownHandler = (evt) => {
-    if (evt.key == 'Enter' || evt.key == ' ') {
+    if (evt.key == ' ') {
+      evt.preventDefault();
       this.isActive = true;
       this.clickHandler(evt);
     }

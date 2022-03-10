@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, Element, h, Host, Listen, Method, Prop, State } from '@stencil/core';
-import { isOutOfViewport } from '../../../utils/utils';
+import { isMobile, isOutOfViewport } from '../../../utils/utils';
 
 /**
  * @name Dropdown
@@ -99,6 +99,11 @@ export class GoatDropdown implements ComponentInterface {
   fixPosition() {
     if (this.isOpen && this.dropdownContentHeight && this.dropdownContentWidth) {
 
+      if (isMobile()) {
+        this.position = 'center';
+        return;
+      }
+
       const positions = this.positions.split(',');
       for (let i = 0; i < positions.length; i++) {
         const dropdownButtonRect: any = this.elm.getBoundingClientRect();
@@ -180,6 +185,7 @@ export class GoatDropdown implements ComponentInterface {
         <button class='dropdown-button'
                 ref={(el) => this.displayElement = el}
                 onKeyDown={this.keyDownHandler}
+                tabindex="-1"
                 onBlur={this.blurHandler}
                 onFocus={this.focusHandler}
                 disabled={this.disabled}

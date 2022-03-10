@@ -6,58 +6,45 @@
 }
 
 .link {
-  position: relative;
-  box-sizing: border-box;
+
+  border-radius: v(--border-radius);
   display: flex;
   align-items: center;
   flex-direction: row;
   cursor: pointer;
-  text-decoration: none;
+  text-decoration: var(--link-decoration, none);
 
-  @include text-color(inherit);
-  background-image: linear-gradient(transparent calc(100% - 1px), currentColor 1px), linear-gradient(transparent calc(100% - 1px), rgb(0, 0, 0) 1px);
-}
+  &:not(.inline) {
+    //noinspection CssNoGenericFontName
+    font-family: v(--font-family-base);
 
-/**
-  * Variants
-  */
-@mixin linkVariant($color) {
-
-  @include text-color(v(--color-#{$color}-500));
-
-  &:hover {
-    @include text-color(v(--color-#{$color}-700));
-    background-image: linear-gradient(transparent calc(100% - 1px), v(--color-#{$color}-700) 1px), linear-gradient(transparent calc(100% - 1px), rgb(0, 0, 0) 1px);
   }
 
+  color: var(--link-color, v(--link-01));
+
+  &:hover {
+    color: var(--link-color-hover, v(--hover-primary-text));
+    text-decoration: var(--link-decoration-hover, underline);
+  }
+
+  &:visited {
+    color: var(--link-color-visited, v(--visited-link));
+  }
 
   &.active {
-    @include text-color(v(--color-#{$color}-900));
-    background-image: linear-gradient(transparent calc(100% - 1px), v(--color-#{$color}-900) 1px), linear-gradient(transparent calc(100% - 1px), rgb(0, 0, 0) 1px);
+    color: var(--link-color-active, v(--text-01));
   }
+
 
 }
 
-@each $color in [primary, info, success, warning, error] {
-  .link.color-#{$color} {
-    @include linkVariant($color);
-  }
-}
 
-
-:host([decoration="false"]) .link {
-  background-image: none !important;
-
-  &:hover {
-    background-image: none !important;
-  }
-
-  .link.active {
-    background-image: none !important;
-  }
+.link.inline {
+  text-decoration: var(--link-decoration, underline);
 }
 
 
 .link.has-focus:not(.active) {
+  text-decoration: none;
   @include focus-ring();
 }

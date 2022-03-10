@@ -2,42 +2,33 @@
 
 :host {
   display: inline-block;
+  .spinner {
+    line-height: 0;
+  }
+}
+
+
+:host {
+  .spinner path {
+    fill: v(--text-01);
+  }
+}
+
+
+:host(.inherit) {
   .spinner path {
     fill: currentColor;
   }
 }
 
-.spinner {
-  line-height: 0;
-}
-
-
-
-@mixin colorType($color) {
-  .spinner path {
-    fill: v(--color-#{$color}-500);
-  }
-}
-
-:host {
-  .spinner path {
-    fill:  var(--text-color, v(--text-color-primary));
-  }
-}
-
-@each $color in [primary, info, success, warning, error] {
-  :host-context(.text-color-#{$color}) {
-    @include colorType($color);
-  }
-}
 
 @keyframes rainbow {
-  0%   {fill:v(--color-primary-500);}
-  20%  {fill:v(--color-success-500);}
-  40%  {fill:v(--color-warning-500);}
-  60%  {fill:v(--color-error-500);}
-  80% {fill:v(--text-color-primary);}
-  100% {fill:v(--color-primary-500);}
+  0%   {fill:v(--color-primary);}
+  20%  {fill:v(--color-success);}
+  40%  {fill:v(--color-warning);}
+  60%  {fill:v(--color-error);}
+  80% {fill:v(--color-secondary);}
+  100% {fill:v(--color-primary);}
 }
 
 :host(.rainbow) .spinner path {
@@ -46,3 +37,4 @@
   animation-duration: 5s;
   animation-iteration-count: infinite;
 }
+

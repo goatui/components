@@ -7,12 +7,13 @@
 .menu-item {
   cursor: pointer;
   @include font-style(text-md);
-  padding: v(--space-2) v(--space-4);
+  padding: v(--spacing-2) v(--spacing-4);
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  gap: v(--space-2);
-  @include text-color(v(--text-color-secondary));
+  gap: v(--spacing-2);
+  color: v(--text-02);
+  outline: none;
 
   .item-section {
     display: flex;
@@ -28,64 +29,46 @@
   }
 
   .slot-end {
-    @include text-color(v(--text-color-tertiary));
+    color: v(--text-05);
   }
 
 }
 
-@mixin menuItemColorVariant($color) {
+
+
+.menu-item {
   &:hover, &.has-focus:not(.active) {
-    background: v(--color-#{$color}-100);
-    @include text-color(v(--color-#{$color}-500));
+    background: v(--hover-ui);
+    color: v(--text-01);
     .slot-end {
-      @include text-color(v(--color-#{$color}-300));
+      color: v(--icon-01);
     }
   }
 
   &.active, &.selected {
-    background: v(--color-#{$color}-300);
-    @include text-color(v(--color-white));
-    .slot-end {
-      @include text-color(v(--color-white));
-    }
+    background: v(--selected-ui);
   }
 }
-
-.menu-item.color-primary {
-  @include menuItemColorVariant(primary);
-}
-
-.menu-item.color-success {
-  @include menuItemColorVariant(success);
-}
-
-.menu-item.color-warning {
-  @include menuItemColorVariant(warning);
-}
-
-.menu-item.color-neutral {
-  @include menuItemColorVariant(neutral);
-}
-
 
 .menu-item.has-focus:not(.active) {
   @include focus-ring;
 }
 
-
 .menu-item.disabled {
   cursor: not-allowed;
-  @include text-color(v(--color-neutral-400), true);
+  color: v(--disabled-02) !important;
+  background-color: v(--disabled-01) !important;
 
   &:hover, &.has-focus:not(.active) {
-    background: transparent !important;
-    @include text-color(v(--color-neutral-400), true);
+    color: v(--disabled-02) !important;
+    background-color: v(--disabled-01) !important;
   }
 
   &.active, &.selected {
-    background: transparent !important;
-    @include text-color(v(--color-neutral-400), true);
+    color: v(--disabled-02) !important;
+    background-color: v(--disabled-01) !important;
   }
 }
+
 
 

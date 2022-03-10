@@ -15,13 +15,7 @@ export class GoatLink implements ComponentInterface {
 
   gid = getGoatIndex();
 
-  /**
-   * Color variants
-   * Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`, `"info"`, `"inherit"`. Defaults to `"inherit"`.
-   */
-  @Prop() color: 'primary' | 'success' | 'warning' | 'error' | 'info' | 'inherit' = 'primary';
-
-  @Prop() decoration: boolean = true;
+  @Prop() inline: boolean = false;
 
   /**
    * Hyperlink to navigate to on click.
@@ -92,10 +86,10 @@ export class GoatLink implements ComponentInterface {
 
   render() {
 
-    return (<Host has-focus={this.hasFocus} active={this.isActive} color={this.color} decoration={this.decoration}>
+    return (<Host has-focus={this.hasFocus} active={this.isActive}>
       <a class={{
         'link': true,
-        [`color-${this.color}`]: true,
+        'inline': this.inline,
         'has-focus': this.hasFocus,
         'active': this.isActive,
       }}

@@ -12,7 +12,7 @@
 
 :host([type="heading"]) {
   display: block;
-  margin-bottom: v(--space-4);
+  margin-bottom: v(--spacing-4);
 
   &:host([size="xl"]) {
     .heading {
@@ -48,7 +48,7 @@
 
 :host([type="paragraph"]) {
   display: block;
-  margin-bottom: v(--space-4);
+  margin-bottom: v(--spacing-4);
 
   &:host([size="xl"]) {
     .paragraph {
@@ -117,31 +117,21 @@
 
 }
 
-@mixin colorType($color) {
-  color: v(--color-#{$color}-500);
-  &:host([shade="secondary"]) {
-    color: v(--color-#{$color}-300);
-  }
-  &:host([shade="tertiary"]) {
-    color: v(--color-#{$color}-200);
-  }
-}
 
 :host {
-  color: var(--text-color, v(--text-color-primary));
+  color: var(--text-color, v(--text-01));
 
   &:host([shade="secondary"]) {
-    color: var(--text-color, v(--text-color-secondary));
+    color: var(--text-shade-secondary, v(--text-02));
   }
 
   &:host([shade="tertiary"]) {
-    color: var(--text-color, v(--text-color-tertiary));
+    color: var(--text-share-tertiary, v(--text-05));
   }
 }
 
-@each $color in [primary, info, success, warning, error] {
-  :host-context(.text-color-#{$color}) {
-    @include colorType($color);
-  }
+
+:host(.inherit) {
+  color: inherit;
 }
 

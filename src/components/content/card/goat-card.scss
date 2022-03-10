@@ -2,18 +2,15 @@
 
 :host {
   display: block;
-  margin-bottom: v(--space-3);
+  margin-bottom: v(--spacing-3);
   height: 100%;
 }
 
 .card {
-  border: 1px solid v(--color-neutral-200);
+  border: 1px solid v(--border-color);
   border-radius: v(--border-radius);
   height: 100%;
-  background-color: v(--color-white);
-}
-:host-context([data-theme="dark"]) .card {
-  background-color: v(--color-neutral-800);
+  background-color: v(--ui-background);
 }
 
 :host([shadow-level="xxl"]) .card {

@@ -1,10 +1,10 @@
 [
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/content/alert",
+    "dirPath": "D:/development/goatui/src/components/content/alert",
     "filePath": "./src/components/content/alert/goat-alert.tsx",
     "fileName": "goat-alert.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/content/alert/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/content/alert/usage",
+    "readmePath": "D:/development/goatui/src/components/content/alert/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/content/alert/usage",
     "tag": "goat-alert",
     "readme": "# goat-alert\n\n\n",
     "usage": {},
@@ -109,11 +109,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/content/avatar",
+    "dirPath": "D:/development/goatui/src/components/content/avatar",
     "filePath": "./src/components/content/avatar/goat-avatar.tsx",
     "fileName": "goat-avatar.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/content/avatar/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/content/avatar/usage",
+    "readmePath": "D:/development/goatui/src/components/content/avatar/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/content/avatar/usage",
     "tag": "goat-avatar",
     "readme": "# goat-avatar\n\n\n",
     "usage": {},
@@ -202,11 +202,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/form/button",
+    "dirPath": "D:/development/goatui/src/components/form/button",
     "filePath": "./src/components/form/button/goat-button.tsx",
     "fileName": "goat-button.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/form/button/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/form/button/usage",
+    "readmePath": "D:/development/goatui/src/components/form/button/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/form/button/usage",
     "tag": "goat-button",
     "readme": "# goat-button\n\n\n",
     "usage": {},
@@ -262,7 +262,7 @@
       },
       {
         "name": "color",
-        "type": "\"error\" | \"info\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+        "type": "\"error\" | \"primary\" | \"secondary\" | \"success\"",
         "mutable": false,
         "attr": "color",
         "reflectToAttr": false,
@@ -275,10 +275,6 @@
             "type": "string"
           },
           {
-            "value": "info",
-            "type": "string"
-          },
-          {
             "value": "primary",
             "type": "string"
           },
@@ -288,10 +284,6 @@
           },
           {
             "value": "success",
-            "type": "string"
-          },
-          {
-            "value": "warning",
             "type": "string"
           }
         ],
@@ -485,7 +477,7 @@
       },
       {
         "name": "variant",
-        "type": "\"default\" | \"light\" | \"link\" | \"outline\"",
+        "type": "\"default\" | \"ghost\" | \"light\" | \"outline\"",
         "mutable": false,
         "attr": "variant",
         "reflectToAttr": false,
@@ -498,11 +490,11 @@
             "type": "string"
           },
           {
-            "value": "light",
+            "value": "ghost",
             "type": "string"
           },
           {
-            "value": "link",
+            "value": "light",
             "type": "string"
           },
           {
@@ -562,11 +554,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/content/card",
+    "dirPath": "D:/development/goatui/src/components/content/card",
     "filePath": "./src/components/content/card/goat-card.tsx",
     "fileName": "goat-card.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/content/card/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/content/card/usage",
+    "readmePath": "D:/development/goatui/src/components/content/card/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/content/card/usage",
     "tag": "goat-card",
     "readme": "# goat-heading\n\n\n",
     "usage": {},
@@ -624,11 +616,11 @@
     "metadata": {}
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/form/checkbox",
+    "dirPath": "D:/development/goatui/src/components/form/checkbox",
     "filePath": "./src/components/form/checkbox/goat-checkbox.tsx",
     "fileName": "goat-checkbox.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/form/checkbox/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/form/checkbox/usage",
+    "readmePath": "D:/development/goatui/src/components/form/checkbox/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/form/checkbox/usage",
     "tag": "goat-checkbox",
     "readme": "# goat-checkbox\n\n\n",
     "usage": {},
@@ -908,11 +900,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/form/code-editor",
+    "dirPath": "D:/development/goatui/src/components/form/code-editor",
     "filePath": "./src/components/form/code-editor/goat-code-editor.tsx",
     "fileName": "goat-code-editor.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/form/code-editor/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/form/code-editor/usage",
+    "readmePath": "D:/development/goatui/src/components/form/code-editor/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/form/code-editor/usage",
     "tag": "goat-code-editor",
     "readme": "# goat-code-editor\n\n\n",
     "usage": {},
@@ -1148,11 +1140,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/content/divider",
+    "dirPath": "D:/development/goatui/src/components/content/divider",
     "filePath": "./src/components/content/divider/goat-divider.tsx",
     "fileName": "goat-divider.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/content/divider/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/content/divider/usage",
+    "readmePath": "D:/development/goatui/src/components/content/divider/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/content/divider/usage",
     "tag": "goat-divider",
     "readme": "# goat-heading\n\n\n",
     "usage": {},
@@ -1207,11 +1199,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/menus/dropdown",
+    "dirPath": "D:/development/goatui/src/components/menus/dropdown",
     "filePath": "./src/components/menus/dropdown/goat-dropdown.tsx",
     "fileName": "goat-dropdown.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/menus/dropdown/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/menus/dropdown/usage",
+    "readmePath": "D:/development/goatui/src/components/menus/dropdown/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/menus/dropdown/usage",
     "tag": "goat-dropdown",
     "readme": "# goat-dropdown\n\n\n",
     "usage": {},
@@ -1369,11 +1361,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/content/empty-state",
+    "dirPath": "D:/development/goatui/src/components/content/empty-state",
     "filePath": "./src/components/content/empty-state/goat-empty-state.tsx",
     "fileName": "goat-empty-state.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/content/empty-state/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/content/empty-state/usage",
+    "readmePath": "D:/development/goatui/src/components/content/empty-state/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/content/empty-state/usage",
     "tag": "goat-empty-state",
     "readme": "# goat-heading\n\n\n",
     "usage": {},
@@ -1452,11 +1444,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/flow-designer/flow-designer",
+    "dirPath": "D:/development/goatui/src/components/flow-designer/flow-designer",
     "filePath": "./src/components/flow-designer/flow-designer/goat-flow-designer.tsx",
     "fileName": "goat-flow-designer.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/flow-designer/flow-designer/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/flow-designer/flow-designer/usage",
+    "readmePath": "D:/development/goatui/src/components/flow-designer/flow-designer/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/flow-designer/flow-designer/usage",
     "tag": "goat-flow-designer",
     "readme": "# goat-flow-designer\n\n\n",
     "usage": {},
@@ -1516,11 +1508,11 @@
     "metadata": {}
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/form/form-control",
+    "dirPath": "D:/development/goatui/src/components/form/form-control",
     "filePath": "./src/components/form/form-control/goat-form-control.tsx",
     "fileName": "goat-form-control.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/form/form-control/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/form/form-control/usage",
+    "readmePath": "D:/development/goatui/src/components/form/form-control/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/form/form-control/usage",
     "tag": "goat-form-control",
     "readme": "# goat-field-group\n\n\n",
     "usage": {},
@@ -1655,11 +1647,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/content/icon",
+    "dirPath": "D:/development/goatui/src/components/content/icon",
     "filePath": "./src/components/content/icon/goat-icon.tsx",
     "fileName": "goat-icon.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/content/icon/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/content/icon/usage",
+    "readmePath": "D:/development/goatui/src/components/content/icon/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/content/icon/usage",
     "tag": "goat-icon",
     "readme": "# goat-icon\n\n\n",
     "usage": {},
@@ -1701,32 +1693,6 @@
       ]
     },
     "props": [
-      {
-        "name": "shade",
-        "type": "\"primary\" | \"secondary\" | \"tertiary\"",
-        "mutable": false,
-        "attr": "shade",
-        "reflectToAttr": true,
-        "docs": "",
-        "docsTags": [],
-        "default": "'primary'",
-        "values": [
-          {
-            "value": "primary",
-            "type": "string"
-          },
-          {
-            "value": "secondary",
-            "type": "string"
-          },
-          {
-            "value": "tertiary",
-            "type": "string"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
       {
         "name": "size",
         "type": "string",
@@ -1775,11 +1741,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/form/input",
+    "dirPath": "D:/development/goatui/src/components/form/input",
     "filePath": "./src/components/form/input/goat-input.tsx",
     "fileName": "goat-input.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/form/input/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/form/input/usage",
+    "readmePath": "D:/development/goatui/src/components/form/input/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/form/input/usage",
     "tag": "goat-input",
     "readme": "# goat-input\n\n\n",
     "usage": {},
@@ -2161,11 +2127,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/navigation/link",
+    "dirPath": "D:/development/goatui/src/components/navigation/link",
     "filePath": "./src/components/navigation/link/goat-link.tsx",
     "fileName": "goat-link.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/navigation/link/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/navigation/link/usage",
+    "readmePath": "D:/development/goatui/src/components/navigation/link/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/navigation/link/usage",
     "tag": "goat-link",
     "readme": "# goat-button\n\n\n",
     "usage": {},
@@ -2190,61 +2156,6 @@
     "dependencyGraph": {},
     "props": [
       {
-        "name": "color",
-        "type": "\"error\" | \"info\" | \"inherit\" | \"primary\" | \"success\" | \"warning\"",
-        "mutable": false,
-        "attr": "color",
-        "reflectToAttr": false,
-        "docs": "Color variants\nPossible values are `\"primary\"`, `\"success\"`, `\"warning\"`, `\"error\"`, `\"info\"`, `\"inherit\"`. Defaults to `\"inherit\"`.",
-        "docsTags": [],
-        "default": "'primary'",
-        "values": [
-          {
-            "value": "error",
-            "type": "string"
-          },
-          {
-            "value": "info",
-            "type": "string"
-          },
-          {
-            "value": "inherit",
-            "type": "string"
-          },
-          {
-            "value": "primary",
-            "type": "string"
-          },
-          {
-            "value": "success",
-            "type": "string"
-          },
-          {
-            "value": "warning",
-            "type": "string"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "decoration",
-        "type": "boolean",
-        "mutable": false,
-        "attr": "decoration",
-        "reflectToAttr": false,
-        "docs": "",
-        "docsTags": [],
-        "default": "true",
-        "values": [
-          {
-            "type": "boolean"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
         "name": "href",
         "type": "string",
         "mutable": false,
@@ -2255,6 +2166,23 @@
         "values": [
           {
             "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "inline",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "inline",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
           }
         ],
         "optional": false,
@@ -2315,11 +2243,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/menus/menu",
+    "dirPath": "D:/development/goatui/src/components/menus/menu",
     "filePath": "./src/components/menus/menu/goat-menu.tsx",
     "fileName": "goat-menu.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/menus/menu/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/menus/menu/usage",
+    "readmePath": "D:/development/goatui/src/components/menus/menu/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/menus/menu/usage",
     "tag": "goat-menu",
     "readme": "# goat-menu\n\n\n",
     "usage": {},
@@ -2457,11 +2385,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/menus/menu-item",
+    "dirPath": "D:/development/goatui/src/components/menus/menu-item",
     "filePath": "./src/components/menus/menu-item/goat-menu-item.tsx",
     "fileName": "goat-menu-item.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/menus/menu-item/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/menus/menu-item/usage",
+    "readmePath": "D:/development/goatui/src/components/menus/menu-item/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/menus/menu-item/usage",
     "tag": "goat-menu-item",
     "readme": "# goat-menu-item\n\n\n",
     "usage": {},
@@ -2478,40 +2406,6 @@
       ]
     },
     "props": [
-      {
-        "name": "color",
-        "type": "\"error\" | \"neutral\" | \"primary\" | \"success\" | \"warning\"",
-        "mutable": false,
-        "attr": "color",
-        "reflectToAttr": false,
-        "docs": "",
-        "docsTags": [],
-        "default": "'primary'",
-        "values": [
-          {
-            "value": "error",
-            "type": "string"
-          },
-          {
-            "value": "neutral",
-            "type": "string"
-          },
-          {
-            "value": "primary",
-            "type": "string"
-          },
-          {
-            "value": "success",
-            "type": "string"
-          },
-          {
-            "value": "warning",
-            "type": "string"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
       {
         "name": "disabled",
         "type": "boolean",
@@ -2621,11 +2515,11 @@
     "metadata": {}
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/form/select",
+    "dirPath": "D:/development/goatui/src/components/form/select",
     "filePath": "./src/components/form/select/goat-select.tsx",
     "fileName": "goat-select.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/form/select/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/form/select/usage",
+    "readmePath": "D:/development/goatui/src/components/form/select/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/form/select/usage",
     "tag": "goat-select",
     "readme": "# goat-select\n\n\n",
     "usage": {},
@@ -3058,11 +2952,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/content/spinner",
+    "dirPath": "D:/development/goatui/src/components/content/spinner",
     "filePath": "./src/components/content/spinner/goat-spinner.tsx",
     "fileName": "goat-spinner.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/content/spinner/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/content/spinner/usage",
+    "readmePath": "D:/development/goatui/src/components/content/spinner/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/content/spinner/usage",
     "tag": "goat-spinner",
     "readme": "# goat-spinner\n\n\n",
     "usage": {},
@@ -3127,11 +3021,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/tables/table",
+    "dirPath": "D:/development/goatui/src/components/tables/table",
     "filePath": "./src/components/tables/table/goat-table.tsx",
     "fileName": "goat-table.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/tables/table/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/tables/table/usage",
+    "readmePath": "D:/development/goatui/src/components/tables/table/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/tables/table/usage",
     "tag": "goat-table",
     "readme": "# goat-table\n\n\n",
     "usage": {},
@@ -3276,11 +3170,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/content/text",
+    "dirPath": "D:/development/goatui/src/components/content/text",
     "filePath": "./src/components/content/text/goat-text.tsx",
     "fileName": "goat-text.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/content/text/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/content/text/usage",
+    "readmePath": "D:/development/goatui/src/components/content/text/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/content/text/usage",
     "tag": "goat-text",
     "readme": "# goat-heading\n\n\n",
     "usage": {},
@@ -3443,11 +3337,11 @@
     }
   },
   {
-    "dirPath": "D:/development/p4rm/@p4rm/ui/src/components/form/textarea",
+    "dirPath": "D:/development/goatui/src/components/form/textarea",
     "filePath": "./src/components/form/textarea/goat-textarea.tsx",
     "fileName": "goat-textarea.tsx",
-    "readmePath": "D:/development/p4rm/@p4rm/ui/src/components/form/textarea/readme.md",
-    "usagesDir": "D:/development/p4rm/@p4rm/ui/src/components/form/textarea/usage",
+    "readmePath": "D:/development/goatui/src/components/form/textarea/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/form/textarea/usage",
     "tag": "goat-textarea",
     "readme": "# goat-textarea\n\n\n",
     "usage": {},

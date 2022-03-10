@@ -4,7 +4,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  padding: v(--space-3);
+  padding: v(--spacing-3);
 }
 
 .empty-state {
@@ -23,11 +23,11 @@
     height: 100%;
   }
 
-  --empty-state-primary: #{v(--color-primary-500)};
-  --empty-state-secondary: #{v(--color-primary-800)};
+  --empty-state-primary: #{v(--color-primary)};
+  --empty-state-secondary: #{v(--color-primary-90)};
 
-  --empty-state-bg-primary: #{v(--color-neutral-400)};
-  --empty-state-bg-secondary: #{v(--color-neutral-200)};
+  --empty-state-bg-primary: #{v(--color-neutral-50)};
+  --empty-state-bg-secondary: #{v(--color-neutral-30)};
   --empty-state-bg: #{v(--color-white)};
 }
 
@@ -35,29 +35,29 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: v(--space-3);
+  padding: v(--spacing-3);
   text-align: center;
   justify-content: center;
 
   .title {
     @include font-style(text-md);
     font-weight: v(--font-weight-semi-bold);
-    margin-bottom: v(--space-2);
-    color: var(--text-color, v(--text-color-primary))
+    margin-bottom: v(--spacing-2);
+    color: var(--text-color, v(--text-01))
   }
 
   .description {
     @include font-style(text-sm);
-    margin-bottom: v(--space-4);
-    color: var(--text-color, v(--text-color-secondary))
+    margin-bottom: v(--spacing-4);
+    color: var(--text-color, v(--text-02))
   }
 }
 
 :host-context([data-theme="dark"]) {
   .illustration {
-    --empty-state-primary: #{v(--color-primary-800)};
-    --empty-state-secondary: #{v(--color-primary-500)};
-    --empty-state-bg: #{v(--color-yellow-200)};
+    --empty-state-primary: #{v(--color-primary-90)};
+    --empty-state-secondary: #{v(--color-primary)};
+    --empty-state-bg: #{v(--color-yellow-30)};
   }
 }
 
@@ -65,7 +65,7 @@
 @include for-tablet-portrait-up {
   :host([vertical]) .empty-state {
     flex-direction: row;
-    gap: v(--space-4);
+    gap: v(--spacing-4);
 
     .content {
       align-items: normal;

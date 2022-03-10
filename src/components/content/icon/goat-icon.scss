@@ -2,38 +2,13 @@
 
 :host {
   display: inline-block;
-  color: inherit;
 }
 
 .icon {
   line-height: 0;
+  color: var(--icon-color, v(--text-01))
 }
 
-
-@mixin colorType($color) {
-  color: v(--color-#{$color}-500);
-  &:host([shade="secondary"]) {
-    color: v(--color-#{$color}-300);
-  }
-  &:host([shade="tertiary"]) {
-    color: v(--color-#{$color}-200);
-  }
-}
-
-:host {
-  color: var(--text-color, v(--text-color-primary));
-
-  &:host([shade="secondary"]) {
-    color: var(--text-color, v(--text-color-secondary));
-  }
-
-  &:host([shade="tertiary"]) {
-    color: var(--text-color, v(--text-color-tertiary));
-  }
-}
-
-@each $color in [primary, info, success, warning, error] {
-  :host-context(.text-color-#{$color}) {
-    @include colorType($color);
-  }
+:host(.inherit) .icon {
+  color: inherit;
 }

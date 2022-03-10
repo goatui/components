@@ -38,7 +38,7 @@ export class GoatAlert implements ComponentInterface {
   }
 
   renderCloseBtn() {
-    const variant = this.isDarkTheme ? 'default' : 'link';
+    const variant = this.isDarkTheme ? 'default' : 'ghost';
     if (this.dismissible) {
       return (
         <goat-button class='close-btn'

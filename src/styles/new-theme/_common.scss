@@ -1,0 +1,17 @@
+
+
+$common: (
+  border-radius: 3px,
+  /**
+   * TIP: use against position:relative elements
+   */
+  z-index-table-header: 10,
+  z-index-dropdown-content: 20,
+);
+
+$common-css-variables: ();
+@each $key, $value in $common {
+  $map: ();
+  $map: map-merge($map, ("--"+$key: $value));
+  $common-css-variables: map-merge($common-css-variables, $map);
+}

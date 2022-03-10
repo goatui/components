@@ -1,6 +1,5 @@
 @import "../common-input";
 
-
 .dropdown {
   position: relative;
 
@@ -20,25 +19,25 @@
   }
 
   &.bottom-right .dropdown-content {
-    top: calc(100% + #{v(--space-1)});
+    top: calc(100% + #{v(--spacing-1)});
     left: 0;
     transform-origin: top;
   }
 
   &.bottom-left .dropdown-content {
-    top: calc(100% + #{v(--space-1)});
+    top: calc(100% + #{v(--spacing-1)});
     right: 0;
     transform-origin: top;
   }
 
   &.top-right .dropdown-content {
-    bottom: calc(100% + #{v(--space-1)});
+    bottom: calc(100% + #{v(--spacing-1)});
     left: 0;
     transform-origin: bottom;
   }
 
   &.top-left .dropdown-content {
-    bottom: calc(100% + #{v(--space-1)});
+    bottom: calc(100% + #{v(--spacing-1)});
     right: 0;
     transform-origin: bottom;
   }
@@ -65,7 +64,7 @@
 
   .input-container:not(.has-value) {
     .display-value {
-      color: v(--text-color-placeholder);
+      color: v(--text-03);
     }
   }
 
@@ -75,7 +74,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: v(--space-3);
+    gap: v(--spacing-3);
   }
 
 }

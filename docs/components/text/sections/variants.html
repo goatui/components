@@ -3,26 +3,23 @@
 <goat-text type="text" shade='secondary'>Secondary</goat-text>
 <goat-text type="text" shade='tertiary'>Tertiary</goat-text>
 
-<div class='text-color-error'>
+
+<style>
+  .custom {
+    --text-color: var(--color-red-60);
+    --text-shade-secondary: var(--color-red-50);
+    --text-share-tertiary: var(--color-red-40);
+  }
+</style>
+
+<div class='custom'>
   <goat-text type="text">Primary</goat-text>
   <goat-text type="text" shade='secondary'>Secondary</goat-text>
   <goat-text type="text" shade='tertiary'>Tertiary</goat-text>
 </div>
 
-<div class='text-color-primary'>
-  <goat-text type="text">Primary</goat-text>
-  <goat-text type="text" shade='secondary'>Secondary</goat-text>
-  <goat-text type="text" shade='tertiary'>Tertiary</goat-text>
-</div>
-
-<div class='text-color-success'>
-  <goat-text type="text">Primary</goat-text>
-  <goat-text type="text" shade='secondary'>Secondary</goat-text>
-  <goat-text type="text" shade='tertiary'>Tertiary</goat-text>
-</div>
-
-<div style='--text-color:pink'>
-  <goat-text type="text">Primary</goat-text>
+<div style='color:pink'>
+  <goat-text type="text" class='inherit'>Primary</goat-text>
 </div>
 {% endcapture %}
 {% include demo-html.html content=sample-code %}

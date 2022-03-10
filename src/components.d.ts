@@ -26,7 +26,7 @@ export namespace Components {
         /**
           * Color variants.
          */
-        "color": 'primary' | 'secondary' | 'info' | 'success' | 'error' | 'warning';
+        "color": 'primary' | 'secondary' | 'success' | 'error';
         "configAria": any;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
@@ -62,7 +62,7 @@ export namespace Components {
          */
         "target": string;
         "triggerClick": () => Promise<void>;
-        "variant": 'default' | 'light' | 'outline' | 'link';
+        "variant": 'default' | 'light' | 'outline' | 'ghost';
     }
     interface GoatCard {
         "shadowLevel": 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | undefined;
@@ -181,7 +181,6 @@ export namespace Components {
         "warning": string;
     }
     interface GoatIcon {
-        "shade": 'primary' | 'secondary' | 'tertiary';
         /**
           * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
          */
@@ -250,14 +249,10 @@ export namespace Components {
     }
     interface GoatLink {
         /**
-          * Color variants Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`, `"info"`, `"inherit"`. Defaults to `"inherit"`.
-         */
-        "color": 'primary' | 'success' | 'warning' | 'error' | 'info' | 'inherit';
-        "decoration": boolean;
-        /**
           * Hyperlink to navigate to on click.
          */
         "href": string;
+        "inline": boolean;
         /**
           * Sets or retrieves the window or frame at which to target content.
          */
@@ -275,7 +270,6 @@ export namespace Components {
         "value"?: string | number;
     }
     interface GoatMenuItem {
-        "color": 'primary' | 'error' | 'warning' | 'success' | 'neutral';
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -609,7 +603,7 @@ declare namespace LocalJSX {
         /**
           * Color variants.
          */
-        "color"?: 'primary' | 'secondary' | 'info' | 'success' | 'error' | 'warning';
+        "color"?: 'primary' | 'secondary' | 'success' | 'error';
         "configAria"?: any;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
@@ -648,7 +642,7 @@ declare namespace LocalJSX {
           * Sets or retrieves the window or frame at which to target content.
          */
         "target"?: string;
-        "variant"?: 'default' | 'light' | 'outline' | 'link';
+        "variant"?: 'default' | 'light' | 'outline' | 'ghost';
     }
     interface GoatCard {
         "shadowLevel"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | undefined;
@@ -764,7 +758,6 @@ declare namespace LocalJSX {
         "warning"?: string;
     }
     interface GoatIcon {
-        "shade"?: 'primary' | 'secondary' | 'tertiary';
         /**
           * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
          */
@@ -840,14 +833,10 @@ declare namespace LocalJSX {
     }
     interface GoatLink {
         /**
-          * Color variants Possible values are `"primary"`, `"success"`, `"warning"`, `"error"`, `"info"`, `"inherit"`. Defaults to `"inherit"`.
-         */
-        "color"?: 'primary' | 'success' | 'warning' | 'error' | 'info' | 'inherit';
-        "decoration"?: boolean;
-        /**
           * Hyperlink to navigate to on click.
          */
         "href"?: string;
+        "inline"?: boolean;
         /**
           * Sets or retrieves the window or frame at which to target content.
          */
@@ -860,7 +849,6 @@ declare namespace LocalJSX {
         "value"?: string | number;
     }
     interface GoatMenuItem {
-        "color"?: 'primary' | 'error' | 'warning' | 'success' | 'neutral';
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */

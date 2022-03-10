@@ -116,7 +116,7 @@ export class GoatMenu implements ComponentInterface {
 
   private renderEmptyState() {
     if (this.empty)
-      return <goat-empty-state class="empty-menu" data-theme="dark">
+      return <goat-empty-state class="empty-menu">
         <div slot='title'>{this.internalEmptyState.title}</div>
         <div slot='description'>{this.internalEmptyState.description}</div>
       </goat-empty-state>;

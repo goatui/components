@@ -1,27 +1,8 @@
-<goat-text type='paragraph'>Here are several predefined button styles, each serving its own semantic purpose.</goat-text>
+<goat-text type='paragraph'>Here are predefined variants of link, each serving its own semantic purpose.</goat-text>
 
-<goat-card>
-  <goat-card-content>
-    <goat-link href='https://google.com' target='_blank'>Primary</goat-link>
-    <goat-link color='info'>Info</goat-link>
-    <goat-link color='success'>Success</goat-link>
-    <goat-link color='warning'>Warning</goat-link>
-    <goat-link color='error'>Error</goat-link>
-
-    <br />
-    <br />
-
-    <goat-link color='primary' decoration='false'>No underline</goat-link>
-  </goat-card-content>
-  <goat-card-content>
-    {% highlight html %}
-    <goat-link>Primary</goat-link>
-    <goat-link color='info'>Info</goat-link>
-    <goat-link color='success'>Success</goat-link>
-    <goat-link color='warning'>Warning</goat-link>
-    <goat-link color='error'>Error</goat-link>
-
-    <goat-link color='primary' decoration='false'>No underline</goat-link>
-    {% endhighlight %}
-  </goat-card-content>
-</goat-card>
+{% capture sample-code %}
+<goat-link href='https://github.com/goatui/ui' target='_blank'>Github <goat-icon type='arrow-right'></goat-icon></goat-link>
+<br />
+<goat-text>Some sentence <goat-link color='primary' href='#' inline>Inline link</goat-link> in-between</goat-text>
+{% endcapture %}
+{% include demo-html.html content=sample-code %}

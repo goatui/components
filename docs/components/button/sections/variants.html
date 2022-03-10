@@ -1,44 +1,49 @@
 <goat-text type='paragraph'>Here are several predefined button styles, each serving its own semantic purpose.
 </goat-text>
 
+
+
 {% capture sample-code %}
-<goat-button>Primary</goat-button>
-<goat-button color='secondary'>Secondary</goat-button>
-<goat-button color='success'>Success</goat-button>
-<goat-button color='warning'>Warning</goat-button>
-<goat-button color='error'>Error</goat-button>
-<goat-button color='info'>Info</goat-button>
-<goat-button color='dark'>Dark</goat-button>
 
-<br />
+{% for color in page.colors %}<goat-button color='{{color}}'>{{color | capitalize }}</goat-button>
+{% endfor %}
+<br/>
 
-<goat-button color='primary' variant='light'>Primary</goat-button>
-<goat-button color='secondary' variant='light'>Secondary</goat-button>
-<goat-button color='success' variant='light'>Success</goat-button>
-<goat-button color='warning' variant='light'>Warning</goat-button>
-<goat-button color='error' variant='light'>Error</goat-button>
-<goat-button color='info' variant='light'>Info</goat-button>
-<goat-button color='dark' variant='light'>Dark</goat-button>
+{% for color in page.colors %}<goat-button color='{{color}}' variant="light">{{color | capitalize }}</goat-button>
+{% endfor %}
+<br/>
 
-<br />
+{% for color in page.colors %}<goat-button color='{{color}}' variant='outline'>{{color | capitalize }}</goat-button>
+{% endfor %}
+<br/>
 
-<goat-button color='primary' variant='outline'>Primary</goat-button>
-<goat-button color='secondary' variant='outline'>Secondary</goat-button>
-<goat-button color='success' variant='outline'>Success</goat-button>
-<goat-button color='warning' variant='outline'>Warning</goat-button>
-<goat-button color='error' variant='outline'>Error</goat-button>
-<goat-button color='info' variant='outline'>Info</goat-button>
-<goat-button color='dark' variant='outline'>Dark</goat-button>
+{% for color in page.colors %}<goat-button color='{{color}}' variant='ghost'>{{color | capitalize }}</goat-button>
+{% endfor %}
+<br/>
+{% endcapture %}
+{% include demo-html.html content=sample-code %}
 
-<br />
 
-<goat-button color='primary' variant='link'>Primary</goat-button>
-<goat-button color='secondary' variant='link'>Secondary</goat-button>
-<goat-button color='success' variant='link'>Success</goat-button>
-<goat-button color='warning' variant='link'>Warning</goat-button>
-<goat-button color='error' variant='link'>Error</goat-button>
-<goat-button color='info' variant='link'>Info</goat-button>
-<goat-button color='dark' variant='link'>Dark</goat-button>
+<goat-text size='xl' style='margin-bottom: 10px'>Custom branding</goat-text>
+{% capture sample-code %}
+<style>
+  .custom {
+    --button-text-color: var(--color-white);
+    --button-color: var(--color-yellow-60);
+    --button-color-hover: var(--color-yellow-70);
 
+    --button-light-text-color: var(--color-red);
+    --button-light-color: var(--color-yellow-20);
+    --button-light-color-hover:  var(--color-yellow-30);
+
+    --button-color-active: var(--color-yellow-80);
+    --button-text-color-active: var(--color-white);
+  }
+</style>
+<goat-button class='custom'>Custom</goat-button>
+<goat-button class='custom' variant="ghost">Custom</goat-button>
+<goat-button class='custom' variant='outline'>Custom</goat-button>
+<goat-button class='custom' variant='ghost'>Custom</goat-button>
+<br/>
 {% endcapture %}
 {% include demo-html.html content=sample-code %}

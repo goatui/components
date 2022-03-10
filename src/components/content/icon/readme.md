@@ -7,11 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                                                               | Type                                     | Default     |
-| -------- | --------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------- | ----------- |
-| `shade`  | `shade`   |                                                                                                           | `"primary" \| "secondary" \| "tertiary"` | `'primary'` |
-| `size`   | `size`    | The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`. | `string`                                 | `'md'`      |
-| `type`   | `type`    |                                                                                                           | `string`                                 | `'house'`   |
+| Property | Attribute | Description                                                                                               | Type     | Default   |
+| -------- | --------- | --------------------------------------------------------------------------------------------------------- | -------- | --------- |
+| `size`   | `size`    | The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`. | `string` | `'md'`    |
+| `type`   | `type`    |                                                                                                           | `string` | `'house'` |
 
 
 ## Dependencies

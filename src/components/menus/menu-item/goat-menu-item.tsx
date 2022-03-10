@@ -31,9 +31,6 @@ export class GoatMenu {
    */
   @Prop({ reflect: true }) selected: boolean = false;
 
-
-  @Prop() color: 'primary' | 'error' | 'warning' | 'success' | 'neutral' = 'primary';
-
   /**
    * Emitted when the menu item is clicked.
    */
@@ -70,7 +67,7 @@ export class GoatMenu {
 
   @Listen('keyup', { target: 'window' })
   windowKeyUp(evt) {
-    if (this.isActive && (evt.key == 'Enter' || evt.key == ' '))
+    if (this.isActive && (evt.key == ' '))
       this.isActive = false;
   }
 
@@ -103,12 +100,12 @@ export class GoatMenu {
   };
 
   private keyDownHandler = (evt) => {
-    if (evt.key == 'Enter' || evt.key == ' ') {
+    if (evt.key == ' ') {
+      evt.preventDefault();
       this.isActive = true;
       this.clickHandler(evt);
     }
   };
-
 
   componentWillLoad() {
     // If the ion-input has a tabindex attribute we get the value
@@ -128,7 +125,6 @@ export class GoatMenu {
         class={{
           'menu-item': true,
           'selected': this.selected,
-          [`color-${this.color}`]: true,
           'active': this.isActive,
           'disabled': this.disabled,
           'has-focus': this.hasFocus,

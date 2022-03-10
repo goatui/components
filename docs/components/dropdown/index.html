@@ -15,13 +15,13 @@ sections:
   <!-- Content -->
   <div class='component-content'>
 
-    <div style='padding-bottom: var(--space-6)'>
+    <div style='padding-bottom: var(--spacing-6)'>
       <goat-text type='heading' size='md'>{{ page.title }}</goat-text>
       <goat-text type='paragraph'>Use {{site.company}}’s custom input styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</goat-text>
     </div>
 
     {% for section in page.sections %}
-    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style='padding-bottom: var(--space-4)'>
+    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style='padding-bottom: var(--spacing-4)'>
       <goat-text type='heading' level='2' size='sm'>{{ section.title }}</goat-text>
 
       {% include_relative {{ section.source }} %}
@@ -36,17 +36,17 @@ sections:
   <div class='col-xl-10 order-xl-1 duik-content border-bottom'>
 
     <div class='border-bottom mb-7'>
-      <h1>{{ page.title }}</h1>
+      <goat-text type='heading' size='md'>{{ page.title }}</goat-text>
       <p class='lead mb-5'>Use {{site.company}}’s custom button styles for actions in forms, dialogs, and more with
         support for
-        multiple sizes, states, and more.</p>
+        multiple sizes, states, and more.</goat-text>
     </div>
 
     &lt;!&ndash; Types &ndash;&gt;
     <div id='doc-variants' class='mb-7'>
       <h2 class='h4'>usage <a class='js-anchor-link duik-anchorjs-link' href='#doc-variants' aria-label='Anchor'
                                  data-anchorjs-icon='#'></a></h2>
-      <p>Here are a couple of dropdown variants, each serving its own semantic purpose.</p>
+      <goat-text type='paragraph'>Here are a couple of dropdown variants, each serving its own semantic purpose.</goat-text>
 
 
       <div class='card'>

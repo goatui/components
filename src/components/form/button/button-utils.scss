@@ -1,118 +1,16 @@
 @import "../../../styles/scss/commons";
 
 
-@mixin buttonVariant($variantColor, $light:false) {
-
-  @if $light {
-    @include text-color(v(--color-black));
-  } @else {
-    @include text-color(v(--color-white));
-  }
-  background: v(--color-#{$variantColor}-500);
-  border-color: v(--color-#{$variantColor}-500);
-
-  &:hover {
-    background: v(--color-#{$variantColor}-600);
-    border-color: v(--color-#{$variantColor}-600);
-  }
+@mixin buttonVariant($variantColor) {
 
 
-  &.active, &.selected {
-    background: v(--color-#{$variantColor}-800);
-    border-color: v(--color-#{$variantColor}-800);
-    @if $light == false {
-      @include text-color(v(--color-white));
-    }
-  }
-
-  &.disabled {
-    cursor: not-allowed;
-    @include text-color(v(--color-white), true);
-    background: v(--color-#{$variantColor}-200) !important;
-    border-color: v(--color-#{$variantColor}-200) !important;
-  }
 }
 
 @mixin buttonLight($variantColor) {
 
-  @include text-color(v(--color-#{$variantColor}-700));
 
-  background: v(--color-#{$variantColor}-50);
-  border-color: v(--color-#{$variantColor}-50);
-
-  &:hover {
-    background: v(--color-#{$variantColor}-100);
-    border-color: v(--color-#{$variantColor}-100);
-  }
-
-  &.active, &.selected {
-    background: v(--color-#{$variantColor}-800);
-    border-color: v(--color-#{$variantColor}-800);
-    @include text-color(v(--color-white));
-  }
-
-  &.disabled {
-    cursor: not-allowed;
-    @include text-color(v(--color-white),  true);
-    background: v(--color-#{$variantColor}-200) !important;
-    border-color: v(--color-#{$variantColor}-200) !important;
-  }
 }
 
-@mixin buttonOutline($variantColor) {
-
-  @include text-color(v(--color-#{$variantColor}-500));
-  background: transparent;
-  border-color: v(--color-#{$variantColor}-500);
-
-  &:hover {
-    @include text-color(v(--color-#{$variantColor}-600));
-    border-color: v(--color-#{$variantColor}-600);
-  }
-
-  &.active {
-    @include text-color(v(--color-#{$variantColor}-800));
-    background: v(--color-#{$variantColor}-50);
-    border-color: v(--color-#{$variantColor}-800);
-  }
-  &.selected {
-    @include text-color(v(--color-#{$variantColor}-900));
-    background: v(--color-#{$variantColor}-100);
-    border-color: v(--color-#{$variantColor}-900);
-  }
-  &.disabled {
-    cursor: not-allowed;
-    @include text-color(v(--color-white), true);
-    background: v(--color-#{$variantColor}-200) !important;
-    border-color: v(--color-#{$variantColor}-400) !important;
-  }
-}
-
-@mixin buttonLink($variantColor) {
-
-  @include text-color(v(--color-#{$variantColor}-500));
-
-  background: transparent;
-  border-color: transparent;
-
-  &:hover {
-    background: v(--color-#{$variantColor}-100);
-  }
-
-
-  &.active {
-    background: v(--color-#{$variantColor}-700);
-    border-color: v(--color-#{$variantColor}-700);
-    color: v(--color-white);
-  }
-
-  &.disabled {
-    cursor: not-allowed;
-    @include text-color(v(--color-neutral-400), true);
-    background: transparent !important;
-    border-color: transparent !important;
-  }
-}
 
 @function removeBorder($width) {
   @return #{($width*1 - 0.0625)}rem;

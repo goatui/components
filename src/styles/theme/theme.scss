@@ -1,9 +1,9 @@
 @use "sass:map";
 @use "sass:list";
 @import 'color';
-@import 'spacing';
-@import 'typography';
-@import 'shadow';
+@import 'src/styles/new-theme/spacing';
+@import 'src/styles/new-theme/typography';
+@import 'src/styles/new-theme/shadow';
 @import 'others';
 @import "../scss/mixins";
 
@@ -17,17 +17,17 @@
 
 [data-theme="dark"] {
   --ui-background-color: var(--color-neutral-900);
-  --ui-background-secondary: var(--color-neutral-800);
-  --text-color-primary: var(--color-neutral-100);
-  --text-color-secondary: var(--color-neutral-400);
-  --text-color-tertiary: var(--color-neutral-500);
-  --text-color-placeholder: var(--color-neutral-600);
+  --ui-01: var(--color-neutral-800);
+  --text-01: var(--color-neutral-100);
+  --text-02: var(--color-neutral-400);
+  --text-05: var(--color-neutral-500);
+  --text-03: var(--color-neutral-600);
 }
 
 html {
   font-size: 16px;
   background-color: var(--ui-background-color);
-  color: var(--text-color-primary);
+  color: var(--text-01);
 }
 
 p {

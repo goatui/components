@@ -1,16 +1,14 @@
 {% capture sample-code %}
 
-<span class='text-color-primary'>
-  <goat-spinner></goat-spinner>
-</span>
+<goat-spinner></goat-spinner>
 
-<goat-spinner class='text-color-success'></goat-spinner>
-<goat-spinner class='text-color-warning'></goat-spinner>
-<goat-spinner class='text-color-error'></goat-spinner>
-<goat-spinner class='text-color-info'></goat-spinner>
+<goat-spinner class='inherit' style='color:var(--color-primary)'></goat-spinner>
+<goat-spinner class='inherit' style='color:var(--color-error)'></goat-spinner>
+<goat-spinner class='inherit' style='color:var(--color-warning)'></goat-spinner>
+<goat-spinner class='inherit' style='color:var(--color-success)'></goat-spinner>
 
-<span style='--text-color:pink'>
-  <goat-spinner></goat-spinner>
+<span style='color:pink'>
+  <goat-spinner class='inherit'></goat-spinner>
 </span>
 
 <br/>

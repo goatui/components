@@ -18,6 +18,8 @@ title: Components
   .card-wrapper {
     width: 18rem;
     position: relative;
+    --link-decoration: none;
+    --link-decoration-hover: none;
   }
 
   .card-wrapper goat-card:after {
@@ -35,11 +37,11 @@ title: Components
   }
 
   .card-wrapper:hover .body {
-    background: var(--color-neutral-100);
+    background: var(--color-neutral-10);
   }
 
   html[data-theme="dark"] .card-wrapper:hover .body {
-    background-color: var(--color-neutral-700);
+    background-color: var(--color-neutral-80);
   }
 
   .card-wrapper .header {
@@ -50,7 +52,7 @@ title: Components
   }
 
   .text {
-    --text-color: var(--text-color-primary);
+    --text-color: var(--text-01);
   }
 </style>
 
@@ -63,7 +65,7 @@ title: Components
         {% if component.metadata.example %}
         {{component.metadata.example}}
         {% else %}
-        <img src='{{component.metadata.img}}' height='90%' />
+        <img src='{{component.metadata.img}}' height='90%' style='max-width: 100%'/>
         {% endif %}
       </goat-card-content>
 

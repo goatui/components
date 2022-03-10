@@ -5,7 +5,7 @@ root: true
 <style>
   .banner {
     height: 25rem;
-    background: var(--color-primary-200);
+    background: var(--color-brand-primary-30);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,17 +13,17 @@ root: true
   }
 
   [data-theme="dark"] .banner {
-    background: var(--color-grey-700);
+    background: var(--color-brand-primary-80);
   }
 
   .section {
-    padding-bottom: var(--space-2);
+    padding-bottom: var(--spacing-2);
   }
 </style>
 <div class='banner'>
   <goat-text type='heading' class='title'>{{site.title}}</goat-text>
   <goat-text type='paragraph' size='xl'>Web components build using stenciljs.</goat-text>
-  <goat-button variant='light' href='/components.html'>Browse Components</goat-button>
+  <goat-button href='/components.html' color='success'>Browse Components</goat-button>
 </div>
 
 <div class='container'>
@@ -49,9 +49,9 @@ root: true
     not miss any updates and announcements, stay tuned on our social pages.
     You can contribute to the project by creating pull requests or issues.
   </goat-text>
-  <goat-button icon='github' variant='link' target='_blank' aria-label='Github'
+  <goat-button icon='github' variant="ghost" target='_blank' aria-label='Github' color='secondary'
                href='https://www.github.com/{{site.github_username}}'></goat-button>
-  <goat-button icon='twitter' variant='link' target='_blank' aria-label='Twitter'
+  <goat-button icon='twitter' variant="ghost" target='_blank' aria-label='Twitter' color='secondary'
                href='https://www.twitter.com/{{site.twitter_username}}'></goat-button>
 
   <br /><br /><br />

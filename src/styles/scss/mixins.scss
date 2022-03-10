@@ -8,51 +8,8 @@
   letter-spacing: v(--#{$type}-letter-spacing);
 }
 
-@mixin color($type) {
-  font-size: var(--#{$type}-font-size);
-  line-height: var(--#{$type}-line-height);
-  letter-spacing: var(--#{$type}-letter-spacing);
-}
-
-@mixin font-common {
-  font-family: #{v(font-family)};
-  font-style: normal;
-}
-
-
-@mixin font-no-weight-variant($type) {
-  @include font-common;
-  font-size: v(font-size-#{$type});
-  line-height: v(line-height-#{$type});
-  letter-spacing: -0.04em;
-}
-
-@mixin font-variant($type) {
-  @include font-no-weight-variant($type);
-  font-weight: normal;
-  font-size: v(font-size-#{$type});
-  line-height: v(line-height-#{$type});
-  letter-spacing: -0.04em;
-}
-
-@mixin focus-ring($color:primary) {
-  outline: none;
-  @if $color {
-    box-shadow: 0 0 0 0.25rem rgba(map.get(map.get($colors, $color), 500), 25%);
-  } @else {
-    box-shadow: 0 0 0 0.25rem rgba(map.get(map.get($colors, blue-light), 500), 25%);
-  }
-}
-
-@mixin text-color($color, $important: false) {
-
-  @if $important {
-    color: $color !important;
-    --text-color: $color !important;
-  } @else {
-    color: $color;
-    --text-color: $color;
-  }
+@mixin focus-ring($color:v(--color-primary)) {
+  outline: 2px solid $color;
 }
 
 @mixin for-phone-only {

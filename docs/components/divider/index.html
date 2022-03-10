@@ -21,7 +21,7 @@ sections:
   <!-- Content -->
   <div class='component-content'>
 
-    <div style='padding-bottom: var(--space-6)'>
+    <div style='padding-bottom: var(--spacing-6)'>
       <goat-text type='heading' size='md'>{{ page.title }}</goat-text>
       <goat-text type='paragraph'>A divider can used to segment content vertically or horizontally.
       </goat-text>
@@ -29,7 +29,7 @@ sections:
 
     {% for section in page.sections %}
     <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}'
-         style='padding-bottom: var(--space-4)'>
+         style='padding-bottom: var(--spacing-4)'>
       <goat-text type='heading' level='2' size='sm'>{{ section.title }}</goat-text>
 
       {% include_relative {{ section.source }} %}

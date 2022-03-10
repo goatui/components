@@ -1,9 +1,8 @@
 {
   "name": "@goatui/components",
-  "version": "0.3.2",
+  "version": "0.5.0",
   "description": "GOAT UI contains most used web components built using Stencil",
   "license": "MIT",
-
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "es2015": "dist/esm/index.mjs",
@@ -12,7 +11,6 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/goatui/goatui.esm.js",
-
   "keywords": [
     "goatui",
     "stenciljs",
@@ -33,6 +31,7 @@
     "loader/"
   ],
   "scripts": {
+    "build:full": "npm run build:theme && npm run release-to-docs && npm run build",
     "build": "stencil build --docs",
     "build:theme": "gulp themeBuild",
     "generate": "stencil generate",
@@ -45,6 +44,7 @@
     "test.watch": "stencil test --spec --e2e --watchAll"
   },
   "devDependencies": {
+    "@carbon/colors": "^10.37.0",
     "@stencil/core": "^2.14.0",
     "@stencil/sass": "^1.5.2",
     "@types/node": "^16.9.6",
@@ -54,11 +54,12 @@
     "gulp": "^4.0.2",
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
-    "sass": "^1.42.1",
+    "sass": "^1.49.9",
     "stencil-inline-svg": "^1.1.0",
     "workbox-build": "^4.3.1"
   },
   "engines": {
     "node": ">=14.x"
-  }
+  },
+  "dependencies": {}
 }

@@ -3,14 +3,14 @@
 
 :host {
   display: inline-block;
-  color: v(--text-color-primary);
+  color: v(--text-01);
 }
 
 .checkbox {
   position: relative;
   display: flex;
   align-items: center;
-  gap: v(--space-2);
+  gap: v(--spacing-2);
 
   .input-native {
     position: absolute;
@@ -25,19 +25,31 @@
 
   .box {
     position: relative;
-    background: transparent;
-    border: 1px solid v(--border-color);
-    border-radius: 3px;
+    background: v(--field-01);
+    border: 1px solid v(--ui-04);
+    border-radius: v(--border-radius);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 250ms cubic-bezier(.4, .0, .23, 1);
+    &:before {
+      pointer-events: none;
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      border-radius: v(--border-radius);
+      border: 1px solid transparent;
+    }
   }
 
   &.rounded {
     .box {
       border-radius: 50%;
+      &:before {
+        border-radius: 50%;
+      }
     }
   }
 
@@ -47,82 +59,102 @@
     height: 0;
   }
 
-  &:hover {
+  &.has-focus:not(.active) {
     .box {
-      border: 1px solid v(--color-neutral-500);
-      background: v(--color-primary-100);
+      @include focus-ring;
+      border-color: transparent;
+    }
+
+    &:not(.state-checked) .box:before {
+      border-color: v(--icon-01);
     }
   }
-
-  &.state-intermediate {
-    .box {
-      background: v(--color-blue-light-500);
-    }
-
-
-    .tick {
-      position: absolute;
-      width: 67%;
-      height: 0;
-      margin: auto;
-      border-right: 3px solid transparent;
-      border-bottom: 3px solid transparent;
-      transform-origin: 0 100%;
-
-      &.animate {
-        animation: checkbox-slash 125ms 250ms cubic-bezier(.4, .0, .23, 1) forwards;
-      }
-
-      &:not(.animate) {
-        border-color: v(--color-white);
-      }
-    }
-
-    &:hover .box {
-      background: v(--color-blue-light-500);
-    }
-
-    &.active .box {
-      background: v(--color-blue-light-700);
-    }
-  }
-
-  &.state-checked {
-    .box {
-      background: v(--color-primary-500);
-    }
-
-    .tick {
-      position: absolute;
-      width: 33%;
-      height: 67%;
-      border-right: 3px solid transparent;
-      border-bottom: 3px solid transparent;
-      transform: rotate(45deg);
-      transform-origin: 0 100%;
-
-      &.animate {
-        animation: checkbox-check 125ms 250ms cubic-bezier(.4, .0, .23, 1) forwards;
-      }
-
-      &:not(.animate) {
-        border-color: v(--color-white);
-        top: -15%;
-        left: 15%;
-      }
-    }
-
-    &:hover .box {
-      background: v(--color-primary-600);
-    }
-
-    &.active .box {
-      background: v(--color-primary-800);
-    }
-  }
-
 
 }
+
+.checkbox.state-checked {
+  .box {
+    background: v(--color-primary);
+    border-color: transparent;
+  }
+
+  .tick {
+    width: 33%;
+    height: 67%;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    transform: rotate(45deg);
+    transform-origin: 0 100%;
+
+    &.animate {
+      animation: checkbox-check 125ms 250ms cubic-bezier(.4, .0, .23, 1) forwards;
+    }
+
+    &:not(.animate) {
+      border-color: v(--color-white);
+      top: -15%;
+      left: 15%;
+    }
+  }
+
+  &:hover .box {
+    background: v(--color-primary-70);
+  }
+
+  &.active .box {
+    border-color: v(--color-white);
+  }
+
+  &.has-focus:not(.active) {
+    .box {
+      @include focus-ring;
+      border-color: v(--color-white);
+    }
+  }
+
+}
+
+.checkbox.state-intermediate {
+  .box {
+    background: v(--color-primary);
+    border-color: transparent;
+  }
+
+
+  .tick {
+    width: 67%;
+    height: 0;
+    margin: auto;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    transform-origin: 0 100%;
+
+    &.animate {
+      animation: checkbox-slash 125ms 250ms cubic-bezier(.4, .0, .23, 1) forwards;
+    }
+
+    &:not(.animate) {
+      border-color: v(--color-white);
+    }
+  }
+
+  &:hover .box {
+    background: v(--color-primary-90);
+  }
+
+  &.active .box {
+    border-color: v(--color-white);
+  }
+
+  &.has-focus:not(.active) {
+    .box {
+      @include focus-ring;
+      border-color: v(--color-white);
+    }
+  }
+
+}
+
 
 /**
  * SIZES
@@ -157,13 +189,6 @@
 }
 
 
-.checkbox.has-focus:not(.active) {
-  .box {
-    @include focus-ring;
-  }
-}
-
-
 /**
  * States
  */
@@ -177,21 +202,19 @@
 
 .checkbox.disabled {
   cursor: not-allowed;
-  color: v(--color-neutral-400) !important;
-  border-color: v(--color-neutral-400) !important;
+  color: v(--disabled-02) !important;
+  border-color: v(--disabled-02) !important;
 
-  .box {
-    background: v(--color-neutral-200) !important;
+  &.state-checked .box {
+    background: v(--disabled-02) !important;
   }
 
-  &:hover {
-    .box {
-      border: 1px solid v(--border-color);
-    }
+  .box {
+    border: 1px solid v(--disabled-02) !important;
   }
 
   .tick {
-    border-color: #{v(--color-neutral-400)} !important;
+    border-color: #{v(--disabled-01)} !important;
   }
 
 }

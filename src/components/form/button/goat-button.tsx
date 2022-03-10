@@ -38,10 +38,9 @@ export class GoatButton implements ComponentInterface {
   /**
    * Color variants.
    */
-  @Prop() color: 'primary' | 'secondary' | 'info' | 'success' | 'error' | 'warning'
-    = 'primary';
+  @Prop() color:  'primary' | 'secondary' | 'success' | 'error' = 'primary';
 
-  @Prop() variant: 'default' | 'light' | 'outline' | 'link' = 'default';
+  @Prop() variant: 'default' | 'light' | 'outline' | 'ghost' = 'default';
 
   /**
    * If true, fits button width to its parent width. Defaults to `false`.
@@ -110,7 +109,7 @@ export class GoatButton implements ComponentInterface {
 
   @Listen('keyup', { target: 'window' })
   windowKeyUp(evt) {
-    if (this.isActive && (evt.key == 'Enter' || evt.key == ' '))
+    if (this.isActive && (evt.key == ' '))
       this.isActive = false;
   }
 
@@ -137,7 +136,7 @@ export class GoatButton implements ComponentInterface {
   }
 
   private renderIcon = () => {
-    return <goat-icon type={this.icon} size={this.getIconSize()} class='icon' />;
+    return <goat-icon type={this.icon} size={this.getIconSize()} class='icon inherit' />;
   };
 
   private clickHandler = (event: PointerEvent) => {
@@ -166,7 +165,7 @@ export class GoatButton implements ComponentInterface {
   };
 
   private keyDownHandler = (evt) => {
-    if (evt.key == 'Enter' || evt.key == ' ') {
+    if (evt.key == ' ') {
       this.isActive = true;
       this.clickHandler(evt);
     }
@@ -224,10 +223,10 @@ export class GoatButton implements ComponentInterface {
         onMouseDown={this.mouseDownHandler}
         onKeyDown={this.keyDownHandler}
         aria-describedby={this.disabled && this.disabledReason ? `disabled-reason-${this.gid}` : null}
-        aria-disabled={this.disabled || this.showLoader}
+        aria-disabled={(this.disabled || this.showLoader) + ''}
         {...this.configAria}>
 
-        {this.showLoader && <goat-spinner class='spinner' size={this.size} />}
+        {this.showLoader && <goat-spinner class='spinner inherit' size={this.size} />}
 
         {!this.showLoader && this.icon && this.renderIcon()}
 

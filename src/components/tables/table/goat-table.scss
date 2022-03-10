@@ -4,13 +4,14 @@
 :host {
   display: block;
   height: 100%;
+  --table-border-color: #{v(--ui-04)};
 }
 
 
 .table-component {
   @include font-style(text-md);
 
-  border: 1px solid v(--color-neutral-200);
+  border: 1px solid var(--table-border-color);
   box-sizing: border-box;
   border-radius: var(--border-radius);
   overflow: hidden;
@@ -33,7 +34,7 @@
       top: 0;
 
       .col {
-        background: v(--color-neutral-50);
+        background: v(--ui-03);
 
         .col-content {
           display: flex;
@@ -75,10 +76,11 @@
 
       .col {
         margin: 0;
+        color: v(--text-01);
         display: table-cell;
-        border-right: 1px solid v(--color-neutral-200);
-        border-bottom: 1px solid v(--color-neutral-200);
-        padding: v(--space-3) v(--space-6);
+        border-right: 1px solid var(--table-border-color);
+        border-bottom: 1px solid var(--table-border-color);
+        padding: v(--spacing-3) v(--spacing-6);
         box-sizing: border-box;
         vertical-align: middle;
         line-height: normal;
@@ -88,7 +90,7 @@
 
     .body .row .col {
       cursor: pointer;
-      background: white;
+      background: v(--ui-background);
 
       .col-content {
         white-space: nowrap;
@@ -97,7 +99,7 @@
       }
 
       &.col-hover {
-        background: v(--color-success-50);
+        background: v(--color-primary-40);
       }
     }
 
