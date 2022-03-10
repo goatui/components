@@ -91,7 +91,7 @@
 
 
 .button.variant-default {
-  color: var(--button-text-color, var(--private-button-text-color, v(--text-color-interactive)));
+  color: var(--button-text-color, var(--private-button-text-color, v(--text-04)));
 
   background: var(--button-color, var(--private-button-color));
   border-color: var(--button-color, var(--private-button-color));
@@ -105,7 +105,7 @@
   &.active, &.selected {
     background: var(--button-color-active, var(--private-button-color-active));
     border-color: var(--button-color-active, var(--private-button-color-active));
-    color: var(--button-text-color-active, var(--button-text-color, var(--private-button-text-color-active, v(--text-color-interactive))));
+    color: var(--button-text-color-active, var(--button-text-color, var(--private-button-text-color-active, v(--text-04))));
   }
 
   &.has-focus:not(.active) {
@@ -137,7 +137,7 @@
   &.active, &.selected {
     background: var(--button-color, var(--private-button-color));
     border-color: var(--button-color, var(--private-button-color));
-    color: var(--button-text-color-active, var(--button-text-color, var(--private-button-text-color-active, v(--text-color-interactive))));
+    color: var(--button-text-color-active, var(--button-text-color, var(--private-button-text-color-active, v(--text-04))));
   }
 
   &.has-focus:not(.active) {
@@ -168,7 +168,7 @@
   &.active, &.selected {
     background: var(--button-color-active, var(--private-button-color-active));
     border-color: var(--button-color-active, var(--private-button-color-active));
-    color: var(--button-text-color-active, var(--button-text-color, var(--private-button-text-color-active, v(--text-color-interactive))));
+    color: var(--button-text-color-active, var(--button-text-color, var(--private-button-text-color-active, v(--text-04))));
   }
 
   &.has-focus:not(.active) {
