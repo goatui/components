@@ -61,7 +61,7 @@ export class GoatFormControl implements ComponentInterface {
       // @ts-ignore
       const oldProps = this.controlElm.configAria;
       // @ts-ignore
-      comp.configAria = {
+      this.controlElm.configAria = {
         'aria-label': label,
         ...oldProps,
       };
