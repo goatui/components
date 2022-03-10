@@ -71,6 +71,7 @@ Secondary link color for lower contrast backgrounds
 /**
 * Secondary link color for lower contrast backgrounds
 */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 :root {
   --color-black-100: #000000;
   --color-blue-10: #edf5ff;
