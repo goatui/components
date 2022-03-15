@@ -1,5 +1,8 @@
 @import "../../../styles/scss/commons";
-@import "./button-utils";
+
+@function removeBorder($width) {
+  @return #{($width*1 - 0.0625)}rem;
+}
 
 
 :host {
@@ -9,6 +12,7 @@
 }
 
 .button {
+  height: 100%;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -27,6 +31,9 @@
 
   &.has-content .slot-container {
     display: block;
+  }
+  &.has-focus {
+    border-style: solid;
   }
 }
 
@@ -189,18 +196,18 @@
 }
 
 .button.variant-ghost {
-  color: var(--button-color, var(--button-ghost-text-color, v(--private-button-color)));
+  color: var(--button-ghost-text-color, var(--button-color, var(--private-button-ghost-text-color, v(--private-button-color))));
 
   background: transparent;
   border-color: transparent;
 
   &:hover {
-    color: var(--button-color-hover, var(--button-ghost-text-color-hover, var(--private-button-color-hover)));
+    color: var(--button-ghost-text-color-hover, var(--button-color-hover, var(--private-button-ghost-text-color-hover, var(--private-button-color-hover))));
     background: v(--hover-ui);
   }
 
-  &.active {
-    color: var(--button-color-active, var(--button-ghost-text-color-active, var(--private-button-color-active)));
+  &.active, &.selected {
+    color: var(--button-ghost-text-color-active, var(--button-color-active, var(--private-ghost-text-color-active,var(--private-button-color-active))));
     background: v(--active-ui);
   }
 
@@ -240,9 +247,9 @@
   --private-button-color: #{v(--color-secondary-80)};
   --private-button-color-hover: #{v(--color-secondary-70)};
 
-  --button-ghost-text-color: #{v(--text-01)};
-  --button-ghost-text-color-hover: #{v(--text-01)};
-  --button-ghost-text-color-active: #{v(--hover-ui)};
+  --private-button-ghost-text-color: #{v(--text-01)};
+  --private-button-ghost-text-color-hover: #{v(--text-01)};
+  --private-button-ghost-text-color-active: #{v(--hover-ui)};
 
   --private-button-light-color: #{v(--color-secondary-30)};
   --private-button-light-color-hover: #{v(--color-secondary-40)};

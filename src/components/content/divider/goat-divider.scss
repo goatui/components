@@ -41,3 +41,11 @@
   }
 
 }
+
+:host(:not([vertical])) {
+  width: 100%;
+}
+
+:host([vertical]) {
+  height: 100%;
+}

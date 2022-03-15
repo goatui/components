@@ -37,6 +37,9 @@ export class GoatMenu {
   @Event({ eventName: 'goat:menu-item-click' }) goatMenuItemClick: EventEmitter;
 
 
+  @State() startSlotHasContent = false;
+  @State() endSlotHasContent = false;
+
   /**
    * Sets focus on the native `input` in `goat-input`. Use this method instead of the global
    * `input.focus()`.
@@ -116,6 +119,8 @@ export class GoatMenu {
       this.tabindex = tabindex !== null ? tabindex : undefined;
       this.elm.removeAttribute('tabindex');
     }
+    this.startSlotHasContent = !!this.elm.querySelector('[slot="start"]');
+    this.endSlotHasContent = !!this.elm.querySelector('[slot="end"]');
   }
 
   render = () => {
@@ -128,6 +133,8 @@ export class GoatMenu {
           'active': this.isActive,
           'disabled': this.disabled,
           'has-focus': this.hasFocus,
+          'start-slot-has-content': this.startSlotHasContent,
+          'end-slot-has-content': this.endSlotHasContent,
         }}
         tabindex={this.tabindex}
         onBlur={this.blurHandler}

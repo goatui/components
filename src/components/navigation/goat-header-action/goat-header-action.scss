@@ -1,0 +1,123 @@
+@import "../../../styles/scss/commons";
+
+@function removeBorder($width) {
+  @return #{($width*1 - 0.0625)}rem;
+}
+
+
+:host {
+  display: inline-block;
+}
+
+.button {
+  height: var(--spacing-12, 3rem);
+
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  cursor: pointer;
+  width: 100%;
+  border: 0.0625rem none transparent;
+  gap: v(--spacing-2);
+  outline: none;
+
+  .slot-container {
+    width: 100%;
+    display: none;
+  }
+
+  &.has-content .slot-container {
+    display: block;
+  }
+  &.has-focus {
+    border-style: solid;
+  }
+}
+
+:host([has-focus]) {
+  z-index: 1;
+}
+
+
+/**
+  * SIZE
+  */
+.button {
+  padding: 0 removeBorder(0.625);
+  @include font-style(text-sm);
+  font-weight: v(--font-weight-medium);
+}
+
+.button.disabled {
+  cursor: not-allowed;
+}
+
+
+.button {
+  color: var(--button-text-color, var(--private-button-text-color, v(--text-04)));
+  slot::slotted(*) {
+    color: #{var(--button-text-color, var(--private-button-text-color, v(--text-04)))};
+  }
+
+  background: var(--button-color, var(--private-button-color));
+  border-color: var(--button-color, var(--private-button-color));
+
+
+  &:hover {
+    background: var(--button-color-hover, var(--private-button-color-hover));
+    border-color: var(--button-color-hover, var(--private-button-color-hover));
+  }
+
+  &.active, &.selected {
+    background: var(--button-color-active, var(--private-button-color-active));
+    border-color: var(--button-color-active, var(--private-button-color-active));
+    color: var(--button-text-color-active, var(--button-text-color, var(--private-button-text-color-active, v(--text-04))));
+    slot::slotted(*) {
+      color: #{var(--button-text-color-active, var(--button-text-color, var(--private-button-text-color-active, v(--text-04))))};
+    }
+  }
+
+  &.has-focus:not(.active) {
+    border-color: v(--color-white);
+  }
+
+  &.disabled {
+    color: v(--disabled-03);
+    background: v(--disabled-02) !important;
+    border-color: v(--disabled-02) !important;
+    &.has-focus:not(.active) {
+      @include focus-ring(var(--button-color-focus, v(--color-neutral)));
+    }
+  }
+}
+
+
+/**
+  * Variants
+  */
+.button {
+  --private-button-text-color: #{v(--text-01)};
+  --private-button-color: #{v(--color-white)};
+  --private-button-color-hover: #{v(--color-secondary-30)};
+  --private-button-color-active: #{v(--color-secondary-40)};
+}
+
+:host-context([data-theme="dark"]) .button {
+  --private-button-color: #{v(--color-black)};
+  --private-button-color-hover: #{v(--color-secondary-70)};
+  --private-button-color-active: #{v(--color-secondary-60)};
+}
+
+:host-context(.brand-primary) .button {
+  --private-button-text-color: #{v(--color-white)};
+  --private-button-color: #{v(--color-primary-60)};
+  --private-button-color-hover: #{v(--color-primary-70)};
+  --private-button-color-active: #{v(--color-primary-80)};
+}
+
+.button.icon-end {
+  flex-direction: row-reverse;
+}
+
+

@@ -1,0 +1,35 @@
+@import "../../../styles/scss/commons";
+
+:host {
+  display: inline-block;
+}
+
+.badge {
+  position: relative;
+}
+
+.badge-content {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  color: v(--color-white);
+  display: flex;
+  justify-content: center;
+  width: 1.2rem;
+  height: 1.2rem;
+  align-items: center;
+  background-color: var(--badge-color, v(--color-neutral));
+  border-radius: 50%;
+  padding: v(--spacing-1);
+  font-size: v(--text-xs-font-size);
+  pointer-events: none;
+}
+
+
+@each $state in [success, warning, error] {
+  :host(.color-#{$state}) {
+    .badge-content {
+      background-color: v(--color-#{$state});
+    }
+  }
+}

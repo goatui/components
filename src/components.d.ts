@@ -18,6 +18,9 @@ export namespace Components {
         "size": string;
         "src": string;
     }
+    interface GoatBadge {
+        "content": string;
+    }
     interface GoatButton {
         /**
           * If true, fits button width to its parent width. Defaults to `false`.
@@ -139,6 +142,11 @@ export namespace Components {
          */
         "value": string;
     }
+    interface GoatCodeHighlighter {
+        "language": 'markup' | 'css' | 'clike' | 'javascript' | 'abap' | 'actionscript' | 'ada' | 'apacheconf' | 'apl' | 'applescript' | 'arduino' | 'arff' | 'asciidoc' | 'asm6502' | 'aspnet' | 'autohotkey' | 'autoit' | 'bash' | 'basic' | 'batch' | 'bison' | 'brainfuck' | 'bro' | 'c' | 'csharp' | 'cpp' | 'coffeescript' | 'clojure' | 'crystal' | 'csp' | 'css-extras' | 'd' | 'dart' | 'diff' | 'django' | 'docker' | 'eiffel' | 'elixir' | 'elm' | 'erb' | 'erlang' | 'fsharp' | 'flow' | 'fortran' | 'gedcom' | 'gherkin' | 'git' | 'glsl' | 'gml' | 'go' | 'graphql' | 'groovy' | 'haml' | 'handlebars' | 'haskell' | 'haxe' | 'http' | 'hpkp' | 'hsts' | 'ichigojam' | 'icon' | 'inform7' | 'ini' | 'io' | 'j' | 'java' | 'jolie' | 'json' | 'julia' | 'keyman' | 'kotlin' | 'latex' | 'less' | 'liquid' | 'lisp' | 'livescript' | 'lolcode' | 'lua' | 'makefile' | 'markdown' | 'markup-templating' | 'matlab' | 'mel' | 'mizar' | 'monkey' | 'n4js' | 'nasm' | 'nginx' | 'nim' | 'nix' | 'nsis' | 'objectivec' | 'ocaml' | 'opencl' | 'oz' | 'parigp' | 'parser' | 'pascal' | 'perl' | 'php' | 'php-extras' | 'plsql' | 'powershell' | 'processing' | 'prolog' | 'properties' | 'protobuf' | 'pug' | 'puppet' | 'pure' | 'python' | 'q' | 'qore' | 'r' | 'jsx' | 'tsx' | 'renpy' | 'reason' | 'rest' | 'rip' | 'roboconf' | 'ruby' | 'rust' | 'sas' | 'sass' | 'scss' | 'scala' | 'scheme' | 'smalltalk' | 'smarty' | 'sql' | 'soy' | 'stylus' | 'swift' | 'tap' | 'tcl' | 'textile' | 'tt2' | 'twig' | 'typescript' | 'vbnet' | 'velocity' | 'verilog' | 'vhdl' | 'vim' | 'visual-basic' | 'wasm' | 'wiki' | 'xeora' | 'xojo' | 'xquery' | 'yaml';
+        "lineNumbers": boolean;
+        "value": string;
+    }
     interface GoatDivider {
         "vertical": boolean;
     }
@@ -148,6 +156,7 @@ export namespace Components {
          */
         "disabled": boolean;
         "isOpen": boolean;
+        "items": any[];
         "positions": string;
         "setFocus": () => Promise<void>;
         /**
@@ -179,6 +188,46 @@ export namespace Components {
         "required": boolean;
         "success": string;
         "warning": string;
+    }
+    interface GoatHeader {
+        "bandLogo": string;
+        "brandName": string;
+        "brandUrl": string;
+        "pageTitle": string;
+        "type": 'simple';
+    }
+    interface GoatHeaderAction {
+        "configAria": any;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled": boolean;
+        "disabledReason": string;
+        /**
+          * Hyperlink to navigate to on click.
+         */
+        "href": string;
+        /**
+          * Icon which will displayed on button. Possible values are bootstrap icon names.
+         */
+        "icon": string;
+        /**
+          * Icon position.
+         */
+        "iconEnd": boolean;
+        /**
+          * Button selection state.
+         */
+        "selected": boolean;
+        /**
+          * Show loader.
+         */
+        "showLoader": boolean;
+        /**
+          * Sets or retrieves the window or frame at which to target content.
+         */
+        "target": string;
+        "triggerClick": () => Promise<void>;
     }
     interface GoatIcon {
         /**
@@ -443,6 +492,12 @@ declare global {
         prototype: HTMLGoatAvatarElement;
         new (): HTMLGoatAvatarElement;
     };
+    interface HTMLGoatBadgeElement extends Components.GoatBadge, HTMLStencilElement {
+    }
+    var HTMLGoatBadgeElement: {
+        prototype: HTMLGoatBadgeElement;
+        new (): HTMLGoatBadgeElement;
+    };
     interface HTMLGoatButtonElement extends Components.GoatButton, HTMLStencilElement {
     }
     var HTMLGoatButtonElement: {
@@ -466,6 +521,12 @@ declare global {
     var HTMLGoatCodeEditorElement: {
         prototype: HTMLGoatCodeEditorElement;
         new (): HTMLGoatCodeEditorElement;
+    };
+    interface HTMLGoatCodeHighlighterElement extends Components.GoatCodeHighlighter, HTMLStencilElement {
+    }
+    var HTMLGoatCodeHighlighterElement: {
+        prototype: HTMLGoatCodeHighlighterElement;
+        new (): HTMLGoatCodeHighlighterElement;
     };
     interface HTMLGoatDividerElement extends Components.GoatDivider, HTMLStencilElement {
     }
@@ -496,6 +557,18 @@ declare global {
     var HTMLGoatFormControlElement: {
         prototype: HTMLGoatFormControlElement;
         new (): HTMLGoatFormControlElement;
+    };
+    interface HTMLGoatHeaderElement extends Components.GoatHeader, HTMLStencilElement {
+    }
+    var HTMLGoatHeaderElement: {
+        prototype: HTMLGoatHeaderElement;
+        new (): HTMLGoatHeaderElement;
+    };
+    interface HTMLGoatHeaderActionElement extends Components.GoatHeaderAction, HTMLStencilElement {
+    }
+    var HTMLGoatHeaderActionElement: {
+        prototype: HTMLGoatHeaderActionElement;
+        new (): HTMLGoatHeaderActionElement;
     };
     interface HTMLGoatIconElement extends Components.GoatIcon, HTMLStencilElement {
     }
@@ -560,15 +633,19 @@ declare global {
     interface HTMLElementTagNameMap {
         "goat-alert": HTMLGoatAlertElement;
         "goat-avatar": HTMLGoatAvatarElement;
+        "goat-badge": HTMLGoatBadgeElement;
         "goat-button": HTMLGoatButtonElement;
         "goat-card": HTMLGoatCardElement;
         "goat-checkbox": HTMLGoatCheckboxElement;
         "goat-code-editor": HTMLGoatCodeEditorElement;
+        "goat-code-highlighter": HTMLGoatCodeHighlighterElement;
         "goat-divider": HTMLGoatDividerElement;
         "goat-dropdown": HTMLGoatDropdownElement;
         "goat-empty-state": HTMLGoatEmptyStateElement;
         "goat-flow-designer": HTMLGoatFlowDesignerElement;
         "goat-form-control": HTMLGoatFormControlElement;
+        "goat-header": HTMLGoatHeaderElement;
+        "goat-header-action": HTMLGoatHeaderActionElement;
         "goat-icon": HTMLGoatIconElement;
         "goat-input": HTMLGoatInputElement;
         "goat-link": HTMLGoatLinkElement;
@@ -594,6 +671,9 @@ declare namespace LocalJSX {
          */
         "size"?: string;
         "src"?: string;
+    }
+    interface GoatBadge {
+        "content"?: string;
     }
     interface GoatButton {
         /**
@@ -717,6 +797,11 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface GoatCodeHighlighter {
+        "language"?: 'markup' | 'css' | 'clike' | 'javascript' | 'abap' | 'actionscript' | 'ada' | 'apacheconf' | 'apl' | 'applescript' | 'arduino' | 'arff' | 'asciidoc' | 'asm6502' | 'aspnet' | 'autohotkey' | 'autoit' | 'bash' | 'basic' | 'batch' | 'bison' | 'brainfuck' | 'bro' | 'c' | 'csharp' | 'cpp' | 'coffeescript' | 'clojure' | 'crystal' | 'csp' | 'css-extras' | 'd' | 'dart' | 'diff' | 'django' | 'docker' | 'eiffel' | 'elixir' | 'elm' | 'erb' | 'erlang' | 'fsharp' | 'flow' | 'fortran' | 'gedcom' | 'gherkin' | 'git' | 'glsl' | 'gml' | 'go' | 'graphql' | 'groovy' | 'haml' | 'handlebars' | 'haskell' | 'haxe' | 'http' | 'hpkp' | 'hsts' | 'ichigojam' | 'icon' | 'inform7' | 'ini' | 'io' | 'j' | 'java' | 'jolie' | 'json' | 'julia' | 'keyman' | 'kotlin' | 'latex' | 'less' | 'liquid' | 'lisp' | 'livescript' | 'lolcode' | 'lua' | 'makefile' | 'markdown' | 'markup-templating' | 'matlab' | 'mel' | 'mizar' | 'monkey' | 'n4js' | 'nasm' | 'nginx' | 'nim' | 'nix' | 'nsis' | 'objectivec' | 'ocaml' | 'opencl' | 'oz' | 'parigp' | 'parser' | 'pascal' | 'perl' | 'php' | 'php-extras' | 'plsql' | 'powershell' | 'processing' | 'prolog' | 'properties' | 'protobuf' | 'pug' | 'puppet' | 'pure' | 'python' | 'q' | 'qore' | 'r' | 'jsx' | 'tsx' | 'renpy' | 'reason' | 'rest' | 'rip' | 'roboconf' | 'ruby' | 'rust' | 'sas' | 'sass' | 'scss' | 'scala' | 'scheme' | 'smalltalk' | 'smarty' | 'sql' | 'soy' | 'stylus' | 'swift' | 'tap' | 'tcl' | 'textile' | 'tt2' | 'twig' | 'typescript' | 'vbnet' | 'velocity' | 'verilog' | 'vhdl' | 'vim' | 'visual-basic' | 'wasm' | 'wiki' | 'xeora' | 'xojo' | 'xquery' | 'yaml';
+        "lineNumbers"?: boolean;
+        "value"?: string;
+    }
     interface GoatDivider {
         "vertical"?: boolean;
     }
@@ -726,6 +811,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         "isOpen"?: boolean;
+        "items"?: any[];
         "positions"?: string;
         /**
           * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
@@ -756,6 +842,49 @@ declare namespace LocalJSX {
         "required"?: boolean;
         "success"?: string;
         "warning"?: string;
+    }
+    interface GoatHeader {
+        "bandLogo"?: string;
+        "brandName"?: string;
+        "brandUrl"?: string;
+        "pageTitle"?: string;
+        "type"?: 'simple';
+    }
+    interface GoatHeaderAction {
+        "configAria"?: any;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled"?: boolean;
+        "disabledReason"?: string;
+        /**
+          * Hyperlink to navigate to on click.
+         */
+        "href"?: string;
+        /**
+          * Icon which will displayed on button. Possible values are bootstrap icon names.
+         */
+        "icon"?: string;
+        /**
+          * Icon position.
+         */
+        "iconEnd"?: boolean;
+        /**
+          * On click of button, a CustomEvent 'goat:click' will be triggered.
+         */
+        "onGoat:click"?: (event: CustomEvent<any>) => void;
+        /**
+          * Button selection state.
+         */
+        "selected"?: boolean;
+        /**
+          * Show loader.
+         */
+        "showLoader"?: boolean;
+        /**
+          * Sets or retrieves the window or frame at which to target content.
+         */
+        "target"?: string;
     }
     interface GoatIcon {
         /**
@@ -1023,15 +1152,19 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "goat-alert": GoatAlert;
         "goat-avatar": GoatAvatar;
+        "goat-badge": GoatBadge;
         "goat-button": GoatButton;
         "goat-card": GoatCard;
         "goat-checkbox": GoatCheckbox;
         "goat-code-editor": GoatCodeEditor;
+        "goat-code-highlighter": GoatCodeHighlighter;
         "goat-divider": GoatDivider;
         "goat-dropdown": GoatDropdown;
         "goat-empty-state": GoatEmptyState;
         "goat-flow-designer": GoatFlowDesigner;
         "goat-form-control": GoatFormControl;
+        "goat-header": GoatHeader;
+        "goat-header-action": GoatHeaderAction;
         "goat-icon": GoatIcon;
         "goat-input": GoatInput;
         "goat-link": GoatLink;
@@ -1050,15 +1183,19 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "goat-alert": LocalJSX.GoatAlert & JSXBase.HTMLAttributes<HTMLGoatAlertElement>;
             "goat-avatar": LocalJSX.GoatAvatar & JSXBase.HTMLAttributes<HTMLGoatAvatarElement>;
+            "goat-badge": LocalJSX.GoatBadge & JSXBase.HTMLAttributes<HTMLGoatBadgeElement>;
             "goat-button": LocalJSX.GoatButton & JSXBase.HTMLAttributes<HTMLGoatButtonElement>;
             "goat-card": LocalJSX.GoatCard & JSXBase.HTMLAttributes<HTMLGoatCardElement>;
             "goat-checkbox": LocalJSX.GoatCheckbox & JSXBase.HTMLAttributes<HTMLGoatCheckboxElement>;
             "goat-code-editor": LocalJSX.GoatCodeEditor & JSXBase.HTMLAttributes<HTMLGoatCodeEditorElement>;
+            "goat-code-highlighter": LocalJSX.GoatCodeHighlighter & JSXBase.HTMLAttributes<HTMLGoatCodeHighlighterElement>;
             "goat-divider": LocalJSX.GoatDivider & JSXBase.HTMLAttributes<HTMLGoatDividerElement>;
             "goat-dropdown": LocalJSX.GoatDropdown & JSXBase.HTMLAttributes<HTMLGoatDropdownElement>;
             "goat-empty-state": LocalJSX.GoatEmptyState & JSXBase.HTMLAttributes<HTMLGoatEmptyStateElement>;
             "goat-flow-designer": LocalJSX.GoatFlowDesigner & JSXBase.HTMLAttributes<HTMLGoatFlowDesignerElement>;
             "goat-form-control": LocalJSX.GoatFormControl & JSXBase.HTMLAttributes<HTMLGoatFormControlElement>;
+            "goat-header": LocalJSX.GoatHeader & JSXBase.HTMLAttributes<HTMLGoatHeaderElement>;
+            "goat-header-action": LocalJSX.GoatHeaderAction & JSXBase.HTMLAttributes<HTMLGoatHeaderActionElement>;
             "goat-icon": LocalJSX.GoatIcon & JSXBase.HTMLAttributes<HTMLGoatIconElement>;
             "goat-input": LocalJSX.GoatInput & JSXBase.HTMLAttributes<HTMLGoatInputElement>;
             "goat-link": LocalJSX.GoatLink & JSXBase.HTMLAttributes<HTMLGoatLinkElement>;

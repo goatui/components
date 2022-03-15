@@ -1,4 +1,4 @@
-@import "editor.main";
+@import "../../../3d-party/monaco/editor.main";
 @import "../../../styles/scss/commons";
 
 :host {
@@ -6,8 +6,21 @@
   height: 100%;
 }
 
+.code-editor-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: v(--spacing-2);
+}
+
 .code-editor-component {
   height: 100%;
+  position: relative;
 
   .editor {
     height: 100%;
@@ -17,9 +30,9 @@
     overflow: hidden;
 
     &[disabled], &[disabled="true"] {
-      color: v(--color-neutral-500);
-      background-color: v(--color-neutral-100);
-      border-color: v(--color-neutral-500);
+      color: v(--color-neutral);
+      background-color: v(--color-neutral-10);
+      border-color: v(--color-neutral);
       cursor: not-allowed;
     }
   }
@@ -56,7 +69,7 @@
   :host-context(.input-state-#{$state}) {
     .code-editor-component {
       .editor {
-        border-color: v(--color-#{$state}-500);
+        border-color: v(--color-#{$state});
       }
 
       &.has-focus {

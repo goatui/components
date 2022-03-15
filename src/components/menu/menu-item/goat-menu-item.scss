@@ -71,4 +71,16 @@
 }
 
 
+.menu-item:not(.start-slot-has-content) {
+  .slot-start {
+    display: none;
+  }
+}
+
+.menu-item:not(.end-slot-has-content) {
+  .slot-end {
+    display: none;
+  }
+}
+
 

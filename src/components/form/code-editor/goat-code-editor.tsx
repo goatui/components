@@ -1,7 +1,6 @@
 import { Component, ComponentInterface, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
-import { debounceEvent, getGoatIndex, loadScript } from '../../../utils/utils';
-
-let scriptLoaded = false;
+import { debounceEvent, getGoatIndex } from '../../../utils/utils';
+import loadMonaco from '../../../3d-party/monaco';
 
 /**
  * @name Code Editor
@@ -113,18 +112,12 @@ export class GoatCodeEditor implements ComponentInterface, InputComponentInterfa
   }
 
   private editorElement?: HTMLElement;
-  private editorMonacoInstance;
+  @State() editorMonacoInstance: any;
 
   async componentWillLoad() {
     this.debounceChanged();
-    if (!scriptLoaded) {
-      scriptLoaded = true;
-      const version = '0.21.2';
-      // @ts-ignore
-      window['require'] = { paths: { 'vs': `https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/${version}/min/vs` } };
-      await loadScript(`https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/${version}/min/vs/loader.js`);
-      await loadScript(`https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/${version}/min/vs/editor/editor.main.nls.js`);
-      await loadScript(`https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/${version}/min/vs/editor/editor.main.js`);
+    if (!window['monaco']) {
+      await loadMonaco();
     }
   }
 
@@ -173,7 +166,13 @@ export class GoatCodeEditor implements ComponentInterface, InputComponentInterfa
           'has-focus': this.hasFocus,
         }}>
           <div class='editor' ref={el => this.editorElement = el} />
+          {!this.editorMonacoInstance && <div class='code-editor-loader'>
+            <goat-spinner class='rainbow' />
+            Loading editor...
+          </div>}
         </div>
+
+
       </Host>
     );
   }

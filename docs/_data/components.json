@@ -202,6 +202,64 @@
     }
   },
   {
+    "dirPath": "D:/development/goatui/src/components/content/badge",
+    "filePath": "./src/components/content/badge/goat-badge.tsx",
+    "fileName": "goat-badge.tsx",
+    "readmePath": "D:/development/goatui/src/components/content/badge/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/content/badge/usage",
+    "tag": "goat-badge",
+    "readme": "# goat-icon\n\n\n",
+    "usage": {},
+    "docs": "",
+    "docsTags": [
+      {
+        "name": "name",
+        "text": "Badge"
+      },
+      {
+        "name": "description",
+        "text": "Renders a specified badge."
+      },
+      {
+        "name": "example",
+        "text": "<goat-badge content=\"5\" class='color-error'><goat-icon type=\"bell\"></goat-icon></goat-badge>"
+      }
+    ],
+    "encapsulation": "shadow",
+    "dependents": [],
+    "dependencies": [],
+    "dependencyGraph": {},
+    "props": [
+      {
+        "name": "content",
+        "type": "string",
+        "mutable": false,
+        "attr": "content",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "values": [
+          {
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      }
+    ],
+    "methods": [],
+    "events": [],
+    "styles": [],
+    "slots": [],
+    "parts": [],
+    "listeners": [],
+    "metadata": {
+      "name": "Badge",
+      "description": "Renders a specified badge.",
+      "example": "<goat-badge content=\"5\" class='color-error'><goat-icon type=\"bell\"></goat-icon></goat-badge>"
+    }
+  },
+  {
     "dirPath": "D:/development/goatui/src/components/form/button",
     "filePath": "./src/components/form/button/goat-button.tsx",
     "fileName": "goat-button.tsx",
@@ -227,7 +285,8 @@
     ],
     "encapsulation": "shadow",
     "dependents": [
-      "goat-alert"
+      "goat-alert",
+      "goat-code-highlighter"
     ],
     "dependencies": [
       "goat-icon",
@@ -239,6 +298,9 @@
         "goat-spinner"
       ],
       "goat-alert": [
+        "goat-button"
+      ],
+      "goat-code-highlighter": [
         "goat-button"
       ]
     },
@@ -925,8 +987,14 @@
     ],
     "encapsulation": "shadow",
     "dependents": [],
-    "dependencies": [],
-    "dependencyGraph": {},
+    "dependencies": [
+      "goat-spinner"
+    ],
+    "dependencyGraph": {
+      "goat-code-editor": [
+        "goat-spinner"
+      ]
+    },
     "props": [
       {
         "name": "debounce",
@@ -1140,6 +1208,716 @@
     }
   },
   {
+    "dirPath": "D:/development/goatui/src/components/content/code-highlighter",
+    "filePath": "./src/components/content/code-highlighter/goat-code-highlighter.tsx",
+    "fileName": "goat-code-highlighter.tsx",
+    "readmePath": "D:/development/goatui/src/components/content/code-highlighter/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/content/code-highlighter/usage",
+    "tag": "goat-code-highlighter",
+    "readme": "# goat-code-editor\n\n\n",
+    "usage": {},
+    "docs": "",
+    "docsTags": [
+      {
+        "name": "name",
+        "text": "Code Highlighter"
+      },
+      {
+        "name": "description",
+        "text": "A browser based code highlighter."
+      },
+      {
+        "name": "img",
+        "text": "/assets/img/code-highlighter.png"
+      }
+    ],
+    "encapsulation": "shadow",
+    "dependents": [],
+    "dependencies": [
+      "goat-button",
+      "goat-spinner"
+    ],
+    "dependencyGraph": {
+      "goat-code-highlighter": [
+        "goat-button",
+        "goat-spinner"
+      ],
+      "goat-button": [
+        "goat-icon",
+        "goat-spinner"
+      ]
+    },
+    "props": [
+      {
+        "name": "language",
+        "type": "\"markup\" | \"css\" | \"clike\" | \"javascript\" | \"abap\" | \"actionscript\" | \"ada\" | \"apacheconf\" | \"apl\" | \"applescript\" | \"arduino\" | \"arff\" | \"asciidoc\" | \"asm6502\" | \"aspnet\" | \"autohotkey\" | \"autoit\" | \"bash\" | \"basic\" | \"batch\" | \"bison\" | \"brainfuck\" | \"bro\" | \"c\" | \"csharp\" | \"cpp\" | \"coffeescript\" | \"clojure\" | \"crystal\" | \"csp\" | \"css-extras\" | \"d\" | \"dart\" | \"diff\" | \"django\" | \"docker\" | \"eiffel\" | \"elixir\" | \"elm\" | \"erb\" | \"erlang\" | \"fsharp\" | \"flow\" | \"fortran\" | \"gedcom\" | \"gherkin\" | \"git\" | \"glsl\" | \"gml\" | \"go\" | \"graphql\" | \"groovy\" | \"haml\" | \"handlebars\" | \"haskell\" | \"haxe\" | \"http\" | \"hpkp\" | \"hsts\" | \"ichigojam\" | \"icon\" | \"inform7\" | \"ini\" | \"io\" | \"j\" | \"java\" | \"jolie\" | \"json\" | \"julia\" | \"keyman\" | \"kotlin\" | \"latex\" | \"less\" | \"liquid\" | \"lisp\" | \"livescript\" | \"lolcode\" | \"lua\" | \"makefile\" | \"markdown\" | \"markup-templating\" | \"matlab\" | \"mel\" | \"mizar\" | \"monkey\" | \"n4js\" | \"nasm\" | \"nginx\" | \"nim\" | \"nix\" | \"nsis\" | \"objectivec\" | \"ocaml\" | \"opencl\" | \"oz\" | \"parigp\" | \"parser\" | \"pascal\" | \"perl\" | \"php\" | \"php-extras\" | \"plsql\" | \"powershell\" | \"processing\" | \"prolog\" | \"properties\" | \"protobuf\" | \"pug\" | \"puppet\" | \"pure\" | \"python\" | \"q\" | \"qore\" | \"r\" | \"jsx\" | \"tsx\" | \"renpy\" | \"reason\" | \"rest\" | \"rip\" | \"roboconf\" | \"ruby\" | \"rust\" | \"sas\" | \"sass\" | \"scss\" | \"scala\" | \"scheme\" | \"smalltalk\" | \"smarty\" | \"sql\" | \"soy\" | \"stylus\" | \"swift\" | \"tap\" | \"tcl\" | \"textile\" | \"tt2\" | \"twig\" | \"typescript\" | \"vbnet\" | \"velocity\" | \"verilog\" | \"vhdl\" | \"vim\" | \"visual-basic\" | \"wasm\" | \"wiki\" | \"xeora\" | \"xojo\" | \"xquery\" | \"yaml\"",
+        "mutable": false,
+        "attr": "language",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "'javascript'",
+        "values": [
+          {
+            "value": "markup",
+            "type": "string"
+          },
+          {
+            "value": "css",
+            "type": "string"
+          },
+          {
+            "value": "clike",
+            "type": "string"
+          },
+          {
+            "value": "javascript",
+            "type": "string"
+          },
+          {
+            "value": "abap",
+            "type": "string"
+          },
+          {
+            "value": "actionscript",
+            "type": "string"
+          },
+          {
+            "value": "ada",
+            "type": "string"
+          },
+          {
+            "value": "apacheconf",
+            "type": "string"
+          },
+          {
+            "value": "apl",
+            "type": "string"
+          },
+          {
+            "value": "applescript",
+            "type": "string"
+          },
+          {
+            "value": "arduino",
+            "type": "string"
+          },
+          {
+            "value": "arff",
+            "type": "string"
+          },
+          {
+            "value": "asciidoc",
+            "type": "string"
+          },
+          {
+            "value": "asm6502",
+            "type": "string"
+          },
+          {
+            "value": "aspnet",
+            "type": "string"
+          },
+          {
+            "value": "autohotkey",
+            "type": "string"
+          },
+          {
+            "value": "autoit",
+            "type": "string"
+          },
+          {
+            "value": "bash",
+            "type": "string"
+          },
+          {
+            "value": "basic",
+            "type": "string"
+          },
+          {
+            "value": "batch",
+            "type": "string"
+          },
+          {
+            "value": "bison",
+            "type": "string"
+          },
+          {
+            "value": "brainfuck",
+            "type": "string"
+          },
+          {
+            "value": "bro",
+            "type": "string"
+          },
+          {
+            "value": "c",
+            "type": "string"
+          },
+          {
+            "value": "csharp",
+            "type": "string"
+          },
+          {
+            "value": "cpp",
+            "type": "string"
+          },
+          {
+            "value": "coffeescript",
+            "type": "string"
+          },
+          {
+            "value": "clojure",
+            "type": "string"
+          },
+          {
+            "value": "crystal",
+            "type": "string"
+          },
+          {
+            "value": "csp",
+            "type": "string"
+          },
+          {
+            "value": "css-extras",
+            "type": "string"
+          },
+          {
+            "value": "d",
+            "type": "string"
+          },
+          {
+            "value": "dart",
+            "type": "string"
+          },
+          {
+            "value": "diff",
+            "type": "string"
+          },
+          {
+            "value": "django",
+            "type": "string"
+          },
+          {
+            "value": "docker",
+            "type": "string"
+          },
+          {
+            "value": "eiffel",
+            "type": "string"
+          },
+          {
+            "value": "elixir",
+            "type": "string"
+          },
+          {
+            "value": "elm",
+            "type": "string"
+          },
+          {
+            "value": "erb",
+            "type": "string"
+          },
+          {
+            "value": "erlang",
+            "type": "string"
+          },
+          {
+            "value": "fsharp",
+            "type": "string"
+          },
+          {
+            "value": "flow",
+            "type": "string"
+          },
+          {
+            "value": "fortran",
+            "type": "string"
+          },
+          {
+            "value": "gedcom",
+            "type": "string"
+          },
+          {
+            "value": "gherkin",
+            "type": "string"
+          },
+          {
+            "value": "git",
+            "type": "string"
+          },
+          {
+            "value": "glsl",
+            "type": "string"
+          },
+          {
+            "value": "gml",
+            "type": "string"
+          },
+          {
+            "value": "go",
+            "type": "string"
+          },
+          {
+            "value": "graphql",
+            "type": "string"
+          },
+          {
+            "value": "groovy",
+            "type": "string"
+          },
+          {
+            "value": "haml",
+            "type": "string"
+          },
+          {
+            "value": "handlebars",
+            "type": "string"
+          },
+          {
+            "value": "haskell",
+            "type": "string"
+          },
+          {
+            "value": "haxe",
+            "type": "string"
+          },
+          {
+            "value": "http",
+            "type": "string"
+          },
+          {
+            "value": "hpkp",
+            "type": "string"
+          },
+          {
+            "value": "hsts",
+            "type": "string"
+          },
+          {
+            "value": "ichigojam",
+            "type": "string"
+          },
+          {
+            "value": "icon",
+            "type": "string"
+          },
+          {
+            "value": "inform7",
+            "type": "string"
+          },
+          {
+            "value": "ini",
+            "type": "string"
+          },
+          {
+            "value": "io",
+            "type": "string"
+          },
+          {
+            "value": "j",
+            "type": "string"
+          },
+          {
+            "value": "java",
+            "type": "string"
+          },
+          {
+            "value": "jolie",
+            "type": "string"
+          },
+          {
+            "value": "json",
+            "type": "string"
+          },
+          {
+            "value": "julia",
+            "type": "string"
+          },
+          {
+            "value": "keyman",
+            "type": "string"
+          },
+          {
+            "value": "kotlin",
+            "type": "string"
+          },
+          {
+            "value": "latex",
+            "type": "string"
+          },
+          {
+            "value": "less",
+            "type": "string"
+          },
+          {
+            "value": "liquid",
+            "type": "string"
+          },
+          {
+            "value": "lisp",
+            "type": "string"
+          },
+          {
+            "value": "livescript",
+            "type": "string"
+          },
+          {
+            "value": "lolcode",
+            "type": "string"
+          },
+          {
+            "value": "lua",
+            "type": "string"
+          },
+          {
+            "value": "makefile",
+            "type": "string"
+          },
+          {
+            "value": "markdown",
+            "type": "string"
+          },
+          {
+            "value": "markup-templating",
+            "type": "string"
+          },
+          {
+            "value": "matlab",
+            "type": "string"
+          },
+          {
+            "value": "mel",
+            "type": "string"
+          },
+          {
+            "value": "mizar",
+            "type": "string"
+          },
+          {
+            "value": "monkey",
+            "type": "string"
+          },
+          {
+            "value": "n4js",
+            "type": "string"
+          },
+          {
+            "value": "nasm",
+            "type": "string"
+          },
+          {
+            "value": "nginx",
+            "type": "string"
+          },
+          {
+            "value": "nim",
+            "type": "string"
+          },
+          {
+            "value": "nix",
+            "type": "string"
+          },
+          {
+            "value": "nsis",
+            "type": "string"
+          },
+          {
+            "value": "objectivec",
+            "type": "string"
+          },
+          {
+            "value": "ocaml",
+            "type": "string"
+          },
+          {
+            "value": "opencl",
+            "type": "string"
+          },
+          {
+            "value": "oz",
+            "type": "string"
+          },
+          {
+            "value": "parigp",
+            "type": "string"
+          },
+          {
+            "value": "parser",
+            "type": "string"
+          },
+          {
+            "value": "pascal",
+            "type": "string"
+          },
+          {
+            "value": "perl",
+            "type": "string"
+          },
+          {
+            "value": "php",
+            "type": "string"
+          },
+          {
+            "value": "php-extras",
+            "type": "string"
+          },
+          {
+            "value": "plsql",
+            "type": "string"
+          },
+          {
+            "value": "powershell",
+            "type": "string"
+          },
+          {
+            "value": "processing",
+            "type": "string"
+          },
+          {
+            "value": "prolog",
+            "type": "string"
+          },
+          {
+            "value": "properties",
+            "type": "string"
+          },
+          {
+            "value": "protobuf",
+            "type": "string"
+          },
+          {
+            "value": "pug",
+            "type": "string"
+          },
+          {
+            "value": "puppet",
+            "type": "string"
+          },
+          {
+            "value": "pure",
+            "type": "string"
+          },
+          {
+            "value": "python",
+            "type": "string"
+          },
+          {
+            "value": "q",
+            "type": "string"
+          },
+          {
+            "value": "qore",
+            "type": "string"
+          },
+          {
+            "value": "r",
+            "type": "string"
+          },
+          {
+            "value": "jsx",
+            "type": "string"
+          },
+          {
+            "value": "tsx",
+            "type": "string"
+          },
+          {
+            "value": "renpy",
+            "type": "string"
+          },
+          {
+            "value": "reason",
+            "type": "string"
+          },
+          {
+            "value": "rest",
+            "type": "string"
+          },
+          {
+            "value": "rip",
+            "type": "string"
+          },
+          {
+            "value": "roboconf",
+            "type": "string"
+          },
+          {
+            "value": "ruby",
+            "type": "string"
+          },
+          {
+            "value": "rust",
+            "type": "string"
+          },
+          {
+            "value": "sas",
+            "type": "string"
+          },
+          {
+            "value": "sass",
+            "type": "string"
+          },
+          {
+            "value": "scss",
+            "type": "string"
+          },
+          {
+            "value": "scala",
+            "type": "string"
+          },
+          {
+            "value": "scheme",
+            "type": "string"
+          },
+          {
+            "value": "smalltalk",
+            "type": "string"
+          },
+          {
+            "value": "smarty",
+            "type": "string"
+          },
+          {
+            "value": "sql",
+            "type": "string"
+          },
+          {
+            "value": "soy",
+            "type": "string"
+          },
+          {
+            "value": "stylus",
+            "type": "string"
+          },
+          {
+            "value": "swift",
+            "type": "string"
+          },
+          {
+            "value": "tap",
+            "type": "string"
+          },
+          {
+            "value": "tcl",
+            "type": "string"
+          },
+          {
+            "value": "textile",
+            "type": "string"
+          },
+          {
+            "value": "tt2",
+            "type": "string"
+          },
+          {
+            "value": "twig",
+            "type": "string"
+          },
+          {
+            "value": "typescript",
+            "type": "string"
+          },
+          {
+            "value": "vbnet",
+            "type": "string"
+          },
+          {
+            "value": "velocity",
+            "type": "string"
+          },
+          {
+            "value": "verilog",
+            "type": "string"
+          },
+          {
+            "value": "vhdl",
+            "type": "string"
+          },
+          {
+            "value": "vim",
+            "type": "string"
+          },
+          {
+            "value": "visual-basic",
+            "type": "string"
+          },
+          {
+            "value": "wasm",
+            "type": "string"
+          },
+          {
+            "value": "wiki",
+            "type": "string"
+          },
+          {
+            "value": "xeora",
+            "type": "string"
+          },
+          {
+            "value": "xojo",
+            "type": "string"
+          },
+          {
+            "value": "xquery",
+            "type": "string"
+          },
+          {
+            "value": "yaml",
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "lineNumbers",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "line-numbers",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "mutable": false,
+        "attr": "value",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "''",
+        "values": [
+          {
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      }
+    ],
+    "methods": [],
+    "events": [],
+    "styles": [],
+    "slots": [],
+    "parts": [],
+    "listeners": [],
+    "metadata": {
+      "name": "Code Highlighter",
+      "description": "A browser based code highlighter.",
+      "img": "/assets/img/code-highlighter.png"
+    }
+  },
+  {
     "dirPath": "D:/development/goatui/src/components/content/divider",
     "filePath": "./src/components/content/divider/goat-divider.tsx",
     "fileName": "goat-divider.tsx",
@@ -1164,16 +1942,22 @@
       }
     ],
     "encapsulation": "shadow",
-    "dependents": [],
+    "dependents": [
+      "goat-header"
+    ],
     "dependencies": [],
-    "dependencyGraph": {},
+    "dependencyGraph": {
+      "goat-header": [
+        "goat-divider"
+      ]
+    },
     "props": [
       {
         "name": "vertical",
         "type": "boolean",
         "mutable": false,
         "attr": "vertical",
-        "reflectToAttr": false,
+        "reflectToAttr": true,
         "docs": "",
         "docsTags": [],
         "default": "false",
@@ -1199,11 +1983,11 @@
     }
   },
   {
-    "dirPath": "D:/development/goatui/src/components/menus/dropdown",
-    "filePath": "./src/components/menus/dropdown/goat-dropdown.tsx",
+    "dirPath": "D:/development/goatui/src/components/menu/dropdown",
+    "filePath": "./src/components/menu/dropdown/goat-dropdown.tsx",
     "fileName": "goat-dropdown.tsx",
-    "readmePath": "D:/development/goatui/src/components/menus/dropdown/readme.md",
-    "usagesDir": "D:/development/goatui/src/components/menus/dropdown/usage",
+    "readmePath": "D:/development/goatui/src/components/menu/dropdown/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/menu/dropdown/usage",
     "tag": "goat-dropdown",
     "readme": "# goat-dropdown\n\n\n",
     "usage": {},
@@ -1224,8 +2008,21 @@
     ],
     "encapsulation": "shadow",
     "dependents": [],
-    "dependencies": [],
-    "dependencyGraph": {},
+    "dependencies": [
+      "goat-menu",
+      "goat-menu-item",
+      "goat-icon"
+    ],
+    "dependencyGraph": {
+      "goat-dropdown": [
+        "goat-menu",
+        "goat-menu-item",
+        "goat-icon"
+      ],
+      "goat-menu": [
+        "goat-empty-state"
+      ]
+    },
     "props": [
       {
         "name": "disabled",
@@ -1256,6 +2053,22 @@
         "values": [
           {
             "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "items",
+        "type": "any[]",
+        "mutable": false,
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "null",
+        "values": [
+          {
+            "type": "any[]"
           }
         ],
         "optional": false,
@@ -1647,6 +2460,376 @@
     }
   },
   {
+    "dirPath": "D:/development/goatui/src/components/navigation/goat-header",
+    "filePath": "./src/components/navigation/goat-header/goat-header.tsx",
+    "fileName": "goat-header.tsx",
+    "readmePath": "D:/development/goatui/src/components/navigation/goat-header/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/navigation/goat-header/usage",
+    "tag": "goat-header",
+    "readme": "# p4-top-navigation\n\n\n",
+    "usage": {},
+    "docs": "",
+    "docsTags": [
+      {
+        "name": "name",
+        "text": "Header"
+      },
+      {
+        "name": "description",
+        "text": "Headers are compositions that extend standard navbar functionalities."
+      },
+      {
+        "name": "img",
+        "text": "/assets/img/header.png"
+      }
+    ],
+    "encapsulation": "shadow",
+    "dependents": [],
+    "dependencies": [
+      "goat-divider"
+    ],
+    "dependencyGraph": {
+      "goat-header": [
+        "goat-divider"
+      ]
+    },
+    "props": [
+      {
+        "name": "bandLogo",
+        "type": "string",
+        "mutable": false,
+        "attr": "band-logo",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "'https://goatui.com/assets/img/logo.svg'",
+        "values": [
+          {
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "brandName",
+        "type": "string",
+        "mutable": false,
+        "attr": "brand-name",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "'Goat'",
+        "values": [
+          {
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "brandUrl",
+        "type": "string",
+        "mutable": false,
+        "attr": "brand-url",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "'#'",
+        "values": [
+          {
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "pageTitle",
+        "type": "string",
+        "mutable": false,
+        "attr": "page-title",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "''",
+        "values": [
+          {
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "type",
+        "type": "\"simple\"",
+        "mutable": false,
+        "attr": "type",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "'simple'",
+        "values": [
+          {
+            "value": "simple",
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      }
+    ],
+    "methods": [],
+    "events": [],
+    "styles": [],
+    "slots": [],
+    "parts": [],
+    "listeners": [],
+    "metadata": {
+      "name": "Header",
+      "description": "Headers are compositions that extend standard navbar functionalities.",
+      "img": "/assets/img/header.png"
+    }
+  },
+  {
+    "dirPath": "D:/development/goatui/src/components/navigation/goat-header-action",
+    "filePath": "./src/components/navigation/goat-header-action/goat-header-action.tsx",
+    "fileName": "goat-header-action.tsx",
+    "readmePath": "D:/development/goatui/src/components/navigation/goat-header-action/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/navigation/goat-header-action/usage",
+    "tag": "goat-header-action",
+    "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
+    "usage": {},
+    "docs": "",
+    "docsTags": [
+      {
+        "name": "name",
+        "text": "Button"
+      },
+      {
+        "name": "description",
+        "text": "An interactive button with a range of presentation options."
+      },
+      {
+        "name": "example",
+        "text": "<goat-button>\nButton CTA\n</goat-button>"
+      }
+    ],
+    "encapsulation": "shadow",
+    "dependents": [],
+    "dependencies": [
+      "goat-icon",
+      "goat-spinner"
+    ],
+    "dependencyGraph": {
+      "goat-header-action": [
+        "goat-icon",
+        "goat-spinner"
+      ]
+    },
+    "props": [
+      {
+        "name": "configAria",
+        "type": "any",
+        "mutable": true,
+        "attr": "config-aria",
+        "reflectToAttr": true,
+        "docs": "",
+        "docsTags": [],
+        "default": "{}",
+        "values": [
+          {
+            "type": "any"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "disabled",
+        "reflectToAttr": true,
+        "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "disabledReason",
+        "type": "string",
+        "mutable": false,
+        "attr": "disabled-reason",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "''",
+        "values": [
+          {
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "mutable": false,
+        "attr": "href",
+        "reflectToAttr": false,
+        "docs": "Hyperlink to navigate to on click.",
+        "docsTags": [],
+        "values": [
+          {
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "icon",
+        "type": "string",
+        "mutable": false,
+        "attr": "icon",
+        "reflectToAttr": false,
+        "docs": "Icon which will displayed on button.\nPossible values are bootstrap icon names.",
+        "docsTags": [],
+        "values": [
+          {
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "iconEnd",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "icon-end",
+        "reflectToAttr": false,
+        "docs": "Icon position.",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "selected",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "selected",
+        "reflectToAttr": true,
+        "docs": "Button selection state.",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "showLoader",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "show-loader",
+        "reflectToAttr": false,
+        "docs": "Show loader.",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "target",
+        "type": "string",
+        "mutable": false,
+        "attr": "target",
+        "reflectToAttr": false,
+        "docs": "Sets or retrieves the window or frame at which to target content.",
+        "docsTags": [],
+        "default": "'_self'",
+        "values": [
+          {
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      }
+    ],
+    "methods": [
+      {
+        "name": "triggerClick",
+        "returns": {
+          "type": "Promise<void>",
+          "docs": ""
+        },
+        "signature": "triggerClick() => Promise<void>",
+        "parameters": [],
+        "docs": "",
+        "docsTags": []
+      }
+    ],
+    "events": [
+      {
+        "event": "goat:click",
+        "detail": "any",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": "On click of button, a CustomEvent 'goat:click' will be triggered.",
+        "docsTags": []
+      }
+    ],
+    "styles": [],
+    "slots": [],
+    "parts": [],
+    "listeners": [
+      {
+        "event": "mouseup",
+        "target": "window",
+        "capture": false,
+        "passive": true
+      },
+      {
+        "event": "keyup",
+        "target": "window",
+        "capture": false,
+        "passive": false
+      }
+    ],
+    "metadata": {
+      "name": "Button",
+      "description": "An interactive button with a range of presentation options.",
+      "example": "<goat-button>\nButton CTA\n</goat-button>"
+    }
+  },
+  {
     "dirPath": "D:/development/goatui/src/components/content/icon",
     "filePath": "./src/components/content/icon/goat-icon.tsx",
     "fileName": "goat-icon.tsx",
@@ -1673,6 +2856,8 @@
     "encapsulation": "shadow",
     "dependents": [
       "goat-button",
+      "goat-dropdown",
+      "goat-header-action",
       "goat-input",
       "goat-select",
       "goat-textarea"
@@ -1680,6 +2865,12 @@
     "dependencies": [],
     "dependencyGraph": {
       "goat-button": [
+        "goat-icon"
+      ],
+      "goat-dropdown": [
+        "goat-icon"
+      ],
+      "goat-header-action": [
         "goat-icon"
       ],
       "goat-input": [
@@ -2243,11 +3434,11 @@
     }
   },
   {
-    "dirPath": "D:/development/goatui/src/components/menus/menu",
-    "filePath": "./src/components/menus/menu/goat-menu.tsx",
+    "dirPath": "D:/development/goatui/src/components/menu/menu",
+    "filePath": "./src/components/menu/menu/goat-menu.tsx",
     "fileName": "goat-menu.tsx",
-    "readmePath": "D:/development/goatui/src/components/menus/menu/readme.md",
-    "usagesDir": "D:/development/goatui/src/components/menus/menu/usage",
+    "readmePath": "D:/development/goatui/src/components/menu/menu/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/menu/menu/usage",
     "tag": "goat-menu",
     "readme": "# goat-menu\n\n\n",
     "usage": {},
@@ -2268,6 +3459,7 @@
     ],
     "encapsulation": "shadow",
     "dependents": [
+      "goat-dropdown",
       "goat-select"
     ],
     "dependencies": [
@@ -2276,6 +3468,9 @@
     "dependencyGraph": {
       "goat-menu": [
         "goat-empty-state"
+      ],
+      "goat-dropdown": [
+        "goat-menu"
       ],
       "goat-select": [
         "goat-menu"
@@ -2385,11 +3580,11 @@
     }
   },
   {
-    "dirPath": "D:/development/goatui/src/components/menus/menu-item",
-    "filePath": "./src/components/menus/menu-item/goat-menu-item.tsx",
+    "dirPath": "D:/development/goatui/src/components/menu/menu-item",
+    "filePath": "./src/components/menu/menu-item/goat-menu-item.tsx",
     "fileName": "goat-menu-item.tsx",
-    "readmePath": "D:/development/goatui/src/components/menus/menu-item/readme.md",
-    "usagesDir": "D:/development/goatui/src/components/menus/menu-item/usage",
+    "readmePath": "D:/development/goatui/src/components/menu/menu-item/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/menu/menu-item/usage",
     "tag": "goat-menu-item",
     "readme": "# goat-menu-item\n\n\n",
     "usage": {},
@@ -2397,10 +3592,14 @@
     "docsTags": [],
     "encapsulation": "shadow",
     "dependents": [
+      "goat-dropdown",
       "goat-select"
     ],
     "dependencies": [],
     "dependencyGraph": {
+      "goat-dropdown": [
+        "goat-menu-item"
+      ],
       "goat-select": [
         "goat-menu-item"
       ]
@@ -2978,11 +4177,23 @@
     "encapsulation": "shadow",
     "dependents": [
       "goat-button",
+      "goat-code-editor",
+      "goat-code-highlighter",
+      "goat-header-action",
       "goat-select"
     ],
     "dependencies": [],
     "dependencyGraph": {
       "goat-button": [
+        "goat-spinner"
+      ],
+      "goat-code-editor": [
+        "goat-spinner"
+      ],
+      "goat-code-highlighter": [
+        "goat-spinner"
+      ],
+      "goat-header-action": [
         "goat-spinner"
       ],
       "goat-select": [
@@ -3021,11 +4232,11 @@
     }
   },
   {
-    "dirPath": "D:/development/goatui/src/components/tables/table",
-    "filePath": "./src/components/tables/table/goat-table.tsx",
+    "dirPath": "D:/development/goatui/src/components/table/table",
+    "filePath": "./src/components/table/table/goat-table.tsx",
     "fileName": "goat-table.tsx",
-    "readmePath": "D:/development/goatui/src/components/tables/table/readme.md",
-    "usagesDir": "D:/development/goatui/src/components/tables/table/usage",
+    "readmePath": "D:/development/goatui/src/components/table/table/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/table/table/usage",
     "tag": "goat-table",
     "readme": "# goat-table\n\n\n",
     "usage": {},

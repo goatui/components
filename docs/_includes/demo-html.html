@@ -3,8 +3,11 @@
     {{include.content}}
   </goat-card-content>
   <goat-card-content>
-    {% highlight html %}
-    {{include.content}}
-    {% endhighlight %}
+    <goat-code-highlighter language='html' class='demo-html'></goat-code-highlighter>
+    <script>
+      (function run(currentScript) {
+        currentScript.parentElement.querySelector('.demo-html').value = `{{include.content}}`;
+      })(document.currentScript);
+    </script>
   </goat-card-content>
 </goat-card>

@@ -1,0 +1,148 @@
+@import "../../../styles/scss/commons";
+
+:host {
+  display: block;
+}
+
+.header {
+
+  box-sizing: border-box;
+  display: flex;
+
+  .section {
+    height: v(--spacing-12);
+    display: flex;
+    align-items: center;
+  }
+
+}
+
+.left-section {
+  flex: 1;
+
+  .brand-link {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    &:focus {
+      outline: none;
+      border-color: v(--text-01);
+    }
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: v(--spacing-3);
+    height: 100%;
+    padding: 0 v(--spacing-5);
+
+    .logo {
+      height: 2rem;
+    }
+  }
+
+  .page-title-divider {
+    height: 66%;
+  }
+
+  .page-title {
+    padding: 0 v(--spacing-2);
+  }
+}
+
+
+.right-section {
+  background-color: v(--color-white);
+  slot::slotted(*) {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/*
+ * Colors
+ */
+:host {
+  .header {
+
+    .left-section {
+      background-color: v(--color-white);
+      .brand {
+        color: v(--text-01);
+        &:focus {
+          border-color: v(--color-black);
+        }
+        &:hover {
+          background-color: v(--color-neutral-30);
+        }
+      }
+      .brand-link:active .brand {
+        background-color: v(--color-neutral-50);
+      }
+      .page-title {
+        color: v(--color-neutral-50);
+      }
+    }
+
+    .right-section {
+      background-color: v(--color-white);
+    }
+  }
+}
+
+
+:host-context([data-theme="dark"]) {
+  .header {
+
+
+    .left-section {
+      background-color: v(--color-black);
+      .brand {
+        &:focus {
+          border-color: v(--color-white);
+        }
+        &:hover {
+          background-color: v(--color-neutral-70);
+        }
+      }
+    }
+
+    .right-section {
+      background-color: v(--color-black);
+    }
+  }
+}
+
+
+
+:host(.brand-primary) {
+  .header {
+    .left-section {
+      background-color: v(--color-primary);
+      .brand {
+        color: v(--color-white);
+        &:focus {
+          border-color: v(--color-white);
+        }
+        &:hover {
+          background-color: v(--color-primary-70);
+        }
+      }
+      .brand-link:active .brand {
+        background-color: v(--color-primary-80);
+      }
+      .page-title {
+        color: v(--color-neutral-20);
+      }
+    }
+
+    .right-section {
+      background-color: v(--color-primary);
+    }
+  }
+}

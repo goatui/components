@@ -217,7 +217,7 @@ export class GoatTable {
         if (column.width)
           colWidth = parseInt(column.width);
         const colEl = <div
-          class={{ 'col': true, 'col-hover': (this.hoveredCell.row === row && this.hoveredCell.column === column) }}
+          class={{ 'col': true, 'col-hover': (this.hoveredCell.row === row) }}
           style={{ width: colWidth + 'px', maxWidth: colWidth + 'px' }}
           onMouseOver={() => this.onCellMouseOver(row, column)}
           onClick={() => {

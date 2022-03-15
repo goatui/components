@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, Element, h, Host, Listen, Method, Prop, State } from '@stencil/core';
-import { isMobile, isOutOfViewport } from '../../../utils/utils';
+import { isEventTriggerByElement, isMobile, isOutOfViewport } from '../../../utils/utils';
 
 /**
  * @name Dropdown
@@ -28,6 +28,8 @@ export class GoatDropdown implements ComponentInterface {
 
   @Prop() positions: string = 'bottom-right,top-right,bottom-left,top-left';
 
+  @Prop() items: any[] = null;
+
   @Listen('click', { target: 'window' })
   windowClick(evt) {
     const path = (evt.path || evt.composedPath());
@@ -44,21 +46,24 @@ export class GoatDropdown implements ComponentInterface {
   }
 
   @Listen('goat:menu-item-click', { target: 'window' })
-  listenMenuItemClick() {
-    this.closeList();
+  listenMenuItemClick(evt) {
+    if (isEventTriggerByElement(evt, this.elm)) {
+      this.closeList();
+    }
+    this.isOpen = false;
   }
 
   @Listen('goat:click', { target: 'window' })
-  listenClick() {
-    this.closeList();
+  listenClick(evt) {
+    if (isEventTriggerByElement(evt, this.elm)) {
+      this.closeList();
+    }
+    this.isOpen = false;
   }
 
   @Listen('keydown', { target: 'window' })
   listenKeyDown(evt: KeyboardEvent) {
-    const path = evt.composedPath();
-    for (const elm of path) {
-      if (elm !== this.elm)
-        continue;
+    if (isEventTriggerByElement(evt, this.elm)) {
       if (evt.key === 'Escape') {
         this.closeList();
       }
@@ -175,17 +180,30 @@ export class GoatDropdown implements ComponentInterface {
     return this.elm.querySelector('goat-menu');
   }
 
+  renderItems() {
+    if (this.items)
+      return <goat-menu class="items">
+        {this.items.map((item) => {
+          return <goat-menu-item value={item.value}>
+            {item.icon && <goat-icon type={item.icon} slot='start' size='sm' />}
+            {item.label}
+            {item.hint && <span slot='end'>{item.hint}</span>}
+          </goat-menu-item>;
+        })}
+      </goat-menu>;
+  }
+
   render() {
     return (<Host has-focus={this.hasFocus}>
       <div class={{
         'dropdown': true,
         [this.position]: true,
-        'is-open': this.isOpen
+        'is-open': this.isOpen,
       }}>
         <button class='dropdown-button'
                 ref={(el) => this.displayElement = el}
                 onKeyDown={this.keyDownHandler}
-                tabindex="-1"
+                tabindex='-1'
                 onBlur={this.blurHandler}
                 onFocus={this.focusHandler}
                 disabled={this.disabled}
@@ -197,6 +215,7 @@ export class GoatDropdown implements ComponentInterface {
           </div>
         </button>
         <div class='dropdown-content'>
+          {this.renderItems()}
           <slot name='dropdown-content' />
         </div>
       </div>

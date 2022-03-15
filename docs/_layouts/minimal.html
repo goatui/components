@@ -7,6 +7,10 @@ layout: default
     background-color: var(--ui-background);
   }
 
+  :root {
+    --header-height: 3rem;
+  }
+
   .top-nav {
     position: fixed;
     top: 0;
@@ -15,60 +19,9 @@ layout: default
     z-index: 1000;
   }
 
-  .nav-wrapper {
-    height: 55px;
-    display: flex;
-    align-content: center;
-    background-color: var(--color-brand-primary);
-  }
-
-  .top-nav-left {
-    display: flex;
-    align-items: center;
-    flex: 1;
-    gap: var(--spacing-4);
-    padding-left: var(--spacing-5);
-  }
-
-  .top-nav-logo {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-3);
-  }
-
-  .top-nav-logo-img {
-    display: flex;
-    align-items: center;
-    --button-border-radius: none;
-    height: 2.4rem;
-  }
-
-  .top-nav .nav-item {
-    display: flex;
-    align-items: center;
-    color: white;
-    text-decoration: none;
-    margin: 0;
-  }
-
-  .top-nav-right {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-2);
-    padding-right: var(--spacing-6);
-  }
-
-  .top-nav-left .title {
-    font-weight: var(--font-weight-semi-bold);
-
-  }
-
-  .page-title {
-
-  }
 
   main {
-    margin-top: 55px;
+    margin-top: var(--header-height);
   }
 
   .container {
@@ -80,7 +33,7 @@ layout: default
   }
 
   .show-desktop {
-    display: block;
+    display: inline-block;
   }
   .show-mobile {
     display: none;
@@ -91,69 +44,74 @@ layout: default
       display: none;
     }
     .show-mobile {
-      display: block;
+      display: inline-block;
+    }
+    :root {
+      --header-height: 6rem;
     }
   }
 </style>
 
+<script>
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const themeSwitcher = document.querySelector('#theme-switcher');
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      themeSwitcher.icon = theme === 'dark' ? 'moon-fill' : 'sun-fill';
+      localStorage.setItem('theme', theme);
+    }
+
+    const theme = localStorage.getItem('theme') || 'light';
+    setTheme(theme);
+
+    themeSwitcher.addEventListener('click', function () {
+      const theme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
+      setTheme(theme);
+    });
+  });
+</script>
+
 <nav class='top-nav'>
 
-  <div class='nav-wrapper'>
+  <goat-header
+    class='brand-primary'
+    brand-name='Goat'
+    brand-url='/'
+    {% if page.root != true %}page-title='{{page.title}}' {% endif %}>
+
+    <div slot='right-section'>
+      <goat-header-action icon='sun-fill' id='theme-switcher'></goat-header-action>
 
 
-    <div class='top-nav-left'>
-      <goat-button href='/' class='nav-item' size='sm'>
-        <div class='top-nav-logo'>
-          <img src='/assets/img/logo.svg' alt='{{ site.title }}' class='top-nav-logo-img'> <span class='title'>{{site.title}}</span>
-        </div>
-      </goat-button>
-
-      <goat-button href='/components.html' class='nav-item'>
-        Components
-      </goat-button>
-    </div>
-    <div class='top-nav-right'>
-      <script src="https://cdn.jsdelivr.net/npm/@mahozad/theme-switch@1.0.0"></script>
-      <style>
-        theme-switch {
-          --theme-switch-icon-color: var(--color-white);
-        }
-      </style>
-      <theme-switch></theme-switch>
       {% if page.root %}
-      <goat-button class='show-desktop' href='https://github.com/{{site.github_username}}/{{site.github_project}}' class='nav-item' target='_blank'>
-        Github
-      </goat-button>
-      <goat-button class='show-mobile' icon='github' aria-label='Github' href='https://github.com/{{site.github_username}}/{{site.github_project}}' class='nav-item' target='_blank'></goat-button>
+      <goat-header-action icon='github'
+                          class='show-desktop'
+                          href='https://github.com/{{site.github_username}}/{{site.github_project}}'
+                          target='_blank'>Github</goat-header-action>
+
+      <goat-header-action icon='github'
+                          class='show-mobile'
+                          href='https://github.com/{{site.github_username}}/{{site.github_project}}'
+                          target='_blank'></goat-header-action>
+
+
       {% else %}
-      <goat-button class='show-desktop' href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues' class='nav-item'
-                   target='_blank'>
-        Report Issue
-      </goat-button>
-      <goat-button class='show-mobile' icon='bug' aria-label='Report Issue' href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues' class='nav-item'
-                   target='_blank'></goat-button>
+      <goat-header-action icon='bug'
+                          class='show-desktop'
+                          href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues'
+                          target='_blank'>Report Issue</goat-header-action>
+
+      <goat-header-action icon='bug'
+                          class='show-mobile'
+                          href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues'
+                          target='_blank'></goat-header-action>
       {% endif %}
 
     </div>
-  </div>
 
-  {% if page.root != true %}
-  <style>
-    main {
-      margin-top: 117px;
-    }
-    .page-title {
-      background: var(--color-brand-primary-40);
-    }
-    .page-title .title {
-      margin: 0;
-      color: white;
-    }
-  </style>
-  <div class='container page-title'>
-    <goat-text type='heading' size='sm' class='title'>{{page.title}}</goat-text>
-  </div>
-  {% endif %}
+  </goat-header>
 </nav>
 
 <main>

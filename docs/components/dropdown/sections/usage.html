@@ -59,3 +59,27 @@
     {% endhighlight %}
   </goat-card-content>
 </goat-card>
+
+<goat-card>
+  <goat-card-content>
+    <goat-dropdown id='data-dropdown'>
+      <goat-button color='secondary' variant='ghost' icon='three-dots-vertical'></goat-button>
+    </goat-dropdown>
+  </goat-card-content>
+  <script>
+    document.getElementById('data-dropdown').items = [{value: 'copy', label: 'Copy'}, {value: 'cut', label: 'Cut'}];
+  </script>
+  <goat-card-content>
+    {% highlight html %}
+    <goat-card-content>
+      <goat-dropdown id='data-dropdown'>
+        <goat-button color='secondary' variant='ghost' icon='three-dots-vertical'></goat-button>
+      </goat-dropdown>
+    </goat-card-content>
+    <script>
+      document.getElementById('data-dropdown').items = [{value: 'copy', label: 'Copy'}, {value: 'cut', label: 'Cut'}];
+    </script>
+    {% endhighlight %}
+  </goat-card-content>
+</goat-card>
+

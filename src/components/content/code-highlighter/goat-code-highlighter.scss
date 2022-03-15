@@ -1,0 +1,53 @@
+@import "../../../3d-party/prism/prism";
+@import "../../../3d-party/prism/prism-line-numbers";
+@import "../../../styles/scss/commons";
+
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.code-loader {
+  height: 20rem;
+  background-color: v(--field-01);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: v(--spacing-2);
+}
+
+.code-highlighter {
+  position: relative;
+  height: 100%;
+  background-color: v(--field-01);
+  padding: v(--spacing-3);
+  color: v(--text-01);
+
+  .scroll-wrapper {
+    height: 100%;
+    overflow-y: auto;
+    .line-numbers-wrapper {
+      height: 100%;
+      position: relative;
+
+      &.line-numbers {
+        margin-left: 3.8rem;
+      }
+
+      @include font-style(text-sm);
+      .highlighter {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+
+  .copy-btn {
+    position: absolute;
+    top: v(--spacing-3);
+    right: v(--spacing-3);
+  }
+
+}
+

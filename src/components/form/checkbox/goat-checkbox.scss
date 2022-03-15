@@ -195,7 +195,7 @@
 @each $state in [success, warning, error] {
   :host-context(.input-state-#{$state}) {
     .checkbox .box {
-      border-color: v(--color-#{$state}-500);
+      border-color: v(--color-#{$state});
     }
   }
 }

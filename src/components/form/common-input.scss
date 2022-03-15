@@ -89,6 +89,9 @@
   }
 }
 
+:host(.light) .input-container {
+  background-color: v(--field-02);
+}
 
 
 /**
@@ -129,7 +132,6 @@
     }
   }
 }
-
 
 
 /**
@@ -174,14 +176,13 @@
 
 :host([success]) {
   .input-container {
-    border-color: v(--color-success-500);
-
+    border-color: v(--color-success);
   }
 }
 
 :host([error]) {
   .input-container {
-    border-color: v(--color-error-500);
+    border-color: v(--color-error);
     box-shadow: 0 0 0 0.25rem rgba(#ef4444, 25%);
   }
 }
@@ -197,6 +198,7 @@
       color: v(--disabled-02) !important;
     }
   }
+
   color: v(--disabled-02) !important;
 }
 

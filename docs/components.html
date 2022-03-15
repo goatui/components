@@ -16,10 +16,23 @@ title: Components
   }
 
   .card-wrapper {
-    width: 18rem;
+    min-width: 18rem;
+    width: 18%;
     position: relative;
     --link-decoration: none;
     --link-decoration-hover: none;
+  }
+
+  @media (max-width: 599px) {
+    .card-wrapper {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .card-wrapper {
+      width: 100%;
+    }
   }
 
   .card-wrapper goat-card:after {
@@ -65,7 +78,7 @@ title: Components
         {% if component.metadata.example %}
         {{component.metadata.example}}
         {% else %}
-        <img src='{{component.metadata.img}}' height='90%' style='max-width: 100%'/>
+        <img src='{{component.metadata.img}}'  style='max-width: 100%; max-height: 90%;'/>
         {% endif %}
       </goat-card-content>
 

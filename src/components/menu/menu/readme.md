@@ -33,6 +33,7 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [goat-dropdown](../dropdown)
  - [goat-select](../../form/select)
 
 ### Depends on
@@ -43,6 +44,7 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   goat-menu --> goat-empty-state
+  goat-dropdown --> goat-menu
   goat-select --> goat-menu
   style goat-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```

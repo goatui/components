@@ -226,7 +226,7 @@ export class GoatButton implements ComponentInterface {
         aria-disabled={(this.disabled || this.showLoader) + ''}
         {...this.configAria}>
 
-        {this.showLoader && <goat-spinner class='spinner inherit' size={this.size} />}
+        {this.showLoader && <goat-spinner class='spinner inherit' size={this.getIconSize()} />}
 
         {!this.showLoader && this.icon && this.renderIcon()}
 

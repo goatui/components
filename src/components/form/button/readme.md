@@ -49,6 +49,7 @@ Type: `Promise<void>`
 ### Used by
 
  - [goat-alert](../../content/alert)
+ - [goat-code-highlighter](../../content/code-highlighter)
 
 ### Depends on
 
@@ -61,6 +62,7 @@ graph TD;
   goat-button --> goat-icon
   goat-button --> goat-spinner
   goat-alert --> goat-button
+  goat-code-highlighter --> goat-button
   style goat-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -6,6 +6,7 @@
 
 .dropdown {
   position: relative;
+  height: 100%;
 
   .dropdown-button {
     border: none;
@@ -14,6 +15,9 @@
     margin: 0;
     height: 100%;
     width: 100%;
+    .slot-container {
+      height: 100%;
+    }
   }
 
   .dropdown-content {
@@ -68,6 +72,10 @@
     justify-content: center;
     background: rgba(0, 0, 0, 0.5);
     pointer-events: none;
+  }
+
+  .items {
+    min-width: 10rem;
   }
 
 }

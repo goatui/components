@@ -358,8 +358,8 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
     if (this.showLoader) {
       return <goat-spinner class='input-action rainbow' />;
     }
-    return <goat-icon type={this.isOpen ? 'chevron-up' : 'chevron-down'} size={this.size}
-                      class='input-action' role='button' onClick={this.toggleList} />;
+    return <goat-icon type='chevron-down' size={this.size}
+                      class='input-action chevron-down' role='button' onClick={this.toggleList} />;
   }
 
   private renderDropdownList() {

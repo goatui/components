@@ -21,10 +21,20 @@
 }
 
 .avatar.avatar-initials {
-  background: v(--color-primary);
+  background: var(--avatar-bg-color, v(--color-primary));
 }
 
 .avatar.avatar-image {
   background: v(--ui-01);
 }
 
+:host(.inverted) {
+  .avatar {
+    color: v(--color-primary);
+  }
+
+  .avatar.avatar-initials {
+    background: var(--avatar-bg-color, v(--color-white));
+  }
+
+}

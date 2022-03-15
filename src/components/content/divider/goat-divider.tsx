@@ -13,7 +13,7 @@ import { Component, ComponentInterface, Element, h, Host, Prop, State } from '@s
 export class GoatDivider implements ComponentInterface {
 
 
-  @Prop() vertical: boolean = false;
+  @Prop({reflect: true}) vertical: boolean = false;
 
   @State() slotHasContent = false;
   @Element() elm!: HTMLElement;

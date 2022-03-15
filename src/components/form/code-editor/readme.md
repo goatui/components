@@ -61,6 +61,19 @@ Type: `Promise<void>`
 
 
 
+## Dependencies
+
+### Depends on
+
+- [goat-spinner](../../content/spinner)
+
+### Graph
+```mermaid
+graph TD;
+  goat-code-editor --> goat-spinner
+  style goat-code-editor fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with love!*

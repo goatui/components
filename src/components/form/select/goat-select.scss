@@ -10,11 +10,19 @@
     line-height: 0;
     transform: scale(0);
     transition: transform 0.1s ease-out 0s;
+    padding-bottom: v(--spacing-3);
+  }
+
+  .chevron-down {
+    transition: transform 0.1s ease-out 0s;
   }
 
   &.is-open {
     .dropdown-content {
       transform: scale(1);
+    }
+    .chevron-down {
+      transform: rotate(180deg);
     }
   }
 

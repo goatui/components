@@ -2,7 +2,7 @@
 layout: minimal
 root: true
 ---
-<style>
+<style xmlns='http://www.w3.org/1999/html' xmlns='http://www.w3.org/1999/html'>
   .banner {
     height: 25rem;
     background: var(--color-brand-primary-30);
@@ -49,9 +49,9 @@ root: true
     not miss any updates and announcements, stay tuned on our social pages.
     You can contribute to the project by creating pull requests or issues.
   </goat-text>
-  <goat-button icon='github' variant="ghost" target='_blank' aria-label='Github' color='secondary'
+  <goat-button icon='github' variant='ghost' target='_blank' aria-label='Github' color='secondary'
                href='https://www.github.com/{{site.github_username}}'></goat-button>
-  <goat-button icon='twitter' variant="ghost" target='_blank' aria-label='Twitter' color='secondary'
+  <goat-button icon='twitter' variant='ghost' target='_blank' aria-label='Twitter' color='secondary'
                href='https://www.twitter.com/{{site.twitter_username}}'></goat-button>
 
   <br /><br /><br />
@@ -75,30 +75,30 @@ root: true
     </li>
   </ul>
 
-  {% highlight html %}
-  <!DOCTYPE html>
-  <html>
-  <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width'>
-    <title>{{site.title}}</title>
+  <goat-code-highlighter language='html' id='code-highlighter'></goat-code-highlighter>
+  <script>
+    document.getElementById('code-highlighter').value = `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width'>
+  <title>{{site.title}}</title>
 
-    <!-- include your custom theme variable values, view variable names at {{site.themeCss}} -->
-    <!--link rel="stylesheet" href="/custom-theme.css"></link-->
-    <script type='module' src='{{site.script}}'></script>
+  <!-- include your custom theme variable values, view variable names at {{site.themeCss}} -->
+  <!--link rel="stylesheet" href="/custom-theme.css"></link-->
+  <script type='module' src='{{site.script}}'><\/script>
 
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-    </style>
-
-  </head>
-  <body>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  </style>
+</head>
+<body>
 
   <goat-button size='lg' color='primary'>Click me</goat-button>
 
-  </body>
-  </html>
-  {% endhighlight %}
+</body>
+</html>`;
+  </script>
 
 </div>
 

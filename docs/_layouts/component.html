@@ -26,9 +26,9 @@ layout: minimal
   .sidenav {
     width: 20rem;
     position: fixed;
-    top: 117px;
+    top: var(--header-height);
     background: var(--ui-01);
-    height: calc(100vh - 117px);
+    height: calc(100vh - var(--header-height));
     overflow-y: auto;
     border-right: 1px solid var(--border-color);
   }
@@ -72,7 +72,7 @@ layout: minimal
   }
 
   .main-content {
-    margin-top: 117px;
+    margin-top: var(--header-height);
     margin-left: 20rem;
   }
 

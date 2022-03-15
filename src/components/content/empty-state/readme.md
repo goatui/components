@@ -17,7 +17,7 @@
 
 ### Used by
 
- - [goat-menu](../../menus/menu)
+ - [goat-menu](../../menu/menu)
 
 ### Graph
 ```mermaid

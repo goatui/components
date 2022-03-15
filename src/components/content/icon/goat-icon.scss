@@ -6,7 +6,7 @@
 
 .icon {
   line-height: 0;
-  color: var(--icon-color, v(--text-01))
+  color: var(--icon-color, v(--text-01));
 }
 
 :host(.inherit) .icon {

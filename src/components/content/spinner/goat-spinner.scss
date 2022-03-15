@@ -32,7 +32,7 @@
 }
 
 :host(.rainbow) .spinner path {
-  fill: v(--color-primary-500);
+  fill: v(--color-primary);
   animation-name: rainbow;
   animation-duration: 5s;
   animation-iteration-count: infinite;

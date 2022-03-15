@@ -17,7 +17,7 @@
   &:not(.inline) {
     //noinspection CssNoGenericFontName
     font-family: v(--font-family-base);
-
+    height: 100%;
   }
 
   color: var(--link-color, v(--link-01));
@@ -38,11 +38,15 @@
 
 }
 
+:host(.no-style) .link {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
 
 .link.inline {
   text-decoration: var(--link-decoration, underline);
 }
-
 
 .link.has-focus:not(.active) {
   text-decoration: none;
