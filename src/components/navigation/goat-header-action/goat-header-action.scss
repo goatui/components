@@ -44,9 +44,12 @@
   * SIZE
   */
 .button {
-  padding: 0 removeBorder(0.625);
+  padding: 0 removeBorder(0.75);
   @include font-style(text-sm);
   font-weight: v(--font-weight-medium);
+  &.has-content {
+    padding: 0 removeBorder(1);
+  }
 }
 
 .button.disabled {

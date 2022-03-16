@@ -131,14 +131,13 @@
 }
 
 .button.variant-light {
-  color: var(--button-light-text-color, var(--color-neutral-100));
+  color: var(--button-light-text-color, var(--button-color, var(--private-button-color)));
 
   background: var(--button-light-color, var(--private-button-light-color));
-  border-color: v(--color-primary-10);
+  border-color: var(--button-color, var(--private-button-color));
 
   &:hover {
     background: var(--button-light-color-hover, var(--private-button-light-color-hover));
-    border-color: var(--button-light-color-hover, var(--private-button-light-color-hover));
   }
 
   &.active, &.selected {
