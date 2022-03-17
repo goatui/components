@@ -78,6 +78,7 @@
           border-color: v(--color-black);
         }
         &:hover {
+          border-color: v(--color-neutral-30);
           background-color: v(--color-neutral-30);
         }
       }

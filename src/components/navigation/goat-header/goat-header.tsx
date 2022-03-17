@@ -12,7 +12,7 @@ import { Component, Fragment, h, Prop } from '@stencil/core';
 })
 export class GoatHeader {
 
-  @Prop() bandLogo: string = 'https://goatui.com/assets/img/logo.svg';
+  @Prop() brandLogo: string = 'https://goatui.com/assets/img/logo.svg';
   @Prop() brandName: string = 'Goat';
   @Prop() brandUrl: string = '#';
   @Prop() pageTitle: string = '';
@@ -24,7 +24,7 @@ export class GoatHeader {
       <div class='left-section section'>
         <a class='brand-link' href={this.brandUrl}>
           <div class='brand'>
-            <img src={this.bandLogo} class='logo' alt='Goat' /> <span class='brand-name'>{this.brandName}</span>
+            <img src={this.brandLogo} class='logo' alt='Goat' /> <span class='brand-name'>{this.brandName}</span>
           </div>
         </a>
         {
