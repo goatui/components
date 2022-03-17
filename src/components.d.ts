@@ -190,7 +190,7 @@ export namespace Components {
         "warning": string;
     }
     interface GoatHeader {
-        "bandLogo": string;
+        "brandLogo": string;
         "brandName": string;
         "brandUrl": string;
         "pageTitle": string;
@@ -844,7 +844,7 @@ declare namespace LocalJSX {
         "warning"?: string;
     }
     interface GoatHeader {
-        "bandLogo"?: string;
+        "brandLogo"?: string;
         "brandName"?: string;
         "brandUrl"?: string;
         "pageTitle"?: string;

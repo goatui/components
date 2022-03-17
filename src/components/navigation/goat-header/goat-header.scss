@@ -39,6 +39,7 @@
     gap: v(--spacing-3);
     height: 100%;
     padding: 0 v(--spacing-5);
+    font-weight: v(--font-weight-bold);
 
     .logo {
       height: 2rem;
@@ -77,13 +78,15 @@
         &:focus {
           border-color: v(--color-black);
         }
-        &:hover {
-          border-color: v(--color-neutral-30);
-          background-color: v(--color-neutral-30);
-        }
       }
       .brand-link:active .brand {
         background-color: v(--color-neutral-50);
+      }
+      .brand-link:hover {
+        border-color: v(--color-neutral-30);
+        .brand {
+          background-color: v(--color-neutral-30);
+        }
       }
       .page-title {
         color: v(--color-neutral-50);
