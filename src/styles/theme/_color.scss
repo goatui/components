@@ -1,122 +1,368 @@
 @use "sass:map";
 
 $colors: (
-  grey: (
-    50: #F9FAFB,
-    100: #F2F4F7,
-    200: #EAECF0,
-    300: #D0D5DD,
-    400: #98A2B3,
-    500: #667085,
-    600: #475467,
-    700: #344054,
-    800: #1D2939,
-    900: #101828,
-  ),
-  yellow: (
-    50: #FFFAEB,
-    100: #FEF0C7,
-    200: #FEDF89,
-    300: #FEC84B,
-    400: #FDB022,
-    500: #F79009,
-    600: #DC6803,
-    700: #B54708,
-    800: #93370D,
-    900: #7A2E0E,
-  ),
-  red: (
-    50: #FEF3F2,
-    100: #FEE4E2,
-    200: #FECDCA,
-    300: #FDA29B,
-    400: #F97066,
-    500: #F04438,
-    600: #D92D20,
-    700: #B42318,
-    800: #912018,
-    900: #7A271A,
-  ),
-  green: (
-    50: #ECFDF3,
-    100: #D1FADF,
-    200: #A6F4C5,
-    300: #6CE9A6,
-    400: #32D583,
-    500: #12B76A,
-    600: #039855,
-    700: #027A48,
-    800: #05603A,
-    900: #054F31,
-  ),
-  blue-old: (
-    50: #e8edfb,
-    100: #bbcaf3,
-    200: #8ea7ec,
-    300: #6183e4,
-    400: #3460dc,
-    500: #1d4ed8,
-    600: #173ead,
-    700: #112f82,
-    800: #0c1f56,
-    900: #06102b,
+  black: (
+    100: #000000,
   ),
   blue: (
-    50: #EFF8FF,
-    100: #D1E9FF,
-    200: #B2DDFF,
-    300: #84CAFF,
-    400: #53B1FD,
-    500: #2E90FA,
-    600: #1570EF,
-    700: #175CD3,
-    800: #1849A9,
-    900: #194185,
+    10: #edf5ff,
+    20: #d0e2ff,
+    30: #a6c8ff,
+    40: #78a9ff,
+    50: #4589ff,
+    60: #0f62fe,
+    70: #0043ce,
+    80: #002d9c,
+    90: #001d6c,
+    100: #001141,
   ),
-  blue-light: (
-    50: #F0F9FF,
-    100: #E0F2FE,
-    200: #B9E6FE,
-    300: #7CD4FD,
-    400: #36BFFA,
-    500: #0BA5EC,
-    600: #0086C9,
-    700: #026AA2,
-    800: #065986,
-    900: #0B4A6F,
+  cool-gray: (
+    10: #f2f4f8,
+    20: #dde1e6,
+    30: #c1c7cd,
+    40: #a2a9b0,
+    50: #878d96,
+    60: #697077,
+    70: #4d5358,
+    80: #343a3f,
+    90: #21272a,
+    100: #121619,
   ),
-  blue-green: (
-    50: #f1fdfb,
-    100: #e3faf8,
-    200: #c8f5f0,
-    300: #acf0e9,
-    400: #91ebe1,
-    500: #75e6da,
-    600: #5eb8ae,
-    700: #468a83,
-    800: #2f5c57,
-    900: #172e2c,
+  coolGray: (
+    10: #f2f4f8,
+    20: #dde1e6,
+    30: #c1c7cd,
+    40: #a2a9b0,
+    50: #878d96,
+    60: #697077,
+    70: #4d5358,
+    80: #343a3f,
+    90: #21272a,
+    100: #121619,
   ),
-  dark: (
-    50: #ECECF2,
-    100: #DADAE6,
-    200: #4C4F59,
-    300: #424651,
-    400: #60606A,
-    500: #070708,
-    600: #050506,
-    700: #030305,
-    800: #020204,
-    900: #010103,
+  cyan: (
+    10: #e5f6ff,
+    20: #bae6ff,
+    30: #82cfff,
+    40: #33b1ff,
+    50: #1192e8,
+    60: #0072c3,
+    70: #00539a,
+    80: #003a6d,
+    90: #012749,
+    100: #061727,
+  ),
+  gray: (
+    10: #f4f4f4,
+    20: #e0e0e0,
+    30: #c6c6c6,
+    40: #a8a8a8,
+    50: #8d8d8d,
+    60: #6f6f6f,
+    70: #525252,
+    80: #393939,
+    90: #262626,
+    100: #161616,
+  ),
+  green: (
+    10: #defbe6,
+    20: #a7f0ba,
+    30: #6fdc8c,
+    40: #42be65,
+    50: #24a148,
+    60: #198038,
+    70: #0e6027,
+    80: #044317,
+    90: #022d0d,
+    100: #071908,
+  ),
+  magenta: (
+    10: #fff0f7,
+    20: #ffd6e8,
+    30: #ffafd2,
+    40: #ff7eb6,
+    50: #ee5396,
+    60: #d02670,
+    70: #9f1853,
+    80: #740937,
+    90: #510224,
+    100: #2a0a18,
+  ),
+  orange: (
+    10: #fff2e8,
+    20: #ffd9be,
+    30: #ffb784,
+    40: #ff832b,
+    50: #eb6200,
+    60: #ba4e00,
+    70: #8a3800,
+    80: #5e2900,
+    90: #3e1a00,
+    100: #231000,
+  ),
+  purple: (
+    10: #f6f2ff,
+    20: #e8daff,
+    30: #d4bbff,
+    40: #be95ff,
+    50: #a56eff,
+    60: #8a3ffc,
+    70: #6929c4,
+    80: #491d8b,
+    90: #31135e,
+    100: #1c0f30,
+  ),
+  red: (
+    10: #fff1f1,
+    20: #ffd7d9,
+    30: #ffb3b8,
+    40: #ff8389,
+    50: #fa4d56,
+    60: #da1e28,
+    70: #a2191f,
+    80: #750e13,
+    90: #520408,
+    100: #2d0709,
+  ),
+  teal: (
+    10: #d9fbfb,
+    20: #9ef0f0,
+    30: #3ddbd9,
+    40: #08bdba,
+    50: #009d9a,
+    60: #007d79,
+    70: #005d5d,
+    80: #004144,
+    90: #022b30,
+    100: #081a1c,
+  ),
+  warm-gray: (
+    10: #f7f3f2,
+    20: #e5e0df,
+    30: #cac5c4,
+    40: #ada8a8,
+    50: #8f8b8b,
+    60: #726e6e,
+    70: #565151,
+    80: #3c3838,
+    90: #272525,
+    100: #171414,
+  ),
+  warmGray: (
+    10: #f7f3f2,
+    20: #e5e0df,
+    30: #cac5c4,
+    40: #ada8a8,
+    50: #8f8b8b,
+    60: #726e6e,
+    70: #565151,
+    80: #3c3838,
+    90: #272525,
+    100: #171414,
+  ),
+  white: (
+    0: #ffffff,
+  ),
+  yellow: (
+    10: #fcf4d6,
+    20: #fddc69,
+    30: #f1c21b,
+    40: #d2a106,
+    50: #b28600,
+    60: #8e6a00,
+    70: #684e00,
+    80: #483700,
+    90: #302400,
+    100: #1c1500,
   ),
 );
 
-$colors: map-merge($colors, ("neutral":  map.get($colors, grey)));
-$colors: map-merge($colors, ("primary":  map.get($colors, blue-old)));
-$colors: map-merge($colors, ("secondary":  map.get($colors, blue-green)));
+@function getColor($colorName, $grade) {
+  @return map.get(map.get($colors, $colorName), $grade);
+}
 
-$colors: map-merge($colors, ("info":  map.get($colors, blue-light)));
-$colors: map-merge($colors, ("success":  map.get($colors, green)));
-$colors: map-merge($colors, ("warning":  map.get($colors, yellow)));
-$colors: map-merge($colors, ("error":  map.get($colors, red)));
+@mixin cloneColor($to, $from) {
+  $colors: map-merge($colors, ($to: map.get($colors, $from))) !global;
+}
 
+
+@mixin referColor($to, $from) {
+  $toMap: ();
+  @for $i from 1 through 10 {
+    $toMap: map-merge($toMap, (($i*10): var(--color-#{$from}-#{$i * 10}, getColor($from, $i * 10))));
+  }
+
+  $colors: map-merge($colors, ($to: $toMap)) !global;
+}
+
+
+/*
+ * Theme colors
+ */
+@include cloneColor(brand-primary, blue);
+@include cloneColor(brand-secondary, teal);
+
+/*
+ * Application colors
+ */
+@include referColor(neutral, gray);
+@include referColor(primary, brand-primary);
+@include referColor(secondary, gray);
+
+
+/*
+ * Alert colors
+ */
+@include cloneColor(info, blue);
+@include cloneColor(success, green);
+@include cloneColor(warning, yellow);
+@include cloneColor(error, red);
+
+
+/*
+ * Tokens for developers
+ */
+$color-css-variables: ();
+
+@each $colorName, $colorMap in $colors {
+  @each $weight, $value in $colorMap {
+    $map: ();
+    $map: map-merge($map, (--color-#{$colorName}-#{$weight}: $value));
+    @if $weight == 60 {
+      $map: map-merge($map, (--color-#{$colorName}: $value));
+    }
+    $color-css-variables: map-merge($color-css-variables, $map);
+  }
+}
+
+@mixin defineVariable($key, $value) {
+  $color-css-variables: map-merge($color-css-variables, ($key: $value)) !global;
+}
+
+@include defineVariable(--color-white, getColor(white, 0));
+@include defineVariable(--color-black, getColor(black, 100));
+
+@include defineVariable(--ui-background, getColor(white, 0));
+@include defineVariable(--ui-01, getColor(neutral, 20));
+/*
+Container background on $ui-01;
+`Light` variant background
+ */
+@include defineVariable(--ui-02, getColor(white, 0));
+
+/*
+Subtle border;
+Tertiary background
+ */
+@include defineVariable(--ui-03, getColor(neutral, 20));
+@include defineVariable(--border-color, getColor(neutral, 50));
+
+@include defineVariable(--ui-04, getColor(neutral, 50));
+/**
+Primary text;
+Body copy;
+Headers;
+Hover text color for --text-02
+ */
+@include defineVariable(--text-01, getColor(neutral, 100));
+
+/**
+Secondary text;
+Input labels
+ */
+@include defineVariable(--text-02, getColor(neutral, 70));
+
+/**
+Placeholder text
+ */
+@include defineVariable(--text-03, getColor(neutral, 40));
+
+/**
+Text on interactive colors
+ */
+@include defineVariable(--text-04, getColor(white, 0));
+
+
+/**
+Tertiary text;
+Help text
+ */
+@include defineVariable(--text-05, getColor(neutral, 60));
+
+
+/*
+Default input fields;
+Fields on $ui-backgrounds
+ */
+@include defineVariable(--field-01, getColor(neutral, 10));
+@include defineVariable(--field-02, getColor(white, 0));
+
+/*
+Selected UI elements
+ */
+@include defineVariable(--selected-ui, getColor(neutral, 20));
+
+/**
+* Disabled fields;
+* Disabled backgrounds;
+* Disabled border
+*/
+@include defineVariable(--disabled-01, getColor(neutral, 10));
+
+/**
+* Disabled elements on $disabled-01;
+* Disabled label;
+* Disabled text on $disabled-01;
+* Disabled icons;
+* Disabled border
+*/
+@include defineVariable(--disabled-02, getColor(neutral, 30));
+
+/**
+* Disabled text on $disabled-02;
+* Disabled icons on $disabled-02
+*/
+@include defineVariable(--disabled-03, getColor(neutral, 50));
+
+/**
+* Primary links;
+* Ghost button
+*/
+@include defineVariable(--link-01, getColor(primary, 60));
+
+/**
+Secondary link color for lower contrast backgrounds
+ */
+@include defineVariable(--link-02, getColor(primary, 60));
+
+@include defineVariable(--hover-primary, getColor(primary, 60));
+@include defineVariable(--hover-primary-text, getColor(primary, 70));
+
+@include defineVariable(--visited-link, getColor(purple, 60));
+
+/**
+* Secondary link color for lower contrast backgrounds
+*/
+@include defineVariable(--link-02, getColor(primary, 40));
+
+@include defineVariable(--icon-01, getColor(neutral, 100));
+@include defineVariable(--icon-02, getColor(neutral, 70));
+
+
+@include defineVariable(--hover-ui, getColor(neutral, 10));
+@include defineVariable(--active-ui, getColor(neutral, 30));
+
+
+@include defineVariable(--danger-01, getColor(red, 60));
+
+@include defineVariable(--danger-02, getColor(red, 60));
+
+@include defineVariable(--support-01, getColor(error, 60));
+@include defineVariable(--support-02, getColor(success, 60));
+@include defineVariable(--support-03, getColor(warning, 30));
+@include defineVariable(--support-04, getColor(info, 70));
+
+@include defineVariable(--inverted-support-01, getColor(error, 50));
+@include defineVariable(--inverted-support-02, getColor(success, 40));
+@include defineVariable(--inverted-support-03, getColor(warning, 30));
+@include defineVariable(--inverted-support-04, getColor(info, 50));

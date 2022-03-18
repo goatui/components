@@ -417,6 +417,9 @@ export namespace Components {
         "keyField": string;
         "selectedRowKeys": string[];
         "selectionType": 'checkbox' | undefined;
+        "sort": 'none' | 'default' | 'managed';
+        "sortByField": string;
+        "sortOrder": 'asc' | 'desc';
     }
     interface GoatText {
         /**
@@ -1073,10 +1076,14 @@ declare namespace LocalJSX {
          */
         "dataSource"?: any[];
         "keyField"?: string;
+        "onGoat:sort"?: (event: CustomEvent<any>) => void;
         "onGoat:table-cell-click"?: (event: CustomEvent<any>) => void;
         "onGoat:table-select-change"?: (event: CustomEvent<any>) => void;
         "selectedRowKeys"?: string[];
         "selectionType"?: 'checkbox' | undefined;
+        "sort"?: 'none' | 'default' | 'managed';
+        "sortByField"?: string;
+        "sortOrder"?: 'asc' | 'desc';
     }
     interface GoatText {
         /**

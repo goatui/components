@@ -5,7 +5,7 @@ const fs = require('fs');
 const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require('gulp-sourcemaps');
 
-const SRC = './src/styles/new-theme/theme.scss';
+const SRC = './src/styles/theme/theme.scss';
 const DEST = './src/styles/';
 
 function scssTask() {

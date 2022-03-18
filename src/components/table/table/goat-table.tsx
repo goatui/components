@@ -1,10 +1,7 @@
 import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core';
-import { debounce } from '../../../utils/utils';
 import { renderEmptyData } from './utils';
 
-const DEFAULT_CELL_WIDTH = 300;
-const CHECKBOX_WIDTH = '3rem';
-
+const DEFAULT_CELL_WIDTH = 16; // in rem
 /**
  * @name Table
  * @description A configurable component for displaying tabular data.
@@ -18,7 +15,6 @@ const CHECKBOX_WIDTH = '3rem';
 export class GoatTable {
 
   @Element() elm!: HTMLElement;
-
 
 
   /**
@@ -52,14 +48,19 @@ export class GoatTable {
    */
   @Prop() dataSource: any[] = [];
   @Prop() selectionType: 'checkbox' | undefined;
-  @Prop({mutable: true}) selectedRowKeys: string[] = [];
+  @Prop({ mutable: true }) selectedRowKeys: string[] = [];
   @Prop() keyField: string = 'id';
+
+  @Prop() sort: 'none' | 'default' | 'managed' = 'default';
+  @Prop({ mutable: true }) sortByField: string;
+  @Prop({ mutable: true }) sortOrder: 'asc' | 'desc' = 'asc';
 
   @State() private hoveredCell: any = {};
   @State() private isSelectAll: boolean = false;
 
-  @Event({ eventName: 'goat:table-cell-click' }) p4CellClick: EventEmitter;
-  @Event({ eventName: 'goat:table-select-change' }) p4SelectChange: EventEmitter;
+  @Event({ eventName: 'goat:table-cell-click' }) goatCellClick: EventEmitter;
+  @Event({ eventName: 'goat:table-select-change' }) goatSelectChange: EventEmitter;
+  @Event({ eventName: 'goat:sort' }) goatSort: EventEmitter;
 
 
   onSelectAllClick = () => {
@@ -87,83 +88,23 @@ export class GoatTable {
 
   onSelectChange(selectedRowKeys: any) {
     this.selectedRowKeys = selectedRowKeys;
-    this.p4SelectChange.emit({ value: this.selectedRowKeys });
+    this.goatSelectChange.emit({ value: this.selectedRowKeys });
   }
 
   onCellClick(row: any, col: any) {
-    this.p4CellClick.emit({ record: row, column: col });
-  }
-
-  handleScroll = debounce(() => {
-    const $root = this.elm.shadowRoot;
-    const $header: HTMLElement = $root.querySelector('.header');
-    const $headerRightPanel: HTMLElement = $header.querySelector('.right-panel');
-    const $leftPanels = $root.querySelectorAll('.left-panel');
-
-
-    const $listScrollWrapper = $root.querySelector('.list-scroll-wrapper');
-    const movedBy = $listScrollWrapper.getBoundingClientRect().x - $headerRightPanel.getBoundingClientRect().x;
-    $leftPanels.forEach(function($leftPanel: HTMLElement) {
-      $leftPanel.style.left = movedBy + 'px';
-    });
-
-    const $body: HTMLElement = $root.querySelector('.body');
-    if ($body)
-      $header.style.top = ($listScrollWrapper.getBoundingClientRect().y - $body.getBoundingClientRect().y) + 'px';
-  }, 1);
-
-  componentDidLoad() {
-    const $root = this.elm.shadowRoot;
-    const $headerPanel: HTMLElement = $root.querySelector('.header');
-    const $headerLeftPanel: HTMLElement = $headerPanel.querySelector('.left-panel');
-    const $headerRightPanel: HTMLElement = $headerPanel.querySelector('.right-panel');
-
-    let maxHeight = $headerLeftPanel.clientHeight;
-    if (maxHeight < $headerRightPanel.clientHeight && $headerLeftPanel.querySelector('.col')) {
-      const $col: HTMLElement = $headerLeftPanel.querySelector('.col');
-      $col.style.height = $headerRightPanel.clientHeight + 'px';
-    } else {
-      const $col: HTMLElement = $headerRightPanel.querySelector('.col');
-      $col.style.height = maxHeight + 'px';
-    }
-
-    let leftPanelWidth = $headerLeftPanel.clientWidth;
-    $headerRightPanel.style.paddingLeft = leftPanelWidth + 'px';
-
-    if (this.dataSource && this.dataSource.length) {
-      const $bodyPanel: HTMLElement = $root.querySelector('.body');
-      const $bodyRightPanel: HTMLElement = $bodyPanel.querySelector('.right-panel');
-      const $bodyLeftPanel: HTMLElement = $bodyPanel.querySelector('.left-panel');
-      $bodyRightPanel.style.paddingLeft = leftPanelWidth + 'px';
-      $bodyPanel.style.paddingTop = $headerPanel.clientHeight + 'px';
-
-      const $bodyRightRows = $bodyRightPanel.querySelectorAll('.row');
-      $bodyLeftPanel.querySelectorAll('.row').forEach(($leftRow, index) => {
-        const $col = $leftRow.querySelector('.col');
-        if ($col) {
-          let maxHeight = $leftRow.querySelector('.col').clientHeight;
-          if (maxHeight < $bodyRightRows[index].querySelector('.col').clientHeight) {
-            //@ts-ignore
-            $leftRow.querySelector('.col').style.height = $bodyRightRows[index].querySelector('.col').clientHeight + 'px';
-          } else {
-            //@ts-ignore
-            $bodyRightRows[index].querySelector('.col').style.height = maxHeight + 1 + 'px';
-          }
-        }
-      });
-
-    }
+    this.goatCellClick.emit({ record: row, column: col });
   }
 
   renderHeader() {
-    const leftHeaderRow = [];
-    const rightHeaderRow = [];
+    const fixedCols = [];
+    const scrollCols = [];
 
     if (this.selectionType === 'checkbox') {
-      leftHeaderRow.push(
-        <div class='col' style={{ width: CHECKBOX_WIDTH }}>
+      fixedCols.push(
+        <div class='col center'>
           <div class='col-content'>
-            <goat-checkbox class='checkbox' size="sm"  value={this.isSelectAll} onGoat:change={this.onSelectAllClick} />
+            <goat-checkbox class='checkbox light' size='sm' value={this.isSelectAll}
+                           onGoat:change={this.onSelectAllClick} />
           </div>
         </div>);
     }
@@ -171,44 +112,78 @@ export class GoatTable {
       let colWidth = DEFAULT_CELL_WIDTH;
       if (col.width)
         colWidth = parseInt(col.width);
-      const colEl = <div class='col' style={{ width: colWidth + 'px', maxWidth: colWidth + 'px' }}>
-        <div class='col-content'>{col.label}</div>
+      const colEl = <div class={{ 'col': true, 'sort': this.sortByField === col.name }}
+                         style={{ width: colWidth + 'rem' }}>
+        <div class='col-content'>
+          <div class='col-text'>{col.label}</div>
+          <div class='col-actions'>
+            {
+              (() => {
+                let icon = 'arrow-down-up';
+                if (this.sortByField === col.name) {
+                  if (this.sortOrder === 'asc')
+                    icon = 'arrow-up';
+                  else
+                    icon = 'arrow-down';
+                }
+                return <goat-button size='sm'
+                                    icon={icon}
+                                    class='col-action'
+                                    variant='ghost' color='secondary' onClick={() => {
+                  if (this.sortByField === col.name) {
+                    this.sortOrder = (this.sortOrder == 'asc') ? 'desc' : 'asc';
+                  } else {
+                    this.sortByField = col.name;
+                    this.sortOrder = 'asc';
+                  }
+                  this.goatSort.emit({ sortByField: this.sortByField, sortOrder: this.sortOrder });
+                }} />;
+              })()
+            }
+          </div>
+        </div>
+
       </div>;
-      (col.fixed) ? leftHeaderRow.push(colEl) : rightHeaderRow.push(colEl);
+      (col.fixed) ? fixedCols.push(colEl) : scrollCols.push(colEl);
     });
 
     return <div class='header'>
-      <div class='left-panel'>
-        <div class='table'>
-          <div class='row'>
-            {leftHeaderRow}
-          </div>
+      <div class='row'>
+        <div class='fixed-columns columns-container'>
+          {fixedCols}
         </div>
-      </div>
-      <div class='right-panel'>
-        <div class='table'>
-          <div class='row'>
-            {rightHeaderRow}
-          </div>
+        <div class='scrollable-columns columns-container'>
+          {scrollCols}
         </div>
       </div>
     </div>;
   }
 
   renderBody() {
-    const rightBodyRows = [];
-    const leftBodyRows = [];
+    const rows = [];
 
+    let data = this.dataSource;
+
+    if (this.sort === 'default' && this.sortByField) {
+      data = data.sort((a, b) => {
+        if (a[this.sortByField] < b[this.sortByField])
+          return this.sortOrder === 'asc' ? -1 : 1;
+        if (a[this.sortByField] > b[this.sortByField])
+          return this.sortOrder === 'asc' ? 1 : -1;
+        return 0;
+      });
+    }
 
     this.dataSource.forEach((row) => {
-      const bodyLeftRow = [];
-      const bodyRightRow = [];
+      const fixedCols = [];
+      const scrollCols = [];
 
       if (this.selectionType === 'checkbox')
-        bodyLeftRow.push(<div class={{ 'col': true }}
-                              style={{ width: CHECKBOX_WIDTH }}>
-          <goat-checkbox class='checkbox' size="sm" value={this.selectedRowKeys.includes(row[this.keyField])}
-                       onGoat:change={() => this.onRowSelectClick(row)} />
+        fixedCols.push(<div class={{ 'col': true, 'center': true }}>
+          <div class='col-content'>
+            <goat-checkbox class='checkbox light' size='sm' value={this.selectedRowKeys.includes(row[this.keyField])}
+                           onGoat:change={() => this.onRowSelectClick(row)} />
+          </div>
         </div>);
 
 
@@ -217,44 +192,42 @@ export class GoatTable {
         if (column.width)
           colWidth = parseInt(column.width);
         const colEl = <div
-          class={{ 'col': true, 'col-hover': (this.hoveredCell.row === row) }}
-          style={{ width: colWidth + 'px', maxWidth: colWidth + 'px' }}
+          tabindex='1'
+          class={{ 'col': true, 'col-hover': (this.hoveredCell.row === row && this.hoveredCell.column === column) }}
+          style={{ width: colWidth + 'rem' }}
           onMouseOver={() => this.onCellMouseOver(row, column)}
           onClick={() => {
             const selection = window.getSelection();
             if (selection.type != 'Range')
               this.onCellClick(row, column);
           }}>
-          <div class='col-content'>{row[column.name] ? row[column.name] : ''}</div>
+          <div class='col-content'>
+            <div class='col-text' title={row?.[column.name]}>{row?.[column.name]}</div>
+          </div>
         </div>;
 
-        column.fixed ? bodyLeftRow.push(colEl) : bodyRightRow.push(colEl);
+        column.fixed ? fixedCols.push(colEl) : scrollCols.push(colEl);
       });
-      leftBodyRows.push(<div class='row'>{bodyLeftRow}</div>);
-      rightBodyRows.push(<div class='row'>{bodyRightRow}</div>);
+      rows.push(<div class={{ 'row': true, 'row-hover': (this.hoveredCell.row === row) }}>
+        <div class='fixed-columns columns-container'>
+          {fixedCols}
+        </div>
+        <div class='scrollable-columns columns-container'>
+          {scrollCols}
+        </div>
+      </div>);
     });
 
     return <div class='body'>
-      <div class='body-container'>
-        <div class='left-panel'>
-          <div class='table'>
-            {leftBodyRows}
-          </div>
-        </div>
-        <div class='right-panel'>
-          <div class='table'>
-            {rightBodyRows}
-          </div>
-        </div>
-      </div>
+      {rows}
     </div>;
   }
 
 
   render() {
     return <Host>
-      <div class='table-component'>
-        <div class='list-scroll-wrapper' onScroll={(ev) => this.handleScroll(ev)}>
+      <div class='table'>
+        <div class='table-scroll-container'>
           {this.renderHeader()}
           {(this.dataSource.length) ? this.renderBody() : renderEmptyData()}
         </div>

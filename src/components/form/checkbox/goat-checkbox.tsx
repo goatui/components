@@ -137,6 +137,7 @@ export class GoatCheckbox implements ComponentInterface, InputComponentInterface
   @State() hasFocus = false;
   @State() animate = true;
   @State() isActive = false;
+  @State() slotHasContent = false;
 
   private clickHandler = (ev: MouseEvent | KeyboardEvent) => {
     if (!this.disabled) {
@@ -172,6 +173,7 @@ export class GoatCheckbox implements ComponentInterface, InputComponentInterface
         this.elm.removeAttribute(name);
       }
     });
+    this.slotHasContent = this.elm.hasChildNodes();
   }
 
   render() {
@@ -187,6 +189,7 @@ export class GoatCheckbox implements ComponentInterface, InputComponentInterface
           'disabled': this.disabled,
           'required': this.required,
           'rounded': this.rounded,
+          'has-content': this.slotHasContent,
         }}>
           <div class='box'
                tabindex={this.tabindex}

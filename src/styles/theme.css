@@ -432,7 +432,10 @@ Secondary link color for lower contrast backgrounds
   --border-radius: 3px;
   --z-index-table-header: 10;
   --z-index-dropdown-content: 20;
-  color: var(text-01);
+}
+
+html {
+  color: var(--text-01);
 }
 
 html[data-theme=dark] {

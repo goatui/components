@@ -2,32 +2,30 @@
   {
     "name": "name",
     "label": "Name",
-    "width": 300,
+    "width": 16,
     "fixed": true
   },
   {
     "name": "age",
     "label": "Age",
-    "width": 100
+    "width": 7
   },
   {
     "name": "eyeColor",
-    "label": "Eye Color",
-    "width": 300
+    "label": "Eye Color"
   },
   {
     "name": "company",
-    "label": "Company",
-    "width": 300
+    "label": "Company"
   },
   {
     "name": "email",
     "label": "Email",
-    "width": 500
+    "width": 25
   },
   {
     "name": "address",
     "label": "Address",
-    "width": 700
+    "width": 20
   }
 ]

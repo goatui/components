@@ -39,7 +39,7 @@ menu:
               document.getElementById('column').innerText = evt.detail.column.label;
             });
             $table.addEventListener('goat:table-select-change', function(evt) {
-              document.getElementById('selected-rows').innerText = JSON.stringify(evt.detail.value);
+              document.getElementById('selected-rows').innerText = JSON.stringify(evt.detail.value, null, 4);
             });
           </script>
         </goat-card-content>
