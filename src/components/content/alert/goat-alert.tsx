@@ -1,6 +1,7 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core';
 import { ElementSize, isDarkMode, observeThemeChange } from '../../../utils/utils';
 
+
 /**
  * @name Alert
  * @description Alerts provide important information inline with the content body within a view.

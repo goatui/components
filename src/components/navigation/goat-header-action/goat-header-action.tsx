@@ -13,13 +13,7 @@ import {
 } from '@stencil/core';
 import { getGoatIndex } from '../../../utils/utils';
 
-/**
- * @name Button
- * @description An interactive button with a range of presentation options.
- * @example <goat-button>
- *   Button CTA
- *   </goat-button>
- */
+
 @Component({
   tag: 'goat-header-action',
   styleUrl: 'goat-header-action.scss',
@@ -192,14 +186,16 @@ export class GoatHeaderAction implements ComponentInterface {
         aria-describedby={this.disabled && this.disabledReason ? `disabled-reason-${this.gid}` : null}
         aria-disabled={(this.disabled || this.showLoader) + ''}
         {...this.configAria}>
+        <div class='button-content'>
 
-        {this.showLoader && <goat-spinner class='spinner inherit' size={this.getIconSize()} />}
+          {this.showLoader && <goat-spinner class='spinner inherit' size={this.getIconSize()} />}
 
-        {!this.showLoader && this.icon && this.renderIcon()}
+          {!this.showLoader && this.icon && this.renderIcon()}
 
-        {!this.showLoader && <div class='slot-container'>
-          <slot />
-        </div>}
+          {!this.showLoader && <div class='slot-container'>
+            <slot />
+          </div>}
+        </div>
       </button>
       {this.renderDisabledReason()}
     </Host>);

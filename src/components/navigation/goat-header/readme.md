@@ -9,7 +9,7 @@
 
 | Property    | Attribute    | Description | Type       | Default                                    |
 | ----------- | ------------ | ----------- | ---------- | ------------------------------------------ |
-| `bandLogo`  | `band-logo`  |             | `string`   | `'https://goatui.com/assets/img/logo.svg'` |
+| `brandLogo` | `brand-logo` |             | `string`   | `'https://goatui.com/assets/img/logo.svg'` |
 | `brandName` | `brand-name` |             | `string`   | `'Goat'`                                   |
 | `brandUrl`  | `brand-url`  |             | `string`   | `'#'`                                      |
 | `pageTitle` | `page-title` |             | `string`   | `''`                                       |

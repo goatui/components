@@ -1,7 +1,9 @@
 @import "../../../styles/scss/commons";
 
+$border-width: 0.0625;
+
 @function removeBorder($width) {
-  @return #{($width*1 - 0.0625)}rem;
+  @return #{($width*1 - ($border-width * 4))}rem;
 }
 
 
@@ -12,16 +14,13 @@
 }
 
 .button {
-  height: 100%;
   box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  cursor: pointer;
   width: 100%;
-  border: 0.0625rem var(--button-border-style) transparent;
+  padding: 0;
+  cursor: pointer;
+  border:  #{($border-width * 2)}rem var(--button-border-style) transparent;
   border-radius: var(--button-border-radius);
-  gap: v(--spacing-2);
+
   outline: none;
 
   .slot-container {
@@ -32,9 +31,15 @@
   &.has-content .slot-container {
     display: block;
   }
-  &.has-focus {
-    border-style: solid;
-  }
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  height: 100%;
+  gap: v(--spacing-2);
+  border:  #{($border-width * 2)}rem solid transparent;
 }
 
 
@@ -42,52 +47,65 @@
   * SIZES
   */
 .button.size-sm, .button.size-small {
-  padding: removeBorder(0.5);
-  @include font-style(text-sm);
-  font-weight: v(--font-weight-medium);
 
-  &.has-content {
+  .button-content {
+    padding: removeBorder(0.5);
+    @include font-style(text-sm);
+    font-weight: v(--font-weight-medium);
+  }
+
+  &.has-content .button-content {
     padding: removeBorder(0.5) removeBorder(0.875);
   }
 }
 
 
 .button.size-md, .button.size-medium {
-  padding: removeBorder(0.625);
-  @include font-style(text-sm);
-  font-weight: v(--font-weight-medium);
 
-  &.has-content {
+  .button-content {
+    padding: removeBorder(0.625);
+    @include font-style(text-sm);
+    font-weight: v(--font-weight-medium);
+  }
+
+  &.has-content .button-content {
     padding: removeBorder(0.625) removeBorder(1.125);
   }
 }
 
 .button.size-lg, .button.size-large {
-  padding: removeBorder(0.625);
-  @include font-style(text-md);
-  font-weight: v(--font-weight-medium);
+  .button-content {
+    padding: removeBorder(0.625);
+    @include font-style(text-md);
+    font-weight: v(--font-weight-medium);
+  }
 
-  &.has-content {
+  &.has-content .button-content {
     padding: removeBorder(0.625) removeBorder(1);
   }
 }
 
 .button.size-xl {
-  padding: removeBorder(0.75);
-  @include font-style(text-md);
-  font-weight: v(--font-weight-medium);
+  .button-content {
+    padding: removeBorder(0.75);
+    @include font-style(text-md);
+    font-weight: v(--font-weight-medium);
+  }
 
-  &.has-content {
+  &.has-content .button-content {
     padding: removeBorder(0.75) removeBorder(1.25);
   }
 }
 
 .button.size-xxl {
-  padding: removeBorder(1);
-  @include font-style(text-lg);
-  font-weight: v(--font-weight-medium);
 
-  &.has-content {
+  .button-content {
+    padding: removeBorder(1);
+    @include font-style(text-lg);
+    font-weight: v(--font-weight-medium);
+  }
+
+  &.has-content .button-content {
     padding: removeBorder(1) removeBorder(1.75);
   }
 }
@@ -116,8 +134,10 @@
   }
 
   &.has-focus:not(.active) {
-    border-color: v(--color-white);
-    @include focus-ring(var(--button-color-focus, v(--color-primary)));
+    .button-content {
+      border-color: v(--color-white);
+    }
+    border-color: var(--button-color-focus, v(--color-primary));
   }
 
   &.disabled {
@@ -125,7 +145,7 @@
     background: v(--disabled-02) !important;
     border-color: v(--disabled-02) !important;
     &.has-focus:not(.active) {
-      @include focus-ring(var(--button-color-focus, v(--color-neutral)));
+      border-color: var(--button-color-focus, v(--color-neutral)) !important;
     }
   }
 }
@@ -147,8 +167,10 @@
   }
 
   &.has-focus:not(.active) {
-    border-color: v(--color-white);
-    @include focus-ring(var(--button-color-focus, v(--color-primary)));
+    .button-content {
+      border-color: v(--color-white);
+    }
+    border-color: var(--button-color-focus, v(--color-primary));
   }
 
   &.disabled {
@@ -156,7 +178,7 @@
     background: v(--disabled-02) !important;
     border-color: v(--disabled-02) !important;
     &.has-focus:not(.active) {
-      @include focus-ring(var(--button-color-focus, v(--color-neutral)));
+      border-color: var(--button-color-focus, v(--color-neutral)) !important;
     }
   }
 }
@@ -179,9 +201,12 @@
 
   &.has-focus:not(.active) {
     background: var(--button-color, var(--private-button-color));
-    border-color: white;
     color: v(--color-white);
-    @include focus-ring(var(--button-color-focus, v(--color-primary)));
+
+    .button-content {
+      border-color: v(--color-white);
+    }
+    border-color: var(--button-color-focus, v(--color-primary));
   }
 
   &.disabled {
@@ -189,7 +214,7 @@
     background: transparent !important;
     border-color: v(--disabled-02) !important;
     &.has-focus:not(.active) {
-      @include focus-ring(var(--button-color-focus, v(--color-neutral)));
+      border-color: var(--button-color-focus, v(--color-neutral)) !important;
     }
   }
 }
@@ -211,7 +236,7 @@
   }
 
   &.has-focus:not(.active) {
-    @include focus-ring(var(--button-color-focus, v(--color-primary)));
+    border-color: var(--button-color-focus, v(--color-primary));
   }
 
   &.disabled {
@@ -220,7 +245,7 @@
     background: transparent !important;
     border-color: transparent !important;
     &.has-focus:not(.active) {
-      @include focus-ring(var(--button-color-focus, v(--color-neutral)));
+      border-color: var(--button-color-focus, v(--color-neutral)) !important;
     }
   }
 

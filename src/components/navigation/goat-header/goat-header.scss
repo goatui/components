@@ -26,10 +26,10 @@
     align-items: center;
     text-decoration: none;
     box-sizing: border-box;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     &:focus {
       outline: none;
-      border-color: v(--text-01);
+      border-color: v(--color-primary);
     }
   }
 
@@ -75,9 +75,6 @@
       background-color: v(--color-white);
       .brand {
         color: v(--text-01);
-        &:focus {
-          border-color: v(--color-black);
-        }
       }
       .brand-link:active .brand {
         background-color: v(--color-neutral-50);
@@ -106,12 +103,10 @@
 
     .left-section {
       background-color: v(--color-black);
-      .brand {
-        &:focus {
-          border-color: v(--color-white);
-        }
-        &:hover {
-          background-color: v(--color-neutral-70);
+      .brand-link:hover {
+        border-color: v(--color-neutral-80);
+        .brand {
+          background-color: v(--color-neutral-80);
         }
       }
     }
@@ -128,18 +123,27 @@
   .header {
     .left-section {
       background-color: v(--color-primary);
+
       .brand {
         color: v(--color-white);
+      }
+
+      .brand-link {
         &:focus {
           border-color: v(--color-white);
         }
         &:hover {
-          background-color: v(--color-primary-70);
+          border-color: v(--color-primary-70);
+
+          .brand {
+            background-color: v(--color-primary-70);
+          }
+        }
+        &:active .brand {
+          background-color: v(--color-primary-80);
         }
       }
-      .brand-link:active .brand {
-        background-color: v(--color-primary-80);
-      }
+
       .page-title {
         color: v(--color-neutral-20);
       }

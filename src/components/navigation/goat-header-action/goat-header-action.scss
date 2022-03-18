@@ -4,6 +4,12 @@
   @return #{($width*1 - 0.0625)}rem;
 }
 
+$border-width: 0.0625;
+
+@function removeBorder($width) {
+  @return #{($width*1 - ($border-width * 4))}rem;
+}
+
 
 :host {
   display: inline-block;
@@ -18,7 +24,7 @@
   flex-direction: row;
   cursor: pointer;
   width: 100%;
-  border: 0.0625rem none transparent;
+  border: #{($border-width * 2)}rem solid transparent;
   gap: v(--spacing-2);
   outline: none;
 
@@ -30,9 +36,15 @@
   &.has-content .slot-container {
     display: block;
   }
-  &.has-focus {
-    border-style: solid;
-  }
+}
+
+.button-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  flex-direction: row;
+  gap: v(--spacing-2);
+  border:  #{($border-width * 2)}rem solid transparent;
 }
 
 :host([has-focus]) {
@@ -44,10 +56,12 @@
   * SIZE
   */
 .button {
-  padding: 0 removeBorder(0.75);
-  @include font-style(text-sm);
-  font-weight: v(--font-weight-medium);
-  &.has-content {
+  .button-content {
+    padding: 0 removeBorder(0.75);
+    @include font-style(text-sm);
+    font-weight: v(--font-weight-medium);
+  }
+  &.has-content .button-content {
     padding: 0 removeBorder(1);
   }
 }
@@ -82,7 +96,7 @@
   }
 
   &.has-focus:not(.active) {
-    border-color: v(--color-white);
+    border-color: var(--private-button-color-focus, v(--color-primary));
   }
 
   &.disabled {
@@ -90,7 +104,7 @@
     background: v(--disabled-02) !important;
     border-color: v(--disabled-02) !important;
     &.has-focus:not(.active) {
-      @include focus-ring(var(--button-color-focus, v(--color-neutral)));
+      @include focus-ring(var(--private-button-color-focus, v(--color-neutral)));
     }
   }
 }
@@ -117,6 +131,7 @@
   --private-button-color: #{v(--color-primary-60)};
   --private-button-color-hover: #{v(--color-primary-70)};
   --private-button-color-active: #{v(--color-primary-80)};
+  --private-button-color-focus: #{v(--color-white)};
 }
 
 .button.icon-end {

@@ -286,7 +286,8 @@
     "encapsulation": "shadow",
     "dependents": [
       "goat-alert",
-      "goat-code-highlighter"
+      "goat-code-highlighter",
+      "goat-table"
     ],
     "dependencies": [
       "goat-icon",
@@ -301,6 +302,9 @@
         "goat-button"
       ],
       "goat-code-highlighter": [
+        "goat-button"
+      ],
+      "goat-table": [
         "goat-button"
       ]
     },
@@ -2495,10 +2499,10 @@
     },
     "props": [
       {
-        "name": "bandLogo",
+        "name": "brandLogo",
         "type": "string",
         "mutable": false,
-        "attr": "band-logo",
+        "attr": "brand-logo",
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
@@ -2603,20 +2607,7 @@
     "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
-    "docsTags": [
-      {
-        "name": "name",
-        "text": "Button"
-      },
-      {
-        "name": "description",
-        "text": "An interactive button with a range of presentation options."
-      },
-      {
-        "name": "example",
-        "text": "<goat-button>\nButton CTA\n</goat-button>"
-      }
-    ],
+    "docsTags": [],
     "encapsulation": "shadow",
     "dependents": [],
     "dependencies": [
@@ -2823,11 +2814,7 @@
         "passive": false
       }
     ],
-    "metadata": {
-      "name": "Button",
-      "description": "An interactive button with a range of presentation options.",
-      "example": "<goat-button>\nButton CTA\n</goat-button>"
-    }
+    "metadata": {}
   },
   {
     "dirPath": "D:/development/goatui/src/components/content/icon",
@@ -4258,11 +4245,17 @@
     "encapsulation": "shadow",
     "dependents": [],
     "dependencies": [
-      "goat-checkbox"
+      "goat-checkbox",
+      "goat-button"
     ],
     "dependencyGraph": {
       "goat-table": [
-        "goat-checkbox"
+        "goat-checkbox",
+        "goat-button"
+      ],
+      "goat-button": [
+        "goat-icon",
+        "goat-spinner"
       ]
     },
     "props": [
@@ -4347,10 +4340,83 @@
         ],
         "optional": false,
         "required": false
+      },
+      {
+        "name": "sort",
+        "type": "\"default\" | \"managed\" | \"none\"",
+        "mutable": false,
+        "attr": "sort",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "'default'",
+        "values": [
+          {
+            "value": "default",
+            "type": "string"
+          },
+          {
+            "value": "managed",
+            "type": "string"
+          },
+          {
+            "value": "none",
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "sortByField",
+        "type": "string",
+        "mutable": true,
+        "attr": "sort-by-field",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "values": [
+          {
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "sortOrder",
+        "type": "\"asc\" | \"desc\"",
+        "mutable": true,
+        "attr": "sort-order",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "'asc'",
+        "values": [
+          {
+            "value": "asc",
+            "type": "string"
+          },
+          {
+            "value": "desc",
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
       }
     ],
     "methods": [],
     "events": [
+      {
+        "event": "goat:sort",
+        "detail": "any",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": "",
+        "docsTags": []
+      },
       {
         "event": "goat:table-cell-click",
         "detail": "any",
