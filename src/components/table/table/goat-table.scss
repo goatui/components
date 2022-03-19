@@ -20,11 +20,12 @@
   }
 
   &.paginate .table-scroll-container{
-    height: calc(100% - 2.25rem); // remove height of pagination bar
+    height: calc(100% - 2.3125rem); // remove height of pagination bar
   }
 
   .pagination {
     display: flex;
+    border-top: 1px solid var(--table-border-color);
 
     .form-control {
       margin: 0;
@@ -121,6 +122,7 @@
   position: sticky;
   top: 0;
   background: v(--ui-01);
+  border-bottom: 1px solid var(--table-border-color);
 
   .left-panel {
     position: sticky;

@@ -62,7 +62,12 @@ menu:
         </goat-card-content>
         <goat-card-content>
           {% highlight html %}
-          <goat-table id='table' key-field='_id' selection-type='checkbox'></goat-table>
+          <goat-table id='table'
+                      key-field='_id'
+                      selection-type='checkbox'
+                      sortable
+                      paginate
+          ></goat-table>
           {% endhighlight %}
         </goat-card-content>
         <goat-card-content>
@@ -71,7 +76,7 @@ const $table = document.getElementById('table');
 // Columns
 $table.columns = {% include_relative column-config.json %};
 // Data
-$table.dataSource = {% include_relative data-source.json %};
+$table.data = {% include_relative data-source.json %};
           {% endhighlight %}
         </goat-card-content>
       </goat-card>

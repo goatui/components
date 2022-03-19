@@ -287,13 +287,13 @@ export class GoatTable {
           <div class='table-footer-right-content'>
 
             <div class='table-footer-right-content-pagination'>
-              <goat-button size='sm' icon='arrow-left' variant='ghost' color='secondary'
+              <goat-button size='sm' icon='arrow-left' variant='ghost'
                            disabled={this.page === 1}
                            onClick={() => {
                              this.page = this.page - 1;
                              this.goatPage.emit({ page: this.page, pageSize: this.pageSize });
                            }} />
-              <goat-button size='sm' icon='arrow-right' variant='ghost' color='secondary'
+              <goat-button size='sm' icon='arrow-right' variant='ghost'
                            disabled={this.pageSize * (this.page) >= this.getTotalItems()}
                            onClick={() => {
                              this.page = this.page + 1;
