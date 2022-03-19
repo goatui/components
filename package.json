@@ -1,6 +1,6 @@
 {
   "name": "@goatui/components",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "description": "GOAT UI contains most used web components built using Stencil",
   "license": "MIT",
   "main": "dist/index.cjs.js",
@@ -32,7 +32,7 @@
   ],
   "scripts": {
     "build:full": "npm run build:theme && npm run release-to-docs && npm run build",
-    "build": "stencil build --docs",
+    "build": "stencil build --docs --prod",
     "build:theme": "gulp themeBuild",
     "generate": "stencil generate",
     "release": "npm version patch",

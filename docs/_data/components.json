@@ -2349,9 +2349,15 @@
       }
     ],
     "encapsulation": "shadow",
-    "dependents": [],
+    "dependents": [
+      "goat-table"
+    ],
     "dependencies": [],
-    "dependencyGraph": {},
+    "dependencyGraph": {
+      "goat-table": [
+        "goat-form-control"
+      ]
+    },
     "props": [
       {
         "name": "caption",
@@ -2380,6 +2386,23 @@
         "values": [
           {
             "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "inline",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "inline",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
           }
         ],
         "optional": false,
@@ -3725,7 +3748,9 @@
       }
     ],
     "encapsulation": "shadow",
-    "dependents": [],
+    "dependents": [
+      "goat-table"
+    ],
     "dependencies": [
       "goat-icon",
       "goat-spinner",
@@ -3743,6 +3768,9 @@
       ],
       "goat-menu": [
         "goat-empty-state"
+      ],
+      "goat-table": [
+        "goat-select"
       ]
     },
     "props": [
@@ -4246,16 +4274,32 @@
     "dependents": [],
     "dependencies": [
       "goat-checkbox",
-      "goat-button"
+      "goat-button",
+      "goat-form-control",
+      "goat-select",
+      "goat-text"
     ],
     "dependencyGraph": {
       "goat-table": [
         "goat-checkbox",
-        "goat-button"
+        "goat-button",
+        "goat-form-control",
+        "goat-select",
+        "goat-text"
       ],
       "goat-button": [
         "goat-icon",
         "goat-spinner"
+      ],
+      "goat-select": [
+        "goat-icon",
+        "goat-spinner",
+        "goat-menu",
+        "goat-text",
+        "goat-menu-item"
+      ],
+      "goat-menu": [
+        "goat-empty-state"
       ]
     },
     "props": [
@@ -4276,7 +4320,7 @@
         "required": false
       },
       {
-        "name": "dataSource",
+        "name": "data",
         "type": "any[]",
         "mutable": false,
         "reflectToAttr": false,
@@ -4303,6 +4347,74 @@
         "values": [
           {
             "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "managed",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "managed",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "page",
+        "type": "number",
+        "mutable": false,
+        "attr": "page",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "1",
+        "values": [
+          {
+            "type": "number"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "pageSize",
+        "type": "number",
+        "mutable": false,
+        "attr": "page-size",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "10",
+        "values": [
+          {
+            "type": "number"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "paginate",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "paginate",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "true",
+        "values": [
+          {
+            "type": "boolean"
           }
         ],
         "optional": false,
@@ -4342,36 +4454,10 @@
         "required": false
       },
       {
-        "name": "sort",
-        "type": "\"default\" | \"managed\" | \"none\"",
-        "mutable": false,
-        "attr": "sort",
-        "reflectToAttr": false,
-        "docs": "",
-        "docsTags": [],
-        "default": "'default'",
-        "values": [
-          {
-            "value": "default",
-            "type": "string"
-          },
-          {
-            "value": "managed",
-            "type": "string"
-          },
-          {
-            "value": "none",
-            "type": "string"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "sortByField",
+        "name": "sortBy",
         "type": "string",
         "mutable": true,
-        "attr": "sort-by-field",
+        "attr": "sort-by",
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
@@ -4404,10 +4490,52 @@
         ],
         "optional": false,
         "required": false
+      },
+      {
+        "name": "sortable",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "sortable",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "true",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "totalItems",
+        "type": "any",
+        "mutable": true,
+        "attr": "total-items",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "values": [
+          {
+            "type": "any"
+          }
+        ],
+        "optional": false,
+        "required": false
       }
     ],
     "methods": [],
     "events": [
+      {
+        "event": "goat:page",
+        "detail": "any",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": "",
+        "docsTags": []
+      },
       {
         "event": "goat:sort",
         "detail": "any",
@@ -4472,11 +4600,15 @@
     ],
     "encapsulation": "shadow",
     "dependents": [
-      "goat-select"
+      "goat-select",
+      "goat-table"
     ],
     "dependencies": [],
     "dependencyGraph": {
       "goat-select": [
+        "goat-text"
+      ],
+      "goat-table": [
         "goat-text"
       ]
     },

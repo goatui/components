@@ -72,6 +72,10 @@ Type: `Promise<void>`
 
 ## Dependencies
 
+### Used by
+
+ - [goat-table](../../table/table)
+
 ### Depends on
 
 - [goat-icon](../../content/icon)
@@ -89,6 +93,7 @@ graph TD;
   goat-select --> goat-text
   goat-select --> goat-menu-item
   goat-menu --> goat-empty-state
+  goat-table --> goat-select
   style goat-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
