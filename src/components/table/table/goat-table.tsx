@@ -272,7 +272,10 @@ export class GoatTable {
                          class='select'
                          items={SUPPORTED_PAGE_SIZES}
                          value={this.pageSize}
-                         onGoat:change={(e) => this.pageSize = e.detail.value} />
+                         onGoat:change={(e) => {
+                           this.pageSize = e.detail.value
+                           this.goatPage.emit({ page: this.page, pageSize: this.pageSize });
+                         }} />
           </goat-form-control>
         </div>
         <div class='pagination-item-count'>
@@ -288,13 +291,13 @@ export class GoatTable {
                            disabled={this.page === 1}
                            onClick={() => {
                              this.page = this.page - 1;
-                             this.goatPage.emit({ page: this.page });
+                             this.goatPage.emit({ page: this.page, pageSize: this.pageSize });
                            }} />
               <goat-button size='sm' icon='arrow-right' variant='ghost' color='secondary'
                            disabled={this.pageSize * (this.page) >= this.getTotalItems()}
                            onClick={() => {
                              this.page = this.page + 1;
-                             this.goatPage.emit({ page: this.page });
+                             this.goatPage.emit({ page: this.page, pageSize: this.pageSize });
                            }} />
             </div>
           </div>
