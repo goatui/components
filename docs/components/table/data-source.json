@@ -223,5 +223,31 @@
     "email": "undefined.undefined@prosely.ca",
     "phone": "+1 (950) 503-2772",
     "address": "232 Hutchinson Court, Westphalia, North Carolina, 1852"
-}{% else %}...{% endif %}
+}, {
+  "_id": "5e71196d12a52caeee7f4794",
+  "index": 6,
+  "guid": "72c223c3-1cad-4ce4-b993-5284aa6ca691",
+  "isActive": true,
+  "balance": "$3,255.32",
+  "age": 36,
+  "eyeColor": "blue",
+  "name": "Juliet",
+  "company": "PROSELY",
+  "email": "undefined.undefined@prosely.ca",
+  "phone": "+1 (950) 503-2772",
+  "address": "232 Hutchinson Court, Westphalia, North Carolina, 1852"
+}, {
+  "_id": "5e71196d12a52caeee7f4794",
+  "index": 6,
+  "guid": "72c223c3-1cad-4ce4-b993-5284aa6ca691",
+  "isActive": true,
+  "balance": "$3,255.32",
+  "age": 36,
+  "eyeColor": "blue",
+  "name": "Juliet",
+  "company": "PROSELY",
+  "email": "undefined.undefined@prosely.ca",
+  "phone": "+1 (950) 503-2772",
+  "address": "232 Hutchinson Court, Westphalia, North Carolina, 1852"
+},{% else %}...{% endif %}
 ]

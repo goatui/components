@@ -24,14 +24,18 @@ menu:
                               href='#doc-usage'></a></goat-text>
 
       <goat-card>
-        <goat-card-content style='height: 25rem'>
-          <goat-table id='table' key-field='_id' selection-type='checkbox'></goat-table>
+        <goat-card-content style='height: 30rem'>
+          <goat-table id='table'
+                      key-field='_id'
+                      selection-type='checkbox'
+                      sortable
+          ></goat-table>
           <script>
             const $table = document.getElementById('table');
             // Columns
             $table.columns = {% include_relative column-config.json %};
             // Data
-            $table.dataSource = {% include_relative data-source.json full = true %};
+            $table.data = {% include_relative data-source.json full = true %};
 
             // Events
             $table.addEventListener('goat:table-cell-click', function(evt) {

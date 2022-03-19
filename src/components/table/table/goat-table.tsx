@@ -1,7 +1,23 @@
 import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core';
 import { renderEmptyData } from './utils';
 
+
 const DEFAULT_CELL_WIDTH = 16; // in rem
+const SUPPORTED_PAGE_SIZES = [{
+  value: 10,
+  label: 10,
+}, {
+  value: 25,
+  label: 25,
+}, {
+  value: 50,
+  label: 50,
+}, {
+  value: 100,
+  label: 100,
+}];
+
+
 /**
  * @name Table
  * @description A configurable component for displaying tabular data.
@@ -46,14 +62,21 @@ export class GoatTable {
    *  'address': '326 Irving Street, Grimsley, Texas, 4048'
    *  }]
    */
-  @Prop() dataSource: any[] = [];
+  @Prop() data: any[] = [];
   @Prop() selectionType: 'checkbox' | undefined;
   @Prop({ mutable: true }) selectedRowKeys: string[] = [];
   @Prop() keyField: string = 'id';
 
-  @Prop() sort: 'none' | 'default' | 'managed' = 'default';
-  @Prop({ mutable: true }) sortByField: string;
+  @Prop() managed: boolean = false;
+
+  @Prop() sortable: boolean = true;
+  @Prop({ mutable: true }) sortBy: string;
   @Prop({ mutable: true }) sortOrder: 'asc' | 'desc' = 'asc';
+
+  @Prop() paginate: boolean = true;
+  @Prop() page: number = 1;
+  @Prop() pageSize: number = 10;
+  @Prop({ mutable: true }) totalItems;
 
   @State() private hoveredCell: any = {};
   @State() private isSelectAll: boolean = false;
@@ -61,13 +84,13 @@ export class GoatTable {
   @Event({ eventName: 'goat:table-cell-click' }) goatCellClick: EventEmitter;
   @Event({ eventName: 'goat:table-select-change' }) goatSelectChange: EventEmitter;
   @Event({ eventName: 'goat:sort' }) goatSort: EventEmitter;
-
+  @Event({ eventName: 'goat:page' }) goatPage: EventEmitter;
 
   onSelectAllClick = () => {
     let selectedRowKeys = [];
     this.isSelectAll = !this.isSelectAll;
     if (this.isSelectAll)
-      selectedRowKeys = this.dataSource.map((row) => row[this.keyField]);
+      selectedRowKeys = this.data.map((row) => row[this.keyField]);
     this.onSelectChange(selectedRowKeys);
   };
 
@@ -88,7 +111,7 @@ export class GoatTable {
 
   onSelectChange(selectedRowKeys: any) {
     this.selectedRowKeys = selectedRowKeys;
-    this.goatSelectChange.emit({ value: this.selectedRowKeys });
+    this.goatSelectChange.emit({ value: this.selectedRowKeys, isSelectAll: this.isSelectAll });
   }
 
   onCellClick(row: any, col: any) {
@@ -112,15 +135,17 @@ export class GoatTable {
       let colWidth = DEFAULT_CELL_WIDTH;
       if (col.width)
         colWidth = parseInt(col.width);
-      const colEl = <div class={{ 'col': true, 'sort': this.sortByField === col.name }}
+      const colEl = <div class={{ 'col': true, 'sort': this.sortBy === col.name }}
                          style={{ width: colWidth + 'rem' }}>
         <div class='col-content'>
           <div class='col-text'>{col.label}</div>
           <div class='col-actions'>
             {
               (() => {
+                if (!this.sortable)
+                  return;
                 let icon = 'arrow-down-up';
-                if (this.sortByField === col.name) {
+                if (this.sortBy === col.name) {
                   if (this.sortOrder === 'asc')
                     icon = 'arrow-up';
                   else
@@ -130,13 +155,16 @@ export class GoatTable {
                                     icon={icon}
                                     class='col-action'
                                     variant='ghost' color='secondary' onClick={() => {
-                  if (this.sortByField === col.name) {
-                    this.sortOrder = (this.sortOrder == 'asc') ? 'desc' : 'asc';
+                  if (this.sortBy === col.name) {
+                    if (this.sortOrder === 'asc')
+                      this.sortOrder = 'desc';
+                    else
+                      this.sortBy = null;
                   } else {
-                    this.sortByField = col.name;
+                    this.sortBy = col.name;
                     this.sortOrder = 'asc';
                   }
-                  this.goatSort.emit({ sortByField: this.sortByField, sortOrder: this.sortOrder });
+                  this.goatSort.emit({ sortBy: this.sortBy, sortOrder: this.sortOrder });
                 }} />;
               })()
             }
@@ -162,19 +190,24 @@ export class GoatTable {
   renderBody() {
     const rows = [];
 
-    let data = this.dataSource;
+    let data = [...this.data];
 
-    if (this.sort === 'default' && this.sortByField) {
-      data = data.sort((a, b) => {
-        if (a[this.sortByField] < b[this.sortByField])
-          return this.sortOrder === 'asc' ? -1 : 1;
-        if (a[this.sortByField] > b[this.sortByField])
-          return this.sortOrder === 'asc' ? 1 : -1;
-        return 0;
-      });
+    if (!this.managed) {
+      if (this.sortable && this.sortBy) {
+        data = data.sort((a, b) => {
+          if (a[this.sortBy] < b[this.sortBy])
+            return this.sortOrder === 'asc' ? -1 : 1;
+          if (a[this.sortBy] > b[this.sortBy])
+            return this.sortOrder === 'asc' ? 1 : -1;
+          return 0;
+        });
+      }
+      if (this.paginate) {
+        data = data.slice((this.page - 1) * this.pageSize, (this.page) * this.pageSize);
+      }
     }
 
-    this.dataSource.forEach((row) => {
+    data.forEach((row) => {
       const fixedCols = [];
       const scrollCols = [];
 
@@ -223,13 +256,61 @@ export class GoatTable {
     </div>;
   }
 
+  getTotalItems() {
+    let totalItems = this.totalItems;
+    if (this.paginate && !this.managed)
+      totalItems = this.data.length;
+    return totalItems;
+  }
+
+  renderPagination() {
+    if (this.paginate)
+      return <div class='pagination'>
+        <div class='page-sizes-select'>
+          <goat-form-control label='Items per page:' inline class='form-control'>
+            <goat-select size='sm'
+                         class='select'
+                         items={SUPPORTED_PAGE_SIZES}
+                         value={this.pageSize}
+                         onGoat:change={(e) => this.pageSize = e.detail.value} />
+          </goat-form-control>
+        </div>
+        <div class='pagination-item-count'>
+          <goat-text
+            size='sm'>{this.pageSize * (this.page - 1)} - {this.pageSize * (this.page) < this.getTotalItems() ? this.pageSize * (this.page) : this.getTotalItems()} of {this.getTotalItems()} items
+          </goat-text>
+        </div>
+        <div class='pagination-right'>
+          <div class='table-footer-right-content'>
+
+            <div class='table-footer-right-content-pagination'>
+              <goat-button size='sm' icon='arrow-left' variant='ghost' color='secondary'
+                           disabled={this.page === 1}
+                           onClick={() => {
+                             this.page = this.page - 1;
+                             this.goatPage.emit({ page: this.page });
+                           }} />
+              <goat-button size='sm' icon='arrow-right' variant='ghost' color='secondary'
+                           disabled={this.pageSize * (this.page) >= this.getTotalItems()}
+                           onClick={() => {
+                             this.page = this.page + 1;
+                             this.goatPage.emit({ page: this.page });
+                           }} />
+            </div>
+          </div>
+        </div>
+      </div>;
+  }
 
   render() {
     return <Host>
-      <div class='table'>
+      <div class={{ 'table': true, 'sortable': this.sortable, 'paginate': this.paginate }}>
         <div class='table-scroll-container'>
           {this.renderHeader()}
-          {(this.dataSource.length) ? this.renderBody() : renderEmptyData()}
+          {(this.data.length) ? this.renderBody() : renderEmptyData()}
+        </div>
+        <div class='table-footer'>
+          {this.renderPagination()}
         </div>
       </div>
     </Host>;

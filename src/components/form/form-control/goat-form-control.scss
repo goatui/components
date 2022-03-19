@@ -52,3 +52,11 @@
 }
 
 
+.form-control.inline {
+  flex-direction: row;
+  align-items: center;
+  .label {
+    margin-bottom: 0;
+    margin-inline-end: v(--spacing-2);
+  }
+}

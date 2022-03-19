@@ -178,6 +178,7 @@ export namespace Components {
          */
         "caption": string;
         "error": string;
+        "inline": boolean;
         /**
           * The label for the form control.
          */
@@ -413,13 +414,18 @@ export namespace Components {
         /**
           * Grid data to display on table [{  'id': '5e7118ddce4b3d577956457f',  'age': 21,  'name': 'John',  'company': 'India',  'email': 'john@example.com',  'phone': '+1 (839) 560-3581',  'address': '326 Irving Street, Grimsley, Texas, 4048'  }]
          */
-        "dataSource": any[];
+        "data": any[];
         "keyField": string;
+        "managed": boolean;
+        "page": number;
+        "pageSize": number;
+        "paginate": boolean;
         "selectedRowKeys": string[];
         "selectionType": 'checkbox' | undefined;
-        "sort": 'none' | 'default' | 'managed';
-        "sortByField": string;
+        "sortBy": string;
         "sortOrder": 'asc' | 'desc';
+        "sortable": boolean;
+        "totalItems": any;
     }
     interface GoatText {
         /**
@@ -835,6 +841,7 @@ declare namespace LocalJSX {
          */
         "caption"?: string;
         "error"?: string;
+        "inline"?: boolean;
         /**
           * The label for the form control.
          */
@@ -1074,16 +1081,22 @@ declare namespace LocalJSX {
         /**
           * Grid data to display on table [{  'id': '5e7118ddce4b3d577956457f',  'age': 21,  'name': 'John',  'company': 'India',  'email': 'john@example.com',  'phone': '+1 (839) 560-3581',  'address': '326 Irving Street, Grimsley, Texas, 4048'  }]
          */
-        "dataSource"?: any[];
+        "data"?: any[];
         "keyField"?: string;
+        "managed"?: boolean;
+        "onGoat:page"?: (event: CustomEvent<any>) => void;
         "onGoat:sort"?: (event: CustomEvent<any>) => void;
         "onGoat:table-cell-click"?: (event: CustomEvent<any>) => void;
         "onGoat:table-select-change"?: (event: CustomEvent<any>) => void;
+        "page"?: number;
+        "pageSize"?: number;
+        "paginate"?: boolean;
         "selectedRowKeys"?: string[];
         "selectionType"?: 'checkbox' | undefined;
-        "sort"?: 'none' | 'default' | 'managed';
-        "sortByField"?: string;
+        "sortBy"?: string;
         "sortOrder"?: 'asc' | 'desc';
+        "sortable"?: boolean;
+        "totalItems"?: any;
     }
     interface GoatText {
         /**

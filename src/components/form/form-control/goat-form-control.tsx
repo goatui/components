@@ -31,6 +31,8 @@ export class GoatFormControl implements ComponentInterface {
 
   @Prop() success: string;
 
+  @Prop() inline: boolean = false;
+
   /**
    * Whether the form control is required.
    */
@@ -119,7 +121,7 @@ export class GoatFormControl implements ComponentInterface {
       <Host class={{
         [this.getInputState()]: true,
       }}>
-        <div class='form-control'>
+        <div class={{ 'form-control': true, 'inline': this.inline }}>
           {this.renderLabel()}
           <div class='field'>
             <slot />
