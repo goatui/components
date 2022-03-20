@@ -55,7 +55,7 @@
 .row {
   display: flex;
   box-sizing: border-box;
-  border-bottom: 1px solid var(--ui-03);
+
 
   .columns-container {
     display: flex;
@@ -112,7 +112,6 @@
     flex: 1;
   }
 
-
 }
 
 .header {
@@ -122,7 +121,7 @@
   position: sticky;
   top: 0;
   background: v(--ui-01);
-  border-bottom: 1px solid var(--table-border-color);
+
 
   .left-panel {
     position: sticky;
@@ -132,6 +131,7 @@
 
   .col {
     background: v(--ui-01);
+    border-bottom: 1px solid var(--table-border-color);
 
     &.sort {
       background: v(--active-ui);
@@ -154,10 +154,11 @@
       cursor: pointer;
       background: v(--ui-background);
       border: 2px solid transparent;
+      border-bottom: 1px solid var(--ui-03);
 
       &:focus {
         outline: none;
-        border-color: v(--color-primary);
+        border: 2px solid var(--color-primary);
         z-index: 1;
       }
     }

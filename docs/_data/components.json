@@ -3944,29 +3944,16 @@
         "required": false
       },
       {
-        "name": "position",
-        "type": "\"bottom-left\" | \"bottom-right\" | \"top-left\" | \"top-right\"",
+        "name": "positions",
+        "type": "string",
         "mutable": false,
-        "attr": "position",
+        "attr": "positions",
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
-        "default": "'bottom-left'",
+        "default": "'bottom-right,top-right,bottom-left,top-left'",
         "values": [
           {
-            "value": "bottom-left",
-            "type": "string"
-          },
-          {
-            "value": "bottom-right",
-            "type": "string"
-          },
-          {
-            "value": "top-left",
-            "type": "string"
-          },
-          {
-            "value": "top-right",
             "type": "string"
           }
         ],
@@ -4208,6 +4195,12 @@
         "event": "goat:menu-item-click",
         "capture": false,
         "passive": false
+      },
+      {
+        "event": "scroll",
+        "target": "window",
+        "capture": false,
+        "passive": true
       }
     ],
     "metadata": {
