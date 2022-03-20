@@ -801,6 +801,23 @@
         "required": false
       },
       {
+        "name": "readonly",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "readonly",
+        "reflectToAttr": true,
+        "docs": "",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
         "name": "required",
         "type": "boolean",
         "mutable": false,
@@ -1022,7 +1039,7 @@
         "type": "boolean",
         "mutable": false,
         "attr": "disabled",
-        "reflectToAttr": false,
+        "reflectToAttr": true,
         "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
         "docsTags": [],
         "default": "false",
@@ -1094,6 +1111,23 @@
         "values": [
           {
             "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "readonly",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "readonly",
+        "reflectToAttr": true,
+        "docs": "",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
           }
         ],
         "optional": false,
@@ -3105,7 +3139,7 @@
         "mutable": false,
         "attr": "readonly",
         "reflectToAttr": true,
-        "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
+        "docs": "If true, the user read the value cannot modify it. Defaults to `false`.",
         "docsTags": [],
         "default": "false",
         "values": [
@@ -3830,7 +3864,7 @@
         "type": "boolean",
         "mutable": false,
         "attr": "disabled",
-        "reflectToAttr": false,
+        "reflectToAttr": true,
         "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
         "docsTags": [],
         "default": "false",
@@ -3934,6 +3968,23 @@
           {
             "value": "top-right",
             "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "readonly",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "readonly",
+        "reflectToAttr": true,
+        "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
           }
         ],
         "optional": false,
@@ -4836,7 +4887,7 @@
         "type": "boolean",
         "mutable": false,
         "attr": "disabled",
-        "reflectToAttr": false,
+        "reflectToAttr": true,
         "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
         "docsTags": [],
         "default": "false",
@@ -4876,6 +4927,23 @@
         "values": [
           {
             "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "readonly",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "readonly",
+        "reflectToAttr": true,
+        "docs": "If true, the user read the value cannot modify it. Defaults to `false`.",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
           }
         ],
         "optional": false,

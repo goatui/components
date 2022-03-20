@@ -7,7 +7,8 @@
     <goat-input disabled value='With Value'></goat-input>
     <goat-input disabled>
       <goat-icon slot='start' class='inherit' type='mailbox'></goat-icon>
-      <span slot='end'>@example.com</span></goat-input>
+      <span slot='end'>@example.com</span>
+    </goat-input>
   </goat-card-content>
   <goat-card-content>
     {% highlight html %}
@@ -15,7 +16,30 @@
     <goat-input disabled value='With Value'></goat-input>
     <goat-input disabled>
       <goat-icon slot='start' class='inherit' type='mailbox'></goat-icon>
-      <span slot='end'>@example.com</span></goat-input>
+      <span slot='end'>@example.com</span>
+    </goat-input>
+    {% endhighlight %}
+  </goat-card-content>
+</goat-card>
+
+<goat-text type='heading' size='xs'>Read only</goat-text>
+<goat-card>
+  <goat-card-content>
+    <goat-input readonly></goat-input>
+    <goat-input readonly value='With Value'></goat-input>
+    <goat-input readonly>
+      <goat-icon slot='start' class='inherit' type='mailbox'></goat-icon>
+      <span slot='end'>@example.com</span>
+    </goat-input>
+  </goat-card-content>
+  <goat-card-content>
+    {% highlight html %}
+    <goat-input readonly></goat-input>
+    <goat-input readonly value='With Value'></goat-input>
+    <goat-input readonly>
+      <goat-icon slot='start' class='inherit' type='mailbox'></goat-icon>
+      <span slot='end'>@example.com</span>
+    </goat-input>
     {% endhighlight %}
   </goat-card-content>
 </goat-card>

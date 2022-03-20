@@ -9,7 +9,8 @@ import {
   Listen,
   Method,
   Prop,
-  State, Watch,
+  State,
+  Watch,
 } from '@stencil/core';
 import { debounceEvent, getGoatIndex } from '../../../utils/utils';
 import { Components } from '../../../components';
@@ -72,7 +73,12 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
-  @Prop() disabled: boolean = false;
+  @Prop({ reflect: true }) disabled: boolean = false;
+
+  /**
+   * If true, the user cannot interact with the button. Defaults to `false`.
+   */
+  @Prop({ reflect: true }) readonly: boolean = false;
 
   @Prop() showLoader: boolean = false;
 
@@ -171,7 +177,7 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
   @State() endSlotHasContent = false;
 
   private selectHandler = (selectItemValue) => {
-    if (!this.disabled) {
+    if (!this.disabled && !this.readonly) {
       this.value = selectItemValue;
       this.goatChange.emit({ value: this.value, item: this.getItemByValue(selectItemValue) });
     }
@@ -192,14 +198,14 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
   };
 
   private closeList = () => {
-    if (!this.disabled && this.isOpen) {
+    if (!this.disabled && !this.readonly && this.isOpen) {
       this.isOpen = false;
       setTimeout(() => this.setFocus(), 100);
     }
   };
 
   private openList = () => {
-    if (!this.disabled && !this.isOpen) {
+    if (!this.disabled && !this.readonly && !this.isOpen) {
       this.isOpen = true;
       if (this.search !== 'none') {
         this.searchString = '';
@@ -259,7 +265,11 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
         return item.label;
       }
     }
-    return this.placeholder;
+    if (!this.disabled && !this.readonly) {
+      return this.placeholder;
+    } else {
+      return '';
+    }
   }
 
   componentWillLoad() {
@@ -280,11 +290,11 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
 
   render() {
 
-    return (<Host aria-disabled={this.disabled ? 'true' : null}
-                  has-value={this.hasValue()}
-                  has-focus={this.hasFocus}
-                  is-open={this.isOpen}
-                  position={this.position}>
+    return (<Host
+      has-value={this.hasValue()}
+      has-focus={this.hasFocus}
+      is-open={this.isOpen}
+      position={this.position}>
 
       <div class={{ 'dropdown': true, 'select': true, [this.position]: true, 'is-open': this.isOpen }}>
         <div class={{
@@ -292,6 +302,7 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
           [`search-${this.search}`]: true,
           'has-focus': this.hasFocus,
           'disabled': this.disabled,
+          'readonly': this.readonly,
           'has-value': this.hasValue(),
           'start-slot-has-content': this.startSlotHasContent,
           'end-slot-has-content': this.endSlotHasContent,
@@ -320,6 +331,7 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
                 return <div class='input display-value'
                             ref={(el) => this.displayElement = el}
                             tabindex='0'
+                            aria-disabled={this.disabled ? 'true' : null}
                             onFocus={this.focusHandler}
                             onBlur={this.blurHandler}
                             onKeyDown={this.keyDownHandler}
@@ -358,8 +370,9 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
     if (this.showLoader) {
       return <goat-spinner class='input-action rainbow' />;
     }
-    return <goat-icon type='chevron-down' size={this.size}
-                      class='input-action chevron-down' role='button' onClick={this.toggleList} />;
+    if (!this.disabled && !this.readonly)
+      return <goat-icon type='chevron-down' size={this.size}
+                        class='input-action chevron-down' role='button' onClick={this.toggleList} />;
   }
 
   private renderDropdownList() {
@@ -368,10 +381,10 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
         class='menu'
         ref={(el) => this.menuElm = el}>
 
-       <div class="start-search">
-               <goat-icon type='search' size={this.size} />
-         <goat-text shade="secondary">Start typing to perform search</goat-text>
-       </div>
+        <div class='start-search'>
+          <goat-icon type='search' size={this.size} />
+          <goat-text shade='secondary'>Start typing to perform search</goat-text>
+        </div>
 
       </goat-menu>;
     }

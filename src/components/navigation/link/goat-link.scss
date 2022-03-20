@@ -17,7 +17,6 @@
   &:not(.inline) {
     //noinspection CssNoGenericFontName
     font-family: v(--font-family-base);
-    height: 100%;
   }
 
   color: var(--link-color, v(--link-01));

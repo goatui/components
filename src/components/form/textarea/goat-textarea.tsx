@@ -51,7 +51,13 @@ export class GoatTextarea implements ComponentInterface, InputComponentInterface
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
-  @Prop() disabled: boolean = false;
+  @Prop({reflect: true}) disabled: boolean = false;
+
+  /**
+   * If true, the user read the value cannot modify it. Defaults to `false`.
+   */
+  @Prop({ reflect: true }) readonly : boolean = false;
+
 
   /**
    * The input state.
@@ -213,6 +219,7 @@ export class GoatTextarea implements ComponentInterface, InputComponentInterface
           'input-container': true,
           'textarea': true,
           'disabled': this.disabled,
+          'readonly': this.readonly,
           'has-focus': this.hasFocus,
           'end-slot-has-content': this.endSlotHasContent,
         }}>

@@ -29,6 +29,12 @@
     border-radius: v(--border-radius);
     overflow: hidden;
 
+    &[readonly], &[readonly="true"] {
+      color: v(--color-neutral);
+      background-color: v(--color-neutral-10);
+      border-color: v(--color-neutral);
+      cursor: default;
+    }
     &[disabled], &[disabled="true"] {
       color: v(--color-neutral);
       background-color: v(--color-neutral-10);

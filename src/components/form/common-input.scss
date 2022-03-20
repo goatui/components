@@ -139,6 +139,7 @@
  */
 :host([size="sm"]) .input-container {
   padding: 0.5rem 0.75rem;
+  min-height: 2.375rem;
 
   .input {
     @include font-style(text-sm);
@@ -151,6 +152,7 @@
 
 :host([size="md"]) .input-container {
   padding: 0.625rem 0.875rem;
+  min-height: 2.875rem;
 
   .input {
     @include font-style(text-md);
@@ -163,7 +165,7 @@
 
 :host([size="lg"]) .input-container {
   padding: 0.75rem 1rem;
-
+  min-height: 3.375rem;
   .input {
     @include font-style(text-lg);
   }
@@ -187,6 +189,15 @@
   }
 }
 
+:host([readonly]) {
+  .input-container {
+    cursor: initial;
+    background-color: v(--disabled-01) !important;
+    border-color: v(--disabled-01) !important;
+    opacity: 1 !important;
+  }
+}
+
 :host([disabled]) {
   .input-container {
     cursor: not-allowed;
@@ -201,6 +212,7 @@
 
   color: v(--disabled-02) !important;
 }
+
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,

@@ -36,6 +36,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
     &:before {
       pointer-events: none;
       content: "";
@@ -51,6 +52,7 @@
   &.rounded {
     .box {
       border-radius: 50%;
+
       &:before {
         border-radius: 50%;
       }
@@ -209,6 +211,25 @@
   }
 }
 
+.checkbox.readonly {
+  cursor: default;
+  color: v(--disabled-02) !important;
+  border-color: v(--disabled-02) !important;
+
+  &.state-checked .box {
+    background: v(--disabled-02) !important;
+  }
+
+  .box {
+    border: 1px solid v(--disabled-02) !important;
+  }
+
+  .tick {
+    border-color: #{v(--disabled-01)} !important;
+  }
+
+}
+
 
 .checkbox.disabled {
   cursor: not-allowed;
@@ -228,3 +249,5 @@
   }
 
 }
+
+

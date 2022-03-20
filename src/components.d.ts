@@ -86,6 +86,7 @@ export namespace Components {
           * The input field name.
          */
         "name": string;
+        "readonly": boolean;
         /**
           * If true, required icon is show. Defaults to `false`.
          */
@@ -124,6 +125,7 @@ export namespace Components {
           * The input field name.
          */
         "name": string;
+        "readonly": boolean;
         /**
           * If true, required icon is show. Defaults to `false`.
          */
@@ -265,7 +267,7 @@ export namespace Components {
          */
         "placeholder": string;
         /**
-          * If true, the user cannot interact with the button. Defaults to `false`.
+          * If true, the user read the value cannot modify it. Defaults to `false`.
          */
         "readonly": boolean;
         /**
@@ -371,6 +373,10 @@ export namespace Components {
         "placeholder": string;
         "position": 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
         /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "readonly": boolean;
+        /**
           * If true, required icon is show. Defaults to `false`.
          */
         "required": boolean;
@@ -462,6 +468,10 @@ export namespace Components {
           * The input field placeholder.
          */
         "placeholder": string;
+        /**
+          * If true, the user read the value cannot modify it. Defaults to `false`.
+         */
+        "readonly": boolean;
         /**
           * If true, required icon is show. Defaults to `false`.
          */
@@ -763,6 +773,7 @@ declare namespace LocalJSX {
           * Emitted when the input has focus.
          */
         "onGoat:focus"?: (event: CustomEvent<any>) => void;
+        "readonly"?: boolean;
         /**
           * If true, required icon is show. Defaults to `false`.
          */
@@ -796,6 +807,7 @@ declare namespace LocalJSX {
           * Emitted when the value has changed..
          */
         "onGoat:change"?: (event: CustomEvent<any>) => void;
+        "readonly"?: boolean;
         /**
           * If true, required icon is show. Defaults to `false`.
          */
@@ -946,7 +958,7 @@ declare namespace LocalJSX {
          */
         "placeholder"?: string;
         /**
-          * If true, the user cannot interact with the button. Defaults to `false`.
+          * If true, the user read the value cannot modify it. Defaults to `false`.
          */
         "readonly"?: boolean;
         /**
@@ -1045,6 +1057,10 @@ declare namespace LocalJSX {
          */
         "placeholder"?: string;
         "position"?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "readonly"?: boolean;
         /**
           * If true, required icon is show. Defaults to `false`.
          */
@@ -1152,6 +1168,10 @@ declare namespace LocalJSX {
           * The input field placeholder.
          */
         "placeholder"?: string;
+        /**
+          * If true, the user read the value cannot modify it. Defaults to `false`.
+         */
+        "readonly"?: boolean;
         /**
           * If true, required icon is show. Defaults to `false`.
          */

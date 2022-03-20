@@ -57,6 +57,9 @@ export class GoatCheckbox implements ComponentInterface, InputComponentInterface
    */
   @Prop({ reflect: true }) required: boolean = false;
 
+
+  @Prop({ reflect: true }) readonly : boolean = false;
+
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
@@ -140,7 +143,7 @@ export class GoatCheckbox implements ComponentInterface, InputComponentInterface
   @State() slotHasContent = false;
 
   private clickHandler = (ev: MouseEvent | KeyboardEvent) => {
-    if (!this.disabled) {
+    if (!this.disabled && !this.readonly) {
       this.value = !JSON.parse(this.nativeInput.value);
       this.intermediate = false;
       this.goatChange.emit(ev);
@@ -187,6 +190,7 @@ export class GoatCheckbox implements ComponentInterface, InputComponentInterface
           'has-focus': this.hasFocus,
           'active': this.isActive,
           'disabled': this.disabled,
+          'readonly': this.readonly,
           'required': this.required,
           'rounded': this.rounded,
           'has-content': this.slotHasContent,

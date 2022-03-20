@@ -36,7 +36,9 @@ export class GoatCodeEditor implements ComponentInterface, InputComponentInterfa
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
-  @Prop() disabled: boolean = false;
+  @Prop({reflect: true}) disabled: boolean = false;
+
+  @Prop({reflect: true}) readonly : boolean = false;
 
   @Prop() theme: 'vs-light' | 'vs-dark' = 'vs-light';
 
@@ -64,7 +66,12 @@ export class GoatCodeEditor implements ComponentInterface, InputComponentInterfa
 
   @Watch('disabled')
   disabledWatcher(newValue: string) {
-    this.editorMonacoInstance.updateOptions({ readOnly: newValue });
+    this.editorMonacoInstance.updateOptions({ readOnly: newValue || this.readonly});
+  }
+
+  @Watch('readonly')
+  readonlyWatcher(newValue: string) {
+    this.editorMonacoInstance.updateOptions({ readOnly: newValue || this.disabled});
   }
 
   @Watch('language')
@@ -137,7 +144,7 @@ export class GoatCodeEditor implements ComponentInterface, InputComponentInterfa
       lineNumbers: this.lineNumbers,
       language: this.language,
       theme: this.theme,
-      readOnly: this.disabled,
+      readOnly: this.disabled || this.readonly,
     });
 
 
@@ -163,6 +170,7 @@ export class GoatCodeEditor implements ComponentInterface, InputComponentInterfa
           'code-editor-component': true,
           [this.theme]: true,
           'disabled': this.disabled,
+          'readonly': this.readonly,
           'has-focus': this.hasFocus,
         }}>
           <div class='editor' ref={el => this.editorElement = el} />

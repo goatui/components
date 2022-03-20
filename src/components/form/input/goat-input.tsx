@@ -67,10 +67,9 @@ export class GoatInput implements ComponentInterface, InputComponentInterface {
   @Prop({ reflect: true }) disabled: boolean = false;
 
   /**
-   * If true, the user cannot interact with the button. Defaults to `false`.
+   * If true, the user read the value cannot modify it. Defaults to `false`.
    */
   @Prop({ reflect: true }) readonly : boolean = false;
-
 
   /**
    * If true, required icon is show. Defaults to `false`.
