@@ -12,7 +12,7 @@ import {
   State,
   Watch,
 } from '@stencil/core';
-import { debounceEvent, getGoatIndex } from '../../../utils/utils';
+import { debounceEvent, getGoatIndex, isMobile, isOutOfViewport } from '../../../utils/utils';
 import { Components } from '../../../components';
 import GoatMenu = Components.GoatMenu;
 
@@ -94,7 +94,9 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
    */
   @Prop() items: any = [];
 
-  @Prop() position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' = 'bottom-left';
+  @Prop() positions: string = 'bottom-right,top-right,bottom-left,top-left';
+
+
 
   /**
    * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
@@ -170,11 +172,15 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
   @Element() elm!: HTMLElement;
   private nativeInput?: HTMLInputElement;
   private displayElement?: HTMLElement;
+  private dropdownContentElm?: HTMLElement;
   private menuElm?: GoatMenu;
+  private dropdownContentHeight: any;
+  private dropdownContentWidth: any;
   @State() hasFocus = false;
   @State() searchString: string = '';
   @State() startSlotHasContent = false;
   @State() endSlotHasContent = false;
+  @State() position: string;
 
   private selectHandler = (selectItemValue) => {
     if (!this.disabled && !this.readonly) {
@@ -209,7 +215,20 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
       this.isOpen = true;
       if (this.search !== 'none') {
         this.searchString = '';
-        setTimeout(() => this.nativeInput.focus(), 100);
+        setTimeout(() => {
+          const dropdownContent = this.dropdownContentElm;
+          this.dropdownContentHeight = dropdownContent.getBoundingClientRect().height;
+          this.dropdownContentWidth = dropdownContent.getBoundingClientRect().width;
+          this.fixPosition();
+          this.nativeInput.focus();
+        }, 100);
+      } else {
+        setTimeout(() => {
+          const dropdownContent = this.dropdownContentElm;
+          this.dropdownContentHeight = dropdownContent.getBoundingClientRect().height;
+          this.dropdownContentWidth = dropdownContent.getBoundingClientRect().width;
+          this.fixPosition();
+        }, 100);
       }
     }
   };
@@ -272,7 +291,10 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
     }
   }
 
+
   componentWillLoad() {
+    if (this.positions)
+      this.position = this.positions.split(',')[0];
     this.elm.getAttributeNames().forEach((name: string) => {
       if (name.includes('aria-')) {
         this.configAria[name] = this.elm.getAttribute(name);
@@ -282,6 +304,52 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
     this.startSlotHasContent = !!this.elm.querySelector('[slot="start"]');
     this.endSlotHasContent = !!this.elm.querySelector('[slot="end"]');
   }
+
+
+
+  @Listen('scroll', { target: 'window' })
+  fixPosition() {
+    if (this.isOpen && this.dropdownContentHeight && this.dropdownContentWidth) {
+
+      if (isMobile()) {
+        this.position = 'center';
+        return;
+      }
+
+      const positions = this.positions.split(',');
+      for (let i = 0; i < positions.length; i++) {
+        const dropdownButtonRect: any = this.elm.getBoundingClientRect();
+        const dropdownContentRect: any = {};
+        if (positions[i] === 'bottom-right') {
+          dropdownContentRect.top = dropdownButtonRect.top + dropdownButtonRect.height;
+          dropdownContentRect.bottom = dropdownContentRect.top + this.dropdownContentHeight;
+          dropdownContentRect.left = dropdownButtonRect.left;
+          dropdownContentRect.right = dropdownButtonRect.left + this.dropdownContentWidth;
+        } else if (positions[i] === 'top-right') {
+          dropdownContentRect.top = dropdownButtonRect.top - this.dropdownContentHeight;
+          dropdownContentRect.bottom = dropdownButtonRect.top;
+          dropdownContentRect.left = dropdownButtonRect.left;
+          dropdownContentRect.right = dropdownButtonRect.left + this.dropdownContentWidth;
+        } else if (positions[i] === 'bottom-left') {
+          dropdownContentRect.top = dropdownButtonRect.top + dropdownButtonRect.height;
+          dropdownContentRect.bottom = dropdownContentRect.top + this.dropdownContentHeight;
+          dropdownContentRect.left = dropdownButtonRect.left - this.dropdownContentWidth;
+          dropdownContentRect.right = dropdownButtonRect.left;
+        } else if (positions[i] === 'top-left') {
+          dropdownContentRect.top = dropdownButtonRect.top - this.dropdownContentHeight;
+          dropdownContentRect.bottom = dropdownButtonRect.top;
+          dropdownContentRect.left = dropdownButtonRect.left - this.dropdownContentWidth;
+          dropdownContentRect.right = dropdownButtonRect.left;
+        }
+        const isOut = isOutOfViewport(dropdownContentRect);
+        if (!isOut.any) {
+          this.position = positions[i];
+          break;
+        }
+      }
+    }
+  };
+
 
   connectedCallback() {
     this.debounceChanged();
@@ -358,7 +426,7 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
           {this.getModeIcon()}
 
         </div>
-        <div class='dropdown-content'>
+        <div class='dropdown-content' ref={(elm) => this.dropdownContentElm = elm}>
           {this.isOpen && this.renderDropdownList()}
         </div>
       </div>

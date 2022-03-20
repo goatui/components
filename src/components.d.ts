@@ -371,7 +371,7 @@ export namespace Components {
           * The input field placeholder.
          */
         "placeholder": string;
-        "position": 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+        "positions": string;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -1056,7 +1056,7 @@ declare namespace LocalJSX {
           * The input field placeholder.
          */
         "placeholder"?: string;
-        "position"?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+        "positions"?: string;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */

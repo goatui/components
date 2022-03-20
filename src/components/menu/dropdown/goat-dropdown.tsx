@@ -97,7 +97,8 @@ export class GoatDropdown implements ComponentInterface {
   };
 
   componentWillLoad() {
-    this.position = this.positions.split(',')[0];
+    if (this.positions)
+      this.position = this.positions.split(',')[0];
   }
 
   @Listen('scroll', { target: 'window' })

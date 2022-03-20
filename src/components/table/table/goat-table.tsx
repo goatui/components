@@ -271,6 +271,7 @@ export class GoatTable {
             <goat-select size='sm'
                          class='select'
                          items={SUPPORTED_PAGE_SIZES}
+                         positions='top-right'
                          value={this.pageSize}
                          onGoat:change={(e) => {
                            this.pageSize = e.detail.value

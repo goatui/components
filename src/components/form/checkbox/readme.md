@@ -14,6 +14,7 @@
 | `intermediate` | `intermediate` |                                                                                   | `boolean`              | `false`                    |
 | `label`        | `label`        | The checkbox label.                                                               | `string`               | `undefined`                |
 | `name`         | `name`         | The input field name.                                                             | `string`               | ``goat-input-${this.gid}`` |
+| `readonly`     | `readonly`     |                                                                                   | `boolean`              | `false`                    |
 | `required`     | `required`     | If true, required icon is show. Defaults to `false`.                              | `boolean`              | `false`                    |
 | `rounded`      | `rounded`      |                                                                                   | `boolean`              | `false`                    |
 | `size`         | `size`         | The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`. | `"lg" \| "md" \| "sm"` | `'md'`                     |
