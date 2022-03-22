@@ -1,16 +1,7 @@
 {
   "name": "@goatui/components",
   "version": "0.7.0",
-  "description": "GOAT UI contains most used web components built using Stencil",
-  "license": "MIT",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.js",
-  "es2015": "dist/esm/index.mjs",
-  "es2017": "dist/esm/index.mjs",
-  "types": "dist/types/components.d.ts",
-  "collection": "dist/collection/collection-manifest.json",
-  "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/goatui/goatui.esm.js",
+  "description": "A light weight web component library",
   "keywords": [
     "goatui",
     "stenciljs",
@@ -24,15 +15,20 @@
     "type": "git",
     "url": "git+https://github.com/goatui/ui.git"
   },
+  "license": "MIT",
   "author": "Shivaji Varma <contact@shivajivarma.com>",
   "contributors": [],
+  "main": "dist/index.cjs.js",
+  "unpkg": "dist/goatui/goatui.esm.js",
+  "module": "dist/index.js",
+  "types": "dist/types/components.d.ts",
   "files": [
     "dist/",
     "loader/"
   ],
   "scripts": {
-    "build:full": "npm run build:theme && npm run release-to-docs && npm run build",
     "build": "stencil build --docs --prod",
+    "build:full": "npm run build:theme && npm run release-to-docs && npm run build",
     "build:theme": "gulp themeBuild",
     "generate": "stencil generate",
     "release": "npm version patch",
@@ -61,5 +57,11 @@
   "engines": {
     "node": ">=14.x"
   },
-  "dependencies": {}
+  "publishConfig": {
+    "access": "public"
+  },
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs"
 }

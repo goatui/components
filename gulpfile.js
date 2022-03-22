@@ -42,9 +42,18 @@ function releaseToDocs(cb) {
     if (err) {
       return console.log(err);
     }
-    let result = data.replace(/script: '.*'/, `script: 'https://unpkg.com/@goatui/components@${packageJson.version}/dist/goatui/goatui.esm.js'`);
-    result = result.replace(/themeCss: '.*'/, `themeCss: 'https://unpkg.com/@goatui/components@${packageJson.version}/dist/goatui/styles/theme.css'`);
+    let result = data.replace(new RegExp(/@goatui\/components@[0-9]+[.][0-9]+[.][0-9]+\/dist/, 'g'), `@goatui/components@${packageJson.version}/dist`);
     fs.writeFile('docs/_config.yml', result, 'utf8', function(err) {
+      if (err) return console.log(err);
+      cb();
+    });
+  });
+  fs.readFile('readme.md', 'utf8', function(err, data) {
+    if (err) {
+      return console.log(err);
+    }
+    let result = data.replace(new RegExp(/@goatui\/components@[0-9]+[.][0-9]+[.][0-9]+\/dist/, 'g'), `@goatui/components@${packageJson.version}/dist`);
+    fs.writeFile('readme.md', result, 'utf8', function(err) {
       if (err) return console.log(err);
       cb();
     });
