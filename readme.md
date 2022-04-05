@@ -50,8 +50,9 @@ dependencies, You can simply import required component js, and right away start 
 |--------------------------------------------------------------------|-----------------------|-------|
 | [Alert](https://goatui.com/components/alert)                       | goat-alert            | 🟢    |
 | [Avatar](https://goatui.com/components/avatar)                     | goat-avatar           | 🟢    |
-| [Badge](https://goatui.com/components/badge)                       | goat-badge            | 🟡     |
+| [Badge](https://goatui.com/components/badge)                       | goat-badge            | 🟡    |
 | [Button](https://goatui.com/components/button)                     | goat-button           | 🟢    |
+| [Button Group](https://goatui.com/components/button-group)         | goat-button-group     | 🟢    |
 | Card                                                               | goat-card             | 🟡    |
 | Card Select                                                        | goat-cardselect       | 🔵    |
 | [Checkbox](https://goatui.com/components/checkbox)                 | goat-checkbox         | 🟢    |
@@ -72,7 +73,7 @@ dependencies, You can simply import required component js, and right away start 
 | Group                                                              | goat-group            | 🔵    |
 | [Header](https://goatui.com/components/header)                     | goat-header           | 🟢    |
 | [Icon](https://goatui.com/components/icon)                         | goat-icon             | 🟢    |
-| [Input](https://goatui.com/components/input)                       | goat-input            | 🟢   |
+| [Input](https://goatui.com/components/input)                       | goat-input            | 🟢    |
 | [Link](https://goatui.com/components/link)                         | goat-link             | 🟢    |
 | Modal                                                              | goat-modal            | 🔵    |
 | [Menu](https://goatui.com/components/menu)                         | goat-menu             | 🟡    |
@@ -86,12 +87,12 @@ dependencies, You can simply import required component js, and right away start 
 | [Spinner](https://goatui.com/components/spinner)                   | goat-spinner          | 🟢    |
 | Spoiler                                                            | goat-spoiler          | 🔵    |
 | Stepper                                                            | goat-stepper          | 🔵    |
-| [Table](https://goatui.com/components/goat-table)                  | goat-table            | 🟡    |
+| [Table](https://goatui.com/components/table)                       | goat-table            | 🟡    |
 | Table head                                                         | goat-tablehead        | 🔵    |
 | Table row                                                          | goat-tablerow         | 🔵    |
-| Tabs                                                               | goat-tabs             | 🔵    |
-| [Text](https://goatui.com/components/text)                         | goat-text             |🟢     |
-| [Textarea](https://goatui.com/components/textarea)                 | goat-textarea         | 🟢   |
+| [Tabs]      (https://goatui.com/components/tabs)                   | goat-tabs             | 🔵    |
+| [Text](https://goatui.com/components/text)                         | goat-text             | 🟡    |
+| [Textarea](https://goatui.com/components/textarea)                 | goat-textarea         | 🟢    |
 | Time picker                                                        | goat-timepicker       | 🔵    |
 | Toggle                                                             | goat-toggle           | 🔵    |
 | Tooltip                                                            | goat-tooltip          | 🔵    |

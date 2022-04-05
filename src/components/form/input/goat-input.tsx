@@ -272,7 +272,7 @@ export class GoatInput implements ComponentInterface, InputComponentInterface {
 
 
           {this.clearable && this.hasValue() &&
-            <goat-icon class='clear inherit input-action' type='x-circle-fill' size={this.size} onClick={this.clearInput} role="button" />}
+            <goat-icon class='clear inherit input-action' name='x-circle-fill' size={this.size} onClick={this.clearInput} role="button" />}
 
           <div class='slot-container end'>
             <slot name='end' />

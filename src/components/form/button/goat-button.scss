@@ -19,6 +19,7 @@ $border-width: 0.0625;
   padding: 0;
   cursor: pointer;
   border:  #{($border-width * 2)}rem var(--button-border-style) transparent;
+  border-width: var(--button-border-width, #{($border-width * 2)}rem);
   border-radius: var(--button-border-radius);
 
   outline: none;
@@ -39,6 +40,7 @@ $border-width: 0.0625;
   flex-direction: row;
   height: 100%;
   gap: v(--spacing-2);
+  border-radius: var(--button-border-radius);
   border:  #{($border-width * 2)}rem solid transparent;
 }
 
@@ -290,7 +292,7 @@ $border-width: 0.0625;
   }
 }
 
-.button.icon-end {
+.button.icon-end .button-content{
   flex-direction: row-reverse;
 }
 

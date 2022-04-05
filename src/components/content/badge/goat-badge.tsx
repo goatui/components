@@ -3,7 +3,7 @@ import { Component, h, Host, Prop } from '@stencil/core';
 /**
  * @name Badge
  * @description Renders a specified badge.
- * @example <goat-badge content="5" class='color-error'><goat-icon type="bell"></goat-icon></goat-badge>
+ * @example <goat-badge content="5" class='color-error'> <goat-icon name="bell"></goat-icon></goat-badge>
  */
 @Component({
   tag: 'goat-badge',

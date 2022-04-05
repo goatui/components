@@ -136,7 +136,7 @@ export class GoatButton implements ComponentInterface {
   }
 
   private renderIcon = () => {
-    return <goat-icon type={this.icon} size={this.getIconSize()} class='icon inherit' />;
+    return <goat-icon name={this.icon} size={this.getIconSize()} class='icon inherit' />;
   };
 
   private clickHandler = (event: PointerEvent) => {

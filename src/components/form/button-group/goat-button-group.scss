@@ -1,0 +1,27 @@
+@import "../../../styles/scss/commons";
+
+:host .button-group {
+  display: flex;
+
+  slot::slotted(goat-button) {
+    display: block;
+    margin: 0;
+    --button-border-width: 0.125rem;
+    --button-border-radius: 0;
+  }
+
+  slot::slotted(goat-button:first-child) {
+    --button-border-radius: #{v(--border-radius)} 0 0 #{v(--border-radius)};
+    --button-border-width: 0.125rem 0 0.125rem 0.125rem;
+  }
+
+  slot::slotted(goat-button:last-child) {
+    --button-border-radius: 0 #{v(--border-radius)} #{v(--border-radius)} 0;
+    --button-border-width: 0.125rem 0.125rem 0.125rem 0;
+  }
+
+  slot::slotted(goat-button:only-child) {
+    --button-border-radius: #{v(--border-radius)};
+    --button-border-width: 0.125rem;
+  }
+}

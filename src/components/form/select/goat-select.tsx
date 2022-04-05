@@ -416,7 +416,7 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
 
 
           {this.clearable && this.hasValue() &&
-            <goat-icon class='clear input-action' type='x-circle-fill' size={this.size} onClick={this.clearInput}
+            <goat-icon class='clear input-action' name='x-circle-fill' size={this.size} onClick={this.clearInput}
                        role='button' />}
 
           <div class='slot-container end'>
@@ -439,7 +439,7 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
       return <goat-spinner class='input-action rainbow' />;
     }
     if (!this.disabled && !this.readonly)
-      return <goat-icon type='chevron-down' size={this.size}
+      return <goat-icon name='chevron-down' size={this.size}
                         class='input-action chevron-down' role='button' onClick={this.toggleList} />;
   }
 
@@ -450,7 +450,7 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
         ref={(el) => this.menuElm = el}>
 
         <div class='start-search'>
-          <goat-icon type='search' size={this.size} />
+          <goat-icon name='search' size={this.size} />
           <goat-text shade='secondary'>Start typing to perform search</goat-text>
         </div>
 

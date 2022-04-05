@@ -21,7 +21,6 @@
   }
 
   .dropdown-content {
-    display: none;
     z-index: v(--z-index-dropdown-content);
     position: absolute;
     width: max-content;
@@ -33,7 +32,6 @@
 
   &.is-open {
     .dropdown-content {
-      display: block;
       transform: scale(1);
     }
   }

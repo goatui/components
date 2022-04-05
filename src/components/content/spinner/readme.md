@@ -21,6 +21,7 @@
  - [goat-code-highlighter](../code-highlighter)
  - [goat-header-action](../../navigation/goat-header-action)
  - [goat-select](../../form/select)
+ - [goat-tab](../../navigation/tab)
 
 ### Graph
 ```mermaid
@@ -30,6 +31,7 @@ graph TD;
   goat-code-highlighter --> goat-spinner
   goat-header-action --> goat-spinner
   goat-select --> goat-spinner
+  goat-tab --> goat-spinner
   style goat-spinner fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

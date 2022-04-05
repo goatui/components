@@ -1,10 +1,10 @@
-import { Component, h, Host, Prop } from '@stencil/core';
-import { ICONS } from './bootstrap-icons';
+import { Component, h, Host, Prop, State, Watch } from '@stencil/core';
+import { fetchIcon } from './datasource';
 
 /**
  * @name Icon
  * @description Renders a specified icon.
- * @example <goat-icon type="house"></goat-icon>
+ * @example <goat-icon name="house"></goat-icon>
  */
 @Component({
   tag: 'goat-icon',
@@ -13,13 +13,30 @@ import { ICONS } from './bootstrap-icons';
 })
 export class GoatIcon {
 
-  @Prop({ reflect: true }) type: string = 'house';
+  @Prop({ reflect: true }) name: string;
 
   /**
    * The Icon size.
    * Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
    */
   @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' | 'xl' | string = 'md';
+
+  @State() svg: string = '';
+
+  async fetchSvg(name: string) {
+    if (this.name)
+      this.svg = await fetchIcon(name);
+  }
+
+
+  @Watch('name')
+  async handleNameChange(newValue: string) {
+    this.svg = await fetchIcon(newValue);
+  }
+
+  async componentWillLoad() {
+    await this.fetchSvg(this.name);
+  }
 
   private getSize() {
     let size;
@@ -38,13 +55,10 @@ export class GoatIcon {
 
 
   render() {
-    let Icon = ICONS[this.type];
-    if (!Icon)
-      return null;
-    Icon = Icon.replace(/width="([^"]+)"/, 'width="' + this.getSize() + '"').replace(/height="([^"]+)"/, 'height="' + this.getSize() + '"');
+    const icon = this.svg.replace(/width="([^"]+)"/, 'width="' + this.getSize() + '"').replace(/height="([^"]+)"/, 'height="' + this.getSize() + '"');
     return (
       <Host>
-        <div innerHTML={Icon} class='icon' />
+        <div innerHTML={icon} class='icon' />
       </Host>
     );
   }

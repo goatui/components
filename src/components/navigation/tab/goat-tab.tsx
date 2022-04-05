@@ -11,17 +11,33 @@ import {
   Prop,
   State,
 } from '@stencil/core';
-import { getGoatIndex } from '../../../utils/utils';
+import { ElementSize, getGoatIndex } from '../../../utils/utils';
 
 
 @Component({
-  tag: 'goat-header-action',
-  styleUrl: 'goat-header-action.scss',
+  tag: 'goat-tab',
+  styleUrl: 'goat-tab.scss',
   shadow: true,
 })
-export class GoatHeaderAction implements ComponentInterface {
+export class GoatTab implements ComponentInterface {
 
   gid = getGoatIndex();
+
+  /**
+   * Button size.
+   * Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`. Defaults to `"md"`.
+   */
+  @Prop() size: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' = 'md';
+
+  /**
+   * Color variants.
+   */
+  @Prop() color:  'primary' | 'secondary' | 'success' | 'error' = 'primary';
+
+  /**
+   * If true, fits button width to its parent width. Defaults to `false`.
+   */
+  @Prop() block: boolean = false;
 
 
   /**
@@ -51,17 +67,7 @@ export class GoatHeaderAction implements ComponentInterface {
    */
   @Prop() showLoader: boolean = false;
 
-  /**
-   * Hyperlink to navigate to on click.
-   */
-  @Prop() href: string;
-
   @Prop({ reflect: true, mutable: true }) configAria: any = {};
-
-  /**
-   * Sets or retrieves the window or frame at which to target content.
-   */
-  @Prop() target: string = '_self';
 
   /**
    * On click of button, a CustomEvent 'goat:click' will be triggered.
@@ -97,7 +103,18 @@ export class GoatHeaderAction implements ComponentInterface {
   }
 
   private getIconSize() {
-    return 'sm';
+    switch (this.size) {
+      case ElementSize.SMALL:
+        return 'sm';
+      case ElementSize.LARGE:
+        return 'md';
+      case ElementSize.X_LARGE:
+        return 'md';
+      case ElementSize.XX_LARGE:
+        return 'lg';
+      default:
+        return 'sm';
+    }
   }
 
   private renderIcon = () => {
@@ -106,9 +123,6 @@ export class GoatHeaderAction implements ComponentInterface {
 
   private clickHandler = (event: PointerEvent) => {
     if (!this.disabled && !this.showLoader) {
-      if (this.href) {
-        window.open(this.href, this.target);
-      }
       this.goatClick.emit();
     } else {
       event.preventDefault();
@@ -168,7 +182,10 @@ export class GoatHeaderAction implements ComponentInterface {
       <button
         class={{
           button: true,
+          [`size-${this.size}`]: true,
           'disabled': this.disabled,
+          'block': this.block,
+          [`color-${this.color}`]: true,
           'selected': this.selected,
           'has-focus': this.hasFocus,
           'active': this.isActive,
@@ -186,8 +203,8 @@ export class GoatHeaderAction implements ComponentInterface {
         aria-describedby={this.disabled && this.disabledReason ? `disabled-reason-${this.gid}` : null}
         aria-disabled={(this.disabled || this.showLoader) + ''}
         {...this.configAria}>
-        <div class='button-content'>
 
+        <div class="button-content">
           {this.showLoader && <goat-spinner class='spinner inherit' size={this.getIconSize()} />}
 
           {!this.showLoader && this.icon && this.renderIcon()}
@@ -196,6 +213,7 @@ export class GoatHeaderAction implements ComponentInterface {
             <slot />
           </div>}
         </div>
+
       </button>
       {this.renderDisabledReason()}
     </Host>);

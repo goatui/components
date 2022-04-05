@@ -183,10 +183,10 @@ export class GoatDropdown implements ComponentInterface {
 
   renderItems() {
     if (this.items)
-      return <goat-menu class="items">
+      return <goat-menu class='items'>
         {this.items.map((item) => {
-          return <goat-menu-item value={item.value}>
-            {item.icon && <goat-icon type={item.icon} slot='start' size='sm' />}
+          return <goat-menu-item value={item.value} tabindex={this.isOpen ? '0' : '-1'}>
+            {item.icon && <goat-icon name={item.icon} slot='start' size='sm' />}
             {item.label}
             {item.hint && <span slot='end'>{item.hint}</span>}
           </goat-menu-item>;
@@ -195,7 +195,7 @@ export class GoatDropdown implements ComponentInterface {
   }
 
   render() {
-    return (<Host has-focus={this.hasFocus}>
+    return (<Host has-focus={this.hasFocus} is-open={this.isOpen}>
       <div class={{
         'dropdown': true,
         [this.position]: true,

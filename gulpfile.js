@@ -1,5 +1,4 @@
 const { src, dest, watch, series } = require('gulp');
-const glob = require('glob');
 const fs = require('fs');
 
 const sass = require('gulp-sass')(require('sass'));
@@ -10,27 +9,6 @@ const DEST = './src/styles/';
 
 function scssTask() {
   return src(SRC).pipe(sourcemaps.init()).pipe(sass()).pipe(sourcemaps.write('.')).pipe(dest(DEST));
-}
-
-
-
-function generateIconImportFile(cb) {
-  const icons = [];
-  glob.sync('node_modules/bootstrap-icons/icons/**.svg').forEach((file) => {
-    //const data = readJsonFileSync(file, options);
-    //result.push(data);
-    icons.push(file.replace('node_modules/bootstrap-icons/icons/', '').replace('.svg', ''));
-  });
-  let result = '/*This is generated file */\n';
-  icons.forEach((icon, index) => {
-    result += 'import Icon' + index + ' from \'bootstrap-icons/icons/' + icon + '.svg\';\n';
-  });
-  result += '\n\nexport const ICONS = {};\n';
-  icons.forEach((icon, index) => {
-    result += 'ICONS[\'' + icon + '\'] = Icon' + index + ';\n';
-  });
-  fs.writeFileSync('src/components/content/icon/bootstrap-icons.ts', result);
-  cb();
 }
 
 
@@ -62,8 +40,7 @@ function releaseToDocs(cb) {
 
 exports.themeBuild = scssTask;
 exports.releaseToDocs = releaseToDocs;
-exports.generateIconImportFile = generateIconImportFile;
-exports.themeWatch = function () {
+exports.themeWatch = function() {
   watch(SRC, scssTask);
 };
 

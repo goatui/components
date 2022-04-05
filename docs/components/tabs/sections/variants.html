@@ -1,0 +1,21 @@
+<goat-text type='paragraph'>Here are several predefined button styles, each serving its own semantic purpose.
+</goat-text>
+
+
+
+{% capture sample-code %}
+<goat-tabs>
+  <goat-tab>First button</goat-tab>
+  <goat-tab>Second button</goat-tab>
+  <goat-tab disabled>Second button</goat-tab>
+  <goat-tab selected='true'>Third button</goat-tab>
+</goat-tabs>
+
+<goat-tabs>
+  <goat-tab icon='house'></goat-tab>
+  <goat-tab icon='arrow-left' icon-end='true'>Second button</goat-tab>
+  <goat-tab disabled>Second button</goat-tab>
+  <goat-tab selected='true'>Third button</goat-tab>
+</goat-tabs>
+{% endcapture %}
+{% include demo-html.html content=sample-code %}
