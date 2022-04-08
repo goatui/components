@@ -19,7 +19,6 @@
  - [goat-button](../../form/button)
  - [goat-code-editor](../../form/code-editor)
  - [goat-code-highlighter](../code-highlighter)
- - [goat-header-action](../../navigation/goat-header-action)
  - [goat-select](../../form/select)
  - [goat-tab](../../navigation/tab)
 
@@ -29,7 +28,6 @@ graph TD;
   goat-button --> goat-spinner
   goat-code-editor --> goat-spinner
   goat-code-highlighter --> goat-spinner
-  goat-header-action --> goat-spinner
   goat-select --> goat-spinner
   goat-tab --> goat-spinner
   style goat-spinner fill:#f9f,stroke:#333,stroke-width:4px

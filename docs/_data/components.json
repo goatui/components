@@ -129,7 +129,7 @@
       },
       {
         "name": "example",
-        "text": "<goat-avatar name=\"Shivaji Varma\"></goat-avatar>"
+        "text": "<goat-avatar size=\"5rem\" name=\"Shivaji Varma\" src=\"/assets/img/avatar.png\"></goat-avatar>"
       }
     ],
     "encapsulation": "shadow",
@@ -137,6 +137,23 @@
     "dependencies": [],
     "dependencyGraph": {},
     "props": [
+      {
+        "name": "displayName",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "display-name",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
       {
         "name": "name",
         "type": "string",
@@ -198,7 +215,7 @@
     "metadata": {
       "name": "Avatar",
       "description": "Avatars in their simplest form display content within a circular container.",
-      "example": "<goat-avatar name=\"Shivaji Varma\"></goat-avatar>"
+      "example": "<goat-avatar size=\"5rem\" name=\"Shivaji Varma\" src=\"/assets/img/avatar.png\"></goat-avatar>"
     }
   },
   {
@@ -2741,7 +2758,7 @@
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
-        "default": "'https://goatui.com/assets/img/logo.svg'",
+        "default": "''",
         "values": [
           {
             "type": "string"
@@ -2758,7 +2775,7 @@
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
-        "default": "'Goat'",
+        "default": "''",
         "values": [
           {
             "type": "string"
@@ -2833,225 +2850,6 @@
     }
   },
   {
-    "dirPath": "D:/development/goatui/src/components/navigation/goat-header-action",
-    "filePath": "./src/components/navigation/goat-header-action/goat-header-action.tsx",
-    "fileName": "goat-header-action.tsx",
-    "readmePath": "D:/development/goatui/src/components/navigation/goat-header-action/readme.md",
-    "usagesDir": "D:/development/goatui/src/components/navigation/goat-header-action/usage",
-    "tag": "goat-header-action",
-    "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
-    "usage": {},
-    "docs": "",
-    "docsTags": [],
-    "encapsulation": "shadow",
-    "dependents": [],
-    "dependencies": [
-      "goat-icon",
-      "goat-spinner"
-    ],
-    "dependencyGraph": {
-      "goat-header-action": [
-        "goat-icon",
-        "goat-spinner"
-      ]
-    },
-    "props": [
-      {
-        "name": "configAria",
-        "type": "any",
-        "mutable": true,
-        "attr": "config-aria",
-        "reflectToAttr": true,
-        "docs": "",
-        "docsTags": [],
-        "default": "{}",
-        "values": [
-          {
-            "type": "any"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "disabled",
-        "type": "boolean",
-        "mutable": false,
-        "attr": "disabled",
-        "reflectToAttr": true,
-        "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
-        "docsTags": [],
-        "default": "false",
-        "values": [
-          {
-            "type": "boolean"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "disabledReason",
-        "type": "string",
-        "mutable": false,
-        "attr": "disabled-reason",
-        "reflectToAttr": false,
-        "docs": "",
-        "docsTags": [],
-        "default": "''",
-        "values": [
-          {
-            "type": "string"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "href",
-        "type": "string",
-        "mutable": false,
-        "attr": "href",
-        "reflectToAttr": false,
-        "docs": "Hyperlink to navigate to on click.",
-        "docsTags": [],
-        "values": [
-          {
-            "type": "string"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "icon",
-        "type": "string",
-        "mutable": false,
-        "attr": "icon",
-        "reflectToAttr": false,
-        "docs": "Icon which will displayed on button.\nPossible values are bootstrap icon names.",
-        "docsTags": [],
-        "values": [
-          {
-            "type": "string"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "iconEnd",
-        "type": "boolean",
-        "mutable": false,
-        "attr": "icon-end",
-        "reflectToAttr": false,
-        "docs": "Icon position.",
-        "docsTags": [],
-        "default": "false",
-        "values": [
-          {
-            "type": "boolean"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "selected",
-        "type": "boolean",
-        "mutable": false,
-        "attr": "selected",
-        "reflectToAttr": true,
-        "docs": "Button selection state.",
-        "docsTags": [],
-        "default": "false",
-        "values": [
-          {
-            "type": "boolean"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "showLoader",
-        "type": "boolean",
-        "mutable": false,
-        "attr": "show-loader",
-        "reflectToAttr": false,
-        "docs": "Show loader.",
-        "docsTags": [],
-        "default": "false",
-        "values": [
-          {
-            "type": "boolean"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "target",
-        "type": "string",
-        "mutable": false,
-        "attr": "target",
-        "reflectToAttr": false,
-        "docs": "Sets or retrieves the window or frame at which to target content.",
-        "docsTags": [],
-        "default": "'_self'",
-        "values": [
-          {
-            "type": "string"
-          }
-        ],
-        "optional": false,
-        "required": false
-      }
-    ],
-    "methods": [
-      {
-        "name": "triggerClick",
-        "returns": {
-          "type": "Promise<void>",
-          "docs": ""
-        },
-        "signature": "triggerClick() => Promise<void>",
-        "parameters": [],
-        "docs": "",
-        "docsTags": []
-      }
-    ],
-    "events": [
-      {
-        "event": "goat:click",
-        "detail": "any",
-        "bubbles": true,
-        "cancelable": true,
-        "composed": true,
-        "docs": "On click of button, a CustomEvent 'goat:click' will be triggered.",
-        "docsTags": []
-      }
-    ],
-    "styles": [],
-    "slots": [],
-    "parts": [],
-    "listeners": [
-      {
-        "event": "mouseup",
-        "target": "window",
-        "capture": false,
-        "passive": true
-      },
-      {
-        "event": "keyup",
-        "target": "window",
-        "capture": false,
-        "passive": false
-      }
-    ],
-    "metadata": {}
-  },
-  {
     "dirPath": "D:/development/goatui/src/components/content/icon",
     "filePath": "./src/components/content/icon/goat-icon.tsx",
     "fileName": "goat-icon.tsx",
@@ -3079,7 +2877,6 @@
     "dependents": [
       "goat-button",
       "goat-dropdown",
-      "goat-header-action",
       "goat-input",
       "goat-select",
       "goat-tab",
@@ -3091,9 +2888,6 @@
         "goat-icon"
       ],
       "goat-dropdown": [
-        "goat-icon"
-      ],
-      "goat-header-action": [
         "goat-icon"
       ],
       "goat-input": [
@@ -4419,7 +4213,6 @@
       "goat-button",
       "goat-code-editor",
       "goat-code-highlighter",
-      "goat-header-action",
       "goat-select",
       "goat-tab"
     ],
@@ -4432,9 +4225,6 @@
         "goat-spinner"
       ],
       "goat-code-highlighter": [
-        "goat-spinner"
-      ],
-      "goat-header-action": [
         "goat-spinner"
       ],
       "goat-select": [

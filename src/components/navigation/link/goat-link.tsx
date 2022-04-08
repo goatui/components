@@ -15,8 +15,6 @@ export class GoatLink implements ComponentInterface {
 
   gid = getGoatIndex();
 
-  @Prop() inline: boolean = false;
-
   /**
    * Hyperlink to navigate to on click.
    */
@@ -89,7 +87,6 @@ export class GoatLink implements ComponentInterface {
     return (<Host has-focus={this.hasFocus} active={this.isActive}>
       <a class={{
         'link': true,
-        'inline': this.inline,
         'has-focus': this.hasFocus,
         'active': this.isActive,
       }}

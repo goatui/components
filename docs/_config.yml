@@ -20,11 +20,14 @@
 
 company: GOATUI
 title: GOAT UI
-email: contact@shivajivarma.com
 description: GOAT UI contains design system and most used web components built using Stencil. So you don't need to include any additional framework dependencies, You can simple import required component js, and right away start using it.
 tagline: A light weight web component library
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://goatui.com" # the base hostname & protocol for your site, e.g. http://example.com
+
+email: contact@shivajivarma.com
+author: Shivaji Varma
+author_url: https://shivajivarma.com
 twitter_username: goatui
 github_username: goatui
 github_project: components

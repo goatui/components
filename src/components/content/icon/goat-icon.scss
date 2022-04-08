@@ -7,6 +7,11 @@
 .icon {
   line-height: 0;
   color: var(--icon-color, v(--text-01));
+
+}
+
+.animate {
+  animation: reveal .8s cubic-bezier(.215, .61, .355, 1) .25s backwards;
 }
 
 :host(.inherit) .icon {

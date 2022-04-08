@@ -3,7 +3,7 @@ import { Component, Element, h, Host, Prop } from '@stencil/core';
 /**
  * @name Avatar
  * @description Avatars in their simplest form display content within a circular container.
- * @example <goat-avatar name="Shivaji Varma"></goat-avatar>
+ * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.png"></goat-avatar>
  */
 @Component({
   tag: 'goat-avatar',
@@ -22,6 +22,8 @@ export class GoatAvatar {
   @Prop() name: string = '';
 
   @Prop() src: string = '';
+
+  @Prop() showName: boolean = false;
 
   private getInitials() {
     const name = this.name.split(' ');
@@ -48,18 +50,24 @@ export class GoatAvatar {
     }
     return (
       <Host title={this.name}>
-        <div class={cssCls.join(' ')}
-             style={{ width: this.size, height: this.size, fontSize: this.getFontSize() }}>
+        <div class='avatar-container'>
+          <div class={cssCls.join(' ')}
+               style={{ width: this.size, height: this.size, fontSize: this.getFontSize() }}>
+            {
+              (() => {
+                if (this.src) {
+                  return <img class='image' src={this.src} alt={this.name} />;
+                } else {
+                  return <div class='initials'>
+                    {this.getInitials()}
+                  </div>;
+                }
+              })()
+            }
+          </div>
+
           {
-            (() => {
-              if (this.src) {
-                return <img class='image' src={this.src} alt={this.name} />;
-              } else {
-                return <div class='initials'>
-                  {this.getInitials()}
-                </div>;
-              }
-            })()
+            this.showName && <span style={{ fontSize: this.getFontSize() }}>{this.name}</span>
           }
         </div>
       </Host>

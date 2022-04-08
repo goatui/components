@@ -4,6 +4,7 @@
 :host {
   display: block;
   height: 100%;
+  min-height: 20em;
   --table-border-color: #{v(--ui-04)};
 }
 
@@ -16,7 +17,6 @@
     position: relative;
     overflow: auto;
     height: 100%;
-    min-height: 20em;
   }
 
   &.paginate .table-scroll-container{

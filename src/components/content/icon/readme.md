@@ -19,7 +19,6 @@
 
  - [goat-button](../../form/button)
  - [goat-dropdown](../../menu/dropdown)
- - [goat-header-action](../../navigation/goat-header-action)
  - [goat-input](../../form/input)
  - [goat-select](../../form/select)
  - [goat-tab](../../navigation/tab)
@@ -30,7 +29,6 @@
 graph TD;
   goat-button --> goat-icon
   goat-dropdown --> goat-icon
-  goat-header-action --> goat-icon
   goat-input --> goat-icon
   goat-select --> goat-icon
   goat-tab --> goat-icon

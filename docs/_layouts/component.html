@@ -27,17 +27,17 @@ layout: minimal
     width: 20rem;
     position: fixed;
     top: var(--header-height);
-    background: var(--ui-01);
+    background: var(--color-brand-secondary-20);
     height: calc(100vh - var(--header-height));
     overflow-y: auto;
     border-right: 1px solid var(--border-color);
   }
 
-  [data-theme="dark"] .sidenav{
-    background: var(--color-neutral-90);
+  [data-theme="dark"] .sidenav {
+    background: var(--color-brand-secondary-80);
   }
 
-  .sidenav-components{
+  .sidenav-components {
     padding-bottom: 0.5rem;
   }
 
@@ -55,7 +55,7 @@ layout: minimal
     background: var(--color-neutral-30);
   }
 
-  [data-theme="dark"] .sidenav-link:hover{
+  [data-theme="dark"] .sidenav-link:hover {
     color: var(--color-neutral-30);
     background: var(--color-neutral-80);
   }
@@ -66,7 +66,7 @@ layout: minimal
     background: var(--color-neutral-40);
   }
 
-  [data-theme="dark"] .sidenav-link.active{
+  [data-theme="dark"] .sidenav-link.active {
     color: var(--color-neutral-100);
     background: var(--color-neutral-80);
   }
@@ -74,6 +74,7 @@ layout: minimal
   .main-content {
     margin-top: var(--header-height);
     margin-left: 20rem;
+    position: relative;
   }
 
   pre[class*="language-"] {
@@ -86,9 +87,11 @@ layout: minimal
       position: inherit;
       overflow: initial;
     }
+
     .main-content {
       margin-left: 0;
     }
+
     .sidenav.m-hide, .main-content.m-hide {
       display: none;
     }
@@ -104,7 +107,8 @@ layout: minimal
   <div class='sidenav-components'>
     {% for component in site.data.components %}
     {% if component.metadata.name %}
-    <a class='sidenav-link {% if page.title == component.metadata.name %}active{% endif %}' href='/components/{{component.tag | replace: "goat-", ""}}'>
+    <a class='sidenav-link {% if page.title == component.metadata.name %}active{% endif %}'
+       href='/components/{{component.tag | replace: "goat-", ""}}'>
       <goat-text>{{component.metadata.name}}</goat-text>
     </a>
     {% endif %}
@@ -112,38 +116,42 @@ layout: minimal
   </div>
 
 </div>
-<div class='main-content container'>
+<div class='main-content'>
 
-  {{content}}
+  <div class='container'>
+    {{content}}
 
-  <div id="disqus_thread"></div>
-  <script>
-    /**
-     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-    /*
-    var disqus_config = function () {
-    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    */
-    (function() { // DON'T EDIT BELOW THIS LINE
-      if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "")
-        return;
-      const d = document, s = d.createElement('script');
-      s.src = 'https://goatui.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  <div class='footer'>
-    <goat-divider></goat-divider>
-    <goat-text type='paragraph' size='sm'>&copy; 2021 <goat-link href="https://shivajivarma.com">Shivaji Varma</goat-link>. All Rights Reserved.</goat-text>
+    <div id='disqus_thread'></div>
+    <script>
+      /**
+       *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+       *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+      /*
+      var disqus_config = function () {
+      this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      */
+      (function() { // DON'T EDIT BELOW THIS LINE
+        if (location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.hostname === '')
+          return;
+        const d = document, s = d.createElement('script');
+        s.src = 'https://goatui.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href='https://disqus.com/?ref_noscript'>comments powered by
+      Disqus.</a></noscript>
   </div>
 
-
-
+  <div class='footer container'>
+    <goat-divider></goat-divider>
+    <goat-text type='paragraph' size='sm'>&copy; 2021
+      <goat-link href='https://shivajivarma.com'>Shivaji Varma</goat-link>
+      . All Rights Reserved.
+    </goat-text>
+  </div>
 </div>
+
 

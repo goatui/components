@@ -1,4 +1,4 @@
- @import "functions";
+@import "functions";
 @import "mixins";
 
 * {
@@ -53,4 +53,11 @@
 
 :host([hidden]) {
   display: none;
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(8px)
+  }
 }

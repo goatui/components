@@ -8,7 +8,7 @@ layout: default
   }
 
   :root {
-    --header-height: 3rem;
+    --header-height: 4rem;
   }
 
   .top-nav {
@@ -25,7 +25,7 @@ layout: default
   }
 
   .container {
-    padding: var(--spacing-3) var(--spacing-5) ;
+    padding: var(--spacing-5) ;
   }
 
   figure {
@@ -73,37 +73,38 @@ layout: default
 <nav class='top-nav'>
 
   <goat-header
-    class='brand-primary'
+    class='brand'
+    brand-logo='/assets/img/logo.svg'
     brand-name='{{site.title}}'
     brand-url='/'
     {% if page.root != true %}page-title='{{page.title}}' {% endif %}>
 
     <div slot='right-section'>
-      <goat-header-action icon='sun-fill' id='theme-switcher'></goat-header-action>
+      <goat-button icon='sun-fill' id='theme-switcher'></goat-button>
 
 
       {% if page.root %}
-      <goat-header-action icon='github'
+      <goat-button icon='github'
                           class='show-desktop'
                           href='https://github.com/{{site.github_username}}/{{site.github_project}}'
-                          target='_blank'>Github</goat-header-action>
+                          target='_blank'>Github</goat-button>
 
-      <goat-header-action icon='github'
+      <goat-button icon='github'
                           class='show-mobile'
                           href='https://github.com/{{site.github_username}}/{{site.github_project}}'
-                          target='_blank'></goat-header-action>
+                          target='_blank'></goat-button>
 
 
       {% else %}
-      <goat-header-action icon='bug'
+      <goat-button icon='bug'
                           class='show-desktop'
                           href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues'
-                          target='_blank'>Report Issue</goat-header-action>
+                          target='_blank'>Report Issue</goat-button>
 
-      <goat-header-action icon='bug'
+      <goat-button icon='bug'
                           class='show-mobile'
                           href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues'
-                          target='_blank'></goat-header-action>
+                          target='_blank'></goat-button>
       {% endif %}
 
     </div>

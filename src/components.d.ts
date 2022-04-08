@@ -12,6 +12,7 @@ export namespace Components {
     }
     interface GoatAvatar {
         "name": string;
+        "showName": boolean;
         /**
           * Avatar size.
          */
@@ -208,39 +209,6 @@ export namespace Components {
         "pageTitle": string;
         "type": 'simple';
     }
-    interface GoatHeaderAction {
-        "configAria": any;
-        /**
-          * If true, the user cannot interact with the button. Defaults to `false`.
-         */
-        "disabled": boolean;
-        "disabledReason": string;
-        /**
-          * Hyperlink to navigate to on click.
-         */
-        "href": string;
-        /**
-          * Icon which will displayed on button. Possible values are bootstrap icon names.
-         */
-        "icon": string;
-        /**
-          * Icon position.
-         */
-        "iconEnd": boolean;
-        /**
-          * Button selection state.
-         */
-        "selected": boolean;
-        /**
-          * Show loader.
-         */
-        "showLoader": boolean;
-        /**
-          * Sets or retrieves the window or frame at which to target content.
-         */
-        "target": string;
-        "triggerClick": () => Promise<void>;
-    }
     interface GoatIcon {
         "name": string;
         /**
@@ -313,7 +281,6 @@ export namespace Components {
           * Hyperlink to navigate to on click.
          */
         "href": string;
-        "inline": boolean;
         /**
           * Sets or retrieves the window or frame at which to target content.
          */
@@ -643,12 +610,6 @@ declare global {
         prototype: HTMLGoatHeaderElement;
         new (): HTMLGoatHeaderElement;
     };
-    interface HTMLGoatHeaderActionElement extends Components.GoatHeaderAction, HTMLStencilElement {
-    }
-    var HTMLGoatHeaderActionElement: {
-        prototype: HTMLGoatHeaderActionElement;
-        new (): HTMLGoatHeaderActionElement;
-    };
     interface HTMLGoatIconElement extends Components.GoatIcon, HTMLStencilElement {
     }
     var HTMLGoatIconElement: {
@@ -738,7 +699,6 @@ declare global {
         "goat-flow-designer": HTMLGoatFlowDesignerElement;
         "goat-form-control": HTMLGoatFormControlElement;
         "goat-header": HTMLGoatHeaderElement;
-        "goat-header-action": HTMLGoatHeaderActionElement;
         "goat-icon": HTMLGoatIconElement;
         "goat-input": HTMLGoatInputElement;
         "goat-link": HTMLGoatLinkElement;
@@ -761,6 +721,7 @@ declare namespace LocalJSX {
     }
     interface GoatAvatar {
         "name"?: string;
+        "showName"?: boolean;
         /**
           * Avatar size.
          */
@@ -957,42 +918,6 @@ declare namespace LocalJSX {
         "pageTitle"?: string;
         "type"?: 'simple';
     }
-    interface GoatHeaderAction {
-        "configAria"?: any;
-        /**
-          * If true, the user cannot interact with the button. Defaults to `false`.
-         */
-        "disabled"?: boolean;
-        "disabledReason"?: string;
-        /**
-          * Hyperlink to navigate to on click.
-         */
-        "href"?: string;
-        /**
-          * Icon which will displayed on button. Possible values are bootstrap icon names.
-         */
-        "icon"?: string;
-        /**
-          * Icon position.
-         */
-        "iconEnd"?: boolean;
-        /**
-          * On click of button, a CustomEvent 'goat:click' will be triggered.
-         */
-        "onGoat:click"?: (event: CustomEvent<any>) => void;
-        /**
-          * Button selection state.
-         */
-        "selected"?: boolean;
-        /**
-          * Show loader.
-         */
-        "showLoader"?: boolean;
-        /**
-          * Sets or retrieves the window or frame at which to target content.
-         */
-        "target"?: string;
-    }
     interface GoatIcon {
         "name"?: string;
         /**
@@ -1072,7 +997,6 @@ declare namespace LocalJSX {
           * Hyperlink to navigate to on click.
          */
         "href"?: string;
-        "inline"?: boolean;
         /**
           * Sets or retrieves the window or frame at which to target content.
          */
@@ -1333,7 +1257,6 @@ declare namespace LocalJSX {
         "goat-flow-designer": GoatFlowDesigner;
         "goat-form-control": GoatFormControl;
         "goat-header": GoatHeader;
-        "goat-header-action": GoatHeaderAction;
         "goat-icon": GoatIcon;
         "goat-input": GoatInput;
         "goat-link": GoatLink;
@@ -1368,7 +1291,6 @@ declare module "@stencil/core" {
             "goat-flow-designer": LocalJSX.GoatFlowDesigner & JSXBase.HTMLAttributes<HTMLGoatFlowDesignerElement>;
             "goat-form-control": LocalJSX.GoatFormControl & JSXBase.HTMLAttributes<HTMLGoatFormControlElement>;
             "goat-header": LocalJSX.GoatHeader & JSXBase.HTMLAttributes<HTMLGoatHeaderElement>;
-            "goat-header-action": LocalJSX.GoatHeaderAction & JSXBase.HTMLAttributes<HTMLGoatHeaderActionElement>;
             "goat-icon": LocalJSX.GoatIcon & JSXBase.HTMLAttributes<HTMLGoatIconElement>;
             "goat-input": LocalJSX.GoatInput & JSXBase.HTMLAttributes<HTMLGoatInputElement>;
             "goat-link": LocalJSX.GoatLink & JSXBase.HTMLAttributes<HTMLGoatLinkElement>;

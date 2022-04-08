@@ -14,11 +14,6 @@
   cursor: pointer;
   text-decoration: var(--link-decoration, none);
 
-  &:not(.inline) {
-    //noinspection CssNoGenericFontName
-    font-family: v(--font-family-base);
-  }
-
   color: var(--link-color, v(--link-01));
 
   &:hover {
@@ -42,8 +37,11 @@
   text-decoration: none !important;
 }
 
+:host(.no-decoration) .link {
+  text-decoration: none !important;
+}
 
-.link.inline {
+:host(.inline) .link {
   text-decoration: var(--link-decoration, underline);
 }
 

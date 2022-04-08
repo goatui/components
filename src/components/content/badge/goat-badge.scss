@@ -2,6 +2,7 @@
 
 :host {
   display: inline-block;
+  pointer-events: none;
 }
 
 .badge {
@@ -22,7 +23,6 @@
   border-radius: 50%;
   padding: v(--spacing-1);
   font-size: v(--text-xs-font-size);
-  pointer-events: none;
 }
 
 

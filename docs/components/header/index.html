@@ -50,30 +50,31 @@ menu:
 
           <goat-header
             brand-name='Goat'
-            class='brand-primary'
-            brand-url='https://goatui.com'
+            class='brand'
+            brand-logo='/assets/img/logo.svg'
+            brand-url='/'
             page-title='Button'>
 
             <div slot='right-section'>
 
-              <goat-header-action icon='sun' class='theme-switcher'></goat-header-action>
+              <goat-button icon='sun' class='theme-switcher'></goat-button>
 
-              <goat-header-action>
+
+              <goat-button>
                 <goat-badge content='3' class='color-error'>
                   <goat-icon name='bell' class='inherit'></goat-icon>
                 </goat-badge>
-              </goat-header-action>
+              </goat-button>
 
-              <goat-header-action>
-                <goat-avatar class='inverted' name='Shivaji Varma'></goat-avatar>
-                Admin
-              </goat-header-action>
+              <goat-button>
+                <goat-avatar class='inverted' name='Shivaji Varma' show-name src='/assets/img/avatar.png'></goat-avatar>
+              </goat-button>
 
-              <goat-dropdown positions='bottom-left'>
-                <goat-header-action
+              <goat-dropdown positions='bottom-left' class='full-height'>
+                <goat-button
                   icon='grid-3x3-gap'
                   badge='3'
-                  type='dropdown'></goat-header-action>
+                  type='dropdown'></goat-button>
                 <goat-menu slot='dropdown-content' class='menu' style='width: 200px'>
                   <goat-menu-item value='cut'>
                     <goat-icon name='scissors' slot='start' size='sm'></goat-icon>
@@ -102,33 +103,33 @@ menu:
             </div>
           </goat-header>
 
-          <br/>
+          <br />
 
           <goat-header
             brand-name='Goat'
-            brand-url='https://goatui.com'
+            brand-logo='/assets/img/logo.svg'
+            brand-url='/'
             page-title='Button'>
 
             <div slot='right-section'>
 
-              <goat-header-action icon='sun' class='theme-switcher'></goat-header-action>
+              <goat-button icon='sun' class='theme-switcher'></goat-button>
 
-              <goat-header-action>
+              <goat-button>
                 <goat-badge content='3' class='color-error'>
                   <goat-icon name='bell' class='inherit'></goat-icon>
                 </goat-badge>
-              </goat-header-action>
+              </goat-button>
 
-              <goat-header-action>
-                <goat-avatar class='inverted' name='Shivaji Varma'></goat-avatar>
-                Admin
-              </goat-header-action>
+              <goat-button class='avatar-container'>
+                <goat-avatar name='Shivaji Varma' show-name></goat-avatar>
+              </goat-button>
 
               <goat-dropdown positions='bottom-left'>
-                <goat-header-action
+                <goat-button
                   icon='grid-3x3-gap'
                   badge='3'
-                  type='dropdown'></goat-header-action>
+                  type='dropdown'></goat-button>
                 <goat-menu slot='dropdown-content' class='menu' style='width: 200px'>
                   <goat-menu-item value='cut'>
                     <goat-icon name='scissors' slot='start' size='sm'></goat-icon>
@@ -162,29 +163,30 @@ menu:
           {% highlight html %}
           <goat-header
             brand-name='Goat'
-            brand-url='https://goatui.com'
+            class='brand'
+            brand-logo='/assets/img/logo.svg'
+            brand-url='/'
             page-title='Button'>
 
             <div slot='right-section'>
 
-              <goat-header-action icon='sun' class='theme-switcher'></goat-header-action>
+              <goat-button icon='sun' class='theme-switcher'></goat-button>
 
-              <goat-header-action>
+              <goat-button>
                 <goat-badge content='3' class='color-error'>
                   <goat-icon name='bell' class='inherit'></goat-icon>
                 </goat-badge>
-              </goat-header-action>
+              </goat-button>
 
-              <goat-header-action>
-                <goat-avatar class='inverted' name='Shivaji Varma'></goat-avatar>
-                Admin
-              </goat-header-action>
+              <goat-button>
+                <goat-avatar class='inverted' name='Shivaji Varma'> Admin</goat-avatar>
+              </goat-button>
 
               <goat-dropdown positions='bottom-left'>
-                <goat-header-action
+                <goat-button
                   icon='grid-3x3-gap'
                   badge='3'
-                  type='dropdown'></goat-header-action>
+                  type='dropdown'></goat-button>
                 <goat-menu slot='dropdown-content' class='menu' style='width: 200px'>
                   <goat-menu-item value='cut'>
                     <goat-icon name='scissors' slot='start' size='sm'></goat-icon>

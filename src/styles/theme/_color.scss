@@ -175,6 +175,30 @@ $colors: (
     90: #302400,
     100: #1c1500,
   ),
+  new-purple: (
+    10: #fff1f1,
+    20: #F2CAFD,
+    30: #E197FB,
+    40: #C662F5,
+    50: #A93BEC,
+    60: #7F00E0,
+    70: #6200C0,
+    80: #4900A1,
+    90: #330081,
+    100: #24006B,
+  ),
+  new-teal: (
+    10: #F3FEFD,
+    20:#EFFEFD,
+    30:#E0FCFD,
+    40:#CFF5F9,
+    50:#C0EAF3,
+    60:#AADCEC,
+    70:#7CB2CA,
+    80:#5589A9,
+    90:#366388,
+    100:#204671
+  )
 );
 
 @function getColor($colorName, $grade) {
@@ -199,14 +223,14 @@ $colors: (
 /*
  * Theme colors
  */
-@include cloneColor(brand-primary, blue);
-@include cloneColor(brand-secondary, teal);
+@include cloneColor(brand-primary, new-purple);
+@include cloneColor(brand-secondary, new-teal);
 
 /*
  * Application colors
  */
 @include referColor(neutral, gray);
-@include referColor(primary, brand-primary);
+@include referColor(primary, blue);
 @include referColor(secondary, gray);
 
 

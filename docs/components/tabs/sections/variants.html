@@ -5,17 +5,17 @@
 
 {% capture sample-code %}
 <goat-tabs>
-  <goat-tab>First button</goat-tab>
-  <goat-tab>Second button</goat-tab>
-  <goat-tab disabled>Second button</goat-tab>
-  <goat-tab selected='true'>Third button</goat-tab>
+  <goat-tab>First tab</goat-tab>
+  <goat-tab>Second tab</goat-tab>
+  <goat-tab disabled>Disabled tab</goat-tab>
+  <goat-tab selected='true'>Last tab</goat-tab>
 </goat-tabs>
 
 <goat-tabs>
   <goat-tab icon='house'></goat-tab>
-  <goat-tab icon='arrow-left' icon-end='true'>Second button</goat-tab>
-  <goat-tab disabled>Second button</goat-tab>
-  <goat-tab selected='true'>Third button</goat-tab>
+  <goat-tab icon='circle' selected='true'></goat-tab>
+  <goat-tab disabled icon='envelope'></goat-tab>
+  <goat-tab icon='star-fill'></goat-tab>
 </goat-tabs>
 {% endcapture %}
 {% include demo-html.html content=sample-code %}

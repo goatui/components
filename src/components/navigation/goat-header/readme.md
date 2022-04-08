@@ -7,13 +7,13 @@
 
 ## Properties
 
-| Property    | Attribute    | Description | Type       | Default                                    |
-| ----------- | ------------ | ----------- | ---------- | ------------------------------------------ |
-| `brandLogo` | `brand-logo` |             | `string`   | `'https://goatui.com/assets/img/logo.svg'` |
-| `brandName` | `brand-name` |             | `string`   | `'Goat'`                                   |
-| `brandUrl`  | `brand-url`  |             | `string`   | `'#'`                                      |
-| `pageTitle` | `page-title` |             | `string`   | `''`                                       |
-| `type`      | `type`       |             | `"simple"` | `'simple'`                                 |
+| Property    | Attribute    | Description | Type       | Default    |
+| ----------- | ------------ | ----------- | ---------- | ---------- |
+| `brandLogo` | `brand-logo` |             | `string`   | `''`       |
+| `brandName` | `brand-name` |             | `string`   | `''`       |
+| `brandUrl`  | `brand-url`  |             | `string`   | `'#'`      |
+| `pageTitle` | `page-title` |             | `string`   | `''`       |
+| `type`      | `type`       |             | `"simple"` | `'simple'` |
 
 
 ## Dependencies

@@ -2,7 +2,6 @@
 @import "functions";
 
 @mixin font-style($type) {
-  font-family: v(--font-family-base), serif;
   font-size: v(--#{$type}-font-size);
   line-height: v(--#{$type}-line-height);
   letter-spacing: v(--#{$type}-letter-spacing);
@@ -13,17 +12,31 @@
 }
 
 @mixin for-phone-only {
-  @media (max-width: 599px) { @content; }
+  @media (max-width: 599px) {
+    @content;
+  }
 }
+
 @mixin for-tablet-portrait-up {
-  @media (min-width: 600px) { @content; }
+  @media (min-width: 600px) {
+    @content;
+  }
 }
+
 @mixin for-tablet-landscape-up {
-  @media (min-width: 900px) { @content; }
+  @media (min-width: 900px) {
+    @content;
+  }
 }
+
 @mixin for-desktop-up {
-  @media (min-width: 1200px) { @content; }
+  @media (min-width: 1200px) {
+    @content;
+  }
 }
+
 @mixin for-big-desktop-up {
-  @media (min-width: 1800px) { @content; }
+  @media (min-width: 1800px) {
+    @content;
+  }
 }

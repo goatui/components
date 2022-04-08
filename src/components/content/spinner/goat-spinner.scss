@@ -23,12 +23,14 @@
 
 
 @keyframes rainbow {
-  0%   {fill:v(--color-primary);}
-  20%  {fill:v(--color-success);}
-  40%  {fill:v(--color-warning);}
-  60%  {fill:v(--color-error);}
-  80% {fill:v(--color-secondary);}
-  100% {fill:v(--color-primary);}
+  0%   {fill:v(--color-brand-primary);}
+  16%   {fill:v(--color-brand-secondary);}
+  32%   {fill:v(--color-primary);}
+  48%  {fill:v(--color-success);}
+  64%  {fill:v(--color-warning);}
+  80%  {fill:v(--color-error);}
+  90% {fill:v(--color-secondary);}
+  100% {fill:v(--color-brand-primary);}
 }
 
 :host(.rainbow) .spinner path {

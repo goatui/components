@@ -2,6 +2,13 @@
 
 :host {
   display: inline-block;
+  pointer-events: none;
+}
+
+.avatar-container {
+  display: flex;
+  align-items: center;
+  gap: v(--spacing-2)
 }
 
 .avatar {
@@ -20,17 +27,23 @@
   @include font-style(text-md);
 }
 
+:host(.square) {
+  .avatar {
+    border-radius: 10px;
+  }
+}
+
 .avatar.avatar-initials {
-  background: var(--avatar-bg-color, v(--color-primary));
+  background: var(--avatar-bg-color, v(--color-brand-primary));
 }
 
 .avatar.avatar-image {
-  background: v(--ui-01);
+  background: v(--color-brand-primary-30);
 }
 
 :host(.inverted) {
   .avatar {
-    color: v(--color-primary);
+    color: v(--color-brand-primary);
   }
 
   .avatar.avatar-initials {

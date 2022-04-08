@@ -2,6 +2,7 @@
 @use "sass:list";
 
 $font-family-base: 'Inter', sans-serif;
+$font-family-secondary: 'Bitter', serif;
 $font-weights: (
   regular: normal,
   medium: 500,
@@ -25,6 +26,7 @@ $typography: (
 $typography-css-variables: ();
 
 $typography-css-variables: map-merge($typography-css-variables, ("--font-family-base": $font-family-base));
+$typography-css-variables: map-merge($typography-css-variables, ("--font-family-secondary": $font-family-secondary));
 
 @each $key, $value in $font-weights {
   $map: ();
