@@ -138,23 +138,6 @@
     "dependencyGraph": {},
     "props": [
       {
-        "name": "displayName",
-        "type": "boolean",
-        "mutable": false,
-        "attr": "display-name",
-        "reflectToAttr": false,
-        "docs": "",
-        "docsTags": [],
-        "default": "false",
-        "values": [
-          {
-            "type": "boolean"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
         "name": "name",
         "type": "string",
         "mutable": false,
@@ -166,6 +149,23 @@
         "values": [
           {
             "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "showName",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "show-name",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
           }
         ],
         "optional": false,
@@ -3376,23 +3376,6 @@
         "values": [
           {
             "type": "string"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "inline",
-        "type": "boolean",
-        "mutable": false,
-        "attr": "inline",
-        "reflectToAttr": false,
-        "docs": "",
-        "docsTags": [],
-        "default": "false",
-        "values": [
-          {
-            "type": "boolean"
           }
         ],
         "optional": false,
