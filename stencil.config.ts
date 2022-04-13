@@ -12,7 +12,7 @@ export const config: Config = {
       type: 'dist',
       esmLoaderPath: '../loader',
       copy: [
-        { src: 'styles', dest: 'styles' },
+        { src: 'assets' },
       ],
     },
     {
@@ -29,21 +29,21 @@ export const config: Config = {
           // @ts-ignore
           component.metadata = {};
 
-          component.docsTags.forEach((tag) =>{
+          component.docsTags.forEach((tag) => {
             // @ts-ignore
             component.metadata[tag.name] = tag.text;
           });
 
-        })
+        });
         fs.writeFileSync(__dirname + '/docs/_data/components.json', JSON.stringify(docs.components, null, 2));
-      }
+      },
     },
     {
       type: 'www',
       dir: 'docs/assets/dev-build/',
       serviceWorker: null, // disable service workers
       copy: [
-        { src: 'styles', dest: 'styles' },
+        { src: 'assets' },
       ],
     },
   ],

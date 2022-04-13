@@ -3,21 +3,23 @@
 
 
 
-{% capture sample-code %}
-
-{% for color in page.colors %}<goat-button color='{{color}}'>{{color | capitalize }}</goat-button>
+{% capture sample-code %}{% for color in page.colors %}<goat-button class='color-{{color}}'>{{color | capitalize }}</goat-button>
 {% endfor %}
 <br/>
 
-{% for color in page.colors %}<goat-button color='{{color}}' variant="light">{{color | capitalize }}</goat-button>
+{% for color in page.colors %}<goat-button class='color-{{color}}' variant="light">{{color | capitalize }}</goat-button>
 {% endfor %}
 <br/>
 
-{% for color in page.colors %}<goat-button color='{{color}}' variant='outline'>{{color | capitalize }}</goat-button>
+{% for color in page.colors %}<goat-button class='color-{{color}}' variant='outline'>{{color | capitalize }}</goat-button>
 {% endfor %}
 <br/>
 
-{% for color in page.colors %}<goat-button color='{{color}}' variant='ghost'>{{color | capitalize }}</goat-button>
+{% for color in page.colors %}<goat-button class='color-{{color}}' variant='ghost'>{{color | capitalize }}</goat-button>
+{% endfor %}
+<br/>
+
+{% for color in page.colors %}<goat-button class='color-{{color}}' variant='link'>{{color | capitalize }}</goat-button>
 {% endfor %}
 <br/>
 {% endcapture %}
@@ -25,23 +27,16 @@
 
 
 <goat-text size='xl' style='margin-bottom: 10px'>Custom branding</goat-text>
-{% capture sample-code %}
-<style>
+{% capture sample-code %}<style>
   .custom {
-    --button-text-color: var(--color-white);
-    --button-color: var(--color-yellow-60);
-    --button-color-hover: var(--color-yellow-70);
-
-    --button-light-text-color: var(--color-red);
-    --button-light-color: var(--color-yellow-20);
-    --button-light-color-hover:  var(--color-yellow-30);
-
-    --button-color-active: var(--color-yellow-80);
-    --button-text-color-active: var(--color-white);
+    --button-color: var(--color-brand-primary);
+    --button-color-hover: var(--color-brand-primary-70);
+    --button-color-active: var(--color-brand-primary-80);
+    --button-color-support: var(--color-brand-secondary);
   }
 </style>
 <goat-button class='custom'>Custom</goat-button>
-<goat-button class='custom' variant="ghost">Custom</goat-button>
+<goat-button class='custom' variant="light">Custom</goat-button>
 <goat-button class='custom' variant='outline'>Custom</goat-button>
 <goat-button class='custom' variant='ghost'>Custom</goat-button>
 <br/>

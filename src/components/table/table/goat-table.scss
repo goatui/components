@@ -1,4 +1,4 @@
-@import "../../../styles/scss/commons";
+@import "../../../globalStyles/commons";
 
 
 :host {
@@ -63,7 +63,7 @@
 
   .col {
     margin: 0;
-    color: v(--text-01);
+    color: v(--text-primary);
     box-sizing: border-box;
     vertical-align: middle;
     line-height: normal;
@@ -152,13 +152,13 @@
 
     .col {
       cursor: pointer;
-      background: v(--ui-background);
+      background: v(--background);
       border: 2px solid transparent;
       border-bottom: 1px solid var(--ui-03);
 
       &:focus {
         outline: none;
-        border: 2px solid var(--color-primary);
+        border: 2px solid v(--color-primary);
         z-index: 1;
       }
     }

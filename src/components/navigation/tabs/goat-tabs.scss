@@ -1,9 +1,9 @@
-@import "../../../styles/scss/commons";
+@import "../../../globalStyles/commons";
 
 
-
-:host .button-group {
+.tabs {
   display: flex;
+  position: relative;
 
   slot::slotted(goat-button) {
     display: block;
@@ -12,18 +12,17 @@
     --button-border-radius: 0;
   }
 
-  slot::slotted(goat-button:first-child) {
-    --button-border-radius: #{v(--border-radius)} 0 0 #{v(--border-radius)};
-    --button-border-width: 0.125rem 0 0.125rem 0.125rem;
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    border-bottom: 2px solid v(--border-color);
   }
 
-  slot::slotted(goat-button:last-child) {
-    --button-border-radius: 0 #{v(--border-radius)} #{v(--border-radius)} 0;
-    --button-border-width: 0.125rem 0.125rem 0.125rem 0;
-  }
-
-  slot::slotted(goat-button:only-child) {
-    --button-border-radius: #{v(--border-radius)};
-    --button-border-width: 0.125rem;
+  .tabs-container {
+    display: flex;
+    z-index: 1;
   }
 }

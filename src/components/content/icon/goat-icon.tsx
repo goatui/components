@@ -23,8 +23,6 @@ export class GoatIcon {
 
   @State() svg: string = '';
 
-  @State() animate: boolean = false;
-
   async fetchSvg(name: string) {
     if (this.name)
       this.svg = await fetchIcon(name);
@@ -34,10 +32,6 @@ export class GoatIcon {
   @Watch('name')
   async handleNameChange(newValue: string) {
     this.svg = await fetchIcon(newValue);
-    this.animate = true;
-    setTimeout(() => {
-      this.animate = false;
-    }, 1000);
   }
 
   async componentWillLoad() {
@@ -64,7 +58,7 @@ export class GoatIcon {
     const icon = this.svg.replace(/width="([^"]+)"/, 'width="' + this.getSize() + '"').replace(/height="([^"]+)"/, 'height="' + this.getSize() + '"');
     return (
       <Host>
-        <div innerHTML={icon} class={{ 'icon': true, 'animate': this.animate }} />
+        <div innerHTML={icon} class={{ 'icon': true }} />
       </Host>
     );
   }

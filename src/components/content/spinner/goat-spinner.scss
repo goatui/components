@@ -1,4 +1,4 @@
-@import "../../../styles/scss/commons";
+@import "../../../globalStyles/commons";
 
 :host {
   display: inline-block;
@@ -10,7 +10,7 @@
 
 :host {
   .spinner path {
-    fill: v(--text-01);
+    fill: v(--text-primary);
   }
 }
 

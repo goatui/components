@@ -1,0 +1,508 @@
+@import "../../../globalStyles/commons";
+
+$border-width: 0.125;
+$button-radius: var(--button-border-radius, #{v(--border-radius)});
+$button-border-style: var(--button-border-style, solid);
+
+$button-color: var(--button-color, v(--color-primary));
+$button-color-hover: var(--button-color-hover, v(--color-primary-70));
+$button-color-active: var(--button-color-active, v(--color-primary-80));
+$button-color-light: var(--button-color-light, v(--color-primary-20));
+$button-color-support: var(--button-color-support, $button-color);
+
+@function removeBorder($width) {
+  @return #{($width*1 - ($border-width * 2))}rem;
+}
+
+:host {
+  display: inline-block;
+  height: var(--button-height, auto);
+}
+
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: var(--button-height, auto);
+
+  .native-button {
+    height: 100%;
+    cursor: pointer;
+    z-index: v(--z-index-button);
+    background: transparent;
+    padding: 0;
+    border: #{$border-width}rem #{$button-border-style} transparent;
+    border-width: var(--button-border-width, #{($border-width)}rem);
+    border-radius: #{$button-radius};
+    outline: none;
+
+    .slot-container {
+      display: none;
+    }
+  }
+
+  .button-content {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: 100%;
+    gap: v(--spacing-2);
+    border-radius: 2px;
+    border: #{$border-width}rem solid transparent;
+  }
+
+  .button-background {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    border-radius: #{$button-radius};
+    pointer-events: none;
+  }
+
+  &.disabled .native-button {
+    cursor: not-allowed;
+  }
+
+  &.has-content .slot-container {
+    display: flex;
+  }
+
+}
+
+/**
+  * SIZES
+  */
+.button.size-sm, .button.size-small {
+  .button-content {
+    padding: removeBorder(0.5);
+    @include font-style(text-sm);
+    font-weight: var(--button-font-weight, v(--font-weight-medium));
+  }
+
+  &.has-content .button-content {
+    padding: removeBorder(0.5) removeBorder(0.875);
+  }
+}
+
+:host(.icon-only) {
+  .button.size-sm, .button.size-small {
+    .button-content {
+      padding: removeBorder(0.5);
+    }
+  }
+}
+
+.button.size-md, .button.size-medium {
+  .button-content {
+    padding: removeBorder(0.625);
+    @include font-style(text-sm);
+    font-weight: var(--button-font-weight, v(--font-weight-medium));
+  }
+
+  &.has-content .button-content {
+    padding: removeBorder(0.625) removeBorder(1.125);
+  }
+}
+
+:host(.icon-only) {
+  .button.size-md, .button.size-medium {
+    .button-content {
+      padding: removeBorder(0.625);
+    }
+  }
+}
+
+.button.size-lg, .button.size-large {
+  .button-content {
+    padding: removeBorder(0.625);
+    @include font-style(text-md);
+    font-weight: var(--button-font-weight, v(--font-weight-medium));
+  }
+
+  &.has-content .button-content {
+    padding: removeBorder(0.625) removeBorder(1);
+  }
+}
+
+:host(.icon-only) {
+  .button.size-lg, .button.size-large {
+    .button-content {
+      padding: removeBorder(0.625);
+    }
+  }
+}
+
+.button.size-xl {
+  .button-content {
+    padding: removeBorder(0.75);
+    @include font-style(text-md);
+    font-weight: var(--button-font-weight, v(--font-weight-medium));
+  }
+
+  &.has-content .button-content {
+    padding: removeBorder(0.75) removeBorder(1.25);
+  }
+}
+
+:host(.icon-only) {
+  .button.size-xl {
+    .button-content {
+      padding: removeBorder(0.75);
+    }
+  }
+}
+
+.button.size-xxl {
+  .button-content {
+    padding: removeBorder(1);
+    @include font-style(text-lg);
+    font-weight: var(--button-font-weight, v(--font-weight-medium));
+  }
+
+  &.has-content .button-content {
+    padding: removeBorder(1) removeBorder(1.75);
+  }
+}
+
+:host(.icon-only) {
+  .button.size-xxl {
+    .button-content {
+      padding: removeBorder(1);
+    }
+  }
+}
+
+
+/**
+ * Button variant definitions
+ */
+.button.variant-default {
+
+  .native-button {
+    color: var(--button-text-color, v(--color-white));
+    border-color: #{$button-color};
+  }
+
+  .button-background {
+    background: #{$button-color-support};
+  }
+
+  &:hover {
+    .native-button {
+      border-color: #{$button-color-hover};
+    }
+
+    .button-background {
+      background: #{$button-color-hover};
+    }
+  }
+
+  &.active, &.selected {
+    .native-button {
+      border-color: #{$button-color-active};
+    }
+
+    .button-background {
+      background: #{$button-color-active};
+    }
+  }
+
+  &.has-focus:not(.active) .native-button {
+    .button-content {
+      border-color: v(--color-white);
+    }
+
+    border-color: var(--button-color-focus, v(--color-primary));
+  }
+
+  &.disabled {
+    .native-button {
+      color: v(--disabled-03);
+      border-color: v(--text-disabled) !important;
+    }
+
+    .button-background {
+      background: v(--text-disabled) !important;
+    }
+
+    &.has-focus:not(.active) .native-button {
+      border-color: v(--color-neutral) !important;
+    }
+  }
+}
+
+.button.variant-light {
+
+  .native-button {
+    color: #{$button-color};
+    border-color: #{$button-color};
+  }
+
+  .button-background {
+    background: #{$button-color-light};
+  }
+
+
+  &:hover {
+    .native-button {
+      color: var(--button-text-color, v(--color-white));
+      border-color: #{$button-color};
+    }
+
+    .button-background {
+      background: #{$button-color};
+    }
+  }
+
+  &.active, &.selected {
+    .native-button {
+      color: var(--button-text-color, v(--color-white));
+      border-color: #{$button-color-active};
+    }
+
+    .button-background {
+      background: #{$button-color-active};
+    }
+  }
+
+  &.has-focus:not(.active) .native-button {
+    .button-content {
+      border-color: v(--color-white);
+    }
+
+    border-color: var(--button-color-focus, v(--color-primary));
+  }
+
+  &.disabled {
+    .native-button {
+      color: v(--disabled-03);
+      border-color: v(--text-disabled) !important;
+    }
+
+    .button-background {
+      background: v(--text-disabled) !important;
+    }
+
+    &.has-focus:not(.active) .native-button {
+      border-color: v(--color-neutral) !important;
+    }
+  }
+}
+
+.button.variant-outline {
+  .native-button {
+    color: #{$button-color};
+    border-color: #{$button-color};
+  }
+
+  .button-background {
+    background: transparent;
+  }
+
+
+  &:hover {
+    .native-button {
+      color: v(--color-white);
+    }
+
+    .button-background {
+      background: #{$button-color};
+    }
+  }
+
+  &.active, &.selected {
+    .native-button {
+      color: v(--color-white);
+      border-color: #{$button-color-active};
+    }
+
+    .button-background {
+      background: #{$button-color-active};
+    }
+  }
+
+  &.has-focus:not(.active) {
+    .native-button {
+      color: v(--color-white);
+      border-color: var(--button-color-focus, v(--color-primary));
+    }
+
+    .button-background {
+      background: #{$button-color};
+    }
+
+    .button-content {
+      border-color: v(--color-white);
+    }
+  }
+
+  &.disabled {
+    .native-button {
+      color: v(--disabled-03) !important;
+      border-color: v(--text-disabled) !important;
+    }
+
+    .button-background {
+      background: transparent !important;
+    }
+
+    &.has-focus:not(.active) .native-button {
+      border-color: v(--color-neutral) !important;
+    }
+  }
+}
+
+.button.variant-ghost {
+  .native-button {
+    color: #{$button-color};
+    border-color: transparent;
+  }
+
+  .button-background {
+    background: transparent;
+  }
+
+  &:hover {
+    .native-button {
+      color: #{$button-color-hover};
+    }
+
+    .button-background {
+      background: v(--hover-ui);
+    }
+  }
+
+  &.active, &.selected {
+    .native-button {
+      color: #{$button-color-active};
+    }
+
+    .button-background {
+      background: v(--active-ui);
+    }
+  }
+
+  &.has-focus:not(.active) .native-button {
+    border-color: var(--button-color-focus, v(--color-primary));
+  }
+
+  &.disabled {
+    .native-button {
+      color: v(--disabled-03) !important;
+      border-color: transparent !important;
+    }
+
+    .button-background {
+      background: transparent !important;
+    }
+
+    &.has-focus:not(.active) .native-button {
+      border-color: var(--button-color-focus, v(--color-neutral)) !important;
+    }
+  }
+}
+
+.button.variant-link {
+  .native-button {
+    color: #{$button-color};
+    border-color: transparent;
+  }
+
+  .button-content {
+    padding: 0 !important;
+  }
+
+  .button-background {
+    background: transparent;
+  }
+
+  &:hover {
+    .native-button {
+      color: #{$button-color-hover};
+    }
+  }
+
+  &.active, &.selected {
+    .native-button {
+      color: #{$button-color-active};
+    }
+  }
+
+  &.has-focus:not(.active) .native-button {
+    border-color: var(--button-color-focus, v(--color-primary));
+  }
+
+  &.disabled {
+    .native-button {
+      color: v(--disabled-03) !important;
+      border-color: transparent !important;
+    }
+
+    .button-background {
+      background: transparent !important;
+    }
+
+    &.has-focus:not(.active) .native-button {
+      border-color: var(--button-color-focus, v(--color-neutral)) !important;
+    }
+  }
+}
+
+/**
+  * Color Variants
+  */
+@each $color in [brand-primary, brand-secondary, primary, success, error, info, warning, secondary] {
+  :host(.color-#{$color}) .button {
+    --button-color: #{v(--color-#{$color})};
+    --button-color-hover: #{v(--color-#{$color}-70)};
+    --button-color-active: #{v(--color-#{$color}-80)};
+    --button-color-light: #{v(--color-#{$color}-20)};
+    --button-color-support: #{v(--color-#{$color})};
+  }
+}
+
+:host(.full-height) {
+  .button {
+    height: 100%;
+  }
+}
+
+:host([block]) {
+  display: block;
+
+  .native-button {
+    width: 100%;
+  }
+
+  .button-content {
+    justify-content: center;
+  }
+
+  .spinner {
+    margin: auto;
+  }
+}
+
+:host(.rounded) {
+  .native-button {
+    border-radius: 100%;
+  }
+
+  .button-content {
+    border-radius: 100%;
+  }
+
+  .button-background {
+    border-radius: 100%;
+  }
+}
+
+:host(.color-dark) .button {
+  --button-color: #{v(--color-black)};
+}
+
+:host-context([data-theme="dark"]):host(.color-dark) .button {
+  --button-color: #{v(--color-white)};
+}

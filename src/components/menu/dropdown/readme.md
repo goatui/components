@@ -18,7 +18,7 @@
 
 ## Methods
 
-### `setFocus() => Promise<void>`
+### `setFocus(elm?: HTMLElement) => Promise<void>`
 
 
 
@@ -44,6 +44,7 @@ graph TD;
   goat-dropdown --> goat-menu-item
   goat-dropdown --> goat-icon
   goat-menu --> goat-empty-state
+  goat-empty-state --> goat-svg
   style goat-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -3,6 +3,7 @@ layout: component
 title: Header
 menu:
 - title: Usage
+
 ---
 <div class='row pt-3'>
 
@@ -46,6 +47,16 @@ menu:
       </script>
 
       <goat-card>
+        <style>
+          .demo {
+            --header-height: auto;
+          }
+          .avatar-container {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-2);
+          }
+        </style>
         <goat-card-content>
 
           <goat-header
@@ -53,54 +64,9 @@ menu:
             class='brand'
             brand-logo='/assets/img/logo.svg'
             brand-url='/'
-            page-title='Button'>
+            page-title='Brand'>
 
-            <div slot='right-section'>
-
-              <goat-button icon='sun' class='theme-switcher'></goat-button>
-
-
-              <goat-button>
-                <goat-badge content='3' class='color-error'>
-                  <goat-icon name='bell' class='inherit'></goat-icon>
-                </goat-badge>
-              </goat-button>
-
-              <goat-button>
-                <goat-avatar class='inverted' name='Shivaji Varma' show-name src='/assets/img/avatar.png'></goat-avatar>
-              </goat-button>
-
-              <goat-dropdown positions='bottom-left' class='full-height'>
-                <goat-button
-                  icon='grid-3x3-gap'
-                  badge='3'
-                  type='dropdown'></goat-button>
-                <goat-menu slot='dropdown-content' class='menu' style='width: 200px'>
-                  <goat-menu-item value='cut'>
-                    <goat-icon name='scissors' slot='start' size='sm'></goat-icon>
-                    Cut
-                    <span slot='end'>⌘X</span>
-                  </goat-menu-item>
-                  <goat-menu-item value='copy'>
-                    <goat-icon name='files' slot='start' size='sm'></goat-icon>
-                    Copy
-                    <span slot='end'>⌘C</span>
-                  </goat-menu-item>
-                  <goat-menu-item value='paste'>
-                    <goat-icon name='clipboard' slot='start' size='sm'></goat-icon>
-                    Paste
-                    <span slot='end'>⌘X</span>
-                  </goat-menu-item>
-                  <goat-divider></goat-divider>
-                  <goat-menu-item value='delete'>
-                    <goat-icon name='trash' slot='start' size='sm'></goat-icon>
-                    Delete
-                    <span slot='end'>←</span>
-                  </goat-menu-item>
-                </goat-menu>
-
-              </goat-dropdown>
-            </div>
+            {% include_relative header-content.html %}
           </goat-header>
 
           <br />
@@ -108,122 +74,27 @@ menu:
           <goat-header
             brand-name='Goat'
             brand-logo='/assets/img/logo.svg'
+            class='float'
             brand-url='/'
-            page-title='Button'>
+            page-title='Non-brand - floating'>
 
-            <div slot='right-section'>
-
-              <goat-button icon='sun' class='theme-switcher'></goat-button>
-
-              <goat-button>
-                <goat-badge content='3' class='color-error'>
-                  <goat-icon name='bell' class='inherit'></goat-icon>
-                </goat-badge>
-              </goat-button>
-
-              <goat-button class='avatar-container'>
-                <goat-avatar name='Shivaji Varma' show-name></goat-avatar>
-              </goat-button>
-
-              <goat-dropdown positions='bottom-left'>
-                <goat-button
-                  icon='grid-3x3-gap'
-                  badge='3'
-                  type='dropdown'></goat-button>
-                <goat-menu slot='dropdown-content' class='menu' style='width: 200px'>
-                  <goat-menu-item value='cut'>
-                    <goat-icon name='scissors' slot='start' size='sm'></goat-icon>
-                    Cut
-                    <span slot='end'>⌘X</span>
-                  </goat-menu-item>
-                  <goat-menu-item value='copy'>
-                    <goat-icon name='files' slot='start' size='sm'></goat-icon>
-                    Copy
-                    <span slot='end'>⌘C</span>
-                  </goat-menu-item>
-                  <goat-menu-item value='paste'>
-                    <goat-icon name='clipboard' slot='start' size='sm'></goat-icon>
-                    Paste
-                    <span slot='end'>⌘X</span>
-                  </goat-menu-item>
-                  <goat-divider></goat-divider>
-                  <goat-menu-item value='delete'>
-                    <goat-icon name='trash' slot='start' size='sm'></goat-icon>
-                    Delete
-                    <span slot='end'>←</span>
-                  </goat-menu-item>
-                </goat-menu>
-
-              </goat-dropdown>
-            </div>
+            {% include_relative header-content.html %}
 
           </goat-header>
         </goat-card-content>
         <goat-card-content>
-          {% highlight html %}
-          <goat-header
-            brand-name='Goat'
-            class='brand'
-            brand-logo='/assets/img/logo.svg'
-            brand-url='/'
-            page-title='Button'>
-
-            <div slot='right-section'>
-
-              <goat-button icon='sun' class='theme-switcher'></goat-button>
-
-              <goat-button>
-                <goat-badge content='3' class='color-error'>
-                  <goat-icon name='bell' class='inherit'></goat-icon>
-                </goat-badge>
-              </goat-button>
-
-              <goat-button>
-                <goat-avatar class='inverted' name='Shivaji Varma'> Admin</goat-avatar>
-              </goat-button>
-
-              <goat-dropdown positions='bottom-left'>
-                <goat-button
-                  icon='grid-3x3-gap'
-                  badge='3'
-                  type='dropdown'></goat-button>
-                <goat-menu slot='dropdown-content' class='menu' style='width: 200px'>
-                  <goat-menu-item value='cut'>
-                    <goat-icon name='scissors' slot='start' size='sm'></goat-icon>
-                    Cut
-                    <span slot='end'>⌘X</span>
-                  </goat-menu-item>
-                  <goat-menu-item value='copy'>
-                    <goat-icon name='files' slot='start' size='sm'></goat-icon>
-                    Copy
-                    <span slot='end'>⌘C</span>
-                  </goat-menu-item>
-                  <goat-menu-item value='paste'>
-                    <goat-icon name='clipboard' slot='start' size='sm'></goat-icon>
-                    Paste
-                    <span slot='end'>⌘X</span>
-                  </goat-menu-item>
-                  <goat-divider></goat-divider>
-                  <goat-menu-item value='delete'>
-                    <goat-icon name='trash' slot='start' size='sm'></goat-icon>
-                    Delete
-                    <span slot='end'>←</span>
-                  </goat-menu-item>
-                </goat-menu>
-
-              </goat-dropdown>
-            </div>
-
-          </goat-header>
-          {% endhighlight %}
+{% capture sample-code %}<goat-header class='brand'
+    brand-name='Goat'
+    brand-logo='/assets/img/logo.svg'
+    brand-url='/'
+    page-title='Button'>
+            {% include_relative header-content.html %}</goat-header>
+          {% endcapture %}
+          {% include highlight-html.html content=sample-code %}
         </goat-card-content>
       </goat-card>
-
-
     </div>
     <!-- End About -->
-
-
   </div>
   <!-- End Content -->
 </div>

@@ -39,7 +39,7 @@
 ### Depends on
 
 - [goat-checkbox](../../form/checkbox)
-- [goat-button](../../form/button)
+- [goat-button](../../controls/button)
 - [goat-form-control](../../form/form-control)
 - [goat-select](../../form/select)
 - [goat-text](../../content/text)
@@ -60,6 +60,7 @@ graph TD;
   goat-select --> goat-text
   goat-select --> goat-menu-item
   goat-menu --> goat-empty-state
+  goat-empty-state --> goat-svg
   style goat-table fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

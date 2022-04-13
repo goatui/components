@@ -153,8 +153,8 @@ export class GoatTable {
                 }
                 return <goat-button size='sm'
                                     icon={icon}
-                                    class='col-action'
-                                    variant='ghost' color='secondary' onClick={() => {
+                                    class='col-action color-secondary'
+                                    variant='ghost' onClick={() => {
                   if (this.sortBy === col.name) {
                     if (this.sortOrder === 'asc')
                       this.sortOrder = 'desc';

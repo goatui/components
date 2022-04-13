@@ -97,7 +97,6 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
   @Prop() positions: string = 'bottom-right,top-right,bottom-left,top-left';
 
 
-
   /**
    * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
    */
@@ -129,8 +128,8 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
    * `input.focus()`.
    */
   @Method()
-  async setFocus() {
-    this.displayElement.focus();
+  async setFocus(): Promise<void> {
+    this.displayElement.focus()
   }
 
   /**
@@ -171,7 +170,6 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
 
   @Element() elm!: HTMLElement;
   private nativeInput?: HTMLInputElement;
-  private displayElement?: HTMLElement;
   private dropdownContentElm?: HTMLElement;
   private menuElm?: GoatMenu;
   private dropdownContentHeight: any;
@@ -181,6 +179,7 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
   @State() startSlotHasContent = false;
   @State() endSlotHasContent = false;
   @State() position: string;
+  private displayElement?: HTMLElement;
 
   private selectHandler = (selectItemValue) => {
     if (!this.disabled && !this.readonly) {
@@ -306,7 +305,6 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
   }
 
 
-
   @Listen('scroll', { target: 'window' })
   fixPosition() {
     if (this.isOpen && this.dropdownContentHeight && this.dropdownContentWidth) {
@@ -397,8 +395,8 @@ export class GoatSelect implements ComponentInterface, InputComponentInterface {
                 />;
               } else {
                 return <div class='input display-value'
-                            ref={(el) => this.displayElement = el}
                             tabindex='0'
+                            ref={input => this.displayElement = input}
                             aria-disabled={this.disabled ? 'true' : null}
                             onFocus={this.focusHandler}
                             onBlur={this.blurHandler}

@@ -1,0 +1,44 @@
+---
+layout: component
+title: Notification
+sections:
+  - title: States
+    source: sections/states.html
+  - title: Dismissible
+    source: sections/dismissible.html
+
+notificationContent: |
+  <div slot='title'>A new
+      <goat-link inline href='https://google.com'>software</goat-link>
+      update is available. See what’s new in version 2.0
+    </div>
+    <div slot='subtitle'>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Blandit non vel nulla sit gravida adipiscing.
+      Gravida fusce enim habitant etiam netus sed
+    </div>
+---
+<div class='row pt-3'>
+
+  {% include section-nav.html %}
+
+
+  <!-- Content -->
+  <div class='component-content'>
+
+    <div style='padding-bottom: var(--spacing-6)'>
+      <goat-text type='heading' size='md'>{{ page.title }}</goat-text>
+      <goat-text type='paragraph'>Use {{site.title}}’s custom input styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</goat-text>
+    </div>
+
+    {% for section in page.sections %}
+    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style='padding-bottom: var(--spacing-4)'>
+      <goat-text type='heading' level='2' size='sm'>{{ section.title }}</goat-text>
+
+      {% include_relative {{ section.source }} %}
+    </div>
+    {% endfor %}
+
+  </div>
+  <!-- End Content -->
+
+</div>

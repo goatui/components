@@ -9,11 +9,11 @@
   ],
   "homepage": "https://goatui.com",
   "bugs": {
-    "url": "https://github.com/goatui/ui/issues"
+    "url": "https://github.com/goatui/components/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goatui/ui.git"
+    "url": "git+https://github.com/goatui/components.git"
   },
   "license": "MIT",
   "author": "Shivaji Varma <contact@shivajivarma.com>",
@@ -46,6 +46,8 @@
     "@types/node": "^16.9.6",
     "concurrently": "^6.2.1",
     "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "sass": "^1.49.11",

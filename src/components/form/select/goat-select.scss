@@ -28,25 +28,25 @@
   }
 
   &.bottom-right .dropdown-content {
-    top: calc(100% + #{v(--spacing-1)});
+    top: calc(100% + #{v(--spacing-2)});
     left: 0;
     transform-origin: top;
   }
 
   &.bottom-left .dropdown-content {
-    top: calc(100% + #{v(--spacing-1)});
+    top: calc(100% + #{v(--spacing-2)});
     right: 0;
     transform-origin: top;
   }
 
   &.top-right .dropdown-content {
-    bottom: calc(100% + #{v(--spacing-1)});
+    bottom: calc(100% + #{v(--spacing-2)});
     left: 0;
     transform-origin: bottom;
   }
 
   &.top-left .dropdown-content {
-    bottom: calc(100% + #{v(--spacing-1)});
+    bottom: calc(100% + #{v(--spacing-2)});
     right: 0;
     transform-origin: bottom;
   }
@@ -87,7 +87,7 @@
 
   .input-container:not(.has-value) {
     .display-value {
-      color: v(--text-03);
+      color: v(--text-placeholder);
     }
   }
 

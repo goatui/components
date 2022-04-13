@@ -1,0 +1,84 @@
+@import "../../../globalStyles/commons";
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(1rem)
+  }
+}
+
+@keyframes hide {
+  100% {
+    opacity: 0;
+    transform: translateY(-1rem);
+    visibility: hidden;
+  }
+}
+
+
+:host {
+  display: block;
+  position: absolute;
+  z-index: v(--z-index-notification-manager);
+}
+
+:host([name='global']) {
+  position: fixed;
+  width: 300px;
+}
+
+.notification-manager {
+
+  display: flex;
+  flex-direction: column;
+  margin: v(--spacing-4);
+
+  .notification {
+    animation: reveal 0.5s ease-in;
+  }
+
+  .notification.hidden {
+    visibility: hidden;
+    opacity: 0;
+
+    transition: visibility 0s ease-out 1s, opacity 1s ease-out;
+  }
+
+}
+
+:host([position="bottom-right"]) {
+  bottom: 0;
+  right: 0;
+
+  .notification-manager {
+    align-items: flex-end;
+  }
+}
+
+:host([position="bottom-left"]) {
+  bottom: 0;
+  left: 0;
+
+  .notification-manager {
+    align-items: flex-start;
+  }
+}
+
+:host([position="top-left"]) {
+  top: 0;
+  left: 0;
+
+  .notification-manager {
+    align-items: flex-start;
+  }
+}
+
+:host([position="top-right"]) {
+  top: 0;
+  right: 0;
+
+  .notification-manager {
+    align-items: flex-end;
+  }
+}
+

@@ -1,0 +1,103 @@
+@import "../../../globalStyles/commons";
+
+
+:host {
+  display: block;
+  margin-bottom: v(--spacing-3);
+}
+
+.notification {
+  border-style: solid;
+  border-color: transparent;
+  display: flex;
+
+  .state-icon {
+    padding: v(--spacing-5) v(--spacing-4);
+  }
+
+  .content {
+    flex: 1;
+    padding: v(--spacing-4) 0;
+
+    .title {
+      @include font-style(text-md);
+      font-weight: v(--font-weight-bold);
+    }
+
+    .subtitle {
+      @include font-style(text-sm);
+    }
+  }
+
+
+  .close-button {
+    margin: 0;
+    padding: v(--spacing-3);
+  }
+}
+
+
+@mixin alertState($color, $dark) {
+  @if $dark {
+    .alert {
+      background-color: v(--color-#{$color});
+
+      .content {
+        .message {
+          color: white;
+          --link-color: white;
+        }
+
+        .description {
+          color: v(--text-primary);
+        }
+      }
+    }
+  } @else {
+    .alert {
+      background-color: v(--color-#{$color}-20);
+
+      .content {
+        .message {
+          color: v(--color-#{$color}-70);
+          --link-color: #{v(--color-#{$color}-70)};
+        }
+
+        .description {
+          color: v(--text-secondary);
+        }
+      }
+    }
+  }
+}
+
+@each $state in [info, success, warning, error] {
+  :host([state="#{$state}"]) {
+    .notification {
+      border-left-color: v(--support-#{$state}-inverse);
+      color: v(--text-inverse);
+      background: v(--background-inverse);
+      border-width: 0 0 0 3px;
+
+      .close-button {
+        --button-color: #{v(--text-inverse)};
+      }
+      .state-icon {
+        color: v(--support-#{$state}-inverse);
+      }
+
+      &.low-contrast {
+        color: var(--color-neutral-100);
+        border-color: v(--support-#{$state});
+        background: v(--color-#{$state}-10);
+        border-width: 1px 1px 1px 3px;
+        .close-button {
+          --button-color: #{v(--color-neutral-100)};
+        }
+        .state-icon {
+          color: v(--support-#{$state});
+        }
+      }
+    }
+  }
+}

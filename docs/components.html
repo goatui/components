@@ -49,11 +49,7 @@ title: Components
   }
 
   .card-wrapper:hover .body {
-    background: var(--color-neutral-10);
-  }
-
-  html[data-theme="dark"] .card-wrapper:hover .body {
-    background-color: var(--color-neutral-80);
+    background: var(--ui-01);
   }
 
   .card-wrapper .header {
@@ -64,7 +60,7 @@ title: Components
   }
 
   .text {
-    --text-color: var(--text-01);
+    --text-color: var(--text-primary);
   }
 
   #component-search {
@@ -73,6 +69,10 @@ title: Components
 
   .hidden {
     display: none;
+  }
+
+  goat-card > goat-card-content:first-child {
+    background: var(--background);
   }
 </style>
 

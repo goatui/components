@@ -1,5 +1,6 @@
-import { Component, ComponentInterface, h, Host, Prop } from '@stencil/core';
-import EmptyIcon from './empty.svg';
+import { Component, ComponentInterface, getAssetPath, h, Host, Prop } from '@stencil/core';
+
+
 /**
  * @name Empty State
  * @description A message that displays when there is no information to display.
@@ -17,7 +18,7 @@ import EmptyIcon from './empty.svg';
 })
 export class GoatEmptyState implements ComponentInterface {
 
-  @Prop({ reflect: true }) illustration: 'no-data' = 'no-data';
+  @Prop({ reflect: true }) illustration: 'no-document' = 'no-document';
 
   @Prop() vertical: boolean = false;
 
@@ -25,7 +26,9 @@ export class GoatEmptyState implements ComponentInterface {
     return (
       <Host>
         <div class='empty-state'>
-          <div innerHTML={EmptyIcon} class='illustration' />
+          <goat-svg class='illustration'
+                    src={getAssetPath(`../assets/images/empty-state/${this.illustration}.svg`)} />
+
           <div class='content'>
             <div class='title'>
               <slot name='title' />

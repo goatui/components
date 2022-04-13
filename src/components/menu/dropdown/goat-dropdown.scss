@@ -1,12 +1,13 @@
-@import "../../../styles/scss/commons";
+@import "../../../globalStyles/commons";
 
 :host {
   display: inline-block;
+  height: var(--dropdown-height, auto);
 }
 
 .dropdown {
   position: relative;
-  height: var(--dropdown-height, 100%);
+  height: var(--dropdown-height, auto);
 
   .dropdown-button {
     border: none;
@@ -38,25 +39,25 @@
   }
 
   &.bottom-right .dropdown-content {
-    top: calc(100% + #{v(--spacing-1)});
+    top: calc(100% + #{v(--spacing-2)});
     left: 0;
     transform-origin: top;
   }
 
   &.bottom-left .dropdown-content {
-    top: calc(100% + #{v(--spacing-1)});
+    top: calc(100% + #{v(--spacing-2)});
     right: 0;
     transform-origin: top;
   }
 
   &.top-right .dropdown-content {
-    bottom: calc(100% + #{v(--spacing-1)});
+    bottom: calc(100% + #{v(--spacing-2)});
     left: 0;
     transform-origin: bottom;
   }
 
   &.top-left .dropdown-content {
-    bottom: calc(100% + #{v(--spacing-1)});
+    bottom: calc(100% + #{v(--spacing-2)});
     right: 0;
     transform-origin: bottom;
   }
@@ -76,15 +77,13 @@
   }
 
   .items {
-    min-width: 10rem;
+    min-width: 12rem;
   }
 
 }
 
 :host([has-focus]) {
   .dropdown {
-    .dropdown-button {
-      @include focus-ring;
-    }
+    outline: none;
   }
 }

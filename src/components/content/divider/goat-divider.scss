@@ -1,7 +1,7 @@
-@import "../../../styles/scss/commons";
+@import "../../../globalStyles/commons";
 
 :host {
-  color: v(--text-02);
+  color: v(--text-secondary);
   display: block;
 }
 

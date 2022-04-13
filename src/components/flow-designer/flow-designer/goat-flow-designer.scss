@@ -1,4 +1,4 @@
-@import "../../../styles/scss/commons";
+@import "../../../globalStyles/commons";
 
 :host {
   display: block;
@@ -38,7 +38,7 @@
 }
 
 .activity {
-  fill: v(--ui-background);
+  fill: v(--background);
   stroke: v(--border-color);
 }
 

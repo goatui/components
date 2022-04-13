@@ -18,7 +18,7 @@
 
 ### Depends on
 
-- [goat-button](../../form/button)
+- [goat-button](../../controls/button)
 - [goat-spinner](../spinner)
 
 ### Graph

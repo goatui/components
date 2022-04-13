@@ -19,9 +19,7 @@ export class GoatBadge {
     return (
       <Host>
         <div class='badge'>
-          <div class='badge-content'>
-            {this.content}
-          </div>
+          {this.content && <div class='badge-content'>{this.content}</div>}
           <slot />
         </div>
       </Host>

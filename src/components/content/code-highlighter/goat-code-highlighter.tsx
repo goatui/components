@@ -80,10 +80,10 @@ export class GoatCodeHighlighter implements ComponentInterface {
         {this.compiledCode && <div class='code-highlighter'>
           <div class='scroll-wrapper'>
             <div class={{ 'line-numbers-wrapper': true, 'line-numbers': this.lineNumbers }}>
-              <pre class='highlighter line-numbers' innerHTML={this.compiledCode} />
+              <pre dir='ltr' class='highlighter line-numbers' innerHTML={this.compiledCode} />
             </div>
           </div>
-          <goat-button class='copy-btn' color='secondary' variant='ghost' icon='files' aria-label='Copy code'
+          <goat-button class='copy-btn color-secondary' variant='ghost' icon='files' aria-label='Copy code'
                        title='Copy code' onGoat:click={this.handleCopyClick} />
         </div>}
         {!this.compiledCode && <div class='code-loader'>

@@ -1,4 +1,4 @@
-@import "../../../styles/scss/commons";
+@import "../../../globalStyles/commons";
 
 :host {
   display: block;
@@ -10,7 +10,7 @@
   border: 1px solid v(--border-color);
   border-radius: v(--border-radius);
   height: 100%;
-  background-color: v(--ui-background);
+  background-color: v(--background);
 }
 
 :host([shadow-level="xxl"]) .card {

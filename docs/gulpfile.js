@@ -95,7 +95,7 @@ gulp.task('default', ['watch', 'sass', 'serve'])
 
 
 //
-// CSS minifier - merges and minifies the below given list of Front libraries into one theme.min.css
+// CSS minifier - merges and minifies the below given list of Front libraries into one theme.css
 //
 gulp.task('minCSS', function() {
   return gulp.src([

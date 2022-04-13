@@ -1,6 +1,6 @@
 @import "../../../3d-party/prism/prism";
 @import "../../../3d-party/prism/prism-line-numbers";
-@import "../../../styles/scss/commons";
+@import "../../../globalStyles/commons";
 
 
 :host {
@@ -20,9 +20,9 @@
 .code-highlighter {
   position: relative;
   height: 100%;
-  background-color: v(--field-01);
+  background-color: v(--color-brand-primary-10);
   padding: v(--spacing-3);
-  color: v(--text-01);
+  color: v(--text-primary);
 
   .scroll-wrapper {
     height: 100%;
@@ -51,3 +51,7 @@
 
 }
 
+
+:host-context([data-theme="dark"]) .code-highlighter {
+  background-color: v(--color-brand-primary-100);
+}

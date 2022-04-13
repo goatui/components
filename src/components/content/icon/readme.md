@@ -17,12 +17,14 @@
 
 ### Used by
 
- - [goat-button](../../form/button)
+ - [goat-button](../../controls/button)
  - [goat-dropdown](../../menu/dropdown)
  - [goat-input](../../form/input)
+ - [goat-notification](../notification)
  - [goat-select](../../form/select)
- - [goat-tab](../../navigation/tab)
+ - [goat-tab](../../navigation/tabs/tab)
  - [goat-textarea](../../form/textarea)
+ - [goat-toast](../toast)
 
 ### Graph
 ```mermaid
@@ -30,9 +32,11 @@ graph TD;
   goat-button --> goat-icon
   goat-dropdown --> goat-icon
   goat-input --> goat-icon
+  goat-notification --> goat-icon
   goat-select --> goat-icon
   goat-tab --> goat-icon
   goat-textarea --> goat-icon
+  goat-toast --> goat-icon
   style goat-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

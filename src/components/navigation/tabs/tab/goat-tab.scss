@@ -1,0 +1,171 @@
+@import "../../../../globalStyles/commons";
+
+$border-width: 0.125;
+$tab-color: var(--tab-color, v(--color-primary));
+
+@function removeBorder($width) {
+  @return #{($width*1 - ($border-width * 2))}rem;
+}
+
+:host {
+  display: inline-block;
+}
+
+.tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: var(--button-height, auto);
+
+  .native-button {
+    height: 100%;
+    cursor: pointer;
+    z-index: v(--z-index-button);
+    background: transparent;
+    padding: 0;
+    border: none;
+    border-bottom: 2px solid transparent;
+    outline: none;
+
+    .slot-container {
+      display: none;
+    }
+  }
+
+  .tab-content {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: 100%;
+    gap: v(--spacing-2);
+    border: 2px solid transparent;
+    border-bottom: 0;
+  }
+
+  .tab-background {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  &.disabled .native-button {
+    cursor: not-allowed;
+  }
+
+  &.has-content .slot-container {
+    display: flex;
+  }
+
+}
+
+/**
+  * SIZES
+  */
+.tab.size-sm, .tab.size-small {
+  .tab-content {
+    padding: removeBorder(0.5) removeBorder(0.875);
+    @include font-style(text-sm);
+    font-weight: var(--button-font-weight, v(--font-weight-medium));
+  }
+}
+
+
+.tab.size-md, .tab.size-medium {
+  .tab-content {
+    padding: removeBorder(0.625) removeBorder(1.125);
+    @include font-style(text-sm);
+    font-weight: var(--button-font-weight, v(--font-weight-medium));
+  }
+}
+
+.tab.size-lg, .tab.size-large {
+  .tab-content {
+    padding: removeBorder(0.625);
+    @include font-style(text-md);
+    font-weight: var(--button-font-weight, v(--font-weight-medium));
+  }
+}
+
+.tab.size-xl {
+  .tab-content {
+    padding: removeBorder(0.75);
+    @include font-style(text-md);
+    font-weight: var(--button-font-weight, v(--font-weight-medium));
+  }
+}
+
+
+.tab.size-xxl {
+  .tab-content {
+    padding: removeBorder(1);
+    @include font-style(text-lg);
+    font-weight: var(--button-font-weight, v(--font-weight-medium));
+  }
+}
+
+
+/**
+ * Tab variant definitions
+ */
+.tab {
+
+  .native-button {
+    color: v(--text-secondary);
+    border-bottom-color: v(--border-subtle-00);
+  }
+
+  .tab-background {
+    background: transparent;
+  }
+
+  &:hover {
+    .native-button {
+      color: v(--text-primary);
+      border-bottom-color: v(--border-strong-01);
+    }
+  }
+
+  &.selected {
+    .native-button {
+      color: v(--text-primary);
+      border-bottom-color: #{$tab-color};
+    }
+
+    .tab-content {
+      font-weight: v(--font-weight-bold);
+    }
+  }
+
+
+  &.has-focus:not(.active) {
+    .native-button {
+      border-bottom-color: v(--color-primary);
+    }
+
+    .tab-content {
+      border-color: v(--color-primary);
+    }
+  }
+
+  &.disabled {
+    .native-button {
+      color: v(--text-disabled);
+      border-bottom-color: v(--border-disabled) !important;
+    }
+
+    &.has-focus:not(.active) .tab-content {
+      border-color: transparent !important;
+    }
+  }
+}
+
+/**
+  * Color Variants
+  */
+@each $color in [brand-primary, brand-secondary, primary, success, error, info, warning, secondary] {
+  :host(.color-#{$color}) .tab {
+    --tab-color: #{v(--color-#{$color})};
+  }
+}

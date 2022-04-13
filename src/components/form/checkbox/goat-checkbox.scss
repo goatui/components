@@ -1,9 +1,9 @@
-@import "../../../styles/scss/commons";
+@import "../../../globalStyles/commons";
 @import "./goat-checkbox-utils";
 
 :host {
   display: inline-block;
-  color: v(--text-01);
+  color: v(--text-primary);
 }
 
 .checkbox {
@@ -213,15 +213,15 @@
 
 .checkbox.readonly {
   cursor: default;
-  color: v(--disabled-02) !important;
-  border-color: v(--disabled-02) !important;
+  color: v(--text-disabled) !important;
+  border-color: v(--text-disabled) !important;
 
   &.state-checked .box {
-    background: v(--disabled-02) !important;
+    background: v(--text-disabled) !important;
   }
 
   .box {
-    border: 1px solid v(--disabled-02) !important;
+    border: 1px solid v(--text-disabled) !important;
   }
 
   .tick {
@@ -233,15 +233,15 @@
 
 .checkbox.disabled {
   cursor: not-allowed;
-  color: v(--disabled-02) !important;
-  border-color: v(--disabled-02) !important;
+  color: v(--text-disabled) !important;
+  border-color: v(--text-disabled) !important;
 
   &.state-checked .box {
-    background: v(--disabled-02) !important;
+    background: v(--text-disabled) !important;
   }
 
   .box {
-    border: 1px solid v(--disabled-02) !important;
+    border: 1px solid v(--text-disabled) !important;
   }
 
   .tick {

@@ -44,6 +44,7 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   goat-menu --> goat-empty-state
+  goat-empty-state --> goat-svg
   goat-dropdown --> goat-menu
   goat-select --> goat-menu
   style goat-menu fill:#f9f,stroke:#333,stroke-width:4px

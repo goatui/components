@@ -1,4 +1,4 @@
-@import "../../../styles/scss/commons";
+@import "../../../globalStyles/commons";
 
 :host {
   display: block;
@@ -21,22 +21,32 @@
 
   svg {
     width: 100%;
-    height: 100%;
   }
 
-  --empty-state-primary: #{v(--color-primary)};
-  --empty-state-secondary: #{v(--color-primary-90)};
+  --empty-state-outline: #{v(--color-brand-primary)};
+  --empty-state-bg-primary: #{v(--color-brand-secondary)};
+  --empty-state-bg-secondary: #{v(--color-brand-secondary-40)};
+  --empty-state-bg-tertiary: #{v(--color-brand-secondary-30)};
 
-  --empty-state-bg-primary: #{v(--color-neutral-50)};
-  --empty-state-bg-secondary: #{v(--color-neutral-30)};
-  --empty-state-bg: #{v(--color-white)};
+  --empty-state-text: #{v(--text-primary)};
+  --empty-state-bg-surface: #{v(--background)};
+
+  --empty-state-green: #{v(--color-success-50)};
 }
+
+:host-context([data-theme="dark"]) {
+  .illustration {
+    --empty-state-bg-secondary: #{v(--color-brand-secondary-80)};
+    --empty-state-bg-tertiary: #{v(--color-brand-secondary-100)};
+  }
+}
+
 
 .content {
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: v(--spacing-3);
+  padding: v(--spacing-2) 0;
   text-align: center;
   justify-content: center;
 
@@ -44,21 +54,13 @@
     @include font-style(text-md);
     font-weight: v(--font-weight-semi-bold);
     margin-bottom: v(--spacing-2);
-    color: var(--text-color, v(--text-01))
+    color: var(--text-color, v(--text-primary))
   }
 
   .description {
     @include font-style(text-sm);
     margin-bottom: v(--spacing-4);
-    color: var(--text-color, v(--text-02))
-  }
-}
-
-:host-context([data-theme="dark"]) {
-  .illustration {
-    --empty-state-primary: #{v(--color-primary-90)};
-    --empty-state-secondary: #{v(--color-primary)};
-    --empty-state-bg: #{v(--color-yellow-30)};
+    color: var(--text-color, v(--text-secondary))
   }
 }
 

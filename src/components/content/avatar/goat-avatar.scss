@@ -1,4 +1,4 @@
-@import "../../../styles/scss/commons";
+@import "../../../globalStyles/commons";
 
 :host {
   display: inline-block;
@@ -8,7 +8,8 @@
 .avatar-container {
   display: flex;
   align-items: center;
-  gap: v(--spacing-2)
+  gap: v(--spacing-2);
+  line-height: 0;
 }
 
 .avatar {

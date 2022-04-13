@@ -41,8 +41,12 @@ export class GoatDropdown implements ComponentInterface {
   }
 
   @Method()
-  async setFocus() {
-    this.displayElement.focus();
+  async setFocus(elm?: HTMLElement) {
+    const firstChild = elm.children[0] || this.elm.children[0];
+    // @ts-ignore
+    if (firstChild.setFocus)
+      // @ts-ignore
+      firstChild.setFocus();
   }
 
   @Listen('goat:menu-item-click', { target: 'window' })
@@ -73,14 +77,15 @@ export class GoatDropdown implements ComponentInterface {
   @Element() elm!: HTMLElement;
   @State() hasFocus = false;
   @State() position: string;
-  private displayElement?: HTMLElement;
   private dropdownContentHeight: any;
   private dropdownContentWidth: any;
 
-  private closeList = () => {
+  private closeList() {
     if (!this.disabled && this.isOpen) {
       this.isOpen = false;
-      setTimeout(() => this.setFocus(), 100);
+      setTimeout(() => {
+        this.setFocus(this.elm);
+      }, 100);
     }
   };
 
@@ -202,7 +207,6 @@ export class GoatDropdown implements ComponentInterface {
         'is-open': this.isOpen,
       }}>
         <button class='dropdown-button'
-                ref={(el) => this.displayElement = el}
                 onKeyDown={this.keyDownHandler}
                 tabindex='-1'
                 onBlur={this.blurHandler}

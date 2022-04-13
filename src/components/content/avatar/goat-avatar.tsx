@@ -23,8 +23,6 @@ export class GoatAvatar {
 
   @Prop() src: string = '';
 
-  @Prop() showName: boolean = false;
-
   private getInitials() {
     const name = this.name.split(' ');
     let firstName = name[0] ? name[0].charAt(0).toUpperCase() : '';
@@ -65,10 +63,6 @@ export class GoatAvatar {
               })()
             }
           </div>
-
-          {
-            this.showName && <span style={{ fontSize: this.getFontSize() }}>{this.name}</span>
-          }
         </div>
       </Host>
     );

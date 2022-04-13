@@ -1,4 +1,4 @@
-@import "../../../styles/scss/commons";
+@import "../../../globalStyles/commons";
 
 
 :host {
@@ -26,7 +26,7 @@
   }
 
   &.active {
-    color: var(--link-color-active, v(--text-01));
+    color: var(--link-color-active, v(--text-primary));
   }
 
 

@@ -1,0 +1,47 @@
+@import "../../../globalStyles/commons";
+
+
+:host {
+  display: inline-block;
+  margin-bottom: v(--spacing-3);
+}
+
+.toast {
+  border-radius: v(--border-radius);
+  display: flex;
+  align-items: center;
+  gap: v(--spacing-2);
+  padding: v(--spacing-2) v(--spacing-4);
+  border: 1px solid v(--ui-03);
+  box-shadow: v(--shadow-lg);
+  background-color: v(--background);
+
+  .content {
+    flex: 1;
+    color: v(--text-primary);
+
+    .message {
+      @include font-style(text-md);
+    }
+
+    .description {
+      @include font-style(text-sm);
+    }
+  }
+
+  .state-icon {
+    line-height: 0;
+  }
+}
+
+
+@each $state in [info, success, warning, error] {
+  :host([state="#{$state}"]) {
+    .state-icon {
+      color: v(--color-#{$state});
+    }
+  }
+  :host-context([data-theme="dark"]):host([state="#{$state}"]) {
+
+  }
+}

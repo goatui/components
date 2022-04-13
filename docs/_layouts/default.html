@@ -1,121 +1,81 @@
-<!DOCTYPE html>
-<html lang='en'>
-
-<head>
-  <!-- Title -->
-  <title>{% if page.title %}{{ page.title }} &middot; {{ site.title }}{% else %}{{ site.title }} &middot; {{
-    site.tagline }}{% endif %}</title>
-  <meta name='description'
-        content='{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}'>
-
-  <meta name='author' content='{{ site.author.name }}'>
-  <meta name='copyright' content="(c) {{ site.time | date: '%Y' }} {{ site.author.name }}">
-
-  <link rel='canonical' href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-
-  <!-- Required Meta Tags Always Come First -->
-  <meta charset='utf-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
-
-  <!-- Favicon -->
-  <link rel='shortcut icon' href='/assets/img/favicon.svg'>
-
-  <!--  Meta tags -->
-  <meta name='keywords' content='web components, goat button, goat input, goat grid, goat ui library'>
-  <meta name='description'
-        content="{{site.title}} contains most used web components built using Stencil. So you don't need to include any additional framework dependencies, You can simple import required component js, and right away start using it.">
-
-
-  <style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');</style>
-
-  <!-- CSS Implementing Plugins -->
-  <link rel='stylesheet' href='/assets/vendor/prism/prism.css'>
-  <link rel='stylesheet' href='{{site.themeCss}}'/>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: var(--font-family-base);
-    }
-  </style>
-
-
-
-  <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css' />
-  <script data-ad-client='ca-pub-3120721550776061' async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
-</head>
-
-<body itemscope itemtype='http://schema.org/WebPage'>
-
-{{ content }}
-
-<script type='module' src='{{site.script}}'></script>
-
-<!-- JS Global Compulsory -->
-<script src='/assets/vendor/jquery/dist/jquery.min.js'></script>
-
-<!-- JS Implementing Plugins -->
-<script src='/assets/vendor/prism/prism.js'></script>
-
-
-<script src='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js'></script>
-<!-- JS -->
-<script src='/assets/js/autocomplete.js'></script>
-<script src='/assets/js/main.js'></script>
-<style>
-  .toast {
-    opacity: 1 !important;
-    min-width: 100vh !important;
-  }
-
-  figure.highlight {
-    background: aliceblue;
-  }
-</style>
+---
+layout: base
+---
 <script>
-  toastr.options = {
-    'closeButton': false,
-    'debug': false,
-    'newestOnTop': false,
-    'progressBar': false,
-    'positionClass': 'toast-top-full-width',
-    'preventDuplicates': false,
-    'onclick': null,
-    'showDuration': '300',
-    'hideDuration': '300',
-    'timeOut': '3000',
-    'extendedTimeOut': '0',
-    'showEasing': 'swing',
-    'hideEasing': 'linear',
-    'showMethod': 'fadeIn',
-    'hideMethod': 'fadeOut',
-  };
+  document.addEventListener('DOMContentLoaded', function () {
+    const themeSwitcher = document.querySelector('#theme-switcher');
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      themeSwitcher.icon = theme === 'dark' ? 'moon-fill' : 'sun-fill';
+      localStorage.setItem('theme', theme);
+    }
 
-  myConsole = {
-    log: function(message) {
-      toastr['success'](message);
-    },
-    warn: function(message) {
-      toastr['warning'](message);
-    },
-  };
+    const theme = localStorage.getItem('theme') || 'light';
+    setTheme(theme);
+
+    themeSwitcher.addEventListener('click', function () {
+      const theme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
+      setTheme(theme);
+    });
+
+    const dirSwitcher = document.querySelector('#dir-switcher');
+    function setDir(dir) {
+      document.documentElement.setAttribute('dir', dir);
+      themeSwitcher.innetText = dir;
+      localStorage.setItem('dir', dir);
+    }
+
+    const dir = localStorage.getItem('dir') || 'ltr';
+    setDir(dir);
+
+    dirSwitcher.addEventListener('click', function () {
+      const dir = localStorage.getItem('dir') === 'ltr' ? 'rtl' : 'ltr';
+      setDir(dir);
+    });
+  });
 </script>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src='https://www.googletagmanager.com/gtag/js?id=G-YVVYZC1HFF'></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
+<nav class='top-nav'>
+  <goat-header
+    class='brand actions-separated'
+    brand-logo='/assets/img/logo.svg'
+    brand-name='{{site.title}}'
+    brand-url='/'
+    {% if page.root != true %}page-title='{{page.title}}' {% endif %}>
 
-  function gtag() {
-    dataLayer.push(arguments);
-  }
+    <div slot='right-section'>
+      <goat-button  icon='sun-fill' id='theme-switcher'></goat-button>
 
-  gtag('js', new Date());
+      <goat-button id='dir-switcher'>LTR</goat-button>
 
-  gtag('config', 'G-YVVYZC1HFF');
-</script>
-</body>
-</html>
+      {% if page.root %}
+      <goat-button icon='github'
+                          class='show-desktop full-height'
+                          href='https://github.com/{{site.github_username}}/{{site.github_project}}'
+                          target='_blank'>Github</goat-button>
+
+      <goat-button icon='github'
+                          class='show-mobile full-height'
+                          href='https://github.com/{{site.github_username}}/{{site.github_project}}'
+                          target='_blank'></goat-button>
+
+
+      {% else %}
+      <goat-button icon='bug'
+                          class='show-desktop full-height'
+                          href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues'
+                          target='_blank'>Report Issue</goat-button>
+
+      <goat-button icon='bug'
+                          class='show-mobile full-height'
+                          href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues'
+                          target='_blank'></goat-button>
+      {% endif %}
+
+    </div>
+  </goat-header>
+</nav>
+
+<main>
+  {{ content }}
+</main>

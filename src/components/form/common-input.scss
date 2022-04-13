@@ -1,12 +1,12 @@
 @use "sass:map";
-@import "../../styles/scss/commons";
+@import "../../globalStyles/commons";
 
 :host {
   display: block;
   margin-bottom: v(--spacing-3);
   --input-border-radius: #{v(--border-radius)};
   --input-border-style: solid;
-  color: v(--text-01);
+  color: v(--text-primary);
 }
 
 .input-container {
@@ -31,10 +31,10 @@
     width: 100%;
     cursor: inherit;
     padding: 0;
-    color: v(--text-01);
+    color: v(--text-primary);
 
     &::placeholder {
-      color: v(--text-03);
+      color: v(--text-placeholder);
     }
   }
 
@@ -84,7 +84,7 @@
     cursor: pointer;
 
     &:hover {
-      --text-color: var(--text-02);
+      --text-color: var(--text-secondary);
     }
   }
 }
@@ -105,20 +105,20 @@
 
 :host-context(.input-state-error) {
   .input-container {
-    border-color: v(--support-01);
+    border-color: v(--support-error);
 
     &.has-focus {
-      @include focus-ring(v(--support-01));
+      @include focus-ring(v(--support-error));
     }
   }
 }
 
 :host-context(.input-state-success) {
   .input-container {
-    border-color: v(--support-02);
+    border-color: v(--support-success);
 
     &.has-focus {
-      @include focus-ring(v(--support-02));
+      @include focus-ring(v(--support-success));
     }
   }
 }
@@ -206,11 +206,11 @@
     opacity: 1 !important;
 
     .input {
-      color: v(--disabled-02) !important;
+      color: v(--text-disabled) !important;
     }
   }
 
-  color: v(--disabled-02) !important;
+  color: v(--text-disabled) !important;
 }
 
 

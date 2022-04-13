@@ -94,6 +94,7 @@ graph TD;
   goat-select --> goat-text
   goat-select --> goat-menu-item
   goat-menu --> goat-empty-state
+  goat-empty-state --> goat-svg
   goat-table --> goat-select
   style goat-select fill:#f9f,stroke:#333,stroke-width:4px
 ```

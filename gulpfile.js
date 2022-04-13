@@ -1,14 +1,28 @@
 const { src, dest, watch, series } = require('gulp');
 const fs = require('fs');
+const cleanCSS = require('gulp-clean-css');
+const rename = require('gulp-rename');
 
 const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require('gulp-sourcemaps');
 
-const SRC = './src/styles/theme/theme.scss';
-const DEST = './src/styles/';
+const SRC = './src/globalStyles/theme/theme.scss';
+const DEST = './src/assets/styles/';
+
 
 function scssTask() {
-  return src(SRC).pipe(sourcemaps.init()).pipe(sass()).pipe(sourcemaps.write('.')).pipe(dest(DEST));
+  return src(SRC)
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(sourcemaps.write('.'))
+    .pipe(dest(DEST));
+}
+
+function miniCSS() {
+  return src(SRC)
+    .pipe(sass().on('error', sass.logError))
+    .pipe(rename('theme2.css'))
+    .pipe(dest(DEST));
 }
 
 
@@ -38,7 +52,7 @@ function releaseToDocs(cb) {
   });
 }
 
-exports.themeBuild = scssTask;
+exports.themeBuild = series(scssTask);
 exports.releaseToDocs = releaseToDocs;
 exports.themeWatch = function() {
   watch(SRC, scssTask);

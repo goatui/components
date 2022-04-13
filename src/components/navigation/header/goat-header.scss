@@ -1,0 +1,174 @@
+@import "../../../globalStyles/commons";
+
+$header-height: var(--header-height, #{v(--spacing-12)});
+
+:host {
+  display: block;
+}
+
+.header {
+  height: $header-height;
+  padding: 0 v(--spacing-8);
+  display: flex;
+  align-items: center;
+}
+
+
+@include for-phone-only {
+  .header {
+    padding: 0 v(--spacing-4);
+  }
+}
+
+.header-content {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+
+  .section {
+    display: flex;
+    align-items: center;
+  }
+  .left-section {
+    flex: 1;
+
+    .brand-link {
+      display: flex;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: v(--spacing-3);
+      height: 100%;
+      padding: 0 v(--spacing-2);
+      font-weight: v(--font-weight-bold);
+
+      .logo {
+        height: 2rem;
+      }
+    }
+
+    .page-title-divider {
+      height: 66%;
+    }
+
+    .page-title {
+      padding: 0 v(--spacing-2);
+    }
+  }
+
+
+  .right-section {
+    slot::slotted(*) {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: var(--header-action-gap, 0);
+    }
+  }
+
+  --dropdown-height: 100%;
+  --button-height: 100%;
+}
+
+:host(.actions-separated) .header-content {
+  --header-action-gap: #{v(--spacing-2)};
+}
+:host(:not(.actions-separated)) .header-content {
+  --button-border-radius: none;
+}
+
+/*
+ * Colors
+ */
+
+.header {
+  background-color: v(--color-white);
+
+  .header-content {
+    background-color: v(--color-white);
+  }
+
+  .left-section {
+    .brand {
+      color: v(--text-primary);
+    }
+
+    .brand-link {
+      --button-text-color: #{v(--text-primary)};
+      --button-color: transparent;
+      --button-color-hover: #{v(--color-brand-primary-20)};
+      --button-color-active: #{v(--color-brand-primary-30)};
+      --button-color-focus: #{v(--color-brand-primary)};
+    }
+
+    .page-title {
+      color: v(--color-neutral-50);
+    }
+  }
+
+  slot::slotted(*) {
+    --button-text-color: #{v(--text-primary)};
+    --button-color: transparent;
+    --button-color-hover: #{v(--color-brand-primary-20)};
+    --button-color-active: #{v(--color-brand-primary-30)};
+    --button-color-focus: #{v(--color-brand-primary)};
+  }
+
+
+}
+
+:host-context([data-theme="dark"]) {
+  .header {
+    background-color: v(--color-black);
+    .header-content {
+      background-color: v(--color-black);
+    }
+  }
+}
+
+
+
+:host(.float) .header, :host-context([data-theme="dark"]):host(.float) {
+  background-color: transparent;
+  .header-content {
+    border-radius: v(--border-radius);
+    border: 1px solid v(--ui-03);
+    box-shadow: v(--shadow-md);
+  }
+}
+
+
+:host(.brand) .header {
+  background-color: v(--color-brand-secondary);
+
+  .header-content {
+    background-color: v(--color-brand-secondary);
+  }
+
+  .left-section {
+    .brand {
+      color: v(--color-brand-primary);
+    }
+
+    .page-title {
+      color: v(--color-neutral-50);
+    }
+  }
+
+  slot::slotted(*) {
+    --button-text-color: #{v(--color-brand-primary)};
+  }
+}
+
+
+:host-context([data-theme="dark"]):host(.brand) {
+  .header {
+    background-color: v(--color-black);
+    .header-content {
+      background-color: v(--color-black);
+    }
+  }
+}

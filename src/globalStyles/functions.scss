@@ -1,0 +1,12 @@
+@use "sass:map";
+@use "sass:list";
+@import 'theme/css-variables';
+
+
+@function v($name) {
+  @return var(#{$name}, map.get($css-variables, $name));
+}
+
+@function getValue($name) {
+  @return map.get($css-variables, $name);
+}

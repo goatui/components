@@ -1,4 +1,4 @@
-@import "../../../styles/scss/commons";
+@import "../../../globalStyles/commons";
 
 :host {
   display: block;
@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   gap: v(--spacing-2);
-  color: v(--text-02);
+  color: v(--text-secondary);
   outline: none;
 
   .item-section {
@@ -39,7 +39,7 @@
 .menu-item {
   &:hover, &.has-focus:not(.active) {
     background: v(--hover-ui);
-    color: v(--text-01);
+    color: v(--text-primary);
     .slot-end {
       color: v(--icon-01);
     }
@@ -56,16 +56,16 @@
 
 .menu-item.disabled {
   cursor: not-allowed;
-  color: v(--disabled-02) !important;
+  color: v(--text-disabled) !important;
   background-color: v(--disabled-01) !important;
 
   &:hover, &.has-focus:not(.active) {
-    color: v(--disabled-02) !important;
+    color: v(--text-disabled) !important;
     background-color: v(--disabled-01) !important;
   }
 
   &.active, &.selected {
-    color: v(--disabled-02) !important;
+    color: v(--text-disabled) !important;
     background-color: v(--disabled-01) !important;
   }
 }

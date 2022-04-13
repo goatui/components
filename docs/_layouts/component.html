@@ -1,5 +1,5 @@
 ---
-layout: minimal
+layout: default
 ---
 <style>
   /* width */
@@ -27,14 +27,15 @@ layout: minimal
     width: 20rem;
     position: fixed;
     top: var(--header-height);
-    background: var(--color-brand-secondary-20);
+    background: var(--color-neutral-10);
     height: calc(100vh - var(--header-height));
     overflow-y: auto;
     border-right: 1px solid var(--border-color);
   }
 
+
   [data-theme="dark"] .sidenav {
-    background: var(--color-brand-secondary-80);
+    background: var(--color-neutral-80);
   }
 
   .sidenav-components {
@@ -45,7 +46,7 @@ layout: minimal
     padding: 0.5rem 1rem;
     width: 100%;
     text-decoration: none;
-    color: var(--color-neutral);
+    color: var(--text-primary);
     display: inline-block;
     font-size: var(--text-lg-font-size);
   }
@@ -73,8 +74,17 @@ layout: minimal
 
   .main-content {
     margin-top: var(--header-height);
-    margin-left: 20rem;
+    margin-inline-start: 20rem;
     position: relative;
+  }
+
+  [type="heading"]::before {
+    content: '';
+    display: block;
+    height: var(--header-height);
+    margin-top: calc(-1 * var(--header-height));
+    visibility: hidden;
+    pointer-events: none;
   }
 
   pre[class*="language-"] {
@@ -89,7 +99,7 @@ layout: minimal
     }
 
     .main-content {
-      margin-left: 0;
+      margin-block-start: 0;
     }
 
     .sidenav.m-hide, .main-content.m-hide {
@@ -98,9 +108,8 @@ layout: minimal
   }
 
   .js-scroll-nav {
-    color: var(--text-01);
+    color: var(--text-primary);
   }
-
 </style>
 <div class='sidenav m-hide'>
 
@@ -109,7 +118,7 @@ layout: minimal
     {% if component.metadata.name %}
     <a class='sidenav-link {% if page.title == component.metadata.name %}active{% endif %}'
        href='/components/{{component.tag | replace: "goat-", ""}}'>
-      <goat-text>{{component.metadata.name}}</goat-text>
+      <goat-text class='inherit'>{{component.metadata.name}}</goat-text>
     </a>
     {% endif %}
     {% endfor %}
@@ -119,6 +128,7 @@ layout: minimal
 <div class='main-content'>
 
   <div class='container'>
+
     {{content}}
 
     <div id='disqus_thread'></div>

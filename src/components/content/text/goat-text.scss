@@ -1,4 +1,4 @@
-@import "../../../styles/scss/commons";
+@import "../../../globalStyles/commons";
 
 
 .heading {
@@ -119,10 +119,10 @@
 
 
 :host {
-  color: var(--text-color, v(--text-01));
+  color: var(--text-color, v(--text-primary));
 
   &:host([shade="secondary"]) {
-    color: var(--text-shade-secondary, v(--text-02));
+    color: var(--text-shade-secondary, v(--text-secondary));
   }
 
   &:host([shade="tertiary"]) {

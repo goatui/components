@@ -16,11 +16,11 @@
 
 ### Used by
 
- - [goat-button](../../form/button)
+ - [goat-button](../../controls/button)
  - [goat-code-editor](../../form/code-editor)
  - [goat-code-highlighter](../code-highlighter)
  - [goat-select](../../form/select)
- - [goat-tab](../../navigation/tab)
+ - [goat-tab](../../navigation/tabs/tab)
 
 ### Graph
 ```mermaid
