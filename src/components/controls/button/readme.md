@@ -58,7 +58,7 @@ Type: `Promise<void>`
 ### Used by
 
  - [goat-code-highlighter](../../content/code-highlighter)
- - [goat-header](../../navigation/goat-header)
+ - [goat-header](../../navigation/header)
  - [goat-notification](../../content/notification)
  - [goat-table](../../table/table)
 

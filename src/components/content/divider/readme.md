@@ -16,7 +16,7 @@
 
 ### Used by
 
- - [goat-header](../../navigation/goat-header)
+ - [goat-header](../../navigation/header)
 
 ### Graph
 ```mermaid

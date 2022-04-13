@@ -377,6 +377,7 @@ Secondary link color for lower contrast backgrounds
   --selected-ui: var(--color-gray-20, #e0e0e0);
   --disabled-01: var(--color-gray-10, #f4f4f4);
   --text-disabled: var(--color-gray-30, #c6c6c6);
+  --border-disabled: var(--color-gray-30, #c6c6c6);
   --disabled-03: var(--color-gray-50, #8d8d8d);
   --link-01: var(--color-blue-60, #0f62fe);
   --link-02: var(--color-blue-40, #78a9ff);
@@ -388,6 +389,7 @@ Secondary link color for lower contrast backgrounds
   --hover-ui: var(--color-gray-10, #f4f4f4);
   --active-ui: var(--color-gray-30, #c6c6c6);
   --border-subtle-00: var(--color-gray-30, #c6c6c6);
+  --border-strong-01: var(--color-gray-50, #8d8d8d);
   --danger-01: #da1e28;
   --danger-02: #da1e28;
   --support-error: #da1e28;
@@ -492,6 +494,7 @@ html[data-theme=dark] {
   --selected-ui: var(--color-gray-80, #393939);
   --disabled-01: var(--color-gray-90, #262626);
   --text-disabled: var(--color-gray-70, #525252);
+  --border-disabled: var(--color-gray-70, #525252);
   --disabled-03: var(--color-gray-60, #6f6f6f);
   --visited-link: #be95ff;
   --icon-01: var(--color-gray-10, #f4f4f4);
@@ -499,6 +502,7 @@ html[data-theme=dark] {
   --hover-ui: var(--color-gray-90, #262626);
   --active-ui: var(--color-gray-30, #c6c6c6);
   --border-subtle-00: var(--color-gray-30, #c6c6c6);
+  --border-strong-01: var(--color-gray-60, #6f6f6f);
   --danger-02: #fa4d56;
   --support-error: #fa4d56;
   --support-success: #42be65;

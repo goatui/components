@@ -2591,11 +2591,11 @@
     }
   },
   {
-    "dirPath": "D:/development/goatui/src/components/navigation/goat-header",
-    "filePath": "./src/components/navigation/goat-header/goat-header.tsx",
+    "dirPath": "D:/development/goatui/src/components/navigation/header",
+    "filePath": "./src/components/navigation/header/goat-header.tsx",
     "fileName": "goat-header.tsx",
-    "readmePath": "D:/development/goatui/src/components/navigation/goat-header/readme.md",
-    "usagesDir": "D:/development/goatui/src/components/navigation/goat-header/usage",
+    "readmePath": "D:/development/goatui/src/components/navigation/header/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/navigation/header/usage",
     "tag": "goat-header",
     "readme": "# p4-top-navigation\n\n\n",
     "usage": {},
