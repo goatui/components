@@ -1,0 +1,253 @@
+@import "../../../globalStyles/commons";
+@import "checkbox-animation";
+
+:host {
+  display: inline-block;
+  color: v(--text-primary);
+}
+
+.checkbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &.has-content {
+    gap: v(--spacing-2);
+  }
+
+
+  .input-native {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .box {
+    position: relative;
+    background: v(--field-01);
+    border: 1px solid v(--ui-04);
+    border-radius: v(--border-radius);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:before {
+      pointer-events: none;
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      border-radius: v(--border-radius);
+      border: 1px solid transparent;
+    }
+  }
+
+  &.rounded {
+    .box {
+      border-radius: 50%;
+
+      &:before {
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .tick {
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+
+  &.has-focus:not(.active) {
+    .box {
+      @include focus-ring;
+      border-color: transparent;
+    }
+
+    &:not(.state-checked) .box:before {
+      border-color: v(--icon-01);
+    }
+  }
+
+}
+
+:host(.light) .box {
+  background-color: v(--field-02);
+}
+
+
+.checkbox.state-checked {
+  .box {
+    background: v(--color-primary);
+    border-color: transparent;
+  }
+
+  .tick {
+    width: 33%;
+    height: 67%;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    transform: rotate(45deg);
+    transform-origin: 0 100%;
+
+    &.animate {
+      animation: checkbox-check 125ms 250ms cubic-bezier(.4, .0, .23, 1) forwards;
+    }
+
+    &:not(.animate) {
+      border-color: v(--color-white);
+      top: -15%;
+      left: 15%;
+    }
+  }
+
+  &:hover .box {
+    background: v(--color-primary-70);
+  }
+
+  &.active .box {
+    border-color: v(--color-white);
+  }
+
+  &.has-focus:not(.active) {
+    .box {
+      @include focus-ring;
+      border-color: v(--color-white);
+    }
+  }
+
+}
+
+.checkbox.state-intermediate {
+  .box {
+    background: v(--color-primary);
+    border-color: transparent;
+  }
+
+
+  .tick {
+    width: 67%;
+    height: 0;
+    margin: auto;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    transform-origin: 0 100%;
+
+    &.animate {
+      animation: checkbox-slash 125ms 250ms cubic-bezier(.4, .0, .23, 1) forwards;
+    }
+
+    &:not(.animate) {
+      border-color: v(--color-white);
+    }
+  }
+
+  &:hover .box {
+    background: v(--color-primary-90);
+  }
+
+  &.active .box {
+    border-color: v(--color-white);
+  }
+
+  &.has-focus:not(.active) {
+    .box {
+      @include focus-ring;
+      border-color: v(--color-white);
+    }
+  }
+
+}
+
+
+/**
+ * SIZES
+ */
+.checkbox.size-sm {
+
+  @include font-style(text-sm);
+
+  .box {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+}
+
+.checkbox.size-md {
+  @include font-style(text-md);
+
+  .box {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+.checkbox.size-lg {
+  @include font-style(text-lg);
+
+  .box {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+}
+
+
+/**
+ * States
+ */
+@each $state in [success, warning, error] {
+  :host-context(.input-state-#{$state}) {
+    .checkbox .box {
+      border-color: v(--color-#{$state});
+    }
+  }
+}
+
+.checkbox.readonly {
+  cursor: default;
+  color: v(--text-disabled) !important;
+  border-color: v(--text-disabled) !important;
+
+  &.state-checked .box {
+    background: v(--text-disabled) !important;
+  }
+
+  .box {
+    border: 1px solid v(--text-disabled) !important;
+  }
+
+  .tick {
+    border-color: #{v(--disabled-01)} !important;
+  }
+
+}
+
+
+.checkbox.disabled {
+  cursor: not-allowed;
+  color: v(--text-disabled) !important;
+  border-color: v(--text-disabled) !important;
+
+  &.state-checked .box {
+    background: v(--text-disabled) !important;
+  }
+
+  .box {
+    border: 1px solid v(--text-disabled) !important;
+  }
+
+  .tick {
+    border-color: #{v(--disabled-01)} !important;
+  }
+
+}
+
+

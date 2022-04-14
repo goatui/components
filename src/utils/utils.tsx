@@ -1,6 +1,6 @@
 import { EventEmitter } from '@stencil/core';
 
-export const getGoatIndex = (() => {
+export const getComponentIndex = (() => {
   let counter = 1;
   return (function() {
     return `${counter++}`;

@@ -915,12 +915,12 @@
     ],
     "methods": [
       {
-        "name": "getGid",
+        "name": "getComponentId",
         "returns": {
           "type": "Promise<string>",
           "docs": ""
         },
-        "signature": "getGid() => Promise<string>",
+        "signature": "getComponentId() => Promise<string>",
         "parameters": [],
         "docs": "",
         "docsTags": []
@@ -1209,12 +1209,12 @@
     ],
     "methods": [
       {
-        "name": "getGid",
+        "name": "getComponentId",
         "returns": {
           "type": "Promise<string>",
           "docs": ""
         },
-        "signature": "getGid() => Promise<string>",
+        "signature": "getComponentId() => Promise<string>",
         "parameters": [],
         "docs": "",
         "docsTags": []
@@ -3146,12 +3146,12 @@
     ],
     "methods": [
       {
-        "name": "getGid",
+        "name": "getComponentId",
         "returns": {
           "type": "Promise<string>",
           "docs": ""
         },
-        "signature": "getGid() => Promise<string>",
+        "signature": "getComponentId() => Promise<string>",
         "parameters": [],
         "docs": "",
         "docsTags": []
@@ -4273,12 +4273,12 @@
     ],
     "methods": [
       {
-        "name": "getGid",
+        "name": "getComponentId",
         "returns": {
           "type": "Promise<string>",
           "docs": ""
         },
-        "signature": "getGid() => Promise<string>",
+        "signature": "getComponentId() => Promise<string>",
         "parameters": [],
         "docs": "",
         "docsTags": []
@@ -5892,12 +5892,12 @@
     ],
     "methods": [
       {
-        "name": "getGid",
+        "name": "getComponentId",
         "returns": {
           "type": "Promise<string>",
           "docs": ""
         },
-        "signature": "getGid() => Promise<string>",
+        "signature": "getComponentId() => Promise<string>",
         "parameters": [],
         "docs": "",
         "docsTags": []

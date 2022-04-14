@@ -1,5 +1,5 @@
-script: '/assets/dev-build/build/goatui.esm.js'
-themeCss: '/assets/dev-build/assets/styles/theme.css'
+script: '/assets/goatui-dev/build/goatui.esm.js'
+themeCss: '/assets/goatui-dev/build/assets/styles/theme.css'
 webrick:
   headers:
     Access-Control-Allow-Origin: "*"

@@ -40,10 +40,10 @@ export const config: Config = {
     },
     {
       type: 'www',
-      dir: 'docs/assets/dev-build/',
+      dir: 'docs/assets/goatui-dev/',
       serviceWorker: null, // disable service workers
       copy: [
-        { src: 'assets' },
+        { src: 'assets', dest: 'build/assets' },
       ],
     },
   ],

@@ -29,7 +29,7 @@
 
 ## Methods
 
-### `getGid() => Promise<string>`
+### `getComponentId() => Promise<string>`
 
 
 

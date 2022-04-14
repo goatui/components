@@ -77,7 +77,7 @@ export namespace Components {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
-        "getGid": () => Promise<string>;
+        "getComponentId": () => Promise<string>;
         "intermediate": boolean;
         /**
           * The checkbox label.
@@ -119,7 +119,7 @@ export namespace Components {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
-        "getGid": () => Promise<string>;
+        "getComponentId": () => Promise<string>;
         "language": 'javascript' | 'json' | 'html';
         "lineNumbers": 'off' | 'on';
         /**
@@ -226,7 +226,7 @@ export namespace Components {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
-        "getGid": () => Promise<string>;
+        "getComponentId": () => Promise<string>;
         /**
           * The input field name.
          */
@@ -337,7 +337,7 @@ export namespace Components {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
-        "getGid": () => Promise<string>;
+        "getComponentId": () => Promise<string>;
         "isOpen": boolean;
         /**
           * [{   label: 'Shivaji Varma',   value: 'shivaji-varma' }]
@@ -510,7 +510,7 @@ export namespace Components {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
-        "getGid": () => Promise<string>;
+        "getComponentId": () => Promise<string>;
         /**
           * The input field name.
          */
