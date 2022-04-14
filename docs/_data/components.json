@@ -1,8 +1,8 @@
 [
   {
     "dirPath": "D:/development/goatui/src/components/content/avatar",
-    "filePath": "./src/components/content/avatar/goat-avatar.tsx",
-    "fileName": "goat-avatar.tsx",
+    "filePath": "./src/components/content/avatar/avatar.tsx",
+    "fileName": "avatar.tsx",
     "readmePath": "D:/development/goatui/src/components/content/avatar/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/avatar/usage",
     "tag": "goat-avatar",
@@ -94,8 +94,8 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/content/badge",
-    "filePath": "./src/components/content/badge/goat-badge.tsx",
-    "fileName": "goat-badge.tsx",
+    "filePath": "./src/components/content/badge/badge.tsx",
+    "fileName": "badge.tsx",
     "readmePath": "D:/development/goatui/src/components/content/badge/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/badge/usage",
     "tag": "goat-badge",
@@ -152,8 +152,8 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/controls/button",
-    "filePath": "./src/components/controls/button/goat-button.tsx",
-    "fileName": "goat-button.tsx",
+    "filePath": "./src/components/controls/button/button.tsx",
+    "fileName": "button.tsx",
     "readmePath": "D:/development/goatui/src/components/controls/button/readme.md",
     "usagesDir": "D:/development/goatui/src/components/controls/button/usage",
     "tag": "goat-button",
@@ -171,7 +171,7 @@
       },
       {
         "name": "example",
-        "text": "<goat-button>\nButton CTA\n</goat-button>"
+        "text": "<goat-button>\r\nButton CTA\r\n</goat-button>"
       }
     ],
     "encapsulation": "shadow",
@@ -294,7 +294,7 @@
         "mutable": false,
         "attr": "icon",
         "reflectToAttr": false,
-        "docs": "Icon which will displayed on button.\nPossible values are bootstrap icon names.",
+        "docs": "Icon which will displayed on button.\r\nPossible values are bootstrap icon names.",
         "docsTags": [],
         "values": [
           {
@@ -361,7 +361,7 @@
         "mutable": false,
         "attr": "size",
         "reflectToAttr": false,
-        "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`. Defaults to `\"md\"`.",
+        "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`. Defaults to `\"md\"`.",
         "docsTags": [],
         "default": "'md'",
         "values": [
@@ -496,13 +496,13 @@
     "metadata": {
       "name": "Button",
       "description": "An interactive button with a range of presentation options.",
-      "example": "<goat-button>\nButton CTA\n</goat-button>"
+      "example": "<goat-button>\r\nButton CTA\r\n</goat-button>"
     }
   },
   {
     "dirPath": "D:/development/goatui/src/components/controls/button-group",
-    "filePath": "./src/components/controls/button-group/goat-button-group.tsx",
-    "fileName": "goat-button-group.tsx",
+    "filePath": "./src/components/controls/button-group/button-group.tsx",
+    "fileName": "button-group.tsx",
     "readmePath": "D:/development/goatui/src/components/controls/button-group/readme.md",
     "usagesDir": "D:/development/goatui/src/components/controls/button-group/usage",
     "tag": "goat-button-group",
@@ -520,7 +520,7 @@
       },
       {
         "name": "example",
-        "text": "<goat-button-group><goat-button>\nButton CTA\n</goat-button><goat-button>\nButton CTA\n</goat-button></goat-button-group>"
+        "text": "<goat-button-group><goat-button>\r\nButton CTA\r\n</goat-button><goat-button>\r\nButton CTA\r\n</goat-button></goat-button-group>"
       }
     ],
     "encapsulation": "shadow",
@@ -537,13 +537,13 @@
     "metadata": {
       "name": "Button Group",
       "description": "An interactive button with a range of presentation options.",
-      "example": "<goat-button-group><goat-button>\nButton CTA\n</goat-button><goat-button>\nButton CTA\n</goat-button></goat-button-group>"
+      "example": "<goat-button-group><goat-button>\r\nButton CTA\r\n</goat-button><goat-button>\r\nButton CTA\r\n</goat-button></goat-button-group>"
     }
   },
   {
     "dirPath": "D:/development/goatui/src/components/flow-designer/goat-canvas",
-    "filePath": "./src/components/flow-designer/goat-canvas/goat-canvas.tsx",
-    "fileName": "goat-canvas.tsx",
+    "filePath": "./src/components/flow-designer/goat-canvas/canvas.tsx",
+    "fileName": "canvas.tsx",
     "readmePath": "D:/development/goatui/src/components/flow-designer/goat-canvas/readme.md",
     "usagesDir": "D:/development/goatui/src/components/flow-designer/goat-canvas/usage",
     "tag": "goat-canvas",
@@ -639,8 +639,8 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/content/card",
-    "filePath": "./src/components/content/card/goat-card.tsx",
-    "fileName": "goat-card.tsx",
+    "filePath": "./src/components/content/card/card.tsx",
+    "fileName": "card.tsx",
     "readmePath": "D:/development/goatui/src/components/content/card/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/card/usage",
     "tag": "goat-card",
@@ -701,12 +701,12 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/form/checkbox",
-    "filePath": "./src/components/form/checkbox/goat-checkbox.tsx",
-    "fileName": "goat-checkbox.tsx",
+    "filePath": "./src/components/form/checkbox/checkbox.tsx",
+    "fileName": "checkbox.tsx",
     "readmePath": "D:/development/goatui/src/components/form/checkbox/readme.md",
     "usagesDir": "D:/development/goatui/src/components/form/checkbox/usage",
     "tag": "goat-checkbox",
-    "readme": "# goat-checkbox\n\n\n",
+    "readme": "# goat-checkbox\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -875,7 +875,7 @@
         "mutable": false,
         "attr": "size",
         "reflectToAttr": false,
-        "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+        "docs": "The button size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
         "docsTags": [],
         "default": "'md'",
         "values": [
@@ -933,7 +933,7 @@
         },
         "signature": "setBlur() => Promise<void>",
         "parameters": [],
-        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
         "docsTags": []
       },
       {
@@ -944,7 +944,7 @@
         },
         "signature": "setFocus() => Promise<void>",
         "parameters": [],
-        "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+        "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
         "docsTags": []
       }
     ],
@@ -1002,12 +1002,12 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/form/code-editor",
-    "filePath": "./src/components/form/code-editor/goat-code-editor.tsx",
-    "fileName": "goat-code-editor.tsx",
+    "filePath": "./src/components/form/code-editor/code-editor.tsx",
+    "fileName": "code-editor.tsx",
     "readmePath": "D:/development/goatui/src/components/form/code-editor/readme.md",
     "usagesDir": "D:/development/goatui/src/components/form/code-editor/usage",
     "tag": "goat-code-editor",
-    "readme": "# goat-code-editor\n\n\n",
+    "readme": "# goat-code-editor\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -1227,7 +1227,7 @@
         },
         "signature": "setBlur() => Promise<void>",
         "parameters": [],
-        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
         "docsTags": []
       },
       {
@@ -1238,7 +1238,7 @@
         },
         "signature": "setFocus() => Promise<void>",
         "parameters": [],
-        "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+        "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
         "docsTags": []
       }
     ],
@@ -1265,8 +1265,8 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/content/code-highlighter",
-    "filePath": "./src/components/content/code-highlighter/goat-code-highlighter.tsx",
-    "fileName": "goat-code-highlighter.tsx",
+    "filePath": "./src/components/content/code-highlighter/code-highlighter.tsx",
+    "fileName": "code-highlighter.tsx",
     "readmePath": "D:/development/goatui/src/components/content/code-highlighter/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/code-highlighter/usage",
     "tag": "goat-code-highlighter",
@@ -1975,8 +1975,8 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/content/divider",
-    "filePath": "./src/components/content/divider/goat-divider.tsx",
-    "fileName": "goat-divider.tsx",
+    "filePath": "./src/components/content/divider/divider.tsx",
+    "fileName": "divider.tsx",
     "readmePath": "D:/development/goatui/src/components/content/divider/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/divider/usage",
     "tag": "goat-divider",
@@ -2040,8 +2040,8 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/menu/dropdown",
-    "filePath": "./src/components/menu/dropdown/goat-dropdown.tsx",
-    "fileName": "goat-dropdown.tsx",
+    "filePath": "./src/components/menu/dropdown/dropdown.tsx",
+    "fileName": "dropdown.tsx",
     "readmePath": "D:/development/goatui/src/components/menu/dropdown/readme.md",
     "usagesDir": "D:/development/goatui/src/components/menu/dropdown/usage",
     "tag": "goat-dropdown",
@@ -2156,7 +2156,7 @@
         "mutable": false,
         "attr": "size",
         "reflectToAttr": false,
-        "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+        "docs": "The button size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
         "docsTags": [],
         "default": "'md'",
         "values": [
@@ -2234,8 +2234,8 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/content/empty-state",
-    "filePath": "./src/components/content/empty-state/goat-empty-state.tsx",
-    "fileName": "goat-empty-state.tsx",
+    "filePath": "./src/components/content/empty-state/empty-state.tsx",
+    "fileName": "empty-state.tsx",
     "readmePath": "D:/development/goatui/src/components/content/empty-state/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/empty-state/usage",
     "tag": "goat-empty-state",
@@ -2253,7 +2253,7 @@
       },
       {
         "name": "example",
-        "text": "<goat-empty-state>\n<div slot=\"title\">Empty</div>\n<div slot='description'>\nNothing to display\n</div>\n</goat-empty-state>"
+        "text": "<goat-empty-state>\r\n<div slot=\"title\">Empty</div>\r\n<div slot='description'>\r\nNothing to display\r\n</div>\r\n</goat-empty-state>"
       }
     ],
     "encapsulation": "shadow",
@@ -2321,13 +2321,13 @@
     "metadata": {
       "name": "Empty State",
       "description": "A message that displays when there is no information to display.",
-      "example": "<goat-empty-state>\n<div slot=\"title\">Empty</div>\n<div slot='description'>\nNothing to display\n</div>\n</goat-empty-state>"
+      "example": "<goat-empty-state>\r\n<div slot=\"title\">Empty</div>\r\n<div slot='description'>\r\nNothing to display\r\n</div>\r\n</goat-empty-state>"
     }
   },
   {
     "dirPath": "D:/development/goatui/src/components/flow-designer/flow-designer",
-    "filePath": "./src/components/flow-designer/flow-designer/goat-flow-designer.tsx",
-    "fileName": "goat-flow-designer.tsx",
+    "filePath": "./src/components/flow-designer/flow-designer/flow-designer.tsx",
+    "fileName": "flow-designer.tsx",
     "readmePath": "D:/development/goatui/src/components/flow-designer/flow-designer/readme.md",
     "usagesDir": "D:/development/goatui/src/components/flow-designer/flow-designer/usage",
     "tag": "goat-flow-designer",
@@ -2345,7 +2345,7 @@
       },
       {
         "name": "example",
-        "text": "<goat-flow-designer>\n</goat-flow-designer>"
+        "text": "<goat-flow-designer>\r\n</goat-flow-designer>"
       }
     ],
     "encapsulation": "shadow",
@@ -2425,13 +2425,13 @@
     "metadata": {
       "name": "Flow Designer",
       "description": "An interactive button with a range of presentation options.",
-      "example": "<goat-flow-designer>\n</goat-flow-designer>"
+      "example": "<goat-flow-designer>\r\n</goat-flow-designer>"
     }
   },
   {
     "dirPath": "D:/development/goatui/src/components/form/form-control",
-    "filePath": "./src/components/form/form-control/goat-form-control.tsx",
-    "fileName": "goat-form-control.tsx",
+    "filePath": "./src/components/form/form-control/form-control.tsx",
+    "fileName": "form-control.tsx",
     "readmePath": "D:/development/goatui/src/components/form/form-control/readme.md",
     "usagesDir": "D:/development/goatui/src/components/form/form-control/usage",
     "tag": "goat-form-control",
@@ -2449,7 +2449,7 @@
       },
       {
         "name": "example",
-        "text": "<goat-form-control label='Full Name' required>\n<goat-input type='text'></goat-input>\n</goat-form-control>"
+        "text": "<goat-form-control label='Full Name' required>\r\n<goat-input type='text'></goat-input>\r\n</goat-form-control>"
       }
     ],
     "encapsulation": "shadow",
@@ -2587,13 +2587,13 @@
     "metadata": {
       "name": "Form Control",
       "description": "The Form Control component adds a label and caption for its child control.",
-      "example": "<goat-form-control label='Full Name' required>\n<goat-input type='text'></goat-input>\n</goat-form-control>"
+      "example": "<goat-form-control label='Full Name' required>\r\n<goat-input type='text'></goat-input>\r\n</goat-form-control>"
     }
   },
   {
     "dirPath": "D:/development/goatui/src/components/navigation/header",
-    "filePath": "./src/components/navigation/header/goat-header.tsx",
-    "fileName": "goat-header.tsx",
+    "filePath": "./src/components/navigation/header/header.tsx",
+    "fileName": "header.tsx",
     "readmePath": "D:/development/goatui/src/components/navigation/header/readme.md",
     "usagesDir": "D:/development/goatui/src/components/navigation/header/usage",
     "tag": "goat-header",
@@ -2734,8 +2734,8 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/content/icon",
-    "filePath": "./src/components/content/icon/goat-icon.tsx",
-    "fileName": "goat-icon.tsx",
+    "filePath": "./src/components/content/icon/icon.tsx",
+    "fileName": "icon.tsx",
     "readmePath": "D:/development/goatui/src/components/content/icon/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/icon/usage",
     "tag": "goat-icon",
@@ -2817,7 +2817,7 @@
         "mutable": false,
         "attr": "size",
         "reflectToAttr": true,
-        "docs": "The Icon size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"` and size in pixel. Defaults to `\"md\"`.",
+        "docs": "The Icon size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"` and size in pixel. Defaults to `\"md\"`.",
         "docsTags": [],
         "default": "'md'",
         "values": [
@@ -2843,12 +2843,12 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/form/input",
-    "filePath": "./src/components/form/input/goat-input.tsx",
-    "fileName": "goat-input.tsx",
+    "filePath": "./src/components/form/input/input.tsx",
+    "fileName": "input.tsx",
     "readmePath": "D:/development/goatui/src/components/form/input/readme.md",
     "usagesDir": "D:/development/goatui/src/components/form/input/usage",
     "tag": "goat-input",
-    "readme": "# goat-input\n\n\n",
+    "readme": "# goat-input\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -3039,7 +3039,7 @@
         "mutable": false,
         "attr": "size",
         "reflectToAttr": true,
-        "docs": "The input field size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+        "docs": "The input field size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
         "docsTags": [],
         "default": "'md'",
         "values": [
@@ -3065,7 +3065,7 @@
         "mutable": false,
         "attr": "state",
         "reflectToAttr": true,
-        "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+        "docs": "The input state.\r\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
         "docsTags": [],
         "default": "'default'",
         "values": [
@@ -3095,7 +3095,7 @@
         "mutable": false,
         "attr": "type",
         "reflectToAttr": false,
-        "docs": "The type of control to display.\nPossible values are: `\"text\"`, `\"password\"`, `\"number\"`, `\"email\"`, `\"tel\"`. Defaults to `\"text\"`.",
+        "docs": "The type of control to display.\r\nPossible values are: `\"text\"`, `\"password\"`, `\"number\"`, `\"email\"`, `\"tel\"`. Defaults to `\"text\"`.",
         "docsTags": [],
         "default": "'text'",
         "values": [
@@ -3164,7 +3164,7 @@
         },
         "signature": "setBlur() => Promise<void>",
         "parameters": [],
-        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
         "docsTags": []
       },
       {
@@ -3175,7 +3175,7 @@
         },
         "signature": "setFocus() => Promise<void>",
         "parameters": [],
-        "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+        "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
         "docsTags": []
       }
     ],
@@ -3229,8 +3229,8 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/navigation/link",
-    "filePath": "./src/components/navigation/link/goat-link.tsx",
-    "fileName": "goat-link.tsx",
+    "filePath": "./src/components/navigation/link/link.tsx",
+    "fileName": "link.tsx",
     "readmePath": "D:/development/goatui/src/components/navigation/link/readme.md",
     "usagesDir": "D:/development/goatui/src/components/navigation/link/usage",
     "tag": "goat-link",
@@ -3328,8 +3328,8 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/menu/menu",
-    "filePath": "./src/components/menu/menu/goat-menu.tsx",
-    "fileName": "goat-menu.tsx",
+    "filePath": "./src/components/menu/menu/menu.tsx",
+    "fileName": "menu.tsx",
     "readmePath": "D:/development/goatui/src/components/menu/menu/readme.md",
     "usagesDir": "D:/development/goatui/src/components/menu/menu/usage",
     "tag": "goat-menu",
@@ -3398,7 +3398,7 @@
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
-        "default": "`{\n    \"title\": \"No items\",\n    \"description\": \"There are no items to display\"\n  }`",
+        "default": "`{\r\n    \"title\": \"No items\",\r\n    \"description\": \"There are no items to display\"\r\n  }`",
         "values": [
           {
             "type": "string"
@@ -3453,7 +3453,7 @@
         },
         "signature": "setFocus() => Promise<void>",
         "parameters": [],
-        "docs": "Sets focus on first menu item. Use this method instead of the global\n`element.focus()`.",
+        "docs": "Sets focus on first menu item. Use this method instead of the global\r\n`element.focus()`.",
         "docsTags": []
       }
     ],
@@ -3477,8 +3477,8 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/menu/menu-item",
-    "filePath": "./src/components/menu/menu-item/goat-menu-item.tsx",
-    "fileName": "goat-menu-item.tsx",
+    "filePath": "./src/components/menu/menu-item/menu-item.tsx",
+    "fileName": "menu-item.tsx",
     "readmePath": "D:/development/goatui/src/components/menu/menu-item/readme.md",
     "usagesDir": "D:/development/goatui/src/components/menu/menu-item/usage",
     "tag": "goat-menu-item",
@@ -3564,7 +3564,7 @@
         },
         "signature": "setBlur() => Promise<void>",
         "parameters": [],
-        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
         "docsTags": []
       },
       {
@@ -3575,7 +3575,7 @@
         },
         "signature": "setFocus() => Promise<void>",
         "parameters": [],
-        "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+        "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
         "docsTags": []
       }
     ],
@@ -3611,8 +3611,8 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/content/notification",
-    "filePath": "./src/components/content/notification/goat-notification.tsx",
-    "fileName": "goat-notification.tsx",
+    "filePath": "./src/components/content/notification/notification.tsx",
+    "fileName": "notification.tsx",
     "readmePath": "D:/development/goatui/src/components/content/notification/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/notification/usage",
     "tag": "goat-notification",
@@ -3630,7 +3630,7 @@
       },
       {
         "name": "example",
-        "text": "<goat-notification state=\"success\" low-contrast dismissible>\n     <div slot='title'>Successful saved the record</div>\n   </goat-notification>"
+        "text": "<goat-notification state=\"success\" low-contrast dismissible>\r\n     <div slot='title'>Successful saved the record</div>\r\n   </goat-notification>"
       }
     ],
     "encapsulation": "shadow",
@@ -3790,13 +3790,13 @@
     "metadata": {
       "name": "Notification",
       "description": "Notifications are messages that communicate information to the user.",
-      "example": "<goat-notification state=\"success\" low-contrast dismissible>\n     <div slot='title'>Successful saved the record</div>\n   </goat-notification>"
+      "example": "<goat-notification state=\"success\" low-contrast dismissible>\r\n     <div slot='title'>Successful saved the record</div>\r\n   </goat-notification>"
     }
   },
   {
     "dirPath": "D:/development/goatui/src/components/content/notification-manager",
-    "filePath": "./src/components/content/notification-manager/goat-notification-manager.tsx",
-    "fileName": "goat-notification-manager.tsx",
+    "filePath": "./src/components/content/notification-manager/notification-manager.tsx",
+    "fileName": "notification-manager.tsx",
     "readmePath": "D:/development/goatui/src/components/content/notification-manager/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/notification-manager/usage",
     "tag": "goat-notification-manager",
@@ -3910,12 +3910,12 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/form/select",
-    "filePath": "./src/components/form/select/goat-select.tsx",
-    "fileName": "goat-select.tsx",
+    "filePath": "./src/components/form/select/select.tsx",
+    "fileName": "select.tsx",
     "readmePath": "D:/development/goatui/src/components/form/select/readme.md",
     "usagesDir": "D:/development/goatui/src/components/form/select/usage",
     "tag": "goat-select",
-    "readme": "# goat-select\n\n\n",
+    "readme": "# goat-select\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -4053,7 +4053,7 @@
         "mutable": false,
         "attr": "items",
         "reflectToAttr": false,
-        "docs": "[{\n  label: 'Shivaji Varma',\n  value: 'shivaji-varma'\n}]",
+        "docs": "[{\r\n  label: 'Shivaji Varma',\r\n  value: 'shivaji-varma'\r\n}]",
         "docsTags": [],
         "default": "[]",
         "values": [
@@ -4154,7 +4154,7 @@
         "mutable": false,
         "attr": "search",
         "reflectToAttr": false,
-        "docs": "Search type\nPossible values are `\"none\"`, `\"initial\"`, `\"contains\"`, `\"managed\"`. Defaults to `\"none\"`.",
+        "docs": "Search type\r\nPossible values are `\"none\"`, `\"initial\"`, `\"contains\"`, `\"managed\"`. Defaults to `\"none\"`.",
         "docsTags": [],
         "default": "'none'",
         "values": [
@@ -4201,7 +4201,7 @@
         "mutable": false,
         "attr": "size",
         "reflectToAttr": true,
-        "docs": "The select input size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+        "docs": "The select input size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
         "docsTags": [],
         "default": "'md'",
         "values": [
@@ -4227,7 +4227,7 @@
         "mutable": false,
         "attr": "state",
         "reflectToAttr": true,
-        "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+        "docs": "The input state.\r\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
         "docsTags": [],
         "default": "'default'",
         "values": [
@@ -4291,7 +4291,7 @@
         },
         "signature": "setBlur() => Promise<void>",
         "parameters": [],
-        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
         "docsTags": []
       },
       {
@@ -4302,7 +4302,7 @@
         },
         "signature": "setFocus() => Promise<void>",
         "parameters": [],
-        "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\n`input.focus()`.",
+        "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\r\n`input.focus()`.",
         "docsTags": []
       }
     ],
@@ -4365,8 +4365,8 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/app-shell/sidenav",
-    "filePath": "./src/components/app-shell/sidenav/goat-sidenav.tsx",
-    "fileName": "goat-sidenav.tsx",
+    "filePath": "./src/components/app-shell/sidenav/sidenav.tsx",
+    "fileName": "sidenav.tsx",
     "readmePath": "D:/development/goatui/src/components/app-shell/sidenav/readme.md",
     "usagesDir": "D:/development/goatui/src/components/app-shell/sidenav/usage",
     "tag": "goat-sidenav",
@@ -4424,8 +4424,8 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/app-shell/sidenav-menu",
-    "filePath": "./src/components/app-shell/sidenav-menu/goat-sidenav-menu.tsx",
-    "fileName": "goat-sidenav-menu.tsx",
+    "filePath": "./src/components/app-shell/sidenav-menu/sidenav-menu.tsx",
+    "fileName": "sidenav-menu.tsx",
     "readmePath": "D:/development/goatui/src/components/app-shell/sidenav-menu/readme.md",
     "usagesDir": "D:/development/goatui/src/components/app-shell/sidenav-menu/usage",
     "tag": "goat-sidenav-menu",
@@ -4472,7 +4472,7 @@
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
-        "default": "`{\n    \"title\": \"No items\",\n    \"description\": \"There are no items to display\"\n  }`",
+        "default": "`{\r\n    \"title\": \"No items\",\r\n    \"description\": \"There are no items to display\"\r\n  }`",
         "values": [
           {
             "type": "string"
@@ -4527,7 +4527,7 @@
         },
         "signature": "setFocus() => Promise<void>",
         "parameters": [],
-        "docs": "Sets focus on first menu item. Use this method instead of the global\n`element.focus()`.",
+        "docs": "Sets focus on first menu item. Use this method instead of the global\r\n`element.focus()`.",
         "docsTags": []
       }
     ],
@@ -4547,8 +4547,8 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/app-shell/sidenav-menu-item",
-    "filePath": "./src/components/app-shell/sidenav-menu-item/goat-sidenav-menu-item.tsx",
-    "fileName": "goat-sidenav-menu-item.tsx",
+    "filePath": "./src/components/app-shell/sidenav-menu-item/sidenav-menu-item.tsx",
+    "fileName": "sidenav-menu-item.tsx",
     "readmePath": "D:/development/goatui/src/components/app-shell/sidenav-menu-item/readme.md",
     "usagesDir": "D:/development/goatui/src/components/app-shell/sidenav-menu-item/usage",
     "tag": "goat-sidenav-menu-item",
@@ -4624,7 +4624,7 @@
         },
         "signature": "setBlur() => Promise<void>",
         "parameters": [],
-        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
         "docsTags": []
       },
       {
@@ -4635,7 +4635,7 @@
         },
         "signature": "setFocus() => Promise<void>",
         "parameters": [],
-        "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+        "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
         "docsTags": []
       }
     ],
@@ -4671,8 +4671,8 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/content/spinner",
-    "filePath": "./src/components/content/spinner/goat-spinner.tsx",
-    "fileName": "goat-spinner.tsx",
+    "filePath": "./src/components/content/spinner/spinner.tsx",
+    "fileName": "spinner.tsx",
     "readmePath": "D:/development/goatui/src/components/content/spinner/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/spinner/usage",
     "tag": "goat-spinner",
@@ -4726,7 +4726,7 @@
         "mutable": false,
         "attr": "size",
         "reflectToAttr": false,
-        "docs": "The Icon size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"` and size in pixel. Defaults to `\"md\"`.",
+        "docs": "The Icon size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"` and size in pixel. Defaults to `\"md\"`.",
         "docsTags": [],
         "default": "'md'",
         "values": [
@@ -4752,8 +4752,8 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/content/svg",
-    "filePath": "./src/components/content/svg/goat-svg.tsx",
-    "fileName": "goat-svg.tsx",
+    "filePath": "./src/components/content/svg/svg.tsx",
+    "fileName": "svg.tsx",
     "readmePath": "D:/development/goatui/src/components/content/svg/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/svg/usage",
     "tag": "goat-svg",
@@ -4821,8 +4821,8 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/navigation/tabs/tab",
-    "filePath": "./src/components/navigation/tabs/tab/goat-tab.tsx",
-    "fileName": "goat-tab.tsx",
+    "filePath": "./src/components/navigation/tabs/tab/tab.tsx",
+    "fileName": "tab.tsx",
     "readmePath": "D:/development/goatui/src/components/navigation/tabs/tab/readme.md",
     "usagesDir": "D:/development/goatui/src/components/navigation/tabs/tab/usage",
     "tag": "goat-tab",
@@ -4883,7 +4883,7 @@
         "mutable": false,
         "attr": "icon",
         "reflectToAttr": false,
-        "docs": "Icon which will displayed on button.\nPossible values are bootstrap icon names.",
+        "docs": "Icon which will displayed on button.\r\nPossible values are bootstrap icon names.",
         "docsTags": [],
         "values": [
           {
@@ -4949,7 +4949,7 @@
         "mutable": false,
         "attr": "size",
         "reflectToAttr": false,
-        "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`. Defaults to `\"md\"`.",
+        "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`. Defaults to `\"md\"`.",
         "docsTags": [],
         "default": "'md'",
         "values": [
@@ -5066,8 +5066,8 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/table/table",
-    "filePath": "./src/components/table/table/goat-table.tsx",
-    "fileName": "goat-table.tsx",
+    "filePath": "./src/components/table/table/table.tsx",
+    "fileName": "table.tsx",
     "readmePath": "D:/development/goatui/src/components/table/table/readme.md",
     "usagesDir": "D:/development/goatui/src/components/table/table/usage",
     "tag": "goat-table",
@@ -5129,7 +5129,7 @@
         "type": "any[]",
         "mutable": false,
         "reflectToAttr": false,
-        "docs": "Grid columns configuration.\n[\n{\n  \"name\":\"name\",\n  \"label\":\"Name\",\n  \"width\":300,\n  \"fixed\":true\n },\n{\n  \"name\":\"age\",\n  \"label\":\"Age\"\n}\n]",
+        "docs": "Grid columns configuration.\r\n[\r\n{\r\n  \"name\":\"name\",\r\n  \"label\":\"Name\",\r\n  \"width\":300,\r\n  \"fixed\":true\r\n },\r\n{\r\n  \"name\":\"age\",\r\n  \"label\":\"Age\"\r\n}\r\n]",
         "docsTags": [],
         "default": "[]",
         "values": [
@@ -5145,7 +5145,7 @@
         "type": "any[]",
         "mutable": false,
         "reflectToAttr": false,
-        "docs": "Grid data to display on table\n[{\n 'id': '5e7118ddce4b3d577956457f',\n 'age': 21,\n 'name': 'John',\n 'company': 'India',\n 'email': 'john@example.com',\n 'phone': '+1 (839) 560-3581',\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\n }]",
+        "docs": "Grid data to display on table\r\n[{\r\n 'id': '5e7118ddce4b3d577956457f',\r\n 'age': 21,\r\n 'name': 'John',\r\n 'company': 'India',\r\n 'email': 'john@example.com',\r\n 'phone': '+1 (839) 560-3581',\r\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\r\n }]",
         "docsTags": [],
         "default": "[]",
         "values": [
@@ -5397,8 +5397,8 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/navigation/tabs",
-    "filePath": "./src/components/navigation/tabs/goat-tabs.tsx",
-    "fileName": "goat-tabs.tsx",
+    "filePath": "./src/components/navigation/tabs/tabs.tsx",
+    "fileName": "tabs.tsx",
     "readmePath": "D:/development/goatui/src/components/navigation/tabs/readme.md",
     "usagesDir": "D:/development/goatui/src/components/navigation/tabs/usage",
     "tag": "goat-tabs",
@@ -5416,7 +5416,7 @@
       },
       {
         "name": "example",
-        "text": "<goat-tabs>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs>"
+        "text": "<goat-tabs>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs>"
       }
     ],
     "encapsulation": "shadow",
@@ -5469,17 +5469,23 @@
     "styles": [],
     "slots": [],
     "parts": [],
-    "listeners": [],
+    "listeners": [
+      {
+        "event": "goat:tab-click",
+        "capture": false,
+        "passive": false
+      }
+    ],
     "metadata": {
       "name": "Tabs",
       "description": "An interactive button with a range of presentation options.",
-      "example": "<goat-tabs>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs>"
+      "example": "<goat-tabs>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs>"
     }
   },
   {
     "dirPath": "D:/development/goatui/src/components/content/text",
-    "filePath": "./src/components/content/text/goat-text.tsx",
-    "fileName": "goat-text.tsx",
+    "filePath": "./src/components/content/text/text.tsx",
+    "fileName": "text.tsx",
     "readmePath": "D:/development/goatui/src/components/content/text/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/text/usage",
     "tag": "goat-text",
@@ -5649,12 +5655,12 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/form/textarea",
-    "filePath": "./src/components/form/textarea/goat-textarea.tsx",
-    "fileName": "goat-textarea.tsx",
+    "filePath": "./src/components/form/textarea/textarea.tsx",
+    "fileName": "textarea.tsx",
     "readmePath": "D:/development/goatui/src/components/form/textarea/readme.md",
     "usagesDir": "D:/development/goatui/src/components/form/textarea/usage",
     "tag": "goat-textarea",
-    "readme": "# goat-textarea\n\n\n",
+    "readme": "# goat-textarea\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -5823,7 +5829,7 @@
         "mutable": false,
         "attr": "size",
         "reflectToAttr": true,
-        "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+        "docs": "The button size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
         "docsTags": [],
         "default": "'md'",
         "values": [
@@ -5849,7 +5855,7 @@
         "mutable": false,
         "attr": "state",
         "reflectToAttr": true,
-        "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+        "docs": "The input state.\r\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
         "docsTags": [],
         "default": "'default'",
         "values": [
@@ -5910,7 +5916,7 @@
         },
         "signature": "setBlur() => Promise<void>",
         "parameters": [],
-        "docs": "Sets blur on the native `input` in `ion-input`. Use this method instead of the global\n`input.blur()`.",
+        "docs": "Sets blur on the native `input` in `ion-input`. Use this method instead of the global\r\n`input.blur()`.",
         "docsTags": []
       },
       {
@@ -5921,7 +5927,7 @@
         },
         "signature": "setFocus() => Promise<void>",
         "parameters": [],
-        "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\n`input.focus()`.",
+        "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\r\n`input.focus()`.",
         "docsTags": []
       }
     ],
@@ -5984,8 +5990,8 @@
   },
   {
     "dirPath": "D:/development/goatui/src/components/content/toast",
-    "filePath": "./src/components/content/toast/goat-toast.tsx",
-    "fileName": "goat-toast.tsx",
+    "filePath": "./src/components/content/toast/toast.tsx",
+    "fileName": "toast.tsx",
     "readmePath": "D:/development/goatui/src/components/content/toast/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/toast/usage",
     "tag": "goat-toast",
