@@ -1,5 +1,4 @@
 import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core';
-import { renderEmptyData } from './utils';
 
 
 const DEFAULT_CELL_WIDTH = 16; // in rem
@@ -63,20 +62,33 @@ export class Table {
    *  }]
    */
   @Prop() data: any[] = [];
+
   @Prop() selectionType: 'checkbox' | undefined;
+
   @Prop({ mutable: true }) selectedRowKeys: string[] = [];
+
   @Prop() keyField: string = 'id';
 
   @Prop() managed: boolean = false;
 
   @Prop() sortable: boolean = true;
+
   @Prop({ mutable: true }) sortBy: string;
+
   @Prop({ mutable: true }) sortOrder: 'asc' | 'desc' = 'asc';
 
   @Prop() paginate: boolean = true;
+
   @Prop() page: number = 1;
+
   @Prop() pageSize: number = 10;
+
   @Prop({ mutable: true }) totalItems;
+
+  @Prop({ mutable: true }) emptyState: any = {
+    'title': 'No items',
+    'description': 'There are no items to display',
+  };
 
   @State() private hoveredCell: any = {};
   @State() private isSelectAll: boolean = false;
@@ -274,7 +286,7 @@ export class Table {
                          positions='top-right'
                          value={this.pageSize}
                          onGoat:change={(e) => {
-                           this.pageSize = e.detail.value
+                           this.pageSize = e.detail.value;
                            this.goatPage.emit({ page: this.page, pageSize: this.pageSize });
                          }} />
           </goat-form-control>
@@ -311,13 +323,19 @@ export class Table {
       <div class={{ 'table': true, 'sortable': this.sortable, 'paginate': this.paginate }}>
         <div class='table-scroll-container'>
           {this.renderHeader()}
-          {(this.data.length) ? this.renderBody() : renderEmptyData()}
+          {(this.data.length) ? this.renderBody() : this.renderEmptyState()}
         </div>
         <div class='table-footer'>
           {this.renderPagination()}
         </div>
       </div>
     </Host>;
+  }
+
+  private renderEmptyState() {
+    return <div class='empty-table'>
+      <goat-empty-state class='content-center' {...this.emptyState} />
+    </div>;
   }
 
 }

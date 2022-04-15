@@ -21,17 +21,17 @@ export class Menu implements ComponentInterface {
 
   @Prop({ mutable: true }) empty: boolean = false;
 
-  @Prop({ mutable: true }) emptyState: string = `{
-    "title": "No items",
-    "description": "There are no items to display"
-  }`;
+  @Prop({ mutable: true }) emptyState: any = {
+    'headline': 'No items',
+    'description': 'There are no items to display',
+  };
 
   @State()
-  internalEmptyState: {title: string, description: string};
+  internalEmptyState: any;
 
   @Watch('emptyState')
   parseEmptyState() {
-    if (this.emptyState) {
+    if (typeof this.emptyState === 'string') {
       this.internalEmptyState = JSON.parse(this.emptyState);
     }
   }
@@ -102,7 +102,7 @@ export class Menu implements ComponentInterface {
   }
 
 
-  componentWillLoad() {
+  componentDidLoad() {
     this.parseEmptyState();
   }
 
@@ -116,10 +116,7 @@ export class Menu implements ComponentInterface {
 
   private renderEmptyState() {
     if (this.empty)
-      return <goat-empty-state class="empty-menu">
-        <div slot='title'>{this.internalEmptyState.title}</div>
-        <div slot='description'>{this.internalEmptyState.description}</div>
-      </goat-empty-state>;
+      return <goat-empty-state class='empty-menu' {...this.internalEmptyState} />;
   }
 
 }

@@ -68,22 +68,22 @@
  * States
  */
 .code-editor-component.has-focus .editor {
-  @include focus-ring
+  @include focus-ring;
+  border-color: transparent;
 }
 
 @each $state in [success, warning, error] {
   :host-context(.input-state-#{$state}) {
     .code-editor-component {
       .editor {
-        border-color: v(--color-#{$state});
+        border-color: v(--support-#{$state});
       }
 
       &.has-focus {
         .editor {
-          @include focus-ring($state);
+          @include focus-ring(v(--support-#{$state}));
         }
       }
     }
   }
 }
-

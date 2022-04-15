@@ -1,14 +1,11 @@
-import { Component, ComponentInterface, getAssetPath, h, Host, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Element, getAssetPath, h, Host, Listen, Prop, State } from '@stencil/core';
+import loadDOMPurify from '../../../3d-party/dompurify';
 
 
 /**
  * @name Empty State
  * @description A message that displays when there is no information to display.
- * @example <goat-empty-state>
- *   <div slot="title">Empty</div>
- *   <div slot='description'>
- *     Nothing to display
- *   </div>
+ * @example <goat-empty-state class="content-center" headline="Empty list" description="Nothing to display">
  * </goat-empty-state>
  */
 @Component({
@@ -18,27 +15,60 @@ import { Component, ComponentInterface, getAssetPath, h, Host, Prop } from '@ste
 })
 export class EmptyState implements ComponentInterface {
 
+  @Element() elm!: HTMLElement;
+
   @Prop({ reflect: true }) illustration: 'no-document' = 'no-document';
 
-  @Prop() vertical: boolean = false;
+  @Prop({ reflect: true }) headline: string;
+
+  @Prop({ reflect: true }) description: string;
+
+  @Prop({ reflect: true }) action: string;
+
+  @Prop() actionUrl: string;
+
+  @Prop() actionVariant: 'default' | 'light' | 'outline' | 'ghost' | 'link' = 'default';
+
+  @Prop() actionDisabled: boolean = false;
+
+  @State() vertical: boolean = false;
+
+  @Listen('resize', { target: 'window' })
+  resizeHandler() {
+    this.vertical = this.elm.clientWidth < 768;
+  }
+
+  async componentWillLoad() {
+    if (!window['DOMPurify']) {
+      await loadDOMPurify();
+    }
+  }
+
+  componentDidLoad() {
+    this.resizeHandler();
+  }
 
   render() {
     return (
       <Host>
-        <div class='empty-state'>
-          <goat-svg class='illustration'
-                    src={getAssetPath(`./assets/images/empty-state/${this.illustration}.svg`)} />
+        <div class={{ 'empty-state': true, 'vertical': this.vertical }}>
+          <div class='illustration'>
+            <goat-svg src={getAssetPath(`./assets/images/empty-state/${this.illustration}.svg`)} />
+          </div>
 
           <div class='content'>
-            <div class='title'>
-              <slot name='title' />
-              <slot />
-            </div>
-            <div class='description'>
-              <slot name='description' />
-            </div>
+            {this.headline && <div class='title'>{this.headline}</div>}
+            {this.description && <div class='description' innerHTML={window['DOMPurify'].sanitize(this.description)}/>}
             <div class='actions'>
-              <slot name='actions' />
+              {this.action &&
+                <goat-button
+                  href={this.actionUrl}
+                  icon={'arrow-right'}
+                  iconEnd={true}
+                  disabled={this.actionDisabled}
+                  variant={this.actionVariant}>
+                  {this.action}
+                </goat-button>}
             </div>
           </div>
         </div>

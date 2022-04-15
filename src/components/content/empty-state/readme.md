@@ -7,10 +7,15 @@
 
 ## Properties
 
-| Property       | Attribute      | Description | Type            | Default         |
-| -------------- | -------------- | ----------- | --------------- | --------------- |
-| `illustration` | `illustration` |             | `"no-document"` | `'no-document'` |
-| `vertical`     | `vertical`     |             | `boolean`       | `false`         |
+| Property         | Attribute         | Description | Type                                                     | Default         |
+| ---------------- | ----------------- | ----------- | -------------------------------------------------------- | --------------- |
+| `action`         | `action`          |             | `string`                                                 | `undefined`     |
+| `actionDisabled` | `action-disabled` |             | `boolean`                                                | `false`         |
+| `actionUrl`      | `action-url`      |             | `string`                                                 | `undefined`     |
+| `actionVariant`  | `action-variant`  |             | `"default" \| "ghost" \| "light" \| "link" \| "outline"` | `'default'`     |
+| `description`    | `description`     |             | `string`                                                 | `undefined`     |
+| `headline`       | `headline`        |             | `string`                                                 | `undefined`     |
+| `illustration`   | `illustration`    |             | `"no-document"`                                          | `'no-document'` |
 
 
 ## Dependencies
@@ -19,17 +24,23 @@
 
  - [goat-menu](../../menu/menu)
  - [goat-sidenav-menu](../../app-shell/sidenav-menu)
+ - [goat-table](../../table/table)
 
 ### Depends on
 
 - [goat-svg](../svg)
+- [goat-button](../../controls/button)
 
 ### Graph
 ```mermaid
 graph TD;
   goat-empty-state --> goat-svg
+  goat-empty-state --> goat-button
+  goat-button --> goat-icon
+  goat-button --> goat-spinner
   goat-menu --> goat-empty-state
   goat-sidenav-menu --> goat-empty-state
+  goat-table --> goat-empty-state
   style goat-empty-state fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -58,6 +58,7 @@ Type: `Promise<void>`
 ### Used by
 
  - [goat-code-highlighter](../../content/code-highlighter)
+ - [goat-empty-state](../../content/empty-state)
  - [goat-header](../../navigation/header)
  - [goat-notification](../../content/notification)
  - [goat-table](../../table/table)
@@ -73,6 +74,7 @@ graph TD;
   goat-button --> goat-icon
   goat-button --> goat-spinner
   goat-code-highlighter --> goat-button
+  goat-empty-state --> goat-button
   goat-header --> goat-button
   goat-notification --> goat-button
   goat-table --> goat-button

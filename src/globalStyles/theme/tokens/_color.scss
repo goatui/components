@@ -410,3 +410,10 @@ Secondary link color for lower contrast backgrounds
 @include defineVariable(--support-success-inverse, getColor(success, 40), getColor(success, 50));
 @include defineVariable(--support-warning-inverse, getColor(warning, 30), getColor(warning, 30));
 @include defineVariable(--support-info-inverse, getColor(info, 50), getColor(info, 70));
+
+
+@each $color in [gray, blue, green, red, yellow, primary, success, info, warning, error] {
+  @include defineVariable(--tag-background-#{$color}, getColor($color, 20), getColor($color, 80));
+  @include defineVariable(--tag-hover-#{$color}, getColor($color, 30), getColor($color, 70));
+  @include defineVariable(--tag-color-#{$color}, getColor($color, 80), getColor($color, 30));
+}

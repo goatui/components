@@ -18,7 +18,7 @@
 
 ### Depends on
 
-- [goat-canvas](../goat-canvas)
+- [goat-canvas](../canvas)
 
 ### Graph
 ```mermaid

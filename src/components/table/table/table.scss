@@ -18,6 +18,13 @@
     height: 100%;
   }
 
+  .empty-table {
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   &.paginate .table-scroll-container{
     height: calc(100% - 2.4375rem); // remove height of pagination bar
   }

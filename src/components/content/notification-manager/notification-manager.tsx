@@ -29,7 +29,7 @@ export class NotificationManager implements ComponentInterface {
 
 
   @Listen('goat:toast', { target: 'window' })
-  listenClick(evt) {
+  listenToast(evt) {
     if ((evt.detail.target === this.name || this.name === 'global') && !evt.detail.procced) {
       evt.preventDefault();
       evt.stopPropagation();
@@ -38,6 +38,29 @@ export class NotificationManager implements ComponentInterface {
         id: getNotificationIndex(),
         type: 'toast',
         message: evt.detail.message,
+        state: evt.detail.state,
+        hide: false,
+      };
+      this.notifications = this.notifications.concat([notification]).filter(n => !n.hide);
+      setTimeout(() => {
+        notification.hide = true;
+        this.notifications = [...this.notifications];
+      }, 5000);
+    }
+  }
+
+  @Listen('goat:notification', { target: 'window' })
+  listenNotification(evt) {
+    if ((evt.detail.target === this.name || this.name === 'global') && !evt.detail.procced) {
+      evt.preventDefault();
+      evt.stopPropagation();
+      evt.detail.procced = true;
+      const notification = {
+        id: getNotificationIndex(),
+        type: 'notification',
+        title: evt.detail.title,
+        subtitle: evt.detail.subtitle,
+        messageType: evt.detail.messageType,
         state: evt.detail.state,
         hide: false,
       };
@@ -68,7 +91,10 @@ export class NotificationManager implements ComponentInterface {
           );
         case 'notification':
           return (
-            <goat-notification {...notification.props} />
+            <goat-notification id={`${notification.id}`} state={notification.state}>
+              <div innerHTML={notification.title} slot="title"/>
+              <div innerHTML={notification.subtitle} slot="subtitle"/>
+            </goat-notification>
           );
         default:
           return null;

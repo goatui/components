@@ -102,33 +102,14 @@
   border-color: transparent;
 }
 
+@each $state in [success, warning, error] {
+  :host-context(.input-state#{$state}) {
+    .input-container {
+      border-color: v(--support-#{$state});
 
-:host-context(.input-state-error) {
-  .input-container {
-    border-color: v(--support-error);
-
-    &.has-focus {
-      @include focus-ring(v(--support-error));
-    }
-  }
-}
-
-:host-context(.input-state-success) {
-  .input-container {
-    border-color: v(--support-success);
-
-    &.has-focus {
-      @include focus-ring(v(--support-success));
-    }
-  }
-}
-
-:host-context(.input-state-warning) {
-  .input-container {
-    border-color: v(--support-03);
-
-    &.has-focus {
-      @include focus-ring(v(--support-03));
+      &.has-focus {
+        @include focus-ring(v(--support-#{$state}));
+      }
     }
   }
 }

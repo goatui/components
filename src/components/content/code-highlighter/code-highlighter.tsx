@@ -50,6 +50,10 @@ export class CodeHighlighter implements ComponentInterface {
     setTimeout(() => this.renderPrism(), 1000);
   }
 
+  decode(str: string) {
+    return str.replace(/&lt;/g,"<").replace(/&gt;/g,">");
+  }
+
   private renderPrism() {
     // @ts-ignore
     const Prism = window['Prism'];
@@ -58,7 +62,8 @@ export class CodeHighlighter implements ComponentInterface {
     if (!value) {
       value = this.elm.innerHTML;
     }
-    value = value.replace(/&lt;/g,"<").replace(/&gt;/g,">");
+    value = this.decode(value);
+    value = value.trim();
     const formatted = Prism.highlight(value, Prism.languages[this.language], this.language);
     let lineNumbersWrapper = '';
     if (this.lineNumbers) {
@@ -83,7 +88,7 @@ export class CodeHighlighter implements ComponentInterface {
               <pre dir='ltr' class='highlighter line-numbers' innerHTML={this.compiledCode} />
             </div>
           </div>
-          <goat-button class='copy-btn color-secondary' variant='ghost' icon='files' aria-label='Copy code'
+          <goat-button class='copy-btn color-secondary' size="sm" variant='ghost' icon='files' aria-label='Copy code'
                        title='Copy code' onGoat:click={this.handleCopyClick} />
         </div>}
         {!this.compiledCode && <div class='code-loader'>

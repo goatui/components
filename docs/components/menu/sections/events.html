@@ -1,11 +1,11 @@
 <goat-card>
   <goat-card-content>
-    {% highlight js %}
+    {% GoatHighlighter language:"js" %}
     const $list = document.querySelector('.menu');
     $list.addEventListener('goat:menu-item-click', function(evt) {
       console.log(`<pre>${JSON.stringify(evt.detail.value, null, 4)}</pre>`);
     });
-    {% endhighlight %}
+    {% endGoatHighlighter %}
   </goat-card-content>
 </goat-card>
 

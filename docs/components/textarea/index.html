@@ -36,10 +36,10 @@ menu:
           <goat-textarea variant='dashed' value='Some Value'></goat-textarea>
         </goat-card-content>
         <goat-card-content>
-          {% highlight html %}
+          {% GoatHighlighter language:"html" %}
           <goat-textarea placeholder='Person Name'></goat-textarea>
           <goat-textarea variant='dashed' value='Some Value'></goat-textarea>
-          {% endhighlight %}
+          {% endGoatHighlighter %}
         </goat-card-content>
       </goat-card>
     </div>
@@ -61,11 +61,11 @@ menu:
           <goat-textarea size='sm' placeholder='Small'></goat-textarea>
         </goat-card-content>
         <goat-card-content>
-          {% highlight html %}
+          {% GoatHighlighter language:"html" %}
           <goat-textarea size='lg' placeholder='Large'></goat-textarea>
           <goat-textarea placeholder='Medium'></goat-textarea>
           <goat-textarea size='sm' placeholder='Small'></goat-textarea>
-          {% endhighlight %}
+          {% endGoatHighlighter %}
         </goat-card-content>
       </goat-card>
 
@@ -99,7 +99,7 @@ menu:
           </script>
         </goat-card-content>
         <goat-card-content>
-          {% highlight js %}
+          {% GoatHighlighter language:"js" %}
           document.querySelector('#input-with-actions').actions = [{
             icon: 'search',
             eventName: 'search-item'
@@ -114,7 +114,7 @@ menu:
           document.querySelector('#input-with-actions').addEventListener('goat:action-click', function(evt) {
            console.log("Action clicked :: " + evt.detail.eventName);
           });
-          {% endhighlight %}
+          {% endGoatHighlighter %}
         </goat-card-content>
       </goat-card>
     </div>
@@ -132,10 +132,10 @@ menu:
           <goat-textarea disabled value='With Value'></goat-textarea>
         </goat-card-content>
         <goat-card-content>
-          {% highlight html %}
+          {% GoatHighlighter language:"html" %}
           <goat-textarea disabled></goat-textarea>
           <goat-textarea disabled value='With Value'></goat-textarea>
-          {% endhighlight %}
+          {% endGoatHighlighter %}
         </goat-card-content>
       </goat-card>
     </div>
@@ -166,14 +166,14 @@ menu:
 
       <goat-card>
         <goat-card-content>
-          {% highlight js %}
+          {% GoatHighlighter language:"js" %}
           document.querySelector('#name-input-field').addEventListener('goat:input', function(event) {
             console.log("goat:input :: " + event.target.value);
           });
           document.querySelector('#name-input-field').addEventListener('goat:change', function(event) {
             console.log("goat:change :: " + event.target.value);
           });
-          {% endhighlight %}
+          {% endGoatHighlighter %}
         </goat-card-content>
       </goat-card>
 

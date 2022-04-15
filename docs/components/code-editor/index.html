@@ -60,24 +60,24 @@ menu:
           </script>
         </goat-card-content>
         <goat-card-content>
-          {% highlight html %}
+          {% GoatHighlighter language:"html" %}
           <goat-code-editor id='business-rule-editor' style='height: 300px'></goat-code-editor>
-          {% endhighlight %}
+          {% endGoatHighlighter %}
         </goat-card-content>
         <goat-card-content>
-          {% highlight js %}
-          document.getElementById('business-rule-editor').value = `
-          /**
-          * Sample Code
-          */
-          function myBusinessRuleFunction(){
-          const a = 1;
-          const b = 2;
-          let c = a + b;
-          console.log(c);
-          }
-          `;
-          {% endhighlight %}
+          {% GoatHighlighter language:"js" %}
+document.getElementById('business-rule-editor').value = \`
+/**
+* Sample Code
+*/
+function myBusinessRuleFunction(){
+  const a = 1;
+  const b = 2;
+  let c = a + b;
+  console.log(c);
+}
+\`;
+          {% endGoatHighlighter %}
 
         </goat-card-content>
       </goat-card>
@@ -94,9 +94,9 @@ menu:
 
       <div class='card'>
         <div class='card-body'>
-          {% highlight html %}
-          <goat-code-editor theme='vs-dark'></goat-code-editor>
-          {% endhighlight %}
+          {% GoatHighlighter language:"html" %}
+<goat-code-editor theme='vs-dark'></goat-code-editor>
+          {% endGoatHighlighter %}
         </div>
       </div>
 
@@ -113,9 +113,9 @@ menu:
 
       <div class='card'>
         <div class='card-body'>
-          {% highlight html %}
-          <goat-code-editor disabled></goat-code-editor>
-          {% endhighlight %}
+          {% GoatHighlighter language:"html" %}
+<goat-code-editor disabled></goat-code-editor>
+          {% endGoatHighlighter %}
         </div>
       </div>
 

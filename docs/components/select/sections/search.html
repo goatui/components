@@ -19,13 +19,12 @@
         },
       ];
       $search.addEventListener('goat:change', function(evt) {
-        myConsole.log(`<pre>${JSON.stringify(evt.detail, null, 4)}</pre>`);
+        myConsole.log(JSON.stringify(evt.detail, null, 4));
       });
     </script>
   </goat-card-content>
   <goat-card-content>
-    {% highlight html %}
-    <goat-select id='search-selected' placeholder='Search' search='contains' clearable style='width: 20rem'></goat-select>
-    {% endhighlight %}
+    {% GoatHighlighter language:"js" %}<goat-select id='search-selected' placeholder='Search' search='contains' clearable style='width: 20rem'></goat-select>
+    {% endGoatHighlighter %}
   </goat-card-content>
 </goat-card>

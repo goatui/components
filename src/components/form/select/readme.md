@@ -15,6 +15,7 @@
 | `disabled`    | `disabled`    | If true, the user cannot interact with the button. Defaults to `false`.                                        | `boolean`                                        | `false`                                         |
 | `isOpen`      | `is-open`     |                                                                                                                | `boolean`                                        | `false`                                         |
 | `items`       | `items`       | [{   label: 'Shivaji Varma',   value: 'shivaji-varma' }]                                                       | `any`                                            | `[]`                                            |
+| `multiple`    | `multiple`    |                                                                                                                | `boolean`                                        | `false`                                         |
 | `name`        | `name`        | The input field name.                                                                                          | `string`                                         | ``goat-input-${this.gid}``                      |
 | `placeholder` | `placeholder` | The input field placeholder.                                                                                   | `string`                                         | `undefined`                                     |
 | `positions`   | `positions`   |                                                                                                                | `string`                                         | `'bottom-right,top-right,bottom-left,top-left'` |
@@ -24,7 +25,7 @@
 | `showLoader`  | `show-loader` |                                                                                                                | `boolean`                                        | `false`                                         |
 | `size`        | `size`        | The select input size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.                        | `"lg" \| "md" \| "sm"`                           | `'md'`                                          |
 | `state`       | `state`       | The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`. | `"default" \| "error" \| "success" \| "warning"` | `'default'`                                     |
-| `value`       | `value`       | The input field value.                                                                                         | `number \| string`                               | `undefined`                                     |
+| `value`       | `value`       | The input field value.                                                                                         | `number \| string`                               | `''`                                            |
 
 
 ## Events
@@ -79,6 +80,7 @@ Type: `Promise<void>`
 
 ### Depends on
 
+- [goat-tag](../../content/tag)
 - [goat-icon](../../content/icon)
 - [goat-spinner](../../content/spinner)
 - [goat-menu](../../menu/menu)
@@ -88,13 +90,18 @@ Type: `Promise<void>`
 ### Graph
 ```mermaid
 graph TD;
+  goat-select --> goat-tag
   goat-select --> goat-icon
   goat-select --> goat-spinner
   goat-select --> goat-menu
   goat-select --> goat-text
   goat-select --> goat-menu-item
+  goat-tag --> goat-icon
   goat-menu --> goat-empty-state
   goat-empty-state --> goat-svg
+  goat-empty-state --> goat-button
+  goat-button --> goat-icon
+  goat-button --> goat-spinner
   goat-table --> goat-select
   style goat-select fill:#f9f,stroke:#333,stroke-width:4px
 ```

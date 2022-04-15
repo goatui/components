@@ -2,8 +2,7 @@
 layout: component
 title: Header
 menu:
-- title: Usage
-
+  - title: Usage
 ---
 <div class='row pt-3'>
 
@@ -57,7 +56,7 @@ menu:
             gap: var(--spacing-2);
           }
         </style>
-        <goat-card-content>
+        <goat-card-content class='demo'>
 
           <goat-header
             brand-name='Goat'
@@ -83,14 +82,13 @@ menu:
           </goat-header>
         </goat-card-content>
         <goat-card-content>
-{% capture sample-code %}<goat-header class='brand'
+{% GoatHighlighter language:"html" %}<goat-header class='brand'
     brand-name='Goat'
     brand-logo='/assets/img/logo.svg'
     brand-url='/'
     page-title='Button'>
             {% include_relative header-content.html %}</goat-header>
-          {% endcapture %}
-          {% include highlight-html.html content=sample-code %}
+{% endGoatHighlighter %}
         </goat-card-content>
       </goat-card>
     </div>
@@ -98,3 +96,4 @@ menu:
   </div>
   <!-- End Content -->
 </div>
+

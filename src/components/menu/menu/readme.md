@@ -7,12 +7,12 @@
 
 ## Properties
 
-| Property     | Attribute     | Description | Type               | Default                                                                               |
-| ------------ | ------------- | ----------- | ------------------ | ------------------------------------------------------------------------------------- |
-| `empty`      | `empty`       |             | `boolean`          | `false`                                                                               |
-| `emptyState` | `empty-state` |             | `string`           | ``{     "title": "No items",     "description": "There are no items to display"   }`` |
-| `showLoader` | `show-loader` |             | `boolean`          | `false`                                                                               |
-| `value`      | `value`       |             | `number \| string` | `undefined`                                                                           |
+| Property     | Attribute     | Description | Type               | Default                                                                                 |
+| ------------ | ------------- | ----------- | ------------------ | --------------------------------------------------------------------------------------- |
+| `empty`      | `empty`       |             | `boolean`          | `false`                                                                                 |
+| `emptyState` | `empty-state` |             | `any`              | `{     'headline': 'No items',     'description': 'There are no items to display',   }` |
+| `showLoader` | `show-loader` |             | `boolean`          | `false`                                                                                 |
+| `value`      | `value`       |             | `number \| string` | `undefined`                                                                             |
 
 
 ## Methods
@@ -45,6 +45,9 @@ Type: `Promise<void>`
 graph TD;
   goat-menu --> goat-empty-state
   goat-empty-state --> goat-svg
+  goat-empty-state --> goat-button
+  goat-button --> goat-icon
+  goat-button --> goat-spinner
   goat-dropdown --> goat-menu
   goat-select --> goat-menu
   style goat-menu fill:#f9f,stroke:#333,stroke-width:4px

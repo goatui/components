@@ -7,13 +7,13 @@ let Menu = class {
     registerInstance(this, hostRef);
     this.showLoader = false;
     this.empty = false;
-    this.emptyState = `{
-    "title": "No items",
-    "description": "There are no items to display"
-  }`;
+    this.emptyState = {
+      'headline': 'No items',
+      'description': 'There are no items to display',
+    };
   }
   parseEmptyState() {
-    if (this.emptyState) {
+    if (typeof this.emptyState === 'string') {
       this.internalEmptyState = JSON.parse(this.emptyState);
     }
   }
@@ -78,7 +78,7 @@ let Menu = class {
       }
     } while (previousItem !== currentItem);
   }
-  componentWillLoad() {
+  componentDidLoad() {
     this.parseEmptyState();
   }
   render() {
@@ -86,7 +86,7 @@ let Menu = class {
   }
   renderEmptyState() {
     if (this.empty)
-      return h("goat-empty-state", { class: "empty-menu" }, h("div", { slot: 'title' }, this.internalEmptyState.title), h("div", { slot: 'description' }, this.internalEmptyState.description));
+      return h("goat-empty-state", Object.assign({ class: 'empty-menu' }, this.internalEmptyState));
   }
   get elm() { return getElement(this); }
   static get watchers() { return {

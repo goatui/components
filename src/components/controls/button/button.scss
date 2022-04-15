@@ -469,6 +469,11 @@ $button-color-support: var(--button-color-support, $button-color);
   }
 }
 
+.button.icon-end .button-content {
+  flex-direction: row-reverse;
+}
+
+
 :host([block]) {
   display: block;
 

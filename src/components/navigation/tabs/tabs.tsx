@@ -1,11 +1,13 @@
-import { Component, ComponentInterface, Element, h, Host, Listen, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Host, Listen } from '@stencil/core';
 
 /**
  * @name Tabs
  * @description An interactive button with a range of presentation options.
  * @example <goat-tabs>
- *   <goat-tab selected >Tab 1</goat-tab>
- *   <goat-tab>Tab 2</goat-tab>
+ *   <goat-tabs-list>
+ *    <goat-tab selected >Tab 1</goat-tab>
+ *    <goat-tab>Tab 2</goat-tab>
+ *   </goat-tabs-list>
  * </goat-tabs>
  */
 @Component({
@@ -15,40 +17,60 @@ import { Component, ComponentInterface, Element, h, Host, Listen, Prop } from '@
 })
 export class Tabs implements ComponentInterface {
 
-  @Prop() variant: 'line' | 'contained' = 'line';
-
-  @Prop() managed: boolean = false;
 
   @Element() elm!: HTMLElement;
 
   @Listen('goat:tab-click')
   tabClick(evt) {
-    if (!this.managed) {
-      this.deselectAllTabs();
-      evt.target.selected = true;
-      if(evt.detail.target) {
-
-      } else {
-        console.warn("goat-tabs:: No target associated");
-      }
+    if (evt.detail.target) {
+      this.selectTab(evt.detail.target);
     }
   }
 
-  deselectAllTabs() {
-    const tabs = this.elm.querySelectorAll('goat-tab');
-    tabs.forEach(tab => {
-      tab.selected = false;
-    });
+  selectTab(target) {
+    const tabs = this.getTabs();
+    for (let i = 0; i < tabs.length; i++) {
+      tabs[i].selected = target === tabs[i].target;
+    }
+    const tabPanels = this.getTabPanels();
+    for (let i = 0; i < tabPanels.length; i++) {
+      tabPanels[i].active = target === tabPanels[i].value;
+    }
+  }
+
+  getTabs() {
+    return this.elm.querySelectorAll('goat-tab');
+  }
+
+  getTabPanels() {
+    return this.elm.querySelectorAll('goat-tab-panel');
+  }
+
+  tabsHaveTarget() {
+    return this.elm.querySelector('goat-tab[target]');
+  }
+
+  componentDidLoad() {
+    if (!this.tabsHaveTarget()) {
+      const tabs = this.getTabs();
+      tabs.forEach((tab, index) => {
+        tab.setAttribute('target', 'tab-' + index);
+      });
+      this.getTabPanels().forEach((tab, index) => {
+        tab.setAttribute('value', 'tab-' + index);
+      });
+      if (tabs.length)
+        this.selectTab('tab-0');
+    } else {
+      const selectedTab = this.elm.querySelector('goat-tab[selected]');
+      if (selectedTab)
+        this.selectTab(selectedTab['target']);
+    }
   }
 
   render() {
-
     return (<Host>
-      <div class={{ 'tabs': true, [`variant-${this.variant}`]: true }}>
-        <div class="tabs-container">
-          <slot />
-        </div>
-      </div>
+      <slot />
     </Host>);
   }
 

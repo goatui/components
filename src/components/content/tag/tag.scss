@@ -1,0 +1,65 @@
+@import "../../../globalStyles/commons";
+
+$tag-background-color: var(--tag-background-color, v(--tag-background-gray));
+$tag-color: var(--tag-color, v(--tag-color-gray));
+$tag-hover-color: var(--tag-color, v(--tag-hover-gray));
+
+:host {
+  display: inline-block;
+}
+
+.tag {
+  @include font-style(text-sm);
+  background: $tag-background-color;
+  color: $tag-color;
+  display: flex;
+  align-items: center;
+}
+
+.tag-content {
+  padding: 0 .5rem;
+}
+
+:host([filter]) .tag-content {
+  padding-inline-end: .25rem;
+}
+
+.close-btn {
+  border-radius: 12px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  line-height: 0;
+  cursor: pointer;
+}
+
+.close-btn:hover{
+  background: $tag-hover-color;
+  .close-btn-icon {
+    color: v(--background);
+  }
+}
+
+
+/**
+ * Sizes
+ */
+.tag.size-md {
+  height: 1.5rem;
+  border-radius: 12px;
+}
+
+
+.tag.size-sm {
+  height: 1.125rem;
+  border-radius: 9px;
+}
+
+@each $color in [gray, blue, green, red, yellow, primary, success, info, warning, error] {
+  :host(.color-#{$color}) .tag {
+    --tag-background-color: #{v(--tag-background-#{$color})};
+    --tag-color: #{v(--tag-color-#{$color})};
+    --tag-hover-color: #{v(--tag-hover-#{$color})};
+  }
+}

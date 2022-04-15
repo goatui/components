@@ -1,9 +1,15 @@
 {% capture sample-code %}
-<goat-empty-state illustration='page' vertical style='height: 20rem'>
-  <div slot="title">404 : Page not found :(</div>
-  <div slot='description'>The requested page could not be found.</div>
+<goat-empty-state style='height: 40rem'
+                  illustration='page'
+                  headline='404 : Page not found :('
+                  description='The page you are looking for does not exist. Please check the URL or go back to the homepage.'
+                  action='Go back to the homepage'
+                  action-url='/'
+>
   <div slot='actions'>
-    <goat-link variant="ghost" href='/'>Go to home page <goat-icon name='arrow-right'></goat-icon></goat-link>
+    <goat-link variant='ghost' href='/'>Go to home page
+      <goat-icon name='arrow-right'></goat-icon>
+    </goat-link>
   </div>
 </goat-empty-state>
 {% endcapture %}

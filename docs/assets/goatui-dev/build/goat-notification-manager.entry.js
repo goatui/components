@@ -17,7 +17,7 @@ let NotificationManager = class {
     this.notifications = [];
     this.isDarkMode = isDarkMode();
   }
-  listenClick(evt) {
+  listenToast(evt) {
     if ((evt.detail.target === this.name || this.name === 'global') && !evt.detail.procced) {
       evt.preventDefault();
       evt.stopPropagation();
@@ -26,6 +26,27 @@ let NotificationManager = class {
         id: getNotificationIndex(),
         type: 'toast',
         message: evt.detail.message,
+        state: evt.detail.state,
+        hide: false,
+      };
+      this.notifications = this.notifications.concat([notification]).filter(n => !n.hide);
+      setTimeout(() => {
+        notification.hide = true;
+        this.notifications = [...this.notifications];
+      }, 5000);
+    }
+  }
+  listenNotification(evt) {
+    if ((evt.detail.target === this.name || this.name === 'global') && !evt.detail.procced) {
+      evt.preventDefault();
+      evt.stopPropagation();
+      evt.detail.procced = true;
+      const notification = {
+        id: getNotificationIndex(),
+        type: 'notification',
+        title: evt.detail.title,
+        subtitle: evt.detail.subtitle,
+        messageType: evt.detail.messageType,
         state: evt.detail.state,
         hide: false,
       };
@@ -49,7 +70,7 @@ let NotificationManager = class {
         case 'alert':
           return (h("goat-alert", Object.assign({}, notification.props)));
         case 'notification':
-          return (h("goat-notification", Object.assign({}, notification.props)));
+          return (h("goat-notification", { id: `${notification.id}`, state: notification.state }, h("div", { innerHTML: notification.title, slot: "title" }), h("div", { innerHTML: notification.subtitle, slot: "subtitle" })));
         default:
           return null;
       }

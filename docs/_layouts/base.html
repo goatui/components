@@ -113,17 +113,17 @@
 
   myConsole = {
     log: function(message) {
-      window.dispatchEvent(new CustomEvent('goat:toast', {
+      window.dispatchEvent(new CustomEvent('goat:notification', {
         detail: {
-          message: message,
+          subtitle: `<pre>${message}</pre>`,
           state: 'success',
         },
       }));
     },
     warn: function(message) {
-      window.dispatchEvent(new CustomEvent('goat:toast', {
+      window.dispatchEvent(new CustomEvent('goat:notification', {
         detail: {
-          message: message,
+          subtitle: `<pre>${message}</pre>`,
           state: 'warning',
         },
       }));

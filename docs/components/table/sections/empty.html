@@ -1,0 +1,38 @@
+<goat-card>
+  <goat-card-content style='height: 30rem'>
+    <goat-table id='empty-table'
+                key-field='_id'
+                selection-type='checkbox'
+                sortable
+    ></goat-table>
+    <script>
+      const $emptyTable = document.getElementById('empty-table');
+      // Columns
+      $emptyTable.columns = {% include_relative column-config.json %};
+      // Data
+      $emptyTable.data = [];
+      $emptyTable.emptyState = {
+        'headline': 'Empty list',
+        'description': 'There are no employees to display',
+        'action': 'Create Employee',
+        'actionUrl': '#'
+      };
+    </script>
+  </goat-card-content>
+  <goat-card-content>
+{% GoatHighlighter language:"js" %}
+const $emptyTable = document.getElementById('empty-table');
+// Columns
+$emptyTable.columns = [...];
+// Data
+$emptyTable.data = [];
+$emptyTable.emptyState = {
+  'headline': 'Empty list',
+  'description': 'There are no employees to display',
+  'action': 'Create Employee',
+  'actionUrl': '#',
+  'actionDisabled': true
+};
+{% endGoatHighlighter %}
+  </goat-card-content>
+</goat-card>

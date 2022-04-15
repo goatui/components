@@ -1,0 +1,17 @@
+{% capture sample-code %}
+<goat-tag>Gray</goat-tag>
+<goat-tag class='color-blue'>Blue</goat-tag>
+<goat-tag class='color-red'>Red</goat-tag>
+<goat-tag class='color-green'>Green</goat-tag>
+<goat-tag class='color-yellow'>Yellow</goat-tag>
+
+<br/>
+<br/>
+
+<goat-tag size='sm' filter>Gray</goat-tag>
+<goat-tag class='color-blue' size='sm' filter>Blue</goat-tag>
+<goat-tag class='color-red' size='sm'>Red</goat-tag>
+<goat-tag class='color-green' size='sm'>Green</goat-tag>
+<goat-tag class='color-yellow' size='sm'>Yellow</goat-tag>
+{% endcapture %}
+{% include demo-html.html content=sample-code %}

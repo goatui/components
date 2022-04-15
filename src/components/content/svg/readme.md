@@ -7,10 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default  |
-| -------- | --------- | ----------- | -------- | -------- |
-| `size`   | `size`    |             | `string` | `'2rem'` |
-| `src`    | `src`     |             | `string` | `''`     |
+| Property | Attribute | Description | Type     | Default |
+| -------- | --------- | ----------- | -------- | ------- |
+| `src`    | `src`     |             | `string` | `''`    |
 
 
 ## Dependencies

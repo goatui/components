@@ -45,6 +45,9 @@ graph TD;
   goat-dropdown --> goat-icon
   goat-menu --> goat-empty-state
   goat-empty-state --> goat-svg
+  goat-empty-state --> goat-button
+  goat-button --> goat-icon
+  goat-button --> goat-spinner
   style goat-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

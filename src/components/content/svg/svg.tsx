@@ -8,8 +8,6 @@ import { fetchIcon } from './datasource';
 })
 export class Svg {
 
-  @Prop({ reflect: true }) size = '2rem';
-
   @Prop() src: string = '';
 
   @State() svg: string = '';

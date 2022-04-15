@@ -23,6 +23,7 @@
  - [goat-notification](../notification)
  - [goat-select](../../form/select)
  - [goat-tab](../../navigation/tabs/tab)
+ - [goat-tag](../tag)
  - [goat-textarea](../../form/textarea)
  - [goat-toast](../toast)
 
@@ -35,6 +36,7 @@ graph TD;
   goat-notification --> goat-icon
   goat-select --> goat-icon
   goat-tab --> goat-icon
+  goat-tag --> goat-icon
   goat-textarea --> goat-icon
   goat-toast --> goat-icon
   style goat-icon fill:#f9f,stroke:#333,stroke-width:4px

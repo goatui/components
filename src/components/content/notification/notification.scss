@@ -36,6 +36,10 @@
   }
 }
 
+:host(:not([dismissible])) .content {
+  padding-inline-end: v(--spacing-4);
+}
+
 
 @mixin alertState($color, $dark) {
   @if $dark {

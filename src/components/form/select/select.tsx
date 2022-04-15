@@ -45,7 +45,9 @@ export class Select implements ComponentInterface, InputComponentInterface {
   /**
    * The input field value.
    */
-  @Prop({ mutable: true }) value?: string | number;
+  @Prop({ mutable: true }) value?: string | number = '';
+
+  @Prop() multiple: boolean = false;
 
   /**
    * The select input size.
@@ -68,7 +70,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
   /**
    * If true, required icon is show. Defaults to `false`.
    */
-  @Prop() required: boolean = false;
+  @Prop({ reflect: true }) required: boolean = false;
 
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
@@ -79,6 +81,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
   @Prop({ reflect: true }) readonly: boolean = false;
+
 
   @Prop() showLoader: boolean = false;
 
@@ -129,7 +132,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
    */
   @Method()
   async setFocus(): Promise<void> {
-    this.displayElement.focus()
+    this.displayElement.focus();
   }
 
   /**
@@ -181,16 +184,49 @@ export class Select implements ComponentInterface, InputComponentInterface {
   @State() position: string;
   private displayElement?: HTMLElement;
 
+  @Listen('goat:tag-dismiss')
+  tagDismissClick(evt) {
+    this.removeItem(evt.detail.value);
+  }
+
+  private getValues() {
+    if (this.value)
+      return this.value.toString().split(',');
+    else
+      return [];
+  }
+
+  private addItem(selectItemValue) {
+    let value = this.getValues();
+    if (!value.includes(selectItemValue)) {
+      if (!this.multiple)
+        value = [];
+      value.push(selectItemValue);
+      this.value = value.join(',');
+      this.goatChange.emit({ value: this.value, newItem: this.getItemByValue(selectItemValue) });
+    }
+  }
+
+  private removeItem(selectItemValue) {
+    let value = this.getValues();
+    if (value.includes(selectItemValue)) {
+      value = value.filter(item => item !== selectItemValue);
+      this.value = value.join(',');
+      this.goatChange.emit({ value: this.value, removedItem: this.getItemByValue(selectItemValue) });
+    }
+  }
+
   private selectHandler = (selectItemValue) => {
     if (!this.disabled && !this.readonly) {
-      this.value = selectItemValue;
-      this.goatChange.emit({ value: this.value, item: this.getItemByValue(selectItemValue) });
+      this.addItem(selectItemValue);
     }
     this.closeList();
   };
 
   private clearInput = () => {
-    this.selectHandler(undefined);
+    if (!this.disabled && !this.readonly) {
+      this.removeItem(this.value);
+    }
   };
 
 
@@ -268,25 +304,33 @@ export class Select implements ComponentInterface, InputComponentInterface {
     return (this.value || '').toString().length > 0;
   }
 
-  getItemByValue(value) {
+  private getItemByValue(value) {
     if (this.items) {
       return this.items.find((item) => {
-        return item.value === value;
+        return item.value == value;
       });
     }
   }
 
-  getDisplayValue() {
-    if (this.items) {
-      const item = this.getItemByValue(this.value);
-      if (item) {
-        return item.label;
+  private getDisplayValue() {
+    if (!this.multiple) {
+      if (this.items) {
+        const item = this.getItemByValue(this.value);
+        if (item) {
+          return item.label;
+        }
       }
-    }
-    if (!this.disabled && !this.readonly) {
-      return this.placeholder;
+      if (!this.disabled && !this.readonly) {
+        return this.placeholder;
+      } else {
+        return <span>&nbsp;</span>;
+      }
     } else {
-      return '';
+      if (!this.value && !this.disabled && !this.readonly) {
+        return this.placeholder;
+      } else {
+        return <span>&nbsp;</span>;
+      }
     }
   }
 
@@ -353,6 +397,19 @@ export class Select implements ComponentInterface, InputComponentInterface {
     this.debounceChanged();
   }
 
+  renderMultiSelectValues() {
+    const values = this.getValues();
+    if (this.multiple && values.length) {
+      return values.map((value) => {
+        const item = this.getItemByValue(value);
+        if (item) {
+          return (
+            <goat-tag filter class='multi-select-value' value={item.value}>{item.label}</goat-tag>
+          );
+        }
+      });
+    }
+  }
 
   render() {
 
@@ -376,6 +433,10 @@ export class Select implements ComponentInterface, InputComponentInterface {
 
           <div class='slot-container start'>
             <slot name='start' />
+          </div>
+
+          <div class='multi-select-values'>
+            {this.renderMultiSelectValues()}
           </div>
 
           {
@@ -413,7 +474,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
           }
 
 
-          {this.clearable && this.hasValue() &&
+          {this.clearable && !this.multiple && this.hasValue() &&
             <goat-icon class='clear input-action' name='x-circle-fill' size={this.size} onClick={this.clearInput}
                        role='button' />}
 
