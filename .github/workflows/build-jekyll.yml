@@ -3,7 +3,7 @@ name: Build and Deploy to Github Pages
 on:
   push:
     branches:
-      - master  # Here source code branch is `master`, it could be other branch
+      - main  # Here source code branch is `master`, it could be other branch
 
 jobs:
   build_and_deploy:
@@ -25,7 +25,7 @@ jobs:
           provider: 'github'
           token: ${{ secrets.GITHUB_TOKEN }} # It's your Personal Access Token(PAT)
           repository: ''             # Default is current repository
-          branch: 'master'         # Default is gh-pages for github provider
+          branch: 'main'         # Default is gh-pages for github provider
           jekyll_src: './docs'           # Default is root directory
           jekyll_cfg: '_config.yml'  # Default is _config.yml
           jekyll_baseurl: ''         # Default is according to _config.yml
