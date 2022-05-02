@@ -150,6 +150,8 @@ export namespace Components {
         "lineNumbers": boolean;
         "value": string;
     }
+    interface GoatDatePicker {
+    }
     interface GoatDivider {
         "vertical": boolean;
     }
@@ -568,6 +570,8 @@ export namespace Components {
          */
         "value": string;
     }
+    interface GoatTimePicker {
+    }
     interface GoatToast {
         "message": string;
         "state": 'success' | 'error' | 'info' | 'warning';
@@ -627,6 +631,12 @@ declare global {
     var HTMLGoatCodeHighlighterElement: {
         prototype: HTMLGoatCodeHighlighterElement;
         new (): HTMLGoatCodeHighlighterElement;
+    };
+    interface HTMLGoatDatePickerElement extends Components.GoatDatePicker, HTMLStencilElement {
+    }
+    var HTMLGoatDatePickerElement: {
+        prototype: HTMLGoatDatePickerElement;
+        new (): HTMLGoatDatePickerElement;
     };
     interface HTMLGoatDividerElement extends Components.GoatDivider, HTMLStencilElement {
     }
@@ -790,6 +800,12 @@ declare global {
         prototype: HTMLGoatTextareaElement;
         new (): HTMLGoatTextareaElement;
     };
+    interface HTMLGoatTimePickerElement extends Components.GoatTimePicker, HTMLStencilElement {
+    }
+    var HTMLGoatTimePickerElement: {
+        prototype: HTMLGoatTimePickerElement;
+        new (): HTMLGoatTimePickerElement;
+    };
     interface HTMLGoatToastElement extends Components.GoatToast, HTMLStencilElement {
     }
     var HTMLGoatToastElement: {
@@ -806,6 +822,7 @@ declare global {
         "goat-checkbox": HTMLGoatCheckboxElement;
         "goat-code-editor": HTMLGoatCodeEditorElement;
         "goat-code-highlighter": HTMLGoatCodeHighlighterElement;
+        "goat-date-picker": HTMLGoatDatePickerElement;
         "goat-divider": HTMLGoatDividerElement;
         "goat-dropdown": HTMLGoatDropdownElement;
         "goat-empty-state": HTMLGoatEmptyStateElement;
@@ -833,6 +850,7 @@ declare global {
         "goat-tag": HTMLGoatTagElement;
         "goat-text": HTMLGoatTextElement;
         "goat-textarea": HTMLGoatTextareaElement;
+        "goat-time-picker": HTMLGoatTimePickerElement;
         "goat-toast": HTMLGoatToastElement;
     }
 }
@@ -980,6 +998,8 @@ declare namespace LocalJSX {
         "language"?: 'markup' | 'css' | 'clike' | 'javascript' | 'abap' | 'actionscript' | 'ada' | 'apacheconf' | 'apl' | 'applescript' | 'arduino' | 'arff' | 'asciidoc' | 'asm6502' | 'aspnet' | 'autohotkey' | 'autoit' | 'bash' | 'basic' | 'batch' | 'bison' | 'brainfuck' | 'bro' | 'c' | 'csharp' | 'cpp' | 'coffeescript' | 'clojure' | 'crystal' | 'csp' | 'css-extras' | 'd' | 'dart' | 'diff' | 'django' | 'docker' | 'eiffel' | 'elixir' | 'elm' | 'erb' | 'erlang' | 'fsharp' | 'flow' | 'fortran' | 'gedcom' | 'gherkin' | 'git' | 'glsl' | 'gml' | 'go' | 'graphql' | 'groovy' | 'haml' | 'handlebars' | 'haskell' | 'haxe' | 'http' | 'hpkp' | 'hsts' | 'ichigojam' | 'icon' | 'inform7' | 'ini' | 'io' | 'j' | 'java' | 'jolie' | 'json' | 'julia' | 'keyman' | 'kotlin' | 'latex' | 'less' | 'liquid' | 'lisp' | 'livescript' | 'lolcode' | 'lua' | 'makefile' | 'markdown' | 'markup-templating' | 'matlab' | 'mel' | 'mizar' | 'monkey' | 'n4js' | 'nasm' | 'nginx' | 'nim' | 'nix' | 'nsis' | 'objectivec' | 'ocaml' | 'opencl' | 'oz' | 'parigp' | 'parser' | 'pascal' | 'perl' | 'php' | 'php-extras' | 'plsql' | 'powershell' | 'processing' | 'prolog' | 'properties' | 'protobuf' | 'pug' | 'puppet' | 'pure' | 'python' | 'q' | 'qore' | 'r' | 'jsx' | 'tsx' | 'renpy' | 'reason' | 'rest' | 'rip' | 'roboconf' | 'ruby' | 'rust' | 'sas' | 'sass' | 'scss' | 'scala' | 'scheme' | 'smalltalk' | 'smarty' | 'sql' | 'soy' | 'stylus' | 'swift' | 'tap' | 'tcl' | 'textile' | 'tt2' | 'twig' | 'typescript' | 'vbnet' | 'velocity' | 'verilog' | 'vhdl' | 'vim' | 'visual-basic' | 'wasm' | 'wiki' | 'xeora' | 'xojo' | 'xquery' | 'yaml';
         "lineNumbers"?: boolean;
         "value"?: string;
+    }
+    interface GoatDatePicker {
     }
     interface GoatDivider {
         "vertical"?: boolean;
@@ -1411,6 +1431,8 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface GoatTimePicker {
+    }
     interface GoatToast {
         "message"?: string;
         "state"?: 'success' | 'error' | 'info' | 'warning';
@@ -1425,6 +1447,7 @@ declare namespace LocalJSX {
         "goat-checkbox": GoatCheckbox;
         "goat-code-editor": GoatCodeEditor;
         "goat-code-highlighter": GoatCodeHighlighter;
+        "goat-date-picker": GoatDatePicker;
         "goat-divider": GoatDivider;
         "goat-dropdown": GoatDropdown;
         "goat-empty-state": GoatEmptyState;
@@ -1452,6 +1475,7 @@ declare namespace LocalJSX {
         "goat-tag": GoatTag;
         "goat-text": GoatText;
         "goat-textarea": GoatTextarea;
+        "goat-time-picker": GoatTimePicker;
         "goat-toast": GoatToast;
     }
 }
@@ -1468,6 +1492,7 @@ declare module "@stencil/core" {
             "goat-checkbox": LocalJSX.GoatCheckbox & JSXBase.HTMLAttributes<HTMLGoatCheckboxElement>;
             "goat-code-editor": LocalJSX.GoatCodeEditor & JSXBase.HTMLAttributes<HTMLGoatCodeEditorElement>;
             "goat-code-highlighter": LocalJSX.GoatCodeHighlighter & JSXBase.HTMLAttributes<HTMLGoatCodeHighlighterElement>;
+            "goat-date-picker": LocalJSX.GoatDatePicker & JSXBase.HTMLAttributes<HTMLGoatDatePickerElement>;
             "goat-divider": LocalJSX.GoatDivider & JSXBase.HTMLAttributes<HTMLGoatDividerElement>;
             "goat-dropdown": LocalJSX.GoatDropdown & JSXBase.HTMLAttributes<HTMLGoatDropdownElement>;
             "goat-empty-state": LocalJSX.GoatEmptyState & JSXBase.HTMLAttributes<HTMLGoatEmptyStateElement>;
@@ -1495,6 +1520,7 @@ declare module "@stencil/core" {
             "goat-tag": LocalJSX.GoatTag & JSXBase.HTMLAttributes<HTMLGoatTagElement>;
             "goat-text": LocalJSX.GoatText & JSXBase.HTMLAttributes<HTMLGoatTextElement>;
             "goat-textarea": LocalJSX.GoatTextarea & JSXBase.HTMLAttributes<HTMLGoatTextareaElement>;
+            "goat-time-picker": LocalJSX.GoatTimePicker & JSXBase.HTMLAttributes<HTMLGoatTimePickerElement>;
             "goat-toast": LocalJSX.GoatToast & JSXBase.HTMLAttributes<HTMLGoatToastElement>;
         }
     }

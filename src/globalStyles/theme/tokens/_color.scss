@@ -224,7 +224,7 @@ $colors: (
  * Theme colors
  */
 @include cloneColor(brand-primary, purple);
-@include cloneColor(brand-secondary, new-teal);
+@include cloneColor(brand-secondary, teal);
 
 /*
  * Application colors

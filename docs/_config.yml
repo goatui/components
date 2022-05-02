@@ -52,6 +52,14 @@ plugins:
   - jekyll-assets
   - jekyll-spark
 
+# Enable safe mode
+safe: true
+
+whitelist:
+  - jekyll-sitemap
+  - jekyll-assets
+  - jekyll-spark
+
 defaults:
   - scope:
       path: "assets/**/*"

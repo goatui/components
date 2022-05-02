@@ -5,14 +5,10 @@
   }
 }
 
-main {
-  margin-top: var(--header-height);
-}
-
-
 .banner {
-  height: calc(100vh - var(--header-height));
-  background: var(--color-brand-secondary);
+  height: 100vh;
+  padding-top: var(--header-height);
+  background: var(--color-brand-secondary-30);
   display: flex;
   align-items: center;
   justify-content: center;
