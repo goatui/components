@@ -32,8 +32,8 @@ twitter_username: goatui
 github_username: goatui
 github_project: components
 npm_package: '@goatui/components'
-script: 'https://unpkg.com/@goatui/components@0.9.2/dist/goatui/goatui.esm.js'
-themeCss: 'https://unpkg.com/@goatui/components@0.9.2/dist/goatui/assets/styles/theme.css'
+script: 'https://unpkg.com/@goatui/components@0.9.3/dist/goatui/goatui.esm.js'
+themeCss: 'https://unpkg.com/@goatui/components@0.9.3/dist/goatui/assets/styles/theme.css'
 
 include:
   - .well-known
@@ -57,7 +57,10 @@ defaults:
       path: "assets/**/*"
     values:
       sitemap: false
-
+  - scope:
+      path: "components/**/sections/**/*"
+    values:
+      sitemap: false
 assets:
   compression: true
   assets:

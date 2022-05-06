@@ -6,7 +6,7 @@
     "readmePath": "D:/development/goatui/src/components/content/avatar/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/avatar/usage",
     "tag": "goat-avatar",
-    "readme": "# goat-avatar\n\n\n",
+    "readme": "# goat-avatar\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -99,7 +99,7 @@
     "readmePath": "D:/development/goatui/src/components/content/badge/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/badge/usage",
     "tag": "goat-badge",
-    "readme": "# goat-icon\n\n\n",
+    "readme": "# goat-icon\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -157,7 +157,7 @@
     "readmePath": "D:/development/goatui/src/components/controls/button/readme.md",
     "usagesDir": "D:/development/goatui/src/components/controls/button/usage",
     "tag": "goat-button",
-    "readme": "# goat-button\n\n\n",
+    "readme": "# goat-button\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -510,7 +510,7 @@
     "readmePath": "D:/development/goatui/src/components/controls/button-group/readme.md",
     "usagesDir": "D:/development/goatui/src/components/controls/button-group/usage",
     "tag": "goat-button-group",
-    "readme": "# goat-button-group\n\n\n",
+    "readme": "# goat-button-group\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -551,7 +551,7 @@
     "readmePath": "D:/development/goatui/src/components/flow-designer/canvas/readme.md",
     "usagesDir": "D:/development/goatui/src/components/flow-designer/canvas/usage",
     "tag": "goat-canvas",
-    "readme": "# goat-flow-designer\n\n\n",
+    "readme": "# goat-flow-designer\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [],
@@ -648,7 +648,7 @@
     "readmePath": "D:/development/goatui/src/components/content/card/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/card/usage",
     "tag": "goat-card",
-    "readme": "# goat-heading\n\n\n",
+    "readme": "# goat-heading\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [],
@@ -1274,7 +1274,7 @@
     "readmePath": "D:/development/goatui/src/components/content/code-highlighter/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/code-highlighter/usage",
     "tag": "goat-code-highlighter",
-    "readme": "# goat-code-editor\n\n\n",
+    "readme": "# goat-code-editor\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -1978,13 +1978,36 @@
     }
   },
   {
+    "dirPath": "D:/development/goatui/src/components/goat-date-picker",
+    "filePath": "./src/components/goat-date-picker/goat-date-picker.tsx",
+    "fileName": "goat-date-picker.tsx",
+    "readmePath": "D:/development/goatui/src/components/goat-date-picker/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/goat-date-picker/usage",
+    "tag": "goat-date-picker",
+    "usage": {},
+    "docs": "",
+    "docsTags": [],
+    "encapsulation": "shadow",
+    "dependents": [],
+    "dependencies": [],
+    "dependencyGraph": {},
+    "props": [],
+    "methods": [],
+    "events": [],
+    "styles": [],
+    "slots": [],
+    "parts": [],
+    "listeners": [],
+    "metadata": {}
+  },
+  {
     "dirPath": "D:/development/goatui/src/components/content/divider",
     "filePath": "./src/components/content/divider/divider.tsx",
     "fileName": "divider.tsx",
     "readmePath": "D:/development/goatui/src/components/content/divider/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/divider/usage",
     "tag": "goat-divider",
-    "readme": "# goat-heading\n\n\n",
+    "readme": "# goat-heading\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -2049,7 +2072,7 @@
     "readmePath": "D:/development/goatui/src/components/menu/dropdown/readme.md",
     "usagesDir": "D:/development/goatui/src/components/menu/dropdown/usage",
     "tag": "goat-dropdown",
-    "readme": "# goat-dropdown\n\n\n",
+    "readme": "# goat-dropdown\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -2248,7 +2271,7 @@
     "readmePath": "D:/development/goatui/src/components/content/empty-state/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/empty-state/usage",
     "tag": "goat-empty-state",
-    "readme": "# goat-heading\n\n\n",
+    "readme": "# goat-heading\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -2262,7 +2285,7 @@
       },
       {
         "name": "example",
-        "text": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\n</goat-empty-state>"
+        "text": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\r\n</goat-empty-state>"
       }
     ],
     "encapsulation": "shadow",
@@ -2445,7 +2468,7 @@
     "metadata": {
       "name": "Empty State",
       "description": "A message that displays when there is no information to display.",
-      "example": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\n</goat-empty-state>"
+      "example": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\r\n</goat-empty-state>"
     }
   },
   {
@@ -2455,7 +2478,7 @@
     "readmePath": "D:/development/goatui/src/components/flow-designer/flow-designer/readme.md",
     "usagesDir": "D:/development/goatui/src/components/flow-designer/flow-designer/usage",
     "tag": "goat-flow-designer",
-    "readme": "# goat-flow-designer\n\n\n",
+    "readme": "# goat-flow-designer\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -2559,7 +2582,7 @@
     "readmePath": "D:/development/goatui/src/components/form/form-control/readme.md",
     "usagesDir": "D:/development/goatui/src/components/form/form-control/usage",
     "tag": "goat-form-control",
-    "readme": "# goat-field-group\n\n\n",
+    "readme": "# goat-field-group\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -2721,7 +2744,7 @@
     "readmePath": "D:/development/goatui/src/components/navigation/header/readme.md",
     "usagesDir": "D:/development/goatui/src/components/navigation/header/usage",
     "tag": "goat-header",
-    "readme": "# p4-top-navigation\n\n\n",
+    "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -2863,7 +2886,7 @@
     "readmePath": "D:/development/goatui/src/components/content/icon/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/icon/usage",
     "tag": "goat-icon",
-    "readme": "# goat-icon\n\n\n",
+    "readme": "# goat-icon\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -3362,7 +3385,7 @@
     "readmePath": "D:/development/goatui/src/components/navigation/link/readme.md",
     "usagesDir": "D:/development/goatui/src/components/navigation/link/usage",
     "tag": "goat-link",
-    "readme": "# goat-button\n\n\n",
+    "readme": "# goat-button\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -3461,7 +3484,7 @@
     "readmePath": "D:/development/goatui/src/components/menu/menu/readme.md",
     "usagesDir": "D:/development/goatui/src/components/menu/menu/usage",
     "tag": "goat-menu",
-    "readme": "# goat-menu\n\n\n",
+    "readme": "# goat-menu\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -3531,7 +3554,7 @@
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
-        "default": "{\n    'headline': 'No items',\n    'description': 'There are no items to display',\n  }",
+        "default": "{\r\n    'headline': 'No items',\r\n    'description': 'There are no items to display',\r\n  }",
         "values": [
           {
             "type": "any"
@@ -3586,7 +3609,7 @@
         },
         "signature": "setFocus() => Promise<void>",
         "parameters": [],
-        "docs": "Sets focus on first menu item. Use this method instead of the global\n`element.focus()`.",
+        "docs": "Sets focus on first menu item. Use this method instead of the global\r\n`element.focus()`.",
         "docsTags": []
       }
     ],
@@ -3615,7 +3638,7 @@
     "readmePath": "D:/development/goatui/src/components/menu/menu-item/readme.md",
     "usagesDir": "D:/development/goatui/src/components/menu/menu-item/usage",
     "tag": "goat-menu-item",
-    "readme": "# goat-menu-item\n\n\n",
+    "readme": "# goat-menu-item\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [],
@@ -3749,7 +3772,7 @@
     "readmePath": "D:/development/goatui/src/components/content/notification/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/notification/usage",
     "tag": "goat-notification",
-    "readme": "# goat-alert\n\n\n",
+    "readme": "# goat-alert\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -3933,7 +3956,7 @@
     "readmePath": "D:/development/goatui/src/components/content/notification-manager/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/notification-manager/usage",
     "tag": "goat-notification-manager",
-    "readme": "# goat-alert\n\n\n",
+    "readme": "# goat-alert\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -4202,7 +4225,7 @@
         "mutable": false,
         "attr": "items",
         "reflectToAttr": false,
-        "docs": "[{\n  label: 'Shivaji Varma',\n  value: 'shivaji-varma'\n}]",
+        "docs": "[{\r\n  label: 'Shivaji Varma',\r\n  value: 'shivaji-varma'\r\n}]",
         "docsTags": [],
         "default": "[]",
         "values": [
@@ -4320,7 +4343,7 @@
         "mutable": false,
         "attr": "search",
         "reflectToAttr": false,
-        "docs": "Search type\nPossible values are `\"none\"`, `\"initial\"`, `\"contains\"`, `\"managed\"`. Defaults to `\"none\"`.",
+        "docs": "Search type\r\nPossible values are `\"none\"`, `\"initial\"`, `\"contains\"`, `\"managed\"`. Defaults to `\"none\"`.",
         "docsTags": [],
         "default": "'none'",
         "values": [
@@ -4367,7 +4390,7 @@
         "mutable": false,
         "attr": "size",
         "reflectToAttr": true,
-        "docs": "The select input size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+        "docs": "The select input size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
         "docsTags": [],
         "default": "'md'",
         "values": [
@@ -4393,7 +4416,7 @@
         "mutable": false,
         "attr": "state",
         "reflectToAttr": true,
-        "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+        "docs": "The input state.\r\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
         "docsTags": [],
         "default": "'default'",
         "values": [
@@ -4458,7 +4481,7 @@
         },
         "signature": "setBlur() => Promise<void>",
         "parameters": [],
-        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
         "docsTags": []
       },
       {
@@ -4469,7 +4492,7 @@
         },
         "signature": "setFocus() => Promise<void>",
         "parameters": [],
-        "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\n`input.focus()`.",
+        "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\r\n`input.focus()`.",
         "docsTags": []
       }
     ],
@@ -4542,7 +4565,7 @@
     "readmePath": "D:/development/goatui/src/components/app-shell/sidenav/readme.md",
     "usagesDir": "D:/development/goatui/src/components/app-shell/sidenav/usage",
     "tag": "goat-sidenav",
-    "readme": "# goat-menu\n\n\n",
+    "readme": "# goat-menu\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -4601,7 +4624,7 @@
     "readmePath": "D:/development/goatui/src/components/app-shell/sidenav-menu/readme.md",
     "usagesDir": "D:/development/goatui/src/components/app-shell/sidenav-menu/usage",
     "tag": "goat-sidenav-menu",
-    "readme": "# goat-menu\n\n\n",
+    "readme": "# goat-menu\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [],
@@ -4729,7 +4752,7 @@
     "readmePath": "D:/development/goatui/src/components/app-shell/sidenav-menu-item/readme.md",
     "usagesDir": "D:/development/goatui/src/components/app-shell/sidenav-menu-item/usage",
     "tag": "goat-sidenav-menu-item",
-    "readme": "# goat-menu-item\n\n\n",
+    "readme": "# goat-menu-item\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [],
@@ -4853,7 +4876,7 @@
     "readmePath": "D:/development/goatui/src/components/content/spinner/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/spinner/usage",
     "tag": "goat-spinner",
-    "readme": "# goat-spinner\n\n\n",
+    "readme": "# goat-spinner\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -4934,7 +4957,7 @@
     "readmePath": "D:/development/goatui/src/components/content/svg/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/svg/usage",
     "tag": "goat-svg",
-    "readme": "# goat-icon\n\n\n",
+    "readme": "# goat-icon\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [],
@@ -4986,7 +5009,7 @@
     "readmePath": "D:/development/goatui/src/components/navigation/tabs/tab/readme.md",
     "usagesDir": "D:/development/goatui/src/components/navigation/tabs/tab/usage",
     "tag": "goat-tab",
-    "readme": "# goat-tab\n\n\n",
+    "readme": "# goat-tab\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [],
@@ -5231,7 +5254,7 @@
     "readmePath": "D:/development/goatui/src/components/navigation/tabs/tab-panel/readme.md",
     "usagesDir": "D:/development/goatui/src/components/navigation/tabs/tab-panel/usage",
     "tag": "goat-tab-panel",
-    "readme": "# goat-tab\n\n\n",
+    "readme": "# goat-tab\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [],
@@ -5289,7 +5312,7 @@
     "readmePath": "D:/development/goatui/src/components/table/table/readme.md",
     "usagesDir": "D:/development/goatui/src/components/table/table/usage",
     "tag": "goat-table",
-    "readme": "# goat-table\n\n\n",
+    "readme": "# goat-table\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -5354,7 +5377,7 @@
         "type": "any[]",
         "mutable": false,
         "reflectToAttr": false,
-        "docs": "Grid columns configuration.\n[\n{\n  \"name\":\"name\",\n  \"label\":\"Name\",\n  \"width\":300,\n  \"fixed\":true\n },\n{\n  \"name\":\"age\",\n  \"label\":\"Age\"\n}\n]",
+        "docs": "Grid columns configuration.\r\n[\r\n{\r\n  \"name\":\"name\",\r\n  \"label\":\"Name\",\r\n  \"width\":300,\r\n  \"fixed\":true\r\n },\r\n{\r\n  \"name\":\"age\",\r\n  \"label\":\"Age\"\r\n}\r\n]",
         "docsTags": [],
         "default": "[]",
         "values": [
@@ -5370,7 +5393,7 @@
         "type": "any[]",
         "mutable": false,
         "reflectToAttr": false,
-        "docs": "Grid data to display on table\n[{\n 'id': '5e7118ddce4b3d577956457f',\n 'age': 21,\n 'name': 'John',\n 'company': 'India',\n 'email': 'john@example.com',\n 'phone': '+1 (839) 560-3581',\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\n }]",
+        "docs": "Grid data to display on table\r\n[{\r\n 'id': '5e7118ddce4b3d577956457f',\r\n 'age': 21,\r\n 'name': 'John',\r\n 'company': 'India',\r\n 'email': 'john@example.com',\r\n 'phone': '+1 (839) 560-3581',\r\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\r\n }]",
         "docsTags": [],
         "default": "[]",
         "values": [
@@ -5389,7 +5412,7 @@
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
-        "default": "{\n    'title': 'No items',\n    'description': 'There are no items to display',\n  }",
+        "default": "{\r\n    'title': 'No items',\r\n    'description': 'There are no items to display',\r\n  }",
         "values": [
           {
             "type": "any"
@@ -5644,7 +5667,7 @@
     "readmePath": "D:/development/goatui/src/components/navigation/tabs/readme.md",
     "usagesDir": "D:/development/goatui/src/components/navigation/tabs/usage",
     "tag": "goat-tabs",
-    "readme": "# goat-tabs\n\n\n",
+    "readme": "# goat-tabs\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -5658,7 +5681,7 @@
       },
       {
         "name": "example",
-        "text": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
+        "text": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
       }
     ],
     "encapsulation": "shadow",
@@ -5681,7 +5704,7 @@
     "metadata": {
       "name": "Tabs",
       "description": "An interactive button with a range of presentation options.",
-      "example": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
+      "example": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
     }
   },
   {
@@ -5691,7 +5714,7 @@
     "readmePath": "D:/development/goatui/src/components/navigation/tabs/tabs-list/readme.md",
     "usagesDir": "D:/development/goatui/src/components/navigation/tabs/tabs-list/usage",
     "tag": "goat-tabs-list",
-    "readme": "# goat-tabs\n\n\n",
+    "readme": "# goat-tabs\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [],
@@ -5761,7 +5784,7 @@
     "readmePath": "D:/development/goatui/src/components/content/tag/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/tag/usage",
     "tag": "goat-tag",
-    "readme": "# goat-heading\n\n\n",
+    "readme": "# goat-heading\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -5889,7 +5912,7 @@
     "readmePath": "D:/development/goatui/src/components/content/text/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/text/usage",
     "tag": "goat-text",
-    "readme": "# goat-heading\n\n\n",
+    "readme": "# goat-heading\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -6389,13 +6412,36 @@
     }
   },
   {
+    "dirPath": "D:/development/goatui/src/components/goat-time-picker",
+    "filePath": "./src/components/goat-time-picker/goat-time-picker.tsx",
+    "fileName": "goat-time-picker.tsx",
+    "readmePath": "D:/development/goatui/src/components/goat-time-picker/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/goat-time-picker/usage",
+    "tag": "goat-time-picker",
+    "usage": {},
+    "docs": "",
+    "docsTags": [],
+    "encapsulation": "shadow",
+    "dependents": [],
+    "dependencies": [],
+    "dependencyGraph": {},
+    "props": [],
+    "methods": [],
+    "events": [],
+    "styles": [],
+    "slots": [],
+    "parts": [],
+    "listeners": [],
+    "metadata": {}
+  },
+  {
     "dirPath": "D:/development/goatui/src/components/content/toast",
     "filePath": "./src/components/content/toast/toast.tsx",
     "fileName": "toast.tsx",
     "readmePath": "D:/development/goatui/src/components/content/toast/readme.md",
     "usagesDir": "D:/development/goatui/src/components/content/toast/usage",
     "tag": "goat-toast",
-    "readme": "# goat-alert\n\n\n",
+    "readme": "# goat-alert\r\n\r\n\r\n\r",
     "usage": {},
     "docs": "",
     "docsTags": [
