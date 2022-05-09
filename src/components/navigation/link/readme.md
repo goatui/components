@@ -26,6 +26,19 @@ Type: `Promise<void>`
 
 
 
+## Dependencies
+
+### Used by
+
+ - [goat-breadcrumb-item](../../content/breadcrumb/breadcrumb-item)
+
+### Graph
+```mermaid
+graph TD;
+  goat-breadcrumb-item --> goat-link
+  style goat-link fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with love!*

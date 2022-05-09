@@ -43,9 +43,9 @@
 }
 
 :host(:not([vertical])) {
-  width: 100%;
+  width: auto;
 }
 
 :host([vertical]) {
-  height: 100%;
+  height: auto;
 }

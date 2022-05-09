@@ -151,6 +151,129 @@
     }
   },
   {
+    "dirPath": "D:/development/goatui/src/components/content/breadcrumb",
+    "filePath": "./src/components/content/breadcrumb/breadcrumb.tsx",
+    "fileName": "breadcrumb.tsx",
+    "readmePath": "D:/development/goatui/src/components/content/breadcrumb/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/content/breadcrumb/usage",
+    "tag": "goat-breadcrumb",
+    "readme": "# goat-heading\r\n\r\n\r\n\r",
+    "usage": {},
+    "docs": "",
+    "docsTags": [
+      {
+        "name": "name",
+        "text": "Breadcrumb"
+      },
+      {
+        "name": "description",
+        "text": "Typography are used for rendering headlines, paragraphs and captions."
+      },
+      {
+        "name": "example",
+        "text": "<goat-breadcrumb><goat-breadcrumb-item href=\"#\">Home</goat-breadcrumb-item><goat-breadcrumb-item href=\"#\" active>Page</goat-breadcrumb-item></goat-breadcrumb>"
+      }
+    ],
+    "encapsulation": "shadow",
+    "dependents": [],
+    "dependencies": [],
+    "dependencyGraph": {},
+    "props": [],
+    "methods": [],
+    "events": [],
+    "styles": [],
+    "slots": [],
+    "parts": [],
+    "listeners": [],
+    "metadata": {
+      "name": "Breadcrumb",
+      "description": "Typography are used for rendering headlines, paragraphs and captions.",
+      "example": "<goat-breadcrumb><goat-breadcrumb-item href=\"#\">Home</goat-breadcrumb-item><goat-breadcrumb-item href=\"#\" active>Page</goat-breadcrumb-item></goat-breadcrumb>"
+    }
+  },
+  {
+    "dirPath": "D:/development/goatui/src/components/content/breadcrumb/breadcrumb-item",
+    "filePath": "./src/components/content/breadcrumb/breadcrumb-item/breadcrumb-item.tsx",
+    "fileName": "breadcrumb-item.tsx",
+    "readmePath": "D:/development/goatui/src/components/content/breadcrumb/breadcrumb-item/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/content/breadcrumb/breadcrumb-item/usage",
+    "tag": "goat-breadcrumb-item",
+    "readme": "# goat-tab\r\n\r\n\r\n\r",
+    "usage": {},
+    "docs": "",
+    "docsTags": [],
+    "encapsulation": "shadow",
+    "dependents": [],
+    "dependencies": [
+      "goat-text",
+      "goat-link"
+    ],
+    "dependencyGraph": {
+      "goat-breadcrumb-item": [
+        "goat-text",
+        "goat-link"
+      ]
+    },
+    "props": [
+      {
+        "name": "active",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "active",
+        "reflectToAttr": true,
+        "docs": "",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "mutable": false,
+        "attr": "href",
+        "reflectToAttr": false,
+        "docs": "Hyperlink to navigate to on click.",
+        "docsTags": [],
+        "values": [
+          {
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "target",
+        "type": "string",
+        "mutable": false,
+        "attr": "target",
+        "reflectToAttr": false,
+        "docs": "Sets or retrieves the window or frame at which to target content.",
+        "docsTags": [],
+        "values": [
+          {
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      }
+    ],
+    "methods": [],
+    "events": [],
+    "styles": [],
+    "slots": [],
+    "parts": [],
+    "listeners": [],
+    "metadata": {}
+  },
+  {
     "dirPath": "D:/development/goatui/src/components/controls/button",
     "filePath": "./src/components/controls/button/button.tsx",
     "fileName": "button.tsx",
@@ -1984,6 +2107,7 @@
     "readmePath": "D:/development/goatui/src/components/goat-date-picker/readme.md",
     "usagesDir": "D:/development/goatui/src/components/goat-date-picker/usage",
     "tag": "goat-date-picker",
+    "readme": "# goat-date-picker\n\n\n",
     "usage": {},
     "docs": "",
     "docsTags": [],
@@ -3403,9 +3527,15 @@
       }
     ],
     "encapsulation": "shadow",
-    "dependents": [],
+    "dependents": [
+      "goat-breadcrumb-item"
+    ],
     "dependencies": [],
-    "dependencyGraph": {},
+    "dependencyGraph": {
+      "goat-breadcrumb-item": [
+        "goat-link"
+      ]
+    },
     "props": [
       {
         "name": "href",
@@ -5931,11 +6061,15 @@
     ],
     "encapsulation": "shadow",
     "dependents": [
+      "goat-breadcrumb-item",
       "goat-select",
       "goat-table"
     ],
     "dependencies": [],
     "dependencyGraph": {
+      "goat-breadcrumb-item": [
+        "goat-text"
+      ],
       "goat-select": [
         "goat-text"
       ],
@@ -6418,6 +6552,7 @@
     "readmePath": "D:/development/goatui/src/components/goat-time-picker/readme.md",
     "usagesDir": "D:/development/goatui/src/components/goat-time-picker/usage",
     "tag": "goat-time-picker",
+    "readme": "# goat-time-picker\n\n\n",
     "usage": {},
     "docs": "",
     "docsTags": [],

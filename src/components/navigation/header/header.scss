@@ -142,10 +142,10 @@ $header-height: var(--header-height, #{v(--spacing-12)});
 
 
 :host(.brand) .header {
-  background-color: v(--color-brand-secondary-30);
+  background-color: v(--color-brand-secondary-10);
 
   .header-content {
-    background-color: v(--color-brand-secondary-30);
+    background-color: v(--color-brand-secondary-10);
   }
 
   .left-section {

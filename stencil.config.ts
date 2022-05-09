@@ -1,6 +1,5 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
-import { inlineSvg } from 'stencil-inline-svg';
 import { JsonDocs } from '@stencil/core/internal';
 import * as fs from 'fs';
 
@@ -49,6 +48,5 @@ export const config: Config = {
   ],
   plugins: [
     sass(),
-    inlineSvg(),
   ],
 };

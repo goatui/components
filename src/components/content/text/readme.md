@@ -19,12 +19,14 @@
 
 ### Used by
 
+ - [goat-breadcrumb-item](../breadcrumb/breadcrumb-item)
  - [goat-select](../../form/select)
  - [goat-table](../../table/table)
 
 ### Graph
 ```mermaid
 graph TD;
+  goat-breadcrumb-item --> goat-text
   goat-select --> goat-text
   goat-table --> goat-text
   style goat-text fill:#f9f,stroke:#333,stroke-width:4px

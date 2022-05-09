@@ -17,6 +17,19 @@ export namespace Components {
     interface GoatBadge {
         "content": string;
     }
+    interface GoatBreadcrumb {
+    }
+    interface GoatBreadcrumbItem {
+        "active": boolean;
+        /**
+          * Hyperlink to navigate to on click.
+         */
+        "href": string;
+        /**
+          * Sets or retrieves the window or frame at which to target content.
+         */
+        "target": string;
+    }
     interface GoatButton {
         /**
           * If true, fits button width to its parent width. Defaults to `false`.
@@ -590,6 +603,18 @@ declare global {
         prototype: HTMLGoatBadgeElement;
         new (): HTMLGoatBadgeElement;
     };
+    interface HTMLGoatBreadcrumbElement extends Components.GoatBreadcrumb, HTMLStencilElement {
+    }
+    var HTMLGoatBreadcrumbElement: {
+        prototype: HTMLGoatBreadcrumbElement;
+        new (): HTMLGoatBreadcrumbElement;
+    };
+    interface HTMLGoatBreadcrumbItemElement extends Components.GoatBreadcrumbItem, HTMLStencilElement {
+    }
+    var HTMLGoatBreadcrumbItemElement: {
+        prototype: HTMLGoatBreadcrumbItemElement;
+        new (): HTMLGoatBreadcrumbItemElement;
+    };
     interface HTMLGoatButtonElement extends Components.GoatButton, HTMLStencilElement {
     }
     var HTMLGoatButtonElement: {
@@ -815,6 +840,8 @@ declare global {
     interface HTMLElementTagNameMap {
         "goat-avatar": HTMLGoatAvatarElement;
         "goat-badge": HTMLGoatBadgeElement;
+        "goat-breadcrumb": HTMLGoatBreadcrumbElement;
+        "goat-breadcrumb-item": HTMLGoatBreadcrumbItemElement;
         "goat-button": HTMLGoatButtonElement;
         "goat-button-group": HTMLGoatButtonGroupElement;
         "goat-canvas": HTMLGoatCanvasElement;
@@ -865,6 +892,19 @@ declare namespace LocalJSX {
     }
     interface GoatBadge {
         "content"?: string;
+    }
+    interface GoatBreadcrumb {
+    }
+    interface GoatBreadcrumbItem {
+        "active"?: boolean;
+        /**
+          * Hyperlink to navigate to on click.
+         */
+        "href"?: string;
+        /**
+          * Sets or retrieves the window or frame at which to target content.
+         */
+        "target"?: string;
     }
     interface GoatButton {
         /**
@@ -1440,6 +1480,8 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "goat-avatar": GoatAvatar;
         "goat-badge": GoatBadge;
+        "goat-breadcrumb": GoatBreadcrumb;
+        "goat-breadcrumb-item": GoatBreadcrumbItem;
         "goat-button": GoatButton;
         "goat-button-group": GoatButtonGroup;
         "goat-canvas": GoatCanvas;
@@ -1485,6 +1527,8 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "goat-avatar": LocalJSX.GoatAvatar & JSXBase.HTMLAttributes<HTMLGoatAvatarElement>;
             "goat-badge": LocalJSX.GoatBadge & JSXBase.HTMLAttributes<HTMLGoatBadgeElement>;
+            "goat-breadcrumb": LocalJSX.GoatBreadcrumb & JSXBase.HTMLAttributes<HTMLGoatBreadcrumbElement>;
+            "goat-breadcrumb-item": LocalJSX.GoatBreadcrumbItem & JSXBase.HTMLAttributes<HTMLGoatBreadcrumbItemElement>;
             "goat-button": LocalJSX.GoatButton & JSXBase.HTMLAttributes<HTMLGoatButtonElement>;
             "goat-button-group": LocalJSX.GoatButtonGroup & JSXBase.HTMLAttributes<HTMLGoatButtonGroupElement>;
             "goat-canvas": LocalJSX.GoatCanvas & JSXBase.HTMLAttributes<HTMLGoatCanvasElement>;

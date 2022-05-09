@@ -1,6 +1,6 @@
 {
   "name": "@goatui/components",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "A light weight web component library",
   "keywords": [
     "goatui",
@@ -40,7 +40,6 @@
     "test.watch": "stencil test --spec --e2e --watchAll"
   },
   "devDependencies": {
-    "@carbon/colors": "^10.37.0",
     "@stencil/core": "^2.14.0",
     "@stencil/sass": "^1.5.2",
     "@types/node": "^16.9.6",
@@ -51,7 +50,6 @@
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "sass": "^1.49.11",
-    "stencil-inline-svg": "^1.1.0",
     "workbox-build": "^4.3.1"
   },
   "engines": {
