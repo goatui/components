@@ -16,12 +16,12 @@
 
 ### Used by
 
- - [goat-header](../../navigation/header)
+ - [goat-header-brand](../../navigation/header/header-brand)
 
 ### Graph
 ```mermaid
 graph TD;
-  goat-header --> goat-divider
+  goat-header-brand --> goat-divider
   style goat-divider fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

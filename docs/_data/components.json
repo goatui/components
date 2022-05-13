@@ -301,7 +301,6 @@
     "dependents": [
       "goat-code-highlighter",
       "goat-empty-state",
-      "goat-header",
       "goat-notification",
       "goat-table"
     ],
@@ -318,9 +317,6 @@
         "goat-button"
       ],
       "goat-empty-state": [
-        "goat-button"
-      ],
-      "goat-header": [
         "goat-button"
       ],
       "goat-notification": [
@@ -2150,11 +2146,11 @@
     ],
     "encapsulation": "shadow",
     "dependents": [
-      "goat-header"
+      "goat-header-brand"
     ],
     "dependencies": [],
     "dependencyGraph": {
-      "goat-header": [
+      "goat-header-brand": [
         "goat-divider"
       ]
     },
@@ -2887,62 +2883,52 @@
     ],
     "encapsulation": "shadow",
     "dependents": [],
+    "dependencies": [],
+    "dependencyGraph": {},
+    "props": [],
+    "methods": [],
+    "events": [],
+    "styles": [],
+    "slots": [],
+    "parts": [],
+    "listeners": [],
+    "metadata": {
+      "name": "Header",
+      "description": "Headers are compositions that extend standard navbar functionalities.",
+      "img": "/assets/img/header.png"
+    }
+  },
+  {
+    "dirPath": "D:/development/goatui/src/components/navigation/header/header-brand",
+    "filePath": "./src/components/navigation/header/header-brand/header-brand.tsx",
+    "fileName": "header-brand.tsx",
+    "readmePath": "D:/development/goatui/src/components/navigation/header/header-brand/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/navigation/header/header-brand/usage",
+    "tag": "goat-header-brand",
+    "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
+    "usage": {},
+    "docs": "",
+    "docsTags": [],
+    "encapsulation": "shadow",
+    "dependents": [],
     "dependencies": [
-      "goat-button",
+      "goat-link",
       "goat-svg",
       "goat-divider"
     ],
     "dependencyGraph": {
-      "goat-header": [
-        "goat-button",
+      "goat-header-brand": [
+        "goat-link",
         "goat-svg",
         "goat-divider"
-      ],
-      "goat-button": [
-        "goat-icon",
-        "goat-spinner"
       ]
     },
     "props": [
       {
-        "name": "brandLogo",
+        "name": "href",
         "type": "string",
         "mutable": false,
-        "attr": "brand-logo",
-        "reflectToAttr": false,
-        "docs": "",
-        "docsTags": [],
-        "default": "''",
-        "values": [
-          {
-            "type": "string"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "brandName",
-        "type": "string",
-        "mutable": false,
-        "attr": "brand-name",
-        "reflectToAttr": false,
-        "docs": "",
-        "docsTags": [],
-        "default": "''",
-        "values": [
-          {
-            "type": "string"
-          }
-        ],
-        "optional": false,
-        "required": false
-      },
-      {
-        "name": "brandUrl",
-        "type": "string",
-        "mutable": false,
-        "attr": "brand-url",
+        "attr": "href",
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
@@ -2956,10 +2942,10 @@
         "required": false
       },
       {
-        "name": "pageTitle",
+        "name": "logo",
         "type": "string",
         "mutable": false,
-        "attr": "page-title",
+        "attr": "logo",
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
@@ -2973,17 +2959,33 @@
         "required": false
       },
       {
-        "name": "type",
-        "type": "\"simple\"",
+        "name": "name",
+        "type": "string",
         "mutable": false,
-        "attr": "type",
+        "attr": "name",
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
-        "default": "'simple'",
+        "default": "''",
         "values": [
           {
-            "value": "simple",
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "subTitle",
+        "type": "string",
+        "mutable": false,
+        "attr": "sub-title",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "''",
+        "values": [
+          {
             "type": "string"
           }
         ],
@@ -2997,11 +2999,7 @@
     "slots": [],
     "parts": [],
     "listeners": [],
-    "metadata": {
-      "name": "Header",
-      "description": "Headers are compositions that extend standard navbar functionalities.",
-      "img": "/assets/img/header.png"
-    }
+    "metadata": {}
   },
   {
     "dirPath": "D:/development/goatui/src/components/content/icon",
@@ -3528,11 +3526,15 @@
     ],
     "encapsulation": "shadow",
     "dependents": [
-      "goat-breadcrumb-item"
+      "goat-breadcrumb-item",
+      "goat-header-brand"
     ],
     "dependencies": [],
     "dependencyGraph": {
       "goat-breadcrumb-item": [
+        "goat-link"
+      ],
+      "goat-header-brand": [
         "goat-link"
       ]
     },
@@ -5094,14 +5096,14 @@
     "encapsulation": "shadow",
     "dependents": [
       "goat-empty-state",
-      "goat-header"
+      "goat-header-brand"
     ],
     "dependencies": [],
     "dependencyGraph": {
       "goat-empty-state": [
         "goat-svg"
       ],
-      "goat-header": [
+      "goat-header-brand": [
         "goat-svg"
       ]
     },

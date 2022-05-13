@@ -13,7 +13,7 @@ dependencies, You can simply import required component js, and right away start 
 ### Script tag
 
 - Put a script tag similar to
-  this `<script type="module" src="https://unpkg.com/@goatui/components@0.9.5/dist/goatui/goatui.esm.js"></script>` in
+  this `<script type="module" src="https://unpkg.com/@goatui/components@0.9.6/dist/goatui/goatui.esm.js"></script>` in
   the head of your index.html
 - Include default font Roboto in the page
 - Then you can use the element anywhere in your template, JSX, html etc
@@ -26,9 +26,9 @@ dependencies, You can simply import required component js, and right away start 
   <meta name='viewport' content='width=device-width'>
   <title>Goat UI Component</title>
 
-  <!-- include your custom theme variable values, view variable names at https://unpkg.com/@goatui/components@0.9.5/dist/goatui/assets/styles/theme.css -->
+  <!-- include your custom theme variable values, view variable names at https://unpkg.com/@goatui/components@0.9.6/dist/goatui/assets/styles/theme.css -->
   <!--link rel="stylesheet" href="/custom-theme.css"></link-->
-  <script type='module' src='https://unpkg.com/@goatui/components@0.9.5/dist/goatui/goatui.esm.js'></script>
+  <script type='module' src='https://unpkg.com/@goatui/components@0.9.6/dist/goatui/goatui.esm.js'></script>
 
 </head>
 <body>

@@ -59,7 +59,6 @@ Type: `Promise<void>`
 
  - [goat-code-highlighter](../../content/code-highlighter)
  - [goat-empty-state](../../content/empty-state)
- - [goat-header](../../navigation/header)
  - [goat-notification](../../content/notification)
  - [goat-table](../../table/table)
 
@@ -75,7 +74,6 @@ graph TD;
   goat-button --> goat-spinner
   goat-code-highlighter --> goat-button
   goat-empty-state --> goat-button
-  goat-header --> goat-button
   goat-notification --> goat-button
   goat-table --> goat-button
   style goat-button fill:#f9f,stroke:#333,stroke-width:4px
