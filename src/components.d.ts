@@ -215,11 +215,12 @@ export namespace Components {
         "warning": string;
     }
     interface GoatHeader {
-        "brandLogo": string;
-        "brandName": string;
-        "brandUrl": string;
-        "pageTitle": string;
-        "type": 'simple';
+    }
+    interface GoatHeaderBrand {
+        "href": string;
+        "logo": string;
+        "name": string;
+        "subTitle": string;
     }
     interface GoatIcon {
         "name": string;
@@ -699,6 +700,12 @@ declare global {
         prototype: HTMLGoatHeaderElement;
         new (): HTMLGoatHeaderElement;
     };
+    interface HTMLGoatHeaderBrandElement extends Components.GoatHeaderBrand, HTMLStencilElement {
+    }
+    var HTMLGoatHeaderBrandElement: {
+        prototype: HTMLGoatHeaderBrandElement;
+        new (): HTMLGoatHeaderBrandElement;
+    };
     interface HTMLGoatIconElement extends Components.GoatIcon, HTMLStencilElement {
     }
     var HTMLGoatIconElement: {
@@ -856,6 +863,7 @@ declare global {
         "goat-flow-designer": HTMLGoatFlowDesignerElement;
         "goat-form-control": HTMLGoatFormControlElement;
         "goat-header": HTMLGoatHeaderElement;
+        "goat-header-brand": HTMLGoatHeaderBrandElement;
         "goat-icon": HTMLGoatIconElement;
         "goat-input": HTMLGoatInputElement;
         "goat-link": HTMLGoatLinkElement;
@@ -1090,11 +1098,12 @@ declare namespace LocalJSX {
         "warning"?: string;
     }
     interface GoatHeader {
-        "brandLogo"?: string;
-        "brandName"?: string;
-        "brandUrl"?: string;
-        "pageTitle"?: string;
-        "type"?: 'simple';
+    }
+    interface GoatHeaderBrand {
+        "href"?: string;
+        "logo"?: string;
+        "name"?: string;
+        "subTitle"?: string;
     }
     interface GoatIcon {
         "name"?: string;
@@ -1496,6 +1505,7 @@ declare namespace LocalJSX {
         "goat-flow-designer": GoatFlowDesigner;
         "goat-form-control": GoatFormControl;
         "goat-header": GoatHeader;
+        "goat-header-brand": GoatHeaderBrand;
         "goat-icon": GoatIcon;
         "goat-input": GoatInput;
         "goat-link": GoatLink;
@@ -1543,6 +1553,7 @@ declare module "@stencil/core" {
             "goat-flow-designer": LocalJSX.GoatFlowDesigner & JSXBase.HTMLAttributes<HTMLGoatFlowDesignerElement>;
             "goat-form-control": LocalJSX.GoatFormControl & JSXBase.HTMLAttributes<HTMLGoatFormControlElement>;
             "goat-header": LocalJSX.GoatHeader & JSXBase.HTMLAttributes<HTMLGoatHeaderElement>;
+            "goat-header-brand": LocalJSX.GoatHeaderBrand & JSXBase.HTMLAttributes<HTMLGoatHeaderBrandElement>;
             "goat-icon": LocalJSX.GoatIcon & JSXBase.HTMLAttributes<HTMLGoatIconElement>;
             "goat-input": LocalJSX.GoatInput & JSXBase.HTMLAttributes<HTMLGoatInputElement>;
             "goat-link": LocalJSX.GoatLink & JSXBase.HTMLAttributes<HTMLGoatLinkElement>;

@@ -17,6 +17,7 @@ let CodeHighlighter = class {
     this.lineNumbers = false;
     this.value = '';
     this.compiledCode = '';
+    this.parsedValue = '';
   }
   languageWatcher() {
     this.renderPrism();
@@ -36,7 +37,7 @@ let CodeHighlighter = class {
     setTimeout(() => this.renderPrism(), 1000);
   }
   decode(str) {
-    return str.replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+    return str.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
   }
   renderPrism() {
     // @ts-ignore
@@ -46,8 +47,8 @@ let CodeHighlighter = class {
       value = this.elm.innerHTML;
     }
     value = this.decode(value);
-    value = value.trim();
-    const formatted = Prism.highlight(value, Prism.languages[this.language], this.language);
+    this.parsedValue = value.trim();
+    const formatted = Prism.highlight(this.parsedValue, Prism.languages[this.language], this.language);
     let lineNumbersWrapper = '';
     if (this.lineNumbers) {
       const linesNum = formatted.split('\n').length;
@@ -57,11 +58,13 @@ let CodeHighlighter = class {
     this.compiledCode = formatted + lineNumbersWrapper;
   }
   handleCopyClick() {
-    window.navigator.clipboard.writeText(this.value);
+    window.navigator.clipboard.writeText(this.parsedValue);
     alert('copied');
   }
   render() {
-    return (h(Host, null, this.compiledCode && h("div", { class: 'code-highlighter' }, h("div", { class: 'scroll-wrapper' }, h("div", { class: { 'line-numbers-wrapper': true, 'line-numbers': this.lineNumbers } }, h("pre", { dir: 'ltr', class: 'highlighter line-numbers', innerHTML: this.compiledCode }))), h("goat-button", { class: 'copy-btn color-secondary', size: "sm", variant: 'ghost', icon: 'files', "aria-label": 'Copy code', title: 'Copy code', "onGoat:click": this.handleCopyClick })), !this.compiledCode && h("div", { class: 'code-loader' }, h("goat-spinner", { class: "rainbow" }), "Loading code...")));
+    return (h(Host, null, this.compiledCode && h("div", { class: 'code-highlighter' }, h("div", { class: 'scroll-wrapper' }, h("div", { class: { 'line-numbers-wrapper': true, 'line-numbers': this.lineNumbers } }, h("pre", { dir: 'ltr', class: 'highlighter line-numbers', innerHTML: this.compiledCode }))), h("goat-button", { class: 'copy-btn color-secondary', size: 'sm', variant: 'ghost', icon: 'files', "aria-label": 'Copy code', title: 'Copy code', "onGoat:click": () => {
+        this.handleCopyClick();
+      } })), !this.compiledCode && h("div", { class: 'code-loader' }, h("goat-spinner", { class: 'rainbow' }), "Loading code...")));
   }
   get elm() { return getElement(this); }
   static get watchers() { return {

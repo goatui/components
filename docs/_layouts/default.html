@@ -2,8 +2,9 @@
 layout: base
 ---
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', function() {
     const themeSwitcher = document.querySelector('#theme-switcher');
+
     function setTheme(theme) {
       document.documentElement.setAttribute('data-theme', theme);
       themeSwitcher.icon = theme === 'dark' ? 'moon-fill' : 'sun-fill';
@@ -13,12 +14,13 @@ layout: base
     const theme = localStorage.getItem('theme') || 'light';
     setTheme(theme);
 
-    themeSwitcher.addEventListener('click', function () {
+    themeSwitcher.addEventListener('click', function() {
       const theme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
       setTheme(theme);
     });
 
     const dirSwitcher = document.querySelector('#dir-switcher');
+
     function setDir(dir) {
       document.documentElement.setAttribute('dir', dir);
       themeSwitcher.innetText = dir;
@@ -28,7 +30,7 @@ layout: base
     const dir = localStorage.getItem('dir') || 'ltr';
     setDir(dir);
 
-    dirSwitcher.addEventListener('click', function () {
+    dirSwitcher.addEventListener('click', function() {
       const dir = localStorage.getItem('dir') === 'ltr' ? 'rtl' : 'ltr';
       setDir(dir);
     });
@@ -38,38 +40,45 @@ layout: base
 <nav class='top-nav'>
   <goat-header
     class='brand actions-separated'
-    brand-logo='/assets/img/logo.svg'
-    brand-name='{{site.title}}'
-    brand-url='/'
-    {% if page.root != true %}page-title='{{page.title}}' {% endif %}>
+  >
+    <div slot='left-section'>
+    <goat-header-brand
+      logo='/assets/img/logo.svg'
+      href='/#'
+      name='{{site.title}}'
+      {% if page.root !='true' %}sub-title='{{page.title}}' {% endif %}>
+    </goat-header-brand>
+    </div>
 
     <div slot='right-section'>
-      <goat-button  icon='sun-fill' id='theme-switcher'></goat-button>
+      <goat-button icon='sun-fill' id='theme-switcher'></goat-button>
 
       <goat-button id='dir-switcher'>LTR</goat-button>
 
       {% if page.root %}
       <goat-button icon='github'
-                          class='show-desktop full-height'
-                          href='https://github.com/{{site.github_username}}/{{site.github_project}}'
-                          target='_blank'>Github</goat-button>
+                   class='show-desktop full-height'
+                   href='https://github.com/{{site.github_username}}/{{site.github_project}}'
+                   target='_blank'>Github
+      </goat-button>
 
       <goat-button icon='github'
-                          class='show-mobile full-height'
-                          href='https://github.com/{{site.github_username}}/{{site.github_project}}'
-                          target='_blank'></goat-button>
+                   class='show-mobile full-height'
+                   href='https://github.com/{{site.github_username}}/{{site.github_project}}'
+                   target='_blank'></goat-button>
 
 
       {% else %}
       <goat-button icon='bug'
-                          class='show-desktop full-height'
-                          href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues'
-                          target='_blank'>Report Issue</goat-button>
+                   class='show-desktop full-height'
+                   href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues'
+                   target='_blank'>Report Issue
+      </goat-button>
 
       <goat-button icon='bug'
-                          class='show-mobile full-height'
-                          href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues'
-                          target='_blank'></goat-button>
+                   class='show-mobile full-height'
+                   href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues'
+                   target='_blank'></goat-button>
       {% endif %}
 
     </div>

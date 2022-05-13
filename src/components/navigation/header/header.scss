@@ -29,36 +29,10 @@ $header-height: var(--header-height, #{v(--spacing-12)});
     display: flex;
     align-items: center;
   }
+
   .left-section {
     flex: 1;
-
-    .brand-link {
-      display: flex;
-      align-items: center;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: v(--spacing-3);
-      height: 100%;
-      padding: 0 v(--spacing-2);
-      font-weight: v(--font-weight-bold);
-
-      .logo {
-        height: 2rem;
-      }
-    }
-
-    .page-title-divider {
-      height: 66%;
-    }
-
-    .page-title {
-      padding: 0 v(--spacing-2);
-    }
   }
-
 
   .right-section {
     slot::slotted(*) {
@@ -83,30 +57,11 @@ $header-height: var(--header-height, #{v(--spacing-12)});
 /*
  * Colors
  */
-
 .header {
   background-color: v(--color-white);
 
   .header-content {
     background-color: v(--color-white);
-  }
-
-  .left-section {
-    .brand {
-      color: v(--text-primary);
-    }
-
-    .brand-link {
-      --button-text-color: #{v(--text-primary)};
-      --button-color: transparent;
-      --button-color-hover: #{v(--color-brand-primary-20)};
-      --button-color-active: #{v(--color-brand-primary-30)};
-      --button-color-focus: #{v(--color-brand-primary)};
-    }
-
-    .page-title {
-      color: v(--color-neutral-50);
-    }
   }
 
   slot::slotted(*) {
@@ -149,13 +104,7 @@ $header-height: var(--header-height, #{v(--spacing-12)});
   }
 
   .left-section {
-    .brand {
-      color: v(--color-brand-primary);
-    }
 
-    .page-title {
-      color: v(--color-neutral-50);
-    }
   }
 
   slot::slotted(*) {

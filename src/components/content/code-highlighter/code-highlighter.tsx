@@ -23,6 +23,8 @@ export class CodeHighlighter implements ComponentInterface {
 
   @State() compiledCode: string = '';
 
+  private parsedValue: string = '';
+
   @Watch('language')
   languageWatcher() {
     this.renderPrism();
@@ -51,7 +53,7 @@ export class CodeHighlighter implements ComponentInterface {
   }
 
   decode(str: string) {
-    return str.replace(/&lt;/g,"<").replace(/&gt;/g,">");
+    return str.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
   }
 
   private renderPrism() {
@@ -63,8 +65,8 @@ export class CodeHighlighter implements ComponentInterface {
       value = this.elm.innerHTML;
     }
     value = this.decode(value);
-    value = value.trim();
-    const formatted = Prism.highlight(value, Prism.languages[this.language], this.language);
+    this.parsedValue = value.trim();
+    const formatted = Prism.highlight(this.parsedValue, Prism.languages[this.language], this.language);
     let lineNumbersWrapper = '';
     if (this.lineNumbers) {
       const linesNum = formatted.split('\n').length;
@@ -75,7 +77,7 @@ export class CodeHighlighter implements ComponentInterface {
   }
 
   handleCopyClick() {
-    window.navigator.clipboard.writeText(this.value);
+    window.navigator.clipboard.writeText(this.parsedValue);
     alert('copied');
   }
 
@@ -88,11 +90,17 @@ export class CodeHighlighter implements ComponentInterface {
               <pre dir='ltr' class='highlighter line-numbers' innerHTML={this.compiledCode} />
             </div>
           </div>
-          <goat-button class='copy-btn color-secondary' size="sm" variant='ghost' icon='files' aria-label='Copy code'
-                       title='Copy code' onGoat:click={this.handleCopyClick} />
+          <goat-button class='copy-btn color-secondary'
+                       size='sm'
+                       variant='ghost'
+                       icon='files'
+                       aria-label='Copy code'
+                       title='Copy code' onGoat:click={() => {
+            this.handleCopyClick();
+          }} />
         </div>}
         {!this.compiledCode && <div class='code-loader'>
-          <goat-spinner class="rainbow"/>
+          <goat-spinner class='rainbow' />
           Loading code...
         </div>}
       </Host>
