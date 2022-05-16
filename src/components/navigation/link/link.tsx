@@ -31,6 +31,7 @@ export class Link implements ComponentInterface {
 
   @Element() elm!: HTMLElement;
   private tabindex?: string | number = 1;
+  private itemprop?: string;
   private nativeInput?: HTMLAnchorElement;
 
   @Listen('mouseup', { target: 'window' })
@@ -79,6 +80,11 @@ export class Link implements ComponentInterface {
       this.tabindex = tabindex !== null ? tabindex : undefined;
       this.elm.removeAttribute('tabindex');
     }
+    if (this.elm.hasAttribute('itemprop')) {
+      const tabindex = this.elm.getAttribute('itemprop');
+      this.itemprop = tabindex !== null ? tabindex : undefined;
+      this.elm.removeAttribute('itemprop');
+    }
   }
 
 
@@ -92,6 +98,7 @@ export class Link implements ComponentInterface {
       }}
          href={this.href}
          target={this.target}
+         itemprop={this.itemprop}
          ref={input => this.nativeInput = input}
          tabindex={this.tabindex}
          onBlur={this.blurHandler}

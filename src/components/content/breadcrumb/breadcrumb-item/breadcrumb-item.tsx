@@ -25,7 +25,7 @@ export class BreadcrumbItem implements ComponentInterface {
 
   render() {
     return (<Host itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
-      {this.active ? <goat-text itemprop='item'>
+      {this.active ? <goat-text>
         <span itemProp='name'>
         <slot />
         </span>
