@@ -26,6 +26,8 @@ $button-color-support: var(--button-color-support, $button-color);
   height: var(--button-height, auto);
 
   .native-button {
+    font-family: var(--font-family-base);
+    text-decoration: none;
     height: 100%;
     cursor: pointer;
     z-index: v(--z-index-button);

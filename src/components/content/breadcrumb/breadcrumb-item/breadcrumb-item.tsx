@@ -23,11 +23,17 @@ export class BreadcrumbItem implements ComponentInterface {
 
   render() {
 
-    return (<Host>
-      {this.active ? <goat-text>
+    return (<Host itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+      {this.active ? <goat-text itemprop='item'>
+        <span itemProp='name'>
         <slot />
-      </goat-text> : <goat-link href={this.href} target={this.target}>
+        </span>
+      </goat-text> : <goat-link itemprop='item' href={this.href} target={this.target}>
+        <span itemProp='name'>
         <slot />
+        </span>
+        <meta itemProp='position' content='3' />
+
       </goat-link>}
     </Host>);
   }

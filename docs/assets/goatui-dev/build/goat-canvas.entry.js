@@ -1,4 +1,4 @@
-import { r as registerInstance, h, e as Host, g as getElement } from './index-433d423f.js';
+import { r as registerInstance, h, e as Host, g as getElement } from './index-a0beba19.js';
 
 const canvasCss = "*{box-sizing:border-box}:host{font-family:var(--font-family-base)}::selection{color:var(--color-white, #ffffff);background:var(--color-primary, var(--color-blue-60, #0f62fe))}::-webkit-scrollbar{width:1rem;height:1rem}::-webkit-scrollbar-track{background:#f1f1f1}::-webkit-scrollbar-thumb{background:#888}::-webkit-scrollbar-thumb :hover{background:#555}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);border:0}.center-content{display:flex;align-items:center;justify-content:center}:host([hidden]){display:none}@keyframes reveal{0%{opacity:0;transform:translateY(8px)}}:host{display:block}.canvas-wrapper{background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='8d8d8d' class='bi bi-dot' viewBox='0 0 16 16'%3E%3Cpath d='M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z'/%3E%3C/svg%3E\");width:max-content}.line{stroke:var(--border-color, var(--color-gray-50, #8d8d8d))}.line.clickable{cursor:pointer;z-index:1}.line.clickable:hover{stroke:var(--color-primary, var(--color-blue-60, #0f62fe))}";
 
@@ -10,7 +10,7 @@ var __classPrivateFieldGet = (undefined && undefined.__classPrivateFieldGet) || 
   return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
 var _Canvas_createStartString, _Canvas_createQuadraticCurveString, _Canvas_createLineString;
-let Canvas = class {
+const Canvas = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     this.unitSize = 16;

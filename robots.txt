@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Disallow: /no-search/
+Sitemap: https://goatui.com/sitemap.xml

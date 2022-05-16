@@ -1,9 +1,9 @@
-import { r as registerInstance, h, e as Host, g as getElement } from './index-433d423f.js';
+import { r as registerInstance, h, e as Host, g as getElement } from './index-a0beba19.js';
 import { i as isEventTriggerByElement, a as isMobile, b as isOutOfViewport } from './utils-5b2b26db.js';
 
 const dropdownCss = "*{box-sizing:border-box}:host{font-family:var(--font-family-base)}::selection{color:var(--color-white, #ffffff);background:var(--color-primary, var(--color-blue-60, #0f62fe))}::-webkit-scrollbar{width:1rem;height:1rem}::-webkit-scrollbar-track{background:#f1f1f1}::-webkit-scrollbar-thumb{background:#888}::-webkit-scrollbar-thumb :hover{background:#555}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);border:0}.center-content{display:flex;align-items:center;justify-content:center}:host([hidden]){display:none}@keyframes reveal{0%{opacity:0;transform:translateY(8px)}}:host{display:inline-block;height:var(--dropdown-height, auto)}.dropdown{position:relative;height:var(--dropdown-height, auto)}.dropdown .dropdown-button{border:none;background:none;padding:0;margin:0;height:100%;width:100%}.dropdown .dropdown-button .slot-container{height:100%}.dropdown .dropdown-content{z-index:var(--z-index-dropdown-content, 40);position:absolute;width:max-content;line-height:0;transform:scale(0);transition:transform 0.1s ease-out 0s}.dropdown.is-open .dropdown-content{transform:scale(1)}.dropdown.bottom-right .dropdown-content{top:calc(100% + var(--spacing-2, 0.5rem));left:0;transform-origin:top}.dropdown.bottom-left .dropdown-content{top:calc(100% + var(--spacing-2, 0.5rem));right:0;transform-origin:top}.dropdown.top-right .dropdown-content{bottom:calc(100% + var(--spacing-2, 0.5rem));left:0;transform-origin:bottom}.dropdown.top-left .dropdown-content{bottom:calc(100% + var(--spacing-2, 0.5rem));right:0;transform-origin:bottom}.dropdown.center .dropdown-content{top:0;left:0;position:fixed;transform-origin:center;display:flex;align-items:center;width:100vw;height:100vh;justify-content:center;background:rgba(0, 0, 0, 0.5);pointer-events:none}.dropdown .items{min-width:12rem}:host([has-focus]) .dropdown{outline:none}";
 
-let Dropdown = class {
+const Dropdown = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     /**

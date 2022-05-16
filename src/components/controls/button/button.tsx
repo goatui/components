@@ -40,7 +40,7 @@ export class Button implements ComponentInterface {
   /**
    * If true, fits button width to its parent width. Defaults to `false`.
    */
-  @Prop({reflect: true}) block: boolean = false;
+  @Prop({ reflect: true }) block: boolean = false;
 
 
   /**
@@ -199,6 +199,12 @@ export class Button implements ComponentInterface {
   }
 
   render() {
+
+    let NativeElementTag = 'button';
+    if (this.href) {
+      NativeElementTag = 'a';
+    }
+
     return (<Host has-focus={this.hasFocus} active={this.isActive}>
       <div class={{
         button: true,
@@ -214,9 +220,11 @@ export class Button implements ComponentInterface {
         'show-loader': this.showLoader,
       }}>
         <div class='button-background' />
-        <button
-          class="native-button"
+        <NativeElementTag
+          class='native-button'
           tabindex={this.tabindex}
+          href={this.href}
+          target={this.target}
           ref={input => this.nativeInput = input}
           onBlur={this.blurHandler}
           onFocus={this.focusHandler}
@@ -237,7 +245,7 @@ export class Button implements ComponentInterface {
             </div>}
           </div>
 
-        </button>
+        </NativeElementTag>
         {this.renderDisabledReason()}
       </div>
     </Host>);

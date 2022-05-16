@@ -1,8 +1,8 @@
-import { r as registerInstance, h, e as Host } from './index-433d423f.js';
+import { r as registerInstance, h, e as Host } from './index-a0beba19.js';
 
 const goatTimePickerCss = ":host{display:block}";
 
-let GoatTimePicker = class {
+const GoatTimePicker = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
   }

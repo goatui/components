@@ -1,4 +1,4 @@
-import { r as registerInstance, h, e as Host, g as getElement } from './index-433d423f.js';
+import { r as registerInstance, h, e as Host, g as getElement } from './index-a0beba19.js';
 import { l as loadScript } from './utils-5b2b26db.js';
 
 const flowDesignerCss = "*{box-sizing:border-box}:host{font-family:var(--font-family-base)}::selection{color:var(--color-white, #ffffff);background:var(--color-primary, var(--color-blue-60, #0f62fe))}::-webkit-scrollbar{width:1rem;height:1rem}::-webkit-scrollbar-track{background:#f1f1f1}::-webkit-scrollbar-thumb{background:#888}::-webkit-scrollbar-thumb :hover{background:#555}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);border:0}.center-content{display:flex;align-items:center;justify-content:center}:host([hidden]){display:none}@keyframes reveal{0%{opacity:0;transform:translateY(8px)}}:host{display:block;--table-border-radius:var(border-radius, );height:400px}.flow-designer{height:100%;width:100%;overflow:hidden;border-radius:var(--table-border-radius);background-color:var(background-color, );border:1px solid var(border-color, )}.canvas-wrapper{font-size:var(--text-md-font-size, 1rem);line-height:var(--text-md-line-height, 1.5rem);letter-spacing:var(--text-md-letter-spacing, 0rem);position:relative;width:100%;height:100%}.flow-lines,.flow-items{position:absolute;top:0;left:0}.flow-items{position:absolute;top:0;left:50%;pointer-events:none}.activity{fill:var(--background, #ffffff);stroke:var(--border-color, var(--color-gray-50, #8d8d8d))}.flow-designer{}";
@@ -6,7 +6,7 @@ const flowDesignerCss = "*{box-sizing:border-box}:host{font-family:var(--font-fa
 function PX(unit) {
   return unit * 16;
 }
-let FlowDesigner = class {
+const FlowDesigner = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     this.blockSize = 10;

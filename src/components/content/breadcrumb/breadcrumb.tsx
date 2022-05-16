@@ -15,7 +15,7 @@ export class Breadcrumb implements ComponentInterface {
 
   render() {
     return (
-      <Host>
+      <Host itemscope itemtype="http://schema.org/BreadcrumbList">
         <div class='breadcrumb'>
           <slot/>
         </div>

@@ -5,8 +5,6 @@
   <!-- Title -->
   <title>{% if page.title %}{{ page.title }} &middot; {{ site.title }}{% else %}{{ site.title }} &middot; {{
     site.tagline }}{% endif %}</title>
-  <meta name='description'
-        content='{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}'>
 
   <meta name='author' content='{{ site.author.name }}'>
   <meta name='copyright' content="(c) {{ site.time | date: '%Y' }} {{ site.author.name }}">
@@ -23,12 +21,10 @@
   <!--  Meta tags -->
   <meta name='keywords' content='web components, goat button, goat input, goat grid, goat ui library'>
   <meta name='description'
-        content="{{site.title}} contains most used web components built using Stencil. So you don't need to include any additional framework dependencies, You can simple import required component js, and right away start using it.">
-
+        content='{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}'>
 
   <!-- CSS Implementing Plugins -->
   <link rel='stylesheet' href='{{site.themeCss}}' />
-  <link rel='stylesheet' href='/assets/vendor/prism/prism.css'>
   <style>
     * {
       box-sizing: border-box;
@@ -107,7 +103,6 @@
 
 
 <!-- JS Implementing Plugins -->
-<script src='/assets/vendor/prism/prism.js'></script>
 <script src='/assets/js/main.js'></script>
 <script>
 

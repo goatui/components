@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, Element, h, Host, Prop, State, Watch } from '@stencil/core';
-import loadPrism from '../../../3d-party/prism';
+import {loadPrism} from '../../../3d-party/prism';
 
 
 /**
@@ -41,10 +41,6 @@ export class CodeHighlighter implements ComponentInterface {
   async componentWillLoad() {
     if (!window['Prism']) {
       await loadPrism();
-      // @ts-ignore
-      const Prism = window['Prism'];
-      Prism.manual = true;
-
     }
   }
 

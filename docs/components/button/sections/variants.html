@@ -7,10 +7,6 @@
 {% endfor %}
 <br/>
 
-{% for color in page.colors %}<goat-button class='color-{{color}}' variant="light">{{color | capitalize }}</goat-button>
-{% endfor %}
-<br/>
-
 {% for color in page.colors %}<goat-button class='color-{{color}}' variant='outline'>{{color | capitalize }}</goat-button>
 {% endfor %}
 <br/>
@@ -19,9 +15,6 @@
 {% endfor %}
 <br/>
 
-{% for color in page.colors %}<goat-button class='color-{{color}}' variant='link'>{{color | capitalize }}</goat-button>
-{% endfor %}
-<br/>
 {% endcapture %}
 {% include demo-html.html content=sample-code %}
 
@@ -36,7 +29,6 @@
   }
 </style>
 <goat-button class='custom'>Custom</goat-button>
-<goat-button class='custom' variant="light">Custom</goat-button>
 <goat-button class='custom' variant='outline'>Custom</goat-button>
 <goat-button class='custom' variant='ghost'>Custom</goat-button>
 <br/>

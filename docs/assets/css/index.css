@@ -81,24 +81,29 @@ html[data-theme="dark"] .banner {
   .social-icons {
     position: fixed;
     font-size: 1rem;
-    transform-origin: bottom left;
-    transform: rotate(-90deg);
     bottom: 2rem;
-    right: -7rem;
-    text-align: left
+    right: 2rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
   }
 
-  .social-icons goat-button {
-    transform: rotate(90deg);
-  }
-
-  .made-in-india:before, .social-icons:before {
+  .made-in-india:before {
     content: "";
     display: inline-block;
     vertical-align: middle;
     margin-right: 15px;
     height: 1px;
     width: 25px;
+    background: var(--text-primary);
+  }
+
+  .social-icons:after {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 25px;
+    width: 1px;
     background: var(--text-primary);
   }
 
