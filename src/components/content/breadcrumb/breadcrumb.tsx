@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h, Host } from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Host } from '@stencil/core';
 
 /**
  * @name Breadcrumb
@@ -12,12 +12,19 @@ import { Component, ComponentInterface, h, Host } from '@stencil/core';
 })
 export class Breadcrumb implements ComponentInterface {
 
+  @Element() elm!: HTMLElement;
+
+  componentWillLoad() {
+    this.elm.querySelectorAll('goat-breadcrumb-item').forEach((item, i) => {
+      item.position = i + 1 + '';
+    });
+  }
 
   render() {
     return (
-      <Host itemscope itemtype="http://schema.org/BreadcrumbList">
+      <Host itemscope itemtype='http://schema.org/BreadcrumbList'>
         <div class='breadcrumb'>
-          <slot/>
+          <slot />
         </div>
       </Host>
     );

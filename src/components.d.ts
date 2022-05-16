@@ -25,6 +25,7 @@ export namespace Components {
           * Hyperlink to navigate to on click.
          */
         "href": string;
+        "position": string;
         /**
           * Sets or retrieves the window or frame at which to target content.
          */
@@ -909,6 +910,7 @@ declare namespace LocalJSX {
           * Hyperlink to navigate to on click.
          */
         "href"?: string;
+        "position"?: string;
         /**
           * Sets or retrieves the window or frame at which to target content.
          */

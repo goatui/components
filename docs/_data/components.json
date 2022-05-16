@@ -249,6 +249,22 @@
         "required": false
       },
       {
+        "name": "position",
+        "type": "string",
+        "mutable": false,
+        "attr": "position",
+        "reflectToAttr": true,
+        "docs": "",
+        "docsTags": [],
+        "values": [
+          {
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
         "name": "target",
         "type": "string",
         "mutable": false,
