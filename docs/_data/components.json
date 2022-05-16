@@ -294,7 +294,7 @@
       },
       {
         "name": "example",
-        "text": "<goat-button>\r\nButton CTA\r\n</goat-button>"
+        "text": "<goat-button>\nButton CTA\n</goat-button>"
       }
     ],
     "encapsulation": "shadow",
@@ -417,7 +417,7 @@
         "mutable": false,
         "attr": "icon",
         "reflectToAttr": false,
-        "docs": "Icon which will displayed on button.\r\nPossible values are bootstrap icon names.",
+        "docs": "Icon which will displayed on button.\nPossible values are bootstrap icon names.",
         "docsTags": [],
         "values": [
           {
@@ -484,7 +484,7 @@
         "mutable": false,
         "attr": "size",
         "reflectToAttr": false,
-        "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`. Defaults to `\"md\"`.",
+        "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`. Defaults to `\"md\"`.",
         "docsTags": [],
         "default": "'md'",
         "values": [
@@ -619,7 +619,7 @@
     "metadata": {
       "name": "Button",
       "description": "An interactive button with a range of presentation options.",
-      "example": "<goat-button>\r\nButton CTA\r\n</goat-button>"
+      "example": "<goat-button>\nButton CTA\n</goat-button>"
     }
   },
   {
