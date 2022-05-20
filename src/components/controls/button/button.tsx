@@ -248,6 +248,7 @@ export class Button implements ComponentInterface {
         </NativeElementTag>
         {this.renderDisabledReason()}
       </div>
+
     </Host>);
   }
 

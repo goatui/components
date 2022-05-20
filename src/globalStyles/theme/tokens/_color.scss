@@ -269,6 +269,8 @@ $dark-color-css-variables: ();
 
 @include defineVariable(--color-white, getColor(white, 0));
 @include defineVariable(--color-black, getColor(black, 100));
+@include defineVariable(--color-dark, getColor(black, 100), getColor(white, 0));
+@include defineVariable(--color-light, getColor(white, 0), getColor(black, 100));
 @include defineVariable(--border-color, getColor(neutral, 50));
 
 /*

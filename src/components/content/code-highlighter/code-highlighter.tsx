@@ -86,14 +86,16 @@ export class CodeHighlighter implements ComponentInterface {
               <pre dir='ltr' class='highlighter line-numbers' innerHTML={this.compiledCode} />
             </div>
           </div>
-          <goat-button class='copy-btn color-secondary'
+          <goat-button class='copy-btn color-secondary icon-only'
                        size='sm'
                        variant='ghost'
-                       icon='files'
                        aria-label='Copy code'
                        title='Copy code' onGoat:click={() => {
             this.handleCopyClick();
-          }} />
+          }}>
+            <goat-icon name='files' size='1rem' />
+          </goat-button>
+
         </div>}
         {!this.compiledCode && <div class='code-loader'>
           <goat-spinner class='rainbow' />

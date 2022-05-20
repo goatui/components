@@ -1,4 +1,5 @@
 User-agent: *
 Disallow:
 Disallow: /no-search/
+Disallow: /components/*/sections/*.html
 Sitemap: https://goatui.com/sitemap.xml

@@ -27,15 +27,10 @@ layout: default
     width: 20rem;
     position: fixed;
     top: var(--header-height);
-    background: var(--color-neutral-10);
+    background: var(--ui-01);
     height: calc(100vh - var(--header-height));
     overflow-y: auto;
     border-right: 1px solid var(--border-color);
-  }
-
-
-  [data-theme="dark"] .sidenav {
-    background: var(--color-neutral-80);
   }
 
   .sidenav-components {
@@ -52,25 +47,14 @@ layout: default
   }
 
   .sidenav-link:hover {
-    color: var(--color-neutral-80);
-    background: var(--color-neutral-30);
-  }
-
-  [data-theme="dark"] .sidenav-link:hover {
-    color: var(--color-neutral-30);
-    background: var(--color-neutral-80);
+    background: var(--active-ui);
   }
 
   .sidenav-link.active {
-    color: var(--color-neutral-90);
     font-weight: 600;
-    background: var(--color-neutral-40);
+    background: var(--background);
   }
 
-  [data-theme="dark"] .sidenav-link.active {
-    color: var(--color-neutral-100);
-    background: var(--color-neutral-80);
-  }
 
   .main-content {
     margin-top: var(--header-height);

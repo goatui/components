@@ -359,6 +359,8 @@ Secondary link color for lower contrast backgrounds
   --color-error-100: #2d0709;
   --color-white: #ffffff;
   --color-black: #000000;
+  --color-dark: #000000;
+  --color-light: #ffffff;
   --border-color: var(--color-gray-50, #8d8d8d);
   --background: #ffffff;
   --ui-01: var(--color-gray-20, #e0e0e0);
@@ -507,6 +509,8 @@ html {
 }
 
 html[data-theme=dark] {
+  --color-dark: #ffffff;
+  --color-light: #000000;
   --background: var(--color-gray-100, #161616);
   --ui-01: var(--color-gray-80, #393939);
   --ui-02: var(--color-gray-80, #393939);
