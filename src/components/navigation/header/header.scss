@@ -54,6 +54,10 @@ $header-height: var(--header-height, #{v(--spacing-12)});
   --button-border-radius: none;
 }
 
+:host(.border) .header {
+  border-bottom: 1px solid var(--border-color)
+}
+
 /*
  * Colors
  */

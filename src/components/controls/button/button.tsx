@@ -143,9 +143,6 @@ export class Button implements ComponentInterface {
 
   private clickHandler = (event: PointerEvent) => {
     if (!this.disabled && !this.showLoader) {
-      if (this.href) {
-        window.open(this.href, this.target);
-      }
       this.goatClick.emit();
     } else {
       event.preventDefault();

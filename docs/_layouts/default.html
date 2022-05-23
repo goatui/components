@@ -39,14 +39,14 @@ layout: base
 
 <nav class='top-nav'>
   <goat-header
-    class='brand actions-separated'
+    class='brand actions-separated {% if page.root != true %}border{% endif %}'
   >
     <div slot='left-section'>
     <goat-header-brand
       logo='/assets/img/logo.svg'
       href='/#'
       name='{{site.title}}'
-      {% if page.root !='true' %}sub-title='{{page.title}}' {% endif %}>
+      {% if page.root != true %}sub-title='{{page.title}}' {% endif %}>
     </goat-header-brand>
     </div>
 

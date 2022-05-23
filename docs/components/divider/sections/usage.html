@@ -8,8 +8,8 @@
     border: 1px solid var(--border-color);
   }
 </style>
-{% capture sample-code %}
 
+{% GoatHighlighterCard language:"html" %}
 <div class="container-horizontal">
   <goat-text>Content A</goat-text>
   <goat-divider></goat-divider>
@@ -21,8 +21,7 @@
   <goat-divider> or </goat-divider>
   <goat-text>Content B</goat-text>
 </div>
-{% endcapture %}
-{% include demo-html.html content=sample-code %}
+{% endGoatHighlighterCard %}
 
 <style>
   .container-vertical {
@@ -38,8 +37,8 @@
     align-items: center;
   }
 </style>
-{% capture sample-code %}
 
+{% GoatHighlighterCard language:"html" %}
 <div class="container-vertical">
   <goat-text>Content A</goat-text>
   <goat-divider vertical></goat-divider>
@@ -51,5 +50,4 @@
   <goat-divider vertical> or </goat-divider>
   <goat-text>Content B</goat-text>
 </div>
-{% endcapture %}
-{% include demo-html.html content=sample-code %}
+{% endGoatHighlighterCard %}
