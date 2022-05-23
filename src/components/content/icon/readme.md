@@ -18,6 +18,7 @@
 ### Used by
 
  - [goat-button](../../controls/button)
+ - [goat-code-highlighter](../code-highlighter)
  - [goat-dropdown](../../menu/dropdown)
  - [goat-input](../../form/input)
  - [goat-notification](../notification)
@@ -31,6 +32,7 @@
 ```mermaid
 graph TD;
   goat-button --> goat-icon
+  goat-code-highlighter --> goat-icon
   goat-dropdown --> goat-icon
   goat-input --> goat-icon
   goat-notification --> goat-icon

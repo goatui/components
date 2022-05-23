@@ -19,12 +19,14 @@
 ### Depends on
 
 - [goat-button](../../controls/button)
+- [goat-icon](../icon)
 - [goat-spinner](../spinner)
 
 ### Graph
 ```mermaid
 graph TD;
   goat-code-highlighter --> goat-button
+  goat-code-highlighter --> goat-icon
   goat-code-highlighter --> goat-spinner
   goat-button --> goat-icon
   goat-button --> goat-spinner

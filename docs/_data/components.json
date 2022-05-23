@@ -1430,11 +1430,13 @@
     "dependents": [],
     "dependencies": [
       "goat-button",
+      "goat-icon",
       "goat-spinner"
     ],
     "dependencyGraph": {
       "goat-code-highlighter": [
         "goat-button",
+        "goat-icon",
         "goat-spinner"
       ],
       "goat-button": [
@@ -3044,6 +3046,7 @@
     "encapsulation": "shadow",
     "dependents": [
       "goat-button",
+      "goat-code-highlighter",
       "goat-dropdown",
       "goat-input",
       "goat-notification",
@@ -3056,6 +3059,9 @@
     "dependencies": [],
     "dependencyGraph": {
       "goat-button": [
+        "goat-icon"
+      ],
+      "goat-code-highlighter": [
         "goat-icon"
       ],
       "goat-dropdown": [
