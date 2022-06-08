@@ -68,13 +68,6 @@ $header-height: var(--header-height, #{v(--spacing-12)});
     background-color: v(--color-white);
   }
 
-  slot::slotted(*) {
-    --button-text-color: #{v(--text-primary)};
-    --button-color: transparent;
-    --button-color-hover: #{v(--color-brand-primary-20)};
-    --button-color-active: #{v(--color-brand-primary-30)};
-    --button-color-focus: #{v(--color-brand-primary)};
-  }
 
 
 }
@@ -109,10 +102,6 @@ $header-height: var(--header-height, #{v(--spacing-12)});
 
   .left-section {
 
-  }
-
-  slot::slotted(*) {
-    --button-text-color: #{v(--color-brand-primary)};
   }
 }
 

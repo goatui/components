@@ -51,32 +51,36 @@ layout: base
     </div>
 
     <div slot='right-section'>
-      <goat-button icon='sun-fill' id='theme-switcher'></goat-button>
+      <goat-button icon='sun-fill' class="color-brand-primary" id='theme-switcher' variant='ghost'></goat-button>
 
-      <goat-button id='dir-switcher'>LTR</goat-button>
+      <goat-button id='dir-switcher' class="color-brand-primary" variant='ghost'>LTR</goat-button>
 
       {% if page.root %}
       <goat-button icon='github'
-                   class='show-desktop full-height'
+                   variant='ghost'
+                   class='show-desktop full-height color-brand-primary'
                    href='https://github.com/{{site.github_username}}/{{site.github_project}}'
                    target='_blank'>Github
       </goat-button>
 
       <goat-button icon='github'
-                   class='show-mobile full-height'
+                   variant='ghost'
+                   class='show-mobile full-height color-brand-primary'
                    href='https://github.com/{{site.github_username}}/{{site.github_project}}'
                    target='_blank'></goat-button>
 
 
       {% else %}
       <goat-button icon='bug'
-                   class='show-desktop full-height'
+                   variant='ghost'
+                   class='show-desktop full-height color-brand-primary'
                    href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues'
                    target='_blank'>Report Issue
       </goat-button>
 
       <goat-button icon='bug'
-                   class='show-mobile full-height'
+                   variant='ghost'
+                   class='show-mobile full-height color-brand-primary'
                    href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues'
                    target='_blank'></goat-button>
       {% endif %}

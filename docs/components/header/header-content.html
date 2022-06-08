@@ -1,14 +1,14 @@
       <div slot='right-section'>
 
-        <goat-button icon='sun' size='sm' class='theme-switcher '></goat-button>
+        <goat-button icon='sun' size='sm' class='theme-switcher color-brand-primary' variant='ghost'></goat-button>
 
-        <goat-button class='icon-only ' selected  size='sm'>
+        <goat-button class='icon-only color-brand-primary' selected  size='sm' variant='ghost'>
           <goat-badge content='3' class='color-error'>
             <goat-icon size='sm' name='bell' class='inherit'></goat-icon>
           </goat-badge>
         </goat-button>
 
-        <goat-button class='icon-only'  size='sm'>
+        <goat-button class='icon-only color-brand-primary'  size='sm' variant='ghost'>
           <div class='avatar-container'>
             <goat-avatar name='Shivaji Varma' size='20px'></goat-avatar> <goat-text size='sm'>Shivaji Varma</goat-text>
           </div>
@@ -18,10 +18,12 @@
           <goat-button
             icon='grid-3x3-gap'
             size='sm'
-            class=''
+            class='color-brand-primary'
             badge='3'
+            variant='ghost'
             type='dropdown'></goat-button>
           <goat-menu slot='dropdown-content' class='menu' style='width: 200px'>
+
             <goat-menu-item value='cut'>
               <goat-icon name='scissors' slot='start' size='sm'></goat-icon>
               Cut
