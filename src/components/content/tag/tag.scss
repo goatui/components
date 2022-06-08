@@ -56,7 +56,7 @@ $tag-hover-color: var(--tag-color, v(--tag-hover-gray));
   border-radius: 9px;
 }
 
-@each $color in [gray, blue, green, red, yellow, primary, success, info, warning, error] {
+@each $color in ['gray', 'blue', 'green', 'red', 'yellow', 'primary', 'success', 'info', 'warning', 'error'] {
   :host(.color-#{$color}) .tag {
     --tag-background-color: #{v(--tag-background-#{$color})};
     --tag-color: #{v(--tag-color-#{$color})};
