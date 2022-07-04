@@ -47,8 +47,8 @@ Type: `Promise<string>`
 
 ### `setBlur() => Promise<void>`
 
-Sets blur on the native `input` in `ion-input`. Use this method instead of the global
-`input.blur()`.
+Sets blur on the native `textarea` in `goat-textarea`. Use this method instead of the global
+`textarea.blur()`.
 
 #### Returns
 
@@ -58,8 +58,8 @@ Type: `Promise<void>`
 
 ### `setFocus() => Promise<void>`
 
-Sets focus on the native `input` in `ion-input`. Use this method instead of the global
-`input.focus()`.
+Sets focus on the native `textarea` in `goat-textarea`. Use this method instead of the global
+`textarea.focus()`.
 
 #### Returns
 

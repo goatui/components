@@ -112,24 +112,26 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
   @Event({ eventName: 'goat:action-click' }) p4ActionClick: EventEmitter;
 
   /**
-   * Sets focus on the native `input` in `ion-input`. Use this method instead of the global
-   * `input.focus()`.
+   * Sets focus on the native `textarea` in `goat-textarea`. Use this method instead of the global
+   * `textarea.focus()`.
    */
   @Method()
   async setFocus() {
     if (this.nativeInput) {
       this.nativeInput.focus();
+      this.hasFocus = true;
     }
   }
 
   /**
-   * Sets blur on the native `input` in `ion-input`. Use this method instead of the global
-   * `input.blur()`.
+   * Sets blur on the native `textarea` in `goat-textarea`. Use this method instead of the global
+   * `textarea.blur()`.
    */
   @Method()
   async setBlur() {
     if (this.nativeInput) {
       this.nativeInput.blur();
+      this.hasFocus = false;
     }
   }
 

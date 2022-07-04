@@ -32,9 +32,21 @@
 
 ## Methods
 
+### `setBlur() => Promise<void>`
+
+Sets blur on the native `button` in `goat-button`. Use this method instead of the global
+`button.blur()`.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 ### `setFocus() => Promise<void>`
 
-
+Sets focus on the native `button` in `goat-button`. Use this method instead of the global
+`button.focus()`.
 
 #### Returns
 

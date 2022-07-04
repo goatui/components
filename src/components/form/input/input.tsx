@@ -169,6 +169,7 @@ export class Input implements ComponentInterface, InputComponentInterface {
   async setFocus() {
     if (this.nativeInput) {
       this.nativeInput.focus();
+      this.hasFocus = true;
     }
   }
 
@@ -180,6 +181,7 @@ export class Input implements ComponentInterface, InputComponentInterface {
   async setBlur() {
     if (this.nativeInput) {
       this.nativeInput.blur();
+      this.hasFocus = false;
     }
   }
 

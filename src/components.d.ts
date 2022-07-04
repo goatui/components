@@ -58,6 +58,13 @@ export namespace Components {
           * Button selection state.
          */
         "selected": boolean;
+        /**
+          * Sets blur on the native `button` in `goat-button`. Use this method instead of the global `button.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `button` in `goat-button`. Use this method instead of the global `button.focus()`.
+         */
         "setFocus": () => Promise<void>;
         /**
           * Show loader.
@@ -565,11 +572,11 @@ export namespace Components {
          */
         "required": boolean;
         /**
-          * Sets blur on the native `input` in `ion-input`. Use this method instead of the global `input.blur()`.
+          * Sets blur on the native `textarea` in `goat-textarea`. Use this method instead of the global `textarea.blur()`.
          */
         "setBlur": () => Promise<void>;
         /**
-          * Sets focus on the native `input` in `ion-input`. Use this method instead of the global `input.focus()`.
+          * Sets focus on the native `textarea` in `goat-textarea`. Use this method instead of the global `textarea.focus()`.
          */
         "setFocus": () => Promise<void>;
         /**

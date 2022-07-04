@@ -582,6 +582,17 @@
     ],
     "methods": [
       {
+        "name": "setBlur",
+        "returns": {
+          "type": "Promise<void>",
+          "docs": ""
+        },
+        "signature": "setBlur() => Promise<void>",
+        "parameters": [],
+        "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\n`button.blur()`.",
+        "docsTags": []
+      },
+      {
         "name": "setFocus",
         "returns": {
           "type": "Promise<void>",
@@ -589,7 +600,7 @@
         },
         "signature": "setFocus() => Promise<void>",
         "parameters": [],
-        "docs": "",
+        "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\n`button.focus()`.",
         "docsTags": []
       },
       {
@@ -3334,7 +3345,7 @@
         "mutable": false,
         "attr": "size",
         "reflectToAttr": true,
-        "docs": "The input field size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+        "docs": "The input field size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
         "docsTags": [],
         "default": "'md'",
         "values": [
@@ -3360,7 +3371,7 @@
         "mutable": false,
         "attr": "state",
         "reflectToAttr": true,
-        "docs": "The input state.\r\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+        "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
         "docsTags": [],
         "default": "'default'",
         "values": [
@@ -3390,7 +3401,7 @@
         "mutable": false,
         "attr": "type",
         "reflectToAttr": false,
-        "docs": "The type of control to display.\r\nPossible values are: `\"text\"`, `\"password\"`, `\"number\"`, `\"email\"`, `\"tel\"`. Defaults to `\"text\"`.",
+        "docs": "The type of control to display.\nPossible values are: `\"text\"`, `\"password\"`, `\"number\"`, `\"email\"`, `\"tel\"`. Defaults to `\"text\"`.",
         "docsTags": [],
         "default": "'text'",
         "values": [
@@ -3459,7 +3470,7 @@
         },
         "signature": "setBlur() => Promise<void>",
         "parameters": [],
-        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
         "docsTags": []
       },
       {
@@ -3470,7 +3481,7 @@
         },
         "signature": "setFocus() => Promise<void>",
         "parameters": [],
-        "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
+        "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
         "docsTags": []
       }
     ],
@@ -6410,7 +6421,7 @@
         "mutable": false,
         "attr": "size",
         "reflectToAttr": true,
-        "docs": "The button size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+        "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
         "docsTags": [],
         "default": "'md'",
         "values": [
@@ -6436,7 +6447,7 @@
         "mutable": false,
         "attr": "state",
         "reflectToAttr": true,
-        "docs": "The input state.\r\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+        "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
         "docsTags": [],
         "default": "'default'",
         "values": [
@@ -6497,7 +6508,7 @@
         },
         "signature": "setBlur() => Promise<void>",
         "parameters": [],
-        "docs": "Sets blur on the native `input` in `ion-input`. Use this method instead of the global\r\n`input.blur()`.",
+        "docs": "Sets blur on the native `textarea` in `goat-textarea`. Use this method instead of the global\n`textarea.blur()`.",
         "docsTags": []
       },
       {
@@ -6508,7 +6519,7 @@
         },
         "signature": "setFocus() => Promise<void>",
         "parameters": [],
-        "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\r\n`input.focus()`.",
+        "docs": "Sets focus on the native `textarea` in `goat-textarea`. Use this method instead of the global\n`textarea.focus()`.",
         "docsTags": []
       }
     ],

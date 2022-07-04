@@ -108,10 +108,27 @@ export class Button implements ComponentInterface {
       this.isActive = false;
   }
 
+  /**
+   * Sets focus on the native `button` in `goat-button`. Use this method instead of the global
+   * `button.focus()`.
+   */
   @Method()
   async setFocus() {
     if (this.nativeInput) {
       this.nativeInput.focus();
+      this.hasFocus = true;
+    }
+  }
+
+  /**
+   * Sets blur on the native `button` in `goat-button`. Use this method instead of the global
+   * `button.blur()`.
+   */
+  @Method()
+  async setBlur() {
+    if (this.nativeInput) {
+      this.nativeInput.blur();
+      this.hasFocus = false;
     }
   }
 
