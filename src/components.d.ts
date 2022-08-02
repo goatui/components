@@ -172,6 +172,40 @@ export namespace Components {
         "value": string;
     }
     interface GoatDatePicker {
+        "configAria": any;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled": boolean;
+        "getComponentId": () => Promise<string>;
+        /**
+          * The input field name.
+         */
+        "name": string;
+        /**
+          * The input field placeholder.
+         */
+        "placeholder": string;
+        /**
+          * If true, the user read the value cannot modify it. Defaults to `false`.
+         */
+        "readonly": boolean;
+        /**
+          * Sets blur on the native `input` in `goat-input`. Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `input` in `goat-input`. Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size": 'sm' | 'md' | 'lg';
+        /**
+          * The input field value.
+         */
+        "value"?: string | number | null;
     }
     interface GoatDivider {
         "vertical": boolean;
@@ -593,6 +627,40 @@ export namespace Components {
         "value": string;
     }
     interface GoatTimePicker {
+        "configAria": any;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled": boolean;
+        "getComponentId": () => Promise<string>;
+        /**
+          * The input field name.
+         */
+        "name": string;
+        /**
+          * The input field placeholder.
+         */
+        "placeholder": string;
+        /**
+          * If true, the user read the value cannot modify it. Defaults to `false`.
+         */
+        "readonly": boolean;
+        /**
+          * Sets blur on the native `input` in `goat-input`. Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `input` in `goat-input`. Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size": 'sm' | 'md' | 'lg';
+        /**
+          * The input field value.
+         */
+        "value"?: string | number | null;
     }
     interface GoatToast {
         "message": string;
@@ -1057,6 +1125,47 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface GoatDatePicker {
+        "configAria"?: any;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled"?: boolean;
+        /**
+          * The input field name.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the input loses focus.
+         */
+        "onGoat:blur"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the value has changed.
+         */
+        "onGoat:change"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the input has focus.
+         */
+        "onGoat:focus"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when a keyboard input occurred.
+         */
+        "onGoat:input"?: (event: CustomEvent<any>) => void;
+        /**
+          * The input field placeholder.
+         */
+        "placeholder"?: string;
+        /**
+          * If true, the user read the value cannot modify it. Defaults to `false`.
+         */
+        "readonly"?: boolean;
+        /**
+          * The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size"?: 'sm' | 'md' | 'lg';
+        /**
+          * The input field value.
+         */
+        "value"?: string | number | null;
     }
     interface GoatDivider {
         "vertical"?: boolean;
@@ -1490,6 +1599,47 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface GoatTimePicker {
+        "configAria"?: any;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled"?: boolean;
+        /**
+          * The input field name.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the input loses focus.
+         */
+        "onGoat:blur"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the value has changed.
+         */
+        "onGoat:change"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the input has focus.
+         */
+        "onGoat:focus"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when a keyboard input occurred.
+         */
+        "onGoat:input"?: (event: CustomEvent<any>) => void;
+        /**
+          * The input field placeholder.
+         */
+        "placeholder"?: string;
+        /**
+          * If true, the user read the value cannot modify it. Defaults to `false`.
+         */
+        "readonly"?: boolean;
+        /**
+          * The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size"?: 'sm' | 'md' | 'lg';
+        /**
+          * The input field value.
+         */
+        "value"?: string | number | null;
     }
     interface GoatToast {
         "message"?: string;

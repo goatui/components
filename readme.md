@@ -19,7 +19,7 @@ Checkout the complete documentation over here -> https://goatui.com
 ### Script tag
 
 - Put a script tag similar to
-  this `<script type="module" src="https://unpkg.com/@goatui/components@0.9.14/dist/goatui/goatui.esm.js"></script>` in
+  this `<script type="module" src="https://unpkg.com/@goatui/components@0.10.0/dist/goatui/goatui.esm.js"></script>` in
   the head of your index.html
 - Include default font Roboto in the page
 - Then you can use the element anywhere in your template, JSX, html etc
@@ -32,9 +32,9 @@ Checkout the complete documentation over here -> https://goatui.com
   <meta name='viewport' content='width=device-width'>
   <title>Goat UI Component</title>
 
-  <!-- include your custom theme variable values, view variable names at https://unpkg.com/@goatui/components@0.9.14/dist/goatui/assets/styles/theme.css -->
+  <!-- include your custom theme variable values, view variable names at https://unpkg.com/@goatui/components@0.10.0/dist/goatui/assets/styles/theme.css -->
   <!--link rel="stylesheet" href="/custom-theme.css"></link-->
-  <script type='module' src='https://unpkg.com/@goatui/components@0.9.14/dist/goatui/goatui.esm.js'></script>
+  <script type='module' src='https://unpkg.com/@goatui/components@0.10.0/dist/goatui/goatui.esm.js'></script>
 
 </head>
 <body>
@@ -67,8 +67,8 @@ Checkout the complete documentation over here -> https://goatui.com
 | [Code Highlighter](https://goatui.com/components/code-highlighter)         | goat-card-highlighter     | 🟢    |
 | Column                                                                     | goat-col                  | 🔵    |
 | Color picker                                                               | goat-colorpicker          | 🔵    |
-| Date picker                                                                | goat-datepicker           | 🔵    |
-| Date Time picker                                                           | goat-datetimepicker       | 🔵    |
+| [Date picker](https://goatui.com/components/date-picker)                   | goat-date-picker          | 🟡    |
+| Date Time picker                                                           | goat-datetime-picker      | 🔵    |
 | Dialog                                                                     | goat-dialog               | 🔵    |
 | [Dropdown](https://goatui.com/components/goat-dropdown)                    | goat-dropdown             | 🟡    |
 | [Empty State](https://goatui.com/components/goat-empty-state)              | goat-empty-state          | 🟡    |
@@ -83,7 +83,7 @@ Checkout the complete documentation over here -> https://goatui.com
 | [Link](https://goatui.com/components/link)                                 | goat-link                 | 🟢    |
 | Modal                                                                      | goat-modal                | 🔵    |
 | [Menu](https://goatui.com/components/menu)                                 | goat-menu                 | 🟡    |
-| Month picker                                                               | goat-monthpicker          | 🔵    |
+| Month picker                                                               | goat-month-picker         | 🔵    |
 | [Notification](https://goatui.com/components/notification)                 | goat-notification         | 🟢    |
 | [Notification Manager](https://goatui.com/components/notification-manager) | goat-notification-manager | 🟡    |
 | Observer                                                                   | goat-observer             | 🔵    |
@@ -101,8 +101,8 @@ Checkout the complete documentation over here -> https://goatui.com
 | [Tabs](https://goatui.com/components/tabs)                                 | goat-tabs                 | 🔵    |
 | [Text](https://goatui.com/components/text)                                 | goat-text                 | 🟡    |
 | [Textarea](https://goatui.com/components/textarea)                         | goat-textarea             | 🟢    |
-| Time picker                                                                | goat-timepicker           | 🔵    |
+| [Time picker](https://goatui.com/components/time-picker)                   | goat-time-picker          | 🟡    |
 | [Toast](https://goatui.com/components/toast)                               | goat-toast                | 🟢    |
 | Toggle                                                                     | goat-toggle               | 🔵    |
 | Tooltip                                                                    | goat-tooltip              | 🔵    |
-| Week picker                                                                | goat-weekpicker           | 🔵    |
+| Week picker                                                                | goat-week-picker          | 🔵    |

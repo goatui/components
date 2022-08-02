@@ -2126,16 +2126,29 @@
     }
   },
   {
-    "dirPath": "D:/development/goatui/src/components/goat-date-picker",
-    "filePath": "./src/components/goat-date-picker/goat-date-picker.tsx",
-    "fileName": "goat-date-picker.tsx",
-    "readmePath": "D:/development/goatui/src/components/goat-date-picker/readme.md",
-    "usagesDir": "D:/development/goatui/src/components/goat-date-picker/usage",
+    "dirPath": "D:/development/goatui/src/components/form/date-picker",
+    "filePath": "./src/components/form/date-picker/date-picker.tsx",
+    "fileName": "date-picker.tsx",
+    "readmePath": "D:/development/goatui/src/components/form/date-picker/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/form/date-picker/usage",
     "tag": "goat-date-picker",
     "readme": "# goat-date-picker\n\n\n",
     "usage": {},
     "docs": "",
-    "docsTags": [],
+    "docsTags": [
+      {
+        "name": "name",
+        "text": "Date Picker"
+      },
+      {
+        "name": "description",
+        "text": "Captures date input."
+      },
+      {
+        "name": "example",
+        "text": "<goat-date-picker value='true'></goat-date-picker>"
+      }
+    ],
     "encapsulation": "shadow",
     "dependents": [],
     "dependencies": [],
@@ -2147,7 +2160,11 @@
     "slots": [],
     "parts": [],
     "listeners": [],
-    "metadata": {}
+    "metadata": {
+      "name": "Date Picker",
+      "description": "Captures date input.",
+      "example": "<goat-date-picker value='true'></goat-date-picker>"
+    }
   },
   {
     "dirPath": "D:/development/goatui/src/components/content/divider",
@@ -6581,16 +6598,29 @@
     }
   },
   {
-    "dirPath": "D:/development/goatui/src/components/goat-time-picker",
-    "filePath": "./src/components/goat-time-picker/goat-time-picker.tsx",
-    "fileName": "goat-time-picker.tsx",
-    "readmePath": "D:/development/goatui/src/components/goat-time-picker/readme.md",
-    "usagesDir": "D:/development/goatui/src/components/goat-time-picker/usage",
+    "dirPath": "D:/development/goatui/src/components/form/time-picker",
+    "filePath": "./src/components/form/time-picker/time-picker.tsx",
+    "fileName": "time-picker.tsx",
+    "readmePath": "D:/development/goatui/src/components/form/time-picker/readme.md",
+    "usagesDir": "D:/development/goatui/src/components/form/time-picker/usage",
     "tag": "goat-time-picker",
     "readme": "# goat-time-picker\n\n\n",
     "usage": {},
     "docs": "",
-    "docsTags": [],
+    "docsTags": [
+      {
+        "name": "name",
+        "text": "Time Picker"
+      },
+      {
+        "name": "description",
+        "text": "Captures time input."
+      },
+      {
+        "name": "example",
+        "text": "<goat-time-picker value='true'></goat-time-picker>"
+      }
+    ],
     "encapsulation": "shadow",
     "dependents": [],
     "dependencies": [],
@@ -6602,7 +6632,11 @@
     "slots": [],
     "parts": [],
     "listeners": [],
-    "metadata": {}
+    "metadata": {
+      "name": "Time Picker",
+      "description": "Captures time input.",
+      "example": "<goat-time-picker value='true'></goat-time-picker>"
+    }
   },
   {
     "dirPath": "D:/development/goatui/src/components/content/toast",

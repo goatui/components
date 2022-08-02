@@ -1,10 +1,10 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { GoatDatePicker } from '../goat-date-picker';
+import { DatePicker } from '../date-picker';
 
 describe('goat-date-picker', () => {
   it('renders', async () => {
     const page = await newSpecPage({
-      components: [GoatDatePicker],
+      components: [DatePicker],
       html: `<goat-date-picker></goat-date-picker>`,
     });
     expect(page.root).toEqualHtml(`

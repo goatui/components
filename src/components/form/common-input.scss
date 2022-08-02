@@ -103,7 +103,7 @@
 }
 
 @each $state in [success, warning, error] {
-  :host-context(.input-state#{$state}) {
+  :host-context(.input-state-#{$state}) {
     .input-container {
       border-color: v(--support-#{$state});
 

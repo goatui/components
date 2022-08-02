@@ -45,6 +45,8 @@ export class NotificationManager implements ComponentInterface {
       setTimeout(() => {
         notification.hide = true;
         this.notifications = [...this.notifications];
+
+
       }, 5000);
     }
   }
