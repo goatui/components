@@ -205,6 +205,7 @@ export class Canvas {
   }
 
   render() {
+    console.log(`Canvas size ${this.computedViewbox.x * this.unitSize} ${this.computedViewbox.x * this.unitSize} ${this.computedViewbox.width * this.unitSize} ${this.computedViewbox.height * this.unitSize}`);
     return <Host>
       <div class='canvas-wrapper' style={{
         'background-size': `${this.unitSize}px ${this.unitSize}px`,
@@ -212,6 +213,8 @@ export class Canvas {
       }}>
 
         <svg class='canvas'
+             height={`100%`}
+             width={`100%`}
              viewBox={`${this.computedViewbox.x * this.unitSize} ${this.computedViewbox.x * this.unitSize} ${this.computedViewbox.width * this.unitSize} ${this.computedViewbox.height * this.unitSize}`}>
           {
             (this.paths.map((path) => {

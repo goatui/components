@@ -24,20 +24,10 @@ menu:
       <goat-text type="heading" level="2" size="sm">Usage <a class='js-anchor-link duik-anchorjs-link' href='#doc-usage' aria-label='Anchor'
                               data-anchorjs-icon='#'></a></goat-text>
 
-      <div class='card'>
-        <div class='card-header'>
-          <goat-flow-designer></goat-flow-designer>
-
-        </div>
-        <div class='card-body'>
-          <pre>
-          <code class='language-html' data-lang='html'>&lt;link rel="stylesheet" href="{{site.themeCss}}"&gt;&lt;/link&gt;
-&lt;script type="module" src="{{site.script}}"&gt;&lt;/script&gt;
-
-&lt;goat-table id="table" selection-type="checkbox" key-field="_id">&lt;/goat-table></code>
-</pre>
-        </div>
-      </div>
+      {% capture sample-code %}
+      <goat-flow-designer></goat-flow-designer>
+      {% endcapture %}
+      {% include demo-html.html content=sample-code %}
 
 
     </div>

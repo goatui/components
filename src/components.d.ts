@@ -83,6 +83,17 @@ export namespace Components {
     }
     interface GoatButtonGroup {
     }
+    interface GoatCalendar {
+        "availableViews": any;
+        "contextDate": Date;
+        "events": any[];
+        /**
+          * Show loader.
+         */
+        "showLoader": boolean;
+        "timezone": string;
+        "view": string;
+    }
     interface GoatCanvas {
         "lines": any[];
         "padding": number;
@@ -704,6 +715,12 @@ declare global {
         prototype: HTMLGoatButtonGroupElement;
         new (): HTMLGoatButtonGroupElement;
     };
+    interface HTMLGoatCalendarElement extends Components.GoatCalendar, HTMLStencilElement {
+    }
+    var HTMLGoatCalendarElement: {
+        prototype: HTMLGoatCalendarElement;
+        new (): HTMLGoatCalendarElement;
+    };
     interface HTMLGoatCanvasElement extends Components.GoatCanvas, HTMLStencilElement {
     }
     var HTMLGoatCanvasElement: {
@@ -927,6 +944,7 @@ declare global {
         "goat-breadcrumb-item": HTMLGoatBreadcrumbItemElement;
         "goat-button": HTMLGoatButtonElement;
         "goat-button-group": HTMLGoatButtonGroupElement;
+        "goat-calendar": HTMLGoatCalendarElement;
         "goat-canvas": HTMLGoatCanvasElement;
         "goat-card": HTMLGoatCardElement;
         "goat-checkbox": HTMLGoatCheckboxElement;
@@ -1037,6 +1055,17 @@ declare namespace LocalJSX {
         "variant"?: 'default' | 'light' | 'outline' | 'ghost' | 'link';
     }
     interface GoatButtonGroup {
+    }
+    interface GoatCalendar {
+        "availableViews"?: any;
+        "contextDate"?: Date;
+        "events"?: any[];
+        /**
+          * Show loader.
+         */
+        "showLoader"?: boolean;
+        "timezone"?: string;
+        "view"?: string;
     }
     interface GoatCanvas {
         "lines"?: any[];
@@ -1652,6 +1681,7 @@ declare namespace LocalJSX {
         "goat-breadcrumb-item": GoatBreadcrumbItem;
         "goat-button": GoatButton;
         "goat-button-group": GoatButtonGroup;
+        "goat-calendar": GoatCalendar;
         "goat-canvas": GoatCanvas;
         "goat-card": GoatCard;
         "goat-checkbox": GoatCheckbox;
@@ -1700,6 +1730,7 @@ declare module "@stencil/core" {
             "goat-breadcrumb-item": LocalJSX.GoatBreadcrumbItem & JSXBase.HTMLAttributes<HTMLGoatBreadcrumbItemElement>;
             "goat-button": LocalJSX.GoatButton & JSXBase.HTMLAttributes<HTMLGoatButtonElement>;
             "goat-button-group": LocalJSX.GoatButtonGroup & JSXBase.HTMLAttributes<HTMLGoatButtonGroupElement>;
+            "goat-calendar": LocalJSX.GoatCalendar & JSXBase.HTMLAttributes<HTMLGoatCalendarElement>;
             "goat-canvas": LocalJSX.GoatCanvas & JSXBase.HTMLAttributes<HTMLGoatCanvasElement>;
             "goat-card": LocalJSX.GoatCard & JSXBase.HTMLAttributes<HTMLGoatCardElement>;
             "goat-checkbox": LocalJSX.GoatCheckbox & JSXBase.HTMLAttributes<HTMLGoatCheckboxElement>;

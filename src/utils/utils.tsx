@@ -7,7 +7,11 @@ export const getComponentIndex = (() => {
   });
 })();
 
-export const isMobile = function() {
+export const generateUniqueId = () => {
+  return `${Date.now()}Math.random().toString(16).substr(2)`;
+};
+
+export const isMobile = () => {
   let check = false;
 
   (function(a) {
@@ -19,7 +23,7 @@ export const isMobile = function() {
   return check;
 };
 
-export const isOutOfViewport = function(bounding: DOMRect) {
+export const isOutOfViewport = (bounding: DOMRect) => {
 
   // Check if it's out of the viewport on each side
   const out: any = {};

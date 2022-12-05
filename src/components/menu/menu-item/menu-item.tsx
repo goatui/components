@@ -19,7 +19,7 @@ export class GoatMenu {
   /**
    * The menu item value.
    */
-  @Prop({mutable: true}) value?: string | number | null;
+  @Prop({ mutable: true }) value?: string | number | null;
 
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
@@ -81,7 +81,7 @@ export class GoatMenu {
   private clickHandler = (event) => {
     if (!this.disabled) {
       this.goatMenuItemClick.emit({
-        value: this.value || this.elm.innerText
+        value: this.value || this.elm.innerText,
       });
     } else {
       event.preventDefault();
@@ -103,7 +103,7 @@ export class GoatMenu {
   };
 
   private keyDownHandler = (evt) => {
-    if (evt.key == ' ') {
+    if (evt.key == ' ' || evt.key == 'Enter') {
       evt.preventDefault();
       this.isActive = true;
       this.clickHandler(evt);
@@ -144,16 +144,16 @@ export class GoatMenu {
         onKeyDown={this.keyDownHandler}
         aria-disabled={this.disabled}>
 
-        <div class="item-section slot-start">
-          <slot name="start" />
+        <div class='item-section slot-start'>
+          <slot name='start' />
         </div>
 
         <div class='item-section slot-main'>
           <slot />
         </div>
 
-        <div class="item-section slot-end">
-          <slot name="end" />
+        <div class='item-section slot-end'>
+          <slot name='end' />
         </div>
 
       </div>

@@ -1,0 +1,83 @@
+@import "../../../globalStyles/commons";
+
+:host {
+  display: block;
+  height: 100%;
+  min-height: 20em;
+  --calendar-border-color: #{v(--ui-04)};
+}
+
+.calendar {
+  .calendar-header {
+    .calendar-header-classic {
+      display: flex;
+      padding: 1rem;
+
+      .header-left {
+        display: flex;
+        gap: 1rem;
+        flex: 1;
+      }
+    }
+
+    goat-select {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.scale {
+  width: 2rem;
+}
+
+
+.calendar-column-view {
+  .view-header {
+    border-top: 1px solid v(--border-color);
+    display: flex;
+
+    .scale {
+      width: 2rem;
+      border-bottom: 1px solid v(--border-color);
+      border-right: 1px solid v(--border-color);
+    }
+
+    .columns {
+      display: flex;
+      flex: 1;
+      border-bottom: 1px solid v(--border-color);
+
+      .column {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+
+        border-top: .5rem solid transparent;
+        border-right: 1px solid v(--border-color);
+        padding: 0 1rem;
+
+        &.active {
+          border-top-color: v(--color-primary);
+          .date {
+            color: v(--color-primary);
+          }
+        }
+
+        .date {
+          font-size: 2rem;
+        }
+
+        .day {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .scrollbar {
+      width: 2rem;
+    }
+  }
+
+
+}

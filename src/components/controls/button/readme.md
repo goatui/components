@@ -69,6 +69,7 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [goat-calendar](../../calendar/calendar)
  - [goat-code-highlighter](../../content/code-highlighter)
  - [goat-empty-state](../../content/empty-state)
  - [goat-notification](../../content/notification)
@@ -84,6 +85,7 @@ Type: `Promise<void>`
 graph TD;
   goat-button --> goat-icon
   goat-button --> goat-spinner
+  goat-calendar --> goat-button
   goat-code-highlighter --> goat-button
   goat-empty-state --> goat-button
   goat-notification --> goat-button

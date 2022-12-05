@@ -76,6 +76,7 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [goat-calendar](../../calendar/calendar)
  - [goat-table](../../table/table)
 
 ### Depends on
@@ -102,6 +103,7 @@ graph TD;
   goat-empty-state --> goat-button
   goat-button --> goat-icon
   goat-button --> goat-spinner
+  goat-calendar --> goat-select
   goat-table --> goat-select
   style goat-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
