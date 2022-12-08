@@ -11,6 +11,8 @@
   height: 100%;
   border: 1px solid var(--table-border-color);
   @include font-style(text-md);
+  display: flex;
+  flex-direction: column;
 
   .table-scroll-container {
     position: relative;
@@ -23,10 +25,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  &.paginate .table-scroll-container{
-    height: calc(100% - 2.4375rem); // remove height of pagination bar
   }
 
   .pagination {

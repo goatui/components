@@ -502,6 +502,7 @@ Secondary link color for lower contrast backgrounds
   --z-index-table-header: 30;
   --z-index-dropdown-content: 40;
   --z-index-notification-manager: 100;
+  --scrollbar-width: 0.75rem;
 }
 
 html {

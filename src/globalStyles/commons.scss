@@ -16,8 +16,8 @@
 
 /* width */
 ::-webkit-scrollbar {
-  width: 1rem;
-  height: 1rem;
+  width: v(--scrollbar-width);
+  height: v(--scrollbar-width);
 }
 
 /* Track */

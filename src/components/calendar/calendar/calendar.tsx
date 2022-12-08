@@ -1,7 +1,5 @@
 import { Component, ComponentInterface, Element, h, Host, Prop } from '@stencil/core';
-import { calculateWeekRange } from './utils';
-import { addDays, differenceInDays, endOfDay, format, isEqual, startOfDay } from 'date-fns';
-
+import ColumnView from './views/ColumnView';
 
 
 /**
@@ -55,66 +53,6 @@ export class Calendar implements ComponentInterface {
   }
 
 
-  renderHeaderColumns() {
-    const columns = [];
-    for (let i = new Date(this.dateRange.startDay); differenceInDays(startOfDay(this.dateRange.endDay), i) >= 0; i = addDays(i, 1)) {
-      const cls = ['column'];
-      if (isEqual(startOfDay(i), startOfDay(this.currentTime)))
-        cls.push('active');
-      columns.push(<div class={cls.join(' ')}>
-        <div class='date' onClick={() => {
-          this.contextDate = i;
-          this.view = 'day';
-        }}>
-          {format(i, 'dd')}
-        </div>
-        <div class='day'>
-          {format(i, 'E')}
-        </div>
-      </div>);
-    }
-    return columns;
-  }
-
-  renderBodyColumns() {
-
-  }
-
-  renderColumnView() {
-    if (this.currentView.value === 'week') {
-      this.dateRange = calculateWeekRange(this.contextDate, 1);
-    } else {
-      this.dateRange.startDay = startOfDay(this.contextDate);
-      this.dateRange.endDay = endOfDay(addDays(this.contextDate, this.currentView.days - 1));
-    }
-
-
-    return <div class='calendar-column-view'>
-      <div class='view-header'>
-        <div class='scale'>
-
-        </div>
-        <div class='columns'>
-          {this.renderHeaderColumns()}
-        </div>
-        <div class='scrollbar'>
-
-        </div>
-      </div>
-      <div class='view-body'>
-        <div class='scale'>
-
-        </div>
-        <div class='columns'>
-          {this.renderBodyColumns()}
-        </div>
-        <div class='scrollbar'>
-
-        </div>
-      </div>
-    </div>;
-  }
-
   renderCalendarView() {
     this.currentView = this.availableViews.find((view) => {
       return view.value === this.view;
@@ -122,9 +60,8 @@ export class Calendar implements ComponentInterface {
     if (!this.currentView)
       return 'Invalid view';
     if (this.currentView.type === 'column') {
-      return this.renderColumnView();
+      return new ColumnView(this).render();
     }
-
   }
 
   renderHeader() {
@@ -166,9 +103,7 @@ export class Calendar implements ComponentInterface {
             <div class='view-container'>
               {this.renderCalendarView()}
             </div>
-            <div class='contextual-panel'>
-              contextual panel
-            </div>
+            <div class='contextual-panel'></div>
           </div>
         </div>
       </Host>

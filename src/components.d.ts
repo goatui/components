@@ -678,6 +678,62 @@ export namespace Components {
         "state": 'success' | 'error' | 'info' | 'warning';
     }
 }
+export interface GoatButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatButtonElement;
+}
+export interface GoatCheckboxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatCheckboxElement;
+}
+export interface GoatCodeEditorCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatCodeEditorElement;
+}
+export interface GoatDatePickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatDatePickerElement;
+}
+export interface GoatInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatInputElement;
+}
+export interface GoatMenuItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatMenuItemElement;
+}
+export interface GoatNotificationCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatNotificationElement;
+}
+export interface GoatSelectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatSelectElement;
+}
+export interface GoatSidenavMenuItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatSidenavMenuItemElement;
+}
+export interface GoatTabCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatTabElement;
+}
+export interface GoatTableCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatTableElement;
+}
+export interface GoatTagCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatTagElement;
+}
+export interface GoatTextareaCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatTextareaElement;
+}
+export interface GoatTimePickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatTimePickerElement;
+}
 declare global {
     interface HTMLGoatAvatarElement extends Components.GoatAvatar, HTMLStencilElement {
     }
@@ -1035,7 +1091,7 @@ declare namespace LocalJSX {
         /**
           * On click of button, a CustomEvent 'goat:click' will be triggered.
          */
-        "onGoat:click"?: (event: CustomEvent<any>) => void;
+        "onGoat:click"?: (event: GoatButtonCustomEvent<any>) => void;
         /**
           * Button selection state.
          */
@@ -1094,15 +1150,15 @@ declare namespace LocalJSX {
         /**
           * Emitted when the input loses focus.
          */
-        "onGoat:blur"?: (event: CustomEvent<any>) => void;
+        "onGoat:blur"?: (event: GoatCheckboxCustomEvent<any>) => void;
         /**
           * On change of input a CustomEvent 'goat:change' will be triggered. Event details contains parent event, oldValue, newValue of input.
          */
-        "onGoat:change"?: (event: CustomEvent<any>) => void;
+        "onGoat:change"?: (event: GoatCheckboxCustomEvent<any>) => void;
         /**
           * Emitted when the input has focus.
          */
-        "onGoat:focus"?: (event: CustomEvent<any>) => void;
+        "onGoat:focus"?: (event: GoatCheckboxCustomEvent<any>) => void;
         "readonly"?: boolean;
         /**
           * If true, required icon is show. Defaults to `false`.
@@ -1136,7 +1192,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value has changed..
          */
-        "onGoat:change"?: (event: CustomEvent<any>) => void;
+        "onGoat:change"?: (event: GoatCodeEditorCustomEvent<any>) => void;
         "readonly"?: boolean;
         /**
           * If true, required icon is show. Defaults to `false`.
@@ -1166,19 +1222,19 @@ declare namespace LocalJSX {
         /**
           * Emitted when the input loses focus.
          */
-        "onGoat:blur"?: (event: CustomEvent<any>) => void;
+        "onGoat:blur"?: (event: GoatDatePickerCustomEvent<any>) => void;
         /**
           * Emitted when the value has changed.
          */
-        "onGoat:change"?: (event: CustomEvent<any>) => void;
+        "onGoat:change"?: (event: GoatDatePickerCustomEvent<any>) => void;
         /**
           * Emitted when the input has focus.
          */
-        "onGoat:focus"?: (event: CustomEvent<any>) => void;
+        "onGoat:focus"?: (event: GoatDatePickerCustomEvent<any>) => void;
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onGoat:input"?: (event: CustomEvent<any>) => void;
+        "onGoat:input"?: (event: GoatDatePickerCustomEvent<any>) => void;
         /**
           * The input field placeholder.
          */
@@ -1284,19 +1340,19 @@ declare namespace LocalJSX {
         /**
           * Emitted when the input loses focus.
          */
-        "onGoat:blur"?: (event: CustomEvent<any>) => void;
+        "onGoat:blur"?: (event: GoatInputCustomEvent<any>) => void;
         /**
           * Emitted when the value has changed.
          */
-        "onGoat:change"?: (event: CustomEvent<any>) => void;
+        "onGoat:change"?: (event: GoatInputCustomEvent<any>) => void;
         /**
           * Emitted when the input has focus.
          */
-        "onGoat:focus"?: (event: CustomEvent<any>) => void;
+        "onGoat:focus"?: (event: GoatInputCustomEvent<any>) => void;
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onGoat:input"?: (event: CustomEvent<any>) => void;
+        "onGoat:input"?: (event: GoatInputCustomEvent<any>) => void;
         /**
           * The input field placeholder.
          */
@@ -1350,7 +1406,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the menu item is clicked.
          */
-        "onGoat:menu-item-click"?: (event: CustomEvent<any>) => void;
+        "onGoat:menu-item-click"?: (event: GoatMenuItemCustomEvent<any>) => void;
         /**
           * Menu item selection state.
          */
@@ -1366,7 +1422,7 @@ declare namespace LocalJSX {
         "actionable"?: boolean;
         "dismissible"?: boolean;
         "lowContrast"?: boolean;
-        "onGoat:dismiss"?: (event: CustomEvent<any>) => void;
+        "onGoat:dismiss"?: (event: GoatNotificationCustomEvent<any>) => void;
         "state"?: 'success' | 'error' | 'info' | 'warning';
     }
     interface GoatNotificationManager {
@@ -1400,15 +1456,15 @@ declare namespace LocalJSX {
         /**
           * Emitted when the action button is clicked..
          */
-        "onGoat:action-click"?: (event: CustomEvent<any>) => void;
+        "onGoat:action-click"?: (event: GoatSelectCustomEvent<any>) => void;
         /**
           * Emitted when the value has changed.
          */
-        "onGoat:change"?: (event: CustomEvent<any>) => void;
+        "onGoat:change"?: (event: GoatSelectCustomEvent<any>) => void;
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onGoat:search"?: (event: CustomEvent<any>) => void;
+        "onGoat:search"?: (event: GoatSelectCustomEvent<any>) => void;
         /**
           * The input field placeholder.
          */
@@ -1457,7 +1513,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the menu item is clicked.
          */
-        "onGoat:sidenav-menu-item-click"?: (event: CustomEvent<any>) => void;
+        "onGoat:sidenav-menu-item-click"?: (event: GoatSidenavMenuItemCustomEvent<any>) => void;
         /**
           * Menu item selection state.
          */
@@ -1490,7 +1546,7 @@ declare namespace LocalJSX {
         /**
           * On click of tab, a CustomEvent 'goat:tab-click' will be triggered.
          */
-        "onGoat:tab-click"?: (event: CustomEvent<any>) => void;
+        "onGoat:tab-click"?: (event: GoatTabCustomEvent<any>) => void;
         /**
           * Button selection state.
          */
@@ -1522,10 +1578,10 @@ declare namespace LocalJSX {
         "emptyState"?: any;
         "keyField"?: string;
         "managed"?: boolean;
-        "onGoat:page"?: (event: CustomEvent<any>) => void;
-        "onGoat:sort"?: (event: CustomEvent<any>) => void;
-        "onGoat:table-cell-click"?: (event: CustomEvent<any>) => void;
-        "onGoat:table-select-change"?: (event: CustomEvent<any>) => void;
+        "onGoat:page"?: (event: GoatTableCustomEvent<any>) => void;
+        "onGoat:sort"?: (event: GoatTableCustomEvent<any>) => void;
+        "onGoat:table-cell-click"?: (event: GoatTableCustomEvent<any>) => void;
+        "onGoat:table-select-change"?: (event: GoatTableCustomEvent<any>) => void;
         "page"?: number;
         "pageSize"?: number;
         "paginate"?: boolean;
@@ -1544,8 +1600,8 @@ declare namespace LocalJSX {
     }
     interface GoatTag {
         "filter"?: boolean;
-        "onGoat:click"?: (event: CustomEvent<any>) => void;
-        "onGoat:tag-dismiss"?: (event: CustomEvent<any>) => void;
+        "onGoat:click"?: (event: GoatTagCustomEvent<any>) => void;
+        "onGoat:tag-dismiss"?: (event: GoatTagCustomEvent<any>) => void;
         /**
           * Text size.
          */
@@ -1585,23 +1641,23 @@ declare namespace LocalJSX {
         /**
           * Emitted when the action button is clicked.
          */
-        "onGoat:action-click"?: (event: CustomEvent<any>) => void;
+        "onGoat:action-click"?: (event: GoatTextareaCustomEvent<any>) => void;
         /**
           * Emitted when the input loses focus.
          */
-        "onGoat:blur"?: (event: CustomEvent<any>) => void;
+        "onGoat:blur"?: (event: GoatTextareaCustomEvent<any>) => void;
         /**
           * Emitted when the value has changed..
          */
-        "onGoat:change"?: (event: CustomEvent<any>) => void;
+        "onGoat:change"?: (event: GoatTextareaCustomEvent<any>) => void;
         /**
           * Emitted when the input has focus.
          */
-        "onGoat:focus"?: (event: CustomEvent<any>) => void;
+        "onGoat:focus"?: (event: GoatTextareaCustomEvent<any>) => void;
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onGoat:input"?: (event: CustomEvent<any>) => void;
+        "onGoat:input"?: (event: GoatTextareaCustomEvent<any>) => void;
         /**
           * The input field placeholder.
          */
@@ -1640,19 +1696,19 @@ declare namespace LocalJSX {
         /**
           * Emitted when the input loses focus.
          */
-        "onGoat:blur"?: (event: CustomEvent<any>) => void;
+        "onGoat:blur"?: (event: GoatTimePickerCustomEvent<any>) => void;
         /**
           * Emitted when the value has changed.
          */
-        "onGoat:change"?: (event: CustomEvent<any>) => void;
+        "onGoat:change"?: (event: GoatTimePickerCustomEvent<any>) => void;
         /**
           * Emitted when the input has focus.
          */
-        "onGoat:focus"?: (event: CustomEvent<any>) => void;
+        "onGoat:focus"?: (event: GoatTimePickerCustomEvent<any>) => void;
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onGoat:input"?: (event: CustomEvent<any>) => void;
+        "onGoat:input"?: (event: GoatTimePickerCustomEvent<any>) => void;
         /**
           * The input field placeholder.
          */
