@@ -4,7 +4,7 @@ import { getComponentIndex } from '../../../utils/utils';
 /**
  * @name Link
  * @description Links allow users to click their way from page to page.
- * @example <goat-link>Link</goat-link>
+ * @example <goat-link href="#">Link</goat-link>
  */
 @Component({
   tag: 'goat-link',
@@ -30,7 +30,7 @@ export class Link implements ComponentInterface {
   @State() isActive = false;
 
   @Element() elm!: HTMLElement;
-  private tabindex?: string | number = 1;
+  private tabindex?: string | number;
   private itemprop?: string;
   private nativeInput?: HTMLAnchorElement;
 

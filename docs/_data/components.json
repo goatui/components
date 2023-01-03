@@ -3972,7 +3972,7 @@
       },
       {
         "name": "example",
-        "text": "<goat-link>Link</goat-link>"
+        "text": "<goat-link href=\"#\">Link</goat-link>"
       }
     ],
     "encapsulation": "shadow",
@@ -4057,7 +4057,7 @@
     "metadata": {
       "name": "Link",
       "description": "Links allow users to click their way from page to page.",
-      "example": "<goat-link>Link</goat-link>"
+      "example": "<goat-link href=\"#\">Link</goat-link>"
     }
   },
   {
