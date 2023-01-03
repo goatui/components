@@ -7,6 +7,7 @@
     "usagesDir": "D:/development/goatui/src/components/content/avatar/usage",
     "tag": "goat-avatar",
     "readme": "# goat-avatar\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -100,6 +101,7 @@
     "usagesDir": "D:/development/goatui/src/components/content/badge/usage",
     "tag": "goat-badge",
     "readme": "# goat-icon\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -158,6 +160,7 @@
     "usagesDir": "D:/development/goatui/src/components/content/breadcrumb/usage",
     "tag": "goat-breadcrumb",
     "readme": "# goat-heading\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -199,6 +202,7 @@
     "usagesDir": "D:/development/goatui/src/components/content/breadcrumb/breadcrumb-item/usage",
     "tag": "goat-breadcrumb-item",
     "readme": "# goat-tab\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [],
@@ -297,6 +301,7 @@
     "usagesDir": "D:/development/goatui/src/components/controls/button/usage",
     "tag": "goat-button",
     "readme": "# goat-button\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -661,6 +666,7 @@
     "usagesDir": "D:/development/goatui/src/components/controls/button-group/usage",
     "tag": "goat-button-group",
     "readme": "# goat-button-group\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -702,6 +708,7 @@
     "usagesDir": "D:/development/goatui/src/components/calendar/calendar/usage",
     "tag": "goat-calendar",
     "readme": "# goat-avatar\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -874,6 +881,7 @@
     "usagesDir": "D:/development/goatui/src/components/flow-designer/canvas/usage",
     "tag": "goat-canvas",
     "readme": "# goat-flow-designer\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [],
@@ -971,6 +979,7 @@
     "usagesDir": "D:/development/goatui/src/components/content/card/usage",
     "tag": "goat-card",
     "readme": "# goat-heading\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [],
@@ -1033,6 +1042,7 @@
     "usagesDir": "D:/development/goatui/src/components/form/checkbox/usage",
     "tag": "goat-checkbox",
     "readme": "# goat-checkbox\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -1334,6 +1344,7 @@
     "usagesDir": "D:/development/goatui/src/components/form/code-editor/usage",
     "tag": "goat-code-editor",
     "readme": "# goat-code-editor\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -1597,6 +1608,7 @@
     "usagesDir": "D:/development/goatui/src/components/content/code-highlighter/usage",
     "tag": "goat-code-highlighter",
     "readme": "# goat-code-editor\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -1634,7 +1646,7 @@
     "props": [
       {
         "name": "language",
-        "type": "\"markup\" | \"css\" | \"clike\" | \"javascript\" | \"abap\" | \"actionscript\" | \"ada\" | \"apacheconf\" | \"apl\" | \"applescript\" | \"arduino\" | \"arff\" | \"asciidoc\" | \"asm6502\" | \"aspnet\" | \"autohotkey\" | \"autoit\" | \"bash\" | \"basic\" | \"batch\" | \"bison\" | \"brainfuck\" | \"bro\" | \"c\" | \"csharp\" | \"cpp\" | \"coffeescript\" | \"clojure\" | \"crystal\" | \"csp\" | \"css-extras\" | \"d\" | \"dart\" | \"diff\" | \"django\" | \"docker\" | \"eiffel\" | \"elixir\" | \"elm\" | \"erb\" | \"erlang\" | \"fsharp\" | \"flow\" | \"fortran\" | \"gedcom\" | \"gherkin\" | \"git\" | \"glsl\" | \"gml\" | \"go\" | \"graphql\" | \"groovy\" | \"haml\" | \"handlebars\" | \"haskell\" | \"haxe\" | \"http\" | \"hpkp\" | \"hsts\" | \"ichigojam\" | \"icon\" | \"inform7\" | \"ini\" | \"io\" | \"j\" | \"java\" | \"jolie\" | \"json\" | \"julia\" | \"keyman\" | \"kotlin\" | \"latex\" | \"less\" | \"liquid\" | \"lisp\" | \"livescript\" | \"lolcode\" | \"lua\" | \"makefile\" | \"markdown\" | \"markup-templating\" | \"matlab\" | \"mel\" | \"mizar\" | \"monkey\" | \"n4js\" | \"nasm\" | \"nginx\" | \"nim\" | \"nix\" | \"nsis\" | \"objectivec\" | \"ocaml\" | \"opencl\" | \"oz\" | \"parigp\" | \"parser\" | \"pascal\" | \"perl\" | \"php\" | \"php-extras\" | \"plsql\" | \"powershell\" | \"processing\" | \"prolog\" | \"properties\" | \"protobuf\" | \"pug\" | \"puppet\" | \"pure\" | \"python\" | \"q\" | \"qore\" | \"r\" | \"jsx\" | \"tsx\" | \"renpy\" | \"reason\" | \"rest\" | \"rip\" | \"roboconf\" | \"ruby\" | \"rust\" | \"sas\" | \"sass\" | \"scss\" | \"scala\" | \"scheme\" | \"smalltalk\" | \"smarty\" | \"sql\" | \"soy\" | \"stylus\" | \"swift\" | \"tap\" | \"tcl\" | \"textile\" | \"tt2\" | \"twig\" | \"typescript\" | \"vbnet\" | \"velocity\" | \"verilog\" | \"vhdl\" | \"vim\" | \"visual-basic\" | \"wasm\" | \"wiki\" | \"xeora\" | \"xojo\" | \"xquery\" | \"yaml\"",
+        "type": "\"json\" | \"http\" | \"q\" | \"ruby\" | \"d\" | \"r\" | \"c\" | \"javascript\" | \"markup\" | \"css\" | \"clike\" | \"abap\" | \"actionscript\" | \"ada\" | \"apacheconf\" | \"apl\" | \"applescript\" | \"arduino\" | \"arff\" | \"asciidoc\" | \"asm6502\" | \"aspnet\" | \"autohotkey\" | \"autoit\" | \"bash\" | \"basic\" | \"batch\" | \"bison\" | \"brainfuck\" | \"bro\" | \"csharp\" | \"cpp\" | \"coffeescript\" | \"clojure\" | \"crystal\" | \"csp\" | \"css-extras\" | \"dart\" | \"diff\" | \"django\" | \"docker\" | \"eiffel\" | \"elixir\" | \"elm\" | \"erb\" | \"erlang\" | \"fsharp\" | \"flow\" | \"fortran\" | \"gedcom\" | \"gherkin\" | \"git\" | \"glsl\" | \"gml\" | \"go\" | \"graphql\" | \"groovy\" | \"haml\" | \"handlebars\" | \"haskell\" | \"haxe\" | \"hpkp\" | \"hsts\" | \"ichigojam\" | \"icon\" | \"inform7\" | \"ini\" | \"io\" | \"j\" | \"java\" | \"jolie\" | \"julia\" | \"keyman\" | \"kotlin\" | \"latex\" | \"less\" | \"liquid\" | \"lisp\" | \"livescript\" | \"lolcode\" | \"lua\" | \"makefile\" | \"markdown\" | \"markup-templating\" | \"matlab\" | \"mel\" | \"mizar\" | \"monkey\" | \"n4js\" | \"nasm\" | \"nginx\" | \"nim\" | \"nix\" | \"nsis\" | \"objectivec\" | \"ocaml\" | \"opencl\" | \"oz\" | \"parigp\" | \"parser\" | \"pascal\" | \"perl\" | \"php\" | \"php-extras\" | \"plsql\" | \"powershell\" | \"processing\" | \"prolog\" | \"properties\" | \"protobuf\" | \"pug\" | \"puppet\" | \"pure\" | \"python\" | \"qore\" | \"jsx\" | \"tsx\" | \"renpy\" | \"reason\" | \"rest\" | \"rip\" | \"roboconf\" | \"rust\" | \"sas\" | \"sass\" | \"scss\" | \"scala\" | \"scheme\" | \"smalltalk\" | \"smarty\" | \"sql\" | \"soy\" | \"stylus\" | \"swift\" | \"tap\" | \"tcl\" | \"textile\" | \"tt2\" | \"twig\" | \"typescript\" | \"vbnet\" | \"velocity\" | \"verilog\" | \"vhdl\" | \"vim\" | \"visual-basic\" | \"wasm\" | \"wiki\" | \"xeora\" | \"xojo\" | \"xquery\" | \"yaml\"",
         "mutable": false,
         "attr": "language",
         "reflectToAttr": false,
@@ -1642,6 +1654,38 @@
         "docsTags": [],
         "default": "'javascript'",
         "values": [
+          {
+            "value": "json",
+            "type": "string"
+          },
+          {
+            "value": "http",
+            "type": "string"
+          },
+          {
+            "value": "q",
+            "type": "string"
+          },
+          {
+            "value": "ruby",
+            "type": "string"
+          },
+          {
+            "value": "d",
+            "type": "string"
+          },
+          {
+            "value": "r",
+            "type": "string"
+          },
+          {
+            "value": "c",
+            "type": "string"
+          },
+          {
+            "value": "javascript",
+            "type": "string"
+          },
           {
             "value": "markup",
             "type": "string"
@@ -1652,10 +1696,6 @@
           },
           {
             "value": "clike",
-            "type": "string"
-          },
-          {
-            "value": "javascript",
             "type": "string"
           },
           {
@@ -1735,10 +1775,6 @@
             "type": "string"
           },
           {
-            "value": "c",
-            "type": "string"
-          },
-          {
             "value": "csharp",
             "type": "string"
           },
@@ -1764,10 +1800,6 @@
           },
           {
             "value": "css-extras",
-            "type": "string"
-          },
-          {
-            "value": "d",
             "type": "string"
           },
           {
@@ -1867,10 +1899,6 @@
             "type": "string"
           },
           {
-            "value": "http",
-            "type": "string"
-          },
-          {
             "value": "hpkp",
             "type": "string"
           },
@@ -1908,10 +1936,6 @@
           },
           {
             "value": "jolie",
-            "type": "string"
-          },
-          {
-            "value": "json",
             "type": "string"
           },
           {
@@ -2087,15 +2111,7 @@
             "type": "string"
           },
           {
-            "value": "q",
-            "type": "string"
-          },
-          {
             "value": "qore",
-            "type": "string"
-          },
-          {
-            "value": "r",
             "type": "string"
           },
           {
@@ -2124,10 +2140,6 @@
           },
           {
             "value": "roboconf",
-            "type": "string"
-          },
-          {
-            "value": "ruby",
             "type": "string"
           },
           {
@@ -2308,7 +2320,8 @@
     "readmePath": "D:/development/goatui/src/components/form/date-picker/readme.md",
     "usagesDir": "D:/development/goatui/src/components/form/date-picker/usage",
     "tag": "goat-date-picker",
-    "readme": "# goat-date-picker\n\n\n",
+    "readme": "# goat-date-picker\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -2552,6 +2565,7 @@
     "usagesDir": "D:/development/goatui/src/components/content/divider/usage",
     "tag": "goat-divider",
     "readme": "# goat-heading\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -2617,6 +2631,7 @@
     "usagesDir": "D:/development/goatui/src/components/menu/dropdown/usage",
     "tag": "goat-dropdown",
     "readme": "# goat-dropdown\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -2816,6 +2831,7 @@
     "usagesDir": "D:/development/goatui/src/components/content/empty-state/usage",
     "tag": "goat-empty-state",
     "readme": "# goat-heading\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -2829,7 +2845,7 @@
       },
       {
         "name": "example",
-        "text": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\n</goat-empty-state>"
+        "text": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\r\n</goat-empty-state>"
       }
     ],
     "encapsulation": "shadow",
@@ -3012,7 +3028,7 @@
     "metadata": {
       "name": "Empty State",
       "description": "A message that displays when there is no information to display.",
-      "example": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\n</goat-empty-state>"
+      "example": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\r\n</goat-empty-state>"
     }
   },
   {
@@ -3023,6 +3039,7 @@
     "usagesDir": "D:/development/goatui/src/components/flow-designer/flow-designer/usage",
     "tag": "goat-flow-designer",
     "readme": "# goat-flow-designer\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -3127,6 +3144,7 @@
     "usagesDir": "D:/development/goatui/src/components/form/form-control/usage",
     "tag": "goat-form-control",
     "readme": "# goat-field-group\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -3289,6 +3307,7 @@
     "usagesDir": "D:/development/goatui/src/components/navigation/header/usage",
     "tag": "goat-header",
     "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -3330,6 +3349,7 @@
     "usagesDir": "D:/development/goatui/src/components/navigation/header/header-brand/usage",
     "tag": "goat-header-brand",
     "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [],
@@ -3433,6 +3453,7 @@
     "usagesDir": "D:/development/goatui/src/components/content/icon/usage",
     "tag": "goat-icon",
     "readme": "# goat-icon\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -3550,6 +3571,7 @@
     "usagesDir": "D:/development/goatui/src/components/form/input/usage",
     "tag": "goat-input",
     "readme": "# goat-input\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -3936,6 +3958,7 @@
     "usagesDir": "D:/development/goatui/src/components/navigation/link/usage",
     "tag": "goat-link",
     "readme": "# goat-button\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -4045,6 +4068,7 @@
     "usagesDir": "D:/development/goatui/src/components/menu/menu/usage",
     "tag": "goat-menu",
     "readme": "# goat-menu\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -4199,6 +4223,7 @@
     "usagesDir": "D:/development/goatui/src/components/menu/menu-item/usage",
     "tag": "goat-menu-item",
     "readme": "# goat-menu-item\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [],
@@ -4280,7 +4305,7 @@
         },
         "signature": "setBlur() => Promise<void>",
         "parameters": [],
-        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
         "docsTags": []
       },
       {
@@ -4291,7 +4316,7 @@
         },
         "signature": "setFocus() => Promise<void>",
         "parameters": [],
-        "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+        "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
         "docsTags": []
       }
     ],
@@ -4333,6 +4358,7 @@
     "usagesDir": "D:/development/goatui/src/components/content/notification/usage",
     "tag": "goat-notification",
     "readme": "# goat-alert\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -4517,6 +4543,7 @@
     "usagesDir": "D:/development/goatui/src/components/content/notification-manager/usage",
     "tag": "goat-notification-manager",
     "readme": "# goat-alert\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -4638,6 +4665,7 @@
     "usagesDir": "D:/development/goatui/src/components/form/select/usage",
     "tag": "goat-select",
     "readme": "# goat-select\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -5130,6 +5158,7 @@
     "usagesDir": "D:/development/goatui/src/components/app-shell/sidenav/usage",
     "tag": "goat-sidenav",
     "readme": "# goat-menu\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -5189,6 +5218,7 @@
     "usagesDir": "D:/development/goatui/src/components/app-shell/sidenav-menu/usage",
     "tag": "goat-sidenav-menu",
     "readme": "# goat-menu\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [],
@@ -5317,6 +5347,7 @@
     "usagesDir": "D:/development/goatui/src/components/app-shell/sidenav-menu-item/usage",
     "tag": "goat-sidenav-menu-item",
     "readme": "# goat-menu-item\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [],
@@ -5441,6 +5472,7 @@
     "usagesDir": "D:/development/goatui/src/components/content/spinner/usage",
     "tag": "goat-spinner",
     "readme": "# goat-spinner\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -5522,6 +5554,7 @@
     "usagesDir": "D:/development/goatui/src/components/content/svg/usage",
     "tag": "goat-svg",
     "readme": "# goat-icon\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [],
@@ -5574,6 +5607,7 @@
     "usagesDir": "D:/development/goatui/src/components/navigation/tabs/tab/usage",
     "tag": "goat-tab",
     "readme": "# goat-tab\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [],
@@ -5819,6 +5853,7 @@
     "usagesDir": "D:/development/goatui/src/components/navigation/tabs/tab-panel/usage",
     "tag": "goat-tab-panel",
     "readme": "# goat-tab\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [],
@@ -5877,6 +5912,7 @@
     "usagesDir": "D:/development/goatui/src/components/table/table/usage",
     "tag": "goat-table",
     "readme": "# goat-table\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -6232,6 +6268,7 @@
     "usagesDir": "D:/development/goatui/src/components/navigation/tabs/usage",
     "tag": "goat-tabs",
     "readme": "# goat-tabs\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -6279,6 +6316,7 @@
     "usagesDir": "D:/development/goatui/src/components/navigation/tabs/tabs-list/usage",
     "tag": "goat-tabs-list",
     "readme": "# goat-tabs\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [],
@@ -6349,6 +6387,7 @@
     "usagesDir": "D:/development/goatui/src/components/content/tag/usage",
     "tag": "goat-tag",
     "readme": "# goat-heading\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -6477,6 +6516,7 @@
     "usagesDir": "D:/development/goatui/src/components/content/text/usage",
     "tag": "goat-text",
     "readme": "# goat-heading\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -6652,6 +6692,7 @@
     "usagesDir": "D:/development/goatui/src/components/form/textarea/usage",
     "tag": "goat-textarea",
     "readme": "# goat-textarea\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -6986,7 +7027,8 @@
     "readmePath": "D:/development/goatui/src/components/form/time-picker/readme.md",
     "usagesDir": "D:/development/goatui/src/components/form/time-picker/usage",
     "tag": "goat-time-picker",
-    "readme": "# goat-time-picker\n\n\n",
+    "readme": "# goat-time-picker\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [
@@ -7230,6 +7272,7 @@
     "usagesDir": "D:/development/goatui/src/components/content/toast/usage",
     "tag": "goat-toast",
     "readme": "# goat-alert\r\n\r\n\r\n\r",
+    "overview": "",
     "usage": {},
     "docs": "",
     "docsTags": [

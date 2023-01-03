@@ -4,5 +4,5 @@ export const PRISM_VERSION = '1.27.0';
 
 export async function loadPrism() {
   // @ts-ignore
-  await loadScript(`https://cdnjs.cloudflare.com/ajax/libs/prism/${PRISM_VERSION}/prism.js`);
+  await loadScript(`https://cdnjs.cloudflare.com/ajax/libs/prism/${PRISM_VERSION}/prism.min.js`);
 }

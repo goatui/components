@@ -5,6 +5,7 @@
   height: 100%;
   min-height: 20em;
   --calendar-border-color: #{v(--ui-04)};
+  --scale-size: 3rem;
 }
 
 .calendar {
@@ -30,12 +31,17 @@
   }
 
   .calendar-body {
-     flex: 1;
+    flex: 1;
+    overflow: auto;
+
+    .view-container {
+      height: 100%;
+    }
   }
 }
 
 .scale {
-  width: 2rem;
+  width: var(--scale-size);
 }
 
 
@@ -100,30 +106,84 @@
       }
     }
 
-    .scrollbar {
-      width: 1rem
+    .scrollbar-placeholder {
+      width: var(--scrollbar-width);
     }
   }
 
   .view-body {
     height: 100%;
+    border-bottom: 1px solid v(--calendar-border-color);
     overflow-y: scroll;
-    display: flex;
 
-    .columns {
-      flex: 1;
-    }
+    .view-body-scroll {
+      display: flex;
+      position: relative;
 
-    .scale {
-      border-bottom: 1px solid v(--border-color);
-      border-right: 1px solid v(--border-color);
+      .scale {
+        border-right: 1px solid v(--border-color);
+
+        .row {
+          width: 0;
+          position: relative;
+          &.hour {
+            width: 50%;
+            margin-inline-start: 50%;
+          }
+          .time {
+            position: absolute;
+            top: -.5rem;
+            font-size: .75rem;
+          }
+        }
+      }
+
+      .drawing-area {
+        flex: 1;
+
+        .row {
+          display: flex;
+
+          .column {
+            flex: 1;
+            border-right: 1px solid v(--border-color);
+          }
+        }
+      }
+
+      .current-time-line {
+        border-bottom: 2px solid v(--color-primary);
+        position: absolute;
+        z-index: 100;
+        width: calc(100% - var(--scale-size));
+        margin-inline-start: var(--scale-size);
+
+        .dot {
+          border-radius: 100%;
+          width: 0.5rem;
+          height: 0.5rem;
+          background: v(--color-primary);
+          display: block;
+          position: absolute;
+          top: -0.25rem;
+          left: -0.25rem;
+        }
+      }
     }
   }
 
   .row {
     display: block;
     height: 2rem;
-    border-bottom: 1px solid v(--border-color);
+    border-bottom: 1px dashed v(--border-color);
+
+    &.hour {
+      border-bottom: 1px solid v(--border-color);
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
   }
 
 }
