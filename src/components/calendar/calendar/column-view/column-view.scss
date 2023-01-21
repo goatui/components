@@ -1,0 +1,193 @@
+@import "../../../../globalStyles/commons";
+
+:host {
+  display: block;
+  height: 100%;
+  --calendar-border-color: #{v(--ui-04)};
+  --scale-size: 3rem;
+  --scale-color: #{v(--text-placeholder)}
+}
+
+.scale {
+  width: var(--scale-size);
+}
+
+
+.calendar-column-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .view-header {
+    border-top: 1px solid v(--border-color);
+    display: flex;
+
+    .scale {
+      border-bottom: 1px solid v(--scale-color);
+      border-right: 1px solid v(--scale-color);
+    }
+
+    .columns {
+      display: flex;
+      flex: 1;
+      border-bottom: 1px solid v(--scale-color);
+
+      .column {
+        flex: 1;
+
+
+        border-right: 1px solid v(--scale-color);
+
+
+        .column-content {
+          display: flex;
+          border-top: .5rem solid transparent;
+          align-items: center;
+          padding: .5rem;
+          gap: .5rem;
+        }
+
+        &.today {
+          .column-content {
+            border-top-color: v(--color-primary);
+
+            .date {
+              color: v(--color-primary);
+            }
+          }
+        }
+
+        .date {
+          font-size: 2rem;
+          cursor: pointer;
+          border-radius: 100%;
+          padding: 0.5rem;
+
+          &:hover {
+            background: v(--color-primary-30);
+          }
+        }
+
+        .day {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .scrollbar-placeholder {
+      width: var(--scrollbar-width);
+    }
+  }
+
+  .view-body {
+    height: 100%;
+    border-bottom: 1px solid v(--calendar-border-color);
+    overflow-y: scroll;
+
+    .view-body-scroll {
+      display: flex;
+      position: relative;
+
+      .scale {
+        border-right: 1px solid v(--scale-color);
+
+        .row {
+          width: 0;
+          position: relative;
+          height: 2rem;
+          border-bottom: 1px dashed v(--scale-color);
+
+          &.hour {
+            border-bottom: 1px solid v(--scale-color);
+            width: 50%;
+            margin-inline-start: 50%;
+          }
+
+          &:last-child {
+            border-bottom: 0;
+          }
+
+          .time {
+            position: absolute;
+            top: -.5rem;
+            font-size: .75rem;
+          }
+        }
+      }
+
+      .drawing-area {
+        flex: 1;
+
+        .events-container {
+          position: absolute;
+          top: 0;
+          left: var(--scale-size);
+          width: calc(100% - var(--scale-size));
+          height: 100%;
+          display: flex;
+          .column {
+            flex: 1;
+            padding: 0 1rem 0 1px;
+
+            .column-content {
+              position: relative;
+              height: 100%;
+            }
+
+            .event {
+              background: v(--color-primary-20);
+              border-left: .35rem solid v(--color-primary);
+              border-radius: 3px;
+              position: absolute;
+              .event-title {
+                padding: 0.25rem;
+              }
+            }
+          }
+        }
+      }
+
+      .current-time-line {
+        position: absolute;
+        z-index: 100;
+        pointer-events: none;
+        width: calc(100% - var(--scale-size));
+        margin-inline-start: var(--scale-size);
+
+        .time {
+          position: absolute;
+          font-size: .5rem;
+          font-weight: 600;
+          color: v(--color-primary);
+          top: -6px;
+          left: -3rem;
+          background: v(--color-primary-10);
+          padding: 2px;
+          border-radius: 3px;
+        }
+
+        .dash-line {
+          position: absolute;
+          left: 0;
+          border-bottom: 1px dashed v(--color-primary);
+        }
+
+        .dot {
+          border-radius: 100%;
+          width: 0.5rem;
+          height: 0.5rem;
+          background: v(--color-primary);
+          display: block;
+          position: absolute;
+          top: -0.25rem;
+        }
+
+        .line {
+          border-bottom: 2px solid v(--color-primary);
+          position: absolute;
+          top: -1px;
+        }
+      }
+    }
+  }
+}

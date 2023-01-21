@@ -85,14 +85,24 @@ export namespace Components {
     }
     interface GoatCalendar {
         "availableViews": any;
-        "contextDate": Date;
+        "contextDate": any;
         "events": any[];
         /**
           * Show loader.
          */
         "showLoader": boolean;
-        "timezone": string;
+        "timezone": any;
         "view": string;
+    }
+    interface GoatCalendarColumnView {
+        "contextDate": Date;
+        "currentTime": Date;
+        "days": number;
+        "events": any[];
+        "view": string;
+    }
+    interface GoatCalendarColumnViewBackground {
+        "columns": number;
     }
     interface GoatCanvas {
         "lines": any[];
@@ -777,6 +787,18 @@ declare global {
         prototype: HTMLGoatCalendarElement;
         new (): HTMLGoatCalendarElement;
     };
+    interface HTMLGoatCalendarColumnViewElement extends Components.GoatCalendarColumnView, HTMLStencilElement {
+    }
+    var HTMLGoatCalendarColumnViewElement: {
+        prototype: HTMLGoatCalendarColumnViewElement;
+        new (): HTMLGoatCalendarColumnViewElement;
+    };
+    interface HTMLGoatCalendarColumnViewBackgroundElement extends Components.GoatCalendarColumnViewBackground, HTMLStencilElement {
+    }
+    var HTMLGoatCalendarColumnViewBackgroundElement: {
+        prototype: HTMLGoatCalendarColumnViewBackgroundElement;
+        new (): HTMLGoatCalendarColumnViewBackgroundElement;
+    };
     interface HTMLGoatCanvasElement extends Components.GoatCanvas, HTMLStencilElement {
     }
     var HTMLGoatCanvasElement: {
@@ -1001,6 +1023,8 @@ declare global {
         "goat-button": HTMLGoatButtonElement;
         "goat-button-group": HTMLGoatButtonGroupElement;
         "goat-calendar": HTMLGoatCalendarElement;
+        "goat-calendar-column-view": HTMLGoatCalendarColumnViewElement;
+        "goat-calendar-column-view-background": HTMLGoatCalendarColumnViewBackgroundElement;
         "goat-canvas": HTMLGoatCanvasElement;
         "goat-card": HTMLGoatCardElement;
         "goat-checkbox": HTMLGoatCheckboxElement;
@@ -1114,14 +1138,24 @@ declare namespace LocalJSX {
     }
     interface GoatCalendar {
         "availableViews"?: any;
-        "contextDate"?: Date;
+        "contextDate"?: any;
         "events"?: any[];
         /**
           * Show loader.
          */
         "showLoader"?: boolean;
-        "timezone"?: string;
+        "timezone"?: any;
         "view"?: string;
+    }
+    interface GoatCalendarColumnView {
+        "contextDate"?: Date;
+        "currentTime"?: Date;
+        "days"?: number;
+        "events"?: any[];
+        "view"?: string;
+    }
+    interface GoatCalendarColumnViewBackground {
+        "columns"?: number;
     }
     interface GoatCanvas {
         "lines"?: any[];
@@ -1738,6 +1772,8 @@ declare namespace LocalJSX {
         "goat-button": GoatButton;
         "goat-button-group": GoatButtonGroup;
         "goat-calendar": GoatCalendar;
+        "goat-calendar-column-view": GoatCalendarColumnView;
+        "goat-calendar-column-view-background": GoatCalendarColumnViewBackground;
         "goat-canvas": GoatCanvas;
         "goat-card": GoatCard;
         "goat-checkbox": GoatCheckbox;
@@ -1787,6 +1823,8 @@ declare module "@stencil/core" {
             "goat-button": LocalJSX.GoatButton & JSXBase.HTMLAttributes<HTMLGoatButtonElement>;
             "goat-button-group": LocalJSX.GoatButtonGroup & JSXBase.HTMLAttributes<HTMLGoatButtonGroupElement>;
             "goat-calendar": LocalJSX.GoatCalendar & JSXBase.HTMLAttributes<HTMLGoatCalendarElement>;
+            "goat-calendar-column-view": LocalJSX.GoatCalendarColumnView & JSXBase.HTMLAttributes<HTMLGoatCalendarColumnViewElement>;
+            "goat-calendar-column-view-background": LocalJSX.GoatCalendarColumnViewBackground & JSXBase.HTMLAttributes<HTMLGoatCalendarColumnViewBackgroundElement>;
             "goat-canvas": LocalJSX.GoatCanvas & JSXBase.HTMLAttributes<HTMLGoatCanvasElement>;
             "goat-card": LocalJSX.GoatCard & JSXBase.HTMLAttributes<HTMLGoatCardElement>;
             "goat-checkbox": LocalJSX.GoatCheckbox & JSXBase.HTMLAttributes<HTMLGoatCheckboxElement>;

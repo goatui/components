@@ -1,5 +1,6 @@
 import { Component, ComponentInterface, Element, h, Host, Prop } from '@stencil/core';
-import ColumnView from './views/ColumnView';
+import { addDays, format } from 'date-fns';
+import { generateEvents } from './utils';
 
 
 /**
@@ -36,19 +37,27 @@ export class Calendar implements ComponentInterface {
    */
   @Prop() showLoader: boolean = false;
 
-  @Prop() timezone = 'Asia/Kolkata';
+  @Prop() timezone;
 
 
-  currentTime = new Date(new Date().toLocaleString('en', { timeZone: this.timezone }));
-  dateRange: any;
+  currentTime;
   currentView: any;
 
-  @Prop() contextDate = this.currentTime;
+  @Prop({ mutable: true }) contextDate;
 
 
   async componentWillLoad() {
 
     console.log(this.view);
+    if (this.timezone) {
+      this.currentTime = new Date(new Date().toLocaleString('en', { timeZone: this.timezone }));
+    } else {
+      this.currentTime = new Date();
+    }
+
+    if (!this.contextDate) {
+      this.contextDate = this.currentTime;
+    }
 
   }
 
@@ -60,16 +69,30 @@ export class Calendar implements ComponentInterface {
     if (!this.currentView)
       return 'Invalid view';
     if (this.currentView.type === 'column') {
-      return new ColumnView(this).render();
+      return <goat-calendar-column-view
+        currentTime={this.currentTime}
+        contextDate={this.contextDate}
+        events={generateEvents()}
+      />;
     }
   }
 
   renderHeader() {
     return <div class='calendar-header-classic'>
       <div class='header-left'>
-        <goat-button variant='outline' class='color-secondary'>Today</goat-button>
-        <goat-button variant='ghost' class='color-secondary' icon='chevron-left'></goat-button>
-        <goat-button variant='ghost' class='color-secondary' icon='chevron-right'></goat-button>
+        <goat-button variant='outline' size='sm' class='color-secondary' onClick={() => {
+          this.contextDate = this.currentTime;
+        }}>Today</goat-button>
+        <goat-button variant='ghost' size='sm' class='color-secondary' icon='chevron-left' onClick={() => {
+          this.contextDate = addDays(this.contextDate, -7);
+        }}></goat-button>
+        <goat-button variant='ghost' size='sm' class='color-secondary' icon='chevron-right' onClick={() => {
+          this.contextDate = addDays(this.contextDate, 7);
+        }}></goat-button>
+
+        <div class='title'>
+          {format(this.contextDate, 'MMMM d, yyyy')}
+        </div>
       </div>
       <div class='header-right'>
         <goat-select
