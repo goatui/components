@@ -3,7 +3,7 @@
     "filePath": "./src/components/content/avatar/avatar.tsx",
     "fileName": "avatar.tsx",
     "tag": "goat-avatar",
-    "readme": "# goat-avatar\n\n\n",
+    "readme": "# goat-avatar\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -94,7 +94,7 @@
     "filePath": "./src/components/content/badge/badge.tsx",
     "fileName": "badge.tsx",
     "tag": "goat-badge",
-    "readme": "# goat-icon\n\n\n",
+    "readme": "# goat-icon\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -150,7 +150,7 @@
     "filePath": "./src/components/content/breadcrumb/breadcrumb.tsx",
     "fileName": "breadcrumb.tsx",
     "tag": "goat-breadcrumb",
-    "readme": "# goat-heading\n\n\n",
+    "readme": "# goat-heading\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -189,7 +189,7 @@
     "filePath": "./src/components/content/breadcrumb/breadcrumb-item/breadcrumb-item.tsx",
     "fileName": "breadcrumb-item.tsx",
     "tag": "goat-breadcrumb-item",
-    "readme": "# goat-tab\n\n\n",
+    "readme": "# goat-tab\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -285,7 +285,7 @@
     "filePath": "./src/components/controls/button/button.tsx",
     "fileName": "button.tsx",
     "tag": "goat-button",
-    "readme": "# goat-button\n\n\n",
+    "readme": "# goat-button\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -647,7 +647,7 @@
     "filePath": "./src/components/controls/button-group/button-group.tsx",
     "fileName": "button-group.tsx",
     "tag": "goat-button-group",
-    "readme": "# goat-button-group\n\n\n",
+    "readme": "# goat-button-group\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -662,7 +662,7 @@
       },
       {
         "name": "example",
-        "text": "<goat-button-group><goat-button>\nButton CTA\n</goat-button><goat-button>\nButton CTA\n</goat-button></goat-button-group>"
+        "text": "<goat-button-group><goat-button>\r\nButton CTA\r\n</goat-button><goat-button>\r\nButton CTA\r\n</goat-button></goat-button-group>"
       }
     ],
     "encapsulation": "shadow",
@@ -679,14 +679,14 @@
     "metadata": {
       "name": "Button Group",
       "description": "An interactive button with a range of presentation options.",
-      "example": "<goat-button-group><goat-button>\nButton CTA\n</goat-button><goat-button>\nButton CTA\n</goat-button></goat-button-group>"
+      "example": "<goat-button-group><goat-button>\r\nButton CTA\r\n</goat-button><goat-button>\r\nButton CTA\r\n</goat-button></goat-button-group>"
     }
   },
   {
     "filePath": "./src/components/calendar/calendar/calendar.tsx",
     "fileName": "calendar.tsx",
     "tag": "goat-calendar",
-    "readme": "# goat-avatar\n\n\n",
+    "readme": "# goat-avatar\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -707,13 +707,18 @@
     "encapsulation": "shadow",
     "dependents": [],
     "dependencies": [
+      "goat-calendar-column-view",
       "goat-button",
       "goat-select"
     ],
     "dependencyGraph": {
       "goat-calendar": [
+        "goat-calendar-column-view",
         "goat-button",
         "goat-select"
+      ],
+      "goat-calendar-column-view": [
+        "goat-calendar-column-view-background"
       ],
       "goat-button": [
         "goat-icon",
@@ -758,15 +763,15 @@
       },
       {
         "name": "contextDate",
-        "type": "Date",
-        "mutable": false,
+        "type": "any",
+        "mutable": true,
+        "attr": "context-date",
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
-        "default": "this.currentTime",
         "values": [
           {
-            "type": "Date"
+            "type": "any"
           }
         ],
         "optional": false,
@@ -807,16 +812,15 @@
       },
       {
         "name": "timezone",
-        "type": "string",
+        "type": "any",
         "mutable": false,
         "attr": "timezone",
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
-        "default": "'Asia/Kolkata'",
         "values": [
           {
-            "type": "string"
+            "type": "any"
           }
         ],
         "optional": false,
@@ -853,10 +857,170 @@
     }
   },
   {
+    "filePath": "./src/components/calendar/calendar/column-view/column-view.tsx",
+    "fileName": "column-view.tsx",
+    "tag": "goat-calendar-column-view",
+    "readme": "# goat-calendar-column-view\n\n\n",
+    "overview": "",
+    "usage": {},
+    "docs": "",
+    "docsTags": [],
+    "encapsulation": "shadow",
+    "dependents": [
+      "goat-calendar"
+    ],
+    "dependencies": [
+      "goat-calendar-column-view-background"
+    ],
+    "dependencyGraph": {
+      "goat-calendar-column-view": [
+        "goat-calendar-column-view-background"
+      ],
+      "goat-calendar": [
+        "goat-calendar-column-view"
+      ]
+    },
+    "props": [
+      {
+        "name": "contextDate",
+        "type": "Date",
+        "mutable": false,
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "values": [
+          {
+            "type": "Date"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "currentTime",
+        "type": "Date",
+        "mutable": false,
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "values": [
+          {
+            "type": "Date"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "days",
+        "type": "number",
+        "mutable": false,
+        "attr": "days",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "7",
+        "values": [
+          {
+            "type": "number"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "events",
+        "type": "any[]",
+        "mutable": false,
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "[]",
+        "values": [
+          {
+            "type": "any[]"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "view",
+        "type": "string",
+        "mutable": false,
+        "attr": "view",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "'week'",
+        "values": [
+          {
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      }
+    ],
+    "methods": [],
+    "events": [],
+    "styles": [],
+    "slots": [],
+    "parts": [],
+    "listeners": [],
+    "metadata": {}
+  },
+  {
+    "filePath": "./src/components/calendar/calendar/column-view/column-view-background/column-view-background.tsx",
+    "fileName": "column-view-background.tsx",
+    "tag": "goat-calendar-column-view-background",
+    "readme": "# goat-calendar-column-view-background\n\n\n",
+    "overview": "",
+    "usage": {},
+    "docs": "",
+    "docsTags": [],
+    "encapsulation": "shadow",
+    "dependents": [
+      "goat-calendar-column-view"
+    ],
+    "dependencies": [],
+    "dependencyGraph": {
+      "goat-calendar-column-view": [
+        "goat-calendar-column-view-background"
+      ]
+    },
+    "props": [
+      {
+        "name": "columns",
+        "type": "number",
+        "mutable": false,
+        "attr": "columns",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "1",
+        "values": [
+          {
+            "type": "number"
+          }
+        ],
+        "optional": false,
+        "required": false
+      }
+    ],
+    "methods": [],
+    "events": [],
+    "styles": [],
+    "slots": [],
+    "parts": [],
+    "listeners": [],
+    "metadata": {}
+  },
+  {
     "filePath": "./src/components/flow-designer/canvas/canvas.tsx",
     "fileName": "canvas.tsx",
     "tag": "goat-canvas",
-    "readme": "# goat-flow-designer\n\n\n",
+    "readme": "# goat-flow-designer\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -951,7 +1115,7 @@
     "filePath": "./src/components/content/card/card.tsx",
     "fileName": "card.tsx",
     "tag": "goat-card",
-    "readme": "# goat-heading\n\n\n",
+    "readme": "# goat-heading\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -1011,7 +1175,7 @@
     "filePath": "./src/components/form/checkbox/checkbox.tsx",
     "fileName": "checkbox.tsx",
     "tag": "goat-checkbox",
-    "readme": "# goat-checkbox\n\n\n",
+    "readme": "# goat-checkbox\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -1181,7 +1345,7 @@
         "mutable": false,
         "attr": "size",
         "reflectToAttr": false,
-        "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+        "docs": "The button size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
         "docsTags": [],
         "default": "'md'",
         "values": [
@@ -1239,7 +1403,7 @@
         },
         "signature": "setBlur() => Promise<void>",
         "parameters": [],
-        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
         "docsTags": []
       },
       {
@@ -1250,7 +1414,7 @@
         },
         "signature": "setFocus() => Promise<void>",
         "parameters": [],
-        "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+        "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
         "docsTags": []
       }
     ],
@@ -1310,7 +1474,7 @@
     "filePath": "./src/components/form/code-editor/code-editor.tsx",
     "fileName": "code-editor.tsx",
     "tag": "goat-code-editor",
-    "readme": "# goat-code-editor\n\n\n",
+    "readme": "# goat-code-editor\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -1531,7 +1695,7 @@
         },
         "signature": "setBlur() => Promise<void>",
         "parameters": [],
-        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
         "docsTags": []
       },
       {
@@ -1542,7 +1706,7 @@
         },
         "signature": "setFocus() => Promise<void>",
         "parameters": [],
-        "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+        "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
         "docsTags": []
       }
     ],
@@ -1571,7 +1735,7 @@
     "filePath": "./src/components/content/code-highlighter/code-highlighter.tsx",
     "fileName": "code-highlighter.tsx",
     "tag": "goat-code-highlighter",
-    "readme": "# goat-code-editor\n\n\n",
+    "readme": "# goat-code-editor\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -1610,620 +1774,15 @@
     "props": [
       {
         "name": "language",
-        "type": "\"json\" | \"http\" | \"q\" | \"ruby\" | \"d\" | \"r\" | \"c\" | \"javascript\" | \"markup\" | \"css\" | \"clike\" | \"abap\" | \"actionscript\" | \"ada\" | \"apacheconf\" | \"apl\" | \"applescript\" | \"arduino\" | \"arff\" | \"asciidoc\" | \"asm6502\" | \"aspnet\" | \"autohotkey\" | \"autoit\" | \"bash\" | \"basic\" | \"batch\" | \"bison\" | \"brainfuck\" | \"bro\" | \"csharp\" | \"cpp\" | \"coffeescript\" | \"clojure\" | \"crystal\" | \"csp\" | \"css-extras\" | \"dart\" | \"diff\" | \"django\" | \"docker\" | \"eiffel\" | \"elixir\" | \"elm\" | \"erb\" | \"erlang\" | \"fsharp\" | \"flow\" | \"fortran\" | \"gedcom\" | \"gherkin\" | \"git\" | \"glsl\" | \"gml\" | \"go\" | \"graphql\" | \"groovy\" | \"haml\" | \"handlebars\" | \"haskell\" | \"haxe\" | \"hpkp\" | \"hsts\" | \"ichigojam\" | \"icon\" | \"inform7\" | \"ini\" | \"io\" | \"j\" | \"java\" | \"jolie\" | \"julia\" | \"keyman\" | \"kotlin\" | \"latex\" | \"less\" | \"liquid\" | \"lisp\" | \"livescript\" | \"lolcode\" | \"lua\" | \"makefile\" | \"markdown\" | \"markup-templating\" | \"matlab\" | \"mel\" | \"mizar\" | \"monkey\" | \"n4js\" | \"nasm\" | \"nginx\" | \"nim\" | \"nix\" | \"nsis\" | \"objectivec\" | \"ocaml\" | \"opencl\" | \"oz\" | \"parigp\" | \"parser\" | \"pascal\" | \"perl\" | \"php\" | \"php-extras\" | \"plsql\" | \"powershell\" | \"processing\" | \"prolog\" | \"properties\" | \"protobuf\" | \"pug\" | \"puppet\" | \"pure\" | \"python\" | \"qore\" | \"jsx\" | \"tsx\" | \"renpy\" | \"reason\" | \"rest\" | \"rip\" | \"roboconf\" | \"rust\" | \"sas\" | \"sass\" | \"scss\" | \"scala\" | \"scheme\" | \"smalltalk\" | \"smarty\" | \"sql\" | \"soy\" | \"stylus\" | \"swift\" | \"tap\" | \"tcl\" | \"textile\" | \"tt2\" | \"twig\" | \"typescript\" | \"vbnet\" | \"velocity\" | \"verilog\" | \"vhdl\" | \"vim\" | \"visual-basic\" | \"wasm\" | \"wiki\" | \"xeora\" | \"xojo\" | \"xquery\" | \"yaml\"",
+        "type": "string",
         "mutable": false,
         "attr": "language",
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
-        "default": "'javascript'",
+        "default": "Language.javascript",
         "values": [
           {
-            "value": "json",
-            "type": "string"
-          },
-          {
-            "value": "http",
-            "type": "string"
-          },
-          {
-            "value": "q",
-            "type": "string"
-          },
-          {
-            "value": "ruby",
-            "type": "string"
-          },
-          {
-            "value": "d",
-            "type": "string"
-          },
-          {
-            "value": "r",
-            "type": "string"
-          },
-          {
-            "value": "c",
-            "type": "string"
-          },
-          {
-            "value": "javascript",
-            "type": "string"
-          },
-          {
-            "value": "markup",
-            "type": "string"
-          },
-          {
-            "value": "css",
-            "type": "string"
-          },
-          {
-            "value": "clike",
-            "type": "string"
-          },
-          {
-            "value": "abap",
-            "type": "string"
-          },
-          {
-            "value": "actionscript",
-            "type": "string"
-          },
-          {
-            "value": "ada",
-            "type": "string"
-          },
-          {
-            "value": "apacheconf",
-            "type": "string"
-          },
-          {
-            "value": "apl",
-            "type": "string"
-          },
-          {
-            "value": "applescript",
-            "type": "string"
-          },
-          {
-            "value": "arduino",
-            "type": "string"
-          },
-          {
-            "value": "arff",
-            "type": "string"
-          },
-          {
-            "value": "asciidoc",
-            "type": "string"
-          },
-          {
-            "value": "asm6502",
-            "type": "string"
-          },
-          {
-            "value": "aspnet",
-            "type": "string"
-          },
-          {
-            "value": "autohotkey",
-            "type": "string"
-          },
-          {
-            "value": "autoit",
-            "type": "string"
-          },
-          {
-            "value": "bash",
-            "type": "string"
-          },
-          {
-            "value": "basic",
-            "type": "string"
-          },
-          {
-            "value": "batch",
-            "type": "string"
-          },
-          {
-            "value": "bison",
-            "type": "string"
-          },
-          {
-            "value": "brainfuck",
-            "type": "string"
-          },
-          {
-            "value": "bro",
-            "type": "string"
-          },
-          {
-            "value": "csharp",
-            "type": "string"
-          },
-          {
-            "value": "cpp",
-            "type": "string"
-          },
-          {
-            "value": "coffeescript",
-            "type": "string"
-          },
-          {
-            "value": "clojure",
-            "type": "string"
-          },
-          {
-            "value": "crystal",
-            "type": "string"
-          },
-          {
-            "value": "csp",
-            "type": "string"
-          },
-          {
-            "value": "css-extras",
-            "type": "string"
-          },
-          {
-            "value": "dart",
-            "type": "string"
-          },
-          {
-            "value": "diff",
-            "type": "string"
-          },
-          {
-            "value": "django",
-            "type": "string"
-          },
-          {
-            "value": "docker",
-            "type": "string"
-          },
-          {
-            "value": "eiffel",
-            "type": "string"
-          },
-          {
-            "value": "elixir",
-            "type": "string"
-          },
-          {
-            "value": "elm",
-            "type": "string"
-          },
-          {
-            "value": "erb",
-            "type": "string"
-          },
-          {
-            "value": "erlang",
-            "type": "string"
-          },
-          {
-            "value": "fsharp",
-            "type": "string"
-          },
-          {
-            "value": "flow",
-            "type": "string"
-          },
-          {
-            "value": "fortran",
-            "type": "string"
-          },
-          {
-            "value": "gedcom",
-            "type": "string"
-          },
-          {
-            "value": "gherkin",
-            "type": "string"
-          },
-          {
-            "value": "git",
-            "type": "string"
-          },
-          {
-            "value": "glsl",
-            "type": "string"
-          },
-          {
-            "value": "gml",
-            "type": "string"
-          },
-          {
-            "value": "go",
-            "type": "string"
-          },
-          {
-            "value": "graphql",
-            "type": "string"
-          },
-          {
-            "value": "groovy",
-            "type": "string"
-          },
-          {
-            "value": "haml",
-            "type": "string"
-          },
-          {
-            "value": "handlebars",
-            "type": "string"
-          },
-          {
-            "value": "haskell",
-            "type": "string"
-          },
-          {
-            "value": "haxe",
-            "type": "string"
-          },
-          {
-            "value": "hpkp",
-            "type": "string"
-          },
-          {
-            "value": "hsts",
-            "type": "string"
-          },
-          {
-            "value": "ichigojam",
-            "type": "string"
-          },
-          {
-            "value": "icon",
-            "type": "string"
-          },
-          {
-            "value": "inform7",
-            "type": "string"
-          },
-          {
-            "value": "ini",
-            "type": "string"
-          },
-          {
-            "value": "io",
-            "type": "string"
-          },
-          {
-            "value": "j",
-            "type": "string"
-          },
-          {
-            "value": "java",
-            "type": "string"
-          },
-          {
-            "value": "jolie",
-            "type": "string"
-          },
-          {
-            "value": "julia",
-            "type": "string"
-          },
-          {
-            "value": "keyman",
-            "type": "string"
-          },
-          {
-            "value": "kotlin",
-            "type": "string"
-          },
-          {
-            "value": "latex",
-            "type": "string"
-          },
-          {
-            "value": "less",
-            "type": "string"
-          },
-          {
-            "value": "liquid",
-            "type": "string"
-          },
-          {
-            "value": "lisp",
-            "type": "string"
-          },
-          {
-            "value": "livescript",
-            "type": "string"
-          },
-          {
-            "value": "lolcode",
-            "type": "string"
-          },
-          {
-            "value": "lua",
-            "type": "string"
-          },
-          {
-            "value": "makefile",
-            "type": "string"
-          },
-          {
-            "value": "markdown",
-            "type": "string"
-          },
-          {
-            "value": "markup-templating",
-            "type": "string"
-          },
-          {
-            "value": "matlab",
-            "type": "string"
-          },
-          {
-            "value": "mel",
-            "type": "string"
-          },
-          {
-            "value": "mizar",
-            "type": "string"
-          },
-          {
-            "value": "monkey",
-            "type": "string"
-          },
-          {
-            "value": "n4js",
-            "type": "string"
-          },
-          {
-            "value": "nasm",
-            "type": "string"
-          },
-          {
-            "value": "nginx",
-            "type": "string"
-          },
-          {
-            "value": "nim",
-            "type": "string"
-          },
-          {
-            "value": "nix",
-            "type": "string"
-          },
-          {
-            "value": "nsis",
-            "type": "string"
-          },
-          {
-            "value": "objectivec",
-            "type": "string"
-          },
-          {
-            "value": "ocaml",
-            "type": "string"
-          },
-          {
-            "value": "opencl",
-            "type": "string"
-          },
-          {
-            "value": "oz",
-            "type": "string"
-          },
-          {
-            "value": "parigp",
-            "type": "string"
-          },
-          {
-            "value": "parser",
-            "type": "string"
-          },
-          {
-            "value": "pascal",
-            "type": "string"
-          },
-          {
-            "value": "perl",
-            "type": "string"
-          },
-          {
-            "value": "php",
-            "type": "string"
-          },
-          {
-            "value": "php-extras",
-            "type": "string"
-          },
-          {
-            "value": "plsql",
-            "type": "string"
-          },
-          {
-            "value": "powershell",
-            "type": "string"
-          },
-          {
-            "value": "processing",
-            "type": "string"
-          },
-          {
-            "value": "prolog",
-            "type": "string"
-          },
-          {
-            "value": "properties",
-            "type": "string"
-          },
-          {
-            "value": "protobuf",
-            "type": "string"
-          },
-          {
-            "value": "pug",
-            "type": "string"
-          },
-          {
-            "value": "puppet",
-            "type": "string"
-          },
-          {
-            "value": "pure",
-            "type": "string"
-          },
-          {
-            "value": "python",
-            "type": "string"
-          },
-          {
-            "value": "qore",
-            "type": "string"
-          },
-          {
-            "value": "jsx",
-            "type": "string"
-          },
-          {
-            "value": "tsx",
-            "type": "string"
-          },
-          {
-            "value": "renpy",
-            "type": "string"
-          },
-          {
-            "value": "reason",
-            "type": "string"
-          },
-          {
-            "value": "rest",
-            "type": "string"
-          },
-          {
-            "value": "rip",
-            "type": "string"
-          },
-          {
-            "value": "roboconf",
-            "type": "string"
-          },
-          {
-            "value": "rust",
-            "type": "string"
-          },
-          {
-            "value": "sas",
-            "type": "string"
-          },
-          {
-            "value": "sass",
-            "type": "string"
-          },
-          {
-            "value": "scss",
-            "type": "string"
-          },
-          {
-            "value": "scala",
-            "type": "string"
-          },
-          {
-            "value": "scheme",
-            "type": "string"
-          },
-          {
-            "value": "smalltalk",
-            "type": "string"
-          },
-          {
-            "value": "smarty",
-            "type": "string"
-          },
-          {
-            "value": "sql",
-            "type": "string"
-          },
-          {
-            "value": "soy",
-            "type": "string"
-          },
-          {
-            "value": "stylus",
-            "type": "string"
-          },
-          {
-            "value": "swift",
-            "type": "string"
-          },
-          {
-            "value": "tap",
-            "type": "string"
-          },
-          {
-            "value": "tcl",
-            "type": "string"
-          },
-          {
-            "value": "textile",
-            "type": "string"
-          },
-          {
-            "value": "tt2",
-            "type": "string"
-          },
-          {
-            "value": "twig",
-            "type": "string"
-          },
-          {
-            "value": "typescript",
-            "type": "string"
-          },
-          {
-            "value": "vbnet",
-            "type": "string"
-          },
-          {
-            "value": "velocity",
-            "type": "string"
-          },
-          {
-            "value": "verilog",
-            "type": "string"
-          },
-          {
-            "value": "vhdl",
-            "type": "string"
-          },
-          {
-            "value": "vim",
-            "type": "string"
-          },
-          {
-            "value": "visual-basic",
-            "type": "string"
-          },
-          {
-            "value": "wasm",
-            "type": "string"
-          },
-          {
-            "value": "wiki",
-            "type": "string"
-          },
-          {
-            "value": "xeora",
-            "type": "string"
-          },
-          {
-            "value": "xojo",
-            "type": "string"
-          },
-          {
-            "value": "xquery",
-            "type": "string"
-          },
-          {
-            "value": "yaml",
             "type": "string"
           }
         ],
@@ -2281,7 +1840,7 @@
     "filePath": "./src/components/form/date-picker/date-picker.tsx",
     "fileName": "date-picker.tsx",
     "tag": "goat-date-picker",
-    "readme": "# goat-date-picker\n\n\n",
+    "readme": "# goat-date-picker\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -2522,7 +2081,7 @@
     "filePath": "./src/components/content/divider/divider.tsx",
     "fileName": "divider.tsx",
     "tag": "goat-divider",
-    "readme": "# goat-heading\n\n\n",
+    "readme": "# goat-heading\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -2585,7 +2144,7 @@
     "filePath": "./src/components/menu/dropdown/dropdown.tsx",
     "fileName": "dropdown.tsx",
     "tag": "goat-dropdown",
-    "readme": "# goat-dropdown\n\n\n",
+    "readme": "# goat-dropdown\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -2702,7 +2261,7 @@
         "mutable": false,
         "attr": "size",
         "reflectToAttr": false,
-        "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+        "docs": "The button size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
         "docsTags": [],
         "default": "'md'",
         "values": [
@@ -2782,7 +2341,7 @@
     "filePath": "./src/components/content/empty-state/empty-state.tsx",
     "fileName": "empty-state.tsx",
     "tag": "goat-empty-state",
-    "readme": "# goat-heading\n\n\n",
+    "readme": "# goat-heading\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -2797,7 +2356,7 @@
       },
       {
         "name": "example",
-        "text": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\n</goat-empty-state>"
+        "text": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\r\n</goat-empty-state>"
       }
     ],
     "encapsulation": "shadow",
@@ -2980,14 +2539,14 @@
     "metadata": {
       "name": "Empty State",
       "description": "A message that displays when there is no information to display.",
-      "example": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\n</goat-empty-state>"
+      "example": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\r\n</goat-empty-state>"
     }
   },
   {
     "filePath": "./src/components/flow-designer/flow-designer/flow-designer.tsx",
     "fileName": "flow-designer.tsx",
     "tag": "goat-flow-designer",
-    "readme": "# goat-flow-designer\n\n\n",
+    "readme": "# goat-flow-designer\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -3002,7 +2561,7 @@
       },
       {
         "name": "example",
-        "text": "<goat-flow-designer>\n</goat-flow-designer>"
+        "text": "<goat-flow-designer>\r\n</goat-flow-designer>"
       }
     ],
     "encapsulation": "shadow",
@@ -3082,14 +2641,14 @@
     "metadata": {
       "name": "Flow Designer",
       "description": "An interactive button with a range of presentation options.",
-      "example": "<goat-flow-designer>\n</goat-flow-designer>"
+      "example": "<goat-flow-designer>\r\n</goat-flow-designer>"
     }
   },
   {
     "filePath": "./src/components/form/form-control/form-control.tsx",
     "fileName": "form-control.tsx",
     "tag": "goat-form-control",
-    "readme": "# goat-field-group\n\n\n",
+    "readme": "# goat-field-group\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -3104,7 +2663,7 @@
       },
       {
         "name": "example",
-        "text": "<goat-form-control label='Full Name' required>\n<goat-input type='text'></goat-input>\n</goat-form-control>"
+        "text": "<goat-form-control label='Full Name' required>\r\n<goat-input type='text'></goat-input>\r\n</goat-form-control>"
       }
     ],
     "encapsulation": "shadow",
@@ -3242,14 +2801,14 @@
     "metadata": {
       "name": "Form Control",
       "description": "The Form Control component adds a label and caption for its child control.",
-      "example": "<goat-form-control label='Full Name' required>\n<goat-input type='text'></goat-input>\n</goat-form-control>"
+      "example": "<goat-form-control label='Full Name' required>\r\n<goat-input type='text'></goat-input>\r\n</goat-form-control>"
     }
   },
   {
     "filePath": "./src/components/navigation/header/header.tsx",
     "fileName": "header.tsx",
     "tag": "goat-header",
-    "readme": "# p4-top-navigation\n\n\n",
+    "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -3288,7 +2847,7 @@
     "filePath": "./src/components/navigation/header/header-brand/header-brand.tsx",
     "fileName": "header-brand.tsx",
     "tag": "goat-header-brand",
-    "readme": "# p4-top-navigation\n\n\n",
+    "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -3389,7 +2948,7 @@
     "filePath": "./src/components/content/icon/icon.tsx",
     "fileName": "icon.tsx",
     "tag": "goat-icon",
-    "readme": "# goat-icon\n\n\n",
+    "readme": "# goat-icon\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -3476,7 +3035,7 @@
         "mutable": false,
         "attr": "size",
         "reflectToAttr": true,
-        "docs": "The Icon size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"` and size in pixel. Defaults to `\"md\"`.",
+        "docs": "The Icon size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"` and size in pixel. Defaults to `\"md\"`.",
         "docsTags": [],
         "default": "'md'",
         "values": [
@@ -3504,7 +3063,7 @@
     "filePath": "./src/components/form/input/input.tsx",
     "fileName": "input.tsx",
     "tag": "goat-input",
-    "readme": "# goat-input\n\n\n",
+    "readme": "# goat-input\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -3888,7 +3447,7 @@
     "filePath": "./src/components/navigation/link/link.tsx",
     "fileName": "link.tsx",
     "tag": "goat-link",
-    "readme": "# goat-button\n\n\n",
+    "readme": "# goat-button\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -3995,7 +3554,7 @@
     "filePath": "./src/components/menu/menu/menu.tsx",
     "fileName": "menu.tsx",
     "tag": "goat-menu",
-    "readme": "# goat-menu\n\n\n",
+    "readme": "# goat-menu\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -4066,7 +3625,7 @@
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
-        "default": "{\n    'headline': 'No items',\n    'description': 'There are no items to display',\n  }",
+        "default": "{\r\n    'headline': 'No items',\r\n    'description': 'There are no items to display',\r\n  }",
         "values": [
           {
             "type": "any"
@@ -4121,7 +3680,7 @@
         },
         "signature": "setFocus() => Promise<void>",
         "parameters": [],
-        "docs": "Sets focus on first menu item. Use this method instead of the global\n`element.focus()`.",
+        "docs": "Sets focus on first menu item. Use this method instead of the global\r\n`element.focus()`.",
         "docsTags": []
       }
     ],
@@ -4147,7 +3706,7 @@
     "filePath": "./src/components/menu/menu-item/menu-item.tsx",
     "fileName": "menu-item.tsx",
     "tag": "goat-menu-item",
-    "readme": "# goat-menu-item\n\n\n",
+    "readme": "# goat-menu-item\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -4230,7 +3789,7 @@
         },
         "signature": "setBlur() => Promise<void>",
         "parameters": [],
-        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
         "docsTags": []
       },
       {
@@ -4241,7 +3800,7 @@
         },
         "signature": "setFocus() => Promise<void>",
         "parameters": [],
-        "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+        "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
         "docsTags": []
       }
     ],
@@ -4279,7 +3838,7 @@
     "filePath": "./src/components/content/notification/notification.tsx",
     "fileName": "notification.tsx",
     "tag": "goat-notification",
-    "readme": "# goat-alert\n\n\n",
+    "readme": "# goat-alert\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -4294,7 +3853,7 @@
       },
       {
         "name": "example",
-        "text": "<goat-notification state=\"success\" low-contrast dismissible>\n     <div slot='title'>Successful saved the record</div>\n   </goat-notification>"
+        "text": "<goat-notification state=\"success\" low-contrast dismissible>\r\n     <div slot='title'>Successful saved the record</div>\r\n   </goat-notification>"
       }
     ],
     "encapsulation": "shadow",
@@ -4454,14 +4013,14 @@
     "metadata": {
       "name": "Notification",
       "description": "Notifications are messages that communicate information to the user.",
-      "example": "<goat-notification state=\"success\" low-contrast dismissible>\n     <div slot='title'>Successful saved the record</div>\n   </goat-notification>"
+      "example": "<goat-notification state=\"success\" low-contrast dismissible>\r\n     <div slot='title'>Successful saved the record</div>\r\n   </goat-notification>"
     }
   },
   {
     "filePath": "./src/components/content/notification-manager/notification-manager.tsx",
     "fileName": "notification-manager.tsx",
     "tag": "goat-notification-manager",
-    "readme": "# goat-alert\n\n\n",
+    "readme": "# goat-alert\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -4580,7 +4139,7 @@
     "filePath": "./src/components/form/select/select.tsx",
     "fileName": "select.tsx",
     "tag": "goat-select",
-    "readme": "# goat-select\n\n\n",
+    "readme": "# goat-select\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -4733,7 +4292,7 @@
         "mutable": false,
         "attr": "items",
         "reflectToAttr": false,
-        "docs": "[{\n  label: 'Shivaji Varma',\n  value: 'shivaji-varma'\n}]",
+        "docs": "[{\r\n  label: 'Shivaji Varma',\r\n  value: 'shivaji-varma'\r\n}]",
         "docsTags": [],
         "default": "[]",
         "values": [
@@ -4851,7 +4410,7 @@
         "mutable": false,
         "attr": "search",
         "reflectToAttr": false,
-        "docs": "Search type\nPossible values are `\"none\"`, `\"initial\"`, `\"contains\"`, `\"managed\"`. Defaults to `\"none\"`.",
+        "docs": "Search type\r\nPossible values are `\"none\"`, `\"initial\"`, `\"contains\"`, `\"managed\"`. Defaults to `\"none\"`.",
         "docsTags": [],
         "default": "'none'",
         "values": [
@@ -4898,7 +4457,7 @@
         "mutable": false,
         "attr": "size",
         "reflectToAttr": true,
-        "docs": "The select input size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+        "docs": "The select input size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
         "docsTags": [],
         "default": "'md'",
         "values": [
@@ -4924,7 +4483,7 @@
         "mutable": false,
         "attr": "state",
         "reflectToAttr": true,
-        "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+        "docs": "The input state.\r\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
         "docsTags": [],
         "default": "'default'",
         "values": [
@@ -4989,7 +4548,7 @@
         },
         "signature": "setBlur() => Promise<void>",
         "parameters": [],
-        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
         "docsTags": []
       },
       {
@@ -5000,7 +4559,7 @@
         },
         "signature": "setFocus() => Promise<void>",
         "parameters": [],
-        "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\n`input.focus()`.",
+        "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\r\n`input.focus()`.",
         "docsTags": []
       }
     ],
@@ -5070,7 +4629,7 @@
     "filePath": "./src/components/app-shell/sidenav/sidenav.tsx",
     "fileName": "sidenav.tsx",
     "tag": "goat-sidenav",
-    "readme": "# goat-menu\n\n\n",
+    "readme": "# goat-menu\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -5127,7 +4686,7 @@
     "filePath": "./src/components/app-shell/sidenav-menu/sidenav-menu.tsx",
     "fileName": "sidenav-menu.tsx",
     "tag": "goat-sidenav-menu",
-    "readme": "# goat-menu\n\n\n",
+    "readme": "# goat-menu\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -5176,7 +4735,7 @@
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
-        "default": "`{\n    \"title\": \"No items\",\n    \"description\": \"There are no items to display\"\n  }`",
+        "default": "`{\r\n    \"title\": \"No items\",\r\n    \"description\": \"There are no items to display\"\r\n  }`",
         "values": [
           {
             "type": "string"
@@ -5231,7 +4790,7 @@
         },
         "signature": "setFocus() => Promise<void>",
         "parameters": [],
-        "docs": "Sets focus on first menu item. Use this method instead of the global\n`element.focus()`.",
+        "docs": "Sets focus on first menu item. Use this method instead of the global\r\n`element.focus()`.",
         "docsTags": []
       }
     ],
@@ -5253,7 +4812,7 @@
     "filePath": "./src/components/app-shell/sidenav-menu-item/sidenav-menu-item.tsx",
     "fileName": "sidenav-menu-item.tsx",
     "tag": "goat-sidenav-menu-item",
-    "readme": "# goat-menu-item\n\n\n",
+    "readme": "# goat-menu-item\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -5326,7 +4885,7 @@
         },
         "signature": "setBlur() => Promise<void>",
         "parameters": [],
-        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+        "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
         "docsTags": []
       },
       {
@@ -5337,7 +4896,7 @@
         },
         "signature": "setFocus() => Promise<void>",
         "parameters": [],
-        "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+        "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
         "docsTags": []
       }
     ],
@@ -5375,7 +4934,7 @@
     "filePath": "./src/components/content/spinner/spinner.tsx",
     "fileName": "spinner.tsx",
     "tag": "goat-spinner",
-    "readme": "# goat-spinner\n\n\n",
+    "readme": "# goat-spinner\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -5426,7 +4985,7 @@
         "mutable": false,
         "attr": "size",
         "reflectToAttr": false,
-        "docs": "The Icon size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"` and size in pixel. Defaults to `\"md\"`.",
+        "docs": "The Icon size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"` and size in pixel. Defaults to `\"md\"`.",
         "docsTags": [],
         "default": "'md'",
         "values": [
@@ -5454,7 +5013,7 @@
     "filePath": "./src/components/content/svg/svg.tsx",
     "fileName": "svg.tsx",
     "tag": "goat-svg",
-    "readme": "# goat-icon\n\n\n",
+    "readme": "# goat-icon\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -5504,7 +5063,7 @@
     "filePath": "./src/components/navigation/tabs/tab/tab.tsx",
     "fileName": "tab.tsx",
     "tag": "goat-tab",
-    "readme": "# goat-tab\n\n\n",
+    "readme": "# goat-tab\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -5562,7 +5121,7 @@
         "mutable": false,
         "attr": "icon",
         "reflectToAttr": false,
-        "docs": "Icon which will displayed on button.\nPossible values are bootstrap icon names.",
+        "docs": "Icon which will displayed on button.\r\nPossible values are bootstrap icon names.",
         "docsTags": [],
         "values": [
           {
@@ -5628,7 +5187,7 @@
         "mutable": false,
         "attr": "size",
         "reflectToAttr": false,
-        "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`. Defaults to `\"md\"`.",
+        "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`. Defaults to `\"md\"`.",
         "docsTags": [],
         "default": "'md'",
         "values": [
@@ -5747,7 +5306,7 @@
     "filePath": "./src/components/navigation/tabs/tab-panel/tab-panel.tsx",
     "fileName": "tab-panel.tsx",
     "tag": "goat-tab-panel",
-    "readme": "# goat-tab\n\n\n",
+    "readme": "# goat-tab\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -5803,7 +5362,7 @@
     "filePath": "./src/components/table/table/table.tsx",
     "fileName": "table.tsx",
     "tag": "goat-table",
-    "readme": "# goat-table\n\n\n",
+    "readme": "# goat-table\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -5869,7 +5428,7 @@
         "type": "any[]",
         "mutable": false,
         "reflectToAttr": false,
-        "docs": "Grid columns configuration.\n[\n{\n  \"name\":\"name\",\n  \"label\":\"Name\",\n  \"width\":300,\n  \"fixed\":true\n },\n{\n  \"name\":\"age\",\n  \"label\":\"Age\"\n}\n]",
+        "docs": "Grid columns configuration.\r\n[\r\n{\r\n  \"name\":\"name\",\r\n  \"label\":\"Name\",\r\n  \"width\":300,\r\n  \"fixed\":true\r\n },\r\n{\r\n  \"name\":\"age\",\r\n  \"label\":\"Age\"\r\n}\r\n]",
         "docsTags": [],
         "default": "[]",
         "values": [
@@ -5885,7 +5444,7 @@
         "type": "any[]",
         "mutable": false,
         "reflectToAttr": false,
-        "docs": "Grid data to display on table\n[{\n 'id': '5e7118ddce4b3d577956457f',\n 'age': 21,\n 'name': 'John',\n 'company': 'India',\n 'email': 'john@example.com',\n 'phone': '+1 (839) 560-3581',\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\n }]",
+        "docs": "Grid data to display on table\r\n[{\r\n 'id': '5e7118ddce4b3d577956457f',\r\n 'age': 21,\r\n 'name': 'John',\r\n 'company': 'India',\r\n 'email': 'john@example.com',\r\n 'phone': '+1 (839) 560-3581',\r\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\r\n }]",
         "docsTags": [],
         "default": "[]",
         "values": [
@@ -5904,7 +5463,7 @@
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
-        "default": "{\n    'title': 'No items',\n    'description': 'There are no items to display',\n  }",
+        "default": "{\r\n    'title': 'No items',\r\n    'description': 'There are no items to display',\r\n  }",
         "values": [
           {
             "type": "any"
@@ -6156,7 +5715,7 @@
     "filePath": "./src/components/navigation/tabs/tabs.tsx",
     "fileName": "tabs.tsx",
     "tag": "goat-tabs",
-    "readme": "# goat-tabs\n\n\n",
+    "readme": "# goat-tabs\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -6171,7 +5730,7 @@
       },
       {
         "name": "example",
-        "text": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
+        "text": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
       }
     ],
     "encapsulation": "shadow",
@@ -6194,14 +5753,14 @@
     "metadata": {
       "name": "Tabs",
       "description": "An interactive button with a range of presentation options.",
-      "example": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
+      "example": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
     }
   },
   {
     "filePath": "./src/components/navigation/tabs/tabs-list/tabs-list.tsx",
     "fileName": "tabs-list.tsx",
     "tag": "goat-tabs-list",
-    "readme": "# goat-tabs\n\n\n",
+    "readme": "# goat-tabs\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -6269,7 +5828,7 @@
     "filePath": "./src/components/content/tag/tag.tsx",
     "fileName": "tag.tsx",
     "tag": "goat-tag",
-    "readme": "# goat-heading\n\n\n",
+    "readme": "# goat-heading\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -6395,7 +5954,7 @@
     "filePath": "./src/components/content/text/text.tsx",
     "fileName": "text.tsx",
     "tag": "goat-text",
-    "readme": "# goat-heading\n\n\n",
+    "readme": "# goat-heading\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -6568,7 +6127,7 @@
     "filePath": "./src/components/form/textarea/textarea.tsx",
     "fileName": "textarea.tsx",
     "tag": "goat-textarea",
-    "readme": "# goat-textarea\n\n\n",
+    "readme": "# goat-textarea\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -6901,7 +6460,7 @@
     "filePath": "./src/components/form/time-picker/time-picker.tsx",
     "fileName": "time-picker.tsx",
     "tag": "goat-time-picker",
-    "readme": "# goat-time-picker\n\n\n",
+    "readme": "# goat-time-picker\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
@@ -7142,7 +6701,7 @@
     "filePath": "./src/components/content/toast/toast.tsx",
     "fileName": "toast.tsx",
     "tag": "goat-toast",
-    "readme": "# goat-alert\n\n\n",
+    "readme": "# goat-alert\r\n\r\n\r\n\r",
     "overview": "",
     "usage": {},
     "docs": "",
