@@ -1,6 +1,5 @@
 import { Component, ComponentInterface, Element, h, Host, Prop } from '@stencil/core';
 import { addDays, format } from 'date-fns';
-import { generateEvents } from './utils';
 
 
 /**
@@ -72,7 +71,7 @@ export class Calendar implements ComponentInterface {
       return <goat-calendar-column-view
         currentTime={this.currentTime}
         contextDate={this.contextDate}
-        events={generateEvents()}
+        events={[]/*generateEvents()*/}
       />;
     }
   }

@@ -1,6 +1,6 @@
 import { Component, ComponentInterface, Element, h, Prop } from '@stencil/core';
 import { addDays, addHours, differenceInDays, endOfDay, format, isEqual, startOfDay } from 'date-fns';
-import { calculateWeekRange, EventBucket, EventNode } from '../utils';
+import { calculateWeekRange } from '../utils';
 import ColumnEventManager from './ColumnEventManager';
 
 
@@ -29,6 +29,7 @@ export class CalendarColumnView implements ComponentInterface {
   singleDayEvents: any = {};
 
   manager: ColumnEventManager;
+
   async componentWillLoad() {
     this.manager = new ColumnEventManager();
     this.manager.addEvents(this.events);
@@ -127,7 +128,7 @@ export class CalendarColumnView implements ComponentInterface {
         <div class='column-content'>
           {
             (() => {
-              if (this.eventDays[format(startOfDay(i), 'dd-MM-yyyy')]) {
+              /*if (this.eventDays[format(startOfDay(i), 'dd-MM-yyyy')]) {
                 const eventDay = this.eventDays[format(startOfDay(i), 'dd-MM-yyyy')];
                 const columnsLength = eventDay.length;
                 return eventDay.map((nodes, columnIndex) => {
@@ -142,7 +143,7 @@ export class CalendarColumnView implements ComponentInterface {
                     </div>;
                   });
                 });
-              }
+              }*/
             })()
           }
 
