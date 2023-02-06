@@ -1,0 +1,9 @@
+{
+  "description": "GOAT UI contains design system and most used web components built using Stencil. So you don't need to include any additional framework dependencies, You can simple import required component js, and right away start using it.",
+  "company": "GOATUI",
+  "title": "GOAT UI",
+  "tagline": "A light weight web component library",
+  "baseUrl": "https://goatui.com",
+  "script": "https://unpkg.com/@goatui/components@0.10.2/dist/goatui/goatui.esm.js",
+  "themeCss": "https://unpkg.com/@goatui/components@0.10.2/dist/goatui/assets/styles/theme.css"
+}

@@ -1,0 +1,66 @@
+---
+import Base from './Base.astro';
+import site from '../../site.json';
+
+const { title, root, css } = Astro.props;
+
+---
+<Base title={title} css={css} root={root}>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const themeSwitcher = document.querySelector('#theme-switcher');
+
+      function isDark(theme) {
+        return theme === 'dark';
+      }
+
+      function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        themeSwitcher.icon = isDark(theme) ? 'moon-fill' : 'sun-fill';
+        localStorage.setItem('theme', theme);
+      }
+
+      const theme = localStorage.getItem('theme') || 'light';
+      setTheme(theme);
+
+      themeSwitcher.addEventListener('click', function() {
+        const theme = isDark(localStorage.getItem('theme')) ? 'light' : 'dark';
+        setTheme(theme);
+      });
+
+      const dirSwitcher = document.querySelector('#dir-switcher');
+
+      function setDir(dir) {
+        document.documentElement.setAttribute('dir', dir);
+        themeSwitcher.innetText = dir;
+        localStorage.setItem('dir', dir);
+      }
+
+      const dir = localStorage.getItem('dir') || 'ltr';
+      setDir(dir);
+
+      dirSwitcher.addEventListener('click', function() {
+        const dir = localStorage.getItem('dir') === 'ltr' ? 'rtl' : 'ltr';
+        setDir(dir);
+      });
+    });
+  </script>
+
+  <nav class='top-nav'>
+    <goat-header  class={'brand actions-separated ' + (root ? 'border' : '')}>
+      <div slot='left-section'>
+        <goat-header-brand
+          logo='/assets/img/logo.svg'
+          href='/#'
+          name={site.title}
+          sub-title={title}></goat-header-brand>
+      </div>
+
+
+    </goat-header>
+  </nav>
+
+  <main>
+    <slot />
+  </main>
+</Base>

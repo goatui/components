@@ -1,5 +1,6 @@
+/*
 import { addHours, startOfDay } from 'date-fns';
-import CalendarEvent from './CalendarEvent';
+import {CalendarEvent} from './CalendarEvent';
 
 export function generateEvents() {
 
@@ -47,3 +48,4 @@ export function generateEvents() {
 
   return events;
 }
+*/

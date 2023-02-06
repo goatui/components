@@ -5,6 +5,30 @@
     <script>
       const $calendar = document.getElementById('calendar');
 
+      const todayStartOfDay = new Date();
+      todayStartOfDay.setUTCHours(0,0,0,0);
+
+      function addDays(date, days) {
+        var result = new Date(date);
+        result.setDate(result.getDate() + days);
+        return result;
+      }
+
+      function addHours(date, hours) {
+        var result = new Date(date);
+        result.setHours(result.getHours() + hours);
+        return result;
+      }
+
+      $calendar.events = [{
+        start: addHours(todayStartOfDay, 8),
+        end: addHours(todayStartOfDay, 10),
+        title: 'Event 1'
+      }, {
+        start: addHours(todayStartOfDay, 2),
+        end: addHours(todayStartOfDay, 4),
+        title: 'Event 2'
+      }];
 
 
       // Events
@@ -19,20 +43,35 @@
   </goat-card-content>
   <goat-card-content>
     {% GoatHighlighter language:"html" %}
-    <goat-calendar id='calendar'
-    ></goat-calendar>
+    <goat-calendar id='calendar'></goat-calendar>
     {% endGoatHighlighter %}
   </goat-card-content>
   <goat-card-content>
     {% GoatHighlighter language:"js" %}
-    // Events
-    $calendar.addEventListener('goat:table-cell-click', function(evt) {
-    document.getElementById('record').innerText = JSON.stringify(evt.detail.record, null, 3);
-    document.getElementById('column').innerText = evt.detail.column.label;
-    });
-    $calendar.addEventListener('goat:table-select-change', function(evt) {
-    document.getElementById('selected-rows').innerText = JSON.stringify(evt.detail.value, null, 4);
-    });
+const todayStartOfDay = new Date();
+todayStartOfDay.setUTCHours(0,0,0,0);
+
+function addDays(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+}
+
+function addHours(date, hours) {
+    var result = new Date(date);
+    result.setHours(result.getHours() + hours);
+    return result;
+}
+
+$calendar.events = [{
+    start: addHours(todayStartOfDay, 8),
+    end: addHours(todayStartOfDay, 10),
+    title: 'Event 1'
+    }, {
+    start: addHours(todayStartOfDay, 2),
+    end: addHours(todayStartOfDay, 4),
+    title: 'Event 2'
+}];
     {% endGoatHighlighter %}
   </goat-card-content>
 </goat-card>

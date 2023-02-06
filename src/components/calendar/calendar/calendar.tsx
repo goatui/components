@@ -1,5 +1,6 @@
 import { Component, ComponentInterface, Element, h, Host, Prop } from '@stencil/core';
 import { addDays, format } from 'date-fns';
+import {CalendarEvent} from './CalendarEvent';
 
 
 /**
@@ -62,6 +63,12 @@ export class Calendar implements ComponentInterface {
 
 
   renderCalendarView() {
+    const events = [];
+    this.events.forEach((event) => {
+      events.push(new CalendarEvent(event.start, event.end, event.title, event));
+    });
+
+
     this.currentView = this.availableViews.find((view) => {
       return view.value === this.view;
     });
@@ -69,9 +76,11 @@ export class Calendar implements ComponentInterface {
       return 'Invalid view';
     if (this.currentView.type === 'column') {
       return <goat-calendar-column-view
+        view={this.currentView.value}
+        days={this.currentView.days}
         currentTime={this.currentTime}
         contextDate={this.contextDate}
-        events={[]/*generateEvents()*/}
+        events={events}
       />;
     }
   }
