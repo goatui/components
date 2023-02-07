@@ -16,6 +16,13 @@
 | `view`        | `view`    |             | `string` | `'week'`    |
 
 
+## Events
+
+| Event                         | Description | Type               |
+| ----------------------------- | ----------- | ------------------ |
+| `goat:column-view-date-click` |             | `CustomEvent<any>` |
+
+
 ## Dependencies
 
 ### Used by
