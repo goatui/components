@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, h, Host, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Host, Listen, Prop } from '@stencil/core';
 import { addDays, format } from 'date-fns';
 import {CalendarEvent} from './CalendarEvent';
 
@@ -44,6 +44,12 @@ export class Calendar implements ComponentInterface {
   currentView: any;
 
   @Prop({ mutable: true }) contextDate;
+
+  @Listen('goat:column-view-date-click')
+  columnViewDateClick(evt) {
+    this.view = 'day';
+    this.contextDate = evt.detail.date;
+  }
 
 
   async componentWillLoad() {
@@ -92,10 +98,10 @@ export class Calendar implements ComponentInterface {
           this.contextDate = this.currentTime;
         }}>Today</goat-button>
         <goat-button variant='ghost' size='sm' class='color-secondary' icon='chevron-left' onClick={() => {
-          this.contextDate = addDays(this.contextDate, -7);
+          this.contextDate = addDays(this.contextDate, -1 * (this.currentView.days));
         }}></goat-button>
         <goat-button variant='ghost' size='sm' class='color-secondary' icon='chevron-right' onClick={() => {
-          this.contextDate = addDays(this.contextDate, 7);
+          this.contextDate = addDays(this.contextDate, this.currentView.days);
         }}></goat-button>
 
         <div class='title'>

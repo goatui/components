@@ -692,6 +692,10 @@ export interface GoatButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLGoatButtonElement;
 }
+export interface GoatCalendarColumnViewCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatCalendarColumnViewElement;
+}
 export interface GoatCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLGoatCheckboxElement;
@@ -1152,6 +1156,7 @@ declare namespace LocalJSX {
         "currentTime"?: Date;
         "days"?: number;
         "events"?: any[];
+        "onGoat:column-view-date-click"?: (event: GoatCalendarColumnViewCustomEvent<any>) => void;
         "view"?: string;
     }
     interface GoatCalendarColumnViewBackground {

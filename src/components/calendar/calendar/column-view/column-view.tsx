@@ -1,8 +1,8 @@
-import { Component, ComponentInterface, Element, h, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Prop } from '@stencil/core';
 import { addDays, addHours, differenceInDays, endOfDay, format, isEqual, startOfDay } from 'date-fns';
 import { calculateWeekRange } from '../utils';
 import ColumnEventManager from './ColumnEventManager';
-import { Event } from '../event-management/Event';
+import { BaseEvent } from '../event-management/BaseEvent';
 
 @Component({
   tag: 'goat-calendar-column-view',
@@ -28,10 +28,13 @@ export class CalendarColumnView implements ComponentInterface {
 
   manager: ColumnEventManager;
 
+  @Event({ eventName: 'goat:column-view-date-click' }) goatColumnViewDateClick: EventEmitter;
+
   async componentWillRender() {
     if (this.view === 'week') {
       this.dateRange = calculateWeekRange(this.contextDate, 1);
     } else {
+      this.dateRange = {};
       this.dateRange.startDate = startOfDay(this.contextDate);
       this.dateRange.endDate = endOfDay(addDays(this.contextDate, this.days - 1));
       this.dateRange.totalDays = this.days;
@@ -41,7 +44,7 @@ export class CalendarColumnView implements ComponentInterface {
       this.manager = new ColumnEventManager();
       this.manager.addEvents(
         this.events.filter(event => {
-          return event.isOverlapping(new Event(startOfDay(i), endOfDay(i)));
+          return event.isOverlapping(new BaseEvent(startOfDay(i), endOfDay(i)));
         }),
       );
       this.manager.process();
@@ -73,7 +76,7 @@ export class CalendarColumnView implements ComponentInterface {
             <div
               class="date"
               onClick={() => {
-                alert('date clicked');
+                this.goatColumnViewDateClick.emit({ date: i });
               }}
             >
               {format(i, 'dd')}

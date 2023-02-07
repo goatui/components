@@ -1,9 +1,9 @@
-import {Event} from './Event';
+import {BaseEvent} from './BaseEvent';
 
 export class EventManager {
-  events: Event[];
+  events: BaseEvent[];
 
-  constructor(events: Event[]) {
+  constructor(events: BaseEvent[]) {
     this.events = events;
   }
 

@@ -1,4 +1,4 @@
-export class Event {
+export class BaseEvent {
   gid: string;
 
   end: Date;
@@ -15,7 +15,7 @@ export class Event {
     return this.end.valueOf() - this.start.valueOf();
   }
 
-  isOverlapping(event: Event) {
+  isOverlapping(event: BaseEvent) {
     let totalLength = null;
     if (this.start.valueOf() <= event.start.valueOf()) totalLength = event.end.valueOf() - this.start.valueOf();
     else totalLength = this.end.valueOf() - event.start.valueOf();
