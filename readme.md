@@ -19,7 +19,7 @@ Checkout the complete documentation over here -> https://goatui.com
 ### Script tag
 
 - Put a script tag similar to
-  this `<script type="module" src="https://unpkg.com/@goatui/components@0.10.6/dist/goatui/goatui.esm.js"></script>` in
+  this `<script type="module" src="https://unpkg.com/@goatui/components@0.10.8/dist/goatui/goatui.esm.js"></script>` in
   the head of your index.html
 - Include default font Roboto in the page
 - Then you can use the element anywhere in your template, JSX, html etc
@@ -32,9 +32,9 @@ Checkout the complete documentation over here -> https://goatui.com
   <meta name='viewport' content='width=device-width'>
   <title>Goat UI Component</title>
 
-  <!-- include your custom theme variable values, view variable names at https://unpkg.com/@goatui/components@0.10.6/dist/goatui/assets/styles/theme.css -->
+  <!-- include your custom theme variable values, view variable names at https://unpkg.com/@goatui/components@0.10.8/dist/goatui/assets/styles/theme.css -->
   <!--link rel="stylesheet" href="/custom-theme.css"></link-->
-  <script type='module' src='https://unpkg.com/@goatui/components@0.10.6/dist/goatui/goatui.esm.js'></script>
+  <script type='module' src='https://unpkg.com/@goatui/components@0.10.8/dist/goatui/goatui.esm.js'></script>
 
 </head>
 <body>
@@ -59,7 +59,7 @@ Checkout the complete documentation over here -> https://goatui.com
 | [Breadcrumb](https://goatui.com/components/breadcrumb)                     | goat-breadcrumb           | 🟢    |
 | [Button](https://goatui.com/components/button)                             | goat-button               | 🟢    |
 | [Button Group](https://goatui.com/components/button-group)                 | goat-button-group         | 🟢    |
-| [Calendar](https://goatui.com/components/calendar)                         | goat-calendar             | 🟡    |
+| [Calendar](https://goatui.com/components/calendar)                         | goat-calendar             | 🟢    |
 | Card                                                                       | goat-card                 | 🟡    |
 | Card Select                                                                | goat-cardselect           | 🔵    |
 | [Checkbox](https://goatui.com/components/checkbox)                         | goat-checkbox             | 🟢    |
