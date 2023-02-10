@@ -7,20 +7,22 @@
 
 ## Properties
 
-| Property      | Attribute | Description | Type     | Default     |
-| ------------- | --------- | ----------- | -------- | ----------- |
-| `contextDate` | --        |             | `Date`   | `undefined` |
-| `currentTime` | --        |             | `Date`   | `undefined` |
-| `days`        | `days`    |             | `number` | `7`         |
-| `events`      | --        |             | `any[]`  | `[]`        |
-| `view`        | `view`    |             | `string` | `'week'`    |
+| Property         | Attribute         | Description | Type      | Default     |
+| ---------------- | ----------------- | ----------- | --------- | ----------- |
+| `contextDate`    | --                |             | `Date`    | `undefined` |
+| `currentTime`    | --                |             | `Date`    | `undefined` |
+| `days`           | `days`            |             | `number`  | `7`         |
+| `eventClickable` | `event-clickable` |             | `boolean` | `true`      |
+| `events`         | --                |             | `any[]`   | `[]`        |
+| `view`           | `view`            |             | `string`  | `'week'`    |
 
 
 ## Events
 
-| Event                         | Description | Type               |
-| ----------------------------- | ----------- | ------------------ |
-| `goat:column-view-date-click` |             | `CustomEvent<any>` |
+| Event                          | Description | Type               |
+| ------------------------------ | ----------- | ------------------ |
+| `goat:column-view-date-click`  |             | `CustomEvent<any>` |
+| `goat:column-view-event-click` |             | `CustomEvent<any>` |
 
 
 ## Dependencies

@@ -1,6 +1,6 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, h, Prop } from '@stencil/core';
 import { addDays, addHours, differenceInDays, endOfDay, format, isEqual, startOfDay } from 'date-fns';
-import { calculateWeekRange } from '../utils';
+import { calculateDateRange } from './utils';
 import ColumnEventManager from './ColumnEventManager';
 import { BaseEvent } from '../event-management/BaseEvent';
 
@@ -18,6 +18,8 @@ export class CalendarColumnView implements ComponentInterface {
 
   @Prop() days = 7;
 
+  @Prop() eventClickable: boolean = true;
+
   @Prop() currentTime: Date;
 
   @Prop() contextDate: Date;
@@ -25,30 +27,34 @@ export class CalendarColumnView implements ComponentInterface {
   dateRange: any;
 
   singleDayEvents: any = {};
-
-  manager: ColumnEventManager;
+  multiDayEvents: any = [];
 
   @Event({ eventName: 'goat:column-view-date-click' }) goatColumnViewDateClick: EventEmitter;
 
+  @Event({ eventName: 'goat:column-view-event-click' }) goatColumnViewEventClick: EventEmitter;
+
   async componentWillRender() {
-    if (this.view === 'week') {
-      this.dateRange = calculateWeekRange(this.contextDate, 1);
-    } else {
-      this.dateRange = {};
-      this.dateRange.startDate = startOfDay(this.contextDate);
-      this.dateRange.endDate = endOfDay(addDays(this.contextDate, this.days - 1));
-      this.dateRange.totalDays = this.days;
-    }
+    this.dateRange = calculateDateRange(this.view, this.contextDate, this.days);
     this.singleDayEvents = {};
-    for (let i = new Date(this.dateRange.startDate); differenceInDays(startOfDay(this.dateRange.endDate), i) >= 0; i = addDays(i, 1)) {
-      this.manager = new ColumnEventManager();
-      this.manager.addEvents(
+    this.#forEachDayInDateRange(i => {
+      const manager = new ColumnEventManager();
+      manager.addEvents(
         this.events.filter(event => {
-          return event.isOverlapping(new BaseEvent(startOfDay(i), endOfDay(i)));
+          return event.isOverlapping(new BaseEvent(startOfDay(i), endOfDay(i))) && event.length() < 86400000;
         }),
       );
-      this.manager.process();
-      this.singleDayEvents[this.#getDateOnly(i)] = this.manager.columns;
+      manager.process();
+      this.singleDayEvents[this.#getDateOnly(i)] = manager.columns;
+    });
+    const manager = new ColumnEventManager();
+    manager.addEvents(this.events.filter(event => event.length() >= 86400000));
+    manager.process();
+    this.multiDayEvents = manager.columns;
+  }
+
+  #forEachDayInDateRange(callback) {
+    for (let i = new Date(this.dateRange.startDate); differenceInDays(startOfDay(this.dateRange.endDate), i) >= 0; i = addDays(i, 1)) {
+      callback(i);
     }
   }
 
@@ -58,12 +64,14 @@ export class CalendarColumnView implements ComponentInterface {
 
   async componentDidLoad() {
     const viewBodyHeight = this.elm.shadowRoot.querySelector('.view-body').scrollHeight;
-    this.elm.shadowRoot.querySelector('.view-body').scroll({ top: (this.getTimePercent(this.currentTime) / 100) * viewBodyHeight - 150 });
+    this.elm.shadowRoot.querySelector('.view-body').scroll({
+      top: (this.getTimePercent(this.currentTime) / 100) * viewBodyHeight - 150,
+    });
   }
 
   renderHeader() {
     const columns = [];
-    for (let i = new Date(this.dateRange.startDate); differenceInDays(startOfDay(this.dateRange.endDate), i) >= 0; i = addDays(i, 1)) {
+    this.#forEachDayInDateRange(i => {
       const cls = ['column'];
       const diff = differenceInDays(startOfDay(i), startOfDay(this.currentTime));
       if (diff === 0) cls.push('today');
@@ -73,27 +81,26 @@ export class CalendarColumnView implements ComponentInterface {
       columns.push(
         <div class={cls.join(' ')}>
           <div class="column-content">
-            <div
-              class="date"
-              onClick={() => {
-                this.goatColumnViewDateClick.emit({ date: i });
-              }}
-            >
+            <div class="date" onClick={() => this.goatColumnViewDateClick.emit({ date: i })}>
               {format(i, 'dd')}
             </div>
             <div class="day">{format(i, 'E')}</div>
           </div>
         </div>,
       );
-    }
+    });
     return columns;
   }
 
-  renderBackgroundColumns() {
+  renderMultiDayBackground() {
     const columns = [];
     for (let i = new Date(this.dateRange.startDate); differenceInDays(startOfDay(this.dateRange.endDate), i) >= 0; i = addDays(i, 1)) {
       const cls = ['column'];
-      if (isEqual(startOfDay(i), startOfDay(this.currentTime))) cls.push('active');
+      const diff = differenceInDays(startOfDay(i), startOfDay(this.currentTime));
+      if (diff === 0) cls.push('today');
+      else if (diff < 0) cls.push('past');
+      else if (diff < 0) cls.push('future');
+
       columns.push(<div class={cls.join(' ')}></div>);
     }
     return columns;
@@ -132,11 +139,19 @@ export class CalendarColumnView implements ComponentInterface {
               const eventDay = this.singleDayEvents[this.#getDateOnly(i)];
               if (eventDay) {
                 const columnsLength = eventDay.length;
+
                 return eventDay.map((nodes, columnIndex) => {
                   return nodes.map(node => {
+                    const cls = ['event'];
+                    if (this.eventClickable) cls.push('clickable');
                     return (
                       <div
-                        class="event"
+                        class={cls.join(' ')}
+                        onClick={() => {
+                          if (this.eventClickable) {
+                            this.goatColumnViewEventClick.emit({ event: node.data });
+                          }
+                        }}
                         style={{
                           top: `${this.getTimePercent(node.start, startOfDay(i))}%`,
                           height: `${this.getTimePercent(node.end, startOfDay(i)) - this.getTimePercent(node.start, startOfDay(i))}%`,
@@ -158,19 +173,78 @@ export class CalendarColumnView implements ComponentInterface {
     return <div class="events-container">{columns}</div>;
   }
 
-  getDatePercent() {
-    const currentDay = differenceInDays(startOfDay(this.currentTime), this.dateRange.startDate);
-    return (currentDay / this.dateRange.totalDays) * 100;
+  renderMultiDayEvents() {
+    const eventDay = this.multiDayEvents;
+    if (eventDay && eventDay.length) {
+      return (
+        <div class="row-content">
+          {eventDay.map((nodes) => {
+            return (
+              <div class="row">
+                {nodes.map(node => {
+                  const cls = ['event'];
+                  if (this.eventClickable) cls.push('clickable');
+                  return (
+                    <div
+                      class={cls.join(' ')}
+                      onClick={() => {
+                        if (this.eventClickable) {
+                          this.goatColumnViewEventClick.emit({ event: node.data });
+                        }
+                      }}
+                      style={{
+                        left: `${this.getDatePercent(node.start)}%`,
+                        width: `${this.getDatePercent(addDays(node.end, 1)) - this.getDatePercent(node.start)}%`,
+                      }}
+                    >
+                      <div class="event-title">{node.title || '(no title)'}</div>
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          })}
+          <div class="row-spacer"></div>
+        </div>
+      );
+    }
   }
 
-  getTimePercent(time, forDay?) {
-    if (!forDay) forDay = time;
-    const startDate = startOfDay(forDay);
-    const endDate = endOfDay(forDay);
-    const percent = ((time.valueOf() - startDate.valueOf()) / (endDate.valueOf() - startDate.valueOf())) * 100;
+  getDatePercent(date) {
+    const currentDay = differenceInDays(startOfDay(date), this.dateRange.startDate);
+    const percent = (currentDay / this.dateRange.totalDays) * 100;
     if (percent < 0) return 0;
     if (percent > 100) return 100;
     return percent;
+  }
+
+  getTimePercent(date, forDay?) {
+    if (!forDay) forDay = date;
+    const startDate = startOfDay(forDay);
+    const endDate = endOfDay(forDay);
+    const percent = ((date.valueOf() - startDate.valueOf()) / (endDate.valueOf() - startDate.valueOf())) * 100;
+    if (percent < 0) return 0;
+    if (percent > 100) return 100;
+    return percent;
+  }
+
+  renderCurrentTime() {
+    if (this.currentTime.valueOf() > this.dateRange.startDate.valueOf() - 1 && this.currentTime.valueOf() < this.dateRange.endDate.valueOf() + 1) {
+      return (
+        <div class="current-time-line" style={{ top: `calc(${this.getTimePercent(this.currentTime)}% - 1px)` }}>
+          <div class="time">{format(this.contextDate, 'hh:mm a')}</div>
+          <div class="dash-line" style={{ width: `${this.getDatePercent(this.currentTime)}%` }}></div>
+          <div class="dot" style={{ left: `calc( ${this.getDatePercent(this.currentTime)}% - 0.25rem)` }}></div>
+          <div
+            class="line"
+            style={{
+              left: `${this.getDatePercent(this.currentTime)}%`,
+              width: `${(1 / this.dateRange.totalDays) * 100}%`,
+            }}
+          ></div>
+        </div>
+      );
+    }
   }
 
   render() {
@@ -181,6 +255,15 @@ export class CalendarColumnView implements ComponentInterface {
           <div class="columns">{this.renderHeader()}</div>
           <div class="scrollbar-placeholder" />
         </div>
+        <div class="multi-day-section">
+          <div class="multi-day-body-scroll">
+            <div class="multi-day-header">
+              <div class="scale" />
+              <div class="columns">{this.renderMultiDayBackground()}</div>
+            </div>
+            <div class="multi-events">{this.renderMultiDayEvents()}</div>
+          </div>
+        </div>
         <div class="view-body">
           <div class="view-body-scroll">
             <div class="scale">{this.renderScale()}</div>
@@ -188,25 +271,7 @@ export class CalendarColumnView implements ComponentInterface {
               <goat-calendar-column-view-background columns={this.dateRange.totalDays} />
               {this.renderEvents()}
             </div>
-            {(() => {
-              if (this.currentTime.valueOf() > this.dateRange.startDate.valueOf() - 1 && this.currentTime.valueOf() < this.dateRange.endDate.valueOf() + 1) {
-                return (
-                  <div class="current-time-line"
-                       style={{ top: `calc(${this.getTimePercent(this.currentTime)}% - 1px)` }}>
-                    <div class="time">{format(this.contextDate, 'hh:mm a')}</div>
-                    <div class="dash-line" style={{ width: `${this.getDatePercent()}%` }}></div>
-                    <div class="dot" style={{ left: `calc( ${this.getDatePercent()}% - 0.25rem)` }}></div>
-                    <div
-                      class="line"
-                      style={{
-                        left: `${this.getDatePercent()}%`,
-                        width: `${(1 / this.dateRange.totalDays) * 100}%`,
-                      }}
-                    ></div>
-                  </div>
-                );
-              }
-            })()}
+            {this.renderCurrentTime()}
           </div>
         </div>
       </div>

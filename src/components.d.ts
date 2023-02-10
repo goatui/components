@@ -86,6 +86,7 @@ export namespace Components {
     interface GoatCalendar {
         "availableViews": any;
         "contextDate": any;
+        "eventClickable": boolean;
         "events": any[];
         /**
           * Show loader.
@@ -98,6 +99,7 @@ export namespace Components {
         "contextDate": Date;
         "currentTime": Date;
         "days": number;
+        "eventClickable": boolean;
         "events": any[];
         "view": string;
     }
@@ -692,6 +694,10 @@ export interface GoatButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLGoatButtonElement;
 }
+export interface GoatCalendarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatCalendarElement;
+}
 export interface GoatCalendarColumnViewCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLGoatCalendarColumnViewElement;
@@ -1143,7 +1149,9 @@ declare namespace LocalJSX {
     interface GoatCalendar {
         "availableViews"?: any;
         "contextDate"?: any;
+        "eventClickable"?: boolean;
         "events"?: any[];
+        "onGoat:calendar-event-click"?: (event: GoatCalendarCustomEvent<any>) => void;
         /**
           * Show loader.
          */
@@ -1155,8 +1163,10 @@ declare namespace LocalJSX {
         "contextDate"?: Date;
         "currentTime"?: Date;
         "days"?: number;
+        "eventClickable"?: boolean;
         "events"?: any[];
         "onGoat:column-view-date-click"?: (event: GoatCalendarColumnViewCustomEvent<any>) => void;
+        "onGoat:column-view-event-click"?: (event: GoatCalendarColumnViewCustomEvent<any>) => void;
         "view"?: string;
     }
     interface GoatCalendarColumnViewBackground {

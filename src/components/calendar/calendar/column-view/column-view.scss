@@ -12,7 +12,6 @@
   width: var(--scale-size);
 }
 
-
 .calendar-column-view {
   display: flex;
   flex-direction: column;
@@ -23,19 +22,15 @@
     display: flex;
 
     .scale {
-      border-bottom: 1px solid v(--scale-color);
       border-right: 1px solid v(--scale-color);
     }
 
     .columns {
       display: flex;
       flex: 1;
-      border-bottom: 1px solid v(--scale-color);
 
       .column {
         flex: 1;
-
-
         border-right: 1px solid v(--scale-color);
 
 
@@ -76,6 +71,76 @@
 
     .scrollbar-placeholder {
       width: var(--scrollbar-width);
+    }
+  }
+
+  .multi-day-section {
+    border-bottom: 1px solid v(--scale-color);
+    max-height: 10rem;
+    overflow-y: scroll;
+
+    .multi-day-body-scroll {
+      position: relative;
+    }
+
+    .multi-day-header {
+      display: flex;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+
+      .scale {
+        border-right: 1px solid v(--scale-color);
+      }
+
+      .columns {
+        display: flex;
+        flex: 1;
+
+        .column {
+          flex: 1;
+          border-right: 1px solid v(--scale-color);
+        }
+      }
+    }
+
+    .multi-events {
+      padding: 0 0 0  var(--scale-size);
+
+
+      .row {
+        height: 2rem;
+        box-sizing: content-box;
+        position: relative;
+        padding-bottom: .5rem;
+        &:last-child {
+          padding-bottom: 0;
+        }
+      }
+
+      .row-spacer {
+        height: 1rem;
+      }
+
+      .event {
+        background: v(--color-primary-20);
+        border-left: .35rem solid v(--color-primary);
+        border-radius: 3px;
+        position: absolute;
+        height: 2rem;
+
+        .event-title {
+          padding: 0.25rem;
+        }
+
+        &.clickable {
+          cursor: pointer;
+
+          &:hover {
+            background: v(--color-primary-30);
+          }
+        }
+      }
     }
   }
 
@@ -125,6 +190,7 @@
           width: calc(100% - var(--scale-size));
           height: 100%;
           display: flex;
+
           .column {
             flex: 1;
             padding: 0 1rem 0 1px;
@@ -139,8 +205,17 @@
               border-left: .35rem solid v(--color-primary);
               border-radius: 3px;
               position: absolute;
+
               .event-title {
                 padding: 0.25rem;
+              }
+
+              &.clickable {
+                cursor: pointer;
+
+                &:hover {
+                  background: v(--color-primary-30);
+                }
               }
             }
           }

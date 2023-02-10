@@ -28,10 +28,10 @@
   ],
   "scripts": {
     "build": "stencil build --docs --prod",
-    "build:full": "npm run build:theme && npm run release-to-docs && npm run build",
+    "build:full": "npm run build:theme && npm run build",
     "build:theme": "gulp themeBuild",
     "generate": "stencil generate",
-    "release": "npm version patch",
+    "release": "npm version patch && release-to-docs",
     "release-to-docs": "stencil docs && gulp releaseToDocs",
     "start": "concurrently --kill-others \"npm run start:watch\" \"npm run start:docs-server\"",
     "start:docs-server": "cd docs && serve.cmd",

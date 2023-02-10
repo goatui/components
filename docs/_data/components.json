@@ -707,18 +707,15 @@
     "encapsulation": "shadow",
     "dependents": [],
     "dependencies": [
-      "goat-calendar-column-view",
       "goat-button",
-      "goat-select"
+      "goat-select",
+      "goat-calendar-column-view"
     ],
     "dependencyGraph": {
       "goat-calendar": [
-        "goat-calendar-column-view",
         "goat-button",
-        "goat-select"
-      ],
-      "goat-calendar-column-view": [
-        "goat-calendar-column-view-background"
+        "goat-select",
+        "goat-calendar-column-view"
       ],
       "goat-button": [
         "goat-icon",
@@ -741,6 +738,9 @@
       "goat-empty-state": [
         "goat-svg",
         "goat-button"
+      ],
+      "goat-calendar-column-view": [
+        "goat-calendar-column-view-background"
       ]
     },
     "props": [
@@ -752,7 +752,7 @@
         "reflectToAttr": false,
         "docs": "",
         "docsTags": [],
-        "default": "[{ label: 'Day', value: 'day', type: 'column', days: 1 }, {\n    label: 'Week',\n    value: 'week',\n    type: 'column',\n    days: 7,\n  }, {\n    label: 'Month',\n    value: 'month',\n    type: 'month',\n  }]",
+        "default": "[\n    { label: 'Day', value: 'day', type: 'column', days: 1 },\n    {\n      label: 'Week',\n      value: 'week',\n      type: 'column',\n      days: 7,\n    },\n    {\n      label: 'Month',\n      value: 'month',\n      type: 'month',\n    },\n  ]",
         "values": [
           {
             "type": "any"
@@ -772,6 +772,23 @@
         "values": [
           {
             "type": "any"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "eventClickable",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "event-clickable",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "true",
+        "values": [
+          {
+            "type": "boolean"
           }
         ],
         "optional": false,
@@ -845,13 +862,28 @@
       }
     ],
     "methods": [],
-    "events": [],
+    "events": [
+      {
+        "event": "goat:calendar-event-click",
+        "detail": "any",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": "",
+        "docsTags": []
+      }
+    ],
     "styles": [],
     "slots": [],
     "parts": [],
     "listeners": [
       {
         "event": "goat:column-view-date-click",
+        "capture": false,
+        "passive": false
+      },
+      {
+        "event": "goat:column-view-event-click",
         "capture": false,
         "passive": false
       }
@@ -935,6 +967,23 @@
         "required": false
       },
       {
+        "name": "eventClickable",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "event-clickable",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "true",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
         "name": "events",
         "type": "any[]",
         "mutable": false,
@@ -972,6 +1021,15 @@
     "events": [
       {
         "event": "goat:column-view-date-click",
+        "detail": "any",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": "",
+        "docsTags": []
+      },
+      {
+        "event": "goat:column-view-event-click",
         "detail": "any",
         "bubbles": true,
         "cancelable": true,

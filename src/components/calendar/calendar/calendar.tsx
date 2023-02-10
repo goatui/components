@@ -1,7 +1,6 @@
-import { Component, ComponentInterface, Element, h, Host, Listen, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Listen, Prop } from '@stencil/core';
 import { addDays, format } from 'date-fns';
-import {CalendarEvent} from './CalendarEvent';
-
+import { CalendarEvent } from './CalendarEvent';
 
 /**
  * @name Calendar
@@ -14,23 +13,28 @@ import {CalendarEvent} from './CalendarEvent';
   shadow: true,
 })
 export class Calendar implements ComponentInterface {
-
   @Element() elm!: HTMLElement;
 
   @Prop() events: any[] = [];
 
-  @Prop() availableViews: any = [{ label: 'Day', value: 'day', type: 'column', days: 1 }, {
-    label: 'Week',
-    value: 'week',
-    type: 'column',
-    days: 7,
-  }, {
-    label: 'Month',
-    value: 'month',
-    type: 'month',
-  }];
+  @Prop() availableViews: any = [
+    { label: 'Day', value: 'day', type: 'column', days: 1 },
+    {
+      label: 'Week',
+      value: 'week',
+      type: 'column',
+      days: 7,
+    },
+    {
+      label: 'Month',
+      value: 'month',
+      type: 'month',
+    },
+  ];
 
   @Prop() view: string = 'week';
+
+  @Prop() eventClickable: boolean = true;
 
   /**
    * Show loader.
@@ -39,11 +43,12 @@ export class Calendar implements ComponentInterface {
 
   @Prop() timezone;
 
-
   currentTime;
   currentView: any;
 
   @Prop({ mutable: true }) contextDate;
+
+  @Event({ eventName: 'goat:calendar-event-click' }) goatCalendarEventClick: EventEmitter;
 
   @Listen('goat:column-view-date-click')
   columnViewDateClick(evt) {
@@ -51,100 +56,101 @@ export class Calendar implements ComponentInterface {
     this.contextDate = evt.detail.date;
   }
 
+  @Listen('goat:column-view-event-click')
+  columnViewEventClick(evt) {
+    this.goatCalendarEventClick.emit(evt.detail.event);
+  }
 
   async componentWillLoad() {
-
-    console.log(this.view);
     if (this.timezone) {
       this.currentTime = new Date(new Date().toLocaleString('en', { timeZone: this.timezone }));
     } else {
       this.currentTime = new Date();
     }
-
     if (!this.contextDate) {
       this.contextDate = this.currentTime;
     }
-
   }
 
-
-  renderCalendarView() {
-    const events = [];
-    this.events.forEach((event) => {
-      events.push(new CalendarEvent(event.start, event.end, event.title, event));
-    });
-
-
-    this.currentView = this.availableViews.find((view) => {
-      return view.value === this.view;
-    });
-    if (!this.currentView)
-      return 'Invalid view';
-    if (this.currentView.type === 'column') {
-      return <goat-calendar-column-view
-        view={this.currentView.value}
-        days={this.currentView.days}
-        currentTime={this.currentTime}
-        contextDate={this.contextDate}
-        events={events}
-      />;
-    }
+  async componentWillRender() {
+    this.currentView = this.availableViews.find(view => view.value === this.view);
   }
 
   renderHeader() {
-    return <div class='calendar-header-classic'>
-      <div class='header-left'>
-        <goat-button variant='outline' size='sm' class='color-secondary' onClick={() => {
-          this.contextDate = this.currentTime;
-        }}>Today</goat-button>
-        <goat-button variant='ghost' size='sm' class='color-secondary' icon='chevron-left' onClick={() => {
-          this.contextDate = addDays(this.contextDate, -1 * (this.currentView.days));
-        }}></goat-button>
-        <goat-button variant='ghost' size='sm' class='color-secondary' icon='chevron-right' onClick={() => {
-          this.contextDate = addDays(this.contextDate, this.currentView.days);
-        }}></goat-button>
-
-        <div class='title'>
-          {format(this.contextDate, 'MMMM d, yyyy')}
+    return (
+      <div class="calendar-header-classic">
+        <div class="header-left">
+          <goat-button variant="outline" size="sm" class="color-secondary" onClick={() => (this.contextDate = this.currentTime)}>
+            Today
+          </goat-button>
+          <goat-button
+            variant="ghost"
+            size="sm"
+            class="color-secondary"
+            icon="chevron-left"
+            onClick={() => (this.contextDate = addDays(this.contextDate, -1 * this.currentView.days))}
+          ></goat-button>
+          <goat-button
+            variant="ghost"
+            size="sm"
+            class="color-secondary"
+            icon="chevron-right"
+            onClick={() => this.contextDate = addDays(this.contextDate, this.currentView.days)}
+          ></goat-button>
+          <div class="title">{format(this.contextDate, 'MMMM d, yyyy')}</div>
+        </div>
+        <div class="header-right">
+          <goat-select
+            size="sm"
+            positions={'bottom-left'}
+            value={this.view}
+            items={this.availableViews.map(view => {
+              return {
+                label: view.label,
+                value: view.value,
+              };
+            })}
+            onGoat:change={event => {
+              this.view = event.detail.value;
+            }}
+          ></goat-select>
         </div>
       </div>
-      <div class='header-right'>
-        <goat-select
-          size='sm'
-          positions={'bottom-left'}
-          value={this.view}
-          items={this.availableViews.map((view) => {
-            return {
-              'label': view.label,
-              'value': view.value,
-            };
-          })}
-          onGoat:change={(event) => {
-            this.view = event.detail.value;
-          }}
-        ></goat-select>
-      </div>
-    </div>;
+    );
   }
 
+  renderCalendarView() {
+    if (!this.currentView) return 'Invalid view';
+
+    const events = this.events.map(event => {
+      return new CalendarEvent(event.start, event.end, event.title, event);
+    });
+
+    if (this.currentView.type === 'column') {
+      return (
+        <goat-calendar-column-view
+          view={this.currentView.value}
+          days={this.currentView.days}
+          currentTime={this.currentTime}
+          contextDate={this.contextDate}
+          eventClickable={this.eventClickable}
+          events={events}
+        />
+      );
+    }
+  }
 
   render() {
-
     return (
       <Host>
-        <div class='calendar'>
-          <div class='calendar-header'>
-            {this.renderHeader()}
-          </div>
-          <div class='calendar-body'>
-            <div class='view-container'>
-              {this.renderCalendarView()}
-            </div>
-            <div class='contextual-panel'></div>
+        <div class="calendar">
+          <div class="calendar-header">{this.renderHeader()}</div>
+          <div class="calendar-body">
+            <div class="view-container">{this.renderCalendarView()}</div>
+            <div class="contextual-panel"></div>
           </div>
         </div>
       </Host>
     );
   }
-
 }

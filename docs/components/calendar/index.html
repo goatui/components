@@ -15,10 +15,8 @@ sections:
 
     <div style='padding-bottom: var(--spacing-6)'>
       <goat-text type='heading' size='md'>{{ page.title }}</goat-text>
-      <goat-text type='paragraph'>Use {{site.title}}’s custom input styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</goat-text>
+      <goat-text type='paragraph'>Container for displaying data in calendar form.</goat-text>
     </div>
-
-    <goat-tag class='color-red'>Work in progress</goat-tag>
 
     {% for section in page.sections %}
     <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style='padding-bottom: var(--spacing-4)'>

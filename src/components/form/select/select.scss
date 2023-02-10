@@ -96,12 +96,15 @@
     padding: 0.625rem 0 0.625rem 0.875rem;
   }
 
-  .multi-select-value {
+  .input-native {
     padding: 0.625rem 0 0.625rem 0.875rem;
-    padding-inline-end: v(--spacing-2);
-    &:last-child {
-      padding-inline-end: 0;
-    }
+  }
+
+  .multi-select-values {
+    padding: 0.625rem 0 0.625rem 0.875rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
   }
 
   .input-container:not(.has-value) {

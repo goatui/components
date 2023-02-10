@@ -36,7 +36,6 @@ export class CalendarColumnViewBackground implements ComponentInterface {
       </div>;
       rows.push(row);
     }
-
     return (
       <Host>
         <div class='background'>{rows}</div>
