@@ -106,6 +106,15 @@ export namespace Components {
     interface GoatCalendarColumnViewBackground {
         "columns": number;
     }
+    interface GoatCalendarMonthView {
+        "contextDate": Date;
+        "currentTime": Date;
+        "eventClickable": boolean;
+        "events": any[];
+    }
+    interface GoatCalendarMonthViewBackground {
+        "columns": number;
+    }
     interface GoatCanvas {
         "lines": any[];
         "padding": number;
@@ -702,6 +711,10 @@ export interface GoatCalendarColumnViewCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLGoatCalendarColumnViewElement;
 }
+export interface GoatCalendarMonthViewCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatCalendarMonthViewElement;
+}
 export interface GoatCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLGoatCheckboxElement;
@@ -808,6 +821,18 @@ declare global {
     var HTMLGoatCalendarColumnViewBackgroundElement: {
         prototype: HTMLGoatCalendarColumnViewBackgroundElement;
         new (): HTMLGoatCalendarColumnViewBackgroundElement;
+    };
+    interface HTMLGoatCalendarMonthViewElement extends Components.GoatCalendarMonthView, HTMLStencilElement {
+    }
+    var HTMLGoatCalendarMonthViewElement: {
+        prototype: HTMLGoatCalendarMonthViewElement;
+        new (): HTMLGoatCalendarMonthViewElement;
+    };
+    interface HTMLGoatCalendarMonthViewBackgroundElement extends Components.GoatCalendarMonthViewBackground, HTMLStencilElement {
+    }
+    var HTMLGoatCalendarMonthViewBackgroundElement: {
+        prototype: HTMLGoatCalendarMonthViewBackgroundElement;
+        new (): HTMLGoatCalendarMonthViewBackgroundElement;
     };
     interface HTMLGoatCanvasElement extends Components.GoatCanvas, HTMLStencilElement {
     }
@@ -1035,6 +1060,8 @@ declare global {
         "goat-calendar": HTMLGoatCalendarElement;
         "goat-calendar-column-view": HTMLGoatCalendarColumnViewElement;
         "goat-calendar-column-view-background": HTMLGoatCalendarColumnViewBackgroundElement;
+        "goat-calendar-month-view": HTMLGoatCalendarMonthViewElement;
+        "goat-calendar-month-view-background": HTMLGoatCalendarMonthViewBackgroundElement;
         "goat-canvas": HTMLGoatCanvasElement;
         "goat-card": HTMLGoatCardElement;
         "goat-checkbox": HTMLGoatCheckboxElement;
@@ -1170,6 +1197,17 @@ declare namespace LocalJSX {
         "view"?: string;
     }
     interface GoatCalendarColumnViewBackground {
+        "columns"?: number;
+    }
+    interface GoatCalendarMonthView {
+        "contextDate"?: Date;
+        "currentTime"?: Date;
+        "eventClickable"?: boolean;
+        "events"?: any[];
+        "onGoat:month-view-date-click"?: (event: GoatCalendarMonthViewCustomEvent<any>) => void;
+        "onGoat:month-view-event-click"?: (event: GoatCalendarMonthViewCustomEvent<any>) => void;
+    }
+    interface GoatCalendarMonthViewBackground {
         "columns"?: number;
     }
     interface GoatCanvas {
@@ -1789,6 +1827,8 @@ declare namespace LocalJSX {
         "goat-calendar": GoatCalendar;
         "goat-calendar-column-view": GoatCalendarColumnView;
         "goat-calendar-column-view-background": GoatCalendarColumnViewBackground;
+        "goat-calendar-month-view": GoatCalendarMonthView;
+        "goat-calendar-month-view-background": GoatCalendarMonthViewBackground;
         "goat-canvas": GoatCanvas;
         "goat-card": GoatCard;
         "goat-checkbox": GoatCheckbox;
@@ -1840,6 +1880,8 @@ declare module "@stencil/core" {
             "goat-calendar": LocalJSX.GoatCalendar & JSXBase.HTMLAttributes<HTMLGoatCalendarElement>;
             "goat-calendar-column-view": LocalJSX.GoatCalendarColumnView & JSXBase.HTMLAttributes<HTMLGoatCalendarColumnViewElement>;
             "goat-calendar-column-view-background": LocalJSX.GoatCalendarColumnViewBackground & JSXBase.HTMLAttributes<HTMLGoatCalendarColumnViewBackgroundElement>;
+            "goat-calendar-month-view": LocalJSX.GoatCalendarMonthView & JSXBase.HTMLAttributes<HTMLGoatCalendarMonthViewElement>;
+            "goat-calendar-month-view-background": LocalJSX.GoatCalendarMonthViewBackground & JSXBase.HTMLAttributes<HTMLGoatCalendarMonthViewBackgroundElement>;
             "goat-canvas": LocalJSX.GoatCanvas & JSXBase.HTMLAttributes<HTMLGoatCanvasElement>;
             "goat-card": LocalJSX.GoatCard & JSXBase.HTMLAttributes<HTMLGoatCardElement>;
             "goat-checkbox": LocalJSX.GoatCheckbox & JSXBase.HTMLAttributes<HTMLGoatCheckboxElement>;

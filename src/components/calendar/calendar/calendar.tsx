@@ -95,7 +95,7 @@ export class Calendar implements ComponentInterface {
             size="sm"
             class="color-secondary"
             icon="chevron-right"
-            onClick={() => this.contextDate = addDays(this.contextDate, this.currentView.days)}
+            onClick={() => (this.contextDate = addDays(this.contextDate, this.currentView.days))}
           ></goat-button>
           <div class="title">{format(this.contextDate, 'MMMM d, yyyy')}</div>
         </div>
@@ -137,6 +137,8 @@ export class Calendar implements ComponentInterface {
           events={events}
         />
       );
+    } else if (this.currentView.type === 'month') {
+      return <goat-calendar-month-view currentTime={this.currentTime} contextDate={this.contextDate} eventClickable={this.eventClickable} events={events} />;
     }
   }
 

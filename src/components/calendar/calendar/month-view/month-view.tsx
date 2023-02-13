@@ -1,22 +1,18 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, h, Prop } from '@stencil/core';
 import { addDays, addHours, differenceInDays, endOfDay, format, isEqual, startOfDay } from 'date-fns';
-import { calculateDateRange } from './utils';
-import ColumnEventManager from './ColumnEventManager';
+import MonthEventManager from './MonthEventManager';
 import { BaseEvent } from '../event-management/BaseEvent';
+import { calculateMonthRange } from '../utils';
 
 @Component({
-  tag: 'goat-calendar-column-view',
-  styleUrl: 'column-view.scss',
+  tag: 'goat-calendar-month-view',
+  styleUrl: 'month-view.scss',
   shadow: true,
 })
-export class CalendarColumnView implements ComponentInterface {
+export class CalendarMonthView implements ComponentInterface {
   @Element() elm!: HTMLElement;
 
   @Prop() events: any[] = [];
-
-  @Prop() view = 'week';
-
-  @Prop() days = 7;
 
   @Prop() eventClickable: boolean = true;
 
@@ -29,15 +25,15 @@ export class CalendarColumnView implements ComponentInterface {
   singleDayEvents: any = {};
   multiDayEvents: any = [];
 
-  @Event({ eventName: 'goat:column-view-date-click' }) goatColumnViewDateClick: EventEmitter;
+  @Event({ eventName: 'goat:month-view-date-click' }) goatColumnViewDateClick: EventEmitter;
 
-  @Event({ eventName: 'goat:column-view-event-click' }) goatColumnViewEventClick: EventEmitter;
+  @Event({ eventName: 'goat:month-view-event-click' }) goatColumnViewEventClick: EventEmitter;
 
   async componentWillRender() {
-    this.dateRange = calculateDateRange(this.view, this.contextDate, this.days);
+    this.dateRange = calculateMonthRange(this.contextDate, 1 /* monday */);
     this.singleDayEvents = {};
     this.#forEachDayInDateRange(i => {
-      const manager = new ColumnEventManager();
+      const manager = new MonthEventManager();
       manager.addEvents(
         this.events.filter(event => {
           return event.isOverlapping(new BaseEvent(startOfDay(i), endOfDay(i))) && event.length() < 86400000;
@@ -46,10 +42,8 @@ export class CalendarColumnView implements ComponentInterface {
       manager.process();
       this.singleDayEvents[this.#getDateOnly(i)] = manager.columns;
     });
-    const manager = new ColumnEventManager();
-    manager.addEvents(this.events.filter(event => {
-      return event.isOverlapping(new BaseEvent(this.dateRange.startDate, this.dateRange.endDate)) && event.length() >= 86400000
-    }));
+    const manager = new MonthEventManager();
+    manager.addEvents(this.events.filter(event => event.length() >= 86400000));
     manager.process();
     this.multiDayEvents = manager.columns;
   }
@@ -257,15 +251,13 @@ export class CalendarColumnView implements ComponentInterface {
           <div class="columns">{this.renderHeader()}</div>
           <div class="scrollbar-placeholder" />
         </div>
-        <div class="multi-day-section-wrapper">
-          <div class="multi-day-section-scroll">
-            <div class="multi-day-section">
-              <div class="multi-day-background">
-                <div class="scale" />
-                <div class="columns">{this.renderMultiDayBackground()}</div>
-              </div>
-              <div class="multi-events">{this.renderMultiDayEvents()}</div>
+        <div class="multi-day-section">
+          <div class="multi-day-body-scroll">
+            <div class="multi-day-header">
+              <div class="scale" />
+              <div class="columns">{this.renderMultiDayBackground()}</div>
             </div>
+            <div class="multi-events">{this.renderMultiDayEvents()}</div>
           </div>
         </div>
         <div class="view-body">
