@@ -25,6 +25,7 @@
  - [goat-menu](../../menu/menu)
  - [goat-sidenav-menu](../../app-shell/sidenav-menu)
  - [goat-table](../../table/table)
+ - [tree-view](../../menu/tree-view)
 
 ### Depends on
 
@@ -41,6 +42,7 @@ graph TD;
   goat-menu --> goat-empty-state
   goat-sidenav-menu --> goat-empty-state
   goat-table --> goat-empty-state
+  tree-view --> goat-empty-state
   style goat-empty-state fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

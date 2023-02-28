@@ -1,5 +1,139 @@
 [
   {
+    "filePath": "./src/components/content/accordion/accordion.tsx",
+    "fileName": "accordion.tsx",
+    "tag": "goat-accordion",
+    "readme": "# goat-avatar\r\n\r\n\r\n\r",
+    "overview": "",
+    "usage": {},
+    "docs": "",
+    "docsTags": [
+      {
+        "name": "name",
+        "text": "Accordion"
+      },
+      {
+        "name": "description",
+        "text": "An accordion is a vertically stacked list of headers that reveal or hide associated sections of content."
+      },
+      {
+        "name": "example",
+        "text": "<goat-accordion>\n<goat-accordion-item heading=\"Title 1\"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>\n</goat-accordion>"
+      }
+    ],
+    "encapsulation": "shadow",
+    "dependents": [],
+    "dependencies": [],
+    "dependencyGraph": {},
+    "props": [],
+    "methods": [],
+    "events": [],
+    "styles": [],
+    "slots": [],
+    "parts": [],
+    "listeners": [],
+    "metadata": {
+      "name": "Accordion",
+      "description": "An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.",
+      "example": "<goat-accordion>\n<goat-accordion-item heading=\"Title 1\"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>\n</goat-accordion>"
+    }
+  },
+  {
+    "filePath": "./src/components/content/accordion/accordion-item/accordion-item.tsx",
+    "fileName": "accordion-item.tsx",
+    "tag": "goat-accordion-item",
+    "readme": "# goat-menu-item\r\n\r\n\r\n\r",
+    "overview": "",
+    "usage": {},
+    "docs": "",
+    "docsTags": [],
+    "encapsulation": "shadow",
+    "dependents": [],
+    "dependencies": [
+      "goat-icon"
+    ],
+    "dependencyGraph": {
+      "goat-accordion-item": [
+        "goat-icon"
+      ]
+    },
+    "props": [
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "disabled",
+        "reflectToAttr": true,
+        "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "heading",
+        "type": "string",
+        "mutable": false,
+        "attr": "heading",
+        "reflectToAttr": false,
+        "docs": "The menu item value.",
+        "docsTags": [],
+        "default": "'Heading'",
+        "values": [
+          {
+            "type": "string"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "open",
+        "reflectToAttr": true,
+        "docs": "Menu item selection state.",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      }
+    ],
+    "methods": [],
+    "events": [
+      {
+        "event": "goat:menu-item-click",
+        "detail": "any",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": "Emitted when the menu item is clicked.",
+        "docsTags": []
+      }
+    ],
+    "styles": [],
+    "slots": [],
+    "parts": [
+      {
+        "name": "title",
+        "docs": ""
+      }
+    ],
+    "listeners": [],
+    "metadata": {}
+  },
+  {
     "filePath": "./src/components/content/avatar/avatar.tsx",
     "fileName": "avatar.tsx",
     "tag": "goat-avatar",
@@ -709,13 +843,15 @@
     "dependencies": [
       "goat-button",
       "goat-select",
-      "goat-calendar-column-view"
+      "goat-calendar-column-view",
+      "goat-calendar-month-view"
     ],
     "dependencyGraph": {
       "goat-calendar": [
         "goat-button",
         "goat-select",
-        "goat-calendar-column-view"
+        "goat-calendar-column-view",
+        "goat-calendar-month-view"
       ],
       "goat-button": [
         "goat-icon",
@@ -884,6 +1020,11 @@
       },
       {
         "event": "goat:column-view-event-click",
+        "capture": false,
+        "passive": false
+      },
+      {
+        "event": "goat:month-view-event-click",
         "capture": false,
         "passive": false
       }
@@ -1063,6 +1204,157 @@
         "goat-calendar-column-view-background"
       ]
     },
+    "props": [
+      {
+        "name": "columns",
+        "type": "number",
+        "mutable": false,
+        "attr": "columns",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "1",
+        "values": [
+          {
+            "type": "number"
+          }
+        ],
+        "optional": false,
+        "required": false
+      }
+    ],
+    "methods": [],
+    "events": [],
+    "styles": [],
+    "slots": [],
+    "parts": [],
+    "listeners": [],
+    "metadata": {}
+  },
+  {
+    "filePath": "./src/components/calendar/calendar/month-view/month-view.tsx",
+    "fileName": "month-view.tsx",
+    "tag": "goat-calendar-month-view",
+    "readme": "# goat-calendar-column-view\n\n\n",
+    "overview": "",
+    "usage": {},
+    "docs": "",
+    "docsTags": [],
+    "encapsulation": "shadow",
+    "dependents": [
+      "goat-calendar"
+    ],
+    "dependencies": [],
+    "dependencyGraph": {
+      "goat-calendar": [
+        "goat-calendar-month-view"
+      ]
+    },
+    "props": [
+      {
+        "name": "contextDate",
+        "type": "Date",
+        "mutable": false,
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "values": [
+          {
+            "type": "Date"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "currentTime",
+        "type": "Date",
+        "mutable": false,
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "values": [
+          {
+            "type": "Date"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "eventClickable",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "event-clickable",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "true",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "events",
+        "type": "any[]",
+        "mutable": false,
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "[]",
+        "values": [
+          {
+            "type": "any[]"
+          }
+        ],
+        "optional": false,
+        "required": false
+      }
+    ],
+    "methods": [],
+    "events": [
+      {
+        "event": "goat:month-view-date-click",
+        "detail": "any",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": "",
+        "docsTags": []
+      },
+      {
+        "event": "goat:month-view-event-click",
+        "detail": "any",
+        "bubbles": true,
+        "cancelable": true,
+        "composed": true,
+        "docs": "",
+        "docsTags": []
+      }
+    ],
+    "styles": [],
+    "slots": [],
+    "parts": [],
+    "listeners": [],
+    "metadata": {}
+  },
+  {
+    "filePath": "./src/components/calendar/calendar/month-view/month-view-background/month-view-background.tsx",
+    "fileName": "month-view-background.tsx",
+    "tag": "goat-calendar-month-view-background",
+    "readme": "# goat-calendar-column-view-background\n\n\n",
+    "overview": "",
+    "usage": {},
+    "docs": "",
+    "docsTags": [],
+    "encapsulation": "shadow",
+    "dependents": [],
+    "dependencies": [],
+    "dependencyGraph": {},
     "props": [
       {
         "name": "columns",
@@ -2437,7 +2729,8 @@
     "dependents": [
       "goat-menu",
       "goat-sidenav-menu",
-      "goat-table"
+      "goat-table",
+      "tree-view"
     ],
     "dependencies": [
       "goat-svg",
@@ -2459,6 +2752,9 @@
         "goat-empty-state"
       ],
       "goat-table": [
+        "goat-empty-state"
+      ],
+      "tree-view": [
         "goat-empty-state"
       ]
     },
@@ -3042,6 +3338,7 @@
     ],
     "encapsulation": "shadow",
     "dependents": [
+      "goat-accordion-item",
       "goat-button",
       "goat-code-highlighter",
       "goat-dropdown",
@@ -3055,6 +3352,9 @@
     ],
     "dependencies": [],
     "dependencyGraph": {
+      "goat-accordion-item": [
+        "goat-icon"
+      ],
       "goat-button": [
         "goat-icon"
       ],
@@ -6867,6 +7167,149 @@
       "name": "Toast",
       "description": "Toasts are lightweight notifications.",
       "example": "<goat-toast state=\"success\" message=\"Successful saved the record\"></goat-toast>"
+    }
+  },
+  {
+    "filePath": "./src/components/menu/tree-view/tree-view.tsx",
+    "fileName": "tree-view.tsx",
+    "tag": "tree-view",
+    "readme": "# goat-menu\r\n\r\n\r\n\r",
+    "overview": "",
+    "usage": {},
+    "docs": "",
+    "docsTags": [
+      {
+        "name": "name",
+        "text": "TreeView"
+      },
+      {
+        "name": "description",
+        "text": "Menus display a list of choices on temporary surfaces."
+      },
+      {
+        "name": "img",
+        "text": "/assets/img/menu.png"
+      }
+    ],
+    "encapsulation": "shadow",
+    "dependents": [],
+    "dependencies": [
+      "goat-empty-state"
+    ],
+    "dependencyGraph": {
+      "tree-view": [
+        "goat-empty-state"
+      ],
+      "goat-empty-state": [
+        "goat-svg",
+        "goat-button"
+      ],
+      "goat-button": [
+        "goat-icon",
+        "goat-spinner"
+      ]
+    },
+    "props": [
+      {
+        "name": "empty",
+        "type": "boolean",
+        "mutable": true,
+        "attr": "empty",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "emptyState",
+        "type": "any",
+        "mutable": true,
+        "attr": "empty-state",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "{\n    'headline': 'No items',\n    'description': 'There are no items to display',\n  }",
+        "values": [
+          {
+            "type": "any"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "showLoader",
+        "type": "boolean",
+        "mutable": false,
+        "attr": "show-loader",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "default": "false",
+        "values": [
+          {
+            "type": "boolean"
+          }
+        ],
+        "optional": false,
+        "required": false
+      },
+      {
+        "name": "value",
+        "type": "number | string",
+        "mutable": true,
+        "attr": "value",
+        "reflectToAttr": false,
+        "docs": "",
+        "docsTags": [],
+        "values": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "string"
+          }
+        ],
+        "optional": true,
+        "required": false
+      }
+    ],
+    "methods": [
+      {
+        "name": "setFocus",
+        "returns": {
+          "type": "Promise<void>",
+          "docs": ""
+        },
+        "signature": "setFocus() => Promise<void>",
+        "parameters": [],
+        "docs": "Sets focus on first menu item. Use this method instead of the global\n`element.focus()`.",
+        "docsTags": []
+      }
+    ],
+    "events": [],
+    "styles": [],
+    "slots": [],
+    "parts": [],
+    "listeners": [
+      {
+        "event": "keydown",
+        "target": "window",
+        "capture": false,
+        "passive": false
+      }
+    ],
+    "metadata": {
+      "name": "TreeView",
+      "description": "Menus display a list of choices on temporary surfaces.",
+      "img": "/assets/img/menu.png"
     }
   }
 ]

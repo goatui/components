@@ -1,0 +1,74 @@
+@import "../../../../globalStyles/commons";
+
+:host {
+  display: block;
+}
+
+.accordion-item {
+  .accordion-heading {
+    cursor: pointer;
+    width: 100%;
+    border-radius: 0;
+    color: v(--text-primary);
+    background: transparent;
+    border: 0;
+    padding: v(--spacing-2) var(--spacing-4);
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    .accordion-title {
+      width: 100%;
+      text-align: left;
+      @include font-style(text-md);
+    }
+
+    svg {
+      flex: 0 0 1rem;
+    }
+
+    &:hover {
+      background: v(--layer-hover-01);
+    }
+
+    &.has-focus {
+      @include focus-ring;
+    }
+  }
+
+  .item-section {
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &.open {
+    .item-section {
+      height: 100%;
+      opacity: 1;
+      transition: opacity 0.1s linear;
+      pointer-events: auto;
+      padding: v(--spacing-2) var(--spacing-4) v(--spacing-4) var(--spacing-4);
+    }
+
+    .accordion-icon {
+      transform: rotate(90deg);
+      transition: transform 0.1s linear;
+    }
+  }
+
+  &.disabled {
+    .accordion-heading {
+      cursor: not-allowed;
+      color: v(--text-disabled);
+      .accordion-icon {
+        color: v(--text-disabled);
+      }
+    }
+  }
+
+}
+
+

@@ -126,7 +126,7 @@
   text-transform: uppercase;
   position: sticky;
   top: 0;
-  background: v(--ui-01);
+  background: v(--layer-01);
 
 
   .left-panel {
@@ -136,7 +136,7 @@
   }
 
   .col {
-    background: v(--ui-01);
+    background: v(--layer-01);
     border-bottom: 1px solid var(--table-border-color);
 
     &.sort {
@@ -160,7 +160,7 @@
       cursor: pointer;
       background: v(--background);
       border: 2px solid transparent;
-      border-bottom: 1px solid var(--ui-03);
+      border-bottom: 1px solid var(--layer-accent-01);
 
       &:focus {
         outline: none;

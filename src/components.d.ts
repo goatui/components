@@ -6,6 +6,22 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface GoatAccordion {
+    }
+    interface GoatAccordionItem {
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled": boolean;
+        /**
+          * The menu item value.
+         */
+        "heading": string;
+        /**
+          * Menu item selection state.
+         */
+        "open": boolean;
+    }
     interface GoatAvatar {
         "name": string;
         /**
@@ -698,6 +714,20 @@ export namespace Components {
         "message": string;
         "state": 'success' | 'error' | 'info' | 'warning';
     }
+    interface TreeView {
+        "empty": boolean;
+        "emptyState": any;
+        /**
+          * Sets focus on first menu item. Use this method instead of the global `element.focus()`.
+         */
+        "setFocus": () => Promise<void>;
+        "showLoader": boolean;
+        "value"?: string | number;
+    }
+}
+export interface GoatAccordionItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatAccordionItemElement;
 }
 export interface GoatButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -768,6 +798,18 @@ export interface GoatTimePickerCustomEvent<T> extends CustomEvent<T> {
     target: HTMLGoatTimePickerElement;
 }
 declare global {
+    interface HTMLGoatAccordionElement extends Components.GoatAccordion, HTMLStencilElement {
+    }
+    var HTMLGoatAccordionElement: {
+        prototype: HTMLGoatAccordionElement;
+        new (): HTMLGoatAccordionElement;
+    };
+    interface HTMLGoatAccordionItemElement extends Components.GoatAccordionItem, HTMLStencilElement {
+    }
+    var HTMLGoatAccordionItemElement: {
+        prototype: HTMLGoatAccordionItemElement;
+        new (): HTMLGoatAccordionItemElement;
+    };
     interface HTMLGoatAvatarElement extends Components.GoatAvatar, HTMLStencilElement {
     }
     var HTMLGoatAvatarElement: {
@@ -1050,7 +1092,15 @@ declare global {
         prototype: HTMLGoatToastElement;
         new (): HTMLGoatToastElement;
     };
+    interface HTMLTreeViewElement extends Components.TreeView, HTMLStencilElement {
+    }
+    var HTMLTreeViewElement: {
+        prototype: HTMLTreeViewElement;
+        new (): HTMLTreeViewElement;
+    };
     interface HTMLElementTagNameMap {
+        "goat-accordion": HTMLGoatAccordionElement;
+        "goat-accordion-item": HTMLGoatAccordionItemElement;
         "goat-avatar": HTMLGoatAvatarElement;
         "goat-badge": HTMLGoatBadgeElement;
         "goat-breadcrumb": HTMLGoatBreadcrumbElement;
@@ -1098,9 +1148,30 @@ declare global {
         "goat-textarea": HTMLGoatTextareaElement;
         "goat-time-picker": HTMLGoatTimePickerElement;
         "goat-toast": HTMLGoatToastElement;
+        "tree-view": HTMLTreeViewElement;
     }
 }
 declare namespace LocalJSX {
+    interface GoatAccordion {
+    }
+    interface GoatAccordionItem {
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled"?: boolean;
+        /**
+          * The menu item value.
+         */
+        "heading"?: string;
+        /**
+          * Emitted when the menu item is clicked.
+         */
+        "onGoat:menu-item-click"?: (event: GoatAccordionItemCustomEvent<any>) => void;
+        /**
+          * Menu item selection state.
+         */
+        "open"?: boolean;
+    }
     interface GoatAvatar {
         "name"?: string;
         /**
@@ -1817,7 +1888,15 @@ declare namespace LocalJSX {
         "message"?: string;
         "state"?: 'success' | 'error' | 'info' | 'warning';
     }
+    interface TreeView {
+        "empty"?: boolean;
+        "emptyState"?: any;
+        "showLoader"?: boolean;
+        "value"?: string | number;
+    }
     interface IntrinsicElements {
+        "goat-accordion": GoatAccordion;
+        "goat-accordion-item": GoatAccordionItem;
         "goat-avatar": GoatAvatar;
         "goat-badge": GoatBadge;
         "goat-breadcrumb": GoatBreadcrumb;
@@ -1865,12 +1944,15 @@ declare namespace LocalJSX {
         "goat-textarea": GoatTextarea;
         "goat-time-picker": GoatTimePicker;
         "goat-toast": GoatToast;
+        "tree-view": TreeView;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "goat-accordion": LocalJSX.GoatAccordion & JSXBase.HTMLAttributes<HTMLGoatAccordionElement>;
+            "goat-accordion-item": LocalJSX.GoatAccordionItem & JSXBase.HTMLAttributes<HTMLGoatAccordionItemElement>;
             "goat-avatar": LocalJSX.GoatAvatar & JSXBase.HTMLAttributes<HTMLGoatAvatarElement>;
             "goat-badge": LocalJSX.GoatBadge & JSXBase.HTMLAttributes<HTMLGoatBadgeElement>;
             "goat-breadcrumb": LocalJSX.GoatBreadcrumb & JSXBase.HTMLAttributes<HTMLGoatBreadcrumbElement>;
@@ -1918,6 +2000,7 @@ declare module "@stencil/core" {
             "goat-textarea": LocalJSX.GoatTextarea & JSXBase.HTMLAttributes<HTMLGoatTextareaElement>;
             "goat-time-picker": LocalJSX.GoatTimePicker & JSXBase.HTMLAttributes<HTMLGoatTimePickerElement>;
             "goat-toast": LocalJSX.GoatToast & JSXBase.HTMLAttributes<HTMLGoatToastElement>;
+            "tree-view": LocalJSX.TreeView & JSXBase.HTMLAttributes<HTMLTreeViewElement>;
         }
     }
 }

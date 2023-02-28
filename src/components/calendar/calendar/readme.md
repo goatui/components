@@ -32,6 +32,7 @@
 - [goat-button](../../controls/button)
 - [goat-select](../../form/select)
 - [goat-calendar-column-view](column-view)
+- [goat-calendar-month-view](month-view)
 
 ### Graph
 ```mermaid
@@ -39,6 +40,7 @@ graph TD;
   goat-calendar --> goat-button
   goat-calendar --> goat-select
   goat-calendar --> goat-calendar-column-view
+  goat-calendar --> goat-calendar-month-view
   goat-button --> goat-icon
   goat-button --> goat-spinner
   goat-select --> goat-tag

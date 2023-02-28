@@ -44,10 +44,6 @@ title: Components
     left: 0;
   }
 
-  .card-wrapper .body {
-    height: 9rem;
-  }
-
   .card-wrapper:hover .body {
     background: var(--ui-01);
   }
@@ -75,6 +71,11 @@ title: Components
     background: var(--background);
   }
 </style>
+
+
+<goat-text type='heading' class='overview'>
+  Overview
+</goat-text>
 
 
 <goat-input id='component-search' placeholder='Search'>
@@ -108,7 +109,6 @@ title: Components
 
       <goat-card-content class='body'>
         <goat-text class='text' type='heading' level='5'>{{component.metadata.name}}</goat-text>
-        <goat-text class='text' type='paragraph' size='sm'>{{component.metadata.description}}</goat-text>
       </goat-card-content>
 
     </goat-card>

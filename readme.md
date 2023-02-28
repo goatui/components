@@ -54,8 +54,9 @@ Checkout the complete documentation over here -> https://goatui.com
 
 | Name                                                                       | Component                 | State |
 |----------------------------------------------------------------------------|---------------------------|-------|
+| [Accordion](https://goatui.com/components/accordion)                       | goat-accordion            | 🟢    |
 | [Avatar](https://goatui.com/components/avatar)                             | goat-avatar               | 🟢    |
-| [Badge](https://goatui.com/components/badge)                               | goat-badge                | 🟡    |
+| [Badge](https://goatui.com/components/badge)                               | goat-badge                | 🟢    |
 | [Breadcrumb](https://goatui.com/components/breadcrumb)                     | goat-breadcrumb           | 🟢    |
 | [Button](https://goatui.com/components/button)                             | goat-button               | 🟢    |
 | [Button Group](https://goatui.com/components/button-group)                 | goat-button-group         | 🟢    |

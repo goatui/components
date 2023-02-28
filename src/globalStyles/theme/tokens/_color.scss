@@ -278,24 +278,32 @@ $dark-color-css-variables: ();
  * UI Shell base color
  */
 @include defineVariable(--background, getColor(white, 0), getColor(neutral, 100));
-@include defineVariable(--ui-01, getColor(neutral, 20), getColor(neutral, 80));
+@include defineVariable(--layer-01, getColor(neutral, 20), getColor(neutral, 80));
 
 /*
-Container background on $ui-01;
+Container background on $layer-01;
 `Light` variant background
  */
-@include defineVariable(--ui-02, getColor(white, 0), getColor(neutral, 80));
+@include defineVariable(--layer-02, getColor(white, 0), getColor(neutral, 80));
 
 /*
 Subtle border;
 Tertiary background
  */
-@include defineVariable(--ui-03, getColor(neutral, 20), getColor(neutral, 60));
+@include defineVariable(--layer-accent-01, getColor(neutral, 20), getColor(neutral, 60));
 
+
+@include defineVariable(--border-subtle-00, getColor(gray, 20), getColor(neutral, 80));
+@include defineVariable(--border-subtle-01, getColor(gray, 20), getColor(neutral, 80));
+@include defineVariable(--border-subtle-02, getColor(gray, 20), getColor(neutral, 70));
+@include defineVariable(--border-subtle-03, getColor(gray, 20), getColor(neutral, 60));
 
 @include defineVariable(--ui-04, getColor(neutral, 50), getColor(neutral, 10));
 
 @include defineVariable(--background-inverse, getColor(neutral, 80), getColor(neutral, 10));
+
+
+@include defineVariable(--layer-hover-01, getColor(neutral, 10), getColor(neutral, 90));
 /**
 Primary text;
 Body copy;

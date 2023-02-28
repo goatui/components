@@ -16,6 +16,7 @@ import { ElementSize, getComponentIndex } from '../../../utils/utils';
 /**
  * @name Button
  * @description An interactive button with a range of presentation options.
+ * @tags controls
  * @example <goat-button>
  *   Button CTA
  *   </goat-button>

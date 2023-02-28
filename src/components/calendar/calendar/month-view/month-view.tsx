@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, h, Prop } from '@stencil/core';
-import { addDays, addHours, differenceInDays, endOfDay, format, isEqual, startOfDay } from 'date-fns';
+import { addDays, addHours, differenceInDays, endOfDay, format, startOfDay } from 'date-fns';
 import MonthEventManager from './MonthEventManager';
 import { BaseEvent } from '../event-management/BaseEvent';
 import { calculateMonthRange } from '../utils';
@@ -22,40 +22,25 @@ export class CalendarMonthView implements ComponentInterface {
 
   dateRange: any;
 
-  singleDayEvents: any = {};
-  multiDayEvents: any = [];
+  weekDayEvents: any = [];
 
-  @Event({ eventName: 'goat:month-view-date-click' }) goatColumnViewDateClick: EventEmitter;
+  @Event({ eventName: 'goat:month-view-date-click' }) goatMonthViewDateClick: EventEmitter;
 
-  @Event({ eventName: 'goat:month-view-event-click' }) goatColumnViewEventClick: EventEmitter;
+  @Event({ eventName: 'goat:month-view-event-click' }) goatMonthViewEventClick: EventEmitter;
 
   async componentWillRender() {
     this.dateRange = calculateMonthRange(this.contextDate, 1 /* monday */);
-    this.singleDayEvents = {};
-    this.#forEachDayInDateRange(i => {
+    this.weekDayEvents = [];
+    for (let i = new Date(this.dateRange.startDate), j = 0; j < 5; i = addDays(i, 7), j++) {
       const manager = new MonthEventManager();
       manager.addEvents(
         this.events.filter(event => {
-          return event.isOverlapping(new BaseEvent(startOfDay(i), endOfDay(i))) && event.length() < 86400000;
+          return event.isOverlapping(new BaseEvent(startOfDay(i), endOfDay(addDays(i, 6))));
         }),
       );
       manager.process();
-      this.singleDayEvents[this.#getDateOnly(i)] = manager.columns;
-    });
-    const manager = new MonthEventManager();
-    manager.addEvents(this.events.filter(event => event.length() >= 86400000));
-    manager.process();
-    this.multiDayEvents = manager.columns;
-  }
-
-  #forEachDayInDateRange(callback) {
-    for (let i = new Date(this.dateRange.startDate); differenceInDays(startOfDay(this.dateRange.endDate), i) >= 0; i = addDays(i, 1)) {
-      callback(i);
+      this.weekDayEvents.push(manager.columns);
     }
-  }
-
-  #getDateOnly(date) {
-    return format(date, 'dd-MM-yyyy');
   }
 
   async componentDidLoad() {
@@ -67,37 +52,32 @@ export class CalendarMonthView implements ComponentInterface {
 
   renderHeader() {
     const columns = [];
-    this.#forEachDayInDateRange(i => {
+    for (let i = new Date(this.dateRange.startDate), j = 0; j < 7; i = addDays(i, 1), j++) {
       const cls = ['column'];
-      const diff = differenceInDays(startOfDay(i), startOfDay(this.currentTime));
-      if (diff === 0) cls.push('today');
-      else if (diff < 0) cls.push('past');
-      else if (diff < 0) cls.push('future');
-
       columns.push(
         <div class={cls.join(' ')}>
           <div class="column-content">
-            <div class="date" onClick={() => this.goatColumnViewDateClick.emit({ date: i })}>
-              {format(i, 'dd')}
-            </div>
-            <div class="day">{format(i, 'E')}</div>
+            <div class="day">{format(i, 'EEEE')}</div>
           </div>
         </div>,
       );
-    });
+    }
     return columns;
   }
 
-  renderMultiDayBackground() {
+  renderMultiDayBackground(startDate) {
     const columns = [];
-    for (let i = new Date(this.dateRange.startDate); differenceInDays(startOfDay(this.dateRange.endDate), i) >= 0; i = addDays(i, 1)) {
+    for (let i = new Date(startDate), j = 0; j < 7; i = addDays(i, 1), j++) {
       const cls = ['column'];
       const diff = differenceInDays(startOfDay(i), startOfDay(this.currentTime));
       if (diff === 0) cls.push('today');
       else if (diff < 0) cls.push('past');
       else if (diff < 0) cls.push('future');
-
-      columns.push(<div class={cls.join(' ')}></div>);
+      columns.push(<div class={cls.join(' ')}>
+        <div class="column-content">
+<div class="day">{format(i, 'd')}</div>
+        </div>
+      </div>);
     }
     return columns;
   }
@@ -124,91 +104,56 @@ export class CalendarMonthView implements ComponentInterface {
   }
 
   renderEvents() {
-    const columns = [];
-    for (let i = new Date(this.dateRange.startDate), j = 0; differenceInDays(startOfDay(this.dateRange.endDate), i) >= 0; i = addDays(i, 1), j++) {
-      const cls = ['column'];
-      if (isEqual(startOfDay(i), startOfDay(this.currentTime))) cls.push('active');
-      columns.push(
-        <div class={cls.join(' ')}>
-          <div class="column-content">
-            {(() => {
-              const eventDay = this.singleDayEvents[this.#getDateOnly(i)];
-              if (eventDay) {
-                const columnsLength = eventDay.length;
-
-                return eventDay.map((nodes, columnIndex) => {
-                  return nodes.map(node => {
-                    const cls = ['event'];
-                    if (this.eventClickable) cls.push('clickable');
-                    return (
-                      <div
-                        class={cls.join(' ')}
-                        onClick={() => {
-                          if (this.eventClickable) {
-                            this.goatColumnViewEventClick.emit({ event: node.data });
-                          }
-                        }}
-                        style={{
-                          top: `${this.getTimePercent(node.start, startOfDay(i))}%`,
-                          height: `${this.getTimePercent(node.end, startOfDay(i)) - this.getTimePercent(node.start, startOfDay(i))}%`,
-                          left: `${(columnIndex / columnsLength) * 100}%`,
-                          width: `calc(${((1 * node.width) / columnsLength) * 100}% - 1px)`,
-                        }}
-                      >
-                        <div class="event-title">{node.title || '(no title)'}</div>
-                      </div>
-                    );
-                  });
-                });
-              }
-            })()}
-          </div>
-        </div>,
-      );
-    }
-    return <div class="events-container">{columns}</div>;
-  }
-
-  renderMultiDayEvents() {
-    const eventDay = this.multiDayEvents;
-    if (eventDay && eventDay.length) {
+    return this.weekDayEvents.map((eventDay, index) => {
       return (
-        <div class="row-content">
-          {eventDay.map((nodes) => {
-            return (
-              <div class="row">
-                {nodes.map(node => {
-                  const cls = ['event'];
-                  if (this.eventClickable) cls.push('clickable');
+        <div class="multi-day-section">
+          <div class="multi-day-body-scroll">
+            <div class="multi-day-background">
+              <div class="columns">{this.renderMultiDayBackground(addDays(this.dateRange.startDate, index * 7))}</div>
+            </div>
+            <div class="multi-events">
+              <div class="row-content">
+                {eventDay.map(nodes => {
                   return (
-                    <div
-                      class={cls.join(' ')}
-                      onClick={() => {
-                        if (this.eventClickable) {
-                          this.goatColumnViewEventClick.emit({ event: node.data });
-                        }
-                      }}
-                      style={{
-                        left: `${this.getDatePercent(node.start)}%`,
-                        width: `${this.getDatePercent(addDays(node.end, 1)) - this.getDatePercent(node.start)}%`,
-                      }}
-                    >
-                      <div class="event-title">{node.title || '(no title)'}</div>
+                    <div class="row">
+                      {nodes.map(node => {
+                        const cls = ['event'];
+                        if (this.eventClickable) cls.push('clickable');
+                        return (
+                          <div
+                            class={cls.join(' ')}
+                            onClick={() => {
+                              if (this.eventClickable) {
+                                this.goatMonthViewEventClick.emit({ event: node.data });
+                              }
+                            }}
+                            style={{
+                              left: `${this.getDatePercent(node.start, { startDate: addDays(this.dateRange.startDate, index * 7) })}%`,
+                              width: `${
+                                this.getDatePercent(addDays(node.end, 1), { startDate: addDays(this.dateRange.startDate, index * 7) }) -
+                                this.getDatePercent(node.start, { startDate: addDays(this.dateRange.startDate, index * 7) })
+                              }%`,
+                            }}
+                          >
+                            <div class="event-title">{node.title || '(no title)'}</div>
+                          </div>
+                        );
+                      })}
                     </div>
                   );
                 })}
+                <div class="row-spacer"></div>
               </div>
-            );
-          })}
-          <div class="row-spacer"></div>
+            </div>
+          </div>
         </div>
       );
-    }
+    });
   }
 
-  getDatePercent(date) {
-    const currentDay = differenceInDays(startOfDay(date), this.dateRange.startDate);
-    const percent = (currentDay / this.dateRange.totalDays) * 100;
+  getDatePercent(date, dateRange) {
+    const currentDay = differenceInDays(startOfDay(date), dateRange.startDate);
+    const percent = (currentDay / 7) * 100;
     if (percent < 0) return 0;
     if (percent > 100) return 100;
     return percent;
@@ -224,50 +169,17 @@ export class CalendarMonthView implements ComponentInterface {
     return percent;
   }
 
-  renderCurrentTime() {
-    if (this.currentTime.valueOf() > this.dateRange.startDate.valueOf() - 1 && this.currentTime.valueOf() < this.dateRange.endDate.valueOf() + 1) {
-      return (
-        <div class="current-time-line" style={{ top: `calc(${this.getTimePercent(this.currentTime)}% - 1px)` }}>
-          <div class="time">{format(this.contextDate, 'hh:mm a')}</div>
-          <div class="dash-line" style={{ width: `${this.getDatePercent(this.currentTime)}%` }}></div>
-          <div class="dot" style={{ left: `calc( ${this.getDatePercent(this.currentTime)}% - 0.25rem)` }}></div>
-          <div
-            class="line"
-            style={{
-              left: `${this.getDatePercent(this.currentTime)}%`,
-              width: `${(1 / this.dateRange.totalDays) * 100}%`,
-            }}
-          ></div>
-        </div>
-      );
-    }
-  }
-
   render() {
     return (
-      <div class="calendar-column-view">
+      <div class="calendar-month-view">
         <div class="view-header">
-          <div class="scale" />
           <div class="columns">{this.renderHeader()}</div>
           <div class="scrollbar-placeholder" />
         </div>
-        <div class="multi-day-section">
-          <div class="multi-day-body-scroll">
-            <div class="multi-day-header">
-              <div class="scale" />
-              <div class="columns">{this.renderMultiDayBackground()}</div>
-            </div>
-            <div class="multi-events">{this.renderMultiDayEvents()}</div>
-          </div>
-        </div>
+
         <div class="view-body">
           <div class="view-body-scroll">
-            <div class="scale">{this.renderScale()}</div>
-            <div class="drawing-area">
-              <goat-calendar-column-view-background columns={this.dateRange.totalDays} />
-              {this.renderEvents()}
-            </div>
-            {this.renderCurrentTime()}
+            <div class="drawing-area">{this.renderEvents()}</div>
           </div>
         </div>
       </div>

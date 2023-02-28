@@ -61,6 +61,11 @@ export class Calendar implements ComponentInterface {
     this.goatCalendarEventClick.emit(evt.detail.event);
   }
 
+  @Listen('goat:month-view-event-click')
+  monthViewEventClick(evt) {
+    this.goatCalendarEventClick.emit(evt.detail.event);
+  }
+
   async componentWillLoad() {
     if (this.timezone) {
       this.currentTime = new Date(new Date().toLocaleString('en', { timeZone: this.timezone }));

@@ -17,6 +17,7 @@
 
 ### Used by
 
+ - [goat-accordion-item](../accordion/accordion-item)
  - [goat-button](../../controls/button)
  - [goat-code-highlighter](../code-highlighter)
  - [goat-dropdown](../../menu/dropdown)
@@ -31,6 +32,7 @@
 ### Graph
 ```mermaid
 graph TD;
+  goat-accordion-item --> goat-icon
   goat-button --> goat-icon
   goat-code-highlighter --> goat-icon
   goat-dropdown --> goat-icon

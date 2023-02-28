@@ -15,7 +15,7 @@
  * UI Shell base color
  */
 /*
-Container background on $ui-01;
+Container background on $layer-01;
 `Light` variant background
  */
 /*
@@ -363,11 +363,16 @@ Secondary link color for lower contrast backgrounds
   --color-light: #ffffff;
   --border-color: var(--color-gray-50, #8d8d8d);
   --background: #ffffff;
-  --ui-01: var(--color-gray-20, #e0e0e0);
-  --ui-02: #ffffff;
-  --ui-03: var(--color-gray-20, #e0e0e0);
+  --layer-01: var(--color-gray-20, #e0e0e0);
+  --layer-02: #ffffff;
+  --layer-accent-01: var(--color-gray-20, #e0e0e0);
+  --border-subtle-00: var(--color-gray-30, #c6c6c6);
+  --border-subtle-01: #e0e0e0;
+  --border-subtle-02: #e0e0e0;
+  --border-subtle-03: #e0e0e0;
   --ui-04: var(--color-gray-50, #8d8d8d);
   --background-inverse: var(--color-gray-80, #393939);
+  --layer-hover-01: var(--color-gray-10, #f4f4f4);
   --text-primary: var(--color-gray-100, #161616);
   --text-secondary: var(--color-gray-70, #525252);
   --text-placeholder: var(--color-gray-40, #a8a8a8);
@@ -390,7 +395,6 @@ Secondary link color for lower contrast backgrounds
   --icon-02: var(--color-gray-70, #525252);
   --hover-ui: var(--color-gray-10, #f4f4f4);
   --active-ui: var(--color-gray-30, #c6c6c6);
-  --border-subtle-00: var(--color-gray-30, #c6c6c6);
   --border-strong-01: var(--color-gray-50, #8d8d8d);
   --danger-01: #da1e28;
   --danger-02: #da1e28;
@@ -513,11 +517,16 @@ html[data-theme=dark] {
   --color-dark: #ffffff;
   --color-light: #000000;
   --background: var(--color-gray-100, #161616);
-  --ui-01: var(--color-gray-80, #393939);
-  --ui-02: var(--color-gray-80, #393939);
-  --ui-03: var(--color-gray-60, #6f6f6f);
+  --layer-01: var(--color-gray-80, #393939);
+  --layer-02: var(--color-gray-80, #393939);
+  --layer-accent-01: var(--color-gray-60, #6f6f6f);
+  --border-subtle-00: var(--color-gray-30, #c6c6c6);
+  --border-subtle-01: var(--color-gray-80, #393939);
+  --border-subtle-02: var(--color-gray-70, #525252);
+  --border-subtle-03: var(--color-gray-60, #6f6f6f);
   --ui-04: var(--color-gray-10, #f4f4f4);
   --background-inverse: var(--color-gray-10, #f4f4f4);
+  --layer-hover-01: var(--color-gray-90, #262626);
   --text-primary: var(--color-gray-10, #f4f4f4);
   --text-secondary: var(--color-gray-30, #c6c6c6);
   --text-placeholder: var(--color-gray-60, #6f6f6f);
@@ -536,7 +545,6 @@ html[data-theme=dark] {
   --icon-02: var(--color-gray-30, #c6c6c6);
   --hover-ui: var(--color-gray-90, #262626);
   --active-ui: var(--color-gray-30, #c6c6c6);
-  --border-subtle-00: var(--color-gray-30, #c6c6c6);
   --border-strong-01: var(--color-gray-60, #6f6f6f);
   --danger-02: #fa4d56;
   --support-error: #fa4d56;
