@@ -1,0 +1,13 @@
+@import "../../../../globalStyles/commons";
+
+:host {
+  display: block;
+}
+
+slot::slotted(goat-accordion-item) {
+  border-top: 1px solid v(--border-subtle-01);
+}
+
+slot::slotted(goat-accordion-item:last-child) {
+  border-bottom: 1px solid v(--border-subtle-01);
+}

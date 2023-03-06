@@ -19,6 +19,8 @@ sections:
       <goat-text type='paragraph'>Use {{site.title}}’s custom input styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</goat-text>
     </div>
 
+    <goat-tag class='color-red'>Work in progress</goat-tag>
+
     {% for section in page.sections %}
     <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style='padding-bottom: var(--spacing-4)'>
       <goat-text type='heading' level='2' size='sm'>{{ section.title }}</goat-text>

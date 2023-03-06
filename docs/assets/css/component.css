@@ -33,6 +33,12 @@
   padding-bottom: 0.5rem;
 }
 
+.category-name {
+  margin: 0 1rem;
+  padding: 1.5rem 0 0.5rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
 .sidenav-link {
   padding: 0.5rem 1rem;
   width: 100%;

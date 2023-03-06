@@ -19,7 +19,7 @@
   <link rel='shortcut icon' href='/assets/img/favicon.svg'>
 
   <!--  Meta tags -->
-  <meta name='keywords' content='web components, goat button, goat input, goat grid, goat ui library'>
+  <meta name='keywords' content='{% if page.keywords == null %}Web component, {{ page.title }}{% endif %}{% for keyword in page.keywords %}{{ keyword }}, {% endfor %}'>
   <meta name='description'
         content='{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}'>
 

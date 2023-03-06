@@ -3,6 +3,8 @@ import { Component, ComponentInterface, Element, h, Host, Listen } from '@stenci
 /**
  * @name Tabs
  * @description An interactive button with a range of presentation options.
+ * @category Navigation
+ * @tags navigation
  * @example <goat-tabs>
  *   <goat-tabs-list>
  *    <goat-tab selected >Tab 1</goat-tab>

@@ -1,6 +1,7 @@
 ---
 layout: component
 title: Components
+keywords: web components, button, input, grid, ui library, calendar, table, accordion, select, search, notifications, modal, card, breadcrumb, tree view, tabs, pagination, tooltip, popover, dropdown, menu, slider, toggle, switch, progress bar, spinner, loader, toast, alert, badge, tag, avatar, chip, divider, list, icon, text, heading, paragraph, label, link, image, checkbox, radio, form, form group, form field
 ---
 <style>
   .cards {
@@ -34,7 +35,12 @@ title: Components
     }
   }
 
-  .card-wrapper goat-card:after {
+  .card-wrapper .header {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .card-wrapper .header:after {
     content: "";
     display: block;
     position: absolute;
@@ -42,10 +48,12 @@ title: Components
     height: 100%;
     top: 0;
     left: 0;
+    z-index: 1000;
+    pointer-events: unset;
   }
 
   .card-wrapper:hover .body {
-    background: var(--ui-01);
+    background: var(--layer-01);
   }
 
   .card-wrapper .header {
@@ -67,6 +75,10 @@ title: Components
     display: none;
   }
 
+  .hidden-force {
+    display: none;
+  }
+
   goat-card > goat-card-content:first-child {
     background: var(--background);
   }
@@ -85,7 +97,7 @@ title: Components
 <script>
   document.getElementById('component-search').addEventListener('goat:input', function(e) {
     console.log(e.target.value);
-    document.querySelectorAll('.cards goat-link').forEach((elm) => {
+    document.querySelectorAll('.cards .card-wrapper').forEach((elm) => {
       elm.classList.remove('hidden');
       if (elm.innerText.toLowerCase().indexOf(e.target.value.toLowerCase()) === -1) {
         elm.classList.add('hidden');
@@ -95,11 +107,11 @@ title: Components
 </script>
 
 <div class='cards'>
-  {% for component in site.data.components %}
+  {% for component in site.data.componentsDetails.components %}
   {% if component.metadata.name %}
-  <goat-link decoration='false' class='card-wrapper' href='/components/{{component.tag | replace: "goat-", ""}}#'>
+  <div class='card-wrapper'>
     <goat-card shadow-level='md' class='card'>
-      <goat-card-content class='header'>
+      <goat-card-content class='header' onclick='(function(){window.location.href="/components/{{component.tag | replace: "goat-", ""}}#";})()'>
         {% if component.metadata.example %}
         {{component.metadata.example}}
         {% else %}
@@ -109,13 +121,32 @@ title: Components
 
       <goat-card-content class='body'>
         <goat-text class='text' type='heading' level='5'>{{component.metadata.name}}</goat-text>
+
+        {% for tag in component.metadata.tags %}
+        <goat-link href='/components?filter={{tag}}'> <goat-tag class='color-blue' tag='{{tag}}'>{{tag}}</goat-tag></goat-link>
+        {% endfor %}
+
+        {% if component.metadata.tags == null %}
+        <goat-link href='/components?filter=other'> <goat-tag class='color-blue'  tag="other">other</goat-tag></goat-link>
+        {% endif %}
       </goat-card-content>
 
     </goat-card>
-  </goat-link>
-
+  </div>
   {% endif %}
   {% endfor %}
+
+  <script>
+    if (window.location.href.indexOf('?filter=') !== -1) {
+      const filter = window.location.href.split('?filter=')[1];
+      document.querySelectorAll('.card-wrapper').forEach((elm) => {
+        elm.classList.add('hidden-force');
+        if (elm.querySelector(`goat-tag[tag="${filter}"]`)) {
+          elm.classList.remove('hidden-force');
+        }
+      });
+    }
+  </script>
 
 
 </div>

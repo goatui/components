@@ -30,7 +30,7 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [goat-breadcrumb-item](../../content/breadcrumb/breadcrumb-item)
+ - [goat-breadcrumb-item](../breadcrumb/breadcrumb-item)
  - [goat-header-brand](../header/header-brand)
 
 ### Graph

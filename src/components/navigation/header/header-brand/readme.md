@@ -20,8 +20,8 @@
 ### Depends on
 
 - [goat-link](../../link)
-- [goat-svg](../../../content/svg)
-- [goat-divider](../../../content/divider)
+- [goat-svg](../../../other/content/svg)
+- [goat-divider](../../../layout/divider)
 
 ### Graph
 ```mermaid

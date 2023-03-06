@@ -10,13 +10,27 @@ layout: default
       <goat-text class='inherit'>Overview</goat-text>
     </a>
 
-    {% for component in site.data.components %}
-    {% if component.metadata.name %}
-    <a class='sidenav-link {% if page.title == component.metadata.name %}active{% endif %}'
-       href='/components/{{component.tag | replace: "goat-", ""}}'>
-      <goat-text class='inherit'>{{component.metadata.name}}</goat-text>
-    </a>
-    {% endif %}
+    {% for category in site.data.componentsDetails.categories %}
+    <div class='category-name'>
+      <goat-text shade='secondary' size='sm'>{{category.name}}</goat-text>
+    </div>
+
+      {% for component in category.components %}
+      {% if component.metadata.name %}
+        {% if component.metadata.category == 'General' %}
+        <a class='sidenav-link {% if page.title == component.metadata.name %}active{% endif %}'
+           href='/components/{{component.tag | replace: "goat-", ""}}'>
+          <goat-text class='inherit'>{{component.metadata.name}}</goat-text>
+        </a>
+        {% else %}
+      <a class='sidenav-link {% if page.title == component.metadata.name %}active{% endif %}'
+         href='/components/{{component.tag | replace: "goat-", ""}}'>
+        <goat-text class='inherit'>{{component.metadata.name}}</goat-text>
+      </a>
+        {% endif %}
+      {% endif %}
+      {% endfor %}
+
     {% endfor %}
   </div>
 

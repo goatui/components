@@ -1,0 +1,194 @@
+@import "../../../../../globalStyles/commons";
+
+:host {
+  display: block;
+  height: 100%;
+  --calendar-border-color: #{v(--ui-04)};
+  --scale-size: 3rem;
+  --scale-color: #{v(--text-placeholder)}
+}
+
+.scale {
+  width: var(--scale-size);
+}
+
+.calendar-month-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .view-header {
+    border-top: 1px solid v(--border-color);
+    border-bottom: 1px solid v(--border-color);
+    display: flex;
+
+    .scale {
+      border-right: 1px solid v(--scale-color);
+    }
+
+    .columns {
+      display: flex;
+      flex: 1;
+
+      .column {
+        flex: 1;
+        border-right: 1px solid v(--scale-color);
+
+
+        .column-content {
+          display: flex;
+          border-top: .5rem solid transparent;
+          align-items: center;
+          padding: .5rem;
+          gap: .5rem;
+        }
+
+        .date {
+          font-size: 2rem;
+          cursor: pointer;
+          border-radius: 100%;
+          padding: 0.5rem;
+        }
+
+        .day {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .scrollbar-placeholder {
+      width: var(--scrollbar-width);
+    }
+  }
+
+
+
+  .view-body {
+    height: 100%;
+    overflow-y: scroll;
+
+    .view-body-scroll {
+      display: flex;
+      position: relative;
+      min-height: 100%;
+
+      .drawing-area {
+        flex: 1;
+
+        .multi-day-section {
+          border-bottom: 1px solid v(--scale-color);
+          min-height: 12rem;
+          height: 20%;
+
+          .multi-day-body-scroll {
+            position: relative;
+            height: 100%
+          }
+
+          .multi-day-background {
+            display: flex;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+
+            .scale {
+              border-right: 1px solid v(--scale-color);
+            }
+
+            .columns {
+              display: flex;
+              flex: 1;
+
+              .column {
+                flex: 1;
+                border-right: 1px solid v(--scale-color);
+              }
+            }
+          }
+
+          .multi-events {
+            min-height: 4rem;
+            padding-top: 2rem;
+            height: 100%;
+
+            .row {
+              height: 2rem;
+              box-sizing: content-box;
+              position: relative;
+              padding-bottom: .5rem;
+              &:last-child {
+                padding-bottom: 0;
+              }
+            }
+
+            .row-spacer {
+              height: 1rem;
+            }
+
+            .event {
+              background: v(--color-primary-20);
+              border-left: .35rem solid v(--color-primary);
+              border-radius: 3px;
+              position: absolute;
+              height: 2rem;
+
+              .event-title {
+                padding: 0.25rem;
+              }
+
+              &.clickable {
+                cursor: pointer;
+
+                &:hover {
+                  background: v(--color-primary-30);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .current-time-line {
+        position: absolute;
+        z-index: 100;
+        pointer-events: none;
+        width: calc(100% - var(--scale-size));
+        margin-inline-start: var(--scale-size);
+
+        .time {
+          position: absolute;
+          font-size: .5rem;
+          font-weight: 600;
+          color: v(--color-primary);
+          top: -6px;
+          left: -3rem;
+          background: v(--color-primary-10);
+          padding: 2px;
+          border-radius: 3px;
+        }
+
+        .dash-line {
+          position: absolute;
+          left: 0;
+          border-bottom: 1px dashed v(--color-primary);
+        }
+
+        .dot {
+          border-radius: 100%;
+          width: 0.5rem;
+          height: 0.5rem;
+          background: v(--color-primary);
+          display: block;
+          position: absolute;
+          top: -0.25rem;
+        }
+
+        .line {
+          border-bottom: 2px solid v(--color-primary);
+          position: absolute;
+          top: -1px;
+        }
+      }
+    }
+  }
+}

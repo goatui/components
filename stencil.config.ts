@@ -10,9 +10,7 @@ export const config: Config = {
     {
       type: 'dist',
       esmLoaderPath: '../loader',
-      copy: [
-        { src: 'assets' },
-      ],
+      copy: [{ src: 'assets' }],
     },
     {
       type: 'dist-custom-elements',
@@ -24,33 +22,66 @@ export const config: Config = {
     {
       type: 'docs-custom',
       generator: (docs: JsonDocs) => {
-        docs.components.forEach((component) => {
+        docs.components.forEach(component => {
           delete component.dirPath;
           delete component.readmePath;
           delete component.usagesDir;
-          
-          // @ts-ignore 
-          component.metadata = {};
 
-          component.docsTags.forEach((tag) => {
-            // @ts-ignore
-            component.metadata[tag.name] = tag.text;
+          // @ts-ignore
+          const metadata: any = {};
+
+          component.docsTags.forEach(tag => {
+            if (tag.name === 'tags') {
+              metadata[tag.name] = tag.text.split(',');
+            } else {
+              metadata[tag.name] = tag.text;
+            }
           });
 
+          // @ts-ignore
+          component.metadata = metadata;
         });
-        fs.writeFileSync(__dirname + '/docs/_data/components.json', JSON.stringify(docs.components, null, 2));
+
+        // @ts-ignore
+        docs.categories = [];
+
+        docs.components.forEach(component => {
+          // @ts-ignore
+          let categoryName = component.metadata.category;
+          if (!categoryName) {
+            categoryName = 'Uncategorized';
+          }
+
+          // @ts-ignore
+          let cat = docs.categories.find(category => category.name === categoryName);
+          if (!cat) {
+            cat = {
+              // @ts-ignore
+              name: categoryName,
+              components: [],
+            };
+            // @ts-ignore
+            docs.categories.push(cat);
+          }
+          cat.components.push(component);
+        });
+
+        const order = ['General', 'Navigation', 'Form Inputs', 'Data Display',  'Feedback', 'Uncategorized'];
+
+        // @ts-ignore
+        docs.categories.sort((a, b) => {
+          return order.indexOf(a.name) - order.indexOf(b.name);
+        });
+
+        fs.writeFileSync(__dirname + '/docs/_data/componentsDetails.json', JSON.stringify(docs, null, 2));
       },
     },
     {
       type: 'www',
       dir: 'docs/assets/goatui-dev/',
       serviceWorker: null, // disable service workers
-      copy: [
-        { src: 'assets', dest: 'build/assets' },
-      ],
+      copy: [{ src: 'assets', dest: 'build/assets' }],
     },
   ],
-  plugins: [
-    sass(),
-  ],
+  plugins: [sass()],
 };
