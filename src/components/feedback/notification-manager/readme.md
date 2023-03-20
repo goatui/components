@@ -17,7 +17,7 @@
 
 ### Depends on
 
-- [goat-toast](../../other/content/toast)
+- [goat-toast](../toast)
 - [goat-notification](../notification)
 
 ### Graph

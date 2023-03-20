@@ -38,7 +38,7 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [goat-empty-state](../../content/empty-state)
+- [goat-empty-state](../../../data-display/empty-state)
 
 ### Graph
 ```mermaid

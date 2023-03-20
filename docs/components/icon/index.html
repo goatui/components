@@ -10,27 +10,45 @@ sections:
   source: sections/sizes.html
 ---
 
-<div class='row pt-3'>
+<goat-tabs>
+  <goat-tabs-list>
+    <goat-tab selected='true'>Details</goat-tab>
+    <goat-tab>Playground</goat-tab>
+  </goat-tabs-list>
 
-  {% include section-nav.html %}
+  <goat-tab-panel>
 
-  <!-- Content -->
-  <div class='component-content'>
+    <div class='usage-tab'>
 
-    <div style='padding-bottom: var(--spacing-6)'>
-      <goat-text type='heading' size='md'>{{ page.title }}</goat-text>
-      <goat-text type='paragraph'>Use {{site.title}}’s custom input styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</goat-text>
+      <!-- Content -->
+      <div class='component-content'>
+
+        <div style='padding-bottom: var(--spacing-6)'>
+          <goat-text type='heading' size='md'>{{ page.title }}</goat-text>
+          <goat-text type='paragraph'>Use {{site.title}}’s custom input styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</goat-text>
+        </div>
+
+        {% for section in page.sections %}
+        <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style='padding-bottom: var(--spacing-4)'>
+          <goat-text type='heading' level='2' size='sm'>{{ section.title }}</goat-text>
+
+          {% include_relative {{ section.source }} %}
+        </div>
+        {% endfor %}
+
+      </div>
+      <!-- End Content -->
+
+
+      {% include section-nav.html %}
     </div>
 
-    {% for section in page.sections %}
-    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style='padding-bottom: var(--spacing-4)'>
-      <goat-text type='heading' level='2' size='sm'>{{ section.title }}</goat-text>
 
-      {% include_relative {{ section.source }} %}
-    </div>
-    {% endfor %}
+  </goat-tab-panel>
 
-  </div>
-  <!-- End Content -->
-
-</div>
+  <goat-tab-panel>
+    <goat-text type='heading'>
+      Second tab content
+    </goat-text>
+  </goat-tab-panel>
+</goat-tabs>

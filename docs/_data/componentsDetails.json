@@ -1,9 +1,9 @@
 {
-  "timestamp": "2023-03-06T05:23:18",
+  "timestamp": "2023-03-20T10:40:20",
   "compiler": {
     "name": "@stencil/core",
-    "version": "2.20.0",
-    "typescriptVersion": "4.8.4"
+    "version": "3.1.0",
+    "typescriptVersion": "4.9.5"
   },
   "components": [
     {
@@ -721,7 +721,7 @@
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Button variants.\nPossible values are `\"default\"`, `\"light\"`, `\"outline\"`, `\"ghost\"`, `\"link\"`. Defaults to `\"default\"`.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -2810,7 +2810,7 @@
       }
     },
     {
-      "filePath": "./src/components/other/content/empty-state/empty-state.tsx",
+      "filePath": "./src/components/data-display/empty-state/empty-state.tsx",
       "fileName": "empty-state.tsx",
       "tag": "goat-empty-state",
       "readme": "# goat-heading\n\n\n",
@@ -2827,8 +2827,12 @@
           "text": "A message that displays when there is no information to display."
         },
         {
+          "name": "category",
+          "text": "Data Display"
+        },
+        {
           "name": "example",
-          "text": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\r\n</goat-empty-state>"
+          "text": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\n</goat-empty-state>"
         }
       ],
       "encapsulation": "shadow",
@@ -3015,7 +3019,8 @@
       "metadata": {
         "name": "Empty State",
         "description": "A message that displays when there is no information to display.",
-        "example": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\r\n</goat-empty-state>"
+        "category": "Data Display",
+        "example": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\n</goat-empty-state>"
       }
     },
     {
@@ -4542,7 +4547,7 @@
       "filePath": "./src/components/feedback/notification-manager/notification-manager.tsx",
       "fileName": "notification-manager.tsx",
       "tag": "goat-notification-manager",
-      "readme": "# goat-alert\r\n\r\n\r\n\r",
+      "readme": "# goat-alert\n\n\n",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -5562,14 +5567,31 @@
       }
     },
     {
-      "filePath": "./src/components/other/content/svg/svg.tsx",
+      "filePath": "./src/components/data-display/svg/svg.tsx",
       "fileName": "svg.tsx",
       "tag": "goat-svg",
-      "readme": "# goat-icon\r\n\r\n\r\n\r",
+      "readme": "# goat-icon\n\n\n",
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "name",
+          "text": "SVG"
+        },
+        {
+          "name": "description",
+          "text": "Render SVG content from an external source."
+        },
+        {
+          "name": "category",
+          "text": "Data Display"
+        },
+        {
+          "name": "example",
+          "text": "<goat-svg src=\"https://icons.getbootstrap.com/assets/icons/bug.svg\"></goat-svg>"
+        }
+      ],
       "encapsulation": "shadow",
       "dependents": [
         "goat-empty-state",
@@ -5609,7 +5631,12 @@
       "slots": [],
       "parts": [],
       "listeners": [],
-      "metadata": {}
+      "metadata": {
+        "name": "SVG",
+        "description": "Render SVG content from an external source.",
+        "category": "Data Display",
+        "example": "<goat-svg src=\"https://icons.getbootstrap.com/assets/icons/bug.svg\"></goat-svg>"
+      }
     },
     {
       "filePath": "./src/components/navigation/tabs/tab/tab.tsx",
@@ -7308,10 +7335,10 @@
       }
     },
     {
-      "filePath": "./src/components/other/content/toast/toast.tsx",
+      "filePath": "./src/components/feedback/toast/toast.tsx",
       "fileName": "toast.tsx",
       "tag": "goat-toast",
-      "readme": "# goat-alert\r\n\r\n\r\n\r",
+      "readme": "# goat-alert\n\n\n",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -7323,6 +7350,10 @@
         {
           "name": "description",
           "text": "Toasts are lightweight notifications."
+        },
+        {
+          "name": "category",
+          "text": "Feedback"
         },
         {
           "name": "example",
@@ -7351,7 +7382,7 @@
           "mutable": false,
           "attr": "message",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Message to display in the toast.",
           "docsTags": [],
           "default": "''",
           "values": [
@@ -7368,7 +7399,7 @@
           "mutable": false,
           "attr": "state",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "Toast state.\nPossible values are `\"success\"`, `\"error\"`, `\"info\"`, `\"warning\"`. Defaults to `\"info\"`.",
           "docsTags": [],
           "default": "'info'",
           "values": [
@@ -7402,6 +7433,7 @@
       "metadata": {
         "name": "Toast",
         "description": "Toasts are lightweight notifications.",
+        "category": "Feedback",
         "example": "<goat-toast state=\"success\" message=\"Successful saved the record\"></goat-toast>"
       }
     },
@@ -7550,79 +7582,6 @@
     }
   ],
   "categories": [
-    {
-      "name": "Layout",
-      "components": [
-        {
-          "filePath": "./src/components/layout/divider/divider.tsx",
-          "fileName": "divider.tsx",
-          "tag": "goat-divider",
-          "readme": "# goat-heading\n\n\n",
-          "overview": "",
-          "usage": {},
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "name",
-              "text": "Divider"
-            },
-            {
-              "name": "description",
-              "text": "A divider can be used to segment content vertically or horizontally."
-            },
-            {
-              "name": "category",
-              "text": "Layout"
-            },
-            {
-              "name": "example",
-              "text": "<goat-divider style=\"width: 12rem;\">or</goat-divider>"
-            }
-          ],
-          "encapsulation": "shadow",
-          "dependents": [
-            "goat-header-brand"
-          ],
-          "dependencies": [],
-          "dependencyGraph": {
-            "goat-header-brand": [
-              "goat-divider"
-            ]
-          },
-          "props": [
-            {
-              "name": "vertical",
-              "type": "boolean",
-              "mutable": false,
-              "attr": "vertical",
-              "reflectToAttr": true,
-              "docs": "",
-              "docsTags": [],
-              "default": "false",
-              "values": [
-                {
-                  "type": "boolean"
-                }
-              ],
-              "optional": false,
-              "required": false
-            }
-          ],
-          "methods": [],
-          "events": [],
-          "styles": [],
-          "slots": [],
-          "parts": [],
-          "listeners": [],
-          "metadata": {
-            "name": "Divider",
-            "description": "A divider can be used to segment content vertically or horizontally.",
-            "category": "Layout",
-            "example": "<goat-divider style=\"width: 12rem;\">or</goat-divider>"
-          }
-        }
-      ]
-    },
     {
       "name": "General",
       "components": [
@@ -7898,7 +7857,7 @@
               "mutable": false,
               "attr": "variant",
               "reflectToAttr": false,
-              "docs": "",
+              "docs": "Button variants.\nPossible values are `\"default\"`, `\"light\"`, `\"outline\"`, `\"ghost\"`, `\"link\"`. Defaults to `\"default\"`.",
               "docsTags": [],
               "default": "'default'",
               "values": [
@@ -8351,6 +8310,79 @@
             "description": "Typography are used for rendering headlines, paragraphs and captions.",
             "category": "General",
             "example": "<goat-text type=\"heading\" level=\"1\">Heading</goat-typography>"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Layout",
+      "components": [
+        {
+          "filePath": "./src/components/layout/divider/divider.tsx",
+          "fileName": "divider.tsx",
+          "tag": "goat-divider",
+          "readme": "# goat-heading\n\n\n",
+          "overview": "",
+          "usage": {},
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "name",
+              "text": "Divider"
+            },
+            {
+              "name": "description",
+              "text": "A divider can be used to segment content vertically or horizontally."
+            },
+            {
+              "name": "category",
+              "text": "Layout"
+            },
+            {
+              "name": "example",
+              "text": "<goat-divider style=\"width: 12rem;\">or</goat-divider>"
+            }
+          ],
+          "encapsulation": "shadow",
+          "dependents": [
+            "goat-header-brand"
+          ],
+          "dependencies": [],
+          "dependencyGraph": {
+            "goat-header-brand": [
+              "goat-divider"
+            ]
+          },
+          "props": [
+            {
+              "name": "vertical",
+              "type": "boolean",
+              "mutable": false,
+              "attr": "vertical",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
+          "methods": [],
+          "events": [],
+          "styles": [],
+          "slots": [],
+          "parts": [],
+          "listeners": [],
+          "metadata": {
+            "name": "Divider",
+            "description": "A divider can be used to segment content vertically or horizontally.",
+            "category": "Layout",
+            "example": "<goat-divider style=\"width: 12rem;\">or</goat-divider>"
           }
         }
       ]
@@ -11374,6 +11406,292 @@
           }
         },
         {
+          "filePath": "./src/components/data-display/empty-state/empty-state.tsx",
+          "fileName": "empty-state.tsx",
+          "tag": "goat-empty-state",
+          "readme": "# goat-heading\n\n\n",
+          "overview": "",
+          "usage": {},
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "name",
+              "text": "Empty State"
+            },
+            {
+              "name": "description",
+              "text": "A message that displays when there is no information to display."
+            },
+            {
+              "name": "category",
+              "text": "Data Display"
+            },
+            {
+              "name": "example",
+              "text": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\n</goat-empty-state>"
+            }
+          ],
+          "encapsulation": "shadow",
+          "dependents": [
+            "goat-menu",
+            "goat-sidenav-menu",
+            "goat-table",
+            "tree-view"
+          ],
+          "dependencies": [
+            "goat-svg",
+            "goat-button"
+          ],
+          "dependencyGraph": {
+            "goat-empty-state": [
+              "goat-svg",
+              "goat-button"
+            ],
+            "goat-button": [
+              "goat-icon",
+              "goat-spinner"
+            ],
+            "goat-menu": [
+              "goat-empty-state"
+            ],
+            "goat-sidenav-menu": [
+              "goat-empty-state"
+            ],
+            "goat-table": [
+              "goat-empty-state"
+            ],
+            "tree-view": [
+              "goat-empty-state"
+            ]
+          },
+          "props": [
+            {
+              "name": "action",
+              "type": "string",
+              "mutable": false,
+              "attr": "action",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "actionDisabled",
+              "type": "boolean",
+              "mutable": false,
+              "attr": "action-disabled",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "actionUrl",
+              "type": "string",
+              "mutable": false,
+              "attr": "action-url",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "actionVariant",
+              "type": "\"default\" | \"ghost\" | \"light\" | \"link\" | \"outline\"",
+              "mutable": false,
+              "attr": "action-variant",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "'default'",
+              "values": [
+                {
+                  "value": "default",
+                  "type": "string"
+                },
+                {
+                  "value": "ghost",
+                  "type": "string"
+                },
+                {
+                  "value": "light",
+                  "type": "string"
+                },
+                {
+                  "value": "link",
+                  "type": "string"
+                },
+                {
+                  "value": "outline",
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "description",
+              "type": "string",
+              "mutable": false,
+              "attr": "description",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "headline",
+              "type": "string",
+              "mutable": false,
+              "attr": "headline",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "illustration",
+              "type": "\"no-document\"",
+              "mutable": false,
+              "attr": "illustration",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "'no-document'",
+              "values": [
+                {
+                  "value": "no-document",
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
+          "methods": [],
+          "events": [],
+          "styles": [],
+          "slots": [],
+          "parts": [],
+          "listeners": [
+            {
+              "event": "resize",
+              "target": "window",
+              "capture": false,
+              "passive": true
+            }
+          ],
+          "metadata": {
+            "name": "Empty State",
+            "description": "A message that displays when there is no information to display.",
+            "category": "Data Display",
+            "example": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\n</goat-empty-state>"
+          }
+        },
+        {
+          "filePath": "./src/components/data-display/svg/svg.tsx",
+          "fileName": "svg.tsx",
+          "tag": "goat-svg",
+          "readme": "# goat-icon\n\n\n",
+          "overview": "",
+          "usage": {},
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "name",
+              "text": "SVG"
+            },
+            {
+              "name": "description",
+              "text": "Render SVG content from an external source."
+            },
+            {
+              "name": "category",
+              "text": "Data Display"
+            },
+            {
+              "name": "example",
+              "text": "<goat-svg src=\"https://icons.getbootstrap.com/assets/icons/bug.svg\"></goat-svg>"
+            }
+          ],
+          "encapsulation": "shadow",
+          "dependents": [
+            "goat-empty-state",
+            "goat-header-brand"
+          ],
+          "dependencies": [],
+          "dependencyGraph": {
+            "goat-empty-state": [
+              "goat-svg"
+            ],
+            "goat-header-brand": [
+              "goat-svg"
+            ]
+          },
+          "props": [
+            {
+              "name": "src",
+              "type": "string",
+              "mutable": false,
+              "attr": "src",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "''",
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
+          "methods": [],
+          "events": [],
+          "styles": [],
+          "slots": [],
+          "parts": [],
+          "listeners": [],
+          "metadata": {
+            "name": "SVG",
+            "description": "Render SVG content from an external source.",
+            "category": "Data Display",
+            "example": "<goat-svg src=\"https://icons.getbootstrap.com/assets/icons/bug.svg\"></goat-svg>"
+          }
+        },
+        {
           "filePath": "./src/components/data-display/table/table.tsx",
           "fileName": "table.tsx",
           "tag": "goat-table",
@@ -12070,7 +12388,7 @@
           "filePath": "./src/components/feedback/notification-manager/notification-manager.tsx",
           "fileName": "notification-manager.tsx",
           "tag": "goat-notification-manager",
-          "readme": "# goat-alert\r\n\r\n\r\n\r",
+          "readme": "# goat-alert\n\n\n",
           "overview": "",
           "usage": {},
           "docs": "",
@@ -12279,6 +12597,109 @@
             "description": "Spinners provide a visual cue that an action is processing awaiting a course of change or a result.",
             "category": "Feedback",
             "example": "<goat-spinner class=\"rainbow\"></goat-spinner>"
+          }
+        },
+        {
+          "filePath": "./src/components/feedback/toast/toast.tsx",
+          "fileName": "toast.tsx",
+          "tag": "goat-toast",
+          "readme": "# goat-alert\n\n\n",
+          "overview": "",
+          "usage": {},
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "name",
+              "text": "Toast"
+            },
+            {
+              "name": "description",
+              "text": "Toasts are lightweight notifications."
+            },
+            {
+              "name": "category",
+              "text": "Feedback"
+            },
+            {
+              "name": "example",
+              "text": "<goat-toast state=\"success\" message=\"Successful saved the record\"></goat-toast>"
+            }
+          ],
+          "encapsulation": "shadow",
+          "dependents": [
+            "goat-notification-manager"
+          ],
+          "dependencies": [
+            "goat-icon"
+          ],
+          "dependencyGraph": {
+            "goat-toast": [
+              "goat-icon"
+            ],
+            "goat-notification-manager": [
+              "goat-toast"
+            ]
+          },
+          "props": [
+            {
+              "name": "message",
+              "type": "string",
+              "mutable": false,
+              "attr": "message",
+              "reflectToAttr": false,
+              "docs": "Message to display in the toast.",
+              "docsTags": [],
+              "default": "''",
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "state",
+              "type": "\"error\" | \"info\" | \"success\" | \"warning\"",
+              "mutable": false,
+              "attr": "state",
+              "reflectToAttr": true,
+              "docs": "Toast state.\nPossible values are `\"success\"`, `\"error\"`, `\"info\"`, `\"warning\"`. Defaults to `\"info\"`.",
+              "docsTags": [],
+              "default": "'info'",
+              "values": [
+                {
+                  "value": "error",
+                  "type": "string"
+                },
+                {
+                  "value": "info",
+                  "type": "string"
+                },
+                {
+                  "value": "success",
+                  "type": "string"
+                },
+                {
+                  "value": "warning",
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
+          "methods": [],
+          "events": [],
+          "styles": [],
+          "slots": [],
+          "parts": [],
+          "listeners": [],
+          "metadata": {
+            "name": "Toast",
+            "description": "Toasts are lightweight notifications.",
+            "category": "Feedback",
+            "example": "<goat-toast state=\"success\" message=\"Successful saved the record\"></goat-toast>"
           }
         }
       ]
@@ -13321,215 +13742,6 @@
           }
         },
         {
-          "filePath": "./src/components/other/content/empty-state/empty-state.tsx",
-          "fileName": "empty-state.tsx",
-          "tag": "goat-empty-state",
-          "readme": "# goat-heading\n\n\n",
-          "overview": "",
-          "usage": {},
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "name",
-              "text": "Empty State"
-            },
-            {
-              "name": "description",
-              "text": "A message that displays when there is no information to display."
-            },
-            {
-              "name": "example",
-              "text": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\r\n</goat-empty-state>"
-            }
-          ],
-          "encapsulation": "shadow",
-          "dependents": [
-            "goat-menu",
-            "goat-sidenav-menu",
-            "goat-table",
-            "tree-view"
-          ],
-          "dependencies": [
-            "goat-svg",
-            "goat-button"
-          ],
-          "dependencyGraph": {
-            "goat-empty-state": [
-              "goat-svg",
-              "goat-button"
-            ],
-            "goat-button": [
-              "goat-icon",
-              "goat-spinner"
-            ],
-            "goat-menu": [
-              "goat-empty-state"
-            ],
-            "goat-sidenav-menu": [
-              "goat-empty-state"
-            ],
-            "goat-table": [
-              "goat-empty-state"
-            ],
-            "tree-view": [
-              "goat-empty-state"
-            ]
-          },
-          "props": [
-            {
-              "name": "action",
-              "type": "string",
-              "mutable": false,
-              "attr": "action",
-              "reflectToAttr": true,
-              "docs": "",
-              "docsTags": [],
-              "values": [
-                {
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "actionDisabled",
-              "type": "boolean",
-              "mutable": false,
-              "attr": "action-disabled",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "default": "false",
-              "values": [
-                {
-                  "type": "boolean"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "actionUrl",
-              "type": "string",
-              "mutable": false,
-              "attr": "action-url",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "values": [
-                {
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "actionVariant",
-              "type": "\"default\" | \"ghost\" | \"light\" | \"link\" | \"outline\"",
-              "mutable": false,
-              "attr": "action-variant",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "default": "'default'",
-              "values": [
-                {
-                  "value": "default",
-                  "type": "string"
-                },
-                {
-                  "value": "ghost",
-                  "type": "string"
-                },
-                {
-                  "value": "light",
-                  "type": "string"
-                },
-                {
-                  "value": "link",
-                  "type": "string"
-                },
-                {
-                  "value": "outline",
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "description",
-              "type": "string",
-              "mutable": false,
-              "attr": "description",
-              "reflectToAttr": true,
-              "docs": "",
-              "docsTags": [],
-              "values": [
-                {
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "headline",
-              "type": "string",
-              "mutable": false,
-              "attr": "headline",
-              "reflectToAttr": true,
-              "docs": "",
-              "docsTags": [],
-              "values": [
-                {
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "illustration",
-              "type": "\"no-document\"",
-              "mutable": false,
-              "attr": "illustration",
-              "reflectToAttr": true,
-              "docs": "",
-              "docsTags": [],
-              "default": "'no-document'",
-              "values": [
-                {
-                  "value": "no-document",
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            }
-          ],
-          "methods": [],
-          "events": [],
-          "styles": [],
-          "slots": [],
-          "parts": [],
-          "listeners": [
-            {
-              "event": "resize",
-              "target": "window",
-              "capture": false,
-              "passive": true
-            }
-          ],
-          "metadata": {
-            "name": "Empty State",
-            "description": "A message that displays when there is no information to display.",
-            "example": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\r\n</goat-empty-state>"
-          }
-        },
-        {
           "filePath": "./src/components/other/flow-designer/flow-designer/flow-designer.tsx",
           "fileName": "flow-designer.tsx",
           "tag": "goat-flow-designer",
@@ -14468,56 +14680,6 @@
           "metadata": {}
         },
         {
-          "filePath": "./src/components/other/content/svg/svg.tsx",
-          "fileName": "svg.tsx",
-          "tag": "goat-svg",
-          "readme": "# goat-icon\r\n\r\n\r\n\r",
-          "overview": "",
-          "usage": {},
-          "docs": "",
-          "docsTags": [],
-          "encapsulation": "shadow",
-          "dependents": [
-            "goat-empty-state",
-            "goat-header-brand"
-          ],
-          "dependencies": [],
-          "dependencyGraph": {
-            "goat-empty-state": [
-              "goat-svg"
-            ],
-            "goat-header-brand": [
-              "goat-svg"
-            ]
-          },
-          "props": [
-            {
-              "name": "src",
-              "type": "string",
-              "mutable": false,
-              "attr": "src",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "default": "''",
-              "values": [
-                {
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            }
-          ],
-          "methods": [],
-          "events": [],
-          "styles": [],
-          "slots": [],
-          "parts": [],
-          "listeners": [],
-          "metadata": {}
-        },
-        {
           "filePath": "./src/components/navigation/tabs/tab/tab.tsx",
           "fileName": "tab.tsx",
           "tag": "goat-tab",
@@ -14883,104 +15045,6 @@
             }
           ],
           "metadata": {}
-        },
-        {
-          "filePath": "./src/components/other/content/toast/toast.tsx",
-          "fileName": "toast.tsx",
-          "tag": "goat-toast",
-          "readme": "# goat-alert\r\n\r\n\r\n\r",
-          "overview": "",
-          "usage": {},
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "name",
-              "text": "Toast"
-            },
-            {
-              "name": "description",
-              "text": "Toasts are lightweight notifications."
-            },
-            {
-              "name": "example",
-              "text": "<goat-toast state=\"success\" message=\"Successful saved the record\"></goat-toast>"
-            }
-          ],
-          "encapsulation": "shadow",
-          "dependents": [
-            "goat-notification-manager"
-          ],
-          "dependencies": [
-            "goat-icon"
-          ],
-          "dependencyGraph": {
-            "goat-toast": [
-              "goat-icon"
-            ],
-            "goat-notification-manager": [
-              "goat-toast"
-            ]
-          },
-          "props": [
-            {
-              "name": "message",
-              "type": "string",
-              "mutable": false,
-              "attr": "message",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "default": "''",
-              "values": [
-                {
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "state",
-              "type": "\"error\" | \"info\" | \"success\" | \"warning\"",
-              "mutable": false,
-              "attr": "state",
-              "reflectToAttr": true,
-              "docs": "",
-              "docsTags": [],
-              "default": "'info'",
-              "values": [
-                {
-                  "value": "error",
-                  "type": "string"
-                },
-                {
-                  "value": "info",
-                  "type": "string"
-                },
-                {
-                  "value": "success",
-                  "type": "string"
-                },
-                {
-                  "value": "warning",
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            }
-          ],
-          "methods": [],
-          "events": [],
-          "styles": [],
-          "slots": [],
-          "parts": [],
-          "listeners": [],
-          "metadata": {
-            "name": "Toast",
-            "description": "Toasts are lightweight notifications.",
-            "example": "<goat-toast state=\"success\" message=\"Successful saved the record\"></goat-toast>"
-          }
         },
         {
           "filePath": "./src/components/other/menu/tree-view/tree-view.tsx",

@@ -44,7 +44,7 @@
 - [goat-form-control](../../data-entry/form-control)
 - [goat-select](../../data-entry/select)
 - [goat-text](../../general/text)
-- [goat-empty-state](../../other/content/empty-state)
+- [goat-empty-state](../empty-state)
 
 ### Graph
 ```mermaid

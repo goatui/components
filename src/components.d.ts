@@ -6,6 +6,13 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    /**
+     * @name Accordion
+     * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
+     * @example <goat-accordion>
+     * <goat-accordion-item heading="Title 1"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>
+     * </goat-accordion>
+     */
     interface GoatAccordion {
     }
     interface GoatAccordionItem {
@@ -22,6 +29,12 @@ export namespace Components {
          */
         "open": boolean;
     }
+    /**
+     * @name Avatar
+     * @description Avatars in their simplest form display content within a circular container.
+     * @category Data Display
+     * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.png"></goat-avatar>
+     */
     interface GoatAvatar {
         "name": string;
         /**
@@ -30,9 +43,23 @@ export namespace Components {
         "size": string;
         "src": string;
     }
+    /**
+     * @name Badge
+     * @description Renders a specified badge.
+     * @category Data Display
+     * @tag content
+     * @example <goat-badge content="5" class='color-error'> <goat-icon name="bell"></goat-icon></goat-badge>
+     */
     interface GoatBadge {
         "content": string;
     }
+    /**
+     * @name Breadcrumb
+     * @description Typography are used for rendering headlines, paragraphs and captions.
+     * @category Navigation
+     * @tags navigation
+     * @example <goat-breadcrumb><goat-breadcrumb-item href="#">Home</goat-breadcrumb-item><goat-breadcrumb-item href="#" active>Page</goat-breadcrumb-item></goat-breadcrumb>
+     */
     interface GoatBreadcrumb {
     }
     interface GoatBreadcrumbItem {
@@ -47,6 +74,15 @@ export namespace Components {
          */
         "target": string;
     }
+    /**
+     * @name Button
+     * @description An interactive button with a range of presentation options.
+     * @category General
+     * @tags controls
+     * @example <goat-button>
+     * Button CTA
+     * </goat-button>
+     */
     interface GoatButton {
         /**
           * If true, fits button width to its parent width. Defaults to `false`.
@@ -95,10 +131,31 @@ export namespace Components {
          */
         "target": string;
         "triggerClick": () => Promise<void>;
+        /**
+          * Button variants. Possible values are `"default"`, `"light"`, `"outline"`, `"ghost"`, `"link"`. Defaults to `"default"`.
+         */
         "variant": 'default' | 'light' | 'outline' | 'ghost' | 'link';
     }
+    /**
+     * @name Button Group
+     * @description An interactive button with a range of presentation options.
+     * @category General
+     * @tags controls
+     * @example <goat-button-group><goat-button>
+     * Button CTA
+     * </goat-button><goat-button>
+     * Button CTA
+     * </goat-button></goat-button-group>
+     */
     interface GoatButtonGroup {
     }
+    /**
+     * @name Calendar
+     * @description The calendar component is used to display information in a daily, weekly, monthly, or category view.
+     * @category Data Display
+     * @tags calendar
+     * @img /assets/img/calendar.png
+     */
     interface GoatCalendar {
         "availableViews": any;
         "contextDate": any;
@@ -140,6 +197,13 @@ export namespace Components {
     interface GoatCard {
         "shadowLevel": 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | undefined;
     }
+    /**
+     * @name Checkbox
+     * @description Captures boolean input with an optional indeterminate mode.
+     * @category Form Inputs
+     * @tags input, form
+     * @example <goat-checkbox value='true'>Want ice cream?</goat-checkbox>
+     */
     interface GoatCheckbox {
         "configAria": any;
         /**
@@ -179,6 +243,13 @@ export namespace Components {
          */
         "value": boolean;
     }
+    /**
+     * @name Code Editor
+     * @description A browser based code editor.
+     * @category Form Inputs
+     * @tags input, form
+     * @img /assets/img/code-editor.png
+     */
     interface GoatCodeEditor {
         /**
           * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
@@ -214,11 +285,22 @@ export namespace Components {
          */
         "value": string;
     }
+    /**
+     * @name Code Highlighter
+     * @description A browser based code highlighter.
+     * @img /assets/img/code-highlighter.png
+     */
     interface GoatCodeHighlighter {
         "language": string;
         "lineNumbers": boolean;
         "value": string;
     }
+    /**
+     * @name Date Picker
+     * @category Form Inputs
+     * @description Captures date input.
+     * @example <goat-date-picker value='true'></goat-date-picker>
+     */
     interface GoatDatePicker {
         "configAria": any;
         /**
@@ -255,9 +337,20 @@ export namespace Components {
          */
         "value"?: string | number | null;
     }
+    /**
+     * @name Divider
+     * @description A divider can be used to segment content vertically or horizontally.
+     * @category Layout
+     * @example <goat-divider style="width: 12rem;">or</goat-divider>
+     */
     interface GoatDivider {
         "vertical": boolean;
     }
+    /**
+     * @name Dropdown
+     * @description Enables native inputs to be used within a Form field.
+     * @img /assets/img/dropdown.png
+     */
     interface GoatDropdown {
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
@@ -272,6 +365,13 @@ export namespace Components {
          */
         "size": 'sm' | 'md' | 'lg';
     }
+    /**
+     * @name Empty State
+     * @description A message that displays when there is no information to display.
+     * @category Data Display
+     * @example <goat-empty-state class="content-center" headline="Empty list" description="Nothing to display">
+     * </goat-empty-state>
+     */
     interface GoatEmptyState {
         "action": string;
         "actionDisabled": boolean;
@@ -281,11 +381,25 @@ export namespace Components {
         "headline": string;
         "illustration": 'no-document';
     }
+    /**
+     * @name Flow Designer
+     * @description An interactive button with a range of presentation options.
+     * @img /assets/img/no-image.jpg
+     */
     interface GoatFlowDesigner {
         "activities": any[];
         "blockSize": number;
         "disabled": boolean;
     }
+    /**
+     * @name Form Control
+     * @description The Form Control component adds a label and caption for its child control.
+     * @category Form Inputs
+     * @tags form
+     * @example <goat-form-control label='Full Name' required>
+     * <goat-input type='text'></goat-input>
+     * </goat-form-control>
+     */
     interface GoatFormControl {
         /**
           * The caption for the form control.
@@ -304,6 +418,11 @@ export namespace Components {
         "success": string;
         "warning": string;
     }
+    /**
+     * @name Header
+     * @description Headers are compositions that extend standard navbar functionalities.
+     * @img /assets/img/header.png
+     */
     interface GoatHeader {
     }
     interface GoatHeaderBrand {
@@ -312,6 +431,12 @@ export namespace Components {
         "name": string;
         "subTitle": string;
     }
+    /**
+     * @name Icon
+     * @description Renders a specified icon.
+     * @category General
+     * @example <goat-icon name="house"></goat-icon>
+     */
     interface GoatIcon {
         "name": string;
         /**
@@ -319,6 +444,13 @@ export namespace Components {
          */
         "size": 'sm' | 'md' | 'lg' | 'xl' | string;
     }
+    /**
+     * @name Input
+     * @description Enables native inputs to be used within a Form field.
+     * @category Form Inputs
+     * @tags input, form
+     * @example <goat-input placeholder="Enter your name"></goat-input>
+     */
     interface GoatInput {
         /**
           * Indicates whether the value of the control can be automatically completed by the browser.
@@ -379,6 +511,11 @@ export namespace Components {
          */
         "value"?: string | number | null;
     }
+    /**
+     * @name Link
+     * @description Links allow users to click their way from page to page.
+     * @example <goat-link href="#">Link</goat-link>
+     */
     interface GoatLink {
         /**
           * Hyperlink to navigate to on click.
@@ -390,6 +527,11 @@ export namespace Components {
         "target": string;
         "triggerClick": () => Promise<void>;
     }
+    /**
+     * @name Menu
+     * @description Menus display a list of choices on temporary surfaces.
+     * @img /assets/img/menu.png
+     */
     interface GoatMenu {
         "empty": boolean;
         "emptyState": any;
@@ -422,6 +564,15 @@ export namespace Components {
          */
         "value"?: string | number | null;
     }
+    /**
+     * @name Notification
+     * @description Notifications are messages that communicate information to the user.
+     * @category Feedback
+     * @tags notification
+     * @example <goat-notification state="success" low-contrast dismissible>
+     *      <div slot='title'>Successful saved the record</div>
+     *    </goat-notification>
+     */
     interface GoatNotification {
         "actionLabel": string;
         "actionName": string;
@@ -430,10 +581,24 @@ export namespace Components {
         "lowContrast": boolean;
         "state": 'success' | 'error' | 'info' | 'warning';
     }
+    /**
+     * @name Notification Manager
+     * @description Manages alert, toasts and notifications.
+     * @category Feedback
+     * @tags notification
+     * @img /assets/img/notification-manager.png
+     */
     interface GoatNotificationManager {
         "name": string;
         "position": 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
     }
+    /**
+     * @name Select
+     * @description Allows the user to select one or more options using a dropdown.
+     * @category Form Inputs
+     * @tags input, form
+     * @img /assets/img/select.png
+     */
     interface GoatSelect {
         /**
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
@@ -498,6 +663,11 @@ export namespace Components {
          */
         "value"?: string | number;
     }
+    /**
+     * @name1 Side Navigation
+     * @description1 The side navigation component provides an easy way to navigate through your website / application.
+     * @img1 /assets/img/sidenav.png
+     */
     interface GoatSidenav {
         "showLoader": boolean;
     }
@@ -533,12 +703,24 @@ export namespace Components {
          */
         "value"?: string | number | null;
     }
+    /**
+     * @name Spinner
+     * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
+     * @category Feedback
+     * @example <goat-spinner class="rainbow"></goat-spinner>
+     */
     interface GoatSpinner {
         /**
           * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
          */
         "size": 'sm' | 'md' | 'lg' | 'xl' | string;
     }
+    /**
+     * @name SVG
+     * @description Render SVG content from an external source.
+     * @category Data Display
+     * @example <goat-svg src="https://icons.getbootstrap.com/assets/icons/bug.svg"></goat-svg>
+     */
     interface GoatSvg {
         "src": string;
     }
@@ -574,6 +756,12 @@ export namespace Components {
         "active": boolean;
         "value": string;
     }
+    /**
+     * @name Table
+     * @description A configurable component for displaying tabular data.
+     * @category Data Display
+     * @img /assets/img/table.png
+     */
     interface GoatTable {
         /**
           * Grid columns configuration. [ {   "name":"name",   "label":"Name",   "width":300,   "fixed":true  }, {   "name":"age",   "label":"Age" } ]
@@ -596,12 +784,31 @@ export namespace Components {
         "sortable": boolean;
         "totalItems": any;
     }
+    /**
+     * @name Tabs
+     * @description An interactive button with a range of presentation options.
+     * @category Navigation
+     * @tags navigation
+     * @example <goat-tabs>
+     * <goat-tabs-list>
+     * <goat-tab selected >Tab 1</goat-tab>
+     * <goat-tab>Tab 2</goat-tab>
+     * </goat-tabs-list>
+     * </goat-tabs>
+     */
     interface GoatTabs {
     }
     interface GoatTabsList {
         "managed": boolean;
         "variant": 'line' | 'contained';
     }
+    /**
+     * @name Tag
+     * @description Use tags to label, categorize, or organize items using keywords that describe them.
+     * @category Data Display
+     * @tag controls
+     * @example <goat-tag class="color-red">Important</goat-tag>
+     */
     interface GoatTag {
         "filter": boolean;
         /**
@@ -610,6 +817,12 @@ export namespace Components {
         "size": 'sm' | 'md';
         "value": string;
     }
+    /**
+     * @name Text
+     * @description Typography are used for rendering headlines, paragraphs and captions.
+     * @category General
+     * @example <goat-text type="heading" level="1">Heading</goat-typography>
+     */
     interface GoatText {
         /**
           * The heading level.
@@ -622,6 +835,13 @@ export namespace Components {
         "size": 'xs' | 'sm' | 'md' | 'lg' | 'xl';
         "type": 'heading' | 'paragraph' | 'text';
     }
+    /**
+     * @name Textarea
+     * @description Enables native inputs to be used within a Form field.
+     * @category Form Inputs
+     * @tags input, form
+     * @example <goat-textarea placeholder="Enter some description over here"></goat-textarea>
+     */
     interface GoatTextarea {
         /**
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
@@ -674,6 +894,13 @@ export namespace Components {
          */
         "value": string;
     }
+    /**
+     * @name Time Picker
+     * @description Captures time input.
+     * @category Form Inputs
+     * @tags input, form
+     * @example <goat-time-picker value='true'></goat-time-picker>
+     */
     interface GoatTimePicker {
         "configAria": any;
         /**
@@ -710,10 +937,27 @@ export namespace Components {
          */
         "value"?: string | number | null;
     }
+    /**
+     * @name Toast
+     * @description Toasts are lightweight notifications.
+     * @category Feedback
+     * @example <goat-toast state="success" message="Successful saved the record"></goat-toast>
+     */
     interface GoatToast {
+        /**
+          * Message to display in the toast.
+         */
         "message": string;
+        /**
+          * Toast state. Possible values are `"success"`, `"error"`, `"info"`, `"warning"`. Defaults to `"info"`.
+         */
         "state": 'success' | 'error' | 'info' | 'warning';
     }
+    /**
+     * @name TreeView
+     * @description Menus display a list of choices on temporary surfaces.
+     * @img /assets/img/no-image.jpg
+     */
     interface TreeView {
         "empty": boolean;
         "emptyState": any;
@@ -798,6 +1042,13 @@ export interface GoatTimePickerCustomEvent<T> extends CustomEvent<T> {
     target: HTMLGoatTimePickerElement;
 }
 declare global {
+    /**
+     * @name Accordion
+     * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
+     * @example <goat-accordion>
+     * <goat-accordion-item heading="Title 1"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>
+     * </goat-accordion>
+     */
     interface HTMLGoatAccordionElement extends Components.GoatAccordion, HTMLStencilElement {
     }
     var HTMLGoatAccordionElement: {
@@ -810,18 +1061,38 @@ declare global {
         prototype: HTMLGoatAccordionItemElement;
         new (): HTMLGoatAccordionItemElement;
     };
+    /**
+     * @name Avatar
+     * @description Avatars in their simplest form display content within a circular container.
+     * @category Data Display
+     * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.png"></goat-avatar>
+     */
     interface HTMLGoatAvatarElement extends Components.GoatAvatar, HTMLStencilElement {
     }
     var HTMLGoatAvatarElement: {
         prototype: HTMLGoatAvatarElement;
         new (): HTMLGoatAvatarElement;
     };
+    /**
+     * @name Badge
+     * @description Renders a specified badge.
+     * @category Data Display
+     * @tag content
+     * @example <goat-badge content="5" class='color-error'> <goat-icon name="bell"></goat-icon></goat-badge>
+     */
     interface HTMLGoatBadgeElement extends Components.GoatBadge, HTMLStencilElement {
     }
     var HTMLGoatBadgeElement: {
         prototype: HTMLGoatBadgeElement;
         new (): HTMLGoatBadgeElement;
     };
+    /**
+     * @name Breadcrumb
+     * @description Typography are used for rendering headlines, paragraphs and captions.
+     * @category Navigation
+     * @tags navigation
+     * @example <goat-breadcrumb><goat-breadcrumb-item href="#">Home</goat-breadcrumb-item><goat-breadcrumb-item href="#" active>Page</goat-breadcrumb-item></goat-breadcrumb>
+     */
     interface HTMLGoatBreadcrumbElement extends Components.GoatBreadcrumb, HTMLStencilElement {
     }
     var HTMLGoatBreadcrumbElement: {
@@ -834,18 +1105,45 @@ declare global {
         prototype: HTMLGoatBreadcrumbItemElement;
         new (): HTMLGoatBreadcrumbItemElement;
     };
+    /**
+     * @name Button
+     * @description An interactive button with a range of presentation options.
+     * @category General
+     * @tags controls
+     * @example <goat-button>
+     * Button CTA
+     * </goat-button>
+     */
     interface HTMLGoatButtonElement extends Components.GoatButton, HTMLStencilElement {
     }
     var HTMLGoatButtonElement: {
         prototype: HTMLGoatButtonElement;
         new (): HTMLGoatButtonElement;
     };
+    /**
+     * @name Button Group
+     * @description An interactive button with a range of presentation options.
+     * @category General
+     * @tags controls
+     * @example <goat-button-group><goat-button>
+     * Button CTA
+     * </goat-button><goat-button>
+     * Button CTA
+     * </goat-button></goat-button-group>
+     */
     interface HTMLGoatButtonGroupElement extends Components.GoatButtonGroup, HTMLStencilElement {
     }
     var HTMLGoatButtonGroupElement: {
         prototype: HTMLGoatButtonGroupElement;
         new (): HTMLGoatButtonGroupElement;
     };
+    /**
+     * @name Calendar
+     * @description The calendar component is used to display information in a daily, weekly, monthly, or category view.
+     * @category Data Display
+     * @tags calendar
+     * @img /assets/img/calendar.png
+     */
     interface HTMLGoatCalendarElement extends Components.GoatCalendar, HTMLStencilElement {
     }
     var HTMLGoatCalendarElement: {
@@ -888,60 +1186,122 @@ declare global {
         prototype: HTMLGoatCardElement;
         new (): HTMLGoatCardElement;
     };
+    /**
+     * @name Checkbox
+     * @description Captures boolean input with an optional indeterminate mode.
+     * @category Form Inputs
+     * @tags input, form
+     * @example <goat-checkbox value='true'>Want ice cream?</goat-checkbox>
+     */
     interface HTMLGoatCheckboxElement extends Components.GoatCheckbox, HTMLStencilElement {
     }
     var HTMLGoatCheckboxElement: {
         prototype: HTMLGoatCheckboxElement;
         new (): HTMLGoatCheckboxElement;
     };
+    /**
+     * @name Code Editor
+     * @description A browser based code editor.
+     * @category Form Inputs
+     * @tags input, form
+     * @img /assets/img/code-editor.png
+     */
     interface HTMLGoatCodeEditorElement extends Components.GoatCodeEditor, HTMLStencilElement {
     }
     var HTMLGoatCodeEditorElement: {
         prototype: HTMLGoatCodeEditorElement;
         new (): HTMLGoatCodeEditorElement;
     };
+    /**
+     * @name Code Highlighter
+     * @description A browser based code highlighter.
+     * @img /assets/img/code-highlighter.png
+     */
     interface HTMLGoatCodeHighlighterElement extends Components.GoatCodeHighlighter, HTMLStencilElement {
     }
     var HTMLGoatCodeHighlighterElement: {
         prototype: HTMLGoatCodeHighlighterElement;
         new (): HTMLGoatCodeHighlighterElement;
     };
+    /**
+     * @name Date Picker
+     * @category Form Inputs
+     * @description Captures date input.
+     * @example <goat-date-picker value='true'></goat-date-picker>
+     */
     interface HTMLGoatDatePickerElement extends Components.GoatDatePicker, HTMLStencilElement {
     }
     var HTMLGoatDatePickerElement: {
         prototype: HTMLGoatDatePickerElement;
         new (): HTMLGoatDatePickerElement;
     };
+    /**
+     * @name Divider
+     * @description A divider can be used to segment content vertically or horizontally.
+     * @category Layout
+     * @example <goat-divider style="width: 12rem;">or</goat-divider>
+     */
     interface HTMLGoatDividerElement extends Components.GoatDivider, HTMLStencilElement {
     }
     var HTMLGoatDividerElement: {
         prototype: HTMLGoatDividerElement;
         new (): HTMLGoatDividerElement;
     };
+    /**
+     * @name Dropdown
+     * @description Enables native inputs to be used within a Form field.
+     * @img /assets/img/dropdown.png
+     */
     interface HTMLGoatDropdownElement extends Components.GoatDropdown, HTMLStencilElement {
     }
     var HTMLGoatDropdownElement: {
         prototype: HTMLGoatDropdownElement;
         new (): HTMLGoatDropdownElement;
     };
+    /**
+     * @name Empty State
+     * @description A message that displays when there is no information to display.
+     * @category Data Display
+     * @example <goat-empty-state class="content-center" headline="Empty list" description="Nothing to display">
+     * </goat-empty-state>
+     */
     interface HTMLGoatEmptyStateElement extends Components.GoatEmptyState, HTMLStencilElement {
     }
     var HTMLGoatEmptyStateElement: {
         prototype: HTMLGoatEmptyStateElement;
         new (): HTMLGoatEmptyStateElement;
     };
+    /**
+     * @name Flow Designer
+     * @description An interactive button with a range of presentation options.
+     * @img /assets/img/no-image.jpg
+     */
     interface HTMLGoatFlowDesignerElement extends Components.GoatFlowDesigner, HTMLStencilElement {
     }
     var HTMLGoatFlowDesignerElement: {
         prototype: HTMLGoatFlowDesignerElement;
         new (): HTMLGoatFlowDesignerElement;
     };
+    /**
+     * @name Form Control
+     * @description The Form Control component adds a label and caption for its child control.
+     * @category Form Inputs
+     * @tags form
+     * @example <goat-form-control label='Full Name' required>
+     * <goat-input type='text'></goat-input>
+     * </goat-form-control>
+     */
     interface HTMLGoatFormControlElement extends Components.GoatFormControl, HTMLStencilElement {
     }
     var HTMLGoatFormControlElement: {
         prototype: HTMLGoatFormControlElement;
         new (): HTMLGoatFormControlElement;
     };
+    /**
+     * @name Header
+     * @description Headers are compositions that extend standard navbar functionalities.
+     * @img /assets/img/header.png
+     */
     interface HTMLGoatHeaderElement extends Components.GoatHeader, HTMLStencilElement {
     }
     var HTMLGoatHeaderElement: {
@@ -954,24 +1314,47 @@ declare global {
         prototype: HTMLGoatHeaderBrandElement;
         new (): HTMLGoatHeaderBrandElement;
     };
+    /**
+     * @name Icon
+     * @description Renders a specified icon.
+     * @category General
+     * @example <goat-icon name="house"></goat-icon>
+     */
     interface HTMLGoatIconElement extends Components.GoatIcon, HTMLStencilElement {
     }
     var HTMLGoatIconElement: {
         prototype: HTMLGoatIconElement;
         new (): HTMLGoatIconElement;
     };
+    /**
+     * @name Input
+     * @description Enables native inputs to be used within a Form field.
+     * @category Form Inputs
+     * @tags input, form
+     * @example <goat-input placeholder="Enter your name"></goat-input>
+     */
     interface HTMLGoatInputElement extends Components.GoatInput, HTMLStencilElement {
     }
     var HTMLGoatInputElement: {
         prototype: HTMLGoatInputElement;
         new (): HTMLGoatInputElement;
     };
+    /**
+     * @name Link
+     * @description Links allow users to click their way from page to page.
+     * @example <goat-link href="#">Link</goat-link>
+     */
     interface HTMLGoatLinkElement extends Components.GoatLink, HTMLStencilElement {
     }
     var HTMLGoatLinkElement: {
         prototype: HTMLGoatLinkElement;
         new (): HTMLGoatLinkElement;
     };
+    /**
+     * @name Menu
+     * @description Menus display a list of choices on temporary surfaces.
+     * @img /assets/img/menu.png
+     */
     interface HTMLGoatMenuElement extends Components.GoatMenu, HTMLStencilElement {
     }
     var HTMLGoatMenuElement: {
@@ -984,24 +1367,52 @@ declare global {
         prototype: HTMLGoatMenuItemElement;
         new (): HTMLGoatMenuItemElement;
     };
+    /**
+     * @name Notification
+     * @description Notifications are messages that communicate information to the user.
+     * @category Feedback
+     * @tags notification
+     * @example <goat-notification state="success" low-contrast dismissible>
+     *      <div slot='title'>Successful saved the record</div>
+     *    </goat-notification>
+     */
     interface HTMLGoatNotificationElement extends Components.GoatNotification, HTMLStencilElement {
     }
     var HTMLGoatNotificationElement: {
         prototype: HTMLGoatNotificationElement;
         new (): HTMLGoatNotificationElement;
     };
+    /**
+     * @name Notification Manager
+     * @description Manages alert, toasts and notifications.
+     * @category Feedback
+     * @tags notification
+     * @img /assets/img/notification-manager.png
+     */
     interface HTMLGoatNotificationManagerElement extends Components.GoatNotificationManager, HTMLStencilElement {
     }
     var HTMLGoatNotificationManagerElement: {
         prototype: HTMLGoatNotificationManagerElement;
         new (): HTMLGoatNotificationManagerElement;
     };
+    /**
+     * @name Select
+     * @description Allows the user to select one or more options using a dropdown.
+     * @category Form Inputs
+     * @tags input, form
+     * @img /assets/img/select.png
+     */
     interface HTMLGoatSelectElement extends Components.GoatSelect, HTMLStencilElement {
     }
     var HTMLGoatSelectElement: {
         prototype: HTMLGoatSelectElement;
         new (): HTMLGoatSelectElement;
     };
+    /**
+     * @name1 Side Navigation
+     * @description1 The side navigation component provides an easy way to navigate through your website / application.
+     * @img1 /assets/img/sidenav.png
+     */
     interface HTMLGoatSidenavElement extends Components.GoatSidenav, HTMLStencilElement {
     }
     var HTMLGoatSidenavElement: {
@@ -1020,12 +1431,24 @@ declare global {
         prototype: HTMLGoatSidenavMenuItemElement;
         new (): HTMLGoatSidenavMenuItemElement;
     };
+    /**
+     * @name Spinner
+     * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
+     * @category Feedback
+     * @example <goat-spinner class="rainbow"></goat-spinner>
+     */
     interface HTMLGoatSpinnerElement extends Components.GoatSpinner, HTMLStencilElement {
     }
     var HTMLGoatSpinnerElement: {
         prototype: HTMLGoatSpinnerElement;
         new (): HTMLGoatSpinnerElement;
     };
+    /**
+     * @name SVG
+     * @description Render SVG content from an external source.
+     * @category Data Display
+     * @example <goat-svg src="https://icons.getbootstrap.com/assets/icons/bug.svg"></goat-svg>
+     */
     interface HTMLGoatSvgElement extends Components.GoatSvg, HTMLStencilElement {
     }
     var HTMLGoatSvgElement: {
@@ -1044,12 +1467,30 @@ declare global {
         prototype: HTMLGoatTabPanelElement;
         new (): HTMLGoatTabPanelElement;
     };
+    /**
+     * @name Table
+     * @description A configurable component for displaying tabular data.
+     * @category Data Display
+     * @img /assets/img/table.png
+     */
     interface HTMLGoatTableElement extends Components.GoatTable, HTMLStencilElement {
     }
     var HTMLGoatTableElement: {
         prototype: HTMLGoatTableElement;
         new (): HTMLGoatTableElement;
     };
+    /**
+     * @name Tabs
+     * @description An interactive button with a range of presentation options.
+     * @category Navigation
+     * @tags navigation
+     * @example <goat-tabs>
+     * <goat-tabs-list>
+     * <goat-tab selected >Tab 1</goat-tab>
+     * <goat-tab>Tab 2</goat-tab>
+     * </goat-tabs-list>
+     * </goat-tabs>
+     */
     interface HTMLGoatTabsElement extends Components.GoatTabs, HTMLStencilElement {
     }
     var HTMLGoatTabsElement: {
@@ -1062,36 +1503,74 @@ declare global {
         prototype: HTMLGoatTabsListElement;
         new (): HTMLGoatTabsListElement;
     };
+    /**
+     * @name Tag
+     * @description Use tags to label, categorize, or organize items using keywords that describe them.
+     * @category Data Display
+     * @tag controls
+     * @example <goat-tag class="color-red">Important</goat-tag>
+     */
     interface HTMLGoatTagElement extends Components.GoatTag, HTMLStencilElement {
     }
     var HTMLGoatTagElement: {
         prototype: HTMLGoatTagElement;
         new (): HTMLGoatTagElement;
     };
+    /**
+     * @name Text
+     * @description Typography are used for rendering headlines, paragraphs and captions.
+     * @category General
+     * @example <goat-text type="heading" level="1">Heading</goat-typography>
+     */
     interface HTMLGoatTextElement extends Components.GoatText, HTMLStencilElement {
     }
     var HTMLGoatTextElement: {
         prototype: HTMLGoatTextElement;
         new (): HTMLGoatTextElement;
     };
+    /**
+     * @name Textarea
+     * @description Enables native inputs to be used within a Form field.
+     * @category Form Inputs
+     * @tags input, form
+     * @example <goat-textarea placeholder="Enter some description over here"></goat-textarea>
+     */
     interface HTMLGoatTextareaElement extends Components.GoatTextarea, HTMLStencilElement {
     }
     var HTMLGoatTextareaElement: {
         prototype: HTMLGoatTextareaElement;
         new (): HTMLGoatTextareaElement;
     };
+    /**
+     * @name Time Picker
+     * @description Captures time input.
+     * @category Form Inputs
+     * @tags input, form
+     * @example <goat-time-picker value='true'></goat-time-picker>
+     */
     interface HTMLGoatTimePickerElement extends Components.GoatTimePicker, HTMLStencilElement {
     }
     var HTMLGoatTimePickerElement: {
         prototype: HTMLGoatTimePickerElement;
         new (): HTMLGoatTimePickerElement;
     };
+    /**
+     * @name Toast
+     * @description Toasts are lightweight notifications.
+     * @category Feedback
+     * @example <goat-toast state="success" message="Successful saved the record"></goat-toast>
+     */
     interface HTMLGoatToastElement extends Components.GoatToast, HTMLStencilElement {
     }
     var HTMLGoatToastElement: {
         prototype: HTMLGoatToastElement;
         new (): HTMLGoatToastElement;
     };
+    /**
+     * @name TreeView
+     * @description Menus display a list of choices on temporary surfaces.
+     * @img /assets/img/no-image.jpg
+     */
     interface HTMLTreeViewElement extends Components.TreeView, HTMLStencilElement {
     }
     var HTMLTreeViewElement: {
@@ -1152,6 +1631,13 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    /**
+     * @name Accordion
+     * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
+     * @example <goat-accordion>
+     * <goat-accordion-item heading="Title 1"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>
+     * </goat-accordion>
+     */
     interface GoatAccordion {
     }
     interface GoatAccordionItem {
@@ -1172,6 +1658,12 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
     }
+    /**
+     * @name Avatar
+     * @description Avatars in their simplest form display content within a circular container.
+     * @category Data Display
+     * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.png"></goat-avatar>
+     */
     interface GoatAvatar {
         "name"?: string;
         /**
@@ -1180,9 +1672,23 @@ declare namespace LocalJSX {
         "size"?: string;
         "src"?: string;
     }
+    /**
+     * @name Badge
+     * @description Renders a specified badge.
+     * @category Data Display
+     * @tag content
+     * @example <goat-badge content="5" class='color-error'> <goat-icon name="bell"></goat-icon></goat-badge>
+     */
     interface GoatBadge {
         "content"?: string;
     }
+    /**
+     * @name Breadcrumb
+     * @description Typography are used for rendering headlines, paragraphs and captions.
+     * @category Navigation
+     * @tags navigation
+     * @example <goat-breadcrumb><goat-breadcrumb-item href="#">Home</goat-breadcrumb-item><goat-breadcrumb-item href="#" active>Page</goat-breadcrumb-item></goat-breadcrumb>
+     */
     interface GoatBreadcrumb {
     }
     interface GoatBreadcrumbItem {
@@ -1197,6 +1703,15 @@ declare namespace LocalJSX {
          */
         "target"?: string;
     }
+    /**
+     * @name Button
+     * @description An interactive button with a range of presentation options.
+     * @category General
+     * @tags controls
+     * @example <goat-button>
+     * Button CTA
+     * </goat-button>
+     */
     interface GoatButton {
         /**
           * If true, fits button width to its parent width. Defaults to `false`.
@@ -1240,10 +1755,31 @@ declare namespace LocalJSX {
           * Sets or retrieves the window or frame at which to target content.
          */
         "target"?: string;
+        /**
+          * Button variants. Possible values are `"default"`, `"light"`, `"outline"`, `"ghost"`, `"link"`. Defaults to `"default"`.
+         */
         "variant"?: 'default' | 'light' | 'outline' | 'ghost' | 'link';
     }
+    /**
+     * @name Button Group
+     * @description An interactive button with a range of presentation options.
+     * @category General
+     * @tags controls
+     * @example <goat-button-group><goat-button>
+     * Button CTA
+     * </goat-button><goat-button>
+     * Button CTA
+     * </goat-button></goat-button-group>
+     */
     interface GoatButtonGroup {
     }
+    /**
+     * @name Calendar
+     * @description The calendar component is used to display information in a daily, weekly, monthly, or category view.
+     * @category Data Display
+     * @tags calendar
+     * @img /assets/img/calendar.png
+     */
     interface GoatCalendar {
         "availableViews"?: any;
         "contextDate"?: any;
@@ -1290,6 +1826,13 @@ declare namespace LocalJSX {
     interface GoatCard {
         "shadowLevel"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | undefined;
     }
+    /**
+     * @name Checkbox
+     * @description Captures boolean input with an optional indeterminate mode.
+     * @category Form Inputs
+     * @tags input, form
+     * @example <goat-checkbox value='true'>Want ice cream?</goat-checkbox>
+     */
     interface GoatCheckbox {
         "configAria"?: any;
         /**
@@ -1332,6 +1875,13 @@ declare namespace LocalJSX {
          */
         "value"?: boolean;
     }
+    /**
+     * @name Code Editor
+     * @description A browser based code editor.
+     * @category Form Inputs
+     * @tags input, form
+     * @img /assets/img/code-editor.png
+     */
     interface GoatCodeEditor {
         /**
           * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
@@ -1362,11 +1912,22 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    /**
+     * @name Code Highlighter
+     * @description A browser based code highlighter.
+     * @img /assets/img/code-highlighter.png
+     */
     interface GoatCodeHighlighter {
         "language"?: string;
         "lineNumbers"?: boolean;
         "value"?: string;
     }
+    /**
+     * @name Date Picker
+     * @category Form Inputs
+     * @description Captures date input.
+     * @example <goat-date-picker value='true'></goat-date-picker>
+     */
     interface GoatDatePicker {
         "configAria"?: any;
         /**
@@ -1410,9 +1971,20 @@ declare namespace LocalJSX {
          */
         "value"?: string | number | null;
     }
+    /**
+     * @name Divider
+     * @description A divider can be used to segment content vertically or horizontally.
+     * @category Layout
+     * @example <goat-divider style="width: 12rem;">or</goat-divider>
+     */
     interface GoatDivider {
         "vertical"?: boolean;
     }
+    /**
+     * @name Dropdown
+     * @description Enables native inputs to be used within a Form field.
+     * @img /assets/img/dropdown.png
+     */
     interface GoatDropdown {
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
@@ -1426,6 +1998,13 @@ declare namespace LocalJSX {
          */
         "size"?: 'sm' | 'md' | 'lg';
     }
+    /**
+     * @name Empty State
+     * @description A message that displays when there is no information to display.
+     * @category Data Display
+     * @example <goat-empty-state class="content-center" headline="Empty list" description="Nothing to display">
+     * </goat-empty-state>
+     */
     interface GoatEmptyState {
         "action"?: string;
         "actionDisabled"?: boolean;
@@ -1435,11 +2014,25 @@ declare namespace LocalJSX {
         "headline"?: string;
         "illustration"?: 'no-document';
     }
+    /**
+     * @name Flow Designer
+     * @description An interactive button with a range of presentation options.
+     * @img /assets/img/no-image.jpg
+     */
     interface GoatFlowDesigner {
         "activities"?: any[];
         "blockSize"?: number;
         "disabled"?: boolean;
     }
+    /**
+     * @name Form Control
+     * @description The Form Control component adds a label and caption for its child control.
+     * @category Form Inputs
+     * @tags form
+     * @example <goat-form-control label='Full Name' required>
+     * <goat-input type='text'></goat-input>
+     * </goat-form-control>
+     */
     interface GoatFormControl {
         /**
           * The caption for the form control.
@@ -1458,6 +2051,11 @@ declare namespace LocalJSX {
         "success"?: string;
         "warning"?: string;
     }
+    /**
+     * @name Header
+     * @description Headers are compositions that extend standard navbar functionalities.
+     * @img /assets/img/header.png
+     */
     interface GoatHeader {
     }
     interface GoatHeaderBrand {
@@ -1466,6 +2064,12 @@ declare namespace LocalJSX {
         "name"?: string;
         "subTitle"?: string;
     }
+    /**
+     * @name Icon
+     * @description Renders a specified icon.
+     * @category General
+     * @example <goat-icon name="house"></goat-icon>
+     */
     interface GoatIcon {
         "name"?: string;
         /**
@@ -1473,6 +2077,13 @@ declare namespace LocalJSX {
          */
         "size"?: 'sm' | 'md' | 'lg' | 'xl' | string;
     }
+    /**
+     * @name Input
+     * @description Enables native inputs to be used within a Form field.
+     * @category Form Inputs
+     * @tags input, form
+     * @example <goat-input placeholder="Enter your name"></goat-input>
+     */
     interface GoatInput {
         /**
           * Indicates whether the value of the control can be automatically completed by the browser.
@@ -1540,6 +2151,11 @@ declare namespace LocalJSX {
          */
         "value"?: string | number | null;
     }
+    /**
+     * @name Link
+     * @description Links allow users to click their way from page to page.
+     * @example <goat-link href="#">Link</goat-link>
+     */
     interface GoatLink {
         /**
           * Hyperlink to navigate to on click.
@@ -1550,6 +2166,11 @@ declare namespace LocalJSX {
          */
         "target"?: string;
     }
+    /**
+     * @name Menu
+     * @description Menus display a list of choices on temporary surfaces.
+     * @img /assets/img/menu.png
+     */
     interface GoatMenu {
         "empty"?: boolean;
         "emptyState"?: any;
@@ -1574,6 +2195,15 @@ declare namespace LocalJSX {
          */
         "value"?: string | number | null;
     }
+    /**
+     * @name Notification
+     * @description Notifications are messages that communicate information to the user.
+     * @category Feedback
+     * @tags notification
+     * @example <goat-notification state="success" low-contrast dismissible>
+     *      <div slot='title'>Successful saved the record</div>
+     *    </goat-notification>
+     */
     interface GoatNotification {
         "actionLabel"?: string;
         "actionName"?: string;
@@ -1583,10 +2213,24 @@ declare namespace LocalJSX {
         "onGoat:dismiss"?: (event: GoatNotificationCustomEvent<any>) => void;
         "state"?: 'success' | 'error' | 'info' | 'warning';
     }
+    /**
+     * @name Notification Manager
+     * @description Manages alert, toasts and notifications.
+     * @category Feedback
+     * @tags notification
+     * @img /assets/img/notification-manager.png
+     */
     interface GoatNotificationManager {
         "name"?: string;
         "position"?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
     }
+    /**
+     * @name Select
+     * @description Allows the user to select one or more options using a dropdown.
+     * @category Form Inputs
+     * @tags input, form
+     * @img /assets/img/select.png
+     */
     interface GoatSelect {
         /**
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
@@ -1654,6 +2298,11 @@ declare namespace LocalJSX {
          */
         "value"?: string | number;
     }
+    /**
+     * @name1 Side Navigation
+     * @description1 The side navigation component provides an easy way to navigate through your website / application.
+     * @img1 /assets/img/sidenav.png
+     */
     interface GoatSidenav {
         "showLoader"?: boolean;
     }
@@ -1681,12 +2330,24 @@ declare namespace LocalJSX {
          */
         "value"?: string | number | null;
     }
+    /**
+     * @name Spinner
+     * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
+     * @category Feedback
+     * @example <goat-spinner class="rainbow"></goat-spinner>
+     */
     interface GoatSpinner {
         /**
           * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
          */
         "size"?: 'sm' | 'md' | 'lg' | 'xl' | string;
     }
+    /**
+     * @name SVG
+     * @description Render SVG content from an external source.
+     * @category Data Display
+     * @example <goat-svg src="https://icons.getbootstrap.com/assets/icons/bug.svg"></goat-svg>
+     */
     interface GoatSvg {
         "src"?: string;
     }
@@ -1724,6 +2385,12 @@ declare namespace LocalJSX {
         "active"?: boolean;
         "value"?: string;
     }
+    /**
+     * @name Table
+     * @description A configurable component for displaying tabular data.
+     * @category Data Display
+     * @img /assets/img/table.png
+     */
     interface GoatTable {
         /**
           * Grid columns configuration. [ {   "name":"name",   "label":"Name",   "width":300,   "fixed":true  }, {   "name":"age",   "label":"Age" } ]
@@ -1750,12 +2417,31 @@ declare namespace LocalJSX {
         "sortable"?: boolean;
         "totalItems"?: any;
     }
+    /**
+     * @name Tabs
+     * @description An interactive button with a range of presentation options.
+     * @category Navigation
+     * @tags navigation
+     * @example <goat-tabs>
+     * <goat-tabs-list>
+     * <goat-tab selected >Tab 1</goat-tab>
+     * <goat-tab>Tab 2</goat-tab>
+     * </goat-tabs-list>
+     * </goat-tabs>
+     */
     interface GoatTabs {
     }
     interface GoatTabsList {
         "managed"?: boolean;
         "variant"?: 'line' | 'contained';
     }
+    /**
+     * @name Tag
+     * @description Use tags to label, categorize, or organize items using keywords that describe them.
+     * @category Data Display
+     * @tag controls
+     * @example <goat-tag class="color-red">Important</goat-tag>
+     */
     interface GoatTag {
         "filter"?: boolean;
         "onGoat:click"?: (event: GoatTagCustomEvent<any>) => void;
@@ -1766,6 +2452,12 @@ declare namespace LocalJSX {
         "size"?: 'sm' | 'md';
         "value"?: string;
     }
+    /**
+     * @name Text
+     * @description Typography are used for rendering headlines, paragraphs and captions.
+     * @category General
+     * @example <goat-text type="heading" level="1">Heading</goat-typography>
+     */
     interface GoatText {
         /**
           * The heading level.
@@ -1778,6 +2470,13 @@ declare namespace LocalJSX {
         "size"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
         "type"?: 'heading' | 'paragraph' | 'text';
     }
+    /**
+     * @name Textarea
+     * @description Enables native inputs to be used within a Form field.
+     * @category Form Inputs
+     * @tags input, form
+     * @example <goat-textarea placeholder="Enter some description over here"></goat-textarea>
+     */
     interface GoatTextarea {
         /**
           * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
@@ -1841,6 +2540,13 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    /**
+     * @name Time Picker
+     * @description Captures time input.
+     * @category Form Inputs
+     * @tags input, form
+     * @example <goat-time-picker value='true'></goat-time-picker>
+     */
     interface GoatTimePicker {
         "configAria"?: any;
         /**
@@ -1884,10 +2590,27 @@ declare namespace LocalJSX {
          */
         "value"?: string | number | null;
     }
+    /**
+     * @name Toast
+     * @description Toasts are lightweight notifications.
+     * @category Feedback
+     * @example <goat-toast state="success" message="Successful saved the record"></goat-toast>
+     */
     interface GoatToast {
+        /**
+          * Message to display in the toast.
+         */
         "message"?: string;
+        /**
+          * Toast state. Possible values are `"success"`, `"error"`, `"info"`, `"warning"`. Defaults to `"info"`.
+         */
         "state"?: 'success' | 'error' | 'info' | 'warning';
     }
+    /**
+     * @name TreeView
+     * @description Menus display a list of choices on temporary surfaces.
+     * @img /assets/img/no-image.jpg
+     */
     interface TreeView {
         "empty"?: boolean;
         "emptyState"?: any;
@@ -1951,14 +2674,68 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            /**
+             * @name Accordion
+             * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
+             * @example <goat-accordion>
+             * <goat-accordion-item heading="Title 1"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>
+             * </goat-accordion>
+             */
             "goat-accordion": LocalJSX.GoatAccordion & JSXBase.HTMLAttributes<HTMLGoatAccordionElement>;
             "goat-accordion-item": LocalJSX.GoatAccordionItem & JSXBase.HTMLAttributes<HTMLGoatAccordionItemElement>;
+            /**
+             * @name Avatar
+             * @description Avatars in their simplest form display content within a circular container.
+             * @category Data Display
+             * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.png"></goat-avatar>
+             */
             "goat-avatar": LocalJSX.GoatAvatar & JSXBase.HTMLAttributes<HTMLGoatAvatarElement>;
+            /**
+             * @name Badge
+             * @description Renders a specified badge.
+             * @category Data Display
+             * @tag content
+             * @example <goat-badge content="5" class='color-error'> <goat-icon name="bell"></goat-icon></goat-badge>
+             */
             "goat-badge": LocalJSX.GoatBadge & JSXBase.HTMLAttributes<HTMLGoatBadgeElement>;
+            /**
+             * @name Breadcrumb
+             * @description Typography are used for rendering headlines, paragraphs and captions.
+             * @category Navigation
+             * @tags navigation
+             * @example <goat-breadcrumb><goat-breadcrumb-item href="#">Home</goat-breadcrumb-item><goat-breadcrumb-item href="#" active>Page</goat-breadcrumb-item></goat-breadcrumb>
+             */
             "goat-breadcrumb": LocalJSX.GoatBreadcrumb & JSXBase.HTMLAttributes<HTMLGoatBreadcrumbElement>;
             "goat-breadcrumb-item": LocalJSX.GoatBreadcrumbItem & JSXBase.HTMLAttributes<HTMLGoatBreadcrumbItemElement>;
+            /**
+             * @name Button
+             * @description An interactive button with a range of presentation options.
+             * @category General
+             * @tags controls
+             * @example <goat-button>
+             * Button CTA
+             * </goat-button>
+             */
             "goat-button": LocalJSX.GoatButton & JSXBase.HTMLAttributes<HTMLGoatButtonElement>;
+            /**
+             * @name Button Group
+             * @description An interactive button with a range of presentation options.
+             * @category General
+             * @tags controls
+             * @example <goat-button-group><goat-button>
+             * Button CTA
+             * </goat-button><goat-button>
+             * Button CTA
+             * </goat-button></goat-button-group>
+             */
             "goat-button-group": LocalJSX.GoatButtonGroup & JSXBase.HTMLAttributes<HTMLGoatButtonGroupElement>;
+            /**
+             * @name Calendar
+             * @description The calendar component is used to display information in a daily, weekly, monthly, or category view.
+             * @category Data Display
+             * @tags calendar
+             * @img /assets/img/calendar.png
+             */
             "goat-calendar": LocalJSX.GoatCalendar & JSXBase.HTMLAttributes<HTMLGoatCalendarElement>;
             "goat-calendar-column-view": LocalJSX.GoatCalendarColumnView & JSXBase.HTMLAttributes<HTMLGoatCalendarColumnViewElement>;
             "goat-calendar-column-view-background": LocalJSX.GoatCalendarColumnViewBackground & JSXBase.HTMLAttributes<HTMLGoatCalendarColumnViewBackgroundElement>;
@@ -1966,40 +2743,221 @@ declare module "@stencil/core" {
             "goat-calendar-month-view-background": LocalJSX.GoatCalendarMonthViewBackground & JSXBase.HTMLAttributes<HTMLGoatCalendarMonthViewBackgroundElement>;
             "goat-canvas": LocalJSX.GoatCanvas & JSXBase.HTMLAttributes<HTMLGoatCanvasElement>;
             "goat-card": LocalJSX.GoatCard & JSXBase.HTMLAttributes<HTMLGoatCardElement>;
+            /**
+             * @name Checkbox
+             * @description Captures boolean input with an optional indeterminate mode.
+             * @category Form Inputs
+             * @tags input, form
+             * @example <goat-checkbox value='true'>Want ice cream?</goat-checkbox>
+             */
             "goat-checkbox": LocalJSX.GoatCheckbox & JSXBase.HTMLAttributes<HTMLGoatCheckboxElement>;
+            /**
+             * @name Code Editor
+             * @description A browser based code editor.
+             * @category Form Inputs
+             * @tags input, form
+             * @img /assets/img/code-editor.png
+             */
             "goat-code-editor": LocalJSX.GoatCodeEditor & JSXBase.HTMLAttributes<HTMLGoatCodeEditorElement>;
+            /**
+             * @name Code Highlighter
+             * @description A browser based code highlighter.
+             * @img /assets/img/code-highlighter.png
+             */
             "goat-code-highlighter": LocalJSX.GoatCodeHighlighter & JSXBase.HTMLAttributes<HTMLGoatCodeHighlighterElement>;
+            /**
+             * @name Date Picker
+             * @category Form Inputs
+             * @description Captures date input.
+             * @example <goat-date-picker value='true'></goat-date-picker>
+             */
             "goat-date-picker": LocalJSX.GoatDatePicker & JSXBase.HTMLAttributes<HTMLGoatDatePickerElement>;
+            /**
+             * @name Divider
+             * @description A divider can be used to segment content vertically or horizontally.
+             * @category Layout
+             * @example <goat-divider style="width: 12rem;">or</goat-divider>
+             */
             "goat-divider": LocalJSX.GoatDivider & JSXBase.HTMLAttributes<HTMLGoatDividerElement>;
+            /**
+             * @name Dropdown
+             * @description Enables native inputs to be used within a Form field.
+             * @img /assets/img/dropdown.png
+             */
             "goat-dropdown": LocalJSX.GoatDropdown & JSXBase.HTMLAttributes<HTMLGoatDropdownElement>;
+            /**
+             * @name Empty State
+             * @description A message that displays when there is no information to display.
+             * @category Data Display
+             * @example <goat-empty-state class="content-center" headline="Empty list" description="Nothing to display">
+             * </goat-empty-state>
+             */
             "goat-empty-state": LocalJSX.GoatEmptyState & JSXBase.HTMLAttributes<HTMLGoatEmptyStateElement>;
+            /**
+             * @name Flow Designer
+             * @description An interactive button with a range of presentation options.
+             * @img /assets/img/no-image.jpg
+             */
             "goat-flow-designer": LocalJSX.GoatFlowDesigner & JSXBase.HTMLAttributes<HTMLGoatFlowDesignerElement>;
+            /**
+             * @name Form Control
+             * @description The Form Control component adds a label and caption for its child control.
+             * @category Form Inputs
+             * @tags form
+             * @example <goat-form-control label='Full Name' required>
+             * <goat-input type='text'></goat-input>
+             * </goat-form-control>
+             */
             "goat-form-control": LocalJSX.GoatFormControl & JSXBase.HTMLAttributes<HTMLGoatFormControlElement>;
+            /**
+             * @name Header
+             * @description Headers are compositions that extend standard navbar functionalities.
+             * @img /assets/img/header.png
+             */
             "goat-header": LocalJSX.GoatHeader & JSXBase.HTMLAttributes<HTMLGoatHeaderElement>;
             "goat-header-brand": LocalJSX.GoatHeaderBrand & JSXBase.HTMLAttributes<HTMLGoatHeaderBrandElement>;
+            /**
+             * @name Icon
+             * @description Renders a specified icon.
+             * @category General
+             * @example <goat-icon name="house"></goat-icon>
+             */
             "goat-icon": LocalJSX.GoatIcon & JSXBase.HTMLAttributes<HTMLGoatIconElement>;
+            /**
+             * @name Input
+             * @description Enables native inputs to be used within a Form field.
+             * @category Form Inputs
+             * @tags input, form
+             * @example <goat-input placeholder="Enter your name"></goat-input>
+             */
             "goat-input": LocalJSX.GoatInput & JSXBase.HTMLAttributes<HTMLGoatInputElement>;
+            /**
+             * @name Link
+             * @description Links allow users to click their way from page to page.
+             * @example <goat-link href="#">Link</goat-link>
+             */
             "goat-link": LocalJSX.GoatLink & JSXBase.HTMLAttributes<HTMLGoatLinkElement>;
+            /**
+             * @name Menu
+             * @description Menus display a list of choices on temporary surfaces.
+             * @img /assets/img/menu.png
+             */
             "goat-menu": LocalJSX.GoatMenu & JSXBase.HTMLAttributes<HTMLGoatMenuElement>;
             "goat-menu-item": LocalJSX.GoatMenuItem & JSXBase.HTMLAttributes<HTMLGoatMenuItemElement>;
+            /**
+             * @name Notification
+             * @description Notifications are messages that communicate information to the user.
+             * @category Feedback
+             * @tags notification
+             * @example <goat-notification state="success" low-contrast dismissible>
+             *      <div slot='title'>Successful saved the record</div>
+             *    </goat-notification>
+             */
             "goat-notification": LocalJSX.GoatNotification & JSXBase.HTMLAttributes<HTMLGoatNotificationElement>;
+            /**
+             * @name Notification Manager
+             * @description Manages alert, toasts and notifications.
+             * @category Feedback
+             * @tags notification
+             * @img /assets/img/notification-manager.png
+             */
             "goat-notification-manager": LocalJSX.GoatNotificationManager & JSXBase.HTMLAttributes<HTMLGoatNotificationManagerElement>;
+            /**
+             * @name Select
+             * @description Allows the user to select one or more options using a dropdown.
+             * @category Form Inputs
+             * @tags input, form
+             * @img /assets/img/select.png
+             */
             "goat-select": LocalJSX.GoatSelect & JSXBase.HTMLAttributes<HTMLGoatSelectElement>;
+            /**
+             * @name1 Side Navigation
+             * @description1 The side navigation component provides an easy way to navigate through your website / application.
+             * @img1 /assets/img/sidenav.png
+             */
             "goat-sidenav": LocalJSX.GoatSidenav & JSXBase.HTMLAttributes<HTMLGoatSidenavElement>;
             "goat-sidenav-menu": LocalJSX.GoatSidenavMenu & JSXBase.HTMLAttributes<HTMLGoatSidenavMenuElement>;
             "goat-sidenav-menu-item": LocalJSX.GoatSidenavMenuItem & JSXBase.HTMLAttributes<HTMLGoatSidenavMenuItemElement>;
+            /**
+             * @name Spinner
+             * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
+             * @category Feedback
+             * @example <goat-spinner class="rainbow"></goat-spinner>
+             */
             "goat-spinner": LocalJSX.GoatSpinner & JSXBase.HTMLAttributes<HTMLGoatSpinnerElement>;
+            /**
+             * @name SVG
+             * @description Render SVG content from an external source.
+             * @category Data Display
+             * @example <goat-svg src="https://icons.getbootstrap.com/assets/icons/bug.svg"></goat-svg>
+             */
             "goat-svg": LocalJSX.GoatSvg & JSXBase.HTMLAttributes<HTMLGoatSvgElement>;
             "goat-tab": LocalJSX.GoatTab & JSXBase.HTMLAttributes<HTMLGoatTabElement>;
             "goat-tab-panel": LocalJSX.GoatTabPanel & JSXBase.HTMLAttributes<HTMLGoatTabPanelElement>;
+            /**
+             * @name Table
+             * @description A configurable component for displaying tabular data.
+             * @category Data Display
+             * @img /assets/img/table.png
+             */
             "goat-table": LocalJSX.GoatTable & JSXBase.HTMLAttributes<HTMLGoatTableElement>;
+            /**
+             * @name Tabs
+             * @description An interactive button with a range of presentation options.
+             * @category Navigation
+             * @tags navigation
+             * @example <goat-tabs>
+             * <goat-tabs-list>
+             * <goat-tab selected >Tab 1</goat-tab>
+             * <goat-tab>Tab 2</goat-tab>
+             * </goat-tabs-list>
+             * </goat-tabs>
+             */
             "goat-tabs": LocalJSX.GoatTabs & JSXBase.HTMLAttributes<HTMLGoatTabsElement>;
             "goat-tabs-list": LocalJSX.GoatTabsList & JSXBase.HTMLAttributes<HTMLGoatTabsListElement>;
+            /**
+             * @name Tag
+             * @description Use tags to label, categorize, or organize items using keywords that describe them.
+             * @category Data Display
+             * @tag controls
+             * @example <goat-tag class="color-red">Important</goat-tag>
+             */
             "goat-tag": LocalJSX.GoatTag & JSXBase.HTMLAttributes<HTMLGoatTagElement>;
+            /**
+             * @name Text
+             * @description Typography are used for rendering headlines, paragraphs and captions.
+             * @category General
+             * @example <goat-text type="heading" level="1">Heading</goat-typography>
+             */
             "goat-text": LocalJSX.GoatText & JSXBase.HTMLAttributes<HTMLGoatTextElement>;
+            /**
+             * @name Textarea
+             * @description Enables native inputs to be used within a Form field.
+             * @category Form Inputs
+             * @tags input, form
+             * @example <goat-textarea placeholder="Enter some description over here"></goat-textarea>
+             */
             "goat-textarea": LocalJSX.GoatTextarea & JSXBase.HTMLAttributes<HTMLGoatTextareaElement>;
+            /**
+             * @name Time Picker
+             * @description Captures time input.
+             * @category Form Inputs
+             * @tags input, form
+             * @example <goat-time-picker value='true'></goat-time-picker>
+             */
             "goat-time-picker": LocalJSX.GoatTimePicker & JSXBase.HTMLAttributes<HTMLGoatTimePickerElement>;
+            /**
+             * @name Toast
+             * @description Toasts are lightweight notifications.
+             * @category Feedback
+             * @example <goat-toast state="success" message="Successful saved the record"></goat-toast>
+             */
             "goat-toast": LocalJSX.GoatToast & JSXBase.HTMLAttributes<HTMLGoatToastElement>;
+            /**
+             * @name TreeView
+             * @description Menus display a list of choices on temporary surfaces.
+             * @img /assets/img/no-image.jpg
+             */
             "tree-view": LocalJSX.TreeView & JSXBase.HTMLAttributes<HTMLTreeViewElement>;
         }
     }

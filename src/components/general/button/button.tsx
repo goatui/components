@@ -37,6 +37,10 @@ export class Button implements ComponentInterface {
    */
   @Prop() size: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' = 'md';
 
+  /**
+   * Button variants.
+   * Possible values are `"default"`, `"light"`, `"outline"`, `"ghost"`, `"link"`. Defaults to `"default"`.
+   */
   @Prop() variant: 'default' | 'light' | 'outline' | 'ghost' | 'link' = 'default';
 
   /**

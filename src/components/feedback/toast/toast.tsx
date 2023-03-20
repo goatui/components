@@ -1,10 +1,10 @@
 import { Component, ComponentInterface, Element, h, Host, Prop, State } from '@stencil/core';
-import { isDarkMode, observeThemeChange } from '../../../../utils/utils';
-
+import { isDarkMode, observeThemeChange } from '../../../utils/utils';
 
 /**
  * @name Toast
  * @description Toasts are lightweight notifications.
+ * @category Feedback
  * @example <goat-toast state="success" message="Successful saved the record"></goat-toast>
  */
 @Component({
@@ -13,11 +13,17 @@ import { isDarkMode, observeThemeChange } from '../../../../utils/utils';
   shadow: true,
 })
 export class Toast implements ComponentInterface {
-
   @Element() elm!: HTMLElement;
 
+  /**
+   * Message to display in the toast.
+   */
   @Prop() message: string = '';
 
+  /**
+   * Toast state.
+   * Possible values are `"success"`, `"error"`, `"info"`, `"warning"`. Defaults to `"info"`.
+   */
   @Prop({ reflect: true }) state: 'success' | 'error' | 'info' | 'warning' = 'info';
 
   @State() isDarkMode: boolean = isDarkMode();
@@ -30,31 +36,26 @@ export class Toast implements ComponentInterface {
 
   renderStateIcon() {
     if (this.state === 'success') {
-      return <goat-icon class='inherit' name='check-circle-fill' size='sm' />;
+      return <goat-icon class="inherit" name="check-circle-fill" size="sm" />;
     } else if (this.state === 'error') {
-      return <goat-icon class='inherit' name='x-circle-fill' size='sm' />;
+      return <goat-icon class="inherit" name="x-circle-fill" size="sm" />;
     } else if (this.state === 'info') {
-      return <goat-icon class='inherit' name='info-circle-fill' size='sm' />;
+      return <goat-icon class="inherit" name="info-circle-fill" size="sm" />;
     } else if (this.state === 'warning') {
-      return <goat-icon class='inherit' name='exclamation-circle-fill' size='sm' />;
+      return <goat-icon class="inherit" name="exclamation-circle-fill" size="sm" />;
     }
   }
 
   render() {
     return (
       <Host>
-        <div class={{ 'toast': true, 'dark-mode': this.isDarkMode }} role='alert'>
-          <div class='state-icon'>
-            {this.renderStateIcon()}
-          </div>
-          <div class='content'>
-            <div class='message'>
-              {this.message}
-            </div>
+        <div class={{ 'toast': true, 'dark-mode': this.isDarkMode }} role="alert">
+          <div class="state-icon">{this.renderStateIcon()}</div>
+          <div class="content">
+            <div class="message">{this.message}</div>
           </div>
         </div>
       </Host>
     );
   }
-
 }

@@ -1,6 +1,12 @@
 import { Component, h, Host, Prop, State, Watch } from '@stencil/core';
 import { fetchIcon } from './datasource';
 
+/**
+ * @name SVG
+ * @description Render SVG content from an external source.
+ * @category Data Display
+ * @example <goat-svg src="https://icons.getbootstrap.com/assets/icons/bug.svg"></goat-svg>
+ */
 @Component({
   tag: 'goat-svg',
   styleUrl: 'svg.scss',

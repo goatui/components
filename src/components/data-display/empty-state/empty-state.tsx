@@ -5,6 +5,7 @@ import * as DOMPurify from 'dompurify';
 /**
  * @name Empty State
  * @description A message that displays when there is no information to display.
+ * @category Data Display
  * @example <goat-empty-state class="content-center" headline="Empty list" description="Nothing to display">
  * </goat-empty-state>
  */

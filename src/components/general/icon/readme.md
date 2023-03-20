@@ -27,7 +27,7 @@
  - [goat-tab](../../navigation/tabs/tab)
  - [goat-tag](../../data-display/tag)
  - [goat-textarea](../../data-entry/textarea)
- - [goat-toast](../../other/content/toast)
+ - [goat-toast](../../feedback/toast)
 
 ### Graph
 ```mermaid

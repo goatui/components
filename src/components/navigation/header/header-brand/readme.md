@@ -20,7 +20,7 @@
 ### Depends on
 
 - [goat-link](../../link)
-- [goat-svg](../../../other/content/svg)
+- [goat-svg](../../../data-display/svg)
 - [goat-divider](../../../layout/divider)
 
 ### Graph
