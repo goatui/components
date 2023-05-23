@@ -1,8 +1,8 @@
 {
-  "timestamp": "2023-03-20T10:40:20",
+  "timestamp": "2023-05-23T06:05:29",
   "compiler": {
     "name": "@stencil/core",
-    "version": "3.1.0",
+    "version": "3.2.0",
     "typescriptVersion": "4.9.5"
   },
   "components": [
@@ -3080,7 +3080,7 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "10",
+          "default": "16",
           "values": [
             {
               "type": "number"
@@ -13798,7 +13798,7 @@
               "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
-              "default": "10",
+              "default": "16",
               "values": [
                 {
                   "type": "number"

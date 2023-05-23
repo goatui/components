@@ -39,8 +39,13 @@
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll"
   },
+  "dependencies": {
+    "date-fns": "^2.29.3",
+    "dompurify": "^3.0.1",
+    "prismjs": "^1.29.0"
+  },
   "devDependencies": {
-    "@stencil/core": "^3.1.0",
+    "@stencil/core": "^3.2.0",
     "@stencil/sass": "^3.0.0",
     "@types/dompurify": "^2.4.0",
     "@types/node": "^18.11.18",
@@ -63,10 +68,5 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "es2015": "dist/esm/index.mjs",
-  "es2017": "dist/esm/index.mjs",
-  "dependencies": {
-    "date-fns": "^2.29.3",
-    "dompurify": "^2.4.1",
-    "prismjs": "^1.27.0"
-  }
+  "es2017": "dist/esm/index.mjs"
 }

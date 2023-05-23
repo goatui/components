@@ -51,10 +51,10 @@ function releaseToDocs(cb) {
   });
 }
 
-exports.themeBuild = series(scssTask);
+exports.themeBuild = scssTask;
 exports.releaseToDocs = releaseToDocs;
 exports.themeWatch = function() {
   watch(SRC, scssTask);
 };
 
-exports.default = series(releaseToDocs);
+exports.default = series(scssTask, releaseToDocs);

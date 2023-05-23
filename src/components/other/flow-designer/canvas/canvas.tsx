@@ -6,7 +6,6 @@ import { Component, Element, h, Host, Prop, State } from '@stencil/core';
   shadow: true,
 })
 export class Canvas {
-
   @Prop() unitSize: number = 16;
   @Prop() lines: any[] = [];
   @Prop() padding: number = 2;
@@ -31,7 +30,6 @@ export class Canvas {
 
   @Element() elm!: HTMLElement;
 
-
   componentDidLoad() {
     setTimeout(() => {
       this.renderCanvas();
@@ -39,6 +37,7 @@ export class Canvas {
   }
 
   renderCanvas() {
+    this.drawBackground();
 
     for (const line of this.lines) {
       this.drawLine(line);
@@ -47,6 +46,8 @@ export class Canvas {
     this.computedViewbox = this.calculateViewbox();
     this.paths = [...this.paths];
   }
+
+  drawBackground() {}
 
   calculateViewbox() {
     let result;
@@ -62,8 +63,8 @@ export class Canvas {
       result = {
         x: this.drawingArea.minX,
         y: this.drawingArea.minY,
-        width: (this.drawingArea.maxX - this.drawingArea.minX),
-        height: (this.drawingArea.maxY - this.drawingArea.minY),
+        width: this.drawingArea.maxX - this.drawingArea.minX,
+        height: this.drawingArea.maxY - this.drawingArea.minY,
       };
     }
 
@@ -76,9 +77,7 @@ export class Canvas {
     return result;
   }
 
-
   drawLine(line) {
-
     const startConnector = {
       x: line.start.x,
       y: line.start.y,
@@ -125,12 +124,10 @@ export class Canvas {
       pathString += this.createShapeConnectorPath(line, startConnector, endConnector);
     }
 
-
     this.updateDrawingArea(line.start);
     this.updateDrawingArea(line.end);
 
     this.paths.push(pathString);
-
   }
 
   createStraightLinePath(line, startConnector, endConnector) {
@@ -142,7 +139,6 @@ export class Canvas {
   }
 
   createShapeConnectorPath(line, startConnector, endConnector) {
-
     let pathString = [];
     let curveSize = 2;
 
@@ -152,26 +148,53 @@ export class Canvas {
           pathString.push(this.#createLineString(line.end));
         } else if (startConnector.x < endConnector.x) {
           pathString.push(this.#createLineString({ x: startConnector.x, y: startConnector.y - curveSize }));
-          pathString.push(this.#createQuadraticCurveString({ x: startConnector.x, y: startConnector.y },
-            { x: startConnector.x + curveSize, y: startConnector.y }));
+          pathString.push(
+            this.#createQuadraticCurveString(
+              {
+                x: startConnector.x,
+                y: startConnector.y,
+              },
+              { x: startConnector.x + curveSize, y: startConnector.y },
+            ),
+          );
 
           pathString.push(this.#createLineString({ x: endConnector.x - curveSize, y: startConnector.y }));
-          pathString.push(this.#createQuadraticCurveString({ x: endConnector.x, y: startConnector.y },
-            { x: endConnector.x, y: startConnector.y + curveSize }));
+          pathString.push(
+            this.#createQuadraticCurveString(
+              {
+                x: endConnector.x,
+                y: startConnector.y,
+              },
+              { x: endConnector.x, y: startConnector.y + curveSize },
+            ),
+          );
           pathString.push(this.#createLineString(line.end));
         } else {
           pathString.push(this.#createLineString({ x: startConnector.x, y: startConnector.y - curveSize }));
-          pathString.push(this.#createQuadraticCurveString({ x: startConnector.x, y: startConnector.y },
-            { x: startConnector.x - curveSize, y: startConnector.y }));
+          pathString.push(
+            this.#createQuadraticCurveString(
+              {
+                x: startConnector.x,
+                y: startConnector.y,
+              },
+              { x: startConnector.x - curveSize, y: startConnector.y },
+            ),
+          );
 
           pathString.push(this.#createLineString({ x: endConnector.x + curveSize, y: startConnector.y }));
-          pathString.push(this.#createQuadraticCurveString({ x: endConnector.x, y: startConnector.y },
-            { x: endConnector.x, y: startConnector.y + curveSize }));
+          pathString.push(
+            this.#createQuadraticCurveString(
+              {
+                x: endConnector.x,
+                y: startConnector.y,
+              },
+              { x: endConnector.x, y: startConnector.y + curveSize },
+            ),
+          );
           pathString.push(this.#createLineString(line.end));
         }
       }
     }
-
 
     /*if (startConnector.x === endConnector.x) {
       pathString.push(this.#createLineString(endConnector));
@@ -187,7 +210,6 @@ export class Canvas {
     }*/
     return ` ${pathString.join(' ')}`;
   }
-
 
   updateDrawingArea(position) {
     if (position.x > this.drawingArea.maxX) {
@@ -205,34 +227,62 @@ export class Canvas {
   }
 
   render() {
-    console.log(`Canvas size ${this.computedViewbox.x * this.unitSize} ${this.computedViewbox.x * this.unitSize} ${this.computedViewbox.width * this.unitSize} ${this.computedViewbox.height * this.unitSize}`);
-    return <Host>
-      <div class='canvas-wrapper' style={{
-        'background-size': `${this.unitSize}px ${this.unitSize}px`,
-        'background-position': `${this.unitSize / 2}px ${this.unitSize / 2}px`,
-      }}>
+    console.log(
+      `Canvas size ${this.computedViewbox.x * this.unitSize} ${this.computedViewbox.x * this.unitSize} ${this.computedViewbox.width * this.unitSize} ${
+        this.computedViewbox.height * this.unitSize
+      }`,
+    );
 
-        <svg class='canvas'
-             height={`100%`}
-             width={`100%`}
-             viewBox={`${this.computedViewbox.x * this.unitSize} ${this.computedViewbox.x * this.unitSize} ${this.computedViewbox.width * this.unitSize} ${this.computedViewbox.height * this.unitSize}`}>
-          {
-            (this.paths.map((path) => {
-              return <path class='line clickable'
-                           stroke-width='4'
+    const dotSize = this.unitSize;
+    const gap = dotSize * 2 * 10;
+
+    const columnLength = (this.computedViewbox.width * this.unitSize) / gap;
+    const rowLength = (this.computedViewbox.height * this.unitSize) / gap;
+
+    return (
+      <Host>
+        <div class="canvas-wrapper" style={{}}>
+          <svg
+            class="canvas"
+            height={`100%`}
+            width={`100%`}
+            viewBox={`${this.computedViewbox.x * this.unitSize} ${this.computedViewbox.x * this.unitSize} ${this.computedViewbox.width * this.unitSize} ${
+              this.computedViewbox.height * this.unitSize
+            }`}
+          >
+            {(() => {
+              const shapes = [];
+              for (let i = 0; i < columnLength; i++) {
+                for (let j = 0; j < rowLength; j++) {
+                  const x = i * gap + dotSize;
+                  const y = j * gap + dotSize;
+                  shapes.push(<circle cx={x} cy={y} r={dotSize} fill="black" />);
+                }
+              }
+              return shapes;
+            })()}
+
+            {/*{
+            this.shapes.map((shape) => {
+              return <path class='shape clickable'
+                           stroke-width='16'
                            stroke-linecap='round'
                            stroke-linejoin='round'
                            stroke='#000'
-                           d={`${path}`}
+                           d={`${shape}`}
                            fill='none' />;
-            }))
-          }
-        </svg>
-      </div>
-    </Host>;
+            })
+          }*/}
+            {this.paths.map(path => {
+              return <path class="line clickable" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" stroke="#000" d={`${path}`} fill="none" />;
+            })}
+          </svg>
+        </div>
+      </Host>
+    );
   }
 
-  #createStartString: any = (point) => {
+  #createStartString: any = point => {
     this.updateDrawingArea(point);
     return `M${point.x * this.unitSize} ${point.y * this.unitSize}`;
   };
@@ -243,9 +293,8 @@ export class Canvas {
     return `Q ${pointA.x * this.unitSize} ${pointA.y * this.unitSize} ${pointB.x * this.unitSize} ${pointB.y * this.unitSize}`;
   };
 
-  #createLineString: any = (point) => {
+  #createLineString: any = point => {
     this.updateDrawingArea(point);
     return `L${point.x * this.unitSize} ${point.y * this.unitSize}`;
   };
-
 }

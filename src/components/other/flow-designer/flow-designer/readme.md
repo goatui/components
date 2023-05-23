@@ -10,7 +10,7 @@
 | Property     | Attribute    | Description | Type      | Default |
 | ------------ | ------------ | ----------- | --------- | ------- |
 | `activities` | --           |             | `any[]`   | `[]`    |
-| `blockSize`  | `block-size` |             | `number`  | `10`    |
+| `blockSize`  | `block-size` |             | `number`  | `16`    |
 | `disabled`   | `disabled`   |             | `boolean` | `false` |
 
 

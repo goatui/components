@@ -20,7 +20,7 @@ export class FlowDesigner {
 
   @Element() elm!: HTMLElement;
 
-  @Prop() blockSize: number = 10;
+  @Prop() blockSize: number = 16;
 
   @Prop() activities: any[] = [];
 
@@ -49,14 +49,13 @@ export class FlowDesigner {
       await loadScript(`https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.1.2/svg.min.js`);
     }
     this.lines = [{
-      start: { x: 0, y: 0, gap: 8, direction: 'down' },
-      end: { x: -15, y: 15, direction: 'top' },
-      type: 'shape_connector',
-    }, {
-      start: { x: 0, y: 0, gap: 8, direction: 'down' },
+      start: { x: 0, y: 0, gap: 0, direction: 'down' },
+      end: { x: 32, y: 32,  gap: 0, direction: 'top' }
+    }/*, {
+      start: { x: 1, y: 1, gap: 8, direction: 'down' },
       end: { x: 15, y: 15, direction: 'top' },
       type: 'shape_connector',
-    }];
+    }*/];
   }
 
   componentDidLoad() {
@@ -133,7 +132,8 @@ export class FlowDesigner {
              }}>
 
           <goat-canvas ref={elm => this.canvasElm = elm} class='flow-lines' lines={this.lines} padding={0}
-                       viewbox={`0 0 124 134`} />
+                       viewbox={"0 0 144 144"}
+          />
 
           <div class='flow-items'
                style={{ 'width': `${this.getViewBoxWidth()}px`, 'height': `${this.getViewBoxHeight()}px` }} />
