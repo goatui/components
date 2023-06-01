@@ -213,7 +213,7 @@
 
 .checkbox.readonly {
   cursor: default;
-  color: v(--text-disabled) !important;
+  color: v(--text-primary) !important;
   border-color: v(--text-disabled) !important;
 
   &.state-checked .box {

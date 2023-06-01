@@ -2,18 +2,18 @@ import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, L
 import { getComponentIndex } from '../../../utils/utils';
 
 /**
- * @name Checkbox
+ * @name Toggle
  * @description Captures boolean input with an optional indeterminate mode.
  * @category Form Inputs
  * @tags input, form
- * @example <goat-checkbox value='true'>Want ice cream?</goat-checkbox>
+ * @example <goat-toggle value='true'>Want ice cream?</goat-toggle>
  */
 @Component({
-  tag: 'goat-checkbox',
-  styleUrl: 'checkbox.scss',
+  tag: 'goat-toggle',
+  styleUrl: 'toggle.scss',
   shadow: true,
 })
-export class Checkbox implements ComponentInterface, InputComponentInterface {
+export class Toggle implements ComponentInterface, InputComponentInterface {
   gid: string = getComponentIndex();
 
   /**
@@ -31,9 +31,7 @@ export class Checkbox implements ComponentInterface, InputComponentInterface {
    */
   @Prop({ mutable: true }) value: boolean = false;
 
-  @Prop({ mutable: true }) intermediate: boolean = false;
-
-  @Prop() rounded: boolean = false;
+  @Prop() rounded: boolean = true;
 
   /**
    * The button size.
@@ -124,14 +122,12 @@ export class Checkbox implements ComponentInterface, InputComponentInterface {
   private iconContainer?: HTMLElement;
   private tabindex?: string | number = 1;
   @State() hasFocus = false;
-  @State() animate = true;
   @State() isActive = false;
   @State() slotHasContent = false;
 
   private clickHandler = (ev: MouseEvent | KeyboardEvent) => {
     if (!this.disabled && !this.readonly) {
       this.value = !JSON.parse(this.nativeInput.value);
-      this.intermediate = false;
       this.goatChange.emit(ev);
       this.iconContainer.focus();
     }
@@ -170,9 +166,8 @@ export class Checkbox implements ComponentInterface, InputComponentInterface {
       <Host has-focus={this.hasFocus} active={this.isActive}>
         <label
           class={{
-            'checkbox': true,
+            'toggle': true,
             'state-checked': this.value,
-            'state-intermediate': !this.value && this.intermediate,
             [`size-${this.size}`]: true,
             'has-focus': this.hasFocus,
             'active': this.isActive,
@@ -201,14 +196,7 @@ export class Checkbox implements ComponentInterface, InputComponentInterface {
             aria-required={this.required + ''}
             aria-checked={this.value + ''}
             {...this.configAria}
-          >
-            <div
-              class={{
-                tick: true,
-                animate: this.animate,
-              }}
-            />
-          </div>
+          ></div>
 
           <input
             type="checkbox"

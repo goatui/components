@@ -406,6 +406,10 @@ Secondary link color for lower contrast backgrounds
   --support-success-inverse: #42be65;
   --support-warning-inverse: #f1c21b;
   --support-info-inverse: #4589ff;
+  --toggle-off: var(--color-gray-50, #8d8d8d);
+  --button-disabled: var(--color-gray-30, #c6c6c6);
+  --icon-on-color-disabled: var(--color-gray-50, #8d8d8d);
+  --icon-primary: var(--color-gray-100, #161616);
   --tag-background-gray: #e0e0e0;
   --tag-hover-gray: #c6c6c6;
   --tag-color-gray: #393939;
@@ -555,6 +559,10 @@ html[data-theme=dark] {
   --support-success-inverse: #24a148;
   --support-warning-inverse: #f1c21b;
   --support-info-inverse: #0043ce;
+  --toggle-off: var(--color-gray-60, #6f6f6f);
+  --button-disabled: var(--color-gray-70, #525252);
+  --icon-on-color-disabled: #ffffff;
+  --icon-primary: var(--color-gray-10, #f4f4f4);
   --tag-background-gray: #393939;
   --tag-hover-gray: #525252;
   --tag-color-gray: #c6c6c6;

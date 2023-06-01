@@ -421,6 +421,14 @@ Secondary link color for lower contrast backgrounds
 @include defineVariable(--support-warning-inverse, getColor(warning, 30), getColor(warning, 30));
 @include defineVariable(--support-info-inverse, getColor(info, 50), getColor(info, 70));
 
+@include defineVariable(--toggle-off, getColor(neutral, 50), getColor(neutral, 60));
+
+@include defineVariable(--button-disabled, getColor(neutral, 30), getColor(neutral, 70));
+@include defineVariable(--icon-on-color-disabled, getColor(neutral, 50), getColor(white, 0));
+@include defineVariable(--icon-primary, getColor(neutral, 100), getColor(neutral, 10));
+
+
+
 
 @each $color in [gray, blue, green, red, yellow, primary, success, info, warning, error] {
   @include defineVariable(--tag-background-#{$color}, getColor($color, 20), getColor($color, 80));

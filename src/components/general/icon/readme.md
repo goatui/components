@@ -20,7 +20,7 @@
  - [goat-accordion-item](../../other/content/accordion/accordion-item)
  - [goat-button](../button)
  - [goat-code-highlighter](../../data-display/code-highlighter)
- - [goat-dropdown](../../other/menu/dropdown)
+ - [goat-dropdown](../menu/dropdown)
  - [goat-input](../../data-entry/input)
  - [goat-notification](../../feedback/notification)
  - [goat-select](../../data-entry/select)

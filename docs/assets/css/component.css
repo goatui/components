@@ -64,6 +64,10 @@
   position: relative;
 }
 
+goat-tab-panel {
+  padding-top: 1rem;
+}
+
 [type="heading"]::before {
   content: '';
   display: block;

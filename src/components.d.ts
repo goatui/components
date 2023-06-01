@@ -954,6 +954,51 @@ export namespace Components {
         "state": 'success' | 'error' | 'info' | 'warning';
     }
     /**
+     * @name Toggle
+     * @description Captures boolean input with an optional indeterminate mode.
+     * @category Form Inputs
+     * @tags input, form
+     * @example <goat-toggle value='true'>Want ice cream?</goat-toggle>
+     */
+    interface GoatToggle {
+        "configAria": any;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled": boolean;
+        "getComponentId": () => Promise<string>;
+        /**
+          * The checkbox label.
+         */
+        "label": string;
+        /**
+          * The input field name.
+         */
+        "name": string;
+        "readonly": boolean;
+        /**
+          * If true, required icon is show. Defaults to `false`.
+         */
+        "required": boolean;
+        "rounded": boolean;
+        /**
+          * Sets blur on the native `input` in `goat-input`. Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `input` in `goat-input`. Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size": 'sm' | 'md' | 'lg';
+        /**
+          * The input field value.
+         */
+        "value": boolean;
+    }
+    /**
      * @name TreeView
      * @description Menus display a list of choices on temporary surfaces.
      * @img /assets/img/no-image.jpg
@@ -1040,6 +1085,10 @@ export interface GoatTextareaCustomEvent<T> extends CustomEvent<T> {
 export interface GoatTimePickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLGoatTimePickerElement;
+}
+export interface GoatToggleCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatToggleElement;
 }
 declare global {
     /**
@@ -1567,6 +1616,19 @@ declare global {
         new (): HTMLGoatToastElement;
     };
     /**
+     * @name Toggle
+     * @description Captures boolean input with an optional indeterminate mode.
+     * @category Form Inputs
+     * @tags input, form
+     * @example <goat-toggle value='true'>Want ice cream?</goat-toggle>
+     */
+    interface HTMLGoatToggleElement extends Components.GoatToggle, HTMLStencilElement {
+    }
+    var HTMLGoatToggleElement: {
+        prototype: HTMLGoatToggleElement;
+        new (): HTMLGoatToggleElement;
+    };
+    /**
      * @name TreeView
      * @description Menus display a list of choices on temporary surfaces.
      * @img /assets/img/no-image.jpg
@@ -1627,6 +1689,7 @@ declare global {
         "goat-textarea": HTMLGoatTextareaElement;
         "goat-time-picker": HTMLGoatTimePickerElement;
         "goat-toast": HTMLGoatToastElement;
+        "goat-toggle": HTMLGoatToggleElement;
         "tree-view": HTMLTreeViewElement;
     }
 }
@@ -2607,6 +2670,54 @@ declare namespace LocalJSX {
         "state"?: 'success' | 'error' | 'info' | 'warning';
     }
     /**
+     * @name Toggle
+     * @description Captures boolean input with an optional indeterminate mode.
+     * @category Form Inputs
+     * @tags input, form
+     * @example <goat-toggle value='true'>Want ice cream?</goat-toggle>
+     */
+    interface GoatToggle {
+        "configAria"?: any;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled"?: boolean;
+        /**
+          * The checkbox label.
+         */
+        "label"?: string;
+        /**
+          * The input field name.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the input loses focus.
+         */
+        "onGoat:blur"?: (event: GoatToggleCustomEvent<any>) => void;
+        /**
+          * On change of input a CustomEvent 'goat:change' will be triggered. Event details contains parent event, oldValue, newValue of input.
+         */
+        "onGoat:change"?: (event: GoatToggleCustomEvent<any>) => void;
+        /**
+          * Emitted when the input has focus.
+         */
+        "onGoat:focus"?: (event: GoatToggleCustomEvent<any>) => void;
+        "readonly"?: boolean;
+        /**
+          * If true, required icon is show. Defaults to `false`.
+         */
+        "required"?: boolean;
+        "rounded"?: boolean;
+        /**
+          * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size"?: 'sm' | 'md' | 'lg';
+        /**
+          * The input field value.
+         */
+        "value"?: boolean;
+    }
+    /**
      * @name TreeView
      * @description Menus display a list of choices on temporary surfaces.
      * @img /assets/img/no-image.jpg
@@ -2667,6 +2778,7 @@ declare namespace LocalJSX {
         "goat-textarea": GoatTextarea;
         "goat-time-picker": GoatTimePicker;
         "goat-toast": GoatToast;
+        "goat-toggle": GoatToggle;
         "tree-view": TreeView;
     }
 }
@@ -2953,6 +3065,14 @@ declare module "@stencil/core" {
              * @example <goat-toast state="success" message="Successful saved the record"></goat-toast>
              */
             "goat-toast": LocalJSX.GoatToast & JSXBase.HTMLAttributes<HTMLGoatToastElement>;
+            /**
+             * @name Toggle
+             * @description Captures boolean input with an optional indeterminate mode.
+             * @category Form Inputs
+             * @tags input, form
+             * @example <goat-toggle value='true'>Want ice cream?</goat-toggle>
+             */
+            "goat-toggle": LocalJSX.GoatToggle & JSXBase.HTMLAttributes<HTMLGoatToggleElement>;
             /**
              * @name TreeView
              * @description Menus display a list of choices on temporary surfaces.
