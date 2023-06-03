@@ -31,7 +31,7 @@
     "build:full": "npm run build:theme && npm run build",
     "build:theme": "gulp themeBuild",
     "generate": "stencil generate",
-    "release:minor": "npm version patch && npm run release-to-docs",
+    "release:minor": "npm version minor && npm run release-to-docs",
     "release:patch": "npm version patch && npm run release-to-docs",
     "release-to-docs": "stencil docs && gulp releaseToDocs",
     "start": "concurrently --kill-others \"npm run start:watch\" \"npm run start:docs-server\"",
