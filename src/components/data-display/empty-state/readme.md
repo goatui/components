@@ -23,7 +23,7 @@
 ### Used by
 
  - [goat-menu](../../general/menu/menu)
- - [goat-sidenav-menu](../../other/app-shell/sidenav-menu)
+ - [goat-sidenav-menu](../../app-shell/sidenav-menu)
  - [goat-table](../table)
  - [tree-view](../../general/menu/tree-view)
 

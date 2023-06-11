@@ -704,6 +704,77 @@ export namespace Components {
         "value"?: string | number | null;
     }
     /**
+     * @name Slider
+     * @description Allows the user to select one or more options using a dropdown.
+     * @category Form Inputs
+     * @tags input, form
+     * @img /assets/img/select.png
+     */
+    interface GoatSlider {
+        /**
+          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
+         */
+        "clearable": boolean;
+        "configAria": any;
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
+         */
+        "debounce": number;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled": boolean;
+        "getComponentId": () => Promise<string>;
+        "isOpen": boolean;
+        /**
+          * [{   label: 'Shivaji Varma',   value: 'shivaji-varma' }]
+         */
+        "items": any;
+        "multiple": boolean;
+        /**
+          * The input field name.
+         */
+        "name": string;
+        /**
+          * The input field placeholder.
+         */
+        "placeholder": string;
+        "positions": string;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "readonly": boolean;
+        /**
+          * If true, required icon is show. Defaults to `false`.
+         */
+        "required": boolean;
+        /**
+          * Search type Possible values are `"none"`, `"initial"`, `"contains"`, `"managed"`. Defaults to `"none"`.
+         */
+        "search": 'none' | 'initial' | 'contains' | 'managed';
+        /**
+          * Sets blur on the native `input` in `goat-input`. Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `input` in `ion-input`. Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
+        "showLoader": boolean;
+        /**
+          * The select input size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size": 'sm' | 'md' | 'lg';
+        /**
+          * The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
+         */
+        "state": 'success' | 'error' | 'warning' | 'default';
+        /**
+          * The input field value.
+         */
+        "value"?: string | number;
+    }
+    /**
      * @name Spinner
      * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
      * @category Feedback
@@ -1065,6 +1136,10 @@ export interface GoatSelectCustomEvent<T> extends CustomEvent<T> {
 export interface GoatSidenavMenuItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLGoatSidenavMenuItemElement;
+}
+export interface GoatSliderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatSliderElement;
 }
 export interface GoatTabCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1481,6 +1556,19 @@ declare global {
         new (): HTMLGoatSidenavMenuItemElement;
     };
     /**
+     * @name Slider
+     * @description Allows the user to select one or more options using a dropdown.
+     * @category Form Inputs
+     * @tags input, form
+     * @img /assets/img/select.png
+     */
+    interface HTMLGoatSliderElement extends Components.GoatSlider, HTMLStencilElement {
+    }
+    var HTMLGoatSliderElement: {
+        prototype: HTMLGoatSliderElement;
+        new (): HTMLGoatSliderElement;
+    };
+    /**
      * @name Spinner
      * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
      * @category Feedback
@@ -1677,6 +1765,7 @@ declare global {
         "goat-sidenav": HTMLGoatSidenavElement;
         "goat-sidenav-menu": HTMLGoatSidenavMenuElement;
         "goat-sidenav-menu-item": HTMLGoatSidenavMenuItemElement;
+        "goat-slider": HTMLGoatSliderElement;
         "goat-spinner": HTMLGoatSpinnerElement;
         "goat-svg": HTMLGoatSvgElement;
         "goat-tab": HTMLGoatTabElement;
@@ -2394,6 +2483,80 @@ declare namespace LocalJSX {
         "value"?: string | number | null;
     }
     /**
+     * @name Slider
+     * @description Allows the user to select one or more options using a dropdown.
+     * @category Form Inputs
+     * @tags input, form
+     * @img /assets/img/select.png
+     */
+    interface GoatSlider {
+        /**
+          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
+         */
+        "clearable"?: boolean;
+        "configAria"?: any;
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
+         */
+        "debounce"?: number;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled"?: boolean;
+        "isOpen"?: boolean;
+        /**
+          * [{   label: 'Shivaji Varma',   value: 'shivaji-varma' }]
+         */
+        "items"?: any;
+        "multiple"?: boolean;
+        /**
+          * The input field name.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the action button is clicked..
+         */
+        "onGoat:action-click"?: (event: GoatSliderCustomEvent<any>) => void;
+        /**
+          * Emitted when the value has changed.
+         */
+        "onGoat:change"?: (event: GoatSliderCustomEvent<any>) => void;
+        /**
+          * Emitted when a keyboard input occurred.
+         */
+        "onGoat:search"?: (event: GoatSliderCustomEvent<any>) => void;
+        /**
+          * The input field placeholder.
+         */
+        "placeholder"?: string;
+        "positions"?: string;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "readonly"?: boolean;
+        /**
+          * If true, required icon is show. Defaults to `false`.
+         */
+        "required"?: boolean;
+        /**
+          * Search type Possible values are `"none"`, `"initial"`, `"contains"`, `"managed"`. Defaults to `"none"`.
+         */
+        "search"?: 'none' | 'initial' | 'contains' | 'managed';
+        "showLoader"?: boolean;
+        /**
+          * The select input size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size"?: 'sm' | 'md' | 'lg';
+        /**
+          * The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
+         */
+        "state"?: 'success' | 'error' | 'warning' | 'default';
+        /**
+          * The input field value.
+         */
+        "value"?: string | number;
+    }
+    /**
      * @name Spinner
      * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
      * @category Feedback
@@ -2766,6 +2929,7 @@ declare namespace LocalJSX {
         "goat-sidenav": GoatSidenav;
         "goat-sidenav-menu": GoatSidenavMenu;
         "goat-sidenav-menu-item": GoatSidenavMenuItem;
+        "goat-slider": GoatSlider;
         "goat-spinner": GoatSpinner;
         "goat-svg": GoatSvg;
         "goat-tab": GoatTab;
@@ -2990,6 +3154,14 @@ declare module "@stencil/core" {
             "goat-sidenav": LocalJSX.GoatSidenav & JSXBase.HTMLAttributes<HTMLGoatSidenavElement>;
             "goat-sidenav-menu": LocalJSX.GoatSidenavMenu & JSXBase.HTMLAttributes<HTMLGoatSidenavMenuElement>;
             "goat-sidenav-menu-item": LocalJSX.GoatSidenavMenuItem & JSXBase.HTMLAttributes<HTMLGoatSidenavMenuItemElement>;
+            /**
+             * @name Slider
+             * @description Allows the user to select one or more options using a dropdown.
+             * @category Form Inputs
+             * @tags input, form
+             * @img /assets/img/select.png
+             */
+            "goat-slider": LocalJSX.GoatSlider & JSXBase.HTMLAttributes<HTMLGoatSliderElement>;
             /**
              * @name Spinner
              * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.

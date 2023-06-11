@@ -1,0 +1,125 @@
+@import "../common-input";
+
+:host([size=sm]) .input-container{
+  padding: 0 0.75rem 0 0;
+}
+
+:host([size=md]) .input-container {
+  padding: 0 0.875rem 0 0;
+}
+
+:host([size=lg]) .input-container {
+  padding: 0 1rem 0 0;
+}
+
+.dropdown {
+  position: relative;
+
+  .dropdown-content {
+    z-index: v(--z-index-dropdown-content);
+    position: absolute;
+    width: max-content;
+    line-height: 0;
+    transform: scale(0);
+    transition: transform 0.1s ease-out 0s;
+  }
+
+  .chevron-down {
+    transition: transform 0.1s ease-out 0s;
+  }
+
+  &.is-open {
+    .dropdown-content {
+      transform: scale(1);
+    }
+    .chevron-down {
+      transform: rotate(180deg);
+    }
+  }
+
+  &.bottom-right .dropdown-content {
+    top: calc(100% + #{v(--spacing-2)});
+    left: 0;
+    transform-origin: top;
+  }
+
+  &.bottom-left .dropdown-content {
+    top: calc(100% + #{v(--spacing-2)});
+    right: 0;
+    transform-origin: top;
+  }
+
+  &.top-right .dropdown-content {
+    bottom: calc(100% + #{v(--spacing-2)});
+    left: 0;
+    transform-origin: bottom;
+  }
+
+  &.top-left .dropdown-content {
+    bottom: calc(100% + #{v(--spacing-2)});
+    right: 0;
+    transform-origin: bottom;
+  }
+
+  &.center .dropdown-content {
+    top: 0;
+    left: 0;
+    position: fixed;
+    transform-origin: center;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+  }
+
+}
+
+.select {
+
+  .dropdown-content {
+    width: 100%;
+    min-width: 10rem;
+  }
+
+  .menu {
+    width: 100%;
+  }
+
+  .display-value {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    padding: 0.625rem 0 0.625rem 0.875rem;
+  }
+
+  .input-native {
+    padding: 0.625rem 0 0.625rem 0.875rem;
+  }
+
+  .multi-select-values {
+    padding: 0.625rem 0 0.625rem 0.875rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+
+  .input-container:not(.has-value) {
+    .display-value {
+      color: v(--text-placeholder);
+    }
+  }
+
+  .start-search {
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: v(--spacing-3);
+  }
+
+}

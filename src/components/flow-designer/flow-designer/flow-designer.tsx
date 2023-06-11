@@ -1,5 +1,5 @@
 import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core';
-import { loadScript } from '../../../../utils/utils';
+import { loadScript } from '../../../utils/utils';
 
 
 function PX(unit: number) {
@@ -49,8 +49,8 @@ export class FlowDesigner {
       await loadScript(`https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.1.2/svg.min.js`);
     }
     this.lines = [{
-      start: { x: 0, y: 0, gap: 0, direction: 'down' },
-      end: { x: 32, y: 32,  gap: 0, direction: 'top' }
+      start: { x: 0, y: 0},
+      path: [{x:1, y:0}, {x:1, y:2}, {x:14, y:20}]
     }/*, {
       start: { x: 1, y: 1, gap: 8, direction: 'down' },
       end: { x: 15, y: 15, direction: 'top' },

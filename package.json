@@ -33,7 +33,7 @@
     "generate": "stencil generate",
     "release:minor": "npm version minor && npm run release-to-docs",
     "release:patch": "npm version patch && npm run release-to-docs",
-    "release-to-docs": "stencil docs && gulp releaseToDocs",
+    "release-to-docs": "stencil docs && node releaseToDocs.js",
     "start": "concurrently --kill-others \"npm run start:watch\" \"npm run start:docs-server\"",
     "start:docs-server": "cd docs && serve.cmd",
     "start:watch": "stencil build --dev --watch --serve --cors",
@@ -46,8 +46,8 @@
     "prismjs": "^1.29.0"
   },
   "devDependencies": {
-    "@stencil/core": "^3.2.0",
-    "@stencil/sass": "^3.0.0",
+    "@stencil/core": "3.2.0",
+    "@stencil/sass": "3.0.0",
     "@types/dompurify": "^2.4.0",
     "@types/node": "^18.11.18",
     "@types/prismjs": "^1.26.0",

@@ -17,7 +17,7 @@
 
 ### Used by
 
- - [goat-accordion-item](../../other/content/accordion/accordion-item)
+ - [goat-accordion-item](../../data-display/accordion/accordion-item)
  - [goat-button](../button)
  - [goat-code-highlighter](../../data-display/code-highlighter)
  - [goat-dropdown](../menu/dropdown)

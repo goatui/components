@@ -78,11 +78,15 @@ export class Canvas {
   }
 
   drawLine(line) {
-    const startConnector = {
-      x: line.start.x,
-      y: line.start.y,
-    };
-    if (line.start.gap) {
+    let pathString = this.#createStartString(line.start);
+    //const currentPosition = { x: line.start.x, y: line.start.y };
+    for (let i = 0; i < line.path.length; i++) {
+      pathString += this.createPath(line.path[i]);
+    }
+
+
+
+    /*if (line.start.gap) {
       if (line.start.direction == 'down') {
         startConnector.y += line.start.gap;
       } else if (line.start.direction == 'up') {
@@ -109,14 +113,14 @@ export class Canvas {
       } else if (line.end.direction == 'left') {
         endConnector.x -= line.end.gap;
       }
-    }
+    }*/
 
-    let pathString = this.#createStartString(line.start);
+
 
     /**
      * Straight line between two connectors
      */
-    if (!line.type || line.type == 'straight_line') {
+   /* if (!line.type || line.type == 'straight_line') {
       pathString += this.createStraightLinePath(line, startConnector, endConnector);
     }
 
@@ -125,9 +129,15 @@ export class Canvas {
     }
 
     this.updateDrawingArea(line.start);
-    this.updateDrawingArea(line.end);
+    this.updateDrawingArea(line.end);*/
 
     this.paths.push(pathString);
+  }
+
+  createPath(path) {
+    let pathString = [];
+    pathString.push(this.#createLineString(path));
+    return ` ${pathString.join(' ')}`;
   }
 
   createStraightLinePath(line, startConnector, endConnector) {
@@ -284,7 +294,9 @@ export class Canvas {
 
   #createStartString: any = point => {
     this.updateDrawingArea(point);
-    return `M${point.x * this.unitSize} ${point.y * this.unitSize}`;
+    const dotSize = this.unitSize;
+    const gap = dotSize * 2 * 10;
+    return `M${point.x * gap + 16} ${point.y * gap + 16}`;
   };
 
   #createQuadraticCurveString: any = (pointA, pointB) => {
@@ -295,6 +307,8 @@ export class Canvas {
 
   #createLineString: any = point => {
     this.updateDrawingArea(point);
-    return `L${point.x * this.unitSize} ${point.y * this.unitSize}`;
+    const dotSize = this.unitSize;
+    const gap = dotSize * 2 * 10;
+    return `L${point.x * gap + 16} ${point.y * gap + 16}`;
   };
 }

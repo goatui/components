@@ -1,5 +1,5 @@
 import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core';
-import { getComponentIndex } from '../../../../../utils/utils';
+import { getComponentIndex } from '../../../../utils/utils';
 
 @Component({
   tag: 'goat-accordion-item',

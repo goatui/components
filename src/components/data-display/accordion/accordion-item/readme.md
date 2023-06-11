@@ -32,7 +32,7 @@
 
 ### Depends on
 
-- [goat-icon](../../../../general/icon)
+- [goat-icon](../../../general/icon)
 
 ### Graph
 ```mermaid

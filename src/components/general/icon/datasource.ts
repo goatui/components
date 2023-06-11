@@ -1,16 +1,15 @@
-const cache: Record<string, string> = {};
-
-// TODO: prevent duplicated request when rendering multiple icons with same name simultaneously
 export async function fetchIcon(name: string) {
   if (!name) return '';
-  if (cache[name]) {
-    return cache[name];
+  let result = window.localStorage.getItem(`icon_${name}`);
+  if (result) {
+    return result;
   }
   const res = await fetch(`https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/icons/${name}.svg`, {
     method: 'GET',
     mode: 'cors',
     credentials: 'omit',
   });
-  cache[name] = await res.text();
-  return cache[name];
+  result = await res.text();
+  window.localStorage.setItem(`icon_${name}`, result);
+  return result;
 }
