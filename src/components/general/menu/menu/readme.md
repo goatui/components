@@ -35,6 +35,7 @@ Type: `Promise<void>`
 
  - [goat-dropdown](../dropdown)
  - [goat-select](../../../data-entry/select)
+ - [goat-slider](../../../data-entry/slider)
 
 ### Depends on
 
@@ -50,6 +51,7 @@ graph TD;
   goat-button --> goat-spinner
   goat-dropdown --> goat-menu
   goat-select --> goat-menu
+  goat-slider --> goat-menu
   style goat-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -74,11 +74,6 @@ Type: `Promise<void>`
 
 ## Dependencies
 
-### Used by
-
- - [goat-calendar](../../data-display/calendar/calendar)
- - [goat-table](../../data-display/table)
-
 ### Depends on
 
 - [goat-tag](../../data-display/tag)
@@ -91,21 +86,19 @@ Type: `Promise<void>`
 ### Graph
 ```mermaid
 graph TD;
-  goat-select --> goat-tag
-  goat-select --> goat-icon
-  goat-select --> goat-spinner
-  goat-select --> goat-menu
-  goat-select --> goat-text
-  goat-select --> goat-menu-item
+  goat-slider --> goat-tag
+  goat-slider --> goat-icon
+  goat-slider --> goat-spinner
+  goat-slider --> goat-menu
+  goat-slider --> goat-text
+  goat-slider --> goat-menu-item
   goat-tag --> goat-icon
   goat-menu --> goat-empty-state
   goat-empty-state --> goat-svg
   goat-empty-state --> goat-button
   goat-button --> goat-icon
   goat-button --> goat-spinner
-  goat-calendar --> goat-select
-  goat-table --> goat-select
-  style goat-select fill:#f9f,stroke:#333,stroke-width:4px
+  style goat-slider fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

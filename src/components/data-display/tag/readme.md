@@ -27,6 +27,7 @@
 ### Used by
 
  - [goat-select](../../data-entry/select)
+ - [goat-slider](../../data-entry/slider)
 
 ### Depends on
 
@@ -37,6 +38,7 @@
 graph TD;
   goat-tag --> goat-icon
   goat-select --> goat-tag
+  goat-slider --> goat-tag
   style goat-tag fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

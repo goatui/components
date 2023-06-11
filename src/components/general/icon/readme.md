@@ -24,6 +24,7 @@
  - [goat-input](../../data-entry/input)
  - [goat-notification](../../feedback/notification)
  - [goat-select](../../data-entry/select)
+ - [goat-slider](../../data-entry/slider)
  - [goat-tab](../../navigation/tabs/tab)
  - [goat-tag](../../data-display/tag)
  - [goat-textarea](../../data-entry/textarea)
@@ -39,6 +40,7 @@ graph TD;
   goat-input --> goat-icon
   goat-notification --> goat-icon
   goat-select --> goat-icon
+  goat-slider --> goat-icon
   goat-tab --> goat-icon
   goat-tag --> goat-icon
   goat-textarea --> goat-icon

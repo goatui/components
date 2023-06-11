@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-06-03T02:09:48",
+  "timestamp": "2023-06-11T08:14:34",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.2.0",
@@ -7,7 +7,7 @@
   },
   "components": [
     {
-      "filePath": "./src/components/other/content/accordion/accordion.tsx",
+      "filePath": "./src/components/data-display/accordion/accordion.tsx",
       "fileName": "accordion.tsx",
       "tag": "goat-accordion",
       "readme": "# goat-avatar\r\n\r\n\r\n\r",
@@ -46,10 +46,10 @@
       }
     },
     {
-      "filePath": "./src/components/other/content/accordion/accordion-item/accordion-item.tsx",
+      "filePath": "./src/components/data-display/accordion/accordion-item/accordion-item.tsx",
       "fileName": "accordion-item.tsx",
       "tag": "goat-accordion-item",
-      "readme": "# goat-menu-item\r\n\r\n\r\n\r",
+      "readme": "# goat-menu-item\n\n\n",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -1453,7 +1453,7 @@
       "metadata": {}
     },
     {
-      "filePath": "./src/components/other/flow-designer/canvas/canvas.tsx",
+      "filePath": "./src/components/flow-designer/canvas/canvas.tsx",
       "fileName": "canvas.tsx",
       "tag": "goat-canvas",
       "readme": "# goat-flow-designer\r\n\r\n\r\n\r",
@@ -3024,7 +3024,7 @@
       }
     },
     {
-      "filePath": "./src/components/other/flow-designer/flow-designer/flow-designer.tsx",
+      "filePath": "./src/components/flow-designer/flow-designer/flow-designer.tsx",
       "fileName": "flow-designer.tsx",
       "tag": "goat-flow-designer",
       "readme": "# goat-flow-designer\r\n\r\n\r\n\r",
@@ -3472,6 +3472,7 @@
         "goat-input",
         "goat-notification",
         "goat-select",
+        "goat-slider",
         "goat-tab",
         "goat-tag",
         "goat-textarea",
@@ -3498,6 +3499,9 @@
           "goat-icon"
         ],
         "goat-select": [
+          "goat-icon"
+        ],
+        "goat-slider": [
           "goat-icon"
         ],
         "goat-tab": [
@@ -4090,7 +4094,8 @@
       "encapsulation": "shadow",
       "dependents": [
         "goat-dropdown",
-        "goat-select"
+        "goat-select",
+        "goat-slider"
       ],
       "dependencies": [
         "goat-empty-state"
@@ -4111,6 +4116,9 @@
           "goat-menu"
         ],
         "goat-select": [
+          "goat-menu"
+        ],
+        "goat-slider": [
           "goat-menu"
         ]
       },
@@ -4229,7 +4237,8 @@
       "encapsulation": "shadow",
       "dependents": [
         "goat-dropdown",
-        "goat-select"
+        "goat-select",
+        "goat-slider"
       ],
       "dependencies": [],
       "dependencyGraph": {
@@ -4237,6 +4246,9 @@
           "goat-menu-item"
         ],
         "goat-select": [
+          "goat-menu-item"
+        ],
+        "goat-slider": [
           "goat-menu-item"
         ]
       },
@@ -5178,7 +5190,7 @@
       }
     },
     {
-      "filePath": "./src/components/other/app-shell/sidenav/sidenav.tsx",
+      "filePath": "./src/components/app-shell/sidenav/sidenav.tsx",
       "fileName": "sidenav.tsx",
       "tag": "goat-sidenav",
       "readme": "# goat-menu\r\n\r\n\r\n\r",
@@ -5235,10 +5247,10 @@
       }
     },
     {
-      "filePath": "./src/components/other/app-shell/sidenav-menu/sidenav-menu.tsx",
+      "filePath": "./src/components/app-shell/sidenav-menu/sidenav-menu.tsx",
       "fileName": "sidenav-menu.tsx",
       "tag": "goat-sidenav-menu",
-      "readme": "# goat-menu\r\n\r\n\r\n\r",
+      "readme": "# goat-menu\n\n\n",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -5361,7 +5373,7 @@
       "metadata": {}
     },
     {
-      "filePath": "./src/components/other/app-shell/sidenav-menu-item/sidenav-menu-item.tsx",
+      "filePath": "./src/components/app-shell/sidenav-menu-item/sidenav-menu-item.tsx",
       "fileName": "sidenav-menu-item.tsx",
       "tag": "goat-sidenav-menu-item",
       "readme": "# goat-menu-item\r\n\r\n\r\n\r",
@@ -5483,6 +5495,500 @@
       "metadata": {}
     },
     {
+      "filePath": "./src/components/data-entry/slider/slider.tsx",
+      "fileName": "slider.tsx",
+      "tag": "goat-slider",
+      "readme": "# goat-select\n\n\n",
+      "overview": "",
+      "usage": {},
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "name",
+          "text": "Slider"
+        },
+        {
+          "name": "description",
+          "text": "Allows the user to select one or more options using a dropdown."
+        },
+        {
+          "name": "category",
+          "text": "Form Inputs"
+        },
+        {
+          "name": "tags",
+          "text": "input, form"
+        },
+        {
+          "name": "img",
+          "text": "/assets/img/select.png"
+        }
+      ],
+      "encapsulation": "shadow",
+      "dependents": [],
+      "dependencies": [
+        "goat-tag",
+        "goat-icon",
+        "goat-spinner",
+        "goat-menu",
+        "goat-text",
+        "goat-menu-item"
+      ],
+      "dependencyGraph": {
+        "goat-slider": [
+          "goat-tag",
+          "goat-icon",
+          "goat-spinner",
+          "goat-menu",
+          "goat-text",
+          "goat-menu-item"
+        ],
+        "goat-tag": [
+          "goat-icon"
+        ],
+        "goat-menu": [
+          "goat-empty-state"
+        ],
+        "goat-empty-state": [
+          "goat-svg",
+          "goat-button"
+        ],
+        "goat-button": [
+          "goat-icon",
+          "goat-spinner"
+        ]
+      },
+      "props": [
+        {
+          "name": "clearable",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "clearable",
+          "reflectToAttr": false,
+          "docs": "If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "configAria",
+          "type": "any",
+          "mutable": true,
+          "attr": "config-aria",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "{}",
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "debounce",
+          "type": "number",
+          "mutable": false,
+          "attr": "debounce",
+          "reflectToAttr": false,
+          "docs": "Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.",
+          "docsTags": [],
+          "default": "300",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": true,
+          "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "mutable": true,
+          "attr": "is-open",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "items",
+          "type": "any",
+          "mutable": false,
+          "attr": "items",
+          "reflectToAttr": false,
+          "docs": "[{\n  label: 'Shivaji Varma',\n  value: 'shivaji-varma'\n}]",
+          "docsTags": [],
+          "default": "[]",
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "multiple",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "The input field name.",
+          "docsTags": [],
+          "default": "`goat-input-${this.gid}`",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "mutable": false,
+          "attr": "placeholder",
+          "reflectToAttr": false,
+          "docs": "The input field placeholder.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "positions",
+          "type": "string",
+          "mutable": false,
+          "attr": "positions",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'bottom-right,top-right,bottom-left,top-left'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "readonly",
+          "reflectToAttr": true,
+          "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "required",
+          "reflectToAttr": true,
+          "docs": "If true, required icon is show. Defaults to `false`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "search",
+          "type": "\"contains\" | \"initial\" | \"managed\" | \"none\"",
+          "mutable": false,
+          "attr": "search",
+          "reflectToAttr": false,
+          "docs": "Search type\nPossible values are `\"none\"`, `\"initial\"`, `\"contains\"`, `\"managed\"`. Defaults to `\"none\"`.",
+          "docsTags": [],
+          "default": "'none'",
+          "values": [
+            {
+              "value": "contains",
+              "type": "string"
+            },
+            {
+              "value": "initial",
+              "type": "string"
+            },
+            {
+              "value": "managed",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "showLoader",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "show-loader",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"lg\" | \"md\" | \"sm\"",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": true,
+          "docs": "The select input size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+          "docsTags": [],
+          "default": "'md'",
+          "values": [
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"error\" | \"success\" | \"warning\"",
+          "mutable": false,
+          "attr": "state",
+          "reflectToAttr": true,
+          "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+          "docsTags": [],
+          "default": "'default'",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "error",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "number | string",
+          "mutable": true,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The input field value.",
+          "docsTags": [],
+          "default": "''",
+          "values": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "getComponentId",
+          "returns": {
+            "type": "Promise<string>",
+            "docs": ""
+          },
+          "signature": "getComponentId() => Promise<string>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        },
+        {
+          "name": "setBlur",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setBlur() => Promise<void>",
+          "parameters": [],
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+          "docsTags": []
+        },
+        {
+          "name": "setFocus",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setFocus() => Promise<void>",
+          "parameters": [],
+          "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\n`input.focus()`.",
+          "docsTags": []
+        }
+      ],
+      "events": [
+        {
+          "event": "goat:action-click",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the action button is clicked..",
+          "docsTags": []
+        },
+        {
+          "event": "goat:change",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the value has changed.",
+          "docsTags": []
+        },
+        {
+          "event": "goat:search",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when a keyboard input occurred.",
+          "docsTags": []
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "listeners": [
+        {
+          "event": "click",
+          "target": "window",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "goat:menu-item-click",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "goat:tag-dismiss",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "scroll",
+          "target": "window",
+          "capture": false,
+          "passive": true
+        }
+      ],
+      "metadata": {
+        "name": "Slider",
+        "description": "Allows the user to select one or more options using a dropdown.",
+        "category": "Form Inputs",
+        "tags": [
+          "input",
+          " form"
+        ],
+        "img": "/assets/img/select.png"
+      }
+    },
+    {
       "filePath": "./src/components/feedback/spinner/spinner.tsx",
       "fileName": "spinner.tsx",
       "tag": "goat-spinner",
@@ -5514,6 +6020,7 @@
         "goat-code-editor",
         "goat-code-highlighter",
         "goat-select",
+        "goat-slider",
         "goat-tab"
       ],
       "dependencies": [],
@@ -5528,6 +6035,9 @@
           "goat-spinner"
         ],
         "goat-select": [
+          "goat-spinner"
+        ],
+        "goat-slider": [
           "goat-spinner"
         ],
         "goat-tab": [
@@ -6452,7 +6962,8 @@
       ],
       "encapsulation": "shadow",
       "dependents": [
-        "goat-select"
+        "goat-select",
+        "goat-slider"
       ],
       "dependencies": [
         "goat-icon"
@@ -6462,6 +6973,9 @@
           "goat-icon"
         ],
         "goat-select": [
+          "goat-tag"
+        ],
+        "goat-slider": [
           "goat-tag"
         ]
       },
@@ -6586,6 +7100,7 @@
       "dependents": [
         "goat-breadcrumb-item",
         "goat-select",
+        "goat-slider",
         "goat-table"
       ],
       "dependencies": [],
@@ -6594,6 +7109,9 @@
           "goat-text"
         ],
         "goat-select": [
+          "goat-text"
+        ],
+        "goat-slider": [
           "goat-text"
         ],
         "goat-table": [
@@ -8334,6 +8852,7 @@
             "goat-input",
             "goat-notification",
             "goat-select",
+            "goat-slider",
             "goat-tab",
             "goat-tag",
             "goat-textarea",
@@ -8360,6 +8879,9 @@
               "goat-icon"
             ],
             "goat-select": [
+              "goat-icon"
+            ],
+            "goat-slider": [
               "goat-icon"
             ],
             "goat-tab": [
@@ -8453,6 +8975,7 @@
           "dependents": [
             "goat-breadcrumb-item",
             "goat-select",
+            "goat-slider",
             "goat-table"
           ],
           "dependencies": [],
@@ -8461,6 +8984,9 @@
               "goat-text"
             ],
             "goat-select": [
+              "goat-text"
+            ],
+            "goat-slider": [
               "goat-text"
             ],
             "goat-table": [
@@ -10697,6 +11223,500 @@
           }
         },
         {
+          "filePath": "./src/components/data-entry/slider/slider.tsx",
+          "fileName": "slider.tsx",
+          "tag": "goat-slider",
+          "readme": "# goat-select\n\n\n",
+          "overview": "",
+          "usage": {},
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "name",
+              "text": "Slider"
+            },
+            {
+              "name": "description",
+              "text": "Allows the user to select one or more options using a dropdown."
+            },
+            {
+              "name": "category",
+              "text": "Form Inputs"
+            },
+            {
+              "name": "tags",
+              "text": "input, form"
+            },
+            {
+              "name": "img",
+              "text": "/assets/img/select.png"
+            }
+          ],
+          "encapsulation": "shadow",
+          "dependents": [],
+          "dependencies": [
+            "goat-tag",
+            "goat-icon",
+            "goat-spinner",
+            "goat-menu",
+            "goat-text",
+            "goat-menu-item"
+          ],
+          "dependencyGraph": {
+            "goat-slider": [
+              "goat-tag",
+              "goat-icon",
+              "goat-spinner",
+              "goat-menu",
+              "goat-text",
+              "goat-menu-item"
+            ],
+            "goat-tag": [
+              "goat-icon"
+            ],
+            "goat-menu": [
+              "goat-empty-state"
+            ],
+            "goat-empty-state": [
+              "goat-svg",
+              "goat-button"
+            ],
+            "goat-button": [
+              "goat-icon",
+              "goat-spinner"
+            ]
+          },
+          "props": [
+            {
+              "name": "clearable",
+              "type": "boolean",
+              "mutable": false,
+              "attr": "clearable",
+              "reflectToAttr": false,
+              "docs": "If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "configAria",
+              "type": "any",
+              "mutable": true,
+              "attr": "config-aria",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "{}",
+              "values": [
+                {
+                  "type": "any"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "debounce",
+              "type": "number",
+              "mutable": false,
+              "attr": "debounce",
+              "reflectToAttr": false,
+              "docs": "Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.",
+              "docsTags": [],
+              "default": "300",
+              "values": [
+                {
+                  "type": "number"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "mutable": false,
+              "attr": "disabled",
+              "reflectToAttr": true,
+              "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "isOpen",
+              "type": "boolean",
+              "mutable": true,
+              "attr": "is-open",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "items",
+              "type": "any",
+              "mutable": false,
+              "attr": "items",
+              "reflectToAttr": false,
+              "docs": "[{\n  label: 'Shivaji Varma',\n  value: 'shivaji-varma'\n}]",
+              "docsTags": [],
+              "default": "[]",
+              "values": [
+                {
+                  "type": "any"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "multiple",
+              "type": "boolean",
+              "mutable": false,
+              "attr": "multiple",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "mutable": false,
+              "attr": "name",
+              "reflectToAttr": false,
+              "docs": "The input field name.",
+              "docsTags": [],
+              "default": "`goat-input-${this.gid}`",
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "placeholder",
+              "type": "string",
+              "mutable": false,
+              "attr": "placeholder",
+              "reflectToAttr": false,
+              "docs": "The input field placeholder.",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "positions",
+              "type": "string",
+              "mutable": false,
+              "attr": "positions",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "'bottom-right,top-right,bottom-left,top-left'",
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "readonly",
+              "type": "boolean",
+              "mutable": false,
+              "attr": "readonly",
+              "reflectToAttr": true,
+              "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "required",
+              "type": "boolean",
+              "mutable": false,
+              "attr": "required",
+              "reflectToAttr": true,
+              "docs": "If true, required icon is show. Defaults to `false`.",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "search",
+              "type": "\"contains\" | \"initial\" | \"managed\" | \"none\"",
+              "mutable": false,
+              "attr": "search",
+              "reflectToAttr": false,
+              "docs": "Search type\nPossible values are `\"none\"`, `\"initial\"`, `\"contains\"`, `\"managed\"`. Defaults to `\"none\"`.",
+              "docsTags": [],
+              "default": "'none'",
+              "values": [
+                {
+                  "value": "contains",
+                  "type": "string"
+                },
+                {
+                  "value": "initial",
+                  "type": "string"
+                },
+                {
+                  "value": "managed",
+                  "type": "string"
+                },
+                {
+                  "value": "none",
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "showLoader",
+              "type": "boolean",
+              "mutable": false,
+              "attr": "show-loader",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "size",
+              "type": "\"lg\" | \"md\" | \"sm\"",
+              "mutable": false,
+              "attr": "size",
+              "reflectToAttr": true,
+              "docs": "The select input size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+              "docsTags": [],
+              "default": "'md'",
+              "values": [
+                {
+                  "value": "lg",
+                  "type": "string"
+                },
+                {
+                  "value": "md",
+                  "type": "string"
+                },
+                {
+                  "value": "sm",
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "state",
+              "type": "\"default\" | \"error\" | \"success\" | \"warning\"",
+              "mutable": false,
+              "attr": "state",
+              "reflectToAttr": true,
+              "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+              "docsTags": [],
+              "default": "'default'",
+              "values": [
+                {
+                  "value": "default",
+                  "type": "string"
+                },
+                {
+                  "value": "error",
+                  "type": "string"
+                },
+                {
+                  "value": "success",
+                  "type": "string"
+                },
+                {
+                  "value": "warning",
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "value",
+              "type": "number | string",
+              "mutable": true,
+              "attr": "value",
+              "reflectToAttr": false,
+              "docs": "The input field value.",
+              "docsTags": [],
+              "default": "''",
+              "values": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": true,
+              "required": false
+            }
+          ],
+          "methods": [
+            {
+              "name": "getComponentId",
+              "returns": {
+                "type": "Promise<string>",
+                "docs": ""
+              },
+              "signature": "getComponentId() => Promise<string>",
+              "parameters": [],
+              "docs": "",
+              "docsTags": []
+            },
+            {
+              "name": "setBlur",
+              "returns": {
+                "type": "Promise<void>",
+                "docs": ""
+              },
+              "signature": "setBlur() => Promise<void>",
+              "parameters": [],
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+              "docsTags": []
+            },
+            {
+              "name": "setFocus",
+              "returns": {
+                "type": "Promise<void>",
+                "docs": ""
+              },
+              "signature": "setFocus() => Promise<void>",
+              "parameters": [],
+              "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\n`input.focus()`.",
+              "docsTags": []
+            }
+          ],
+          "events": [
+            {
+              "event": "goat:action-click",
+              "detail": "any",
+              "bubbles": true,
+              "cancelable": true,
+              "composed": true,
+              "docs": "Emitted when the action button is clicked..",
+              "docsTags": []
+            },
+            {
+              "event": "goat:change",
+              "detail": "any",
+              "bubbles": true,
+              "cancelable": true,
+              "composed": true,
+              "docs": "Emitted when the value has changed.",
+              "docsTags": []
+            },
+            {
+              "event": "goat:search",
+              "detail": "any",
+              "bubbles": true,
+              "cancelable": true,
+              "composed": true,
+              "docs": "Emitted when a keyboard input occurred.",
+              "docsTags": []
+            }
+          ],
+          "styles": [],
+          "slots": [],
+          "parts": [],
+          "listeners": [
+            {
+              "event": "click",
+              "target": "window",
+              "capture": false,
+              "passive": false
+            },
+            {
+              "event": "goat:menu-item-click",
+              "capture": false,
+              "passive": false
+            },
+            {
+              "event": "goat:tag-dismiss",
+              "capture": false,
+              "passive": false
+            },
+            {
+              "event": "scroll",
+              "target": "window",
+              "capture": false,
+              "passive": true
+            }
+          ],
+          "metadata": {
+            "name": "Slider",
+            "description": "Allows the user to select one or more options using a dropdown.",
+            "category": "Form Inputs",
+            "tags": [
+              "input",
+              " form"
+            ],
+            "img": "/assets/img/select.png"
+          }
+        },
+        {
           "filePath": "./src/components/data-entry/textarea/textarea.tsx",
           "fileName": "textarea.tsx",
           "tag": "goat-textarea",
@@ -12659,7 +13679,8 @@
           ],
           "encapsulation": "shadow",
           "dependents": [
-            "goat-select"
+            "goat-select",
+            "goat-slider"
           ],
           "dependencies": [
             "goat-icon"
@@ -12669,6 +13690,9 @@
               "goat-icon"
             ],
             "goat-select": [
+              "goat-tag"
+            ],
+            "goat-slider": [
               "goat-tag"
             ]
           },
@@ -13125,6 +14149,7 @@
             "goat-code-editor",
             "goat-code-highlighter",
             "goat-select",
+            "goat-slider",
             "goat-tab"
           ],
           "dependencies": [],
@@ -13139,6 +14164,9 @@
               "goat-spinner"
             ],
             "goat-select": [
+              "goat-spinner"
+            ],
+            "goat-slider": [
               "goat-spinner"
             ],
             "goat-tab": [
@@ -13286,7 +14314,7 @@
       "name": "Uncategorized",
       "components": [
         {
-          "filePath": "./src/components/other/content/accordion/accordion.tsx",
+          "filePath": "./src/components/data-display/accordion/accordion.tsx",
           "fileName": "accordion.tsx",
           "tag": "goat-accordion",
           "readme": "# goat-avatar\r\n\r\n\r\n\r",
@@ -13325,10 +14353,10 @@
           }
         },
         {
-          "filePath": "./src/components/other/content/accordion/accordion-item/accordion-item.tsx",
+          "filePath": "./src/components/data-display/accordion/accordion-item/accordion-item.tsx",
           "fileName": "accordion-item.tsx",
           "tag": "goat-accordion-item",
-          "readme": "# goat-menu-item\r\n\r\n\r\n\r",
+          "readme": "# goat-menu-item\n\n\n",
           "overview": "",
           "usage": {},
           "docs": "",
@@ -13863,7 +14891,7 @@
           "metadata": {}
         },
         {
-          "filePath": "./src/components/other/flow-designer/canvas/canvas.tsx",
+          "filePath": "./src/components/flow-designer/canvas/canvas.tsx",
           "fileName": "canvas.tsx",
           "tag": "goat-canvas",
           "readme": "# goat-flow-designer\r\n\r\n\r\n\r",
@@ -14320,7 +15348,7 @@
           }
         },
         {
-          "filePath": "./src/components/other/flow-designer/flow-designer/flow-designer.tsx",
+          "filePath": "./src/components/flow-designer/flow-designer/flow-designer.tsx",
           "fileName": "flow-designer.tsx",
           "tag": "goat-flow-designer",
           "readme": "# goat-flow-designer\r\n\r\n\r\n\r",
@@ -14693,7 +15721,8 @@
           "encapsulation": "shadow",
           "dependents": [
             "goat-dropdown",
-            "goat-select"
+            "goat-select",
+            "goat-slider"
           ],
           "dependencies": [
             "goat-empty-state"
@@ -14714,6 +15743,9 @@
               "goat-menu"
             ],
             "goat-select": [
+              "goat-menu"
+            ],
+            "goat-slider": [
               "goat-menu"
             ]
           },
@@ -14832,7 +15864,8 @@
           "encapsulation": "shadow",
           "dependents": [
             "goat-dropdown",
-            "goat-select"
+            "goat-select",
+            "goat-slider"
           ],
           "dependencies": [],
           "dependencyGraph": {
@@ -14840,6 +15873,9 @@
               "goat-menu-item"
             ],
             "goat-select": [
+              "goat-menu-item"
+            ],
+            "goat-slider": [
               "goat-menu-item"
             ]
           },
@@ -14953,7 +15989,7 @@
           "metadata": {}
         },
         {
-          "filePath": "./src/components/other/app-shell/sidenav/sidenav.tsx",
+          "filePath": "./src/components/app-shell/sidenav/sidenav.tsx",
           "fileName": "sidenav.tsx",
           "tag": "goat-sidenav",
           "readme": "# goat-menu\r\n\r\n\r\n\r",
@@ -15010,10 +16046,10 @@
           }
         },
         {
-          "filePath": "./src/components/other/app-shell/sidenav-menu/sidenav-menu.tsx",
+          "filePath": "./src/components/app-shell/sidenav-menu/sidenav-menu.tsx",
           "fileName": "sidenav-menu.tsx",
           "tag": "goat-sidenav-menu",
-          "readme": "# goat-menu\r\n\r\n\r\n\r",
+          "readme": "# goat-menu\n\n\n",
           "overview": "",
           "usage": {},
           "docs": "",
@@ -15136,7 +16172,7 @@
           "metadata": {}
         },
         {
-          "filePath": "./src/components/other/app-shell/sidenav-menu-item/sidenav-menu-item.tsx",
+          "filePath": "./src/components/app-shell/sidenav-menu-item/sidenav-menu-item.tsx",
           "fileName": "sidenav-menu-item.tsx",
           "tag": "goat-sidenav-menu-item",
           "readme": "# goat-menu-item\r\n\r\n\r\n\r",
