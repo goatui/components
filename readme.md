@@ -11,7 +11,7 @@ dependencies, You can simply import required component js, and right away start 
 Checkout the complete documentation over here -> https://goatui.com
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/goatui/components/gh-pages/assets/img/goat.svg" width="210">
+  <img alt="GOAT UI LOGO" lang='en' src="https://raw.githubusercontent.com/goatui/components/gh-pages/assets/img/goat.svg" width="210">
 </div>
 
 ## Getting Started
