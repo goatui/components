@@ -1,6 +1,6 @@
 <!-- Content Nav -->
 <div class="section-nav">
-  <goat-menu style="width: 200px" class="js-scroll-nav">
+  <goat-menu style="width: 100%" class="js-scroll-nav">
     {% for section in page.sections %}
     <goat-menu-item>
       <goat-link class="link no-style" href='#section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}'>{{section.title}}</goat-link>

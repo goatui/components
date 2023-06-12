@@ -88,6 +88,7 @@ pre[class*='language-'] {
 
 .section-nav {
   padding: 0 1rem;
+  width: 450px;
 }
 
 .section-nav .link {
