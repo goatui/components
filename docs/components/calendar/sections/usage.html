@@ -1,12 +1,11 @@
 <goat-card>
-  <goat-card-content style='height: 50rem'>
-    <goat-calendar id='calendar' view='month'
-    ></goat-calendar>
+  <goat-card-content style="height: 50rem">
+    <goat-calendar id="calendar" view="month"></goat-calendar>
     <script>
       const $calendar = document.getElementById('calendar');
 
       const todayStartOfDay = new Date();
-      todayStartOfDay.setHours(0,0,0,0);
+      todayStartOfDay.setHours(0, 0, 0, 0);
 
       function addDays(date, days) {
         var result = new Date(date);
@@ -20,74 +19,59 @@
         return result;
       }
 
-      $calendar.events = [{
-        start: addHours(todayStartOfDay, 2),
-        end: addHours(todayStartOfDay, 4),
-        title: 'Event 1'
-      }, {
-        start: addHours(todayStartOfDay, 3),
-        end: addHours(todayStartOfDay, 7),
-        title: 'Event 2'
-      }, {
-        start: addHours(todayStartOfDay, 5),
-        end: addHours(todayStartOfDay, 7),
-        title: 'Event 3'
-      }, {
-        start: addHours(todayStartOfDay, 9),
-        end: addHours(todayStartOfDay, 10.5),
-        title: 'Event 4'
-      }, {
-        start: addHours(addDays(todayStartOfDay, 1), 9),
-        end: addHours(addDays(todayStartOfDay, 2), 10.5),
-        title: 'Event 5'
-      }, {
-        start: addHours(addDays(todayStartOfDay, -5), 9),
-        end: addHours(addDays(todayStartOfDay, -1), 10.5),
-        title: 'Event 6'
-      }, {
-        start: addHours(addDays(todayStartOfDay, -2), 9),
-        end: addHours(addDays(todayStartOfDay, -1), 10.5),
-        title: 'Event 7'
-      }];
-
+      $calendar.events = [
+        {
+          start: addHours(todayStartOfDay, 2),
+          end: addHours(todayStartOfDay, 4),
+          title: 'Event 1',
+        },
+        {
+          start: addHours(todayStartOfDay, 3),
+          end: addHours(todayStartOfDay, 7),
+          title: 'Event 2',
+        },
+        {
+          start: addHours(todayStartOfDay, 5),
+          end: addHours(todayStartOfDay, 7),
+          title: 'Event 3',
+        },
+        {
+          start: addHours(todayStartOfDay, 9),
+          end: addHours(todayStartOfDay, 10.5),
+          title: 'Event 4',
+        },
+        {
+          start: addHours(addDays(todayStartOfDay, 1), 9),
+          end: addHours(addDays(todayStartOfDay, 2), 10.5),
+          title: 'Event 5',
+        },
+        {
+          start: addHours(addDays(todayStartOfDay, -5), 9),
+          end: addHours(addDays(todayStartOfDay, -1), 10.5),
+          title: 'Event 6',
+        },
+        {
+          start: addHours(addDays(todayStartOfDay, -2), 9),
+          end: addHours(addDays(todayStartOfDay, -1), 10.5),
+          title: 'Event 7',
+        },
+      ];
 
       // Events
-      $calendar.addEventListener('goat:calendar-event-click', function(evt) {
+      $calendar.addEventListener('goat:calendar-event-click', function (evt) {
         myConsole.log(`<pre>${JSON.stringify(evt.detail, null, 4)}</pre>`);
       });
     </script>
   </goat-card-content>
   <goat-card-content>
     {% GoatHighlighter language:"html" %}
-    <goat-calendar id='calendar'></goat-calendar>
+    <goat-calendar id="calendar"></goat-calendar>
     {% endGoatHighlighter %}
   </goat-card-content>
   <goat-card-content>
-    {% GoatHighlighter language:"js" %}
-const todayStartOfDay = new Date();
-todayStartOfDay.setUTCHours(0,0,0,0);
-
-function addDays(date, days) {
-    var result = new Date(date);
-    result.setDate(result.getDate() + days);
-    return result;
-}
-
-function addHours(date, hours) {
-    var result = new Date(date);
-    result.setHours(result.getHours() + hours);
-    return result;
-}
-
-$calendar.events = [{
-    start: addHours(todayStartOfDay, 8),
-    end: addHours(todayStartOfDay, 10),
-    title: 'Event 1'
-    }, {
-    start: addHours(todayStartOfDay, 2),
-    end: addHours(todayStartOfDay, 4),
-    title: 'Event 2'
-}];
-    {% endGoatHighlighter %}
+    {% GoatHighlighter language:"js" %} const todayStartOfDay = new Date(); todayStartOfDay.setUTCHours(0,0,0,0); function addDays(date, days) { var result = new Date(date);
+    result.setDate(result.getDate() + days); return result; } function addHours(date, hours) { var result = new Date(date); result.setHours(result.getHours() + hours); return
+    result; } $calendar.events = [{ start: addHours(todayStartOfDay, 8), end: addHours(todayStartOfDay, 10), title: 'Event 1' }, { start: addHours(todayStartOfDay, 2), end:
+    addHours(todayStartOfDay, 4), title: 'Event 2' }]; {% endGoatHighlighter %}
   </goat-card-content>
 </goat-card>

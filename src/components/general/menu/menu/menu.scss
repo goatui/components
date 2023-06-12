@@ -4,6 +4,7 @@
   display: inline-block;
   --list-border-radius: #{v(--border-radius)};
   --list-max-height: inherit;
+  max-height: 100%;
 }
 
 
@@ -14,4 +15,6 @@
   box-sizing: border-box;
   border-radius: var(--list-border-radius);
   box-shadow: v(--shadow-sm);
+  max-height: 100%;
+  overflow: auto;
 }

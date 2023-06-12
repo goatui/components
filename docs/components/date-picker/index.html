@@ -2,39 +2,35 @@
 layout: component
 title: Date Picker
 sections:
-- title: Usage
-  source: sections/usage.html
-- title: Sizes
-  source: sections/sizes.html
-- title: Disabled
-  source: sections/disabled.html
-- title: Events
-  source: sections/events.html
+  - title: Usage
+    source: sections/usage.html
+  - title: Sizes
+    source: sections/sizes.html
+  - title: Disabled
+    source: sections/disabled.html
+  - title: Events
+    source: sections/events.html
 ---
 
-<div class='row pt-3'>
-
+<div class="row pt-3">
   {% include section-nav.html %}
 
   <!-- Content -->
-  <div class='component-content'>
+  <div class="component-content">
+    <goat-tag class="color-red">Work in progress</goat-tag>
 
-    <goat-tag class='color-red'>Work in progress</goat-tag>
-
-    <div style='padding-bottom: var(--spacing-6)'>
-      <goat-text type='heading' size='md'>{{ page.title }}</goat-text>
-      <goat-text type='paragraph'>Use {{site.title}}’s custom input styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</goat-text>
+    <div style="padding-bottom: var(--spacing-6)">
+      <goat-text type="heading" size="md">{{ page.title }}</goat-text>
+      <goat-text type="paragraph">Use {{site.title}}’s custom input styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</goat-text>
     </div>
 
     {% for section in page.sections %}
-    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style='padding-bottom: var(--spacing-4)'>
-      <goat-text type='heading' level='2' size='sm'>{{ section.title }}</goat-text>
+    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style="padding-bottom: var(--spacing-4)">
+      <goat-text type="heading" level="2" size="sm">{{ section.title }}</goat-text>
 
       {% include_relative {{ section.source }} %}
     </div>
     {% endfor %}
-
   </div>
   <!-- End Content -->
-
 </div>

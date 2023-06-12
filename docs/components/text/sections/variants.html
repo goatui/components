@@ -1,8 +1,7 @@
 {% capture sample-code %}
 <goat-text type="text">Primary</goat-text>
-<goat-text type="text" shade='secondary'>Secondary</goat-text>
-<goat-text type="text" shade='tertiary'>Tertiary</goat-text>
-
+<goat-text type="text" shade="secondary">Secondary</goat-text>
+<goat-text type="text" shade="tertiary">Tertiary</goat-text>
 
 <style>
   .custom {
@@ -12,14 +11,13 @@
   }
 </style>
 
-<div class='custom'>
+<div class="custom">
   <goat-text type="text">Primary</goat-text>
-  <goat-text type="text" shade='secondary'>Secondary</goat-text>
-  <goat-text type="text" shade='tertiary'>Tertiary</goat-text>
+  <goat-text type="text" shade="secondary">Secondary</goat-text>
+  <goat-text type="text" shade="tertiary">Tertiary</goat-text>
 </div>
 
-<div style='color:pink'>
-  <goat-text type="text" class='inherit'>Primary</goat-text>
+<div style="color: pink">
+  <goat-text type="text" class="inherit">Primary</goat-text>
 </div>
-{% endcapture %}
-{% include demo-html.html content=sample-code %}
+{% endcapture %} {% include demo-html.html content=sample-code %}

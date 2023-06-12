@@ -2,7 +2,7 @@ import { Component, ComponentInterface, h, Host } from '@stencil/core';
 
 /**
  * @name Button Group
- * @description An interactive button with a range of presentation options.
+ * @description Group a series of buttons together on a single line with the button group, and super-power.
  * @category General
  * @tags controls
  * @example <goat-button-group><goat-button>

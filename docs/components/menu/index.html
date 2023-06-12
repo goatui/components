@@ -1,45 +1,42 @@
 ---
 layout: component
 title: Menu
+description: The menu component is used to display a list of options to the user.
 sections:
-- title: Basic Menu
-  source: sections/basic-menu.html
-- title: Icon Menu
-  source: sections/icon-menu.html
-- title: Events
-  source: sections/events.html
+  - title: Basic Menu
+    source: sections/basic-menu.html
+  - title: Icon Menu
+    source: sections/icon-menu.html
+  - title: Events
+    source: sections/events.html
 ---
-<div class='row pt-3'>
 
-  {% include section-nav.html %}
-
+<div class="usage-tab">
   <!-- Content -->
-  <div class='component-content'>
+  <div class="component-content">
 
-    <div style='padding-bottom: var(--spacing-6)'>
-      <goat-text type='heading' size='md'>{{ page.title }}</goat-text>
-      <goat-text type='paragraph'>Use {{site.title}}’s custom input styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</goat-text>
+    <div style="padding-bottom: var(--spacing-6)">
+      <goat-text type="paragraph">{{page.description}}</goat-text>
     </div>
 
     {% for section in page.sections %}
-    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style='padding-bottom: var(--spacing-4)'>
-      <goat-text type='heading' level='2' size='sm'>{{ section.title }}</goat-text>
+    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style="padding-bottom: var(--spacing-4)">
+      <goat-text type="heading" level="2" size="sm">{{ section.title }}</goat-text>
 
       {% include_relative {{ section.source }} %}
     </div>
     {% endfor %}
-
   </div>
   <!-- End Content -->
+  {% include section-nav.html %}
 
   <script>
     const $lists = document.querySelectorAll('.menu');
-    $lists.forEach(($list) => {
-      $list.addEventListener('goat:menu-item-click', function(evt) {
+    $lists.forEach($list => {
+      $list.addEventListener('goat:menu-item-click', function (evt) {
         myConsole.log(`<pre>${JSON.stringify(evt.detail.value, null, 4)}</pre>`);
       });
     });
   </script>
 
 </div>
-

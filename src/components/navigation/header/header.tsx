@@ -3,6 +3,7 @@ import { Component, h } from '@stencil/core';
 /**
  * @name Header
  * @description Headers are compositions that extend standard navbar functionalities.
+ * @category Navigation
  * @img /assets/img/header.png
  */
 @Component({

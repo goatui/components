@@ -1,82 +1,87 @@
 <goat-card>
   <goat-card-content>
-    <goat-dropdown id='dropdown'>
-      <goat-button class='color-dark' variant='ghost' icon='three-dots-vertical'></goat-button>
-      <goat-menu slot='dropdown-content' class='menu' style='width: 200px'>
-        <goat-menu-item value='cut'>
-          <goat-icon name='scissors' slot='start' size='sm'></goat-icon>
+    <goat-dropdown id="dropdown">
+      <goat-button class="color-dark" variant="ghost" icon="three-dots-vertical"></goat-button>
+      <goat-menu slot="dropdown-content" class="menu" style="width: 200px">
+        <goat-menu-item value="cut">
+          <goat-icon name="scissors" slot="start" size="sm"></goat-icon>
           Cut
-          <span slot='end'>⌘X</span>
+          <span slot="end">⌘X</span>
         </goat-menu-item>
-        <goat-menu-item value='copy'>
-          <goat-icon name='files' slot='start' size='sm'></goat-icon>
+        <goat-menu-item value="copy">
+          <goat-icon name="files" slot="start" size="sm"></goat-icon>
           Copy
-          <span slot='end'>⌘C</span>
+          <span slot="end">⌘C</span>
         </goat-menu-item>
-        <goat-menu-item value='paste'>
-          <goat-icon name='clipboard' slot='start' size='sm'></goat-icon>
+        <goat-menu-item value="paste">
+          <goat-icon name="clipboard" slot="start" size="sm"></goat-icon>
           Paste
-          <span slot='end'>⌘X</span>
+          <span slot="end">⌘X</span>
         </goat-menu-item>
         <goat-divider></goat-divider>
-        <goat-menu-item value='delete'>
-          <goat-icon name='trash' slot='start' size='sm'></goat-icon>
+        <goat-menu-item value="delete">
+          <goat-icon name="trash" slot="start" size="sm"></goat-icon>
           Delete
-          <span slot='end'>←</span>
+          <span slot="end">←</span>
         </goat-menu-item>
       </goat-menu>
     </goat-dropdown>
   </goat-card-content>
   <goat-card-content>
     {% GoatHighlighter language:"html" %}
-<goat-dropdown id='dropdown'>
-  <goat-button class='color-dark' variant='ghost' icon='three-dots-vertical'></goat-button>
-  <goat-menu slot='dropdown-content' class='menu' style='width: 200px'>
-    <goat-menu-item value='cut'>
-      <goat-icon name='scissors' slot='start' size='sm'></goat-icon>
-      Cut
-      <span slot='end'>⌘X</span>
-    </goat-menu-item>
-    <goat-menu-item value='copy'>
-      <goat-icon name='files' slot='start' size='sm'></goat-icon>
-      Copy
-      <span slot='end'>⌘C</span>
-    </goat-menu-item>
-    <goat-menu-item value='paste'>
-      <goat-icon name='clipboard' slot='start' size='sm'></goat-icon>
-      Paste
-      <span slot='end'>⌘X</span>
-    </goat-menu-item>
-    <goat-divider></goat-divider>
-    <goat-menu-item value='delete'>
-      <goat-icon name='trash' slot='start' size='sm'></goat-icon>
-      Delete
-      <span slot='end'>←</span>
-    </goat-menu-item>
-  </goat-menu>
-</goat-dropdown>
+    <goat-dropdown id="dropdown">
+      <goat-button class="color-dark" variant="ghost" icon="three-dots-vertical"></goat-button>
+      <goat-menu slot="dropdown-content" class="menu" style="width: 200px">
+        <goat-menu-item value="cut">
+          <goat-icon name="scissors" slot="start" size="sm"></goat-icon>
+          Cut
+          <span slot="end">⌘X</span>
+        </goat-menu-item>
+        <goat-menu-item value="copy">
+          <goat-icon name="files" slot="start" size="sm"></goat-icon>
+          Copy
+          <span slot="end">⌘C</span>
+        </goat-menu-item>
+        <goat-menu-item value="paste">
+          <goat-icon name="clipboard" slot="start" size="sm"></goat-icon>
+          Paste
+          <span slot="end">⌘X</span>
+        </goat-menu-item>
+        <goat-divider></goat-divider>
+        <goat-menu-item value="delete">
+          <goat-icon name="trash" slot="start" size="sm"></goat-icon>
+          Delete
+          <span slot="end">←</span>
+        </goat-menu-item>
+      </goat-menu>
+    </goat-dropdown>
     {% endGoatHighlighter %}
   </goat-card-content>
 </goat-card>
 
 <goat-card>
   <goat-card-content>
-    <goat-dropdown id='data-dropdown'>
-      <goat-button class='color-dark' variant='ghost' icon='three-dots-vertical'></goat-button>
+    <goat-dropdown id="data-dropdown">
+      <goat-button class="color-dark" variant="ghost" icon="three-dots-vertical"></goat-button>
     </goat-dropdown>
   </goat-card-content>
   <script>
-    document.getElementById('data-dropdown').items = [{value: 'copy', label: 'Copy'}, {value: 'cut', label: 'Cut'}];
+    document.getElementById('data-dropdown').items = [
+      { value: 'copy', label: 'Copy' },
+      { value: 'cut', label: 'Cut' },
+    ];
   </script>
   <goat-card-content>
     {% GoatHighlighter language:"html" %}
-<goat-dropdown id='data-dropdown'>
-  <goat-button class='color-dark' variant='ghost' icon='three-dots-vertical'></goat-button>
-</goat-dropdown>
-<script>
-  document.getElementById('data-dropdown').items = [{value: 'copy', label: 'Copy'}, {value: 'cut', label: 'Cut'}];
-</script>
+    <goat-dropdown id="data-dropdown">
+      <goat-button class="color-dark" variant="ghost" icon="three-dots-vertical"></goat-button>
+    </goat-dropdown>
+    <script>
+      document.getElementById('data-dropdown').items = [
+        { value: 'copy', label: 'Copy' },
+        { value: 'cut', label: 'Cut' },
+      ];
+    </script>
     {% endGoatHighlighter %}
   </goat-card-content>
 </goat-card>
-

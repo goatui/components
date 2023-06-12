@@ -1,7 +1,7 @@
 @keyframes reveal {
   0% {
     opacity: 0;
-    transform: translateY(8px)
+    transform: translateY(8px);
   }
 }
 
@@ -16,7 +16,7 @@
 }
 
 .banner * {
-  animation: reveal .8s cubic-bezier(.215, .61, .355, 1) .25s backwards;
+  animation: reveal 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) 0.25s backwards;
   --text-color: var(--text-primary);
 }
 
@@ -28,7 +28,7 @@
   margin-bottom: var(--spacing-8);
 }
 
-html[data-theme="dark"] .banner {
+html[data-theme='dark'] .banner {
   background: var(--color-black);
 }
 
@@ -41,7 +41,8 @@ html[data-theme="dark"] .banner {
   height: 15rem;
 }
 
-.banner-logo path, .banner-logo circle{
+.banner-logo path,
+.banner-logo circle {
   stroke: var(--color-brand-primary);
 }
 
@@ -50,7 +51,7 @@ html[data-theme="dark"] .banner {
   align-items: center;
   text-align: center;
   font-size: 1.2rem;
-  letter-spacing: .02em;
+  letter-spacing: 0.02em;
   color: var(--text-primary);
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 }
@@ -67,7 +68,6 @@ html[data-theme="dark"] .banner {
 }
 
 @media (min-width: 1024px) {
-
   .made-in-india {
     position: fixed;
     font-size: 1rem;
@@ -75,7 +75,7 @@ html[data-theme="dark"] .banner {
     transform: rotate(-90deg);
     bottom: 2rem;
     left: 2rem;
-    text-align: left
+    text-align: left;
   }
 
   .social-icons {
@@ -89,7 +89,7 @@ html[data-theme="dark"] .banner {
   }
 
   .made-in-india:before {
-    content: "";
+    content: '';
     display: inline-block;
     vertical-align: middle;
     margin-right: 15px;
@@ -99,14 +99,13 @@ html[data-theme="dark"] .banner {
   }
 
   .social-icons:after {
-    content: "";
+    content: '';
     display: inline-block;
     vertical-align: middle;
     height: 25px;
     width: 1px;
     background: var(--text-primary);
   }
-
 
   .container {
     padding: var(--spacing-5) var(--spacing-24);
@@ -116,4 +115,3 @@ html[data-theme="dark"] .banner {
 .banner-logo .head {
   transform-origin: center;
 }
-

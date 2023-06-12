@@ -133,11 +133,7 @@ declare module 'popper.js' {
   declare class Popper {
     static placements: Placement;
 
-    constructor(
-      reference: Element | ReferenceObject,
-      popper: Element,
-      options?: Options
-    ): Instance;
+    constructor(reference: Element | ReferenceObject, popper: Element, options?: Options): Instance;
   }
 
   declare module.exports: Class<Popper>;

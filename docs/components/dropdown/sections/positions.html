@@ -1,83 +1,80 @@
-<goat-text type='paragraph'>
-    The dropdown can be positioned relative to the trigger element.
-    Possible positions are: <code class='language-html'>top-right</code>, <code class='language-html'>top-left</code>, <code class='language-html'>bottom-left</code>, <code class='language-html'>bottom-right</code>.
+<goat-text type="paragraph">
+  The dropdown can be positioned relative to the trigger element. Possible positions are: <code class="language-html">top-right</code>, <code class="language-html">top-left</code>,
+  <code class="language-html">bottom-left</code>, <code class="language-html">bottom-right</code>.
 </goat-text>
-<goat-text type='paragraph'>
-  You can also use the <code class='language-html'>positions</code> attribute to set all preferred position of the dropdown. On scroll, the dropdown will be repositioned to the closest position.
+<goat-text type="paragraph">
+  You can also use the <code class="language-html">positions</code> attribute to set all preferred position of the dropdown. On scroll, the dropdown will be repositioned to the
+  closest position.
 </goat-text>
 
 <goat-card>
   <goat-card-content>
-    <goat-dropdown id='dropdown' item-variant='icon' positions='bottom-right,top-right'>
-      <goat-button icon='house' variant="outline" aria-label='House'> Open</goat-button>
-      <goat-menu slot='dropdown-content' class='menu' style='width: 200px'>
-        <goat-menu-item value='cut'>
-          <goat-icon name='scissors' slot='start' size='sm'></goat-icon>
+    <goat-dropdown id="dropdown" item-variant="icon" positions="bottom-right,top-right">
+      <goat-button icon="house" variant="outline" aria-label="House"> Open</goat-button>
+      <goat-menu slot="dropdown-content" class="menu" style="width: 200px">
+        <goat-menu-item value="cut">
+          <goat-icon name="scissors" slot="start" size="sm"></goat-icon>
           Cut
-          <span slot='end'>⌘X</span>
+          <span slot="end">⌘X</span>
         </goat-menu-item>
-        <goat-menu-item value='copy'>
-          <goat-icon name='files' slot='start' size='sm'></goat-icon>
+        <goat-menu-item value="copy">
+          <goat-icon name="files" slot="start" size="sm"></goat-icon>
           Copy
-          <span slot='end'>⌘C</span>
+          <span slot="end">⌘C</span>
         </goat-menu-item>
-        <goat-menu-item value='paste'>
-          <goat-icon name='clipboard' slot='start' size='sm'></goat-icon>
+        <goat-menu-item value="paste">
+          <goat-icon name="clipboard" slot="start" size="sm"></goat-icon>
           Paste
-          <span slot='end'>⌘X</span>
+          <span slot="end">⌘X</span>
         </goat-menu-item>
         <goat-divider></goat-divider>
-        <goat-menu-item value='delete'>
-          <goat-icon name='trash' slot='start' size='sm'></goat-icon>
+        <goat-menu-item value="delete">
+          <goat-icon name="trash" slot="start" size="sm"></goat-icon>
           Delete
-          <span slot='end'>←</span>
+          <span slot="end">←</span>
         </goat-menu-item>
       </goat-menu>
     </goat-dropdown>
 
-    <goat-dropdown id='dropdown' item-variant='icon' positions='top-left,bottom-left'>
-      <goat-button icon='trash' class='color-error' aria-label='House'></goat-button>
+    <goat-dropdown id="dropdown" item-variant="icon" positions="top-left,bottom-left">
+      <goat-button icon="trash" class="color-error" aria-label="House"></goat-button>
 
-      <goat-menu slot='dropdown-content' class='menu' style='width: 200px'>
-        <goat-menu-item value='cut'>
-          <goat-icon name='scissors' slot='start' size='sm'></goat-icon>
+      <goat-menu slot="dropdown-content" class="menu" style="width: 200px">
+        <goat-menu-item value="cut">
+          <goat-icon name="scissors" slot="start" size="sm"></goat-icon>
           Cut
-          <span slot='end'>⌘X</span>
+          <span slot="end">⌘X</span>
         </goat-menu-item>
-        <goat-menu-item value='copy'>
-          <goat-icon name='files' slot='start' size='sm'></goat-icon>
+        <goat-menu-item value="copy">
+          <goat-icon name="files" slot="start" size="sm"></goat-icon>
           Copy
-          <span slot='end'>⌘C</span>
+          <span slot="end">⌘C</span>
         </goat-menu-item>
-        <goat-menu-item value='paste'>
-          <goat-icon name='clipboard' slot='start' size='sm'></goat-icon>
+        <goat-menu-item value="paste">
+          <goat-icon name="clipboard" slot="start" size="sm"></goat-icon>
           Paste
-          <span slot='end'>⌘X</span>
+          <span slot="end">⌘X</span>
         </goat-menu-item>
         <goat-divider></goat-divider>
-        <goat-menu-item value='delete'>
-          <goat-icon name='trash' slot='start' size='sm'></goat-icon>
+        <goat-menu-item value="delete">
+          <goat-icon name="trash" slot="start" size="sm"></goat-icon>
           Delete
-          <span slot='end'>←</span>
+          <span slot="end">←</span>
         </goat-menu-item>
       </goat-menu>
     </goat-dropdown>
   </goat-card-content>
   <goat-card-content>
     {% GoatHighlighter language:"html" %}
-<goat-dropdown id='dropdown' item-variant='icon' positions='top-right,bottom-right'>
-  <goat-button icon='house' variant="ghost" aria-label='House'> Open</goat-button>
-  <goat-menu slot='dropdown-content' class='menu' style='width: 200px'>
-    ...
-  </goat-menu>
-</goat-dropdown>
+    <goat-dropdown id="dropdown" item-variant="icon" positions="top-right,bottom-right">
+      <goat-button icon="house" variant="ghost" aria-label="House"> Open</goat-button>
+      <goat-menu slot="dropdown-content" class="menu" style="width: 200px"> ... </goat-menu>
+    </goat-dropdown>
 
-<goat-dropdown id='dropdown' item-variant='icon' positions='top-left,bottom-left'>
-  <goat-button icon='trash' class='color-error' aria-label='House'></goat-button>
-  <goat-menu slot='dropdown-content' class='menu' style='width: 200px'>
-    ...
-  </goat-menu>
-</goat-dropdown>
+    <goat-dropdown id="dropdown" item-variant="icon" positions="top-left,bottom-left">
+      <goat-button icon="trash" class="color-error" aria-label="House"></goat-button>
+      <goat-menu slot="dropdown-content" class="menu" style="width: 200px"> ... </goat-menu>
+    </goat-dropdown>
 
     {% endGoatHighlighter %}
   </goat-card-content>

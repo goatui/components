@@ -1,10 +1,6 @@
 <goat-card>
-  <goat-card-content style='height: 30rem'>
-    <goat-table id='table'
-                key-field='_id'
-                selection-type='checkbox'
-                sortable
-    ></goat-table>
+  <goat-card-content style="height: 30rem">
+    <goat-table id="table" key-field="_id" selection-type="checkbox" sortable></goat-table>
     <script>
       const $table = document.getElementById('table');
       // Columns
@@ -23,35 +19,26 @@
     </script>
   </goat-card-content>
   <goat-card-content>
-    <div class='result'>
-      <goat-heading level='5'>Cell Click Result :</goat-heading>
-      <div><b>Cell Data :</b>
-        <pre id='record'></pre>
+    <div class="result">
+      <goat-heading level="5">Cell Click Result :</goat-heading>
+      <div>
+        <b>Cell Data :</b>
+        <pre id="record"></pre>
       </div>
-      <div><b>Column :</b> <span id='column'></span></div>
+      <div><b>Column :</b> <span id="column"></span></div>
       <br />
-      <div><b>Selected Rows :</b> <span id='selected-rows'></span></div>
+      <div><b>Selected Rows :</b> <span id="selected-rows"></span></div>
       <br />
       <div>Check console for full event detail.</div>
     </div>
   </goat-card-content>
   <goat-card-content>
     {% GoatHighlighter language:"html" %}
-    <goat-table id='table'
-                key-field='_id'
-                selection-type='checkbox'
-                sortable
-                paginate
-    ></goat-table>
+    <goat-table id="table" key-field="_id" selection-type="checkbox" sortable paginate></goat-table>
     {% endGoatHighlighter %}
   </goat-card-content>
   <goat-card-content>
-    {% GoatHighlighter language:"js" %}
-    const $table = document.getElementById('table');
-    // Columns
-    $table.columns = {% include_relative column-config.json %};
-    // Data
-    $table.data = {% include_relative data-source.json %};
-    {% endGoatHighlighter %}
+    {% GoatHighlighter language:"js" %} const $table = document.getElementById('table'); // Columns $table.columns = {% include_relative column-config.json %}; // Data $table.data
+    = {% include_relative data-source.json %}; {% endGoatHighlighter %}
   </goat-card-content>
 </goat-card>

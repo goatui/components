@@ -1,39 +1,32 @@
-<goat-text type='paragraph'>Here are several predefined button styles, each serving its own semantic purpose.
-</goat-text>
-
+<goat-text type="paragraph">Here are several predefined button styles, each serving its own semantic purpose. </goat-text>
 
 {% capture sample-code %}
 <goat-tabs>
   <goat-tabs-list>
     <goat-tab>First tab</goat-tab>
-    <goat-tab selected='true'>Second tab</goat-tab>
+    <goat-tab selected="true">Second tab</goat-tab>
     <goat-tab disabled>Disabled tab</goat-tab>
     <goat-tab>Last tab</goat-tab>
   </goat-tabs-list>
 
   <goat-tab-panel>
-    <goat-text type='heading'>
-      First tab content
-    </goat-text>
+    <goat-text type="heading"> First tab content </goat-text>
   </goat-tab-panel>
 
   <goat-tab-panel>
-    <goat-text type='heading'>
-      Second tab content
-    </goat-text>
+    <goat-text type="heading"> Second tab content </goat-text>
   </goat-tab-panel>
-
 </goat-tabs>
 
-<br /> <br />
+<br />
+<br />
 
 <goat-tabs>
   <goat-tabs-list>
-    <goat-tab icon='house'></goat-tab>
-    <goat-tab icon='circle' selected='true'>Circle</goat-tab>
-    <goat-tab disabled icon='envelope'>Email</goat-tab>
-    <goat-tab icon='star-fill'></goat-tab>
+    <goat-tab icon="house"></goat-tab>
+    <goat-tab icon="circle" selected="true">Circle</goat-tab>
+    <goat-tab disabled icon="envelope">Email</goat-tab>
+    <goat-tab icon="star-fill"></goat-tab>
   </goat-tabs-list>
 </goat-tabs>
-{% endcapture %}
-{% include demo-html.html content=sample-code %}
+{% endcapture %} {% include demo-html.html content=sample-code %}

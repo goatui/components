@@ -2,41 +2,34 @@
 layout: component
 title: Flow Designer
 menu:
-- title: Usage
-- title: Disabled State
+  - title: Usage
+  - title: Disabled State
 ---
-<div class='component-doc'>
 
+<div class="component-doc">
   {% include sidebar.html %}
 
   <!-- Content -->
-  <div class='col-xl-10 order-xl-1 duik-content border-bottom'>
-    <div class='border-bottom mb-7'>
-      <goat-text type='heading' size='md'>{{ page.title }}</goat-text>
-      <goat-text type='paragraph'>Use {{site.title}}’s table component for displaying information in a way that’s easy to scan, so that
-        users can look for patterns and insights. They can be embedded in primary content, such as cards.</goat-text>
+  <div class="col-xl-10 order-xl-1 duik-content border-bottom">
+    <div class="border-bottom mb-7">
+      <goat-text type="heading" size="md">{{ page.title }}</goat-text>
+      <goat-text type="paragraph"
+        >Use {{site.title}}’s table component for displaying information in a way that’s easy to scan, so that users can look for patterns and insights. They can be embedded in
+        primary content, such as cards.</goat-text
+      >
     </div>
 
-    <goat-tag class='color-red'>Work in progress</goat-tag>
+    <goat-tag class="color-red">Work in progress</goat-tag>
 
     <!-- Usage -->
-    <div id='doc-usage' class='mb-7'>
-      <goat-text type="heading" level="2" size="sm">Usage <a class='js-anchor-link duik-anchorjs-link' href='#doc-usage' aria-label='Anchor'
-                              data-anchorjs-icon='#'></a></goat-text>
+    <div id="doc-usage" class="mb-7">
+      <goat-text type="heading" level="2" size="sm">Usage <a class="js-anchor-link duik-anchorjs-link" href="#doc-usage" aria-label="Anchor" data-anchorjs-icon="#"></a></goat-text>
 
       {% capture sample-code %}
       <goat-flow-designer></goat-flow-designer>
-      {% endcapture %}
-      {% include demo-html.html content=sample-code %}
-
-
+      {% endcapture %} {% include demo-html.html content=sample-code %}
     </div>
     <!-- End About -->
-
-
-
-
-
   </div>
   <!-- End Content -->
 </div>

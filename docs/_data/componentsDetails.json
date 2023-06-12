@@ -56,13 +56,9 @@
       "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [
-        "goat-icon"
-      ],
+      "dependencies": ["goat-icon"],
       "dependencyGraph": {
-        "goat-accordion-item": [
-          "goat-icon"
-        ]
+        "goat-accordion-item": ["goat-icon"]
       },
       "props": [
         {
@@ -347,9 +343,7 @@
         "name": "Breadcrumb",
         "description": "Typography are used for rendering headlines, paragraphs and captions.",
         "category": "Navigation",
-        "tags": [
-          "navigation"
-        ],
+        "tags": ["navigation"],
         "example": "<goat-breadcrumb><goat-breadcrumb-item href=\"#\">Home</goat-breadcrumb-item><goat-breadcrumb-item href=\"#\" active>Page</goat-breadcrumb-item></goat-breadcrumb>"
       }
     },
@@ -364,15 +358,9 @@
       "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [
-        "goat-text",
-        "goat-link"
-      ],
+      "dependencies": ["goat-text", "goat-link"],
       "dependencyGraph": {
-        "goat-breadcrumb-item": [
-          "goat-text",
-          "goat-link"
-        ]
+        "goat-breadcrumb-item": ["goat-text", "goat-link"]
       },
       "props": [
         {
@@ -480,37 +468,15 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-calendar",
-        "goat-code-highlighter",
-        "goat-empty-state",
-        "goat-notification",
-        "goat-table"
-      ],
-      "dependencies": [
-        "goat-icon",
-        "goat-spinner"
-      ],
+      "dependents": ["goat-calendar", "goat-code-highlighter", "goat-empty-state", "goat-notification", "goat-table"],
+      "dependencies": ["goat-icon", "goat-spinner"],
       "dependencyGraph": {
-        "goat-button": [
-          "goat-icon",
-          "goat-spinner"
-        ],
-        "goat-calendar": [
-          "goat-button"
-        ],
-        "goat-code-highlighter": [
-          "goat-button"
-        ],
-        "goat-empty-state": [
-          "goat-button"
-        ],
-        "goat-notification": [
-          "goat-button"
-        ],
-        "goat-table": [
-          "goat-button"
-        ]
+        "goat-button": ["goat-icon", "goat-spinner"],
+        "goat-calendar": ["goat-button"],
+        "goat-code-highlighter": ["goat-button"],
+        "goat-empty-state": ["goat-button"],
+        "goat-notification": ["goat-button"],
+        "goat-table": ["goat-button"]
       },
       "props": [
         {
@@ -817,9 +783,7 @@
         "name": "Button",
         "description": "An interactive button with a range of presentation options.",
         "category": "General",
-        "tags": [
-          "controls"
-        ],
+        "tags": ["controls"],
         "example": "<goat-button>\nButton CTA\n</goat-button>"
       }
     },
@@ -868,9 +832,7 @@
         "name": "Button Group",
         "description": "An interactive button with a range of presentation options.",
         "category": "General",
-        "tags": [
-          "controls"
-        ],
+        "tags": ["controls"],
         "example": "<goat-button-group><goat-button>\nButton CTA\n</goat-button><goat-button>\nButton CTA\n</goat-button></goat-button-group>"
       }
     },
@@ -906,44 +868,15 @@
       ],
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [
-        "goat-button",
-        "goat-select",
-        "goat-calendar-column-view",
-        "goat-calendar-month-view"
-      ],
+      "dependencies": ["goat-button", "goat-select", "goat-calendar-column-view", "goat-calendar-month-view"],
       "dependencyGraph": {
-        "goat-calendar": [
-          "goat-button",
-          "goat-select",
-          "goat-calendar-column-view",
-          "goat-calendar-month-view"
-        ],
-        "goat-button": [
-          "goat-icon",
-          "goat-spinner"
-        ],
-        "goat-select": [
-          "goat-tag",
-          "goat-icon",
-          "goat-spinner",
-          "goat-menu",
-          "goat-text",
-          "goat-menu-item"
-        ],
-        "goat-tag": [
-          "goat-icon"
-        ],
-        "goat-menu": [
-          "goat-empty-state"
-        ],
-        "goat-empty-state": [
-          "goat-svg",
-          "goat-button"
-        ],
-        "goat-calendar-column-view": [
-          "goat-calendar-column-view-background"
-        ]
+        "goat-calendar": ["goat-button", "goat-select", "goat-calendar-column-view", "goat-calendar-month-view"],
+        "goat-button": ["goat-icon", "goat-spinner"],
+        "goat-select": ["goat-tag", "goat-icon", "goat-spinner", "goat-menu", "goat-text", "goat-menu-item"],
+        "goat-tag": ["goat-icon"],
+        "goat-menu": ["goat-empty-state"],
+        "goat-empty-state": ["goat-svg", "goat-button"],
+        "goat-calendar-column-view": ["goat-calendar-column-view-background"]
       },
       "props": [
         {
@@ -1099,9 +1032,7 @@
         "name": "Calendar",
         "description": "The calendar component is used to display information in a daily, weekly, monthly, or category view.",
         "category": "Data Display",
-        "tags": [
-          "calendar"
-        ],
+        "tags": ["calendar"],
         "img": "/assets/img/calendar.png"
       }
     },
@@ -1115,19 +1046,11 @@
       "docs": "",
       "docsTags": [],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-calendar"
-      ],
-      "dependencies": [
-        "goat-calendar-column-view-background"
-      ],
+      "dependents": ["goat-calendar"],
+      "dependencies": ["goat-calendar-column-view-background"],
       "dependencyGraph": {
-        "goat-calendar-column-view": [
-          "goat-calendar-column-view-background"
-        ],
-        "goat-calendar": [
-          "goat-calendar-column-view"
-        ]
+        "goat-calendar-column-view": ["goat-calendar-column-view-background"],
+        "goat-calendar": ["goat-calendar-column-view"]
       },
       "props": [
         {
@@ -1265,14 +1188,10 @@
       "docs": "",
       "docsTags": [],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-calendar-column-view"
-      ],
+      "dependents": ["goat-calendar-column-view"],
       "dependencies": [],
       "dependencyGraph": {
-        "goat-calendar-column-view": [
-          "goat-calendar-column-view-background"
-        ]
+        "goat-calendar-column-view": ["goat-calendar-column-view-background"]
       },
       "props": [
         {
@@ -1311,14 +1230,10 @@
       "docs": "",
       "docsTags": [],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-calendar"
-      ],
+      "dependents": ["goat-calendar"],
       "dependencies": [],
       "dependencyGraph": {
-        "goat-calendar": [
-          "goat-calendar-month-view"
-        ]
+        "goat-calendar": ["goat-calendar-month-view"]
       },
       "props": [
         {
@@ -1462,14 +1377,10 @@
       "docs": "",
       "docsTags": [],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-flow-designer"
-      ],
+      "dependents": ["goat-flow-designer"],
       "dependencies": [],
       "dependencyGraph": {
-        "goat-flow-designer": [
-          "goat-canvas"
-        ]
+        "goat-flow-designer": ["goat-canvas"]
       },
       "props": [
         {
@@ -1638,14 +1549,10 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-table"
-      ],
+      "dependents": ["goat-table"],
       "dependencies": [],
       "dependencyGraph": {
-        "goat-table": [
-          "goat-checkbox"
-        ]
+        "goat-table": ["goat-checkbox"]
       },
       "props": [
         {
@@ -1912,10 +1819,7 @@
         "name": "Checkbox",
         "description": "Captures boolean input with an optional indeterminate mode.",
         "category": "Form Inputs",
-        "tags": [
-          "input",
-          " form"
-        ],
+        "tags": ["input", " form"],
         "example": "<goat-checkbox value='true'>Want ice cream?</goat-checkbox>"
       }
     },
@@ -1951,13 +1855,9 @@
       ],
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [
-        "goat-spinner"
-      ],
+      "dependencies": ["goat-spinner"],
       "dependencyGraph": {
-        "goat-code-editor": [
-          "goat-spinner"
-        ]
+        "goat-code-editor": ["goat-spinner"]
       },
       "props": [
         {
@@ -2186,10 +2086,7 @@
         "name": "Code Editor",
         "description": "A browser based code editor.",
         "category": "Form Inputs",
-        "tags": [
-          "input",
-          " form"
-        ],
+        "tags": ["input", " form"],
         "img": "/assets/img/code-editor.png"
       }
     },
@@ -2217,21 +2114,10 @@
       ],
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [
-        "goat-button",
-        "goat-icon",
-        "goat-spinner"
-      ],
+      "dependencies": ["goat-button", "goat-icon", "goat-spinner"],
       "dependencyGraph": {
-        "goat-code-highlighter": [
-          "goat-button",
-          "goat-icon",
-          "goat-spinner"
-        ],
-        "goat-button": [
-          "goat-icon",
-          "goat-spinner"
-        ]
+        "goat-code-highlighter": ["goat-button", "goat-icon", "goat-spinner"],
+        "goat-button": ["goat-icon", "goat-spinner"]
       },
       "props": [
         {
@@ -2571,14 +2457,10 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-header-brand"
-      ],
+      "dependents": ["goat-header-brand"],
       "dependencies": [],
       "dependencyGraph": {
-        "goat-header-brand": [
-          "goat-divider"
-        ]
+        "goat-header-brand": ["goat-divider"]
       },
       "props": [
         {
@@ -2636,28 +2518,12 @@
       ],
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [
-        "goat-menu",
-        "goat-menu-item",
-        "goat-icon"
-      ],
+      "dependencies": ["goat-menu", "goat-menu-item", "goat-icon"],
       "dependencyGraph": {
-        "goat-dropdown": [
-          "goat-menu",
-          "goat-menu-item",
-          "goat-icon"
-        ],
-        "goat-menu": [
-          "goat-empty-state"
-        ],
-        "goat-empty-state": [
-          "goat-svg",
-          "goat-button"
-        ],
-        "goat-button": [
-          "goat-icon",
-          "goat-spinner"
-        ]
+        "goat-dropdown": ["goat-menu", "goat-menu-item", "goat-icon"],
+        "goat-menu": ["goat-empty-state"],
+        "goat-empty-state": ["goat-svg", "goat-button"],
+        "goat-button": ["goat-icon", "goat-spinner"]
       },
       "props": [
         {
@@ -2836,37 +2702,15 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-menu",
-        "goat-sidenav-menu",
-        "goat-table",
-        "tree-view"
-      ],
-      "dependencies": [
-        "goat-svg",
-        "goat-button"
-      ],
+      "dependents": ["goat-menu", "goat-sidenav-menu", "goat-table", "tree-view"],
+      "dependencies": ["goat-svg", "goat-button"],
       "dependencyGraph": {
-        "goat-empty-state": [
-          "goat-svg",
-          "goat-button"
-        ],
-        "goat-button": [
-          "goat-icon",
-          "goat-spinner"
-        ],
-        "goat-menu": [
-          "goat-empty-state"
-        ],
-        "goat-sidenav-menu": [
-          "goat-empty-state"
-        ],
-        "goat-table": [
-          "goat-empty-state"
-        ],
-        "tree-view": [
-          "goat-empty-state"
-        ]
+        "goat-empty-state": ["goat-svg", "goat-button"],
+        "goat-button": ["goat-icon", "goat-spinner"],
+        "goat-menu": ["goat-empty-state"],
+        "goat-sidenav-menu": ["goat-empty-state"],
+        "goat-table": ["goat-empty-state"],
+        "tree-view": ["goat-empty-state"]
       },
       "props": [
         {
@@ -3047,13 +2891,9 @@
       ],
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [
-        "goat-canvas"
-      ],
+      "dependencies": ["goat-canvas"],
       "dependencyGraph": {
-        "goat-flow-designer": [
-          "goat-canvas"
-        ]
+        "goat-flow-designer": ["goat-canvas"]
       },
       "props": [
         {
@@ -3156,14 +2996,10 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-table"
-      ],
+      "dependents": ["goat-table"],
       "dependencies": [],
       "dependencyGraph": {
-        "goat-table": [
-          "goat-form-control"
-        ]
+        "goat-table": ["goat-form-control"]
       },
       "props": [
         {
@@ -3291,9 +3127,7 @@
         "name": "Form Control",
         "description": "The Form Control component adds a label and caption for its child control.",
         "category": "Form Inputs",
-        "tags": [
-          "form"
-        ],
+        "tags": ["form"],
         "example": "<goat-form-control label='Full Name' required>\n<goat-input type='text'></goat-input>\n</goat-form-control>"
       }
     },
@@ -3347,17 +3181,9 @@
       "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [
-        "goat-link",
-        "goat-svg",
-        "goat-divider"
-      ],
+      "dependencies": ["goat-link", "goat-svg", "goat-divider"],
       "dependencyGraph": {
-        "goat-header-brand": [
-          "goat-link",
-          "goat-svg",
-          "goat-divider"
-        ]
+        "goat-header-brand": ["goat-link", "goat-svg", "goat-divider"]
       },
       "props": [
         {
@@ -3480,42 +3306,18 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "goat-accordion-item": [
-          "goat-icon"
-        ],
-        "goat-button": [
-          "goat-icon"
-        ],
-        "goat-code-highlighter": [
-          "goat-icon"
-        ],
-        "goat-dropdown": [
-          "goat-icon"
-        ],
-        "goat-input": [
-          "goat-icon"
-        ],
-        "goat-notification": [
-          "goat-icon"
-        ],
-        "goat-select": [
-          "goat-icon"
-        ],
-        "goat-slider": [
-          "goat-icon"
-        ],
-        "goat-tab": [
-          "goat-icon"
-        ],
-        "goat-tag": [
-          "goat-icon"
-        ],
-        "goat-textarea": [
-          "goat-icon"
-        ],
-        "goat-toast": [
-          "goat-icon"
-        ]
+        "goat-accordion-item": ["goat-icon"],
+        "goat-button": ["goat-icon"],
+        "goat-code-highlighter": ["goat-icon"],
+        "goat-dropdown": ["goat-icon"],
+        "goat-input": ["goat-icon"],
+        "goat-notification": ["goat-icon"],
+        "goat-select": ["goat-icon"],
+        "goat-slider": ["goat-icon"],
+        "goat-tab": ["goat-icon"],
+        "goat-tag": ["goat-icon"],
+        "goat-textarea": ["goat-icon"],
+        "goat-toast": ["goat-icon"]
       },
       "props": [
         {
@@ -3597,13 +3399,9 @@
       ],
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [
-        "goat-icon"
-      ],
+      "dependencies": ["goat-icon"],
       "dependencyGraph": {
-        "goat-input": [
-          "goat-icon"
-        ]
+        "goat-input": ["goat-icon"]
       },
       "props": [
         {
@@ -3955,10 +3753,7 @@
         "name": "Input",
         "description": "Enables native inputs to be used within a Form field.",
         "category": "Form Inputs",
-        "tags": [
-          "input",
-          " form"
-        ],
+        "tags": ["input", " form"],
         "example": "<goat-input placeholder=\"Enter your name\"></goat-input>"
       }
     },
@@ -3985,18 +3780,11 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-breadcrumb-item",
-        "goat-header-brand"
-      ],
+      "dependents": ["goat-breadcrumb-item", "goat-header-brand"],
       "dependencies": [],
       "dependencyGraph": {
-        "goat-breadcrumb-item": [
-          "goat-link"
-        ],
-        "goat-header-brand": [
-          "goat-link"
-        ]
+        "goat-breadcrumb-item": ["goat-link"],
+        "goat-header-brand": ["goat-link"]
       },
       "props": [
         {
@@ -4092,35 +3880,15 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-dropdown",
-        "goat-select",
-        "goat-slider"
-      ],
-      "dependencies": [
-        "goat-empty-state"
-      ],
+      "dependents": ["goat-dropdown", "goat-select", "goat-slider"],
+      "dependencies": ["goat-empty-state"],
       "dependencyGraph": {
-        "goat-menu": [
-          "goat-empty-state"
-        ],
-        "goat-empty-state": [
-          "goat-svg",
-          "goat-button"
-        ],
-        "goat-button": [
-          "goat-icon",
-          "goat-spinner"
-        ],
-        "goat-dropdown": [
-          "goat-menu"
-        ],
-        "goat-select": [
-          "goat-menu"
-        ],
-        "goat-slider": [
-          "goat-menu"
-        ]
+        "goat-menu": ["goat-empty-state"],
+        "goat-empty-state": ["goat-svg", "goat-button"],
+        "goat-button": ["goat-icon", "goat-spinner"],
+        "goat-dropdown": ["goat-menu"],
+        "goat-select": ["goat-menu"],
+        "goat-slider": ["goat-menu"]
       },
       "props": [
         {
@@ -4235,22 +4003,12 @@
       "docs": "",
       "docsTags": [],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-dropdown",
-        "goat-select",
-        "goat-slider"
-      ],
+      "dependents": ["goat-dropdown", "goat-select", "goat-slider"],
       "dependencies": [],
       "dependencyGraph": {
-        "goat-dropdown": [
-          "goat-menu-item"
-        ],
-        "goat-select": [
-          "goat-menu-item"
-        ],
-        "goat-slider": [
-          "goat-menu-item"
-        ]
+        "goat-dropdown": ["goat-menu-item"],
+        "goat-select": ["goat-menu-item"],
+        "goat-slider": ["goat-menu-item"]
       },
       "props": [
         {
@@ -4392,25 +4150,12 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-notification-manager"
-      ],
-      "dependencies": [
-        "goat-button",
-        "goat-icon"
-      ],
+      "dependents": ["goat-notification-manager"],
+      "dependencies": ["goat-button", "goat-icon"],
       "dependencyGraph": {
-        "goat-notification": [
-          "goat-button",
-          "goat-icon"
-        ],
-        "goat-button": [
-          "goat-icon",
-          "goat-spinner"
-        ],
-        "goat-notification-manager": [
-          "goat-notification"
-        ]
+        "goat-notification": ["goat-button", "goat-icon"],
+        "goat-button": ["goat-icon", "goat-spinner"],
+        "goat-notification-manager": ["goat-notification"]
       },
       "props": [
         {
@@ -4549,9 +4294,7 @@
         "name": "Notification",
         "description": "Notifications are messages that communicate information to the user.",
         "category": "Feedback",
-        "tags": [
-          "notification"
-        ],
+        "tags": ["notification"],
         "example": "<goat-notification state=\"success\" low-contrast dismissible>\n     <div slot='title'>Successful saved the record</div>\n   </goat-notification>"
       }
     },
@@ -4587,26 +4330,12 @@
       ],
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [
-        "goat-toast",
-        "goat-notification"
-      ],
+      "dependencies": ["goat-toast", "goat-notification"],
       "dependencyGraph": {
-        "goat-notification-manager": [
-          "goat-toast",
-          "goat-notification"
-        ],
-        "goat-toast": [
-          "goat-icon"
-        ],
-        "goat-notification": [
-          "goat-button",
-          "goat-icon"
-        ],
-        "goat-button": [
-          "goat-icon",
-          "goat-spinner"
-        ]
+        "goat-notification-manager": ["goat-toast", "goat-notification"],
+        "goat-toast": ["goat-icon"],
+        "goat-notification": ["goat-button", "goat-icon"],
+        "goat-button": ["goat-icon", "goat-spinner"]
       },
       "props": [
         {
@@ -4680,9 +4409,7 @@
         "name": "Notification Manager",
         "description": "Manages alert, toasts and notifications.",
         "category": "Feedback",
-        "tags": [
-          "notification"
-        ],
+        "tags": ["notification"],
         "img": "/assets/img/notification-manager.png"
       }
     },
@@ -4717,47 +4444,16 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-calendar",
-        "goat-table"
-      ],
-      "dependencies": [
-        "goat-tag",
-        "goat-icon",
-        "goat-spinner",
-        "goat-menu",
-        "goat-text",
-        "goat-menu-item"
-      ],
+      "dependents": ["goat-calendar", "goat-table"],
+      "dependencies": ["goat-tag", "goat-icon", "goat-spinner", "goat-menu", "goat-text", "goat-menu-item"],
       "dependencyGraph": {
-        "goat-select": [
-          "goat-tag",
-          "goat-icon",
-          "goat-spinner",
-          "goat-menu",
-          "goat-text",
-          "goat-menu-item"
-        ],
-        "goat-tag": [
-          "goat-icon"
-        ],
-        "goat-menu": [
-          "goat-empty-state"
-        ],
-        "goat-empty-state": [
-          "goat-svg",
-          "goat-button"
-        ],
-        "goat-button": [
-          "goat-icon",
-          "goat-spinner"
-        ],
-        "goat-calendar": [
-          "goat-select"
-        ],
-        "goat-table": [
-          "goat-select"
-        ]
+        "goat-select": ["goat-tag", "goat-icon", "goat-spinner", "goat-menu", "goat-text", "goat-menu-item"],
+        "goat-tag": ["goat-icon"],
+        "goat-menu": ["goat-empty-state"],
+        "goat-empty-state": ["goat-svg", "goat-button"],
+        "goat-button": ["goat-icon", "goat-spinner"],
+        "goat-calendar": ["goat-select"],
+        "goat-table": ["goat-select"]
       },
       "props": [
         {
@@ -5182,10 +4878,7 @@
         "name": "Select",
         "description": "Allows the user to select one or more options using a dropdown.",
         "category": "Form Inputs",
-        "tags": [
-          "input",
-          " form"
-        ],
+        "tags": ["input", " form"],
         "img": "/assets/img/select.png"
       }
     },
@@ -5257,21 +4950,11 @@
       "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [
-        "goat-empty-state"
-      ],
+      "dependencies": ["goat-empty-state"],
       "dependencyGraph": {
-        "goat-sidenav-menu": [
-          "goat-empty-state"
-        ],
-        "goat-empty-state": [
-          "goat-svg",
-          "goat-button"
-        ],
-        "goat-button": [
-          "goat-icon",
-          "goat-spinner"
-        ]
+        "goat-sidenav-menu": ["goat-empty-state"],
+        "goat-empty-state": ["goat-svg", "goat-button"],
+        "goat-button": ["goat-icon", "goat-spinner"]
       },
       "props": [
         {
@@ -5526,37 +5209,13 @@
       ],
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [
-        "goat-tag",
-        "goat-icon",
-        "goat-spinner",
-        "goat-menu",
-        "goat-text",
-        "goat-menu-item"
-      ],
+      "dependencies": ["goat-tag", "goat-icon", "goat-spinner", "goat-menu", "goat-text", "goat-menu-item"],
       "dependencyGraph": {
-        "goat-slider": [
-          "goat-tag",
-          "goat-icon",
-          "goat-spinner",
-          "goat-menu",
-          "goat-text",
-          "goat-menu-item"
-        ],
-        "goat-tag": [
-          "goat-icon"
-        ],
-        "goat-menu": [
-          "goat-empty-state"
-        ],
-        "goat-empty-state": [
-          "goat-svg",
-          "goat-button"
-        ],
-        "goat-button": [
-          "goat-icon",
-          "goat-spinner"
-        ]
+        "goat-slider": ["goat-tag", "goat-icon", "goat-spinner", "goat-menu", "goat-text", "goat-menu-item"],
+        "goat-tag": ["goat-icon"],
+        "goat-menu": ["goat-empty-state"],
+        "goat-empty-state": ["goat-svg", "goat-button"],
+        "goat-button": ["goat-icon", "goat-spinner"]
       },
       "props": [
         {
@@ -5981,10 +5640,7 @@
         "name": "Slider",
         "description": "Allows the user to select one or more options using a dropdown.",
         "category": "Form Inputs",
-        "tags": [
-          "input",
-          " form"
-        ],
+        "tags": ["input", " form"],
         "img": "/assets/img/select.png"
       }
     },
@@ -6015,34 +5671,15 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-button",
-        "goat-code-editor",
-        "goat-code-highlighter",
-        "goat-select",
-        "goat-slider",
-        "goat-tab"
-      ],
+      "dependents": ["goat-button", "goat-code-editor", "goat-code-highlighter", "goat-select", "goat-slider", "goat-tab"],
       "dependencies": [],
       "dependencyGraph": {
-        "goat-button": [
-          "goat-spinner"
-        ],
-        "goat-code-editor": [
-          "goat-spinner"
-        ],
-        "goat-code-highlighter": [
-          "goat-spinner"
-        ],
-        "goat-select": [
-          "goat-spinner"
-        ],
-        "goat-slider": [
-          "goat-spinner"
-        ],
-        "goat-tab": [
-          "goat-spinner"
-        ]
+        "goat-button": ["goat-spinner"],
+        "goat-code-editor": ["goat-spinner"],
+        "goat-code-highlighter": ["goat-spinner"],
+        "goat-select": ["goat-spinner"],
+        "goat-slider": ["goat-spinner"],
+        "goat-tab": ["goat-spinner"]
       },
       "props": [
         {
@@ -6103,18 +5740,11 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-empty-state",
-        "goat-header-brand"
-      ],
+      "dependents": ["goat-empty-state", "goat-header-brand"],
       "dependencies": [],
       "dependencyGraph": {
-        "goat-empty-state": [
-          "goat-svg"
-        ],
-        "goat-header-brand": [
-          "goat-svg"
-        ]
+        "goat-empty-state": ["goat-svg"],
+        "goat-header-brand": ["goat-svg"]
       },
       "props": [
         {
@@ -6159,15 +5789,9 @@
       "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [
-        "goat-icon",
-        "goat-spinner"
-      ],
+      "dependencies": ["goat-icon", "goat-spinner"],
       "dependencyGraph": {
-        "goat-tab": [
-          "goat-icon",
-          "goat-spinner"
-        ]
+        "goat-tab": ["goat-icon", "goat-spinner"]
       },
       "props": [
         {
@@ -6475,45 +6099,14 @@
       ],
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [
-        "goat-checkbox",
-        "goat-button",
-        "goat-form-control",
-        "goat-select",
-        "goat-text",
-        "goat-empty-state"
-      ],
+      "dependencies": ["goat-checkbox", "goat-button", "goat-form-control", "goat-select", "goat-text", "goat-empty-state"],
       "dependencyGraph": {
-        "goat-table": [
-          "goat-checkbox",
-          "goat-button",
-          "goat-form-control",
-          "goat-select",
-          "goat-text",
-          "goat-empty-state"
-        ],
-        "goat-button": [
-          "goat-icon",
-          "goat-spinner"
-        ],
-        "goat-select": [
-          "goat-tag",
-          "goat-icon",
-          "goat-spinner",
-          "goat-menu",
-          "goat-text",
-          "goat-menu-item"
-        ],
-        "goat-tag": [
-          "goat-icon"
-        ],
-        "goat-menu": [
-          "goat-empty-state"
-        ],
-        "goat-empty-state": [
-          "goat-svg",
-          "goat-button"
-        ]
+        "goat-table": ["goat-checkbox", "goat-button", "goat-form-control", "goat-select", "goat-text", "goat-empty-state"],
+        "goat-button": ["goat-icon", "goat-spinner"],
+        "goat-select": ["goat-tag", "goat-icon", "goat-spinner", "goat-menu", "goat-text", "goat-menu-item"],
+        "goat-tag": ["goat-icon"],
+        "goat-menu": ["goat-empty-state"],
+        "goat-empty-state": ["goat-svg", "goat-button"]
       },
       "props": [
         {
@@ -6856,9 +6449,7 @@
         "name": "Tabs",
         "description": "An interactive button with a range of presentation options.",
         "category": "Navigation",
-        "tags": [
-          "navigation"
-        ],
+        "tags": ["navigation"],
         "example": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
       }
     },
@@ -6961,23 +6552,12 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-select",
-        "goat-slider"
-      ],
-      "dependencies": [
-        "goat-icon"
-      ],
+      "dependents": ["goat-select", "goat-slider"],
+      "dependencies": ["goat-icon"],
       "dependencyGraph": {
-        "goat-tag": [
-          "goat-icon"
-        ],
-        "goat-select": [
-          "goat-tag"
-        ],
-        "goat-slider": [
-          "goat-tag"
-        ]
+        "goat-tag": ["goat-icon"],
+        "goat-select": ["goat-tag"],
+        "goat-slider": ["goat-tag"]
       },
       "props": [
         {
@@ -7097,26 +6677,13 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-breadcrumb-item",
-        "goat-select",
-        "goat-slider",
-        "goat-table"
-      ],
+      "dependents": ["goat-breadcrumb-item", "goat-select", "goat-slider", "goat-table"],
       "dependencies": [],
       "dependencyGraph": {
-        "goat-breadcrumb-item": [
-          "goat-text"
-        ],
-        "goat-select": [
-          "goat-text"
-        ],
-        "goat-slider": [
-          "goat-text"
-        ],
-        "goat-table": [
-          "goat-text"
-        ]
+        "goat-breadcrumb-item": ["goat-text"],
+        "goat-select": ["goat-text"],
+        "goat-slider": ["goat-text"],
+        "goat-table": ["goat-text"]
       },
       "props": [
         {
@@ -7284,13 +6851,9 @@
       ],
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [
-        "goat-icon"
-      ],
+      "dependencies": ["goat-icon"],
       "dependencyGraph": {
-        "goat-textarea": [
-          "goat-icon"
-        ]
+        "goat-textarea": ["goat-icon"]
       },
       "props": [
         {
@@ -7591,10 +7154,7 @@
         "name": "Textarea",
         "description": "Enables native inputs to be used within a Form field.",
         "category": "Form Inputs",
-        "tags": [
-          "input",
-          " form"
-        ],
+        "tags": ["input", " form"],
         "example": "<goat-textarea placeholder=\"Enter some description over here\"></goat-textarea>"
       }
     },
@@ -7845,10 +7405,7 @@
         "name": "Time Picker",
         "description": "Captures time input.",
         "category": "Form Inputs",
-        "tags": [
-          "input",
-          " form"
-        ],
+        "tags": ["input", " form"],
         "example": "<goat-time-picker value='true'></goat-time-picker>"
       }
     },
@@ -7879,19 +7436,11 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-notification-manager"
-      ],
-      "dependencies": [
-        "goat-icon"
-      ],
+      "dependents": ["goat-notification-manager"],
+      "dependencies": ["goat-icon"],
       "dependencyGraph": {
-        "goat-toast": [
-          "goat-icon"
-        ],
-        "goat-notification-manager": [
-          "goat-toast"
-        ]
+        "goat-toast": ["goat-icon"],
+        "goat-notification-manager": ["goat-toast"]
       },
       "props": [
         {
@@ -8237,10 +7786,7 @@
         "name": "Toggle",
         "description": "Captures boolean input with an optional indeterminate mode.",
         "category": "Form Inputs",
-        "tags": [
-          "input",
-          " form"
-        ],
+        "tags": ["input", " form"],
         "example": "<goat-toggle value='true'>Want ice cream?</goat-toggle>"
       }
     },
@@ -8268,21 +7814,11 @@
       ],
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [
-        "goat-empty-state"
-      ],
+      "dependencies": ["goat-empty-state"],
       "dependencyGraph": {
-        "tree-view": [
-          "goat-empty-state"
-        ],
-        "goat-empty-state": [
-          "goat-svg",
-          "goat-button"
-        ],
-        "goat-button": [
-          "goat-icon",
-          "goat-spinner"
-        ]
+        "tree-view": ["goat-empty-state"],
+        "goat-empty-state": ["goat-svg", "goat-button"],
+        "goat-button": ["goat-icon", "goat-spinner"]
       },
       "props": [
         {
@@ -8423,37 +7959,15 @@
             }
           ],
           "encapsulation": "shadow",
-          "dependents": [
-            "goat-calendar",
-            "goat-code-highlighter",
-            "goat-empty-state",
-            "goat-notification",
-            "goat-table"
-          ],
-          "dependencies": [
-            "goat-icon",
-            "goat-spinner"
-          ],
+          "dependents": ["goat-calendar", "goat-code-highlighter", "goat-empty-state", "goat-notification", "goat-table"],
+          "dependencies": ["goat-icon", "goat-spinner"],
           "dependencyGraph": {
-            "goat-button": [
-              "goat-icon",
-              "goat-spinner"
-            ],
-            "goat-calendar": [
-              "goat-button"
-            ],
-            "goat-code-highlighter": [
-              "goat-button"
-            ],
-            "goat-empty-state": [
-              "goat-button"
-            ],
-            "goat-notification": [
-              "goat-button"
-            ],
-            "goat-table": [
-              "goat-button"
-            ]
+            "goat-button": ["goat-icon", "goat-spinner"],
+            "goat-calendar": ["goat-button"],
+            "goat-code-highlighter": ["goat-button"],
+            "goat-empty-state": ["goat-button"],
+            "goat-notification": ["goat-button"],
+            "goat-table": ["goat-button"]
           },
           "props": [
             {
@@ -8760,9 +8274,7 @@
             "name": "Button",
             "description": "An interactive button with a range of presentation options.",
             "category": "General",
-            "tags": [
-              "controls"
-            ],
+            "tags": ["controls"],
             "example": "<goat-button>\nButton CTA\n</goat-button>"
           }
         },
@@ -8811,9 +8323,7 @@
             "name": "Button Group",
             "description": "An interactive button with a range of presentation options.",
             "category": "General",
-            "tags": [
-              "controls"
-            ],
+            "tags": ["controls"],
             "example": "<goat-button-group><goat-button>\nButton CTA\n</goat-button><goat-button>\nButton CTA\n</goat-button></goat-button-group>"
           }
         },
@@ -8860,42 +8370,18 @@
           ],
           "dependencies": [],
           "dependencyGraph": {
-            "goat-accordion-item": [
-              "goat-icon"
-            ],
-            "goat-button": [
-              "goat-icon"
-            ],
-            "goat-code-highlighter": [
-              "goat-icon"
-            ],
-            "goat-dropdown": [
-              "goat-icon"
-            ],
-            "goat-input": [
-              "goat-icon"
-            ],
-            "goat-notification": [
-              "goat-icon"
-            ],
-            "goat-select": [
-              "goat-icon"
-            ],
-            "goat-slider": [
-              "goat-icon"
-            ],
-            "goat-tab": [
-              "goat-icon"
-            ],
-            "goat-tag": [
-              "goat-icon"
-            ],
-            "goat-textarea": [
-              "goat-icon"
-            ],
-            "goat-toast": [
-              "goat-icon"
-            ]
+            "goat-accordion-item": ["goat-icon"],
+            "goat-button": ["goat-icon"],
+            "goat-code-highlighter": ["goat-icon"],
+            "goat-dropdown": ["goat-icon"],
+            "goat-input": ["goat-icon"],
+            "goat-notification": ["goat-icon"],
+            "goat-select": ["goat-icon"],
+            "goat-slider": ["goat-icon"],
+            "goat-tab": ["goat-icon"],
+            "goat-tag": ["goat-icon"],
+            "goat-textarea": ["goat-icon"],
+            "goat-toast": ["goat-icon"]
           },
           "props": [
             {
@@ -8972,26 +8458,13 @@
             }
           ],
           "encapsulation": "shadow",
-          "dependents": [
-            "goat-breadcrumb-item",
-            "goat-select",
-            "goat-slider",
-            "goat-table"
-          ],
+          "dependents": ["goat-breadcrumb-item", "goat-select", "goat-slider", "goat-table"],
           "dependencies": [],
           "dependencyGraph": {
-            "goat-breadcrumb-item": [
-              "goat-text"
-            ],
-            "goat-select": [
-              "goat-text"
-            ],
-            "goat-slider": [
-              "goat-text"
-            ],
-            "goat-table": [
-              "goat-text"
-            ]
+            "goat-breadcrumb-item": ["goat-text"],
+            "goat-select": ["goat-text"],
+            "goat-slider": ["goat-text"],
+            "goat-table": ["goat-text"]
           },
           "props": [
             {
@@ -9159,14 +8632,10 @@
             }
           ],
           "encapsulation": "shadow",
-          "dependents": [
-            "goat-header-brand"
-          ],
+          "dependents": ["goat-header-brand"],
           "dependencies": [],
           "dependencyGraph": {
-            "goat-header-brand": [
-              "goat-divider"
-            ]
+            "goat-header-brand": ["goat-divider"]
           },
           "props": [
             {
@@ -9250,9 +8719,7 @@
             "name": "Breadcrumb",
             "description": "Typography are used for rendering headlines, paragraphs and captions.",
             "category": "Navigation",
-            "tags": [
-              "navigation"
-            ],
+            "tags": ["navigation"],
             "example": "<goat-breadcrumb><goat-breadcrumb-item href=\"#\">Home</goat-breadcrumb-item><goat-breadcrumb-item href=\"#\" active>Page</goat-breadcrumb-item></goat-breadcrumb>"
           }
         },
@@ -9307,9 +8774,7 @@
             "name": "Tabs",
             "description": "An interactive button with a range of presentation options.",
             "category": "Navigation",
-            "tags": [
-              "navigation"
-            ],
+            "tags": ["navigation"],
             "example": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
           }
         }
@@ -9349,14 +8814,10 @@
             }
           ],
           "encapsulation": "shadow",
-          "dependents": [
-            "goat-table"
-          ],
+          "dependents": ["goat-table"],
           "dependencies": [],
           "dependencyGraph": {
-            "goat-table": [
-              "goat-checkbox"
-            ]
+            "goat-table": ["goat-checkbox"]
           },
           "props": [
             {
@@ -9623,10 +9084,7 @@
             "name": "Checkbox",
             "description": "Captures boolean input with an optional indeterminate mode.",
             "category": "Form Inputs",
-            "tags": [
-              "input",
-              " form"
-            ],
+            "tags": ["input", " form"],
             "example": "<goat-checkbox value='true'>Want ice cream?</goat-checkbox>"
           }
         },
@@ -9662,13 +9120,9 @@
           ],
           "encapsulation": "shadow",
           "dependents": [],
-          "dependencies": [
-            "goat-spinner"
-          ],
+          "dependencies": ["goat-spinner"],
           "dependencyGraph": {
-            "goat-code-editor": [
-              "goat-spinner"
-            ]
+            "goat-code-editor": ["goat-spinner"]
           },
           "props": [
             {
@@ -9897,10 +9351,7 @@
             "name": "Code Editor",
             "description": "A browser based code editor.",
             "category": "Form Inputs",
-            "tags": [
-              "input",
-              " form"
-            ],
+            "tags": ["input", " form"],
             "img": "/assets/img/code-editor.png"
           }
         },
@@ -10181,14 +9632,10 @@
             }
           ],
           "encapsulation": "shadow",
-          "dependents": [
-            "goat-table"
-          ],
+          "dependents": ["goat-table"],
           "dependencies": [],
           "dependencyGraph": {
-            "goat-table": [
-              "goat-form-control"
-            ]
+            "goat-table": ["goat-form-control"]
           },
           "props": [
             {
@@ -10316,9 +9763,7 @@
             "name": "Form Control",
             "description": "The Form Control component adds a label and caption for its child control.",
             "category": "Form Inputs",
-            "tags": [
-              "form"
-            ],
+            "tags": ["form"],
             "example": "<goat-form-control label='Full Name' required>\n<goat-input type='text'></goat-input>\n</goat-form-control>"
           }
         },
@@ -10354,13 +9799,9 @@
           ],
           "encapsulation": "shadow",
           "dependents": [],
-          "dependencies": [
-            "goat-icon"
-          ],
+          "dependencies": ["goat-icon"],
           "dependencyGraph": {
-            "goat-input": [
-              "goat-icon"
-            ]
+            "goat-input": ["goat-icon"]
           },
           "props": [
             {
@@ -10712,10 +10153,7 @@
             "name": "Input",
             "description": "Enables native inputs to be used within a Form field.",
             "category": "Form Inputs",
-            "tags": [
-              "input",
-              " form"
-            ],
+            "tags": ["input", " form"],
             "example": "<goat-input placeholder=\"Enter your name\"></goat-input>"
           }
         },
@@ -10750,47 +10188,16 @@
             }
           ],
           "encapsulation": "shadow",
-          "dependents": [
-            "goat-calendar",
-            "goat-table"
-          ],
-          "dependencies": [
-            "goat-tag",
-            "goat-icon",
-            "goat-spinner",
-            "goat-menu",
-            "goat-text",
-            "goat-menu-item"
-          ],
+          "dependents": ["goat-calendar", "goat-table"],
+          "dependencies": ["goat-tag", "goat-icon", "goat-spinner", "goat-menu", "goat-text", "goat-menu-item"],
           "dependencyGraph": {
-            "goat-select": [
-              "goat-tag",
-              "goat-icon",
-              "goat-spinner",
-              "goat-menu",
-              "goat-text",
-              "goat-menu-item"
-            ],
-            "goat-tag": [
-              "goat-icon"
-            ],
-            "goat-menu": [
-              "goat-empty-state"
-            ],
-            "goat-empty-state": [
-              "goat-svg",
-              "goat-button"
-            ],
-            "goat-button": [
-              "goat-icon",
-              "goat-spinner"
-            ],
-            "goat-calendar": [
-              "goat-select"
-            ],
-            "goat-table": [
-              "goat-select"
-            ]
+            "goat-select": ["goat-tag", "goat-icon", "goat-spinner", "goat-menu", "goat-text", "goat-menu-item"],
+            "goat-tag": ["goat-icon"],
+            "goat-menu": ["goat-empty-state"],
+            "goat-empty-state": ["goat-svg", "goat-button"],
+            "goat-button": ["goat-icon", "goat-spinner"],
+            "goat-calendar": ["goat-select"],
+            "goat-table": ["goat-select"]
           },
           "props": [
             {
@@ -11215,10 +10622,7 @@
             "name": "Select",
             "description": "Allows the user to select one or more options using a dropdown.",
             "category": "Form Inputs",
-            "tags": [
-              "input",
-              " form"
-            ],
+            "tags": ["input", " form"],
             "img": "/assets/img/select.png"
           }
         },
@@ -11254,37 +10658,13 @@
           ],
           "encapsulation": "shadow",
           "dependents": [],
-          "dependencies": [
-            "goat-tag",
-            "goat-icon",
-            "goat-spinner",
-            "goat-menu",
-            "goat-text",
-            "goat-menu-item"
-          ],
+          "dependencies": ["goat-tag", "goat-icon", "goat-spinner", "goat-menu", "goat-text", "goat-menu-item"],
           "dependencyGraph": {
-            "goat-slider": [
-              "goat-tag",
-              "goat-icon",
-              "goat-spinner",
-              "goat-menu",
-              "goat-text",
-              "goat-menu-item"
-            ],
-            "goat-tag": [
-              "goat-icon"
-            ],
-            "goat-menu": [
-              "goat-empty-state"
-            ],
-            "goat-empty-state": [
-              "goat-svg",
-              "goat-button"
-            ],
-            "goat-button": [
-              "goat-icon",
-              "goat-spinner"
-            ]
+            "goat-slider": ["goat-tag", "goat-icon", "goat-spinner", "goat-menu", "goat-text", "goat-menu-item"],
+            "goat-tag": ["goat-icon"],
+            "goat-menu": ["goat-empty-state"],
+            "goat-empty-state": ["goat-svg", "goat-button"],
+            "goat-button": ["goat-icon", "goat-spinner"]
           },
           "props": [
             {
@@ -11709,10 +11089,7 @@
             "name": "Slider",
             "description": "Allows the user to select one or more options using a dropdown.",
             "category": "Form Inputs",
-            "tags": [
-              "input",
-              " form"
-            ],
+            "tags": ["input", " form"],
             "img": "/assets/img/select.png"
           }
         },
@@ -11748,13 +11125,9 @@
           ],
           "encapsulation": "shadow",
           "dependents": [],
-          "dependencies": [
-            "goat-icon"
-          ],
+          "dependencies": ["goat-icon"],
           "dependencyGraph": {
-            "goat-textarea": [
-              "goat-icon"
-            ]
+            "goat-textarea": ["goat-icon"]
           },
           "props": [
             {
@@ -12055,10 +11428,7 @@
             "name": "Textarea",
             "description": "Enables native inputs to be used within a Form field.",
             "category": "Form Inputs",
-            "tags": [
-              "input",
-              " form"
-            ],
+            "tags": ["input", " form"],
             "example": "<goat-textarea placeholder=\"Enter some description over here\"></goat-textarea>"
           }
         },
@@ -12309,10 +11679,7 @@
             "name": "Time Picker",
             "description": "Captures time input.",
             "category": "Form Inputs",
-            "tags": [
-              "input",
-              " form"
-            ],
+            "tags": ["input", " form"],
             "example": "<goat-time-picker value='true'></goat-time-picker>"
           }
         },
@@ -12598,10 +11965,7 @@
             "name": "Toggle",
             "description": "Captures boolean input with an optional indeterminate mode.",
             "category": "Form Inputs",
-            "tags": [
-              "input",
-              " form"
-            ],
+            "tags": ["input", " form"],
             "example": "<goat-toggle value='true'>Want ice cream?</goat-toggle>"
           }
         }
@@ -12804,44 +12168,15 @@
           ],
           "encapsulation": "shadow",
           "dependents": [],
-          "dependencies": [
-            "goat-button",
-            "goat-select",
-            "goat-calendar-column-view",
-            "goat-calendar-month-view"
-          ],
+          "dependencies": ["goat-button", "goat-select", "goat-calendar-column-view", "goat-calendar-month-view"],
           "dependencyGraph": {
-            "goat-calendar": [
-              "goat-button",
-              "goat-select",
-              "goat-calendar-column-view",
-              "goat-calendar-month-view"
-            ],
-            "goat-button": [
-              "goat-icon",
-              "goat-spinner"
-            ],
-            "goat-select": [
-              "goat-tag",
-              "goat-icon",
-              "goat-spinner",
-              "goat-menu",
-              "goat-text",
-              "goat-menu-item"
-            ],
-            "goat-tag": [
-              "goat-icon"
-            ],
-            "goat-menu": [
-              "goat-empty-state"
-            ],
-            "goat-empty-state": [
-              "goat-svg",
-              "goat-button"
-            ],
-            "goat-calendar-column-view": [
-              "goat-calendar-column-view-background"
-            ]
+            "goat-calendar": ["goat-button", "goat-select", "goat-calendar-column-view", "goat-calendar-month-view"],
+            "goat-button": ["goat-icon", "goat-spinner"],
+            "goat-select": ["goat-tag", "goat-icon", "goat-spinner", "goat-menu", "goat-text", "goat-menu-item"],
+            "goat-tag": ["goat-icon"],
+            "goat-menu": ["goat-empty-state"],
+            "goat-empty-state": ["goat-svg", "goat-button"],
+            "goat-calendar-column-view": ["goat-calendar-column-view-background"]
           },
           "props": [
             {
@@ -12997,9 +12332,7 @@
             "name": "Calendar",
             "description": "The calendar component is used to display information in a daily, weekly, monthly, or category view.",
             "category": "Data Display",
-            "tags": [
-              "calendar"
-            ],
+            "tags": ["calendar"],
             "img": "/assets/img/calendar.png"
           }
         },
@@ -13030,37 +12363,15 @@
             }
           ],
           "encapsulation": "shadow",
-          "dependents": [
-            "goat-menu",
-            "goat-sidenav-menu",
-            "goat-table",
-            "tree-view"
-          ],
-          "dependencies": [
-            "goat-svg",
-            "goat-button"
-          ],
+          "dependents": ["goat-menu", "goat-sidenav-menu", "goat-table", "tree-view"],
+          "dependencies": ["goat-svg", "goat-button"],
           "dependencyGraph": {
-            "goat-empty-state": [
-              "goat-svg",
-              "goat-button"
-            ],
-            "goat-button": [
-              "goat-icon",
-              "goat-spinner"
-            ],
-            "goat-menu": [
-              "goat-empty-state"
-            ],
-            "goat-sidenav-menu": [
-              "goat-empty-state"
-            ],
-            "goat-table": [
-              "goat-empty-state"
-            ],
-            "tree-view": [
-              "goat-empty-state"
-            ]
+            "goat-empty-state": ["goat-svg", "goat-button"],
+            "goat-button": ["goat-icon", "goat-spinner"],
+            "goat-menu": ["goat-empty-state"],
+            "goat-sidenav-menu": ["goat-empty-state"],
+            "goat-table": ["goat-empty-state"],
+            "tree-view": ["goat-empty-state"]
           },
           "props": [
             {
@@ -13244,18 +12555,11 @@
             }
           ],
           "encapsulation": "shadow",
-          "dependents": [
-            "goat-empty-state",
-            "goat-header-brand"
-          ],
+          "dependents": ["goat-empty-state", "goat-header-brand"],
           "dependencies": [],
           "dependencyGraph": {
-            "goat-empty-state": [
-              "goat-svg"
-            ],
-            "goat-header-brand": [
-              "goat-svg"
-            ]
+            "goat-empty-state": ["goat-svg"],
+            "goat-header-brand": ["goat-svg"]
           },
           "props": [
             {
@@ -13317,45 +12621,14 @@
           ],
           "encapsulation": "shadow",
           "dependents": [],
-          "dependencies": [
-            "goat-checkbox",
-            "goat-button",
-            "goat-form-control",
-            "goat-select",
-            "goat-text",
-            "goat-empty-state"
-          ],
+          "dependencies": ["goat-checkbox", "goat-button", "goat-form-control", "goat-select", "goat-text", "goat-empty-state"],
           "dependencyGraph": {
-            "goat-table": [
-              "goat-checkbox",
-              "goat-button",
-              "goat-form-control",
-              "goat-select",
-              "goat-text",
-              "goat-empty-state"
-            ],
-            "goat-button": [
-              "goat-icon",
-              "goat-spinner"
-            ],
-            "goat-select": [
-              "goat-tag",
-              "goat-icon",
-              "goat-spinner",
-              "goat-menu",
-              "goat-text",
-              "goat-menu-item"
-            ],
-            "goat-tag": [
-              "goat-icon"
-            ],
-            "goat-menu": [
-              "goat-empty-state"
-            ],
-            "goat-empty-state": [
-              "goat-svg",
-              "goat-button"
-            ]
+            "goat-table": ["goat-checkbox", "goat-button", "goat-form-control", "goat-select", "goat-text", "goat-empty-state"],
+            "goat-button": ["goat-icon", "goat-spinner"],
+            "goat-select": ["goat-tag", "goat-icon", "goat-spinner", "goat-menu", "goat-text", "goat-menu-item"],
+            "goat-tag": ["goat-icon"],
+            "goat-menu": ["goat-empty-state"],
+            "goat-empty-state": ["goat-svg", "goat-button"]
           },
           "props": [
             {
@@ -13678,23 +12951,12 @@
             }
           ],
           "encapsulation": "shadow",
-          "dependents": [
-            "goat-select",
-            "goat-slider"
-          ],
-          "dependencies": [
-            "goat-icon"
-          ],
+          "dependents": ["goat-select", "goat-slider"],
+          "dependencies": ["goat-icon"],
           "dependencyGraph": {
-            "goat-tag": [
-              "goat-icon"
-            ],
-            "goat-select": [
-              "goat-tag"
-            ],
-            "goat-slider": [
-              "goat-tag"
-            ]
+            "goat-tag": ["goat-icon"],
+            "goat-select": ["goat-tag"],
+            "goat-slider": ["goat-tag"]
           },
           "props": [
             {
@@ -13823,25 +13085,12 @@
             }
           ],
           "encapsulation": "shadow",
-          "dependents": [
-            "goat-notification-manager"
-          ],
-          "dependencies": [
-            "goat-button",
-            "goat-icon"
-          ],
+          "dependents": ["goat-notification-manager"],
+          "dependencies": ["goat-button", "goat-icon"],
           "dependencyGraph": {
-            "goat-notification": [
-              "goat-button",
-              "goat-icon"
-            ],
-            "goat-button": [
-              "goat-icon",
-              "goat-spinner"
-            ],
-            "goat-notification-manager": [
-              "goat-notification"
-            ]
+            "goat-notification": ["goat-button", "goat-icon"],
+            "goat-button": ["goat-icon", "goat-spinner"],
+            "goat-notification-manager": ["goat-notification"]
           },
           "props": [
             {
@@ -13980,9 +13229,7 @@
             "name": "Notification",
             "description": "Notifications are messages that communicate information to the user.",
             "category": "Feedback",
-            "tags": [
-              "notification"
-            ],
+            "tags": ["notification"],
             "example": "<goat-notification state=\"success\" low-contrast dismissible>\n     <div slot='title'>Successful saved the record</div>\n   </goat-notification>"
           }
         },
@@ -14018,26 +13265,12 @@
           ],
           "encapsulation": "shadow",
           "dependents": [],
-          "dependencies": [
-            "goat-toast",
-            "goat-notification"
-          ],
+          "dependencies": ["goat-toast", "goat-notification"],
           "dependencyGraph": {
-            "goat-notification-manager": [
-              "goat-toast",
-              "goat-notification"
-            ],
-            "goat-toast": [
-              "goat-icon"
-            ],
-            "goat-notification": [
-              "goat-button",
-              "goat-icon"
-            ],
-            "goat-button": [
-              "goat-icon",
-              "goat-spinner"
-            ]
+            "goat-notification-manager": ["goat-toast", "goat-notification"],
+            "goat-toast": ["goat-icon"],
+            "goat-notification": ["goat-button", "goat-icon"],
+            "goat-button": ["goat-icon", "goat-spinner"]
           },
           "props": [
             {
@@ -14111,9 +13344,7 @@
             "name": "Notification Manager",
             "description": "Manages alert, toasts and notifications.",
             "category": "Feedback",
-            "tags": [
-              "notification"
-            ],
+            "tags": ["notification"],
             "img": "/assets/img/notification-manager.png"
           }
         },
@@ -14144,34 +13375,15 @@
             }
           ],
           "encapsulation": "shadow",
-          "dependents": [
-            "goat-button",
-            "goat-code-editor",
-            "goat-code-highlighter",
-            "goat-select",
-            "goat-slider",
-            "goat-tab"
-          ],
+          "dependents": ["goat-button", "goat-code-editor", "goat-code-highlighter", "goat-select", "goat-slider", "goat-tab"],
           "dependencies": [],
           "dependencyGraph": {
-            "goat-button": [
-              "goat-spinner"
-            ],
-            "goat-code-editor": [
-              "goat-spinner"
-            ],
-            "goat-code-highlighter": [
-              "goat-spinner"
-            ],
-            "goat-select": [
-              "goat-spinner"
-            ],
-            "goat-slider": [
-              "goat-spinner"
-            ],
-            "goat-tab": [
-              "goat-spinner"
-            ]
+            "goat-button": ["goat-spinner"],
+            "goat-code-editor": ["goat-spinner"],
+            "goat-code-highlighter": ["goat-spinner"],
+            "goat-select": ["goat-spinner"],
+            "goat-slider": ["goat-spinner"],
+            "goat-tab": ["goat-spinner"]
           },
           "props": [
             {
@@ -14232,19 +13444,11 @@
             }
           ],
           "encapsulation": "shadow",
-          "dependents": [
-            "goat-notification-manager"
-          ],
-          "dependencies": [
-            "goat-icon"
-          ],
+          "dependents": ["goat-notification-manager"],
+          "dependencies": ["goat-icon"],
           "dependencyGraph": {
-            "goat-toast": [
-              "goat-icon"
-            ],
-            "goat-notification-manager": [
-              "goat-toast"
-            ]
+            "goat-toast": ["goat-icon"],
+            "goat-notification-manager": ["goat-toast"]
           },
           "props": [
             {
@@ -14363,13 +13567,9 @@
           "docsTags": [],
           "encapsulation": "shadow",
           "dependents": [],
-          "dependencies": [
-            "goat-icon"
-          ],
+          "dependencies": ["goat-icon"],
           "dependencyGraph": {
-            "goat-accordion-item": [
-              "goat-icon"
-            ]
+            "goat-accordion-item": ["goat-icon"]
           },
           "props": [
             {
@@ -14458,15 +13658,9 @@
           "docsTags": [],
           "encapsulation": "shadow",
           "dependents": [],
-          "dependencies": [
-            "goat-text",
-            "goat-link"
-          ],
+          "dependencies": ["goat-text", "goat-link"],
           "dependencyGraph": {
-            "goat-breadcrumb-item": [
-              "goat-text",
-              "goat-link"
-            ]
+            "goat-breadcrumb-item": ["goat-text", "goat-link"]
           },
           "props": [
             {
@@ -14553,19 +13747,11 @@
           "docs": "",
           "docsTags": [],
           "encapsulation": "shadow",
-          "dependents": [
-            "goat-calendar"
-          ],
-          "dependencies": [
-            "goat-calendar-column-view-background"
-          ],
+          "dependents": ["goat-calendar"],
+          "dependencies": ["goat-calendar-column-view-background"],
           "dependencyGraph": {
-            "goat-calendar-column-view": [
-              "goat-calendar-column-view-background"
-            ],
-            "goat-calendar": [
-              "goat-calendar-column-view"
-            ]
+            "goat-calendar-column-view": ["goat-calendar-column-view-background"],
+            "goat-calendar": ["goat-calendar-column-view"]
           },
           "props": [
             {
@@ -14703,14 +13889,10 @@
           "docs": "",
           "docsTags": [],
           "encapsulation": "shadow",
-          "dependents": [
-            "goat-calendar-column-view"
-          ],
+          "dependents": ["goat-calendar-column-view"],
           "dependencies": [],
           "dependencyGraph": {
-            "goat-calendar-column-view": [
-              "goat-calendar-column-view-background"
-            ]
+            "goat-calendar-column-view": ["goat-calendar-column-view-background"]
           },
           "props": [
             {
@@ -14749,14 +13931,10 @@
           "docs": "",
           "docsTags": [],
           "encapsulation": "shadow",
-          "dependents": [
-            "goat-calendar"
-          ],
+          "dependents": ["goat-calendar"],
           "dependencies": [],
           "dependencyGraph": {
-            "goat-calendar": [
-              "goat-calendar-month-view"
-            ]
+            "goat-calendar": ["goat-calendar-month-view"]
           },
           "props": [
             {
@@ -14900,14 +14078,10 @@
           "docs": "",
           "docsTags": [],
           "encapsulation": "shadow",
-          "dependents": [
-            "goat-flow-designer"
-          ],
+          "dependents": ["goat-flow-designer"],
           "dependencies": [],
           "dependencyGraph": {
-            "goat-flow-designer": [
-              "goat-canvas"
-            ]
+            "goat-flow-designer": ["goat-canvas"]
           },
           "props": [
             {
@@ -15069,21 +14243,10 @@
           ],
           "encapsulation": "shadow",
           "dependents": [],
-          "dependencies": [
-            "goat-button",
-            "goat-icon",
-            "goat-spinner"
-          ],
+          "dependencies": ["goat-button", "goat-icon", "goat-spinner"],
           "dependencyGraph": {
-            "goat-code-highlighter": [
-              "goat-button",
-              "goat-icon",
-              "goat-spinner"
-            ],
-            "goat-button": [
-              "goat-icon",
-              "goat-spinner"
-            ]
+            "goat-code-highlighter": ["goat-button", "goat-icon", "goat-spinner"],
+            "goat-button": ["goat-icon", "goat-spinner"]
           },
           "props": [
             {
@@ -15174,28 +14337,12 @@
           ],
           "encapsulation": "shadow",
           "dependents": [],
-          "dependencies": [
-            "goat-menu",
-            "goat-menu-item",
-            "goat-icon"
-          ],
+          "dependencies": ["goat-menu", "goat-menu-item", "goat-icon"],
           "dependencyGraph": {
-            "goat-dropdown": [
-              "goat-menu",
-              "goat-menu-item",
-              "goat-icon"
-            ],
-            "goat-menu": [
-              "goat-empty-state"
-            ],
-            "goat-empty-state": [
-              "goat-svg",
-              "goat-button"
-            ],
-            "goat-button": [
-              "goat-icon",
-              "goat-spinner"
-            ]
+            "goat-dropdown": ["goat-menu", "goat-menu-item", "goat-icon"],
+            "goat-menu": ["goat-empty-state"],
+            "goat-empty-state": ["goat-svg", "goat-button"],
+            "goat-button": ["goat-icon", "goat-spinner"]
           },
           "props": [
             {
@@ -15371,13 +14518,9 @@
           ],
           "encapsulation": "shadow",
           "dependents": [],
-          "dependencies": [
-            "goat-canvas"
-          ],
+          "dependencies": ["goat-canvas"],
           "dependencyGraph": {
-            "goat-flow-designer": [
-              "goat-canvas"
-            ]
+            "goat-flow-designer": ["goat-canvas"]
           },
           "props": [
             {
@@ -15499,17 +14642,9 @@
           "docsTags": [],
           "encapsulation": "shadow",
           "dependents": [],
-          "dependencies": [
-            "goat-link",
-            "goat-svg",
-            "goat-divider"
-          ],
+          "dependencies": ["goat-link", "goat-svg", "goat-divider"],
           "dependencyGraph": {
-            "goat-header-brand": [
-              "goat-link",
-              "goat-svg",
-              "goat-divider"
-            ]
+            "goat-header-brand": ["goat-link", "goat-svg", "goat-divider"]
           },
           "props": [
             {
@@ -15612,18 +14747,11 @@
             }
           ],
           "encapsulation": "shadow",
-          "dependents": [
-            "goat-breadcrumb-item",
-            "goat-header-brand"
-          ],
+          "dependents": ["goat-breadcrumb-item", "goat-header-brand"],
           "dependencies": [],
           "dependencyGraph": {
-            "goat-breadcrumb-item": [
-              "goat-link"
-            ],
-            "goat-header-brand": [
-              "goat-link"
-            ]
+            "goat-breadcrumb-item": ["goat-link"],
+            "goat-header-brand": ["goat-link"]
           },
           "props": [
             {
@@ -15719,35 +14847,15 @@
             }
           ],
           "encapsulation": "shadow",
-          "dependents": [
-            "goat-dropdown",
-            "goat-select",
-            "goat-slider"
-          ],
-          "dependencies": [
-            "goat-empty-state"
-          ],
+          "dependents": ["goat-dropdown", "goat-select", "goat-slider"],
+          "dependencies": ["goat-empty-state"],
           "dependencyGraph": {
-            "goat-menu": [
-              "goat-empty-state"
-            ],
-            "goat-empty-state": [
-              "goat-svg",
-              "goat-button"
-            ],
-            "goat-button": [
-              "goat-icon",
-              "goat-spinner"
-            ],
-            "goat-dropdown": [
-              "goat-menu"
-            ],
-            "goat-select": [
-              "goat-menu"
-            ],
-            "goat-slider": [
-              "goat-menu"
-            ]
+            "goat-menu": ["goat-empty-state"],
+            "goat-empty-state": ["goat-svg", "goat-button"],
+            "goat-button": ["goat-icon", "goat-spinner"],
+            "goat-dropdown": ["goat-menu"],
+            "goat-select": ["goat-menu"],
+            "goat-slider": ["goat-menu"]
           },
           "props": [
             {
@@ -15862,22 +14970,12 @@
           "docs": "",
           "docsTags": [],
           "encapsulation": "shadow",
-          "dependents": [
-            "goat-dropdown",
-            "goat-select",
-            "goat-slider"
-          ],
+          "dependents": ["goat-dropdown", "goat-select", "goat-slider"],
           "dependencies": [],
           "dependencyGraph": {
-            "goat-dropdown": [
-              "goat-menu-item"
-            ],
-            "goat-select": [
-              "goat-menu-item"
-            ],
-            "goat-slider": [
-              "goat-menu-item"
-            ]
+            "goat-dropdown": ["goat-menu-item"],
+            "goat-select": ["goat-menu-item"],
+            "goat-slider": ["goat-menu-item"]
           },
           "props": [
             {
@@ -16056,21 +15154,11 @@
           "docsTags": [],
           "encapsulation": "shadow",
           "dependents": [],
-          "dependencies": [
-            "goat-empty-state"
-          ],
+          "dependencies": ["goat-empty-state"],
           "dependencyGraph": {
-            "goat-sidenav-menu": [
-              "goat-empty-state"
-            ],
-            "goat-empty-state": [
-              "goat-svg",
-              "goat-button"
-            ],
-            "goat-button": [
-              "goat-icon",
-              "goat-spinner"
-            ]
+            "goat-sidenav-menu": ["goat-empty-state"],
+            "goat-empty-state": ["goat-svg", "goat-button"],
+            "goat-button": ["goat-icon", "goat-spinner"]
           },
           "props": [
             {
@@ -16304,15 +15392,9 @@
           "docsTags": [],
           "encapsulation": "shadow",
           "dependents": [],
-          "dependencies": [
-            "goat-icon",
-            "goat-spinner"
-          ],
+          "dependencies": ["goat-icon", "goat-spinner"],
           "dependencyGraph": {
-            "goat-tab": [
-              "goat-icon",
-              "goat-spinner"
-            ]
+            "goat-tab": ["goat-icon", "goat-spinner"]
           },
           "props": [
             {
@@ -16684,21 +15766,11 @@
           ],
           "encapsulation": "shadow",
           "dependents": [],
-          "dependencies": [
-            "goat-empty-state"
-          ],
+          "dependencies": ["goat-empty-state"],
           "dependencyGraph": {
-            "tree-view": [
-              "goat-empty-state"
-            ],
-            "goat-empty-state": [
-              "goat-svg",
-              "goat-button"
-            ],
-            "goat-button": [
-              "goat-icon",
-              "goat-spinner"
-            ]
+            "tree-view": ["goat-empty-state"],
+            "goat-empty-state": ["goat-svg", "goat-button"],
+            "goat-button": ["goat-icon", "goat-spinner"]
           },
           "props": [
             {

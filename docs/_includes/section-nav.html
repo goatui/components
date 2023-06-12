@@ -1,9 +1,11 @@
 <!-- Content Nav -->
-<div class='section-nav'>
-  <ul class='js-scroll-nav'>
+<div class="section-nav">
+  <goat-menu style="width: 200px" class="js-scroll-nav">
     {% for section in page.sections %}
-    <li><goat-link class='link' href='#section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}'>{{section.title}}</goat-link></li>
+    <goat-menu-item>
+      <goat-link class="link no-style" href='#section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}'>{{section.title}}</goat-link>
+    </goat-menu-item>
     {% endfor %}
-  </ul>
+  </goat-menu>
 </div>
 <!-- End Content Nav -->

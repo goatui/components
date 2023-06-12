@@ -1,8 +1,9 @@
 ---
 layout: base
 ---
+
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const themeSwitcher = document.querySelector('#theme-switcher');
 
     function setTheme(theme) {
@@ -14,7 +15,7 @@ layout: base
     const theme = localStorage.getItem('theme') || 'light';
     setTheme(theme);
 
-    themeSwitcher.addEventListener('click', function() {
+    themeSwitcher.addEventListener('click', function () {
       const theme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
       setTheme(theme);
     });
@@ -30,65 +31,62 @@ layout: base
     const dir = localStorage.getItem('dir') || 'ltr';
     setDir(dir);
 
-    dirSwitcher.addEventListener('click', function() {
+    dirSwitcher.addEventListener('click', function () {
       const dir = localStorage.getItem('dir') === 'ltr' ? 'rtl' : 'ltr';
       setDir(dir);
     });
   });
 </script>
 
-<nav class='top-nav'>
-  <goat-header
-    class='brand actions-separated {% if page.root != true %}border{% endif %}'
-  >
-    <div slot='left-section'>
-    <goat-header-brand
-      logo='/assets/img/logo.svg'
-      href='/#'
-      name='{{site.title}}'
-      {% if page.root != true %}sub-title='{{page.title}}' {% endif %}>
-    </goat-header-brand>
+<nav class="top-nav">
+  <goat-header class="brand actions-separated {% if page.root != true %}border{% endif %}">
+    <div slot="left-section">
+      <goat-header-brand logo="/assets/img/logo.svg" href="/#" name="{{site.title}}" {% if page.root !="true" %}sub-title="{{page.title}}" {% endif %}> </goat-header-brand>
     </div>
 
-    <div slot='right-section'>
-      <goat-button icon='sun-fill' class="color-brand-primary" id='theme-switcher' aria-title='Theme switcher' variant='ghost'></goat-button>
+    <div slot="right-section">
+      <goat-button icon="sun-fill" class="color-brand-primary" id="theme-switcher" aria-title="Theme switcher" variant="ghost"></goat-button>
 
-      <goat-button id='dir-switcher' class="color-brand-primary" variant='ghost'>LTR</goat-button>
+      <goat-button id="dir-switcher" class="color-brand-primary" variant="ghost">LTR</goat-button>
 
       {% if page.root %}
-      <goat-button icon='github'
-                   variant='ghost'
-                   class='show-desktop full-height color-brand-primary'
-                   href='https://github.com/{{site.github_username}}/{{site.github_project}}'
-                   target='_blank'>Github
+      <goat-button
+        icon="github"
+        variant="ghost"
+        class="show-desktop full-height color-brand-primary"
+        href="https://github.com/{{site.github_username}}/{{site.github_project}}"
+        target="_blank"
+        >Github
       </goat-button>
 
-      <goat-button icon='github'
-                   variant='ghost'
-                   class='show-mobile full-height color-brand-primary'
-                   href='https://github.com/{{site.github_username}}/{{site.github_project}}'
-                   target='_blank'></goat-button>
-
+      <goat-button
+        icon="github"
+        variant="ghost"
+        class="show-mobile full-height color-brand-primary"
+        href="https://github.com/{{site.github_username}}/{{site.github_project}}"
+        target="_blank"
+      ></goat-button>
 
       {% else %}
-      <goat-button icon='bug'
-                   variant='ghost'
-                   class='show-desktop full-height color-brand-primary'
-                   href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues'
-                   target='_blank'>Report Issue
+      <goat-button
+        icon="bug"
+        variant="ghost"
+        class="show-desktop full-height color-brand-primary"
+        href="https://github.com/{{site.github_username}}/{{site.github_project}}/issues"
+        target="_blank"
+        >Report Issue
       </goat-button>
 
-      <goat-button icon='bug'
-                   variant='ghost'
-                   class='show-mobile full-height color-brand-primary'
-                   href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues'
-                   target='_blank'></goat-button>
+      <goat-button
+        icon="bug"
+        variant="ghost"
+        class="show-mobile full-height color-brand-primary"
+        href="https://github.com/{{site.github_username}}/{{site.github_project}}/issues"
+        target="_blank"
+      ></goat-button>
       {% endif %}
-
     </div>
   </goat-header>
 </nav>
 
-<main>
-  {{ content }}
-</main>
+<main>{{ content }}</main>

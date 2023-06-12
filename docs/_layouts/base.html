@@ -1,140 +1,137 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
+  <head>
+    <!-- Title -->
+    <title>{% if page.title %}{{ page.title }} &middot; {{ site.title }}{% else %}{{ site.title }} &middot; {{ site.tagline }}{% endif %}</title>
 
-<head>
-  <!-- Title -->
-  <title>{% if page.title %}{{ page.title }} &middot; {{ site.title }}{% else %}{{ site.title }} &middot; {{
-    site.tagline }}{% endif %}</title>
+    <meta name="author" content="{{ site.author.name }}" />
+    <meta name="copyright" content="(c) {{ site.time | date: '%Y' }} {{ site.author.name }}" />
 
-  <meta name='author' content='{{ site.author.name }}'>
-  <meta name='copyright' content="(c) {{ site.time | date: '%Y' }} {{ site.author.name }}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
 
-  <link rel='canonical' href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-  <!-- Required Meta Tags Always Come First -->
-  <meta charset='utf-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/img/favicon.svg" />
 
-  <!-- Favicon -->
-  <link rel='shortcut icon' href='/assets/img/favicon.svg'>
+    <!--  Meta tags -->
+    <meta name="keywords" content="{% if page.keywords == null %}Web component, {{ page.title }}{% endif %}{% for keyword in page.keywords %}{{ keyword }}, {% endfor %}" />
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
 
-  <!--  Meta tags -->
-  <meta name='keywords' content='{% if page.keywords == null %}Web component, {{ page.title }}{% endif %}{% for keyword in page.keywords %}{{ keyword }}, {% endfor %}'>
-  <meta name='description'
-        content='{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}'>
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="{{site.themeCss}}" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
 
-  <!-- CSS Implementing Plugins -->
-  <link rel='stylesheet' href='{{site.themeCss}}' />
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+      body {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        font-family: var(--font-family-base);
+      }
 
-    body {
-      position: relative;
-      margin: 0;
-      padding: 0;
-      font-family: var(--font-family-base);
-    }
+      html {
+        background-color: var(--background);
+        scroll-behavior: smooth;
+        visibility: hidden;
+      }
 
-    html {
-      background-color: var(--background);
-      scroll-behavior: smooth;
-      visibility: hidden;
-    }
+      html.hydrated {
+        visibility: visible;
+      }
 
-    html.hydrated {
-      visibility: visible;
-    }
+      :root {
+        --header-height: 4rem;
+      }
 
-    :root {
-      --header-height: 4rem;
-    }
+      .top-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+      }
 
-    .top-nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-    }
+      .container {
+        padding: var(--spacing-5);
+      }
 
-    .container {
-      padding: var(--spacing-5);
-    }
+      figure {
+        margin: 0;
+      }
 
-    figure {
-      margin: 0;
-    }
-
-    .show-desktop {
-      display: inline-block;
-    }
-
-    .show-mobile {
-      display: none;
-    }
-
-    @media only screen and (max-width: 600px) {
       .show-desktop {
-        display: none;
+        display: inline-block;
       }
 
       .show-mobile {
-        display: inline-block;
+        display: none;
       }
-    }
-  </style>
 
-  {% for css in page.css %}
-  <link rel='stylesheet' type='text/css' media='screen' href='{{ site.baseurl }}{{ site.css }}{{ css }}'>
-  {% endfor %}
+      @media only screen and (max-width: 600px) {
+        .show-desktop {
+          display: none;
+        }
 
-  <script type='module' src='{{site.script}}'></script>
-  <script data-ad-client='ca-pub-3120721550776061' async
-          src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
-</head>
+        .show-mobile {
+          display: inline-block;
+        }
+      }
+    </style>
 
-<body itemscope itemtype='http://schema.org/WebPage'>
+    {% for css in page.css %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ site.baseurl }}{{ site.css }}{{ css }}" />
+    {% endfor %}
 
-{{ content }}
+    <script type="module" src="{{site.script}}"></script>
+    <script data-ad-client="ca-pub-3120721550776061" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </head>
 
-<goat-notification-manager position='bottom-right'></goat-notification-manager>
+  <body itemscope itemtype="http://schema.org/WebPage">
+    {{ content }}
 
+    <goat-notification-manager position="bottom-right"></goat-notification-manager>
 
-<!-- JS Implementing Plugins -->
-<script src='/assets/js/main.js'></script>
-<script>
-
-  myConsole = {
-    log: function(message) {
-      window.dispatchEvent(new CustomEvent('goat:notification', {
-        detail: {
-          subtitle: `<pre>${message}</pre>`,
-          state: 'success',
+    <!-- JS Implementing Plugins -->
+    <script src="/assets/js/main.js"></script>
+    <script>
+      myConsole = {
+        log: function (message) {
+          window.dispatchEvent(
+            new CustomEvent('goat:notification', {
+              detail: {
+                subtitle: `<pre>${message}</pre>`,
+                state: 'success',
+              },
+            }),
+          );
         },
-      }));
-    },
-    warn: function(message) {
-      window.dispatchEvent(new CustomEvent('goat:notification', {
-        detail: {
-          subtitle: `<pre>${message}</pre>`,
-          state: 'warning',
+        warn: function (message) {
+          window.dispatchEvent(
+            new CustomEvent('goat:notification', {
+              detail: {
+                subtitle: `<pre>${message}</pre>`,
+                state: 'warning',
+              },
+            }),
+          );
         },
-      }));
-    },
-  };
-</script>
+      };
+    </script>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src='https://www.googletagmanager.com/gtag/js?id=G-YVVYZC1HFF'></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag('js', new Date());
-  gtag('config', 'G-YVVYZC1HFF');
-</script>
-</body>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YVVYZC1HFF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-YVVYZC1HFF');
+    </script>
+  </body>
 </html>

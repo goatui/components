@@ -2,7 +2,7 @@
 layout: component
 title: Code Highlighter
 menu:
-- title: Usage
+  - title: Usage
 ---
 
 <style>
@@ -11,60 +11,41 @@ menu:
   }
 </style>
 
-
-<div class='row pt-3'>
-
+<div class="row pt-3">
   {% include sidebar.html %}
 
   <!-- Content -->
-  <div class='col-xl-10 order-xl-1 duik-content border-bottom'>
-    <div class='border-bottom mb-7'>
-      <goat-text type='heading' size='md'>{{ page.title }}</goat-text>
-      <goat-text type='paragraph'>Use {{site.title}}’s custom highlighter editor component. Built on
-        <goat-link href='https://prismjs.com/'>PrismJS</goat-link>
+  <div class="col-xl-10 order-xl-1 duik-content border-bottom">
+    <div class="border-bottom mb-7">
+      <goat-text type="heading" size="md">{{ page.title }}</goat-text>
+      <goat-text type="paragraph"
+        >Use {{site.title}}’s custom highlighter editor component. Built on
+        <goat-link href="https://prismjs.com/">PrismJS</goat-link>
         .
       </goat-text>
     </div>
 
-
     <!-- Usage -->
-    <div id='doc-usage' class='mb-7'>
+    <div id="doc-usage" class="mb-7">
+      <goat-text type="heading" level="2" size="sm">Usage <a class="js-anchor-link duik-anchorjs-link" href="#doc-usage" aria-label="Anchor" data-anchorjs-icon="#"></a></goat-text>
 
-      <goat-text type='heading' level='2' size='sm'>Usage <a class='js-anchor-link duik-anchorjs-link' href='#doc-usage'
-                                                             aria-label='Anchor' data-anchorjs-icon='#'></a></goat-text>
-
-      <goat-text type='paragraph'>Here is code highlighter component. Currently prism supports most of the languages,
-        here is the full list
-        <goat-link href='https://prismjs.com/index.html#supported-languages'>
-          https://prismjs.com/index.html#supported-languages
-        </goat-link>
+      <goat-text type="paragraph"
+        >Here is code highlighter component. Currently prism supports most of the languages, here is the full list
+        <goat-link href="https://prismjs.com/index.html#supported-languages"> https://prismjs.com/index.html#supported-languages </goat-link>
       </goat-text>
       <goat-card>
         <goat-card-content>
-
-          <goat-code-highlighter line-numbers language="javascript">const helloWorld = () => alert ('Hello World!');
-export {
-  helloWorld
-};
-          </goat-code-highlighter>
+          <goat-code-highlighter line-numbers language="javascript">const helloWorld = () => alert ('Hello World!'); export { helloWorld }; </goat-code-highlighter>
         </goat-card-content>
 
         <goat-card-content>
           <goat-code-highlighter language="html">
-&lt;goat-code-highlighter line-numbers language="javascript">
-const helloWorld = () => alert ('Hello World!');
-export {
-  helloWorld
-};
-&lt;/goat-code-highlighter>
+            &lt;goat-code-highlighter line-numbers language="javascript"> const helloWorld = () => alert ('Hello World!'); export { helloWorld }; &lt;/goat-code-highlighter>
           </goat-code-highlighter>
-
         </goat-card-content>
       </goat-card>
     </div>
     <!-- End Usage -->
-
-
   </div>
   <!-- End Content -->
 </div>

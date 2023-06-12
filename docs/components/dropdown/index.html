@@ -1,140 +1,30 @@
 ---
 layout: component
 title: Dropdown
+description: The dropdown component is used to display a list of options to the user.
 sections:
   - title: Usages
     source: sections/usage.html
   - title: Positions
     source: sections/positions.html
 ---
-<div class='row pt-3'>
 
-
-  {% include section-nav.html %}
-
+<div class="usage-tab">
   <!-- Content -->
-  <div class='component-content'>
-
-    <div style='padding-bottom: var(--spacing-6)'>
-      <goat-text type='heading' size='md'>{{ page.title }}</goat-text>
-      <goat-text type='paragraph'>Use {{site.title}}’s custom input styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</goat-text>
+  <div class="component-content">
+    <div style="padding-bottom: var(--spacing-6)">
+      <goat-text type="paragraph">{{page.description}}</goat-text>
     </div>
 
     {% for section in page.sections %}
-    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style='padding-bottom: var(--spacing-4)'>
-      <goat-text type='heading' level='2' size='sm'>{{ section.title }}</goat-text>
+    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style="padding-bottom: var(--spacing-4)">
+      <goat-text type="heading" level="2" size="sm">{{ section.title }}</goat-text>
 
       {% include_relative {{ section.source }} %}
     </div>
     {% endfor %}
-
   </div>
   <!-- End Content -->
 
+  {% include section-nav.html %}
 </div>
-  <!--&lt;!&ndash; Content &ndash;&gt;
-  <div class='col-xl-10 order-xl-1 duik-content border-bottom'>
-
-    <div class='border-bottom mb-7'>
-      <goat-text type='heading' size='md'>{{ page.title }}</goat-text>
-      <p class='lead mb-5'>Use {{site.title}}’s custom button styles for actions in forms, dialogs, and more with
-        support for
-        multiple sizes, states, and more.</goat-text>
-    </div>
-
-    &lt;!&ndash; Types &ndash;&gt;
-    <div id='doc-variants' class='mb-7'>
-      <goat-text type="heading" level="2" size="sm">usage <a class='js-anchor-link duik-anchorjs-link' href='#doc-variants' aria-label='Anchor'
-                                 data-anchorjs-icon='#'></a></goat-text>
-      <goat-text type='paragraph'>Here are a couple of dropdown variants, each serving its own semantic purpose.</goat-text>
-
-
-      <div class='card'>
-        <div class='card-header'>
-
-          <script>
-            const $dropDown = document.getElementById('dropdown');
-            $dropDown.data = [
-              {
-                'label': 'New',
-                'value': 'BC99E842-A1D1-79A1-5DAC-CAA8A6FE6D8E',
-                'icon': 'plus-lg',
-              },
-              {
-                'label': 'Save',
-                'value': '2D115B11-3281-9B97-E1CE-6083C54EA5C0',
-                'icon': 'sd-card',
-              },
-              {
-                'label': 'Save As',
-                'value': '9CDA8C1E-8FC1-5667-A118-226CC314D723',
-                'icon': 'layers',
-              },
-              {
-                'label': 'Export as PDF',
-                'value': 'A18C6A4B-2329-25D2-987B-E73DBC478595',
-                'icon': 'file-earmark-pdf',
-                'separator': true,
-              },
-              {
-                'label': 'Sign Out',
-                'value': '1D1E7AAD-4A09-E222-5374-53D1824EBDCE',
-                'icon': 'box-arrow-right',
-              },
-            ];
-            $dropDown.addEventListener('goat:dropdown-item-click', function(evt) {
-              myConsole.log(`<pre>${JSON.stringify(evt.detail, null, 4)}</pre>`);
-            });
-          </script>
-        </div>
-        <div class='card-body'>
-    <pre><code class='language-html' data-lang='html'>&lt;script type="module" src="{{site.script}}"&gt;&lt;/script&gt;
-
-&lt;goat-dropdown id='dropdown' item-variant='icon'>
-   File
-&lt;/goat-dropdown>
-
-&lt;script>
-const $dropDown = document.getElementById('dropdown');
-$dropDown.data = [
-  {
-    'label': 'New',
-    'value': 'BC99E842-A1D1-79A1-5DAC-CAA8A6FE6D8E',
-    'icon': 'file-earmark',
-  },
-  {
-    'label': 'Save',
-    'value': '2D115B11-3281-9B97-E1CE-6083C54EA5C0',
-    'icon': 'person-circle',
-  },
-  {
-    'label': 'Save As',
-    'value': '9CDA8C1E-8FC1-5667-A118-226CC314D723',
-    'icon': 'person-fill',
-  },
-  {
-    'label': 'Nadine Brooks',
-    'value': 'A18C6A4B-2329-25D2-987B-E73DBC478595',
-    'icon': 'person-check-fill',
-    'separator': true,
-  },
-  {
-    'label': 'Laura Ballard',
-    'value': '1D1E7AAD-4A09-E222-5374-53D1824EBDCE',
-    'icon': 'file-earmark-person',
-  },
-];
-$dropDown.addEventListener('goat:dropdown-item-click', function(evt) {
-  console.log(`<pre>${JSON.stringify(evt.detail, null, 4)}</pre>`);
-});
-&lt;/script></code></pre>
-
-        </div>
-      </div>
-    </div>
-    &lt;!&ndash; End Usage &ndash;&gt;
-
-
-  </div>
-</div>
--->

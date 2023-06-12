@@ -1,53 +1,157 @@
 ---
 layout: component
 title: Button
+description: Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
 sections:
-- title: Variants
-  source: sections/variants.html
-- title: Sizes
-  source: sections/sizes.html
-- title: Selected
-  source: sections/selected.html
-- title: Disabled
-  source: sections/disabled.html
-- title: Icon
-  source: sections/icon.html
-- title: Block
-  source: sections/block.html
-- title: Loading
-  source: sections/loading.html
-- title: Events
-  source: sections/events.html
+  - title: Variants
+    source: sections/variants.html
+  - title: Sizes
+    source: sections/sizes.html
+  - title: Selected
+    source: sections/selected.html
+  - title: Disabled
+    source: sections/disabled.html
+  - title: Icon
+    source: sections/icon.html
+  - title: Block
+    source: sections/block.html
+  - title: Loading
+    source: sections/loading.html
+  - title: Events
+    source: sections/events.html
 
 colors: ['primary', 'secondary', 'success', 'error']
 ---
-<div class='row pt-3'>
 
-  <style>
-    .component-content goat-button {
-      margin: 0 0.5rem 1rem 0;
-    }
-  </style>
+<style>
+  .component-content goat-button {
+    margin: 0 0.5rem 1rem 0;
+  }
+</style>
+<goat-tabs>
+  <goat-tabs-list>
+    <goat-tab selected="true">Details</goat-tab>
+    <goat-tab>Playground</goat-tab>
+  </goat-tabs-list>
 
-  {% include section-nav.html %}
+  <goat-tab-panel>
+    <div class="usage-tab">
+      <!-- Content -->
+      <div class="component-content">
+        <div style="padding-bottom: var(--spacing-6)">
+          <goat-text type="paragraph">{{page.description}}</goat-text>
+        </div>
 
-  <!-- Content -->
-  <div class='component-content'>
+        {% for section in page.sections %}
+        <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style="padding-bottom: var(--spacing-4)">
+          <goat-text type="heading" level="2" size="sm">{{ section.title }}</goat-text>
 
-    <div style='padding-bottom: var(--spacing-6)'>
-      <goat-text type='heading' size='md'>{{ page.title }}</goat-text>
-      <goat-text type='paragraph'>Use {{site.title}}’s custom input styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</goat-text>
+          {% include_relative {{ section.source }} %}
+        </div>
+        {% endfor %}
+      </div>
+      <!-- End Content -->
+
+      {% include section-nav.html %}
     </div>
+  </goat-tab-panel>
 
-    {% for section in page.sections %}
-    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style='padding-bottom: var(--spacing-4)'>
-      <goat-text type='heading' level='2' size='sm'>{{ section.title }}</goat-text>
+  <goat-tab-panel>
+    <div class="playground-tab">
+      <div class="playground">
+        <div id="demo-area"></div>
+        <div id="demo-controls">
+          <goat-form-control label="Variants">
+            <goat-select id="comp-variants" search="contains" placeholder="Select" clearable></goat-select>
+          </goat-form-control>
 
-      {% include_relative {{ section.source }} %}
+          <goat-form-control label="Size">
+            <goat-select id="comp-size" search="contains" placeholder="Select" clearable></goat-select>
+          </goat-form-control>
+
+          <goat-form-control label="Disabled">
+            <goat-checkbox id="comp-disabled"></goat-checkbox>
+          </goat-form-control>
+          <goat-form-control label="Selected">
+            <goat-checkbox id="comp-selected"></goat-checkbox>
+          </goat-form-control>
+        </div>
+      </div>
+      <div id="code-editor-container"></div>
     </div>
-    {% endfor %}
+  </goat-tab-panel>
 
-  </div>
-  <!-- End Content -->
+  {% include playground.html %}
+  <script>
+    document.querySelector('goat-tabs').addEventListener('goat:tab-click', function (e) {
+      if (window.isTabLoaded) {
+        return;
+      }
+      document.getElementById('code-editor-container').innerHTML = `<goat-code-editor id='code-editor' style='height: 200px' theme='vs-dark'></goat-code-editor>`;
+      document.getElementById('code-editor').value = `
+<goat-button class='color-primary' size='md'>Click me</goat-button>
+`;
+      document.getElementById('demo-area').innerHTML = document.getElementById('code-editor').value;
 
-</div>
+      document.getElementById('code-editor').addEventListener('goat:change', function (e) {
+        document.getElementById('demo-area').innerHTML = e.target.value;
+      });
+      window.isTabLoaded = true;
+    });
+
+    const $dropDownVariants = document.getElementById('comp-variants');
+    $dropDownVariants.items = [
+      {
+        label: 'default',
+        value: 'default',
+      },
+      {
+        label: 'outline',
+        value: 'outline',
+      },
+      {
+        label: 'ghost',
+        value: 'ghost',
+      },
+    ];
+    $dropDownVariants.value = $dropDownVariants.items[0].value;
+    $dropDownVariants.addEventListener('goat:change', function (evt) {
+      updateProperty('variant', evt.detail.value);
+    });
+
+    const $dropDownSize = document.getElementById('comp-size');
+    $dropDownSize.items = [
+      {
+        label: 'sm',
+        value: 'sm',
+      },
+      {
+        label: 'md',
+        value: 'md',
+      },
+      {
+        label: 'lg',
+        value: 'lg',
+      },
+      {
+        label: 'xl',
+        value: 'xl',
+      },
+      {
+        label: 'xxl',
+        value: 'xxl',
+      },
+    ];
+    $dropDownSize.value = 'md';
+    $dropDownSize.addEventListener('goat:change', function (evt) {
+      updateProperty('size', evt.detail.value);
+    });
+
+    document.getElementById('comp-disabled').addEventListener('goat:change', function (evt) {
+      updateProperty('disabled', evt.target.value);
+    });
+    document.getElementById('comp-selected').addEventListener('goat:change', function (evt) {
+      updateProperty('selected', evt.target.value);
+    });
+  </script>
+</goat-tabs>

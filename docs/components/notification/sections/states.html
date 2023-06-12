@@ -1,50 +1,30 @@
 <goat-card>
   <goat-card-content>
-    <goat-notification>
-      {{page.notificationContent}}
-    </goat-notification>
-    <goat-notification state='success'>
-      {{page.notificationContent}}
-    </goat-notification>
-    <goat-notification state='warning'>
-      {{page.notificationContent}}
-    </goat-notification>
-    <goat-notification state='error'>
-      {{page.notificationContent}}
-    </goat-notification>
+    <goat-notification> {{page.notificationContent}} </goat-notification>
+    <goat-notification state="success"> {{page.notificationContent}} </goat-notification>
+    <goat-notification state="warning"> {{page.notificationContent}} </goat-notification>
+    <goat-notification state="error"> {{page.notificationContent}} </goat-notification>
   </goat-card-content>
   <goat-card-content>
     {% GoatHighlighter language:"html" %}
-    <goat-notification>
-      {{page.notificationContent}}
-    </goat-notification>
-    <goat-notification state='success'>...</goat-notification>
-    <goat-notification state='warning'>...</goat-notification>
-    <goat-notification state='error'>...</goat-notification>
+    <goat-notification> {{page.notificationContent}} </goat-notification>
+    <goat-notification state="success">...</goat-notification>
+    <goat-notification state="warning">...</goat-notification>
+    <goat-notification state="error">...</goat-notification>
     {% endGoatHighlighter %}
   </goat-card-content>
 </goat-card>
 
 <goat-card>
   <goat-card-content>
-    <goat-notification low-contrast dismissible>
-      {{page.notificationContent}}
-    </goat-notification>
-    <goat-notification low-contrast state='success'>
-      {{page.notificationContent}}
-    </goat-notification>
-    <goat-notification low-contrast state='warning'>
-      {{page.notificationContent}}
-    </goat-notification>
-    <goat-notification low-contrast state='error'>
-      {{page.notificationContent}}
-    </goat-notification>
+    <goat-notification low-contrast dismissible> {{page.notificationContent}} </goat-notification>
+    <goat-notification low-contrast state="success"> {{page.notificationContent}} </goat-notification>
+    <goat-notification low-contrast state="warning"> {{page.notificationContent}} </goat-notification>
+    <goat-notification low-contrast state="error"> {{page.notificationContent}} </goat-notification>
   </goat-card-content>
   <goat-card-content>
     {% GoatHighlighter language:"html" %}
-    <goat-notification low-contrast>
-      {{page.notificationContent}}
-    </goat-notification>
+    <goat-notification low-contrast> {{page.notificationContent}} </goat-notification>
     {% endGoatHighlighter %}
   </goat-card-content>
 </goat-card>

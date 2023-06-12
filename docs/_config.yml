@@ -22,8 +22,8 @@ company: GOATUI
 title: GOAT UI
 description: GOAT UI contains design system and most used web components built using Stencil. So you don't need to include any additional framework dependencies, You can simple import required component js, and right away start using it.
 tagline: A light weight web component library
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://goatui.com" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: '' # the subpath of your site, e.g. /blog
+url: 'https://goatui.com' # the base hostname & protocol for your site, e.g. http://example.com
 
 email: contact@shivajivarma.com
 author: Shivaji Varma
@@ -43,7 +43,7 @@ sass:
 
 compress_html:
   clippings: all
-  comments: [ "<!-- ", " -->" ]
+  comments: ['<!-- ', ' -->']
   endings: all
 
 # Build settings
@@ -54,29 +54,29 @@ plugins:
 
 defaults:
   - scope:
-      path: "assets/**/*"
+      path: 'assets/**/*'
     values:
       sitemap: false
   - scope:
-      path: "components/**/sections/**/*"
+      path: 'components/**/sections/**/*'
     values:
       sitemap: false
 assets:
   compression: true
   assets:
-    - "*.png"
-    - "_scss/styles.scss"
+    - '*.png'
+    - '_scss/styles.scss'
   digest: true
   defaults:
     js: { integrity: false } # true on JEKYLL_ENV=production
     css: { integrity: false } # true on JEKYLL_ENV=production
     img: { integrity: false } # true on JEKYLL_ENV=production
   plugins:
-    css: { autoprefixer: { } }
-    img: { optim: { } }
+    css: { autoprefixer: {} }
+    img: { optim: {} }
 
 groups:
-  - name: "Input Controls"
+  - name: 'Input Controls'
     components:
       - name: Input
         link: /component/input
@@ -88,23 +88,22 @@ groups:
         link: /component/code-editor
         img: /assets/img/code-editor.png
 
-  - name: "Informational"
+  - name: 'Informational'
     components:
       - name: Alert
         link: /component/alert
         example: |
-            <goat-notification state="success">
-              <div slot='message'>Successful</div>
-            </goat-notification>
+          <goat-notification state="success">
+            <div slot='message'>Successful</div>
+          </goat-notification>
 
-  - name: "Content"
+  - name: 'Content'
     components:
       - name: Avatar
         link: /component/avatar
         example: <goat-avatar name="Shivaji Varma"></goat-avatar>
 
-
-  - name: "Navigation"
+  - name: 'Navigation'
     components:
       - name: Link
         link: /component/link
@@ -118,7 +117,6 @@ components:
     link: /component/flow-designer.html
     img: /assets/img/image-not-found.png
 
-
   - name: List
     link: /component/list.html
     img: /assets/img/list.png
@@ -130,9 +128,6 @@ components:
   - name: Table
     link: /component/table.html
     img: /assets/img/table.png
-
-
-
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

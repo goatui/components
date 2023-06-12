@@ -1,27 +1,19 @@
 <goat-card>
   <goat-card-content>
-
-    <goat-button id='click-me-btn'>Click me</goat-button>
-    <goat-button disabled id='disabled-btn'>Disabled Button</goat-button>
+    <goat-button id="click-me-btn">Click me</goat-button>
+    <goat-button disabled id="disabled-btn">Disabled Button</goat-button>
 
     <script>
-      document.querySelector('#click-me-btn').addEventListener('goat:click', function(event) {
+      document.querySelector('#click-me-btn').addEventListener('goat:click', function (event) {
         myConsole.log('Button clicked');
       });
-      document.querySelector('#disabled-btn').addEventListener('goat:click', function(event) {
+      document.querySelector('#disabled-btn').addEventListener('goat:click', function (event) {
         myConsole.log('Button clicked'); // this will not be fired
       });
     </script>
   </goat-card-content>
   <goat-card-content>
-    {% GoatHighlighter language:"js" %}
-document.querySelector('#click-me-btn').addEventListener('goat:click', function(event) {
-  alert("Button clicked");
-});
-
-document.querySelector('#disabled-btn').addEventListener('goat:click', function(event) {
-  alert("Button clicked"); // this will not be fired
-});
-    {% endGoatHighlighter %}
+    {% GoatHighlighter language:"js" %} document.querySelector('#click-me-btn').addEventListener('goat:click', function(event) { alert("Button clicked"); });
+    document.querySelector('#disabled-btn').addEventListener('goat:click', function(event) { alert("Button clicked"); // this will not be fired }); {% endGoatHighlighter %}
   </goat-card-content>
 </goat-card>

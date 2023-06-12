@@ -8,7 +8,7 @@ import GoatMenu = Components.GoatMenu;
  * @description Allows the user to select one or more options using a dropdown.
  * @category Form Inputs
  * @tags input, form
- * @img /assets/img/select.png
+ * @img /assets/img/slider.png
  */
 @Component({
   tag: 'goat-slider',

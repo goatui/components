@@ -4,6 +4,7 @@ import { getComponentIndex } from '../../../utils/utils';
 /**
  * @name Link
  * @description Links allow users to click their way from page to page.
+ * @category Navigation
  * @example <goat-link href="#">Link</goat-link>
  */
 @Component({

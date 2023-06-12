@@ -2,30 +2,27 @@
 layout: component
 title: Tag
 sections:
-- title: Usage
-  source: sections/usage.html
+  - title: Usage
+    source: sections/usage.html
 ---
-<div class='row pt-3'>
 
+<div class="row pt-3">
   {% include section-nav.html %}
 
   <!-- Content -->
-  <div class='component-content'>
-
-    <div style='padding-bottom: var(--spacing-6)'>
-      <goat-text type='heading' size='md'>{{ page.title }}</goat-text>
-      <goat-text type='paragraph'>Use {{site.title}}’s custom input styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</goat-text>
+  <div class="component-content">
+    <div style="padding-bottom: var(--spacing-6)">
+      <goat-text type="heading" size="md">{{ page.title }}</goat-text>
+      <goat-text type="paragraph">Use {{site.title}}’s custom input styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</goat-text>
     </div>
 
     {% for section in page.sections %}
-    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style='padding-bottom: var(--spacing-4)'>
-      <goat-text type='heading' level='2' size='sm'>{{ section.title }}</goat-text>
+    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style="padding-bottom: var(--spacing-4)">
+      <goat-text type="heading" level="2" size="sm">{{ section.title }}</goat-text>
 
       {% include_relative {{ section.source }} %}
     </div>
     {% endfor %}
-
   </div>
   <!-- End Content -->
-
 </div>

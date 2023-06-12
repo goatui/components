@@ -2,184 +2,163 @@
 layout: component
 title: Textarea
 menu:
-- title: Variants
-- title: Sizes
-- title: Disabled state
-- title: Events
+  - title: Variants
+  - title: Sizes
+  - title: Disabled state
+  - title: Events
 ---
 
-<div class='row pt-3'>
-
+<div class="row pt-3">
   {% include sidebar.html %}
 
   <!-- Content -->
-  <div class='col-xl-10 order-xl-1 duik-content border-bottom'>
-    <div class='border-bottom mb-7'>
-      <goat-text type='heading' size='md'>{{ page.title }}</goat-text>
-      <goat-text type='paragraph'>Use {{site.title}}’s custom input component for capturing input in forms, dialogs, and more
-        with
-        support
-        for multiple sizes, variants and more.</goat-text>
+  <div class="col-xl-10 order-xl-1 duik-content border-bottom">
+    <div class="border-bottom mb-7">
+      <goat-text type="heading" size="md">{{ page.title }}</goat-text>
+      <goat-text type="paragraph"
+        >Use {{site.title}}’s custom input component for capturing input in forms, dialogs, and more with support for multiple sizes, variants and more.</goat-text
+      >
     </div>
 
-
     <!-- Variants -->
-    <div id='doc-variants' class='mb-7'>
-      <goat-text type='heading' level='2' size='sm'>Variants <a class='js-anchor-link duik-anchorjs-link' href='#doc-variants'
-                                 aria-label='Anchor' data-anchorjs-icon='#'></a></goat-text>
-      <goat-text type='paragraph'>Here are several predefined input styles, each serving its own semantic purpose.</goat-text>
-
+    <div id="doc-variants" class="mb-7">
+      <goat-text type="heading" level="2" size="sm"
+        >Variants <a class="js-anchor-link duik-anchorjs-link" href="#doc-variants" aria-label="Anchor" data-anchorjs-icon="#"></a
+      ></goat-text>
+      <goat-text type="paragraph">Here are several predefined input styles, each serving its own semantic purpose.</goat-text>
 
       <goat-card>
         <goat-card-content>
-          <goat-textarea placeholder='Person Name' clearable></goat-textarea>
-          <goat-textarea variant='dashed' value='Some Value'></goat-textarea>
+          <goat-textarea placeholder="Person Name" clearable></goat-textarea>
+          <goat-textarea variant="dashed" value="Some Value"></goat-textarea>
         </goat-card-content>
         <goat-card-content>
           {% GoatHighlighter language:"html" %}
-          <goat-textarea placeholder='Person Name'></goat-textarea>
-          <goat-textarea variant='dashed' value='Some Value'></goat-textarea>
+          <goat-textarea placeholder="Person Name"></goat-textarea>
+          <goat-textarea variant="dashed" value="Some Value"></goat-textarea>
           {% endGoatHighlighter %}
         </goat-card-content>
       </goat-card>
     </div>
     <!-- End Variants -->
 
-    <hr class='mt-7 mb-4'>
-
+    <hr class="mt-7 mb-4" />
 
     <!-- Sizes -->
-    <div id='doc-sizes' class='mb-7'>
-      <goat-text type='heading' level='2' size='sm'>Sizes <a class='js-anchor-link duik-anchorjs-link' href='#doc-sizes'
-                                                             aria-label='Anchor' data-anchorjs-icon='#'></a></goat-text>
-      <goat-text type='paragraph'>Fancy larger or smaller input? Add size attribute for additional sizes.</goat-text>
+    <div id="doc-sizes" class="mb-7">
+      <goat-text type="heading" level="2" size="sm">Sizes <a class="js-anchor-link duik-anchorjs-link" href="#doc-sizes" aria-label="Anchor" data-anchorjs-icon="#"></a></goat-text>
+      <goat-text type="paragraph">Fancy larger or smaller input? Add size attribute for additional sizes.</goat-text>
 
       <goat-card>
         <goat-card-content>
-          <goat-textarea size='lg' placeholder='Large'></goat-textarea>
-          <goat-textarea placeholder='Medium'></goat-textarea>
-          <goat-textarea size='sm' placeholder='Small'></goat-textarea>
+          <goat-textarea size="lg" placeholder="Large"></goat-textarea>
+          <goat-textarea placeholder="Medium"></goat-textarea>
+          <goat-textarea size="sm" placeholder="Small"></goat-textarea>
         </goat-card-content>
         <goat-card-content>
           {% GoatHighlighter language:"html" %}
-          <goat-textarea size='lg' placeholder='Large'></goat-textarea>
-          <goat-textarea placeholder='Medium'></goat-textarea>
-          <goat-textarea size='sm' placeholder='Small'></goat-textarea>
+          <goat-textarea size="lg" placeholder="Large"></goat-textarea>
+          <goat-textarea placeholder="Medium"></goat-textarea>
+          <goat-textarea size="sm" placeholder="Small"></goat-textarea>
           {% endGoatHighlighter %}
         </goat-card-content>
       </goat-card>
-
     </div>
 
     <!-- Actions -->
-    <div id='doc-actions' class='mb-7'>
-      <goat-text type='heading' level='2' size='sm'>Actions <a class='js-anchor-link duik-anchorjs-link' href='#doc-actions'
-                                                               aria-label='Anchor' data-anchorjs-icon='#'></a></goat-text>
-      <goat-text type='paragraph'>Make input look inactive by adding the disabled <code class='highlighter-rouge' data-lang='html'>boolean</code>
-        attribute to any <code class='highlighter-rouge' data-lang='html'>&lt;input&gt;</code> element.</goat-text>
+    <div id="doc-actions" class="mb-7">
+      <goat-text type="heading" level="2" size="sm"
+        >Actions <a class="js-anchor-link duik-anchorjs-link" href="#doc-actions" aria-label="Anchor" data-anchorjs-icon="#"></a
+      ></goat-text>
+      <goat-text type="paragraph"
+        >Make input look inactive by adding the disabled <code class="highlighter-rouge" data-lang="html">boolean</code> attribute to any
+        <code class="highlighter-rouge" data-lang="html">&lt;input&gt;</code> element.</goat-text
+      >
 
       <goat-card>
         <goat-card-content>
-          <goat-textarea id='input-with-actions'></goat-textarea>
+          <goat-textarea id="input-with-actions"></goat-textarea>
           <script>
-            document.querySelector('#input-with-actions').actions = [{
-              icon: 'search',
-              eventName: 'search-item',
-            }, {
-              icon: 'x',
-              eventName: 'close',
-            }, {
-              icon: 'info-circle',
-              eventName: 'info-circle',
-              disabled: true,
-            }];
-            document.querySelector('#input-with-actions').addEventListener('goat:action-click', function(evt) {
+            document.querySelector('#input-with-actions').actions = [
+              {
+                icon: 'search',
+                eventName: 'search-item',
+              },
+              {
+                icon: 'x',
+                eventName: 'close',
+              },
+              {
+                icon: 'info-circle',
+                eventName: 'info-circle',
+                disabled: true,
+              },
+            ];
+            document.querySelector('#input-with-actions').addEventListener('goat:action-click', function (evt) {
               window.notyf.success('Action clicked :: ' + evt.detail.eventName);
             });
           </script>
         </goat-card-content>
         <goat-card-content>
-          {% GoatHighlighter language:"js" %}
-          document.querySelector('#input-with-actions').actions = [{
-            icon: 'search',
-            eventName: 'search-item'
-          }, {
-            icon: 'x',
-            eventName: 'close'
-          }, {
-            icon: 'info-circle',
-            eventName: 'info-circle',
-            disabled: true
-          }];
-          document.querySelector('#input-with-actions').addEventListener('goat:action-click', function(evt) {
-           console.log("Action clicked :: " + evt.detail.eventName);
-          });
-          {% endGoatHighlighter %}
+          {% GoatHighlighter language:"js" %} document.querySelector('#input-with-actions').actions = [{ icon: 'search', eventName: 'search-item' }, { icon: 'x', eventName: 'close'
+          }, { icon: 'info-circle', eventName: 'info-circle', disabled: true }]; document.querySelector('#input-with-actions').addEventListener('goat:action-click', function(evt) {
+          console.log("Action clicked :: " + evt.detail.eventName); }); {% endGoatHighlighter %}
         </goat-card-content>
       </goat-card>
     </div>
 
     <!-- Disabled State -->
-    <div id='doc-disabled-state' class='mb-7'>
-      <goat-text type='heading' level='2' size='sm'>Disabled state <a class='js-anchor-link duik-anchorjs-link' href='#doc-disabled-state'
-                                                                      aria-label='Anchor' data-anchorjs-icon='#'></a></goat-text>
-      <goat-text type='paragraph'>Make input look inactive by adding the disabled <code class='highlighter-rouge' data-lang='html'>boolean</code>
-        attribute to any <code class='highlighter-rouge' data-lang='html'>&lt;input&gt;</code> element.</goat-text>
+    <div id="doc-disabled-state" class="mb-7">
+      <goat-text type="heading" level="2" size="sm"
+        >Disabled state <a class="js-anchor-link duik-anchorjs-link" href="#doc-disabled-state" aria-label="Anchor" data-anchorjs-icon="#"></a
+      ></goat-text>
+      <goat-text type="paragraph"
+        >Make input look inactive by adding the disabled <code class="highlighter-rouge" data-lang="html">boolean</code> attribute to any
+        <code class="highlighter-rouge" data-lang="html">&lt;input&gt;</code> element.</goat-text
+      >
 
       <goat-card>
         <goat-card-content>
           <goat-textarea disabled></goat-textarea>
-          <goat-textarea disabled value='With Value'></goat-textarea>
+          <goat-textarea disabled value="With Value"></goat-textarea>
         </goat-card-content>
         <goat-card-content>
           {% GoatHighlighter language:"html" %}
           <goat-textarea disabled></goat-textarea>
-          <goat-textarea disabled value='With Value'></goat-textarea>
+          <goat-textarea disabled value="With Value"></goat-textarea>
           {% endGoatHighlighter %}
         </goat-card-content>
       </goat-card>
     </div>
 
-
     <!-- Events -->
-    <div id='doc-events' class='mb-7'>
-      <goat-text type='heading' level='2' size='sm'>Events <a class='js-anchor-link duik-anchorjs-link' href='#doc-events'
-                                                              aria-label='Anchor' data-anchorjs-icon='#'></a></goat-text>
-      <goat-text type='paragraph'>On input change a <b>CustomEvent</b> <code
-        class='highlighter-rouge' data-lang='html'>goat:change</code>
-        is triggered by the element.</goat-text>
+    <div id="doc-events" class="mb-7">
+      <goat-text type="heading" level="2" size="sm"
+        >Events <a class="js-anchor-link duik-anchorjs-link" href="#doc-events" aria-label="Anchor" data-anchorjs-icon="#"></a
+      ></goat-text>
+      <goat-text type="paragraph">On input change a <b>CustomEvent</b> <code class="highlighter-rouge" data-lang="html">goat:change</code> is triggered by the element.</goat-text>
 
-      <div class='output'>
-
-        <goat-textarea variant='default' id='name-input-field'></goat-textarea>
+      <div class="output">
+        <goat-textarea variant="default" id="name-input-field"></goat-textarea>
 
         <script>
-          document.querySelector('#name-input-field').addEventListener('goat:input', function(event) {
+          document.querySelector('#name-input-field').addEventListener('goat:input', function (event) {
             myConsole.log('goat:input :: <pre>' + event.target.value + '</pre>');
           });
-          document.querySelector('#name-input-field').addEventListener('goat:change', function(event) {
+          document.querySelector('#name-input-field').addEventListener('goat:change', function (event) {
             myConsole.warn('goat:change :: <pre>' + event.target.value + '</pre>');
           });
         </script>
-
       </div>
 
       <goat-card>
         <goat-card-content>
-          {% GoatHighlighter language:"js" %}
-          document.querySelector('#name-input-field').addEventListener('goat:input', function(event) {
-            console.log("goat:input :: " + event.target.value);
-          });
-          document.querySelector('#name-input-field').addEventListener('goat:change', function(event) {
-            console.log("goat:change :: " + event.target.value);
-          });
-          {% endGoatHighlighter %}
+          {% GoatHighlighter language:"js" %} document.querySelector('#name-input-field').addEventListener('goat:input', function(event) { console.log("goat:input :: " +
+          event.target.value); }); document.querySelector('#name-input-field').addEventListener('goat:change', function(event) { console.log("goat:change :: " +
+          event.target.value); }); {% endGoatHighlighter %}
         </goat-card-content>
       </goat-card>
-
     </div>
-
-
   </div>
   <!-- End Content -->
 </div>

@@ -4,7 +4,7 @@ export async function fetchIcon(name: string) {
   if (result) {
     return result;
   }
-  const res = await fetch(`https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/icons/${name}.svg`, {
+  const res = await fetch(`https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/${name}.svg`, {
     method: 'GET',
     mode: 'cors',
     credentials: 'omit',

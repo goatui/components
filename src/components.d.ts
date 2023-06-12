@@ -9,6 +9,7 @@ export namespace Components {
     /**
      * @name Accordion
      * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
+     * @category : Data Display
      * @example <goat-accordion>
      * <goat-accordion-item heading="Title 1"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>
      * </goat-accordion>
@@ -138,7 +139,7 @@ export namespace Components {
     }
     /**
      * @name Button Group
-     * @description An interactive button with a range of presentation options.
+     * @description Group a series of buttons together on a single line with the button group, and super-power.
      * @category General
      * @tags controls
      * @example <goat-button-group><goat-button>
@@ -421,6 +422,7 @@ export namespace Components {
     /**
      * @name Header
      * @description Headers are compositions that extend standard navbar functionalities.
+     * @category Navigation
      * @img /assets/img/header.png
      */
     interface GoatHeader {
@@ -433,7 +435,7 @@ export namespace Components {
     }
     /**
      * @name Icon
-     * @description Renders a specified icon.
+     * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
      * @category General
      * @example <goat-icon name="house"></goat-icon>
      */
@@ -514,6 +516,7 @@ export namespace Components {
     /**
      * @name Link
      * @description Links allow users to click their way from page to page.
+     * @category Navigation
      * @example <goat-link href="#">Link</goat-link>
      */
     interface GoatLink {
@@ -616,7 +619,7 @@ export namespace Components {
         "getComponentId": () => Promise<string>;
         "isOpen": boolean;
         /**
-          * [{   label: 'Shivaji Varma',   value: 'shivaji-varma' }]
+          * [{   label: 'Shivaji Varma',   value: 'shivaji-varma',   icon: 'person' }]
          */
         "items": any;
         "multiple": boolean;
@@ -708,7 +711,7 @@ export namespace Components {
      * @description Allows the user to select one or more options using a dropdown.
      * @category Form Inputs
      * @tags input, form
-     * @img /assets/img/select.png
+     * @img /assets/img/slider.png
      */
     interface GoatSlider {
         /**
@@ -1169,6 +1172,7 @@ declare global {
     /**
      * @name Accordion
      * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
+     * @category : Data Display
      * @example <goat-accordion>
      * <goat-accordion-item heading="Title 1"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>
      * </goat-accordion>
@@ -1246,7 +1250,7 @@ declare global {
     };
     /**
      * @name Button Group
-     * @description An interactive button with a range of presentation options.
+     * @description Group a series of buttons together on a single line with the button group, and super-power.
      * @category General
      * @tags controls
      * @example <goat-button-group><goat-button>
@@ -1424,6 +1428,7 @@ declare global {
     /**
      * @name Header
      * @description Headers are compositions that extend standard navbar functionalities.
+     * @category Navigation
      * @img /assets/img/header.png
      */
     interface HTMLGoatHeaderElement extends Components.GoatHeader, HTMLStencilElement {
@@ -1440,7 +1445,7 @@ declare global {
     };
     /**
      * @name Icon
-     * @description Renders a specified icon.
+     * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
      * @category General
      * @example <goat-icon name="house"></goat-icon>
      */
@@ -1466,6 +1471,7 @@ declare global {
     /**
      * @name Link
      * @description Links allow users to click their way from page to page.
+     * @category Navigation
      * @example <goat-link href="#">Link</goat-link>
      */
     interface HTMLGoatLinkElement extends Components.GoatLink, HTMLStencilElement {
@@ -1560,7 +1566,7 @@ declare global {
      * @description Allows the user to select one or more options using a dropdown.
      * @category Form Inputs
      * @tags input, form
-     * @img /assets/img/select.png
+     * @img /assets/img/slider.png
      */
     interface HTMLGoatSliderElement extends Components.GoatSlider, HTMLStencilElement {
     }
@@ -1786,6 +1792,7 @@ declare namespace LocalJSX {
     /**
      * @name Accordion
      * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
+     * @category : Data Display
      * @example <goat-accordion>
      * <goat-accordion-item heading="Title 1"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>
      * </goat-accordion>
@@ -1914,7 +1921,7 @@ declare namespace LocalJSX {
     }
     /**
      * @name Button Group
-     * @description An interactive button with a range of presentation options.
+     * @description Group a series of buttons together on a single line with the button group, and super-power.
      * @category General
      * @tags controls
      * @example <goat-button-group><goat-button>
@@ -2206,6 +2213,7 @@ declare namespace LocalJSX {
     /**
      * @name Header
      * @description Headers are compositions that extend standard navbar functionalities.
+     * @category Navigation
      * @img /assets/img/header.png
      */
     interface GoatHeader {
@@ -2218,7 +2226,7 @@ declare namespace LocalJSX {
     }
     /**
      * @name Icon
-     * @description Renders a specified icon.
+     * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
      * @category General
      * @example <goat-icon name="house"></goat-icon>
      */
@@ -2306,6 +2314,7 @@ declare namespace LocalJSX {
     /**
      * @name Link
      * @description Links allow users to click their way from page to page.
+     * @category Navigation
      * @example <goat-link href="#">Link</goat-link>
      */
     interface GoatLink {
@@ -2399,7 +2408,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "isOpen"?: boolean;
         /**
-          * [{   label: 'Shivaji Varma',   value: 'shivaji-varma' }]
+          * [{   label: 'Shivaji Varma',   value: 'shivaji-varma',   icon: 'person' }]
          */
         "items"?: any;
         "multiple"?: boolean;
@@ -2487,7 +2496,7 @@ declare namespace LocalJSX {
      * @description Allows the user to select one or more options using a dropdown.
      * @category Form Inputs
      * @tags input, form
-     * @img /assets/img/select.png
+     * @img /assets/img/slider.png
      */
     interface GoatSlider {
         /**
@@ -2953,6 +2962,7 @@ declare module "@stencil/core" {
             /**
              * @name Accordion
              * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
+             * @category : Data Display
              * @example <goat-accordion>
              * <goat-accordion-item heading="Title 1"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>
              * </goat-accordion>
@@ -2995,7 +3005,7 @@ declare module "@stencil/core" {
             "goat-button": LocalJSX.GoatButton & JSXBase.HTMLAttributes<HTMLGoatButtonElement>;
             /**
              * @name Button Group
-             * @description An interactive button with a range of presentation options.
+             * @description Group a series of buttons together on a single line with the button group, and super-power.
              * @category General
              * @tags controls
              * @example <goat-button-group><goat-button>
@@ -3088,13 +3098,14 @@ declare module "@stencil/core" {
             /**
              * @name Header
              * @description Headers are compositions that extend standard navbar functionalities.
+             * @category Navigation
              * @img /assets/img/header.png
              */
             "goat-header": LocalJSX.GoatHeader & JSXBase.HTMLAttributes<HTMLGoatHeaderElement>;
             "goat-header-brand": LocalJSX.GoatHeaderBrand & JSXBase.HTMLAttributes<HTMLGoatHeaderBrandElement>;
             /**
              * @name Icon
-             * @description Renders a specified icon.
+             * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
              * @category General
              * @example <goat-icon name="house"></goat-icon>
              */
@@ -3110,6 +3121,7 @@ declare module "@stencil/core" {
             /**
              * @name Link
              * @description Links allow users to click their way from page to page.
+             * @category Navigation
              * @example <goat-link href="#">Link</goat-link>
              */
             "goat-link": LocalJSX.GoatLink & JSXBase.HTMLAttributes<HTMLGoatLinkElement>;
@@ -3159,7 +3171,7 @@ declare module "@stencil/core" {
              * @description Allows the user to select one or more options using a dropdown.
              * @category Form Inputs
              * @tags input, form
-             * @img /assets/img/select.png
+             * @img /assets/img/slider.png
              */
             "goat-slider": LocalJSX.GoatSlider & JSXBase.HTMLAttributes<HTMLGoatSliderElement>;
             /**

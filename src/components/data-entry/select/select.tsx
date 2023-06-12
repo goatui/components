@@ -77,7 +77,8 @@ export class Select implements ComponentInterface, InputComponentInterface {
   /**
    *  [{
    *    label: 'Shivaji Varma',
-   *    value: 'shivaji-varma'
+   *    value: 'shivaji-varma',
+   *    icon: 'person'
    *  }]
    */
   @Prop() items: any = [];
@@ -292,7 +293,12 @@ export class Select implements ComponentInterface, InputComponentInterface {
       if (this.items) {
         const item = this.getItemByValue(this.value);
         if (item) {
-          return item.label;
+          return <div class='display-value-container'>
+            {
+              item.icon && <goat-icon name={item.icon} size='sm' />
+            }
+            {item.label}
+          </div>;
         }
       }
       if (!this.disabled && !this.readonly) {
@@ -491,7 +497,12 @@ export class Select implements ComponentInterface, InputComponentInterface {
         <goat-menu class="menu" empty={filteredItems.length == 0} ref={el => (this.menuElm = el)}>
           {(() => {
             return filteredItems.map(item => {
-              return <goat-menu-item value={item.value}>{item.label || item.value}</goat-menu-item>;
+              return <goat-menu-item value={item.value}>
+                {
+                  item.icon && <goat-icon name={item.icon} slot='start' size='sm' />
+                }
+                {item.label || item.value}
+              </goat-menu-item>;
             });
           })()}
         </goat-menu>

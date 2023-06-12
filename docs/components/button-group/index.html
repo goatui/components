@@ -1,34 +1,30 @@
 ---
 layout: component
 title: Button Group
+description: Button groups are used to group a series of buttons together in a single line.
 sections:
-- title: Variants
-  source: sections/variants.html
+  - title: Usage
+    source: sections/usage.html
 
 colors: ['primary', 'secondary', 'success', 'error']
 ---
-<div class='row pt-3'>
 
-
-  {% include section-nav.html %}
-
+<div class="usage-tab">
   <!-- Content -->
-  <div class='component-content'>
-
-    <div style='padding-bottom: var(--spacing-6)'>
-      <goat-text type='heading' size='md'>{{ page.title }}</goat-text>
-      <goat-text type='paragraph'>Use {{site.title}}’s custom input styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</goat-text>
+  <div class="component-content">
+    <div style="padding-bottom: var(--spacing-6)">
+      <goat-text type="paragraph">{{page.description}}</goat-text>
     </div>
 
     {% for section in page.sections %}
-    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style='padding-bottom: var(--spacing-4)'>
-      <goat-text type='heading' level='2' size='sm'>{{ section.title }}</goat-text>
+    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style="padding-bottom: var(--spacing-4)">
+      <goat-text type="heading" level="2" size="sm">{{ section.title }}</goat-text>
 
       {% include_relative {{ section.source }} %}
     </div>
     {% endfor %}
-
   </div>
   <!-- End Content -->
 
+  {% include section-nav.html %}
 </div>
