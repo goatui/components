@@ -7,34 +7,25 @@
 
 ## Properties
 
-| Property      | Attribute     | Description                                                                                                    | Type                                             | Default                                         |
-| ------------- | ------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ----------------------------------------------- |
-| `clearable`   | `clearable`   | If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.          | `boolean`                                        | `false`                                         |
-| `configAria`  | `config-aria` |                                                                                                                | `any`                                            | `{}`                                            |
-| `debounce`    | `debounce`    | Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.       | `number`                                         | `300`                                           |
-| `disabled`    | `disabled`    | If true, the user cannot interact with the button. Defaults to `false`.                                        | `boolean`                                        | `false`                                         |
-| `isOpen`      | `is-open`     |                                                                                                                | `boolean`                                        | `false`                                         |
-| `items`       | `items`       | [{   label: 'Shivaji Varma',   value: 'shivaji-varma' }]                                                       | `any`                                            | `[]`                                            |
-| `multiple`    | `multiple`    |                                                                                                                | `boolean`                                        | `false`                                         |
-| `name`        | `name`        | The input field name.                                                                                          | `string`                                         | ``goat-input-${this.gid}``                      |
-| `placeholder` | `placeholder` | The input field placeholder.                                                                                   | `string`                                         | `undefined`                                     |
-| `positions`   | `positions`   |                                                                                                                | `string`                                         | `'bottom-right,top-right,bottom-left,top-left'` |
-| `readonly`    | `readonly`    | If true, the user cannot interact with the button. Defaults to `false`.                                        | `boolean`                                        | `false`                                         |
-| `required`    | `required`    | If true, required icon is show. Defaults to `false`.                                                           | `boolean`                                        | `false`                                         |
-| `search`      | `search`      | Search type Possible values are `"none"`, `"initial"`, `"contains"`, `"managed"`. Defaults to `"none"`.        | `"contains" \| "initial" \| "managed" \| "none"` | `'none'`                                        |
-| `showLoader`  | `show-loader` |                                                                                                                | `boolean`                                        | `false`                                         |
-| `size`        | `size`        | The select input size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.                        | `"lg" \| "md" \| "sm"`                           | `'md'`                                          |
-| `state`       | `state`       | The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`. | `"default" \| "error" \| "success" \| "warning"` | `'default'`                                     |
-| `value`       | `value`       | The input field value.                                                                                         | `number \| string`                               | `''`                                            |
+| Property     | Attribute     | Description                                                                                              | Type      | Default                    |
+| ------------ | ------------- | -------------------------------------------------------------------------------------------------------- | --------- | -------------------------- |
+| `configAria` | `config-aria` |                                                                                                          | `any`     | `{}`                       |
+| `debounce`   | `debounce`    | Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke. | `number`  | `300`                      |
+| `disabled`   | `disabled`    | If true, the user cannot interact with the button. Defaults to `false`.                                  | `boolean` | `false`                    |
+| `max`        | `max`         |                                                                                                          | `number`  | `100`                      |
+| `min`        | `min`         |                                                                                                          | `number`  | `0`                        |
+| `name`       | `name`        | The input field name.                                                                                    | `string`  | ``goat-input-${this.gid}`` |
+| `readonly`   | `readonly`    | If true, the user cannot interact with the button. Defaults to `false`.                                  | `boolean` | `false`                    |
+| `required`   | `required`    | If true, required icon is show. Defaults to `false`.                                                     | `boolean` | `false`                    |
+| `value`      | `value`       | The input field value.                                                                                   | `number`  | `0`                        |
 
 
 ## Events
 
-| Event               | Description                                 | Type               |
-| ------------------- | ------------------------------------------- | ------------------ |
-| `goat:action-click` | Emitted when the action button is clicked.. | `CustomEvent<any>` |
-| `goat:change`       | Emitted when the value has changed.         | `CustomEvent<any>` |
-| `goat:search`       | Emitted when a keyboard input occurred.     | `CustomEvent<any>` |
+| Event         | Description                         | Type               |
+| ------------- | ----------------------------------- | ------------------ |
+| `goat:change` | Emitted when the value has changed. | `CustomEvent<any>` |
+| `goat:input`  |                                     | `CustomEvent<any>` |
 
 
 ## Methods
@@ -76,26 +67,14 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [goat-tag](../../data-display/tag)
-- [goat-icon](../../general/icon)
-- [goat-spinner](../../feedback/spinner)
-- [goat-menu](../../general/menu/menu)
-- [goat-text](../../general/text)
-- [goat-menu-item](../../general/menu/menu-item)
+- [goat-input](../input)
 
 ### Graph
 ```mermaid
 graph TD;
-  goat-slider --> goat-tag
-  goat-slider --> goat-icon
-  goat-slider --> goat-spinner
-  goat-slider --> goat-menu
-  goat-slider --> goat-text
-  goat-slider --> goat-menu-item
-  goat-tag --> goat-icon
-  goat-menu --> goat-empty-state
-  goat-empty-state --> goat-svg
-  goat-empty-state --> goat-button
+  goat-slider --> goat-input
+  goat-input --> goat-button
+  goat-input --> goat-icon
   goat-button --> goat-icon
   goat-button --> goat-spinner
   style goat-slider fill:#f9f,stroke:#333,stroke-width:4px

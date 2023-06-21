@@ -5,7 +5,6 @@ import * as fs from 'fs';
 
 export const config: Config = {
   namespace: 'goatui',
-  sourceMap: true,
   outputTargets: [
     {
       type: 'dist',

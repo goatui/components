@@ -9,7 +9,7 @@ export namespace Components {
     /**
      * @name Accordion
      * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
-     * @category : Data Display
+     * @category Data Display
      * @example <goat-accordion>
      * <goat-accordion-item heading="Title 1"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>
      * </goat-accordion>
@@ -124,9 +124,9 @@ export namespace Components {
          */
         "showLoader": boolean;
         /**
-          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`. Defaults to `"md"`.
+          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"none"`. Defaults to `"md"`.
          */
-        "size": 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+        "size": 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'none';
         /**
           * Sets or retrieves the window or frame at which to target content.
          */
@@ -472,6 +472,7 @@ export namespace Components {
          */
         "disabled": boolean;
         "getComponentId": () => Promise<string>;
+        "hideActions": boolean;
         /**
           * The input field name.
          */
@@ -507,7 +508,7 @@ export namespace Components {
         /**
           * The type of control to display. Possible values are: `"text"`, `"password"`, `"number"`, `"email"`, `"tel"`. Defaults to `"text"`.
          */
-        "type": ('text' | 'password' | 'number' | 'email' | 'tel');
+        "type": 'text' | 'password' | 'number' | 'email' | 'tel';
         /**
           * The input field value.
          */
@@ -714,10 +715,6 @@ export namespace Components {
      * @img /assets/img/slider.png
      */
     interface GoatSlider {
-        /**
-          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
-         */
-        "clearable": boolean;
         "configAria": any;
         /**
           * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
@@ -728,21 +725,12 @@ export namespace Components {
          */
         "disabled": boolean;
         "getComponentId": () => Promise<string>;
-        "isOpen": boolean;
-        /**
-          * [{   label: 'Shivaji Varma',   value: 'shivaji-varma' }]
-         */
-        "items": any;
-        "multiple": boolean;
+        "max": number;
+        "min": number;
         /**
           * The input field name.
          */
         "name": string;
-        /**
-          * The input field placeholder.
-         */
-        "placeholder": string;
-        "positions": string;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -752,10 +740,6 @@ export namespace Components {
          */
         "required": boolean;
         /**
-          * Search type Possible values are `"none"`, `"initial"`, `"contains"`, `"managed"`. Defaults to `"none"`.
-         */
-        "search": 'none' | 'initial' | 'contains' | 'managed';
-        /**
           * Sets blur on the native `input` in `goat-input`. Use this method instead of the global `input.blur()`.
          */
         "setBlur": () => Promise<void>;
@@ -763,19 +747,10 @@ export namespace Components {
           * Sets focus on the native `input` in `ion-input`. Use this method instead of the global `input.focus()`.
          */
         "setFocus": () => Promise<void>;
-        "showLoader": boolean;
-        /**
-          * The select input size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
-         */
-        "size": 'sm' | 'md' | 'lg';
-        /**
-          * The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
-         */
-        "state": 'success' | 'error' | 'warning' | 'default';
         /**
           * The input field value.
          */
-        "value"?: string | number;
+        "value"?: number;
     }
     /**
      * @name Spinner
@@ -1172,7 +1147,7 @@ declare global {
     /**
      * @name Accordion
      * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
-     * @category : Data Display
+     * @category Data Display
      * @example <goat-accordion>
      * <goat-accordion-item heading="Title 1"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>
      * </goat-accordion>
@@ -1792,7 +1767,7 @@ declare namespace LocalJSX {
     /**
      * @name Accordion
      * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
-     * @category : Data Display
+     * @category Data Display
      * @example <goat-accordion>
      * <goat-accordion-item heading="Title 1"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>
      * </goat-accordion>
@@ -1907,9 +1882,9 @@ declare namespace LocalJSX {
          */
         "showLoader"?: boolean;
         /**
-          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`. Defaults to `"md"`.
+          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"none"`. Defaults to `"md"`.
          */
-        "size"?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+        "size"?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'none';
         /**
           * Sets or retrieves the window or frame at which to target content.
          */
@@ -2262,6 +2237,7 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
+        "hideActions"?: boolean;
         /**
           * The input field name.
          */
@@ -2305,7 +2281,7 @@ declare namespace LocalJSX {
         /**
           * The type of control to display. Possible values are: `"text"`, `"password"`, `"number"`, `"email"`, `"tel"`. Defaults to `"text"`.
          */
-        "type"?: ('text' | 'password' | 'number' | 'email' | 'tel');
+        "type"?: 'text' | 'password' | 'number' | 'email' | 'tel';
         /**
           * The input field value.
          */
@@ -2499,10 +2475,6 @@ declare namespace LocalJSX {
      * @img /assets/img/slider.png
      */
     interface GoatSlider {
-        /**
-          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
-         */
-        "clearable"?: boolean;
         "configAria"?: any;
         /**
           * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
@@ -2512,33 +2484,17 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
-        "isOpen"?: boolean;
-        /**
-          * [{   label: 'Shivaji Varma',   value: 'shivaji-varma' }]
-         */
-        "items"?: any;
-        "multiple"?: boolean;
+        "max"?: number;
+        "min"?: number;
         /**
           * The input field name.
          */
         "name"?: string;
         /**
-          * Emitted when the action button is clicked..
-         */
-        "onGoat:action-click"?: (event: GoatSliderCustomEvent<any>) => void;
-        /**
           * Emitted when the value has changed.
          */
         "onGoat:change"?: (event: GoatSliderCustomEvent<any>) => void;
-        /**
-          * Emitted when a keyboard input occurred.
-         */
-        "onGoat:search"?: (event: GoatSliderCustomEvent<any>) => void;
-        /**
-          * The input field placeholder.
-         */
-        "placeholder"?: string;
-        "positions"?: string;
+        "onGoat:input"?: (event: GoatSliderCustomEvent<any>) => void;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -2548,22 +2504,9 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
-          * Search type Possible values are `"none"`, `"initial"`, `"contains"`, `"managed"`. Defaults to `"none"`.
-         */
-        "search"?: 'none' | 'initial' | 'contains' | 'managed';
-        "showLoader"?: boolean;
-        /**
-          * The select input size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
-         */
-        "size"?: 'sm' | 'md' | 'lg';
-        /**
-          * The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
-         */
-        "state"?: 'success' | 'error' | 'warning' | 'default';
-        /**
           * The input field value.
          */
-        "value"?: string | number;
+        "value"?: number;
     }
     /**
      * @name Spinner
@@ -2962,7 +2905,7 @@ declare module "@stencil/core" {
             /**
              * @name Accordion
              * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
-             * @category : Data Display
+             * @category Data Display
              * @example <goat-accordion>
              * <goat-accordion-item heading="Title 1"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>
              * </goat-accordion>

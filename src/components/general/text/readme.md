@@ -21,7 +21,6 @@
 
  - [goat-breadcrumb-item](../../navigation/breadcrumb/breadcrumb-item)
  - [goat-select](../../data-entry/select)
- - [goat-slider](../../data-entry/slider)
  - [goat-table](../../data-display/table)
 
 ### Graph
@@ -29,7 +28,6 @@
 graph TD;
   goat-breadcrumb-item --> goat-text
   goat-select --> goat-text
-  goat-slider --> goat-text
   goat-table --> goat-text
   style goat-text fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -52,14 +52,12 @@ Type: `Promise<void>`
 
  - [goat-dropdown](../dropdown)
  - [goat-select](../../../data-entry/select)
- - [goat-slider](../../../data-entry/slider)
 
 ### Graph
 ```mermaid
 graph TD;
   goat-dropdown --> goat-menu-item
   goat-select --> goat-menu-item
-  goat-slider --> goat-menu-item
   style goat-menu-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

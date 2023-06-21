@@ -33,9 +33,9 @@ export class Button implements ComponentInterface {
 
   /**
    * Button size.
-   * Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`. Defaults to `"md"`.
+   * Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"none"`. Defaults to `"md"`.
    */
-  @Prop() size: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' = 'md';
+  @Prop() size: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'none' = 'md';
 
   /**
    * Button variants.

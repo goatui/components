@@ -1,7 +1,5 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Listen, Method, Prop, State, Watch } from '@stencil/core';
-import { debounceEvent, getComponentIndex, isMobile, isOutOfViewport } from '../../../utils/utils';
-import { Components } from '../../../components';
-import GoatMenu = Components.GoatMenu;
+import { debounceEvent, getComponentIndex, DRAG_EVENT_TYPES, DRAG_STOP_EVENT_TYPES, throttle } from '../../../utils/utils';
 
 /**
  * @name Slider
@@ -23,35 +21,14 @@ export class Slider implements ComponentInterface, InputComponentInterface {
    */
   @Prop() name: string = `goat-input-${this.gid}`;
 
-  /**
-   * The input field placeholder.
-   */
-  @Prop() placeholder: string;
+  @Prop() min: number = 0;
+
+  @Prop() max: number = 100;
 
   /**
    * The input field value.
    */
-  @Prop({ mutable: true }) value?: string | number = '';
-
-  @Prop() multiple: boolean = false;
-
-  /**
-   * The select input size.
-   * Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
-   */
-  @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' = 'md';
-
-  /**
-   * Search type
-   * Possible values are `"none"`, `"initial"`, `"contains"`, `"managed"`. Defaults to `"none"`.
-   */
-  @Prop() search: 'none' | 'initial' | 'contains' | 'managed' = 'none';
-
-  /**
-   * The input state.
-   * Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
-   */
-  @Prop({ reflect: true }) state: 'success' | 'error' | 'warning' | 'default' = 'default';
+  @Prop({ mutable: true }) value?: number = 0;
 
   /**
    * If true, required icon is show. Defaults to `false`.
@@ -68,26 +45,7 @@ export class Slider implements ComponentInterface, InputComponentInterface {
    */
   @Prop({ reflect: true }) readonly: boolean = false;
 
-  @Prop() showLoader: boolean = false;
-
-  @Prop({ mutable: true }) isOpen: boolean = false;
-
   @Prop({ reflect: true, mutable: true }) configAria: any = {};
-
-  /**
-   *  [{
-   *    label: 'Shivaji Varma',
-   *    value: 'shivaji-varma'
-   *  }]
-   */
-  @Prop() items: any = [];
-
-  @Prop() positions: string = 'bottom-right,top-right,bottom-left,top-left';
-
-  /**
-   * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
-   */
-  @Prop() clearable = false;
 
   /**
    * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
@@ -98,16 +56,7 @@ export class Slider implements ComponentInterface, InputComponentInterface {
    * Emitted when the value has changed.
    */
   @Event({ eventName: 'goat:change' }) goatChange: EventEmitter;
-
-  /**
-   * Emitted when the action button is clicked..
-   */
-  @Event({ eventName: 'goat:action-click' }) p4ActionClick: EventEmitter;
-
-  /**
-   * Emitted when a keyboard input occurred.
-   */
-  @Event({ eventName: 'goat:search' }) goatSearch: EventEmitter;
+  @Event({ eventName: 'goat:input' }) goatInput: EventEmitter;
 
   /**
    * Sets focus on the native `input` in `ion-input`. Use this method instead of the global
@@ -131,7 +80,8 @@ export class Slider implements ComponentInterface, InputComponentInterface {
 
   @Watch('debounce')
   protected debounceChanged() {
-    this.goatSearch = debounceEvent(this.goatSearch, this.debounce);
+    this.goatChange = debounceEvent(this.goatChange, this.debounce);
+    this.goatInput = debounceEvent(this.goatInput, this.debounce);
   }
 
   @Listen('click', { target: 'window' })
@@ -140,12 +90,6 @@ export class Slider implements ComponentInterface, InputComponentInterface {
     for (const elm of path) {
       if (elm == this.elm) return;
     }
-    this.isOpen = false;
-  }
-
-  @Listen('goat:menu-item-click')
-  menuItemClick(evt) {
-    this.selectHandler(evt.detail.value);
   }
 
   @Method()
@@ -155,58 +99,112 @@ export class Slider implements ComponentInterface, InputComponentInterface {
 
   @Element() elm!: HTMLElement;
   private nativeInput?: HTMLInputElement;
-  private dropdownContentElm?: HTMLElement;
-  private menuElm?: GoatMenu;
-  private dropdownContentHeight: any;
-  private dropdownContentWidth: any;
   @State() hasFocus = false;
-  @State() searchString: string = '';
-  @State() startSlotHasContent = false;
-  @State() endSlotHasContent = false;
-  @State() position: string;
+  @State() percentageValue = 0;
+  @State() needsOnRelease = false;
   private displayElement?: HTMLElement;
 
-  @Listen('goat:tag-dismiss')
-  tagDismissClick(evt) {
-    this.removeItem(evt.detail.value);
+  private hasValue(): boolean {
+    return (this.value || '').toString().length > 0;
   }
 
-  private getValues() {
-    if (this.value) return this.value.toString().split(',');
-    else return [];
-  }
-
-  private addItem(selectItemValue) {
-    let value = this.getValues();
-    if (!value.includes(selectItemValue)) {
-      if (!this.multiple) value = [];
-      value.push(selectItemValue);
-      this.value = value.join(',');
-      this.goatChange.emit({ value: this.value, newItem: this.getItemByValue(selectItemValue) });
-    }
-  }
-
-  private removeItem(selectItemValue) {
-    let value = this.getValues();
-    if (value.includes(selectItemValue)) {
-      value = value.filter(item => item !== selectItemValue);
-      this.value = value.join(',');
-      this.goatChange.emit({ value: this.value, removedItem: this.getItemByValue(selectItemValue) });
-    }
-  }
-
-  private selectHandler = selectItemValue => {
-    if (!this.disabled && !this.readonly) {
-      this.addItem(selectItemValue);
-    }
-    this.closeList();
+  computePercentageValue = () => {
+    this.percentageValue = (this.value / (this.max - this.min)) * 100;
   };
 
-  private clearInput = () => {
-    if (!this.disabled && !this.readonly) {
-      this.removeItem(this.value);
+  componentWillLoad() {
+    this.elm.getAttributeNames().forEach((name: string) => {
+      if (name.includes('aria-')) {
+        this.configAria[name] = this.elm.getAttribute(name);
+        this.elm.removeAttribute(name);
+      }
+    });
+    this.computePercentageValue();
+  }
+
+  onDragStart = event => {
+    // Do nothing if component is disabled
+    if (this.disabled || this.readonly) {
+      return;
     }
+
+    // Register drag stop handlers
+    DRAG_STOP_EVENT_TYPES.forEach(element => {
+      this.elm?.ownerDocument.addEventListener(element, this.onDragStop);
+    });
+
+    // Register drag handlers
+    DRAG_EVENT_TYPES.forEach(element => {
+      this.elm?.ownerDocument.addEventListener(element, this.onDrag);
+    });
+
+    this.hasFocus = true;
+
+    //@ts-ignore
+    this.onDrag(event);
   };
+
+  /**
+   * Unregisters "drag" and "drag stop" event handlers and calls sets the flag
+   * indicating that the `onRelease` callback should be called.
+   */
+  onDragStop = () => {
+    // Do nothing if component is disabled
+    if (this.disabled || this.readonly) {
+      return;
+    }
+
+    // Remove drag stop handlers
+    DRAG_STOP_EVENT_TYPES.forEach(element => {
+      this.elm?.ownerDocument.removeEventListener(element, this.onDragStop);
+    });
+
+    // Remove drag handlers
+    DRAG_EVENT_TYPES.forEach(element => {
+      this.elm?.ownerDocument.removeEventListener(element, this.onDrag);
+    });
+
+    this.goatChange.emit({
+      value: this.value,
+    });
+  };
+
+  _onDrag = event => {
+    // Do nothing if component is disabled
+    if (this.disabled || this.readonly) {
+      return;
+    }
+
+    this.updateValue(event.clientX);
+  };
+
+  updateValue = current => {
+    const start = this.slideElement.getBoundingClientRect().left;
+    const total = this.slideElement.getBoundingClientRect().width;
+    this.value = parseInt(String(((current - start) / total) * 100));
+    if (this.value > this.max) {
+      this.value = this.max;
+    } else if (this.value < this.min) {
+      this.value = this.min;
+    }
+
+    this.computePercentageValue();
+
+    this.goatInput.emit({
+      value: this.value,
+    });
+  };
+
+  onDrag = throttle(this._onDrag, 1, {
+    leading: true,
+    trailing: false,
+  });
+
+  connectedCallback() {
+    this.debounceChanged();
+  }
+
+  private slideElement?: HTMLElement;
 
   private blurHandler = () => {
     this.hasFocus = false;
@@ -216,293 +214,37 @@ export class Slider implements ComponentInterface, InputComponentInterface {
     this.hasFocus = true;
   };
 
-  private closeList = () => {
-    if (!this.disabled && !this.readonly && this.isOpen) {
-      this.isOpen = false;
-      setTimeout(() => this.setFocus(), 100);
-    }
-  };
-
-  private openList = () => {
-    if (!this.disabled && !this.readonly && !this.isOpen) {
-      this.isOpen = true;
-      if (this.search !== 'none') {
-        this.searchString = '';
-        setTimeout(() => {
-          const dropdownContent = this.dropdownContentElm;
-          this.dropdownContentHeight = dropdownContent.getBoundingClientRect().height;
-          this.dropdownContentWidth = dropdownContent.getBoundingClientRect().width;
-          this.fixPosition();
-          this.nativeInput.focus();
-        }, 100);
-      } else {
-        setTimeout(() => {
-          const dropdownContent = this.dropdownContentElm;
-          this.dropdownContentHeight = dropdownContent.getBoundingClientRect().height;
-          this.dropdownContentWidth = dropdownContent.getBoundingClientRect().width;
-          this.fixPosition();
-        }, 100);
-      }
-    }
-  };
-
-  private toggleList = () => {
-    if (this.isOpen) this.closeList();
-    else this.openList();
-  };
-
-  private keyDownHandler = evt => {
-    if (evt.key === 'Enter') {
-      evt.preventDefault();
-      this.toggleList();
-    } else if (evt.key === 'ArrowDown') {
-      if (this.isOpen) {
-        console.log('inside select');
-        evt.preventDefault();
-        this.menuElm.setFocus();
-      }
-    } else if (evt.key === 'ArrowUp') {
-      if (this.isOpen) {
-        evt.preventDefault();
-        this.menuElm.setFocus(); // focus on previous item
-      }
-    }
-  };
-
-  private onInput = (ev: Event) => {
-    const input = ev.target as HTMLInputElement;
-    this.searchString = input.value || '';
-    this.goatSearch.emit({ value: this.searchString });
-  };
-
-  private hasValue(): boolean {
-    return (this.value || '').toString().length > 0;
-  }
-
-  private getItemByValue(value) {
-    if (this.items) {
-      return this.items.find(item => {
-        return item.value == value;
-      });
-    }
-  }
-
-  private getDisplayValue() {
-    if (!this.multiple) {
-      if (this.items) {
-        const item = this.getItemByValue(this.value);
-        if (item) {
-          return item.label;
-        }
-      }
-      if (!this.disabled && !this.readonly) {
-        return this.placeholder;
-      } else {
-        return <span>&nbsp;</span>;
-      }
-    } else {
-      if (!this.value && !this.disabled && !this.readonly) {
-        return this.placeholder;
-      } else {
-        return <span>&nbsp;</span>;
-      }
-    }
-  }
-
-  componentWillLoad() {
-    if (this.positions) this.position = this.positions.split(',')[0];
-    this.elm.getAttributeNames().forEach((name: string) => {
-      if (name.includes('aria-')) {
-        this.configAria[name] = this.elm.getAttribute(name);
-        this.elm.removeAttribute(name);
-      }
-    });
-    this.startSlotHasContent = !!this.elm.querySelector('[slot="start"]');
-    this.endSlotHasContent = !!this.elm.querySelector('[slot="end"]');
-  }
-
-  @Listen('scroll', { target: 'window' })
-  fixPosition() {
-    if (this.isOpen && this.dropdownContentHeight && this.dropdownContentWidth) {
-      if (isMobile()) {
-        this.position = 'center';
-        return;
-      }
-
-      const positions = this.positions.split(',');
-      for (let i = 0; i < positions.length; i++) {
-        const dropdownButtonRect: any = this.elm.getBoundingClientRect();
-        const dropdownContentRect: any = {};
-        if (positions[i] === 'bottom-right') {
-          dropdownContentRect.top = dropdownButtonRect.top + dropdownButtonRect.height;
-          dropdownContentRect.bottom = dropdownContentRect.top + this.dropdownContentHeight;
-          dropdownContentRect.left = dropdownButtonRect.left;
-          dropdownContentRect.right = dropdownButtonRect.left + this.dropdownContentWidth;
-        } else if (positions[i] === 'top-right') {
-          dropdownContentRect.top = dropdownButtonRect.top - this.dropdownContentHeight;
-          dropdownContentRect.bottom = dropdownButtonRect.top;
-          dropdownContentRect.left = dropdownButtonRect.left;
-          dropdownContentRect.right = dropdownButtonRect.left + this.dropdownContentWidth;
-        } else if (positions[i] === 'bottom-left') {
-          dropdownContentRect.top = dropdownButtonRect.top + dropdownButtonRect.height;
-          dropdownContentRect.bottom = dropdownContentRect.top + this.dropdownContentHeight;
-          dropdownContentRect.left = dropdownButtonRect.left - this.dropdownContentWidth;
-          dropdownContentRect.right = dropdownButtonRect.left;
-        } else if (positions[i] === 'top-left') {
-          dropdownContentRect.top = dropdownButtonRect.top - this.dropdownContentHeight;
-          dropdownContentRect.bottom = dropdownButtonRect.top;
-          dropdownContentRect.left = dropdownButtonRect.left - this.dropdownContentWidth;
-          dropdownContentRect.right = dropdownButtonRect.left;
-        }
-        const isOut = isOutOfViewport(dropdownContentRect);
-        if (!isOut.any) {
-          this.position = positions[i];
-          break;
-        }
-      }
-    }
-  }
-
-  connectedCallback() {
-    this.debounceChanged();
-  }
-
-  renderMultiSelectValues() {
-    const values = this.getValues();
-    if (this.multiple && values.length) {
-      return (
-        <div class="multi-select-values">
-          {values.map(value => {
-            const item = this.getItemByValue(value);
-            if (item) {
-              return (
-                <goat-tag filter class="multi-select-value" value={item.value}>
-                  {item.label}
-                </goat-tag>
-              );
-            }
-          })}
-        </div>
-      );
-    }
-  }
-
   render() {
     return (
-      <Host has-value={this.hasValue()} has-focus={this.hasFocus} is-open={this.isOpen} position={this.position}>
-        <div class={{ 'dropdown': true, 'select': true, [this.position]: true, 'is-open': this.isOpen }}>
-          <div
-            class={{
-              'input-container': true,
-              [`search-${this.search}`]: true,
-              'has-focus': this.hasFocus,
-              'disabled': this.disabled,
-              'readonly': this.readonly,
-              'has-value': this.hasValue(),
-              'start-slot-has-content': this.startSlotHasContent,
-              'end-slot-has-content': this.endSlotHasContent,
-            }}
-          >
-            <div class="slot-container start">
-              <slot name="start" />
-            </div>
-
-            {this.renderMultiSelectValues()}
-
-            {(() => {
-              if (this.search !== 'none' && this.isOpen) {
-                return (
-                  <input
-                    class="input input-native"
-                    ref={input => (this.nativeInput = input)}
-                    type="text"
-                    name={this.name}
-                    value={this.searchString}
-                    placeholder={this.placeholder}
-                    onBlur={this.blurHandler}
-                    onFocus={this.focusHandler}
-                    onInput={this.onInput}
-                    onKeyDown={this.keyDownHandler}
-                    {...this.configAria}
-                  />
-                );
-              } else {
-                return (
-                  <div
-                    class="input display-value"
-                    tabindex="0"
-                    ref={input => (this.displayElement = input)}
-                    aria-disabled={this.disabled ? 'true' : null}
-                    onFocus={this.focusHandler}
-                    onBlur={this.blurHandler}
-                    onKeyDown={this.keyDownHandler}
-                    onClick={evt => {
-                      evt.preventDefault();
-                      this.toggleList();
-                    }}
-                    {...this.configAria}
-                  >
-                    {this.getDisplayValue()}
-                  </div>
-                );
-              }
-            })()}
-
-            {this.clearable && !this.multiple && this.hasValue() && (
-              <goat-icon class="clear input-action" name="x-circle-fill" size={this.size} onClick={this.clearInput} role="button" />
-            )}
-
-            <div class="slot-container end">
-              <slot name="end" />
-            </div>
-
-            {this.getModeIcon()}
+      <Host has-value={this.hasValue()} has-focus={this.hasFocus}>
+        <div class="slider-container">
+          <div class="slider-range-label">
+            <span>{this.min}</span>
           </div>
-          <div class="dropdown-content" ref={elm => (this.dropdownContentElm = elm)}>
-            {this.isOpen && this.renderDropdownList()}
+          <div class={{ 'slider': true, 'has-focus': this.hasFocus }} ref={elm => (this.slideElement = elm)} onMouseDown={this.onDragStart} onTouchStart={this.onDragStart}>
+            <div class="slider__thumb" onBlur={this.blurHandler} onFocus={this.focusHandler} tabindex={0} style={{ left: `${this.percentageValue}%` }}></div>
+            <div class="slider__track"></div>
+            <div class="slider__track--filled" style={{ width: `${this.percentageValue}%` }}></div>
+          </div>
+          <div class="slider-range-label">
+            <span>{this.max}</span>
+          </div>
+          <div class="slide-input">
+            <goat-input
+              type="number"
+              value={this.value}
+              size="sm"
+              hide-actions={true}
+              onGoat:change={e => {
+                e.stopPropagation();
+              }}
+              onGoat:input={e => {
+                e.stopPropagation();
+              }}
+            ></goat-input>
           </div>
         </div>
       </Host>
     );
-  }
-
-  private getModeIcon() {
-    if (this.showLoader) {
-      return <goat-spinner class="input-action rainbow" />;
-    }
-    if (!this.disabled && !this.readonly) return <goat-icon name="chevron-down" size={this.size} class="input-action chevron-down" role="button" onClick={this.toggleList} />;
-  }
-
-  private renderDropdownList() {
-    if (this.search === 'managed' && !this.items.length) {
-      return (
-        <goat-menu class="menu" ref={el => (this.menuElm = el)}>
-          <div class="start-search">
-            <goat-icon name="search" size={this.size} />
-            <goat-text shade="secondary">Start typing to perform search</goat-text>
-          </div>
-        </goat-menu>
-      );
-    }
-
-    if (this.items) {
-      const filteredItems = this.filterItems();
-      return (
-        <goat-menu class="menu" empty={filteredItems.length == 0} ref={el => (this.menuElm = el)}>
-          {(() => {
-            return filteredItems.map(item => {
-              return <goat-menu-item value={item.value}>{item.label || item.value}</goat-menu-item>;
-            });
-          })()}
-        </goat-menu>
-      );
-    }
-  }
-
-  private filterItems() {
-    if (this.search === 'managed') return this.items;
-    return this.items.filter(item => {
-      return !this.searchString || item.label.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase());
-    });
   }
 }

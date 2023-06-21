@@ -1,5 +1,15 @@
 import { EventEmitter } from '@stencil/core';
 
+/**
+ * Event types that trigger "drags".
+ */
+export const DRAG_EVENT_TYPES = new Set(['mousemove', 'touchmove']);
+
+/**
+ * Event types that trigger a "drag" to stop.
+ */
+export const DRAG_STOP_EVENT_TYPES = new Set(['mouseup', 'touchend', 'touchcancel']);
+
 export const getComponentIndex = (() => {
   let counter = 1;
   return (function() {
@@ -83,6 +93,29 @@ export function isEventNotTriggerByElement(event, element) {
       return true;
   }
   return false;
+}
+
+export function throttle(fn, threshhold, scope) {
+  threshhold || (threshhold = 250);
+  var last,
+    deferTimer;
+  return function () {
+    var context = scope || this;
+
+    var now = +new Date,
+      args = arguments;
+    if (last && now < last + threshhold) {
+      // hold on to it
+      clearTimeout(deferTimer);
+      deferTimer = setTimeout(function () {
+        last = now;
+        fn.apply(context, args);
+      }, threshhold);
+    } else {
+      last = now;
+      fn.apply(context, args);
+    }
+  };
 }
 
 export const debounceEvent = (event: EventEmitter, wait: number): EventEmitter => {

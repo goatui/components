@@ -38,10 +38,33 @@
   </goat-card-content>
 
   <goat-card-content>
-    {% GoatHighlighter language:"js" %}const $managed = document.getElementById('managed-selected'); $managed.items = []; $managed.addEventListener('goat:search', function(evt) {
-    $managed.showLoader = true; fakeServerCall(evt.detail.value, function(items) { $managed.items = items; $managed.showLoader = false; }); });
-    $managed.addEventListener('goat:change', function(evt) { myConsole.log(JSON.stringify(evt.detail, null, 4)); }); let currentOptionNumber = 2; function
-    fakeServerCall(searchString, callback) { setTimeout(() => { const result = []; for (let i = 0; i < 8; i++, currentOptionNumber++) { result.push({ label: searchString + " " +
-    currentOptionNumber, value: currentOptionNumber }); } callback(result); }, 1000); } {% endGoatHighlighter %}
+    {% GoatHighlighter language:"js" %}
+const $managed = document.getElementById('managed-selected');
+$managed.items = [];
+$managed.addEventListener('goat:search', function (evt) {
+  $managed.showLoader = true;
+  fakeServerCall(evt.detail.value, function (items) {
+    $managed.items = items;
+    $managed.showLoader = false;
+  });
+});
+$managed.addEventListener('goat:change', function (evt) {
+  myConsole.log(JSON.stringify(evt.detail, null, 4));
+});
+
+let currentOptionNumber = 2;
+function fakeServerCall(searchString, callback) {
+  setTimeout(() => {
+    const result = [];
+    for (let i = 0; i < 8; i++, currentOptionNumber++) {
+      result.push({
+        label: searchString + " " + currentOptionNumber,
+        value: currentOptionNumber,
+      });
+    }
+    callback(result);
+  }, 1000);
+}
+    {% endGoatHighlighter %}
   </goat-card-content>
 </goat-card>

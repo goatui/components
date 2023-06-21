@@ -14,6 +14,7 @@
 | `configAria`   | `config-aria`  |                                                                                                                                    | `any`                                                  | `{}`                       |
 | `debounce`     | `debounce`     | Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.                           | `number`                                               | `300`                      |
 | `disabled`     | `disabled`     | If true, the user cannot interact with the button. Defaults to `false`.                                                            | `boolean`                                              | `false`                    |
+| `hideActions`  | `hide-actions` |                                                                                                                                    | `boolean`                                              | `false`                    |
 | `name`         | `name`         | The input field name.                                                                                                              | `string`                                               | ``goat-input-${this.gid}`` |
 | `placeholder`  | `placeholder`  | The input field placeholder.                                                                                                       | `string`                                               | `undefined`                |
 | `readonly`     | `readonly`     | If true, the user read the value cannot modify it. Defaults to `false`.                                                            | `boolean`                                              | `false`                    |
@@ -71,14 +72,23 @@ Type: `Promise<void>`
 
 ## Dependencies
 
+### Used by
+
+ - [goat-slider](../slider)
+
 ### Depends on
 
+- [goat-button](../../general/button)
 - [goat-icon](../../general/icon)
 
 ### Graph
 ```mermaid
 graph TD;
+  goat-input --> goat-button
   goat-input --> goat-icon
+  goat-button --> goat-icon
+  goat-button --> goat-spinner
+  goat-slider --> goat-input
   style goat-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

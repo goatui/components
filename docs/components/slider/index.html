@@ -1,25 +1,17 @@
 ---
 layout: component
-title: Select
+title: Slider
+description: Sliders allow users to make selections from a range of values.
 sections:
-  - title: Basic Select
-    source: sections/basic-select.html
-  - title: Search
-    source: sections/search.html
-  - title: Managed search
-    source: sections/managed.html
-  - title: Multi Select
-    source: sections/multi-select.html
+  - title: Usage
+    source: sections/usage.html
 ---
 
-<div class="row pt-3">
-  {% include section-nav.html %}
-
+<div class="usage-tab">
   <!-- Content -->
   <div class="component-content">
     <div style="padding-bottom: var(--spacing-6)">
-      <goat-text type="heading" size="md">{{ page.title }}</goat-text>
-      <goat-text type="paragraph">Use {{site.title}}’s custom input styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</goat-text>
+      <goat-text type="paragraph">{{page.description}}</goat-text>
     </div>
 
     {% for section in page.sections %}
@@ -31,4 +23,6 @@ sections:
     {% endfor %}
   </div>
   <!-- End Content -->
+
+  {% include section-nav.html %}
 </div>

@@ -20,7 +20,6 @@
  - [goat-code-editor](../../data-entry/code-editor)
  - [goat-code-highlighter](../../data-display/code-highlighter)
  - [goat-select](../../data-entry/select)
- - [goat-slider](../../data-entry/slider)
  - [goat-tab](../../navigation/tabs/tab)
 
 ### Graph
@@ -30,7 +29,6 @@ graph TD;
   goat-code-editor --> goat-spinner
   goat-code-highlighter --> goat-spinner
   goat-select --> goat-spinner
-  goat-slider --> goat-spinner
   goat-tab --> goat-spinner
   style goat-spinner fill:#f9f,stroke:#333,stroke-width:4px
 ```

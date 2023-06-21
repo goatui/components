@@ -1,18 +1,5 @@
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Event,
-  EventEmitter,
-  h,
-  Host,
-  Method,
-  Prop,
-  State,
-  Watch,
-} from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
 import { debounceEvent, getComponentIndex } from '../../../utils/utils';
-
 
 /**
  * @name Input
@@ -27,7 +14,6 @@ import { debounceEvent, getComponentIndex } from '../../../utils/utils';
   shadow: true,
 })
 export class Input implements ComponentInterface, InputComponentInterface {
-
   gid: string = getComponentIndex();
 
   /**
@@ -61,17 +47,19 @@ export class Input implements ComponentInterface, InputComponentInterface {
    * The type of control to display.
    * Possible values are: `"text"`, `"password"`, `"number"`, `"email"`, `"tel"`. Defaults to `"text"`.
    */
-  @Prop() type: ('text' | 'password' | 'number' | 'email' | 'tel') = 'text';
+  @Prop() type: 'text' | 'password' | 'number' | 'email' | 'tel' = 'text';
 
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
   @Prop({ reflect: true }) disabled: boolean = false;
 
+  @Prop({ reflect: true }) hideActions: boolean = false;
+
   /**
    * If true, the user read the value cannot modify it. Defaults to `false`.
    */
-  @Prop({ reflect: true }) readonly : boolean = false;
+  @Prop({ reflect: true }) readonly: boolean = false;
 
   /**
    * If true, required icon is show. Defaults to `false`.
@@ -95,7 +83,6 @@ export class Input implements ComponentInterface, InputComponentInterface {
 
   @Prop({ reflect: true, mutable: true }) configAria: any = {};
 
-
   /**
    * Emitted when a keyboard input occurred.
    */
@@ -116,7 +103,6 @@ export class Input implements ComponentInterface, InputComponentInterface {
    */
   @Event({ eventName: 'goat:focus' }) goatFocus: EventEmitter;
 
-
   @Element() elm!: HTMLElement;
   private nativeInput?: HTMLInputElement;
   private tabindex?: string | number;
@@ -124,6 +110,7 @@ export class Input implements ComponentInterface, InputComponentInterface {
   @State() startSlotHasContent = false;
   @State() endSlotHasContent = false;
   @State() hasFocus = false;
+  @State() passwordVisible = false;
 
   private inputHandler = (ev: Event) => {
     const input = ev.target as HTMLInputElement | null;
@@ -187,7 +174,6 @@ export class Input implements ComponentInterface, InputComponentInterface {
     }
   }
 
-
   /**
    * Update the native input element when the value changes
    */
@@ -195,11 +181,9 @@ export class Input implements ComponentInterface, InputComponentInterface {
   protected valueChanged() {
     let value = this.value;
     if (this.type === 'number') {
-      if (value)
-        this.value = JSON.parse(value + '');
+      if (value) this.value = JSON.parse(value + '');
     }
   }
-
 
   @Watch('debounce')
   protected debounceChanged() {
@@ -225,7 +209,6 @@ export class Input implements ComponentInterface, InputComponentInterface {
     this.endSlotHasContent = !!this.elm.querySelector('[slot="end"]');
   }
 
-
   connectedCallback() {
     this.debounceChanged();
   }
@@ -238,29 +221,45 @@ export class Input implements ComponentInterface, InputComponentInterface {
     return this.getValue().length > 0;
   }
 
+  private decrease(ev) {
+    if (this.value === undefined || this.value === '') this.value = 0;
+    if (typeof this.value === 'number') {
+      this.value = (this.value || 0) - 1;
+      this.goatChange.emit(ev);
+    }
+  }
+
+  private increment(ev) {
+    if (this.value === undefined || this.value === '') this.value = 0;
+    if (typeof this.value === 'number') {
+      this.value = (this.value || 0) + 1;
+      this.goatChange.emit(ev);
+    }
+  }
 
   render() {
+    const type = this.type === 'password' && this.passwordVisible ? 'text' : this.type;
 
     return (
-      <Host has-focus={this.hasFocus}
-            has-value={this.hasValue()}>
-        <div class={{
-          'input-container': true,
-          'disabled': this.disabled,
-          'has-focus': this.hasFocus,
-          'start-slot-has-content': this.startSlotHasContent,
-          'end-slot-has-content': this.endSlotHasContent,
-        }}>
-
-          <div class='slot-container start'>
-            <slot name='start' />
+      <Host has-focus={this.hasFocus} has-value={this.hasValue()}>
+        <div
+          class={{
+            'input-container': true,
+            'disabled': this.disabled,
+            'has-focus': this.hasFocus,
+            'start-slot-has-content': this.startSlotHasContent,
+            'end-slot-has-content': this.endSlotHasContent,
+          }}
+        >
+          <div class="slot-container start">
+            <slot name="start" />
           </div>
 
           <input
-            class='input input-native'
+            class="input input-native"
             name={this.name}
-            ref={input => this.nativeInput = input}
-            type={this.type}
+            ref={input => (this.nativeInput = input)}
+            type={type}
             placeholder={this.placeholder}
             autocomplete={this.autocomplete}
             value={this.value}
@@ -272,20 +271,31 @@ export class Input implements ComponentInterface, InputComponentInterface {
             onBlur={this.blurHandler}
             onFocus={this.focusHandler}
             disabled={this.disabled}
-            {...this.configAria} />
+            {...this.configAria}
+          />
+
+          {this.type === 'password' && !this.hideActions && <goat-button class="color-secondary" icon={this.passwordVisible ? 'eye-slash' : 'eye'} variant="ghost" size="none" onGoat:click={() => {
+            this.passwordVisible = !this.passwordVisible;
+          }}></goat-button>}
+
+          {this.type === 'number' && !this.hideActions && <goat-button class="color-secondary" icon="dash" variant="ghost" size="none" onGoat:click={(evt) => {
+            this.decrease(evt);
+          }}></goat-button>}
+
+          {this.type === 'number' && !this.hideActions && <goat-button class="color-secondary" icon="plus" variant="ghost" size="none" onGoat:click={(evt) => {
+            this.increment(evt);
+          }}></goat-button>}
 
 
           {this.clearable && this.hasValue() &&
-            <goat-icon class='clear inherit input-action' name='x-circle-fill' size={this.size} onClick={this.clearInput} role="button" />}
+            <goat-icon
+              class="clear inherit input-action" name="x-circle-fill" size={this.size} onClick={this.clearInput} role="button" />}
 
-          <div class='slot-container end'>
-            <slot name='end' />
+          <div class="slot-container end">
+            <slot name="end" />
           </div>
-
-
         </div>
       </Host>
     );
   }
-
 }

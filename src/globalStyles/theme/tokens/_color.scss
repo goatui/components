@@ -290,7 +290,7 @@ Container background on $layer-01;
 Subtle border;
 Tertiary background
  */
-@include defineVariable(--layer-accent-01, getColor(neutral, 20), getColor(neutral, 60));
+@include defineVariable(--layer-accent-01, getColor(neutral, 20), getColor(neutral, 80));
 
 
 @include defineVariable(--border-subtle-00, getColor(gray, 20), getColor(neutral, 80));
@@ -299,6 +299,7 @@ Tertiary background
 @include defineVariable(--border-subtle-03, getColor(gray, 20), getColor(neutral, 60));
 
 @include defineVariable(--ui-04, getColor(neutral, 50), getColor(neutral, 10));
+@include defineVariable(--border-inverse, getColor(neutral, 100), getColor(neutral, 10));
 
 @include defineVariable(--background-inverse, getColor(neutral, 80), getColor(neutral, 10));
 

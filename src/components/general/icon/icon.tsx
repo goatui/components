@@ -1,6 +1,7 @@
 import { Component, h, Host, Prop, State, Watch } from '@stencil/core';
 import { fetchIcon } from './datasource';
 
+
 /**
  * @name Icon
  * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
@@ -53,7 +54,6 @@ export class Icon {
       size = this.size;
     return size;
   }
-
 
   render() {
     const icon = this.svg.replace(/width="([^"]+)"/, 'width="' + this.getSize() + '"').replace(/height="([^"]+)"/, 'height="' + this.getSize() + '"');

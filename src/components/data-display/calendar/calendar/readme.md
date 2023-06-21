@@ -43,8 +43,8 @@ graph TD;
   goat-calendar --> goat-calendar-month-view
   goat-button --> goat-icon
   goat-button --> goat-spinner
-  goat-select --> goat-tag
   goat-select --> goat-icon
+  goat-select --> goat-tag
   goat-select --> goat-spinner
   goat-select --> goat-menu
   goat-select --> goat-text

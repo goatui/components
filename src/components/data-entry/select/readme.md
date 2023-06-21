@@ -14,7 +14,7 @@
 | `debounce`    | `debounce`    | Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.       | `number`                                         | `300`                                           |
 | `disabled`    | `disabled`    | If true, the user cannot interact with the button. Defaults to `false`.                                        | `boolean`                                        | `false`                                         |
 | `isOpen`      | `is-open`     |                                                                                                                | `boolean`                                        | `false`                                         |
-| `items`       | `items`       | [{   label: 'Shivaji Varma',   value: 'shivaji-varma' }]                                                       | `any`                                            | `[]`                                            |
+| `items`       | `items`       | [{   label: 'Shivaji Varma',   value: 'shivaji-varma',   icon: 'person' }]                                     | `any`                                            | `[]`                                            |
 | `multiple`    | `multiple`    |                                                                                                                | `boolean`                                        | `false`                                         |
 | `name`        | `name`        | The input field name.                                                                                          | `string`                                         | ``goat-input-${this.gid}``                      |
 | `placeholder` | `placeholder` | The input field placeholder.                                                                                   | `string`                                         | `undefined`                                     |
@@ -81,8 +81,8 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [goat-tag](../../data-display/tag)
 - [goat-icon](../../general/icon)
+- [goat-tag](../../data-display/tag)
 - [goat-spinner](../../feedback/spinner)
 - [goat-menu](../../general/menu/menu)
 - [goat-text](../../general/text)
@@ -91,8 +91,8 @@ Type: `Promise<void>`
 ### Graph
 ```mermaid
 graph TD;
-  goat-select --> goat-tag
   goat-select --> goat-icon
+  goat-select --> goat-tag
   goat-select --> goat-spinner
   goat-select --> goat-menu
   goat-select --> goat-text

@@ -371,6 +371,7 @@ Secondary link color for lower contrast backgrounds
   --border-subtle-02: #e0e0e0;
   --border-subtle-03: #e0e0e0;
   --ui-04: var(--color-gray-50, #8d8d8d);
+  --border-inverse: var(--color-gray-100, #161616);
   --background-inverse: var(--color-gray-80, #393939);
   --layer-hover-01: var(--color-gray-10, #f4f4f4);
   --text-primary: var(--color-gray-100, #161616);
@@ -529,6 +530,7 @@ html[data-theme=dark] {
   --border-subtle-02: var(--color-gray-70, #525252);
   --border-subtle-03: var(--color-gray-60, #6f6f6f);
   --ui-04: var(--color-gray-10, #f4f4f4);
+  --border-inverse: var(--color-gray-10, #f4f4f4);
   --background-inverse: var(--color-gray-10, #f4f4f4);
   --layer-hover-01: var(--color-gray-90, #262626);
   --text-primary: var(--color-gray-10, #f4f4f4);

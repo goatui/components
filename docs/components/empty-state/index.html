@@ -1,21 +1,18 @@
 ---
 layout: component
 title: Empty State
+description: Empty State is a component that displays a message to the user.
 sections:
   - title: Full Page
     source: sections/full-page.html
   - title: Menu
     source: sections/menu.html
 ---
-
-<div class="row pt-3">
-  {% include section-nav.html %}
-
+<div class="usage-tab">
   <!-- Content -->
   <div class="component-content">
     <div style="padding-bottom: var(--spacing-6)">
-      <goat-text type="heading" size="md">{{ page.title }}</goat-text>
-      <goat-text type="paragraph">A divider can used to segment content vertically or horizontally. </goat-text>
+      <goat-text type="paragraph">{{page.description}}</goat-text>
     </div>
 
     {% for section in page.sections %}
@@ -27,4 +24,6 @@ sections:
     {% endfor %}
   </div>
   <!-- End Content -->
+
+  {% include section-nav.html %}
 </div>

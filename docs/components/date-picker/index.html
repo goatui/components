@@ -12,16 +12,11 @@ sections:
     source: sections/events.html
 ---
 
-<div class="row pt-3">
-  {% include section-nav.html %}
-
+<div class="usage-tab">
   <!-- Content -->
   <div class="component-content">
-    <goat-tag class="color-red">Work in progress</goat-tag>
-
     <div style="padding-bottom: var(--spacing-6)">
-      <goat-text type="heading" size="md">{{ page.title }}</goat-text>
-      <goat-text type="paragraph">Use {{site.title}}’s custom input styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</goat-text>
+      <goat-text type="paragraph">{{page.description}}</goat-text>
     </div>
 
     {% for section in page.sections %}
@@ -33,4 +28,7 @@ sections:
     {% endfor %}
   </div>
   <!-- End Content -->
+
+  {% include section-nav.html %}
 </div>
+
