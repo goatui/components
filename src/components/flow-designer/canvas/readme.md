@@ -7,12 +7,11 @@
 
 ## Properties
 
-| Property   | Attribute   | Description | Type     | Default     |
-| ---------- | ----------- | ----------- | -------- | ----------- |
-| `lines`    | --          |             | `any[]`  | `[]`        |
-| `padding`  | `padding`   |             | `number` | `2`         |
-| `unitSize` | `unit-size` |             | `number` | `16`        |
-| `viewbox`  | `viewbox`   |             | `string` | `undefined` |
+| Property  | Attribute | Description | Type     | Default     |
+| --------- | --------- | ----------- | -------- | ----------- |
+| `padding` | `padding` |             | `number` | `2`         |
+| `shapes`  | --        |             | `any[]`  | `[]`        |
+| `viewbox` | `viewbox` |             | `string` | `undefined` |
 
 
 ## Dependencies

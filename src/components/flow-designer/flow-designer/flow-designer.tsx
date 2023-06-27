@@ -1,7 +1,6 @@
 import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core';
 import { loadScript } from '../../../utils/utils';
 
-
 function PX(unit: number) {
   return unit * 16;
 }
@@ -17,7 +16,6 @@ function PX(unit: number) {
   shadow: true,
 })
 export class FlowDesigner {
-
   @Element() elm!: HTMLElement;
 
   @Prop() blockSize: number = 16;
@@ -33,7 +31,6 @@ export class FlowDesigner {
   private scrollTop: number;
 
   private nativeScrollElm?: HTMLElement;
-  private canvasElm?: HTMLElement;
 
   @State() activityHeight: number = 10;
   @State() activityWidth: number = 5;
@@ -48,20 +45,25 @@ export class FlowDesigner {
     if (!window['SVG']) {
       await loadScript(`https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.1.2/svg.min.js`);
     }
-    this.lines = [{
-      start: { x: 0, y: 0},
-      path: [{x:1, y:0}, {x:1, y:2}, {x:14, y:20}]
-    }/*, {
+    this.lines = [
+      {
+        path: [
+          { x: 0, y: 0 },
+          { x: 1, y: 0 },
+          { x: 1, y: 2 },
+          { x: 14, y: 20 },
+        ],
+      } /*, {
       start: { x: 1, y: 1, gap: 8, direction: 'down' },
       end: { x: 15, y: 15, direction: 'top' },
       type: 'shape_connector',
-    }*/];
+    }*/,
+    ];
   }
 
   componentDidLoad() {
-
     setTimeout(() => {
-      this.nativeScrollElm.scrollLeft = (this.canvasElm.clientWidth - this.nativeScrollElm.clientWidth) / 2;
+      // this.nativeScrollElm.scrollLeft = (this.canvasElm.clientWidth - this.nativeScrollElm.clientWidth) / 2;
       this.initializeCanvas();
     }, 100);
   }
@@ -76,18 +78,13 @@ export class FlowDesigner {
 
   initializeCanvas() {
     //  const draw = (window['SVG']()).addTo(this.canvasElm).viewbox(0, 0, this.getViewBoxWidth(), this.getViewBoxHeight());
-
     // this.createActivityNode(1, 1).addTo(draw);
-
   }
 
   createStartNode() {
     const radius = PX(this.blockSize / 2);
 
-    return (new window['SVG'].Circle())
-      .radius(radius).move(0, 0)
-      .attr({ fill: 'var(--color-success-100)' })
-      .stroke({ color: 'var(--color-success-500)' });
+    return new window['SVG'].Circle().radius(radius).move(0, 0).attr({ fill: 'var(--color-success-100)' }).stroke({ color: 'var(--color-success-500)' });
   }
 
   createActivityNode(x, y) {
@@ -96,52 +93,52 @@ export class FlowDesigner {
     /* var image = new window['SVG'].Image().load('https://cdn.img42.com/4b6f5e63ac50c95fe147052d8a4db676.jpeg');
      image.size(100, 100).move(20, 20);*/
 
-    const centerOfRect = (size / 2);
-    return (new window['SVG'].Rect())
+    const centerOfRect = size / 2;
+    return new window['SVG'].Rect()
       .addClass('activity')
       .size(size, size)
       .radius(15)
-      .move((((this.activityWidth - 1) / 2 + x) * PX(this.blockSize)) + centerOfRect, ((y) * PX(this.blockSize)) + centerOfRect);
+      .move(((this.activityWidth - 1) / 2 + x) * PX(this.blockSize) + centerOfRect, y * PX(this.blockSize) + centerOfRect);
   }
 
   render() {
-    return <Host disabled={this.disabled}>
-      <div class='flow-designer' ref={elm => this.nativeScrollElm = elm}>
-        <div class='canvas-wrapper'
-             onMouseDown={(event) => {
-               event.preventDefault();
-               this.isMouseDown = true;
-               this.startX = event.pageX - this.nativeScrollElm.offsetLeft;
-               this.startY = event.pageY - this.nativeScrollElm.offsetTop;
-               this.scrollLeft = this.nativeScrollElm.scrollLeft;
-               this.scrollTop = this.nativeScrollElm.scrollTop;
-             }}
-             onMouseLeave={(event) => {
-               event.preventDefault();
-               this.isMouseDown = false;
-             }}
-             onMouseMove={(event) => {
-               event.preventDefault();
-               if (!this.isMouseDown) return;
-               const x = event.pageX - this.nativeScrollElm.offsetLeft;
-               const walkX = (x - this.startX); //scroll-fast
-               this.nativeScrollElm.scrollLeft = this.scrollLeft - walkX;
-               const y = event.pageY - this.nativeScrollElm.offsetTop;
-               const walkY = (y - this.startY); //scroll-fast
-               this.nativeScrollElm.scrollTop = this.scrollTop - walkY;
-             }}>
+    return (
+      <Host disabled={this.disabled}>
+        <div class="flow-designer" ref={elm => (this.nativeScrollElm = elm)}>
+          <div
+            class="canvas-wrapper"
+            onMouseDown={event => {
+              event.preventDefault();
+              this.isMouseDown = true;
+              this.startX = event.pageX - this.nativeScrollElm.offsetLeft;
+              this.startY = event.pageY - this.nativeScrollElm.offsetTop;
+              this.scrollLeft = this.nativeScrollElm.scrollLeft;
+              this.scrollTop = this.nativeScrollElm.scrollTop;
+            }}
+            onMouseLeave={event => {
+              event.preventDefault();
+              this.isMouseDown = false;
+            }}
+            onMouseMove={event => {
+              event.preventDefault();
+              if (!this.isMouseDown) return;
+              const x = event.pageX - this.nativeScrollElm.offsetLeft;
+              const walkX = x - this.startX; //scroll-fast
+              this.nativeScrollElm.scrollLeft = this.scrollLeft - walkX;
+              const y = event.pageY - this.nativeScrollElm.offsetTop;
+              const walkY = y - this.startY; //scroll-fast
+              this.nativeScrollElm.scrollTop = this.scrollTop - walkY;
+            }}
+          >
+            <goat-canvas class="flow-lines" padding={0} viewbox={'0 0 144 144'} />
 
-          <goat-canvas ref={elm => this.canvasElm = elm} class='flow-lines' lines={this.lines} padding={0}
-                       viewbox={"0 0 144 144"}
-          />
-
-          <div class='flow-items'
-               style={{ 'width': `${this.getViewBoxWidth()}px`, 'height': `${this.getViewBoxHeight()}px` }} />
+            {/*<div class='flow-items'
+               style={{ 'width': `${this.getViewBoxWidth()}px`, 'height': `${this.getViewBoxHeight()}px` }} />*/}
+          </div>
         </div>
-      </div>
-    </Host>;
+      </Host>
+    );
   }
-
 
   /* renderCanvas() {
      console.log(this.canvasElm);
@@ -244,5 +241,4 @@ export class FlowDesigner {
        panel.minY = position.y;
      }
    }*/
-
 }

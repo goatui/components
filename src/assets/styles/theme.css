@@ -524,7 +524,7 @@ html[data-theme=dark] {
   --background: var(--color-gray-100, #161616);
   --layer-01: var(--color-gray-80, #393939);
   --layer-02: var(--color-gray-80, #393939);
-  --layer-accent-01: var(--color-gray-60, #6f6f6f);
+  --layer-accent-01: var(--color-gray-80, #393939);
   --border-subtle-00: var(--color-gray-30, #c6c6c6);
   --border-subtle-01: var(--color-gray-80, #393939);
   --border-subtle-02: var(--color-gray-70, #525252);

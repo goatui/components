@@ -8,17 +8,16 @@
 
 
 .flow-designer {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
+  /*height: 300px;
+  width: 300px;
+  overflow: auto;*/
 
   border-radius: var(--table-border-radius);
-  background-color: #{v(background-color)};
-  border: 1px solid #{v(border-color)};
+  background-color: v(background-color);
+  border: 1px solid v(border-color);
 }
 
 .canvas-wrapper {
-  @include font-style(text-md);
   position: relative;
   width: 100%;
   height: 100%;

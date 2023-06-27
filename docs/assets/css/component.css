@@ -86,6 +86,10 @@ pre[class*='language-'] {
   flex: 1;
 }
 
+.component-content goat-code-highlighter {
+
+}
+
 .section-nav {
   padding: 0 1rem;
   width: 360px;
@@ -118,10 +122,6 @@ pre[class*='language-'] {
   padding: 1rem;
 }
 
-.demo-html {
-  max-width: 1286px;
-}
-
 @media only screen and (max-width: 600px) {
   .sidenav {
     width: 100%;
@@ -140,6 +140,12 @@ pre[class*='language-'] {
   .sidenav.m-hide,
   .main-content.m-hide {
     display: none;
+  }
+  .section-nav {
+    display: none;
+  }
+  .component-content {
+    width: 100%;
   }
 }
 

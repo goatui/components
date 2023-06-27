@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-06-21T17:52:26",
+  "timestamp": "2023-06-27T07:29:52",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.4.0",
@@ -1473,7 +1473,20 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "name",
+          "text": "Canvas"
+        },
+        {
+          "name": "description",
+          "text": "Canvas for drawing lines and shapes on."
+        },
+        {
+          "name": "img",
+          "text": "/assets/img/canvas.png"
+        }
+      ],
       "encapsulation": "shadow",
       "dependents": [
         "goat-flow-designer"
@@ -1485,22 +1498,6 @@
         ]
       },
       "props": [
-        {
-          "name": "lines",
-          "type": "any[]",
-          "mutable": false,
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "default": "[]",
-          "values": [
-            {
-              "type": "any[]"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
         {
           "name": "padding",
           "type": "number",
@@ -1519,17 +1516,16 @@
           "required": false
         },
         {
-          "name": "unitSize",
-          "type": "number",
+          "name": "shapes",
+          "type": "any[]",
           "mutable": false,
-          "attr": "unit-size",
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "16",
+          "default": "[]",
           "values": [
             {
-              "type": "number"
+              "type": "any[]"
             }
           ],
           "optional": false,
@@ -1558,7 +1554,11 @@
       "slots": [],
       "parts": [],
       "listeners": [],
-      "metadata": {}
+      "metadata": {
+        "name": "Canvas",
+        "description": "Canvas for drawing lines and shapes on.",
+        "img": "/assets/img/canvas.png"
+      }
     },
     {
       "filePath": "./src/components/data-display/card/card.tsx",
@@ -5560,7 +5560,7 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/slider.png"
+          "text": "/assets/img/slider.jpg"
         }
       ],
       "encapsulation": "shadow",
@@ -5810,7 +5810,7 @@
           "input",
           " form"
         ],
-        "img": "/assets/img/slider.png"
+        "img": "/assets/img/slider.jpg"
       }
     },
     {
@@ -11246,7 +11246,7 @@
             },
             {
               "name": "img",
-              "text": "/assets/img/slider.png"
+              "text": "/assets/img/slider.jpg"
             }
           ],
           "encapsulation": "shadow",
@@ -11496,7 +11496,7 @@
               "input",
               " form"
             ],
-            "img": "/assets/img/slider.png"
+            "img": "/assets/img/slider.jpg"
           }
         },
         {
@@ -14678,7 +14678,20 @@
           "overview": "",
           "usage": {},
           "docs": "",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "name",
+              "text": "Canvas"
+            },
+            {
+              "name": "description",
+              "text": "Canvas for drawing lines and shapes on."
+            },
+            {
+              "name": "img",
+              "text": "/assets/img/canvas.png"
+            }
+          ],
           "encapsulation": "shadow",
           "dependents": [
             "goat-flow-designer"
@@ -14690,22 +14703,6 @@
             ]
           },
           "props": [
-            {
-              "name": "lines",
-              "type": "any[]",
-              "mutable": false,
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "default": "[]",
-              "values": [
-                {
-                  "type": "any[]"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
             {
               "name": "padding",
               "type": "number",
@@ -14724,17 +14721,16 @@
               "required": false
             },
             {
-              "name": "unitSize",
-              "type": "number",
+              "name": "shapes",
+              "type": "any[]",
               "mutable": false,
-              "attr": "unit-size",
               "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
-              "default": "16",
+              "default": "[]",
               "values": [
                 {
-                  "type": "number"
+                  "type": "any[]"
                 }
               ],
               "optional": false,
@@ -14763,7 +14759,11 @@
           "slots": [],
           "parts": [],
           "listeners": [],
-          "metadata": {}
+          "metadata": {
+            "name": "Canvas",
+            "description": "Canvas for drawing lines and shapes on.",
+            "img": "/assets/img/canvas.png"
+          }
         },
         {
           "filePath": "./src/components/data-display/card/card.tsx",

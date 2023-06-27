@@ -189,10 +189,14 @@ export namespace Components {
     interface GoatCalendarMonthViewBackground {
         "columns": number;
     }
+    /**
+     * @name Canvas
+     * @description Canvas for drawing lines and shapes on.
+     * @img /assets/img/canvas.png
+     */
     interface GoatCanvas {
-        "lines": any[];
         "padding": number;
-        "unitSize": number;
+        "shapes": any[];
         "viewbox"?: string;
     }
     interface GoatCard {
@@ -712,7 +716,7 @@ export namespace Components {
      * @description Allows the user to select one or more options using a dropdown.
      * @category Form Inputs
      * @tags input, form
-     * @img /assets/img/slider.png
+     * @img /assets/img/slider.jpg
      */
     interface GoatSlider {
         "configAria": any;
@@ -1277,6 +1281,11 @@ declare global {
         prototype: HTMLGoatCalendarMonthViewBackgroundElement;
         new (): HTMLGoatCalendarMonthViewBackgroundElement;
     };
+    /**
+     * @name Canvas
+     * @description Canvas for drawing lines and shapes on.
+     * @img /assets/img/canvas.png
+     */
     interface HTMLGoatCanvasElement extends Components.GoatCanvas, HTMLStencilElement {
     }
     var HTMLGoatCanvasElement: {
@@ -1541,7 +1550,7 @@ declare global {
      * @description Allows the user to select one or more options using a dropdown.
      * @category Form Inputs
      * @tags input, form
-     * @img /assets/img/slider.png
+     * @img /assets/img/slider.jpg
      */
     interface HTMLGoatSliderElement extends Components.GoatSlider, HTMLStencilElement {
     }
@@ -1951,10 +1960,14 @@ declare namespace LocalJSX {
     interface GoatCalendarMonthViewBackground {
         "columns"?: number;
     }
+    /**
+     * @name Canvas
+     * @description Canvas for drawing lines and shapes on.
+     * @img /assets/img/canvas.png
+     */
     interface GoatCanvas {
-        "lines"?: any[];
         "padding"?: number;
-        "unitSize"?: number;
+        "shapes"?: any[];
         "viewbox"?: string;
     }
     interface GoatCard {
@@ -2472,7 +2485,7 @@ declare namespace LocalJSX {
      * @description Allows the user to select one or more options using a dropdown.
      * @category Form Inputs
      * @tags input, form
-     * @img /assets/img/slider.png
+     * @img /assets/img/slider.jpg
      */
     interface GoatSlider {
         "configAria"?: any;
@@ -2970,6 +2983,11 @@ declare module "@stencil/core" {
             "goat-calendar-column-view-background": LocalJSX.GoatCalendarColumnViewBackground & JSXBase.HTMLAttributes<HTMLGoatCalendarColumnViewBackgroundElement>;
             "goat-calendar-month-view": LocalJSX.GoatCalendarMonthView & JSXBase.HTMLAttributes<HTMLGoatCalendarMonthViewElement>;
             "goat-calendar-month-view-background": LocalJSX.GoatCalendarMonthViewBackground & JSXBase.HTMLAttributes<HTMLGoatCalendarMonthViewBackgroundElement>;
+            /**
+             * @name Canvas
+             * @description Canvas for drawing lines and shapes on.
+             * @img /assets/img/canvas.png
+             */
             "goat-canvas": LocalJSX.GoatCanvas & JSXBase.HTMLAttributes<HTMLGoatCanvasElement>;
             "goat-card": LocalJSX.GoatCard & JSXBase.HTMLAttributes<HTMLGoatCardElement>;
             /**
@@ -3114,7 +3132,7 @@ declare module "@stencil/core" {
              * @description Allows the user to select one or more options using a dropdown.
              * @category Form Inputs
              * @tags input, form
-             * @img /assets/img/slider.png
+             * @img /assets/img/slider.jpg
              */
             "goat-slider": LocalJSX.GoatSlider & JSXBase.HTMLAttributes<HTMLGoatSliderElement>;
             /**

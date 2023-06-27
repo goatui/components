@@ -1,0 +1,22 @@
+<div>
+  {% GoatHighlighterCard language:"html" %}
+  <goat-canvas id="canvas"></goat-canvas>
+  <script>
+    const canvas = document.querySelector('#canvas');
+    canvas.viewbox = { x: 0, y: 0, width: 20, height: 20 };
+    canvas.shapes = [
+      { type: 'circle', x: 10, y: 10, radius: 0.25, color: 'red' },
+      {
+        type: 'connector',
+        start: { x: 10, y: 10 },
+        path: [
+          { direction: 'down', length: 3 },
+          { direction: 'right', length: 3 },
+          { direction: 'up', length: 10 },
+        ],
+        clickable: true,
+      },
+    ];
+  </script>
+  {% endGoatHighlighterCard %}
+</div>

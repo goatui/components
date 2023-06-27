@@ -6,7 +6,7 @@ import { debounceEvent, getComponentIndex, DRAG_EVENT_TYPES, DRAG_STOP_EVENT_TYP
  * @description Allows the user to select one or more options using a dropdown.
  * @category Form Inputs
  * @tags input, form
- * @img /assets/img/slider.png
+ * @img /assets/img/slider.jpg
  */
 @Component({
   tag: 'goat-slider',

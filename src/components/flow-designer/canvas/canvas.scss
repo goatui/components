@@ -5,17 +5,36 @@
 }
 
 .canvas-wrapper {
-  width: max-content;
+  background: rgb(246 246 248);
 }
 
-.line {
-  stroke: v(--border-color);
+#bg circle {
+  fill: v(--border-color);
+}
 
-  &.clickable {
-    cursor: pointer;
-    &:hover {
-      stroke: v(--color-primary);
-    }
-    z-index: 1;
+#endarrow polyline{
+  fill: none;
+  stroke: #231F20;
+  vector-effect: non-scaling-stroke;
+  stroke-width: 2;
+}
+
+
+.line {
+
+  &.no-color {
+    stroke: v(--border-color);
   }
+}
+
+
+.clickable {
+  cursor: pointer;
+
+  &:hover .line {
+
+    stroke: v(--color-primary);
+  }
+
+  z-index: 1;
 }

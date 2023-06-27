@@ -1,58 +1,27 @@
 ---
 layout: component
 title: Canvas
-menu:
+description: A svg canvas component. This component is used to draw shapes and images.
+sections:
   - title: Usage
+    source: sections/usage.html
 ---
 
-<div class="row pt-3">
-  {% include sidebar.html %}
-
+<div class="usage-tab">
   <!-- Content -->
-  <div class="col-xl-10 order-xl-1 duik-content border-bottom">
-    <div class="border-bottom mb-7">
-      <goat-text type="heading" size="md">{{ page.title }}</goat-text>
-      <goat-text type="paragraph"
-        >Use {{site.title}}’s table component for displaying information in a way that’s easy to scan, so that users can look for patterns and insights. They can be embedded in
-        primary content, such as cards.
-      </goat-text>
+  <div class="component-content">
+    <div style="padding-bottom: var(--spacing-6)">
+      <goat-text type="paragraph">{{page.description}}</goat-text>
     </div>
 
-    <!-- Usage -->
-    <div id="doc-usage" class="mb-7">
-      <goat-text type="heading" level="2" size="sm">Usage <a class="js-anchor-link duik-anchorjs-link" href="#doc-usage" aria-label="Anchor" data-anchorjs-icon="#"></a></goat-text>
+    {% for section in page.sections %}
+    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style="padding-bottom: var(--spacing-4)">
+      <goat-text type="heading" level="2" size="sm">{{ section.title }}</goat-text>
 
-      <div class="card">
-        <div class="card-header">
-          <goat-canvas id="straight-lines"></goat-canvas>
-          <script>
-            const straightLCanvas = document.getElementById('straight-lines');
-            straightLCanvas.lines = [
-              {
-                start: { x: 0, y: 0 },
-                end: { x: 5, y: 5 },
-                type: 'straight_line',
-              },
-            ];
-          </script>
-
-          <hr />
-          <goat-canvas id="shape_connector"></goat-canvas>
-          <script>
-            const shapeConnector = document.getElementById('shape_connector');
-            shapeConnector.lines = [
-              {
-                start: { x: 0, y: 0, gap: 8, direction: 'down' },
-                end: { x: -15, y: 15, direction: 'top' },
-                type: 'shape_connector',
-              },
-            ];
-          </script>
-        </div>
-        <div class="card-body"></div>
-      </div>
+      {% include_relative {{ section.source }} %}
     </div>
-    <!-- End About -->
+    {% endfor %}
   </div>
   <!-- End Content -->
+  {% include section-nav.html %}
 </div>

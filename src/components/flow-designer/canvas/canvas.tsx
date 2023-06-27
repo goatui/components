@@ -1,13 +1,17 @@
-import { Component, Element, h, Host, Prop, State } from '@stencil/core';
+import { Component, Element, h, Host, Prop } from '@stencil/core';
 
+/**
+ * @name Canvas
+ * @description Canvas for drawing lines and shapes on.
+ * @img /assets/img/canvas.png
+ */
 @Component({
   tag: 'goat-canvas',
   styleUrl: 'canvas.scss',
   shadow: true,
 })
 export class Canvas {
-  @Prop() unitSize: number = 16;
-  @Prop() lines: any[] = [];
+  @Prop() shapes: any[] = [];
   @Prop() padding: number = 2;
 
   @Prop() viewbox?: string;
@@ -19,14 +23,9 @@ export class Canvas {
     maxY: 0,
   };
 
-  @State() computedViewbox = {
-    x: 0,
-    y: 0,
-    width: 0,
-    height: 0,
-  };
-
-  @State() paths: string[] = [];
+  private unitSize: number = 1;
+  private dotRadius: number = this.unitSize;
+  private gap: number = this.unitSize * 10;
 
   @Element() elm!: HTMLElement;
 
@@ -36,103 +35,7 @@ export class Canvas {
     });
   }
 
-  renderCanvas() {
-    this.drawBackground();
-
-    for (const line of this.lines) {
-      this.drawLine(line);
-    }
-
-    this.computedViewbox = this.calculateViewbox();
-    this.paths = [...this.paths];
-  }
-
-  drawBackground() {}
-
-  calculateViewbox() {
-    let result;
-    if (this.viewbox) {
-      const viewbox = this.viewbox.split(' ');
-      result = {
-        x: parseInt(viewbox[0], 10),
-        y: parseInt(viewbox[1], 10),
-        width: parseInt(viewbox[2], 10),
-        height: parseInt(viewbox[3], 10),
-      };
-    } else {
-      result = {
-        x: this.drawingArea.minX,
-        y: this.drawingArea.minY,
-        width: this.drawingArea.maxX - this.drawingArea.minX,
-        height: this.drawingArea.maxY - this.drawingArea.minY,
-      };
-    }
-
-    if (this.padding) {
-      result.x -= this.padding;
-      result.y -= this.padding;
-      result.width += 2 * this.padding;
-      result.height += 2 * this.padding;
-    }
-    return result;
-  }
-
-  drawLine(line) {
-    let pathString = this.#createStartString(line.start);
-    //const currentPosition = { x: line.start.x, y: line.start.y };
-    for (let i = 0; i < line.path.length; i++) {
-      pathString += this.createPath(line.path[i]);
-    }
-
-
-
-    /*if (line.start.gap) {
-      if (line.start.direction == 'down') {
-        startConnector.y += line.start.gap;
-      } else if (line.start.direction == 'up') {
-        startConnector.y -= line.start.gap;
-      } else if (line.start.direction == 'right') {
-        startConnector.x += line.start.gap;
-      } else if (line.start.direction == 'left') {
-        startConnector.x -= line.start.gap;
-      }
-    }
-
-    const endConnector = {
-      x: line.end.x,
-      y: line.end.y,
-    };
-
-    if (line.end.gap) {
-      if (line.end.direction == 'down') {
-        endConnector.y += line.end.gap;
-      } else if (line.end.direction == 'top') {
-        endConnector.y -= line.end.gap;
-      } else if (line.end.direction == 'right') {
-        endConnector.x += line.end.gap;
-      } else if (line.end.direction == 'left') {
-        endConnector.x -= line.end.gap;
-      }
-    }*/
-
-
-
-    /**
-     * Straight line between two connectors
-     */
-   /* if (!line.type || line.type == 'straight_line') {
-      pathString += this.createStraightLinePath(line, startConnector, endConnector);
-    }
-
-    if (line.type == 'shape_connector') {
-      pathString += this.createShapeConnectorPath(line, startConnector, endConnector);
-    }
-
-    this.updateDrawingArea(line.start);
-    this.updateDrawingArea(line.end);*/
-
-    this.paths.push(pathString);
-  }
+  renderCanvas() {}
 
   createPath(path) {
     let pathString = [];
@@ -236,68 +139,201 @@ export class Canvas {
     }
   }
 
+  renderBackground() {
+    const columnLength = (1000 * this.unitSize) / this.gap;
+    const rowLength = (1000 * this.unitSize) / this.gap;
+
+    const shapes = [];
+    for (let i = 0; i < columnLength; i++) {
+      for (let j = 0; j < rowLength; j++) {
+        const x = i * this.gap + this.dotRadius;
+        const y = j * this.gap + this.dotRadius;
+        shapes.push(<circle cx={x} cy={y} r={this.dotRadius} fill="black" />);
+      }
+    }
+    return shapes;
+  }
+
+  renderShapes(computedViewbox) {
+    const dotRadius = this.unitSize;
+
+    const shapes = this.shapes.map(shape => {
+      switch (shape.type) {
+        case 'circle': {
+          if (shape.x + shape.radius > computedViewbox.width) {
+            computedViewbox.width = shape.x + shape.radius;
+          }
+          if (shape.y + shape.radius > computedViewbox.height) {
+            computedViewbox.height = shape.y + shape.radius;
+          }
+          return <circle cx={shape.x * this.gap + dotRadius} cy={shape.y * this.gap + dotRadius} r={shape.radius * this.gap} fill={shape.color || 'black'} />;
+        }
+        case 'rect': {
+          if (shape.x + shape.width > computedViewbox.width) {
+            computedViewbox.width = shape.x + shape.width;
+          }
+          if (shape.y + shape.height > computedViewbox.height) {
+            computedViewbox.height = shape.y + shape.height;
+          }
+          return (
+            <rect
+              x={shape.x * this.gap + dotRadius}
+              y={shape.y * this.gap}
+              width={shape.width * this.gap + dotRadius}
+              height={shape.height * this.gap + dotRadius}
+              fill={shape.color || 'black'}
+            />
+          );
+        }
+        case 'line': {
+          const pathString = `M${shape.start.x * this.gap + this.dotRadius} ${shape.start.y * this.gap + this.dotRadius} L${shape.end.x * this.gap + this.dotRadius} ${
+            shape.end.y * this.gap + this.dotRadius
+          }`;
+          return <path class="line clickable" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#000" d={pathString} fill="none" />;
+        }
+        case 'connector': {
+          let pathString = `M${shape.start.x * this.gap + this.dotRadius} ${shape.start.y * this.gap + this.dotRadius}`;
+          let current = { ...shape.start };
+          this.updateComputationArea(current, computedViewbox);
+
+          for (let i = 0; i < shape.path.length; i++) {
+            // draw line
+            const path = shape.path[i];
+            let point: any = {};
+
+            if (i == 0) {
+              point = this.getNextPoint(current, path.direction, 1);
+              pathString += ` L${point.x * this.gap + this.dotRadius} ${point.y * this.gap + this.dotRadius}`;
+              current = { ...point };
+              this.updateComputationArea(current, computedViewbox);
+            }
+
+            point = this.getNextPoint(current, path.direction, path.length - 2);
+            pathString += ` L${point.x * this.gap + this.dotRadius} ${point.y * this.gap + this.dotRadius}`;
+            current = { ...point };
+            this.updateComputationArea(current, computedViewbox);
+
+            if (i == shape.path.length - 1) {
+              point = this.getNextPoint(current, path.direction, 1);
+              pathString += ` L${point.x * this.gap + this.dotRadius} ${point.y * this.gap + this.dotRadius}`;
+              current = { ...point };
+              this.updateComputationArea(current, computedViewbox);
+            } else {
+              // draw curve
+              const nextPath = shape.path[i + 1];
+              const midPoint: any = this.getNextPoint(current, path.direction, 1);
+              const nextPoint = this.getNextPoint(midPoint, nextPath.direction, 1);
+              pathString += ` Q ${midPoint.x * this.gap + this.dotRadius} ${midPoint.y * this.gap + this.dotRadius} ${nextPoint.x * this.gap + this.dotRadius} ${
+                nextPoint.y * this.gap + this.dotRadius
+              }`;
+              current = { ...nextPoint };
+              this.updateComputationArea(current, computedViewbox);
+            }
+          }
+
+          //draw curve
+
+          return (
+            <g class="clickable">
+              <path
+                class={{ 'line': true, 'no-color': !shape.color }}
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke={shape.color || '#000'}
+                marker-end="url(#endarrow)"
+                d={pathString}
+                fill="none"
+              />
+              <path stroke-width="10" stroke-linecap="round" stroke-linejoin="round" stroke="transparent" d={pathString} fill="none" />
+            </g>
+          );
+        }
+      }
+    });
+
+    // Padding
+    computedViewbox.width = computedViewbox.width + 1;
+    computedViewbox.height = computedViewbox.height + 1;
+
+    return shapes;
+  }
+
+  updateComputationArea(point, computationArea) {
+    if (point.x > computationArea.width) {
+      computationArea.width = point.x;
+    }
+    if (point.y > computationArea.height) {
+      computationArea.height = point.y;
+    }
+  }
+
   render() {
-    console.log(
-      `Canvas size ${this.computedViewbox.x * this.unitSize} ${this.computedViewbox.x * this.unitSize} ${this.computedViewbox.width * this.unitSize} ${
-        this.computedViewbox.height * this.unitSize
-      }`,
-    );
+    const dotRadius = this.unitSize;
 
-    const dotSize = this.unitSize;
-    const gap = dotSize * 2 * 10;
+    let computedViewbox: any = { width: 0, height: 0 };
 
-    const columnLength = (this.computedViewbox.width * this.unitSize) / gap;
-    const rowLength = (this.computedViewbox.height * this.unitSize) / gap;
+    const shapes = this.renderShapes(computedViewbox);
+
+    if (this.viewbox) {
+      computedViewbox = this.viewbox;
+    }
 
     return (
       <Host>
-        <div class="canvas-wrapper" style={{}}>
-          <svg
-            class="canvas"
-            height={`100%`}
-            width={`100%`}
-            viewBox={`${this.computedViewbox.x * this.unitSize} ${this.computedViewbox.x * this.unitSize} ${this.computedViewbox.width * this.unitSize} ${
-              this.computedViewbox.height * this.unitSize
-            }`}
-          >
-            {(() => {
-              const shapes = [];
-              for (let i = 0; i < columnLength; i++) {
-                for (let j = 0; j < rowLength; j++) {
-                  const x = i * gap + dotSize;
-                  const y = j * gap + dotSize;
-                  shapes.push(<circle cx={x} cy={y} r={dotSize} fill="black" />);
-                }
-              }
-              return shapes;
-            })()}
+        <div
+          class="canvas-wrapper"
+          style={{
+            width: computedViewbox.width * this.gap + 2 * dotRadius + 'px',
+            height: computedViewbox.height * this.gap + 2 * dotRadius + 'px',
+          }}
+        >
+          <svg class="canvas" height="100%" width="100%" viewBox={`0 0 ${computedViewbox.width * this.gap + 2 * dotRadius} ${computedViewbox.width * this.gap + 2 * dotRadius}`}>
+            {/*{this.renderBackground()}*/}
+            <defs>
+              <pattern id="bg" patternUnits="userSpaceOnUse" width={this.gap} height={this.gap}>
+                <circle cx={1} cy={1} r={this.dotRadius} />
+              </pattern>
 
-            {/*{
-            this.shapes.map((shape) => {
-              return <path class='shape clickable'
-                           stroke-width='16'
-                           stroke-linecap='round'
-                           stroke-linejoin='round'
-                           stroke='#000'
-                           d={`${shape}`}
-                           fill='none' />;
-            })
-          }*/}
-            {this.paths.map(path => {
-              return <path class="line clickable" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" stroke="#000" d={`${path}`} fill="none" />;
-            })}
+              <marker id="startarrow" markerWidth="5" markerHeight="5" refX="5" refY="2.5" orient="auto">
+                <polygon points="5 0, 5 5, 0 2.5" fill="black" />
+              </marker>
+
+              <marker id="endarrow" markerWidth="10" markerHeight="5" refX="5" refY="0" markerUnits="userSpaceOnUse">
+                <polyline points="0 5, 5 0, 10 5"></polyline>
+              </marker>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#bg)" />
+
+            {shapes}
           </svg>
         </div>
       </Host>
     );
   }
 
-  #createStartString: any = point => {
-    this.updateDrawingArea(point);
-    const dotSize = this.unitSize;
-    const gap = dotSize * 2 * 10;
-    return `M${point.x * gap + 16} ${point.y * gap + 16}`;
+  private getNextPoint = (point, direction, length) => {
+    const nextPoint: any = {};
+    if (direction == 'down') {
+      nextPoint.x = point.x;
+      nextPoint.y = point.y + length;
+    } else if (direction == 'up') {
+      nextPoint.x = point.x;
+      nextPoint.y = point.y - length;
+    } else if (direction == 'left') {
+      nextPoint.x = point.x - length;
+      nextPoint.y = point.y;
+    } else if (direction == 'right') {
+      nextPoint.x = point.x + length;
+      nextPoint.y = point.y;
+    }
+    return nextPoint;
   };
+
+  /* #createStartString: any = point => {
+     this.updateDrawingArea(point);
+     return `M${point.x * this.gap + this.dotRadius} ${point.y * this.gap + this.dotRadius}`;
+   };*/
 
   #createQuadraticCurveString: any = (pointA, pointB) => {
     this.updateDrawingArea(pointA);
@@ -309,6 +345,6 @@ export class Canvas {
     this.updateDrawingArea(point);
     const dotSize = this.unitSize;
     const gap = dotSize * 2 * 10;
-    return `L${point.x * gap + 16} ${point.y * gap + 16}`;
+    return `L${point.x * gap + dotSize} ${point.y * gap + dotSize}`;
   };
 }
