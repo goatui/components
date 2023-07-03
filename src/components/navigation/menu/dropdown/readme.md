@@ -35,7 +35,7 @@ Type: `Promise<void>`
 
 - [goat-menu](../menu)
 - [goat-menu-item](../menu-item)
-- [goat-icon](../../icon)
+- [goat-icon](../../../general/icon)
 
 ### Graph
 ```mermaid

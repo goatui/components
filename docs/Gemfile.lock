@@ -13,26 +13,28 @@ GEM
       addressable (~> 2.3, >= 2.3.5)
     ffi (1.15.5)
     forwardable-extended (2.6.0)
+    google-protobuf (3.23.3-x64-mingw-ucrt)
     hike (1.2.3)
     htmlcompressor (0.3.1)
     http_parser.rb (0.8.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
-    jekyll (4.2.2)
+    jekyll (4.3.2)
       addressable (~> 2.4)
       colorator (~> 1.0)
       em-websocket (~> 0.5)
       i18n (~> 1.0)
-      jekyll-sass-converter (~> 2.0)
+      jekyll-sass-converter (>= 2.0, < 4.0)
       jekyll-watch (~> 2.0)
-      kramdown (~> 2.3)
+      kramdown (~> 2.3, >= 2.3.1)
       kramdown-parser-gfm (~> 1.0)
       liquid (~> 4.0)
-      mercenary (~> 0.4.0)
+      mercenary (>= 0.3.6, < 0.5)
       pathutil (~> 0.9)
-      rouge (~> 3.0)
+      rouge (>= 3.0, < 5.0)
       safe_yaml (~> 1.0)
-      terminal-table (~> 2.0)
+      terminal-table (>= 1.8, < 4.0)
+      webrick (~> 1.7)
     jekyll-assets (1.0.0)
       fastimage (~> 1.6)
       jekyll (>= 2)
@@ -41,8 +43,8 @@ GEM
       sprockets (~> 2.10)
       sprockets-helpers
       sprockets-sass
-    jekyll-sass-converter (2.2.0)
-      sassc (> 2.0.1, < 3.0)
+    jekyll-sass-converter (3.0.0)
+      sass-embedded (~> 1.54)
     jekyll-sitemap (1.4.0)
       jekyll (>= 3.7, < 5.0)
     jekyll-spark (0.6.0)
@@ -69,15 +71,15 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rexml (3.2.5)
-    rouge (3.30.0)
+    rouge (4.1.2)
     safe_yaml (1.0.5)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
+    sass-embedded (1.63.6-x64-mingw-ucrt)
+      google-protobuf (~> 3.23)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    sassc (2.4.0)
-      ffi (~> 1.9)
     sprockets (2.12.5)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -88,15 +90,15 @@ GEM
     sprockets-sass (1.3.1)
       sprockets (~> 2.0)
       tilt (~> 1.1)
-    terminal-table (2.0.0)
-      unicode-display_width (~> 1.1, >= 1.1.1)
+    terminal-table (3.0.2)
+      unicode-display_width (>= 1.1.1, < 3)
     thread_safe (0.3.6)
     tilt (1.4.1)
     tzinfo (1.2.11)
       thread_safe (~> 0.1)
     tzinfo-data (1.2023.3)
       tzinfo (>= 1.0.0)
-    unicode-display_width (1.8.0)
+    unicode-display_width (2.4.2)
     wdm (0.1.1)
     webrick (1.8.1)
 
@@ -104,7 +106,7 @@ PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
-  jekyll (~> 4.2.2)
+  jekyll (~> 4.3.2)
   jekyll-assets
   jekyll-sitemap
   jekyll-spark
@@ -114,4 +116,4 @@ DEPENDENCIES
   webrick (~> 1.8)
 
 BUNDLED WITH
-   2.4.10
+   2.4.15

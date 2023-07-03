@@ -9,9 +9,10 @@
 
 | Property  | Attribute | Description | Type     | Default     |
 | --------- | --------- | ----------- | -------- | ----------- |
-| `padding` | `padding` |             | `number` | `2`         |
+| `padding` | `padding` |             | `number` | `1`         |
 | `shapes`  | --        |             | `any[]`  | `[]`        |
 | `viewbox` | `viewbox` |             | `string` | `undefined` |
+| `zoom`    | `zoom`    |             | `number` | `1`         |
 
 
 ## Dependencies

@@ -84,9 +84,9 @@ Type: `Promise<void>`
 - [goat-icon](../../general/icon)
 - [goat-tag](../../data-display/tag)
 - [goat-spinner](../../feedback/spinner)
-- [goat-menu](../../general/menu/menu)
+- [goat-menu](../../navigation/menu/menu)
 - [goat-text](../../general/text)
-- [goat-menu-item](../../general/menu/menu-item)
+- [goat-menu-item](../../navigation/menu/menu-item)
 
 ### Graph
 ```mermaid

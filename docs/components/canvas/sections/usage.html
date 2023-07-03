@@ -3,16 +3,19 @@
   <goat-canvas id="canvas"></goat-canvas>
   <script>
     const canvas = document.querySelector('#canvas');
-    canvas.viewbox = { x: 0, y: 0, width: 20, height: 20 };
     canvas.shapes = [
-      { type: 'circle', x: 10, y: 10, radius: 0.25, color: 'red' },
+      { type: 'circle', x: 0, y: 0, radius: 0.25, color: 'red' },
+      { type: 'rect', x: -20, y: 20, height: 10, width: 15, color: 'green' },
       {
         type: 'connector',
-        start: { x: 10, y: 10 },
+        start: { x: -10, y: -10 },
+        showArrow: true,
         path: [
           { direction: 'down', length: 3 },
           { direction: 'right', length: 3 },
           { direction: 'up', length: 10 },
+          { direction: 'right', length: 10 },
+          { direction: 'down', length: 21 },
         ],
         clickable: true,
       },

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-06-27T13:00:06",
+  "timestamp": "2023-07-03T09:42:10",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.4.0",
@@ -28,6 +28,10 @@
           "text": "Data Display"
         },
         {
+          "name": "tags",
+          "text": "display"
+        },
+        {
           "name": "example",
           "text": "<goat-accordion>\n<goat-accordion-item heading=\"Title 1\"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>\n</goat-accordion>"
         }
@@ -47,6 +51,9 @@
         "name": "Accordion",
         "description": "An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.",
         "category": "Data Display",
+        "tags": [
+          "display"
+        ],
         "example": "<goat-accordion>\n<goat-accordion-item heading=\"Title 1\"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>\n</goat-accordion>"
       }
     },
@@ -167,6 +174,10 @@
           "text": "Data Display"
         },
         {
+          "name": "tags",
+          "text": "display"
+        },
+        {
           "name": "example",
           "text": "<goat-avatar size=\"5rem\" name=\"Shivaji Varma\" src=\"/assets/img/avatar.png\"></goat-avatar>"
         }
@@ -238,6 +249,9 @@
         "name": "Avatar",
         "description": "Avatars in their simplest form display content within a circular container.",
         "category": "Data Display",
+        "tags": [
+          "display"
+        ],
         "example": "<goat-avatar size=\"5rem\" name=\"Shivaji Varma\" src=\"/assets/img/avatar.png\"></goat-avatar>"
       }
     },
@@ -489,6 +503,7 @@
         "goat-calendar",
         "goat-code-highlighter",
         "goat-empty-state",
+        "goat-flow-designer",
         "goat-input",
         "goat-notification",
         "goat-table"
@@ -509,6 +524,9 @@
           "goat-button"
         ],
         "goat-empty-state": [
+          "goat-button"
+        ],
+        "goat-flow-designer": [
           "goat-button"
         ],
         "goat-input": [
@@ -867,9 +885,15 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [],
+      "dependents": [
+        "goat-flow-designer"
+      ],
       "dependencies": [],
-      "dependencyGraph": {},
+      "dependencyGraph": {
+        "goat-flow-designer": [
+          "goat-button-group"
+        ]
+      },
       "props": [],
       "methods": [],
       "events": [],
@@ -1506,7 +1530,7 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "2",
+          "default": "1",
           "values": [
             {
               "type": "number"
@@ -1545,6 +1569,23 @@
             }
           ],
           "optional": true,
+          "required": false
+        },
+        {
+          "name": "zoom",
+          "type": "number",
+          "mutable": false,
+          "attr": "zoom",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "1",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
           "required": false
         }
       ],
@@ -2224,6 +2265,14 @@
           "text": "A browser based code highlighter."
         },
         {
+          "name": "category",
+          "text": "Data Display"
+        },
+        {
+          "name": "tag",
+          "text": "display, code"
+        },
+        {
           "name": "img",
           "text": "/assets/img/code-highlighter.png"
         }
@@ -2308,6 +2357,8 @@
       "metadata": {
         "name": "Code Highlighter",
         "description": "A browser based code highlighter.",
+        "category": "Data Display",
+        "tag": "display, code",
         "img": "/assets/img/code-highlighter.png"
       }
     },
@@ -2626,7 +2677,7 @@
       }
     },
     {
-      "filePath": "./src/components/general/menu/dropdown/dropdown.tsx",
+      "filePath": "./src/components/navigation/menu/dropdown/dropdown.tsx",
       "fileName": "dropdown.tsx",
       "tag": "goat-dropdown",
       "readme": "# goat-dropdown\n\n\n",
@@ -2641,6 +2692,10 @@
         {
           "name": "description",
           "text": "Enables native inputs to be used within a Form field."
+        },
+        {
+          "name": "category",
+          "text": "Navigation"
         },
         {
           "name": "img",
@@ -2819,6 +2874,7 @@
       "metadata": {
         "name": "Dropdown",
         "description": "Enables native inputs to be used within a Form field.",
+        "category": "Navigation",
         "img": "/assets/img/dropdown.png"
       }
     },
@@ -3055,17 +3111,32 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/no-image.jpg"
+          "text": "/assets/img/flow-designer.png"
         }
       ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
-        "goat-canvas"
+        "goat-canvas",
+        "goat-icon",
+        "goat-tag",
+        "goat-button-group",
+        "goat-button"
       ],
       "dependencyGraph": {
         "goat-flow-designer": [
-          "goat-canvas"
+          "goat-canvas",
+          "goat-icon",
+          "goat-tag",
+          "goat-button-group",
+          "goat-button"
+        ],
+        "goat-tag": [
+          "goat-icon"
+        ],
+        "goat-button": [
+          "goat-icon",
+          "goat-spinner"
         ]
       },
       "props": [
@@ -3128,6 +3199,7 @@
       "listeners": [
         {
           "event": "mouseup",
+          "target": "window",
           "capture": false,
           "passive": false
         }
@@ -3135,7 +3207,7 @@
       "metadata": {
         "name": "Flow Designer",
         "description": "An interactive button with a range of presentation options.",
-        "img": "/assets/img/no-image.jpg"
+        "img": "/assets/img/flow-designer.png"
       }
     },
     {
@@ -3487,6 +3559,7 @@
         "goat-button",
         "goat-code-highlighter",
         "goat-dropdown",
+        "goat-flow-designer",
         "goat-input",
         "goat-notification",
         "goat-select",
@@ -3507,6 +3580,9 @@
           "goat-icon"
         ],
         "goat-dropdown": [
+          "goat-icon"
+        ],
+        "goat-flow-designer": [
           "goat-icon"
         ],
         "goat-input": [
@@ -4117,7 +4193,7 @@
       }
     },
     {
-      "filePath": "./src/components/general/menu/menu/menu.tsx",
+      "filePath": "./src/components/navigation/menu/menu/menu.tsx",
       "fileName": "menu.tsx",
       "tag": "goat-menu",
       "readme": "# goat-menu\r\n\r\n\r\n\r",
@@ -4132,6 +4208,10 @@
         {
           "name": "description",
           "text": "Menus display a list of choices on temporary surfaces."
+        },
+        {
+          "name": "category",
+          "text": "Navigation"
         },
         {
           "name": "img",
@@ -4191,7 +4271,7 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "{\r\n    'headline': 'No items',\r\n    'description': 'There are no items to display',\r\n  }",
+          "default": "{\n    'headline': 'No items',\n    'description': 'There are no items to display',\n  }",
           "values": [
             {
               "type": "any"
@@ -4246,7 +4326,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on first menu item. Use this method instead of the global\r\n`element.focus()`.",
+          "docs": "Sets focus on first menu item. Use this method instead of the global\n`element.focus()`.",
           "docsTags": []
         }
       ],
@@ -4265,11 +4345,12 @@
       "metadata": {
         "name": "Menu",
         "description": "Menus display a list of choices on temporary surfaces.",
+        "category": "Navigation",
         "img": "/assets/img/menu.png"
       }
     },
     {
-      "filePath": "./src/components/general/menu/menu-item/menu-item.tsx",
+      "filePath": "./src/components/navigation/menu/menu-item/menu-item.tsx",
       "fileName": "menu-item.tsx",
       "tag": "goat-menu-item",
       "readme": "# goat-menu-item\r\n\r\n\r\n\r",
@@ -6783,6 +6864,7 @@
       ],
       "encapsulation": "shadow",
       "dependents": [
+        "goat-flow-designer",
         "goat-select"
       ],
       "dependencies": [
@@ -6791,6 +6873,9 @@
       "dependencyGraph": {
         "goat-tag": [
           "goat-icon"
+        ],
+        "goat-flow-designer": [
+          "goat-tag"
         ],
         "goat-select": [
           "goat-tag"
@@ -8058,7 +8143,7 @@
       }
     },
     {
-      "filePath": "./src/components/general/menu/tree-view/tree-view.tsx",
+      "filePath": "./src/components/navigation/menu/tree-view/tree-view.tsx",
       "fileName": "tree-view.tsx",
       "tag": "tree-view",
       "readme": "# goat-menu\r\n\r\n\r\n\r",
@@ -8240,6 +8325,7 @@
             "goat-calendar",
             "goat-code-highlighter",
             "goat-empty-state",
+            "goat-flow-designer",
             "goat-input",
             "goat-notification",
             "goat-table"
@@ -8260,6 +8346,9 @@
               "goat-button"
             ],
             "goat-empty-state": [
+              "goat-button"
+            ],
+            "goat-flow-designer": [
               "goat-button"
             ],
             "goat-input": [
@@ -8618,9 +8707,15 @@
             }
           ],
           "encapsulation": "shadow",
-          "dependents": [],
+          "dependents": [
+            "goat-flow-designer"
+          ],
           "dependencies": [],
-          "dependencyGraph": {},
+          "dependencyGraph": {
+            "goat-flow-designer": [
+              "goat-button-group"
+            ]
+          },
           "props": [],
           "methods": [],
           "events": [],
@@ -8670,6 +8765,7 @@
             "goat-button",
             "goat-code-highlighter",
             "goat-dropdown",
+            "goat-flow-designer",
             "goat-input",
             "goat-notification",
             "goat-select",
@@ -8690,6 +8786,9 @@
               "goat-icon"
             ],
             "goat-dropdown": [
+              "goat-icon"
+            ],
+            "goat-flow-designer": [
               "goat-icon"
             ],
             "goat-input": [
@@ -9070,6 +9169,208 @@
           }
         },
         {
+          "filePath": "./src/components/navigation/menu/dropdown/dropdown.tsx",
+          "fileName": "dropdown.tsx",
+          "tag": "goat-dropdown",
+          "readme": "# goat-dropdown\n\n\n",
+          "overview": "",
+          "usage": {},
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "name",
+              "text": "Dropdown"
+            },
+            {
+              "name": "description",
+              "text": "Enables native inputs to be used within a Form field."
+            },
+            {
+              "name": "category",
+              "text": "Navigation"
+            },
+            {
+              "name": "img",
+              "text": "/assets/img/dropdown.png"
+            }
+          ],
+          "encapsulation": "shadow",
+          "dependents": [],
+          "dependencies": [
+            "goat-menu",
+            "goat-menu-item",
+            "goat-icon"
+          ],
+          "dependencyGraph": {
+            "goat-dropdown": [
+              "goat-menu",
+              "goat-menu-item",
+              "goat-icon"
+            ],
+            "goat-menu": [
+              "goat-empty-state"
+            ],
+            "goat-empty-state": [
+              "goat-svg",
+              "goat-button"
+            ],
+            "goat-button": [
+              "goat-icon",
+              "goat-spinner"
+            ]
+          },
+          "props": [
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "mutable": false,
+              "attr": "disabled",
+              "reflectToAttr": false,
+              "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "isOpen",
+              "type": "boolean",
+              "mutable": true,
+              "attr": "is-open",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "items",
+              "type": "any[]",
+              "mutable": false,
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "null",
+              "values": [
+                {
+                  "type": "any[]"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "positions",
+              "type": "string",
+              "mutable": false,
+              "attr": "positions",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "'bottom-right,top-right,bottom-left,top-left'",
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "size",
+              "type": "\"lg\" | \"md\" | \"sm\"",
+              "mutable": false,
+              "attr": "size",
+              "reflectToAttr": false,
+              "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+              "docsTags": [],
+              "default": "'md'",
+              "values": [
+                {
+                  "value": "lg",
+                  "type": "string"
+                },
+                {
+                  "value": "md",
+                  "type": "string"
+                },
+                {
+                  "value": "sm",
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
+          "methods": [
+            {
+              "name": "setFocus",
+              "returns": {
+                "type": "Promise<void>",
+                "docs": ""
+              },
+              "signature": "setFocus(elm?: HTMLElement) => Promise<void>",
+              "parameters": [],
+              "docs": "",
+              "docsTags": []
+            }
+          ],
+          "events": [],
+          "styles": [],
+          "slots": [],
+          "parts": [],
+          "listeners": [
+            {
+              "event": "click",
+              "target": "window",
+              "capture": false,
+              "passive": false
+            },
+            {
+              "event": "goat:menu-item-click",
+              "target": "window",
+              "capture": false,
+              "passive": false
+            },
+            {
+              "event": "goat:click",
+              "target": "window",
+              "capture": false,
+              "passive": false
+            },
+            {
+              "event": "keydown",
+              "target": "window",
+              "capture": false,
+              "passive": false
+            },
+            {
+              "event": "scroll",
+              "target": "window",
+              "capture": false,
+              "passive": true
+            }
+          ],
+          "metadata": {
+            "name": "Dropdown",
+            "description": "Enables native inputs to be used within a Form field.",
+            "category": "Navigation",
+            "img": "/assets/img/dropdown.png"
+          }
+        },
+        {
           "filePath": "./src/components/navigation/header/header.tsx",
           "fileName": "header.tsx",
           "tag": "goat-header",
@@ -9223,6 +9524,163 @@
             "description": "Links allow users to click their way from page to page.",
             "category": "Navigation",
             "example": "<goat-link href=\"#\">Link</goat-link>"
+          }
+        },
+        {
+          "filePath": "./src/components/navigation/menu/menu/menu.tsx",
+          "fileName": "menu.tsx",
+          "tag": "goat-menu",
+          "readme": "# goat-menu\r\n\r\n\r\n\r",
+          "overview": "",
+          "usage": {},
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "name",
+              "text": "Menu"
+            },
+            {
+              "name": "description",
+              "text": "Menus display a list of choices on temporary surfaces."
+            },
+            {
+              "name": "category",
+              "text": "Navigation"
+            },
+            {
+              "name": "img",
+              "text": "/assets/img/menu.png"
+            }
+          ],
+          "encapsulation": "shadow",
+          "dependents": [
+            "goat-dropdown",
+            "goat-select"
+          ],
+          "dependencies": [
+            "goat-empty-state"
+          ],
+          "dependencyGraph": {
+            "goat-menu": [
+              "goat-empty-state"
+            ],
+            "goat-empty-state": [
+              "goat-svg",
+              "goat-button"
+            ],
+            "goat-button": [
+              "goat-icon",
+              "goat-spinner"
+            ],
+            "goat-dropdown": [
+              "goat-menu"
+            ],
+            "goat-select": [
+              "goat-menu"
+            ]
+          },
+          "props": [
+            {
+              "name": "empty",
+              "type": "boolean",
+              "mutable": true,
+              "attr": "empty",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "emptyState",
+              "type": "any",
+              "mutable": true,
+              "attr": "empty-state",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "{\n    'headline': 'No items',\n    'description': 'There are no items to display',\n  }",
+              "values": [
+                {
+                  "type": "any"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "showLoader",
+              "type": "boolean",
+              "mutable": false,
+              "attr": "show-loader",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "value",
+              "type": "number | string",
+              "mutable": true,
+              "attr": "value",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": true,
+              "required": false
+            }
+          ],
+          "methods": [
+            {
+              "name": "setFocus",
+              "returns": {
+                "type": "Promise<void>",
+                "docs": ""
+              },
+              "signature": "setFocus() => Promise<void>",
+              "parameters": [],
+              "docs": "Sets focus on first menu item. Use this method instead of the global\n`element.focus()`.",
+              "docsTags": []
+            }
+          ],
+          "events": [],
+          "styles": [],
+          "slots": [],
+          "parts": [],
+          "listeners": [
+            {
+              "event": "keydown",
+              "target": "window",
+              "capture": false,
+              "passive": false
+            }
+          ],
+          "metadata": {
+            "name": "Menu",
+            "description": "Menus display a list of choices on temporary surfaces.",
+            "category": "Navigation",
+            "img": "/assets/img/menu.png"
           }
         },
         {
@@ -12415,6 +12873,10 @@
               "text": "Data Display"
             },
             {
+              "name": "tags",
+              "text": "display"
+            },
+            {
               "name": "example",
               "text": "<goat-accordion>\n<goat-accordion-item heading=\"Title 1\"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>\n</goat-accordion>"
             }
@@ -12434,6 +12896,9 @@
             "name": "Accordion",
             "description": "An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.",
             "category": "Data Display",
+            "tags": [
+              "display"
+            ],
             "example": "<goat-accordion>\n<goat-accordion-item heading=\"Title 1\"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>\n</goat-accordion>"
           }
         },
@@ -12457,6 +12922,10 @@
             {
               "name": "category",
               "text": "Data Display"
+            },
+            {
+              "name": "tags",
+              "text": "display"
             },
             {
               "name": "example",
@@ -12530,6 +12999,9 @@
             "name": "Avatar",
             "description": "Avatars in their simplest form display content within a circular container.",
             "category": "Data Display",
+            "tags": [
+              "display"
+            ],
             "example": "<goat-avatar size=\"5rem\" name=\"Shivaji Varma\" src=\"/assets/img/avatar.png\"></goat-avatar>"
           }
         },
@@ -12828,6 +13300,121 @@
               "calendar"
             ],
             "img": "/assets/img/calendar.png"
+          }
+        },
+        {
+          "filePath": "./src/components/data-display/code-highlighter/code-highlighter.tsx",
+          "fileName": "code-highlighter.tsx",
+          "tag": "goat-code-highlighter",
+          "readme": "# goat-code-editor\n\n\n",
+          "overview": "",
+          "usage": {},
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "name",
+              "text": "Code Highlighter"
+            },
+            {
+              "name": "description",
+              "text": "A browser based code highlighter."
+            },
+            {
+              "name": "category",
+              "text": "Data Display"
+            },
+            {
+              "name": "tag",
+              "text": "display, code"
+            },
+            {
+              "name": "img",
+              "text": "/assets/img/code-highlighter.png"
+            }
+          ],
+          "encapsulation": "shadow",
+          "dependents": [],
+          "dependencies": [
+            "goat-button",
+            "goat-icon",
+            "goat-spinner"
+          ],
+          "dependencyGraph": {
+            "goat-code-highlighter": [
+              "goat-button",
+              "goat-icon",
+              "goat-spinner"
+            ],
+            "goat-button": [
+              "goat-icon",
+              "goat-spinner"
+            ]
+          },
+          "props": [
+            {
+              "name": "language",
+              "type": "string",
+              "mutable": false,
+              "attr": "language",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "Language.javascript",
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "lineNumbers",
+              "type": "boolean",
+              "mutable": false,
+              "attr": "line-numbers",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "mutable": false,
+              "attr": "value",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "''",
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
+          "methods": [],
+          "events": [],
+          "styles": [],
+          "slots": [],
+          "parts": [],
+          "listeners": [],
+          "metadata": {
+            "name": "Code Highlighter",
+            "description": "A browser based code highlighter.",
+            "category": "Data Display",
+            "tag": "display, code",
+            "img": "/assets/img/code-highlighter.png"
           }
         },
         {
@@ -13506,6 +14093,7 @@
           ],
           "encapsulation": "shadow",
           "dependents": [
+            "goat-flow-designer",
             "goat-select"
           ],
           "dependencies": [
@@ -13514,6 +14102,9 @@
           "dependencyGraph": {
             "goat-tag": [
               "goat-icon"
+            ],
+            "goat-flow-designer": [
+              "goat-tag"
             ],
             "goat-select": [
               "goat-tag"
@@ -14711,7 +15302,7 @@
               "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
-              "default": "2",
+              "default": "1",
               "values": [
                 {
                   "type": "number"
@@ -14750,6 +15341,23 @@
                 }
               ],
               "optional": true,
+              "required": false
+            },
+            {
+              "name": "zoom",
+              "type": "number",
+              "mutable": false,
+              "attr": "zoom",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "1",
+              "values": [
+                {
+                  "type": "number"
+                }
+              ],
+              "optional": false,
               "required": false
             }
           ],
@@ -14826,308 +15434,6 @@
           "metadata": {}
         },
         {
-          "filePath": "./src/components/data-display/code-highlighter/code-highlighter.tsx",
-          "fileName": "code-highlighter.tsx",
-          "tag": "goat-code-highlighter",
-          "readme": "# goat-code-editor\n\n\n",
-          "overview": "",
-          "usage": {},
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "name",
-              "text": "Code Highlighter"
-            },
-            {
-              "name": "description",
-              "text": "A browser based code highlighter."
-            },
-            {
-              "name": "img",
-              "text": "/assets/img/code-highlighter.png"
-            }
-          ],
-          "encapsulation": "shadow",
-          "dependents": [],
-          "dependencies": [
-            "goat-button",
-            "goat-icon",
-            "goat-spinner"
-          ],
-          "dependencyGraph": {
-            "goat-code-highlighter": [
-              "goat-button",
-              "goat-icon",
-              "goat-spinner"
-            ],
-            "goat-button": [
-              "goat-icon",
-              "goat-spinner"
-            ]
-          },
-          "props": [
-            {
-              "name": "language",
-              "type": "string",
-              "mutable": false,
-              "attr": "language",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "default": "Language.javascript",
-              "values": [
-                {
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "lineNumbers",
-              "type": "boolean",
-              "mutable": false,
-              "attr": "line-numbers",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "default": "false",
-              "values": [
-                {
-                  "type": "boolean"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "value",
-              "type": "string",
-              "mutable": false,
-              "attr": "value",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "default": "''",
-              "values": [
-                {
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            }
-          ],
-          "methods": [],
-          "events": [],
-          "styles": [],
-          "slots": [],
-          "parts": [],
-          "listeners": [],
-          "metadata": {
-            "name": "Code Highlighter",
-            "description": "A browser based code highlighter.",
-            "img": "/assets/img/code-highlighter.png"
-          }
-        },
-        {
-          "filePath": "./src/components/general/menu/dropdown/dropdown.tsx",
-          "fileName": "dropdown.tsx",
-          "tag": "goat-dropdown",
-          "readme": "# goat-dropdown\n\n\n",
-          "overview": "",
-          "usage": {},
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "name",
-              "text": "Dropdown"
-            },
-            {
-              "name": "description",
-              "text": "Enables native inputs to be used within a Form field."
-            },
-            {
-              "name": "img",
-              "text": "/assets/img/dropdown.png"
-            }
-          ],
-          "encapsulation": "shadow",
-          "dependents": [],
-          "dependencies": [
-            "goat-menu",
-            "goat-menu-item",
-            "goat-icon"
-          ],
-          "dependencyGraph": {
-            "goat-dropdown": [
-              "goat-menu",
-              "goat-menu-item",
-              "goat-icon"
-            ],
-            "goat-menu": [
-              "goat-empty-state"
-            ],
-            "goat-empty-state": [
-              "goat-svg",
-              "goat-button"
-            ],
-            "goat-button": [
-              "goat-icon",
-              "goat-spinner"
-            ]
-          },
-          "props": [
-            {
-              "name": "disabled",
-              "type": "boolean",
-              "mutable": false,
-              "attr": "disabled",
-              "reflectToAttr": false,
-              "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
-              "docsTags": [],
-              "default": "false",
-              "values": [
-                {
-                  "type": "boolean"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "isOpen",
-              "type": "boolean",
-              "mutable": true,
-              "attr": "is-open",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "default": "false",
-              "values": [
-                {
-                  "type": "boolean"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "items",
-              "type": "any[]",
-              "mutable": false,
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "default": "null",
-              "values": [
-                {
-                  "type": "any[]"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "positions",
-              "type": "string",
-              "mutable": false,
-              "attr": "positions",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "default": "'bottom-right,top-right,bottom-left,top-left'",
-              "values": [
-                {
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "size",
-              "type": "\"lg\" | \"md\" | \"sm\"",
-              "mutable": false,
-              "attr": "size",
-              "reflectToAttr": false,
-              "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
-              "docsTags": [],
-              "default": "'md'",
-              "values": [
-                {
-                  "value": "lg",
-                  "type": "string"
-                },
-                {
-                  "value": "md",
-                  "type": "string"
-                },
-                {
-                  "value": "sm",
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            }
-          ],
-          "methods": [
-            {
-              "name": "setFocus",
-              "returns": {
-                "type": "Promise<void>",
-                "docs": ""
-              },
-              "signature": "setFocus(elm?: HTMLElement) => Promise<void>",
-              "parameters": [],
-              "docs": "",
-              "docsTags": []
-            }
-          ],
-          "events": [],
-          "styles": [],
-          "slots": [],
-          "parts": [],
-          "listeners": [
-            {
-              "event": "click",
-              "target": "window",
-              "capture": false,
-              "passive": false
-            },
-            {
-              "event": "goat:menu-item-click",
-              "target": "window",
-              "capture": false,
-              "passive": false
-            },
-            {
-              "event": "goat:click",
-              "target": "window",
-              "capture": false,
-              "passive": false
-            },
-            {
-              "event": "keydown",
-              "target": "window",
-              "capture": false,
-              "passive": false
-            },
-            {
-              "event": "scroll",
-              "target": "window",
-              "capture": false,
-              "passive": true
-            }
-          ],
-          "metadata": {
-            "name": "Dropdown",
-            "description": "Enables native inputs to be used within a Form field.",
-            "img": "/assets/img/dropdown.png"
-          }
-        },
-        {
           "filePath": "./src/components/flow-designer/flow-designer/flow-designer.tsx",
           "fileName": "flow-designer.tsx",
           "tag": "goat-flow-designer",
@@ -15146,17 +15452,32 @@
             },
             {
               "name": "img",
-              "text": "/assets/img/no-image.jpg"
+              "text": "/assets/img/flow-designer.png"
             }
           ],
           "encapsulation": "shadow",
           "dependents": [],
           "dependencies": [
-            "goat-canvas"
+            "goat-canvas",
+            "goat-icon",
+            "goat-tag",
+            "goat-button-group",
+            "goat-button"
           ],
           "dependencyGraph": {
             "goat-flow-designer": [
-              "goat-canvas"
+              "goat-canvas",
+              "goat-icon",
+              "goat-tag",
+              "goat-button-group",
+              "goat-button"
+            ],
+            "goat-tag": [
+              "goat-icon"
+            ],
+            "goat-button": [
+              "goat-icon",
+              "goat-spinner"
             ]
           },
           "props": [
@@ -15219,6 +15540,7 @@
           "listeners": [
             {
               "event": "mouseup",
+              "target": "window",
               "capture": false,
               "passive": false
             }
@@ -15226,7 +15548,7 @@
           "metadata": {
             "name": "Flow Designer",
             "description": "An interactive button with a range of presentation options.",
-            "img": "/assets/img/no-image.jpg"
+            "img": "/assets/img/flow-designer.png"
           }
         },
         {
@@ -15331,159 +15653,7 @@
           "metadata": {}
         },
         {
-          "filePath": "./src/components/general/menu/menu/menu.tsx",
-          "fileName": "menu.tsx",
-          "tag": "goat-menu",
-          "readme": "# goat-menu\r\n\r\n\r\n\r",
-          "overview": "",
-          "usage": {},
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "name",
-              "text": "Menu"
-            },
-            {
-              "name": "description",
-              "text": "Menus display a list of choices on temporary surfaces."
-            },
-            {
-              "name": "img",
-              "text": "/assets/img/menu.png"
-            }
-          ],
-          "encapsulation": "shadow",
-          "dependents": [
-            "goat-dropdown",
-            "goat-select"
-          ],
-          "dependencies": [
-            "goat-empty-state"
-          ],
-          "dependencyGraph": {
-            "goat-menu": [
-              "goat-empty-state"
-            ],
-            "goat-empty-state": [
-              "goat-svg",
-              "goat-button"
-            ],
-            "goat-button": [
-              "goat-icon",
-              "goat-spinner"
-            ],
-            "goat-dropdown": [
-              "goat-menu"
-            ],
-            "goat-select": [
-              "goat-menu"
-            ]
-          },
-          "props": [
-            {
-              "name": "empty",
-              "type": "boolean",
-              "mutable": true,
-              "attr": "empty",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "default": "false",
-              "values": [
-                {
-                  "type": "boolean"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "emptyState",
-              "type": "any",
-              "mutable": true,
-              "attr": "empty-state",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "default": "{\r\n    'headline': 'No items',\r\n    'description': 'There are no items to display',\r\n  }",
-              "values": [
-                {
-                  "type": "any"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "showLoader",
-              "type": "boolean",
-              "mutable": false,
-              "attr": "show-loader",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "default": "false",
-              "values": [
-                {
-                  "type": "boolean"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "value",
-              "type": "number | string",
-              "mutable": true,
-              "attr": "value",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "values": [
-                {
-                  "type": "number"
-                },
-                {
-                  "type": "string"
-                }
-              ],
-              "optional": true,
-              "required": false
-            }
-          ],
-          "methods": [
-            {
-              "name": "setFocus",
-              "returns": {
-                "type": "Promise<void>",
-                "docs": ""
-              },
-              "signature": "setFocus() => Promise<void>",
-              "parameters": [],
-              "docs": "Sets focus on first menu item. Use this method instead of the global\r\n`element.focus()`.",
-              "docsTags": []
-            }
-          ],
-          "events": [],
-          "styles": [],
-          "slots": [],
-          "parts": [],
-          "listeners": [
-            {
-              "event": "keydown",
-              "target": "window",
-              "capture": false,
-              "passive": false
-            }
-          ],
-          "metadata": {
-            "name": "Menu",
-            "description": "Menus display a list of choices on temporary surfaces.",
-            "img": "/assets/img/menu.png"
-          }
-        },
-        {
-          "filePath": "./src/components/general/menu/menu-item/menu-item.tsx",
+          "filePath": "./src/components/navigation/menu/menu-item/menu-item.tsx",
           "fileName": "menu-item.tsx",
           "tag": "goat-menu-item",
           "readme": "# goat-menu-item\r\n\r\n\r\n\r",
@@ -16287,7 +16457,7 @@
           "metadata": {}
         },
         {
-          "filePath": "./src/components/general/menu/tree-view/tree-view.tsx",
+          "filePath": "./src/components/navigation/menu/tree-view/tree-view.tsx",
           "fileName": "tree-view.tsx",
           "tag": "tree-view",
           "readme": "# goat-menu\r\n\r\n\r\n\r",

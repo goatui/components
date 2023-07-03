@@ -1,8 +1,9 @@
 <goat-card>
   <goat-card-content>
     <goat-select id="select" placeholder="Select" clearable style="width: 20rem"></goat-select>
+    <goat-select id="select2" class='no-border' placeholder="Select" style="width: 20rem"></goat-select>
     <script>
-      const $dropDown = document.getElementById('select');
+      let $dropDown = document.getElementById('select');
       $dropDown.items = [
         { label: 'New', value: 'new', icon: 'file-earmark' },
         { label: 'Save', value: 'save', icon: 'person-circle' },
@@ -21,11 +22,27 @@
       $dropDown.addEventListener('goat:change', function (evt) {
         myConsole.log(JSON.stringify(evt.detail, null, 4));
       });
+
+      $dropDown = document.getElementById('select2');
+      $dropDown.items = [
+        { label: 'New', value: 'new' },
+        { label: 'Save', value: 'save' },
+        { label: 'Save As', value: 'save-as'},
+        {
+          label: 'Nadine Brooks',
+          value: 'nadine'
+        },
+        {
+          label: 'Laura Ballard',
+          value: 'laura'
+        },
+      ];
     </script>
   </goat-card-content>
   <goat-card-content>
     {% GoatHighlighter language:"html" %}
     <goat-select id="select" placeholder="Select" clearable style="width: 20rem"></goat-select>
+<goat-select id="select2" class='no-border' placeholder="Select"  style="width: 20rem"></goat-select>
     {% endGoatHighlighter %}
   </goat-card-content>
   <goat-card-content>

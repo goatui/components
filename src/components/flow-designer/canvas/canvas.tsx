@@ -12,7 +12,8 @@ import { Component, Element, h, Host, Prop } from '@stencil/core';
 })
 export class Canvas {
   @Prop() shapes: any[] = [];
-  @Prop() padding: number = 2;
+  @Prop() padding: number = 1;
+  @Prop() zoom: number = 1;
 
   @Prop() viewbox?: string;
 
@@ -37,93 +38,6 @@ export class Canvas {
 
   renderCanvas() {}
 
-  createPath(path) {
-    let pathString = [];
-    pathString.push(this.#createLineString(path));
-    return ` ${pathString.join(' ')}`;
-  }
-
-  createStraightLinePath(line, startConnector, endConnector) {
-    let pathString = [];
-    pathString.push(this.#createLineString(startConnector));
-    pathString.push(this.#createLineString(endConnector));
-    pathString.push(this.#createLineString(line.end));
-    return ` ${pathString.join(' ')}`;
-  }
-
-  createShapeConnectorPath(line, startConnector, endConnector) {
-    let pathString = [];
-    let curveSize = 2;
-
-    if (line.start.direction == 'down') {
-      if (line.end.direction == 'top') {
-        if (startConnector.x === endConnector.x) {
-          pathString.push(this.#createLineString(line.end));
-        } else if (startConnector.x < endConnector.x) {
-          pathString.push(this.#createLineString({ x: startConnector.x, y: startConnector.y - curveSize }));
-          pathString.push(
-            this.#createQuadraticCurveString(
-              {
-                x: startConnector.x,
-                y: startConnector.y,
-              },
-              { x: startConnector.x + curveSize, y: startConnector.y },
-            ),
-          );
-
-          pathString.push(this.#createLineString({ x: endConnector.x - curveSize, y: startConnector.y }));
-          pathString.push(
-            this.#createQuadraticCurveString(
-              {
-                x: endConnector.x,
-                y: startConnector.y,
-              },
-              { x: endConnector.x, y: startConnector.y + curveSize },
-            ),
-          );
-          pathString.push(this.#createLineString(line.end));
-        } else {
-          pathString.push(this.#createLineString({ x: startConnector.x, y: startConnector.y - curveSize }));
-          pathString.push(
-            this.#createQuadraticCurveString(
-              {
-                x: startConnector.x,
-                y: startConnector.y,
-              },
-              { x: startConnector.x - curveSize, y: startConnector.y },
-            ),
-          );
-
-          pathString.push(this.#createLineString({ x: endConnector.x + curveSize, y: startConnector.y }));
-          pathString.push(
-            this.#createQuadraticCurveString(
-              {
-                x: endConnector.x,
-                y: startConnector.y,
-              },
-              { x: endConnector.x, y: startConnector.y + curveSize },
-            ),
-          );
-          pathString.push(this.#createLineString(line.end));
-        }
-      }
-    }
-
-    /*if (startConnector.x === endConnector.x) {
-      pathString.push(this.#createLineString(endConnector));
-    } else {
-      if (line.start.direction === 'down' && line.end.direction === 'left') {
-        if (startConnector.y < endConnector.y) {
-          pathString += ` ${this.#createLineString({ x: startConnector.x, y: endConnector.y })}`;
-        } else {
-          pathString += ` ${this.#createLineString({ x: endConnector.x, y: startConnector.y })}`;
-        }
-      }
-      pathString += ` ${this.#createLineString(endConnector)}`;
-    }*/
-    return ` ${pathString.join(' ')}`;
-  }
-
   updateDrawingArea(position) {
     if (position.x > this.drawingArea.maxX) {
       this.drawingArea.maxX = position.x;
@@ -139,41 +53,38 @@ export class Canvas {
     }
   }
 
-  renderBackground() {
-    const columnLength = (1000 * this.unitSize) / this.gap;
-    const rowLength = (1000 * this.unitSize) / this.gap;
-
-    const shapes = [];
-    for (let i = 0; i < columnLength; i++) {
-      for (let j = 0; j < rowLength; j++) {
-        const x = i * this.gap + this.dotRadius;
-        const y = j * this.gap + this.dotRadius;
-        shapes.push(<circle cx={x} cy={y} r={this.dotRadius} fill="black" />);
-      }
-    }
-    return shapes;
-  }
-
   renderShapes(computedViewbox) {
     const dotRadius = this.unitSize;
 
     const shapes = this.shapes.map(shape => {
       switch (shape.type) {
         case 'circle': {
-          if (shape.x + shape.radius > computedViewbox.width) {
-            computedViewbox.width = shape.x + shape.radius;
+          if (shape.x + Math.ceil(shape.radius) > computedViewbox.width) {
+            computedViewbox.width = shape.x + Math.ceil(shape.radius);
           }
-          if (shape.y + shape.radius > computedViewbox.height) {
-            computedViewbox.height = shape.y + shape.radius;
+          if (shape.x - Math.ceil(shape.radius) < computedViewbox.x) {
+            computedViewbox.x = shape.x - Math.ceil(shape.radius);
+          }
+          if (shape.y + Math.ceil(shape.radius) > computedViewbox.height) {
+            computedViewbox.height = shape.y + Math.ceil(shape.radius);
+          }
+          if (shape.y - Math.ceil(shape.radius) < computedViewbox.y) {
+            computedViewbox.y = shape.y - Math.ceil(shape.radius);
           }
           return <circle cx={shape.x * this.gap + dotRadius} cy={shape.y * this.gap + dotRadius} r={shape.radius * this.gap} fill={shape.color || 'black'} />;
         }
         case 'rect': {
-          if (shape.x + shape.width > computedViewbox.width) {
-            computedViewbox.width = shape.x + shape.width;
+          if (shape.x + Math.ceil(shape.width) > computedViewbox.width) {
+            computedViewbox.width = shape.x + Math.ceil(shape.width);
           }
-          if (shape.y + shape.height > computedViewbox.height) {
-            computedViewbox.height = shape.y + shape.height;
+          if (shape.x - Math.ceil(shape.width) < computedViewbox.x) {
+            computedViewbox.x = shape.x - Math.ceil(shape.width);
+          }
+          if (shape.y + Math.ceil(shape.height) > computedViewbox.height) {
+            computedViewbox.height = shape.y + Math.ceil(shape.height);
+          }
+          if (shape.y - Math.ceil(shape.height) < computedViewbox.y) {
+            computedViewbox.y = shape.y - Math.ceil(shape.height);
           }
           return (
             <rect
@@ -241,7 +152,7 @@ export class Canvas {
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke={shape.color || '#000'}
-                marker-end="url(#endarrow)"
+                marker-end={shape.showArrow ? 'url(#endarrow)' : ''}
                 d={pathString}
                 fill="none"
               />
@@ -253,8 +164,13 @@ export class Canvas {
     });
 
     // Padding
-    computedViewbox.width = computedViewbox.width + 1;
-    computedViewbox.height = computedViewbox.height + 1;
+    computedViewbox.x = computedViewbox.x - this.padding;
+    computedViewbox.y = computedViewbox.y - this.padding;
+    computedViewbox.width = computedViewbox.width + this.padding;
+    computedViewbox.height = computedViewbox.height + this.padding;
+
+    computedViewbox.width = computedViewbox.width - computedViewbox.x;
+    computedViewbox.height = computedViewbox.height - computedViewbox.y;
 
     return shapes;
   }
@@ -262,21 +178,31 @@ export class Canvas {
   updateComputationArea(point, computationArea) {
     if (point.x > computationArea.width) {
       computationArea.width = point.x;
+    } else if (point.x < computationArea.x) {
+      computationArea.x = point.x;
     }
     if (point.y > computationArea.height) {
       computationArea.height = point.y;
+    } else if (point.y < computationArea.y) {
+      computationArea.y = point.y;
     }
   }
 
   render() {
     const dotRadius = this.unitSize;
 
-    let computedViewbox: any = { width: 0, height: 0 };
+    let computedViewbox: any = { width: 0, height: 0, x: 0, y: 0 };
 
     const shapes = this.renderShapes(computedViewbox);
 
     if (this.viewbox) {
-      computedViewbox = this.viewbox;
+      const viewbox = this.viewbox.split(' ');
+      computedViewbox = {
+        x: parseInt(viewbox[0], 10),
+        y: parseInt(viewbox[1], 10),
+        width: parseInt(viewbox[2], 10),
+        height: parseInt(viewbox[3], 10),
+      };
     }
 
     return (
@@ -284,26 +210,29 @@ export class Canvas {
         <div
           class="canvas-wrapper"
           style={{
-            width: computedViewbox.width * this.gap + 2 * dotRadius + 'px',
-            height: computedViewbox.height * this.gap + 2 * dotRadius + 'px',
+            width: (computedViewbox.width * this.gap + 2) * dotRadius * this.zoom + 'px',
+            height: (computedViewbox.height * this.gap + 2) * dotRadius * this.zoom + 'px',
           }}
         >
-          <svg class="canvas" height="100%" width="100%" viewBox={`0 0 ${computedViewbox.width * this.gap + 2 * dotRadius} ${computedViewbox.width * this.gap + 2 * dotRadius}`}>
-            {/*{this.renderBackground()}*/}
+          <svg
+            class="canvas"
+            height="100%"
+            width="100%"
+            viewBox={`${computedViewbox.x * this.gap} ${computedViewbox.y * this.gap} ${computedViewbox.width * this.gap + 2 * dotRadius} ${
+              computedViewbox.height * this.gap + 2 * dotRadius
+            }`}
+          >
             <defs>
-              <pattern id="bg" patternUnits="userSpaceOnUse" width={this.gap} height={this.gap}>
+              <pattern id="canvas-background" patternUnits="userSpaceOnUse" width={this.gap} height={this.gap}>
                 <circle cx={1} cy={1} r={this.dotRadius} />
               </pattern>
 
-              <marker id="startarrow" markerWidth="5" markerHeight="5" refX="5" refY="2.5" orient="auto">
-                <polygon points="5 0, 5 5, 0 2.5" fill="black" />
-              </marker>
-
-              <marker id="endarrow" markerWidth="10" markerHeight="5" refX="5" refY="0" markerUnits="userSpaceOnUse">
-                <polyline points="0 5, 5 0, 10 5"></polyline>
+              <marker id="endarrow" markerWidth="15" markerHeight="22.5" refX="9" refY="15" markerUnits="userSpaceOnUse" orient="auto">
+                <polyline points="0 22.5, 7.5 15, 0 7.5"></polyline>
               </marker>
             </defs>
-            <rect width="100%" height="100%" fill="url(#bg)" />
+
+            <rect x={computedViewbox.x * this.gap} y={computedViewbox.y * this.gap} width="100%" height="100%" fill="url(#canvas-background)" />
 
             {shapes}
           </svg>
@@ -328,23 +257,5 @@ export class Canvas {
       nextPoint.y = point.y;
     }
     return nextPoint;
-  };
-
-  /* #createStartString: any = point => {
-     this.updateDrawingArea(point);
-     return `M${point.x * this.gap + this.dotRadius} ${point.y * this.gap + this.dotRadius}`;
-   };*/
-
-  #createQuadraticCurveString: any = (pointA, pointB) => {
-    this.updateDrawingArea(pointA);
-    this.updateDrawingArea(pointA);
-    return `Q ${pointA.x * this.unitSize} ${pointA.y * this.unitSize} ${pointB.x * this.unitSize} ${pointB.y * this.unitSize}`;
-  };
-
-  #createLineString: any = point => {
-    this.updateDrawingArea(point);
-    const dotSize = this.unitSize;
-    const gap = dotSize * 2 * 10;
-    return `L${point.x * gap + dotSize} ${point.y * gap + dotSize}`;
   };
 }

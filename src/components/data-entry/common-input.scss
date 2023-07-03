@@ -115,6 +115,14 @@
 }
 
 
+
+:host(.no-border) {
+  .input-container {
+    border-color: transparent;
+    background-color: transparent;
+  }
+}
+
 /**
  * Sizes
  */

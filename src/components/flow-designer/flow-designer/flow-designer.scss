@@ -6,22 +6,40 @@
   height: 400px
 }
 
-
-.flow-designer {
-  /*height: 300px;
-  width: 300px;
-  overflow: auto;*/
-
-  border-radius: var(--table-border-radius);
-  background-color: v(background-color);
-  border: 1px solid v(border-color);
-}
-
-.canvas-wrapper {
+.flow-designer-container {
   position: relative;
   width: 100%;
   height: 100%;
+
+  .action-bar {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: white;
+  }
 }
+
+
+.flow-designer {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: var(--table-border-radius);
+  background-color: v(--background-color);
+  border: 1px solid v(--border-color);
+
+  .canvas-container {
+    position: relative;
+    min-width: 100%;
+    min-height: 100%;
+  }
+
+  .clear {
+    clear: both;
+  }
+}
+
 
 .flow-lines, .flow-items {
   position: absolute;
@@ -32,8 +50,91 @@
 .flow-items {
   position: absolute;
   top: 0;
-  left: 50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
+
+  .flow-items-container {
+    position: relative;
+  }
+
+  .new-activity {
+    pointer-events: auto;
+    position: absolute;
+    background: v(--color-neutral-30);
+    border-radius: 100%;
+    line-height: 0;
+    box-sizing: border-box;
+    border: 2px solid v(--color-neutral-30);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      border-color: v(--color-primary);
+      cursor: pointer;
+    }
+  }
+
+  .test-activity {
+    pointer-events: auto;
+    position: absolute;
+  }
+
+  .activity {
+    pointer-events: auto;
+    position: absolute;
+
+    display: flex;
+
+    align-items: center;
+    box-sizing: border-box;
+
+    &:hover {
+      border-color: v(--color-primary);
+      cursor: pointer;
+    }
+
+    .activity-icon {
+      width: 60px;
+      height: 60px;
+      padding: 10px;
+      background: v(--background);
+      border: 2px solid v(--border-color);
+      border-radius: 5px;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .activity-content {
+      flex: 1;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+
+      .activity-title {
+        margin: 0;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .activity-description {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        margin: 0;
+      }
+    }
+
+  }
 }
 
 .activity {

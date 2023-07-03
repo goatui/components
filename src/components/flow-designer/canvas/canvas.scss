@@ -5,11 +5,11 @@
 }
 
 .canvas-wrapper {
-  background: rgb(246 246 248);
+  background: var(--layer-hover-01);
 }
 
-#bg circle {
-  fill: v(--border-color);
+#canvas-background circle {
+  fill: var(--border-disabled);
 }
 
 #endarrow polyline{

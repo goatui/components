@@ -22,10 +22,10 @@
 
 ### Used by
 
- - [goat-menu](../../general/menu/menu)
+ - [goat-menu](../../navigation/menu/menu)
  - [goat-sidenav-menu](../../app-shell/sidenav-menu)
  - [goat-table](../table)
- - [tree-view](../../general/menu/tree-view)
+ - [tree-view](../../navigation/menu/tree-view)
 
 ### Depends on
 

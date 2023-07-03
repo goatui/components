@@ -4,6 +4,7 @@ import { Component, Element, h, Host, Prop } from '@stencil/core';
  * @name Avatar
  * @description Avatars in their simplest form display content within a circular container.
  * @category Data Display
+ * @tags display
  * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.png"></goat-avatar>
  */
 @Component({

@@ -1,14 +1,10 @@
 import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core';
 import { loadScript } from '../../../utils/utils';
 
-function PX(unit: number) {
-  return unit * 16;
-}
-
 /**
  * @name Flow Designer
  * @description An interactive button with a range of presentation options.
- * @img /assets/img/no-image.jpg
+ * @img /assets/img/flow-designer.png
  */
 @Component({
   tag: 'goat-flow-designer',
@@ -24,7 +20,8 @@ export class FlowDesigner {
 
   @Prop() disabled: boolean = false;
 
-  private isMouseDown: boolean = false;
+  private isDrag: boolean = false;
+  private isMouseInside: boolean = false;
   private startX: number;
   private startY: number;
   private scrollLeft: number;
@@ -35,10 +32,11 @@ export class FlowDesigner {
   @State() activityHeight: number = 10;
   @State() activityWidth: number = 5;
   @State() lines: any[] = [];
+  @State() zoom: number = 1;
 
-  @Listen('mouseup', { passive: false })
-  handleMouseDown() {
-    this.isMouseDown = false;
+  @Listen('mouseup', { target: 'window', passive: false })
+  handleMouseUp() {
+    this.isDrag = false;
   }
 
   async componentWillLoad() {
@@ -64,181 +62,188 @@ export class FlowDesigner {
   componentDidLoad() {
     setTimeout(() => {
       // this.nativeScrollElm.scrollLeft = (this.canvasElm.clientWidth - this.nativeScrollElm.clientWidth) / 2;
-      this.initializeCanvas();
     }, 100);
   }
 
-  getViewBoxHeight() {
-    return PX(this.blockSize * this.activityHeight);
-  }
 
-  getViewBoxWidth() {
-    return PX(this.blockSize * this.activityWidth);
-  }
 
-  initializeCanvas() {
-    //  const draw = (window['SVG']()).addTo(this.canvasElm).viewbox(0, 0, this.getViewBoxWidth(), this.getViewBoxHeight());
-    // this.createActivityNode(1, 1).addTo(draw);
-  }
 
-  createStartNode() {
-    const radius = PX(this.blockSize / 2);
-
-    return new window['SVG'].Circle().radius(radius).move(0, 0).attr({ fill: 'var(--color-success-100)' }).stroke({ color: 'var(--color-success-500)' });
-  }
-
-  createActivityNode(x, y) {
-    const size = PX(this.blockSize / 2);
-
-    /* var image = new window['SVG'].Image().load('https://cdn.img42.com/4b6f5e63ac50c95fe147052d8a4db676.jpeg');
-     image.size(100, 100).move(20, 20);*/
-
-    const centerOfRect = size / 2;
-    return new window['SVG'].Rect()
-      .addClass('activity')
-      .size(size, size)
-      .radius(15)
-      .move(((this.activityWidth - 1) / 2 + x) * PX(this.blockSize) + centerOfRect, y * PX(this.blockSize) + centerOfRect);
-  }
 
   render() {
     return (
       <Host disabled={this.disabled}>
-        <div class="flow-designer" ref={elm => (this.nativeScrollElm = elm)}>
-          <div
-            class="canvas-wrapper"
-            onMouseDown={event => {
-              event.preventDefault();
-              this.isMouseDown = true;
-              this.startX = event.pageX - this.nativeScrollElm.offsetLeft;
-              this.startY = event.pageY - this.nativeScrollElm.offsetTop;
-              this.scrollLeft = this.nativeScrollElm.scrollLeft;
-              this.scrollTop = this.nativeScrollElm.scrollTop;
-            }}
-            onMouseLeave={event => {
-              event.preventDefault();
-              this.isMouseDown = false;
-            }}
-            onMouseMove={event => {
-              event.preventDefault();
-              if (!this.isMouseDown) return;
-              const x = event.pageX - this.nativeScrollElm.offsetLeft;
-              const walkX = x - this.startX; //scroll-fast
-              this.nativeScrollElm.scrollLeft = this.scrollLeft - walkX;
-              const y = event.pageY - this.nativeScrollElm.offsetTop;
-              const walkY = y - this.startY; //scroll-fast
-              this.nativeScrollElm.scrollTop = this.scrollTop - walkY;
-            }}
-          >
-            <goat-canvas class="flow-lines" padding={0} viewbox={'0 0 144 144'} />
+        <img src="https://cdn.img42.com/4b6f5e63ac50c95fe147052d8a4db676.jpeg" style={{ height: '20px', width: '20px' }} draggable={true} />
+        <div class="flow-designer-container">
+          <div class="flow-designer" ref={elm => (this.nativeScrollElm = elm)}>
+            <div
+              class="canvas-container"
+              onMouseDown={event => {
+                event.preventDefault();
+                this.isDrag = true;
+                this.isMouseInside = true;
+                this.startX = event.pageX - this.nativeScrollElm.offsetLeft;
+                this.startY = event.pageY - this.nativeScrollElm.offsetTop;
+                this.scrollLeft = this.nativeScrollElm.scrollLeft;
+                this.scrollTop = this.nativeScrollElm.scrollTop;
+              }}
+              onMouseEnter={event => {
+                event.preventDefault();
+                this.isMouseInside = true;
+              }}
+              onMouseLeave={event => {
+                event.preventDefault();
+                this.isMouseInside = false;
+              }}
+              onMouseMove={event => {
+                event.preventDefault();
+                if (!this.isDrag || !this.isMouseInside) return;
+                const x = event.pageX - this.nativeScrollElm.offsetLeft;
+                const walkX = x - this.startX; //scroll-fast
+                this.nativeScrollElm.scrollLeft = this.scrollLeft - walkX;
+                if (!this.nativeScrollElm.scrollLeft) this.startX = this.startX - (this.scrollLeft - walkX);
+                console.log(this.nativeScrollElm.scrollLeft, this.startX);
 
-            {/*<div class='flow-items'
-               style={{ 'width': `${this.getViewBoxWidth()}px`, 'height': `${this.getViewBoxHeight()}px` }} />*/}
+                const y = event.pageY - this.nativeScrollElm.offsetTop;
+                const walkY = y - this.startY; //scroll-fast
+                this.nativeScrollElm.scrollTop = this.scrollTop - walkY;
+                if (!this.nativeScrollElm.scrollTop) this.startY = this.startY - (this.scrollTop - walkY);
+              }}
+            >
+              <goat-canvas
+                class="flow-lines"
+                padding={0}
+                zoom={this.zoom}
+                shapes={[
+                  { type: 'circle', x: 200, y: 200, radius: 0.25, color: 'red' },
+                  {
+                    type: 'connector',
+                    start: { x: 4, y: 8 },
+                    showArrow: true,
+                    path: [{ direction: 'down', length: 7 }],
+                    clickable: true,
+                  },
+                  {
+                    type: 'connector',
+                    start: { x: 4, y: 22 },
+                    showArrow: true,
+                    path: [{ direction: 'down', length: 7 }],
+                    clickable: true,
+                  }
+                ]}
+              />
+
+              <div class="flow-items">
+                <div class="flow-items-container">
+                  <div
+                    class="activity"
+                    style={{
+                      top: this.zoom * 11 + 'px',
+                      left: this.zoom * 11 + 'px',
+                      width: 230 * this.zoom + 'px',
+                      height: 70 * this.zoom + 'px'
+                    }}
+                    onDrop={event => {
+                      event.preventDefault();
+                      alert('drop');
+                    }}
+                    onDragOver={ev => {
+                      ev.preventDefault();
+                    }}
+                  >
+                    <div class="activity-icon">
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Slack_icon_2019.svg/2048px-Slack_icon_2019.svg.png" />
+                    </div>
+                    <div class="activity-content">
+                      <h1 class="activity-title"
+                          style={{
+                        "font-size": 16 * this.zoom + 'px',
+                      }}>New issue in github</h1>
+                      <p class="activity-description"
+                         style={{
+                           "font-size": 14 * this.zoom + 'px',
+                         }}>
+                        trigger
+                      </p>
+                    </div>
+                  </div>
+
+                  <div
+                    class="new-activity"
+                    style={{
+                      top: 101 * this.zoom + 'px',
+                      left: 31 * this.zoom + 'px',
+                      width: 20 * this.zoom + 'px',
+                      height: 20 * this.zoom + 'px',
+                    }}
+                  >
+                    <goat-icon name={'plus'} size={this.zoom * 20 + 'px'} />
+                  </div>
+
+                  <goat-tag class="test-activity color-blue" style={{
+                    top: 121 * this.zoom + 'px',
+                    left: 116 * this.zoom + 'px'
+                  }}>Testing</goat-tag>
+
+                  <div
+                    class="activity"
+                    style={{
+                      top: this.zoom * 151 + 'px',
+                      left: this.zoom * 11 + 'px',
+                      width: 230 * this.zoom + 'px',
+                      height: 70 * this.zoom + 'px'
+                    }}
+                    onDrop={event => {
+                      event.preventDefault();
+                      alert('drop');
+                    }}
+                    onDragOver={ev => {
+                      ev.preventDefault();
+                    }}
+                  >
+                    <div class="activity-icon">
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Circle-icons-mail.svg/1024px-Circle-icons-mail.svg.png" />
+                    </div>
+                    <div class="activity-content">
+                      <h1 class="activity-title"
+                          style={{
+                            "font-size": 16 * this.zoom + 'px',
+                          }}>Send status update</h1>
+                      <p class="activity-description"
+                         style={{
+                           "font-size": 14 * this.zoom + 'px',
+                         }}>
+                        email
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="clear"></div>
+            </div>
+          </div>
+          <div class="action-bar">
+            <goat-button-group>
+              <goat-button
+                size="sm"
+                icon="plus"
+                variant="outline"
+                onGoat:click={() => {
+                  this.zoom = this.zoom + 0.1;
+                }}
+              ></goat-button>
+              <goat-button
+                size="sm"
+                icon="dash"
+                variant="outline"
+                onGoat:click={() => {
+                  this.zoom = this.zoom - 0.1;
+                }}
+              ></goat-button>
+            </goat-button-group>
           </div>
         </div>
       </Host>
     );
   }
-
-  /* renderCanvas() {
-     console.log(this.canvasElm);
-     const draw = (window['SVG']())
-       .addTo(this.canvasElm);
-
-     const panel = {
-       minX: 0,
-       minY: 0,
-       maxX: 0,
-       maxY: 0,
-     };
-
-     for (const line of this.lines) {
-       this.drawLine(draw, line, panel);
-     }
-
-     panel.minX -= 1;
-     panel.minY -= 1;
-     panel.maxX += 1;
-     panel.maxY += 1;
-
-     this.width = (panel.maxX - panel.minX);
-     this.height = (panel.maxY - panel.minY);
-
-     draw.viewbox(panel.minX * this.unitSize, panel.minY * this.unitSize, this.width * this.unitSize, this.height * this.unitSize);
-   }
-
-
-   drawLine(draw, line, panel) {
-
-     let pathString = `M${(line.start.x) * this.unitSize} ${(line.start.y) * this.unitSize}`;
-     this.updatePanel(panel, line.start);
-
-     const currentPosition = { x: line.start.x, y: line.start.y };
-     for (let i = 0; i < line.path.length; i++) {
-       const step = line.path[i];
-       const nextStep = line.path[i + 1];
-       if (step.move === 'down' || step.move === 'up') {
-         if (step.move === 'down') {
-           currentPosition.y += step.size * this.stepSize;
-         } else if (step.move === 'up') {
-           currentPosition.y += -1 * step.size * this.stepSize;
-         }
-
-         if (nextStep && (nextStep.move === 'left' || nextStep.move === 'right')) {
-
-           if (step.move == 'down' && nextStep.move === 'right') {
-             currentPosition.x += -1 * step.size * this.stepSize;
-           } else if (nextStep.move === 'right') {
-             currentPosition.x += step.size * this.stepSize;
-           }
-           pathString +=
-
-           /!* draw.path('M0 16 Q 0 48 32 48')
-              .fill('none')
-              .stroke({ color: '#f06', width: 4, linecap: 'round', linejoin: 'round' }); *!/
-
-         } else {
-           pathString += ` V ${currentPosition.y * this.unitSize}`;
-         }
-       } else if (step.move === 'right' || step.move === 'left') {
-         if (step.move === 'left') {
-           currentPosition.x += -1 * step.size * this.stepSize;
-         } else if (step.move === 'right') {
-           currentPosition.x += step.size * this.stepSize;
-         }
-
-         if (nextStep && (nextStep.move === 'up' || nextStep.move === 'down')) {
-
-         } else {
-           pathString += ` H ${currentPosition.x * this.unitSize}`;
-         }
-       }
-       this.updatePanel(panel, currentPosition);
-     }
-
-     const path = draw.path(pathString)
-       .addClass('line')
-       .addClass('clickable')
-       .fill('none')
-       .stroke({ width: 4, linecap: 'round', linejoin: 'round' });
-
-     path.node.onclick = () => {
-       alert('click');
-     };
-   }
-
-   updatePanel(panel, position) {
-     if (position.x > panel.maxX) {
-       panel.maxX = position.x;
-     }
-     if (position.y > panel.maxY) {
-       panel.maxY = position.y;
-     }
-     if (position.x < panel.minX) {
-       panel.minX = position.x;
-     }
-     if (position.y < panel.minY) {
-       panel.minY = position.y;
-     }
-   }*/
 }

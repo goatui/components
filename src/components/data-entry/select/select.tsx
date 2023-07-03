@@ -88,7 +88,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
   /**
    * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
    */
-  @Prop() clearable = false;
+  @Prop() clearable: boolean = false;
 
   /**
    * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.

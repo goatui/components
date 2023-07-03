@@ -20,7 +20,8 @@
  - [goat-accordion-item](../../data-display/accordion/accordion-item)
  - [goat-button](../button)
  - [goat-code-highlighter](../../data-display/code-highlighter)
- - [goat-dropdown](../menu/dropdown)
+ - [goat-dropdown](../../navigation/menu/dropdown)
+ - [goat-flow-designer](../../flow-designer/flow-designer)
  - [goat-input](../../data-entry/input)
  - [goat-notification](../../feedback/notification)
  - [goat-select](../../data-entry/select)
@@ -36,6 +37,7 @@ graph TD;
   goat-button --> goat-icon
   goat-code-highlighter --> goat-icon
   goat-dropdown --> goat-icon
+  goat-flow-designer --> goat-icon
   goat-input --> goat-icon
   goat-notification --> goat-icon
   goat-select --> goat-icon

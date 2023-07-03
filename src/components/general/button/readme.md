@@ -72,6 +72,7 @@ Type: `Promise<void>`
  - [goat-calendar](../../data-display/calendar/calendar)
  - [goat-code-highlighter](../../data-display/code-highlighter)
  - [goat-empty-state](../../data-display/empty-state)
+ - [goat-flow-designer](../../flow-designer/flow-designer)
  - [goat-input](../../data-entry/input)
  - [goat-notification](../../feedback/notification)
  - [goat-table](../../data-display/table)
@@ -89,6 +90,7 @@ graph TD;
   goat-calendar --> goat-button
   goat-code-highlighter --> goat-button
   goat-empty-state --> goat-button
+  goat-flow-designer --> goat-button
   goat-input --> goat-button
   goat-notification --> goat-button
   goat-table --> goat-button

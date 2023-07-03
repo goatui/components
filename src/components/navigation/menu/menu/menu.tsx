@@ -3,6 +3,7 @@ import { Component, ComponentInterface, Element, h, Listen, Method, Prop, State,
 /**
  * @name Menu
  * @description Menus display a list of choices on temporary surfaces.
+ * @category Navigation
  * @img /assets/img/menu.png
  */
 @Component({

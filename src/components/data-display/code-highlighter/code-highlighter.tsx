@@ -125,6 +125,8 @@ enum Language {
 /**
  * @name Code Highlighter
  * @description A browser based code highlighter.
+ * @category Data Display
+ * @tag display, code
  * @img /assets/img/code-highlighter.png
  */
 @Component({

@@ -10,6 +10,7 @@ export namespace Components {
      * @name Accordion
      * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
      * @category Data Display
+     * @tags display
      * @example <goat-accordion>
      * <goat-accordion-item heading="Title 1"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>
      * </goat-accordion>
@@ -34,6 +35,7 @@ export namespace Components {
      * @name Avatar
      * @description Avatars in their simplest form display content within a circular container.
      * @category Data Display
+     * @tags display
      * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.png"></goat-avatar>
      */
     interface GoatAvatar {
@@ -198,6 +200,7 @@ export namespace Components {
         "padding": number;
         "shapes": any[];
         "viewbox"?: string;
+        "zoom": number;
     }
     interface GoatCard {
         "shadowLevel": 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | undefined;
@@ -293,6 +296,8 @@ export namespace Components {
     /**
      * @name Code Highlighter
      * @description A browser based code highlighter.
+     * @category Data Display
+     * @tag display, code
      * @img /assets/img/code-highlighter.png
      */
     interface GoatCodeHighlighter {
@@ -354,6 +359,7 @@ export namespace Components {
     /**
      * @name Dropdown
      * @description Enables native inputs to be used within a Form field.
+     * @category Navigation
      * @img /assets/img/dropdown.png
      */
     interface GoatDropdown {
@@ -389,7 +395,7 @@ export namespace Components {
     /**
      * @name Flow Designer
      * @description An interactive button with a range of presentation options.
-     * @img /assets/img/no-image.jpg
+     * @img /assets/img/flow-designer.png
      */
     interface GoatFlowDesigner {
         "activities": any[];
@@ -538,6 +544,7 @@ export namespace Components {
     /**
      * @name Menu
      * @description Menus display a list of choices on temporary surfaces.
+     * @category Navigation
      * @img /assets/img/menu.png
      */
     interface GoatMenu {
@@ -1152,6 +1159,7 @@ declare global {
      * @name Accordion
      * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
      * @category Data Display
+     * @tags display
      * @example <goat-accordion>
      * <goat-accordion-item heading="Title 1"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>
      * </goat-accordion>
@@ -1172,6 +1180,7 @@ declare global {
      * @name Avatar
      * @description Avatars in their simplest form display content within a circular container.
      * @category Data Display
+     * @tags display
      * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.png"></goat-avatar>
      */
     interface HTMLGoatAvatarElement extends Components.GoatAvatar, HTMLStencilElement {
@@ -1327,6 +1336,8 @@ declare global {
     /**
      * @name Code Highlighter
      * @description A browser based code highlighter.
+     * @category Data Display
+     * @tag display, code
      * @img /assets/img/code-highlighter.png
      */
     interface HTMLGoatCodeHighlighterElement extends Components.GoatCodeHighlighter, HTMLStencilElement {
@@ -1362,6 +1373,7 @@ declare global {
     /**
      * @name Dropdown
      * @description Enables native inputs to be used within a Form field.
+     * @category Navigation
      * @img /assets/img/dropdown.png
      */
     interface HTMLGoatDropdownElement extends Components.GoatDropdown, HTMLStencilElement {
@@ -1386,7 +1398,7 @@ declare global {
     /**
      * @name Flow Designer
      * @description An interactive button with a range of presentation options.
-     * @img /assets/img/no-image.jpg
+     * @img /assets/img/flow-designer.png
      */
     interface HTMLGoatFlowDesignerElement extends Components.GoatFlowDesigner, HTMLStencilElement {
     }
@@ -1467,6 +1479,7 @@ declare global {
     /**
      * @name Menu
      * @description Menus display a list of choices on temporary surfaces.
+     * @category Navigation
      * @img /assets/img/menu.png
      */
     interface HTMLGoatMenuElement extends Components.GoatMenu, HTMLStencilElement {
@@ -1777,6 +1790,7 @@ declare namespace LocalJSX {
      * @name Accordion
      * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
      * @category Data Display
+     * @tags display
      * @example <goat-accordion>
      * <goat-accordion-item heading="Title 1"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>
      * </goat-accordion>
@@ -1805,6 +1819,7 @@ declare namespace LocalJSX {
      * @name Avatar
      * @description Avatars in their simplest form display content within a circular container.
      * @category Data Display
+     * @tags display
      * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.png"></goat-avatar>
      */
     interface GoatAvatar {
@@ -1969,6 +1984,7 @@ declare namespace LocalJSX {
         "padding"?: number;
         "shapes"?: any[];
         "viewbox"?: string;
+        "zoom"?: number;
     }
     interface GoatCard {
         "shadowLevel"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | undefined;
@@ -2062,6 +2078,8 @@ declare namespace LocalJSX {
     /**
      * @name Code Highlighter
      * @description A browser based code highlighter.
+     * @category Data Display
+     * @tag display, code
      * @img /assets/img/code-highlighter.png
      */
     interface GoatCodeHighlighter {
@@ -2130,6 +2148,7 @@ declare namespace LocalJSX {
     /**
      * @name Dropdown
      * @description Enables native inputs to be used within a Form field.
+     * @category Navigation
      * @img /assets/img/dropdown.png
      */
     interface GoatDropdown {
@@ -2164,7 +2183,7 @@ declare namespace LocalJSX {
     /**
      * @name Flow Designer
      * @description An interactive button with a range of presentation options.
-     * @img /assets/img/no-image.jpg
+     * @img /assets/img/flow-designer.png
      */
     interface GoatFlowDesigner {
         "activities"?: any[];
@@ -2319,6 +2338,7 @@ declare namespace LocalJSX {
     /**
      * @name Menu
      * @description Menus display a list of choices on temporary surfaces.
+     * @category Navigation
      * @img /assets/img/menu.png
      */
     interface GoatMenu {
@@ -2919,6 +2939,7 @@ declare module "@stencil/core" {
              * @name Accordion
              * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
              * @category Data Display
+             * @tags display
              * @example <goat-accordion>
              * <goat-accordion-item heading="Title 1"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>
              * </goat-accordion>
@@ -2929,6 +2950,7 @@ declare module "@stencil/core" {
              * @name Avatar
              * @description Avatars in their simplest form display content within a circular container.
              * @category Data Display
+             * @tags display
              * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.png"></goat-avatar>
              */
             "goat-avatar": LocalJSX.GoatAvatar & JSXBase.HTMLAttributes<HTMLGoatAvatarElement>;
@@ -3009,6 +3031,8 @@ declare module "@stencil/core" {
             /**
              * @name Code Highlighter
              * @description A browser based code highlighter.
+             * @category Data Display
+             * @tag display, code
              * @img /assets/img/code-highlighter.png
              */
             "goat-code-highlighter": LocalJSX.GoatCodeHighlighter & JSXBase.HTMLAttributes<HTMLGoatCodeHighlighterElement>;
@@ -3029,6 +3053,7 @@ declare module "@stencil/core" {
             /**
              * @name Dropdown
              * @description Enables native inputs to be used within a Form field.
+             * @category Navigation
              * @img /assets/img/dropdown.png
              */
             "goat-dropdown": LocalJSX.GoatDropdown & JSXBase.HTMLAttributes<HTMLGoatDropdownElement>;
@@ -3043,7 +3068,7 @@ declare module "@stencil/core" {
             /**
              * @name Flow Designer
              * @description An interactive button with a range of presentation options.
-             * @img /assets/img/no-image.jpg
+             * @img /assets/img/flow-designer.png
              */
             "goat-flow-designer": LocalJSX.GoatFlowDesigner & JSXBase.HTMLAttributes<HTMLGoatFlowDesignerElement>;
             /**
@@ -3089,6 +3114,7 @@ declare module "@stencil/core" {
             /**
              * @name Menu
              * @description Menus display a list of choices on temporary surfaces.
+             * @category Navigation
              * @img /assets/img/menu.png
              */
             "goat-menu": LocalJSX.GoatMenu & JSXBase.HTMLAttributes<HTMLGoatMenuElement>;

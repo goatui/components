@@ -4,6 +4,7 @@ import { isEventTriggerByElement, isMobile, isOutOfViewport } from '../../../../
 /**
  * @name Dropdown
  * @description Enables native inputs to be used within a Form field.
+ * @category Navigation
  * @img /assets/img/dropdown.png
  */
 @Component({

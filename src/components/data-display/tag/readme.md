@@ -26,6 +26,7 @@
 
 ### Used by
 
+ - [goat-flow-designer](../../flow-designer/flow-designer)
  - [goat-select](../../data-entry/select)
 
 ### Depends on
@@ -36,6 +37,7 @@
 ```mermaid
 graph TD;
   goat-tag --> goat-icon
+  goat-flow-designer --> goat-tag
   goat-select --> goat-tag
   style goat-tag fill:#f9f,stroke:#333,stroke-width:4px
 ```

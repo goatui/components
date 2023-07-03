@@ -14,9 +14,13 @@ $tag-hover-color: var(--tag-color, v(--tag-hover-gray));
   color: $tag-color;
   display: flex;
   align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .tag-content {
+  overflow: hidden;
+  text-overflow: ellipsis;
   padding: 0 .5rem;
 }
 
