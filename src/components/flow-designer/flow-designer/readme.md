@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property     | Attribute    | Description | Type      | Default |
-| ------------ | ------------ | ----------- | --------- | ------- |
-| `activities` | --           |             | `any[]`   | `[]`    |
-| `blockSize`  | `block-size` |             | `number`  | `16`    |
-| `disabled`   | `disabled`   |             | `boolean` | `false` |
+| Property    | Attribute    | Description | Type      | Default |
+| ----------- | ------------ | ----------- | --------- | ------- |
+| `blockSize` | `block-size` |             | `number`  | `16`    |
+| `data`      | --           |             | `any[]`   | `[]`    |
+| `disabled`  | `disabled`   |             | `boolean` | `false` |
 
 
 ## Dependencies

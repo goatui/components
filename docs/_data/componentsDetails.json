@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-07-03T10:01:19",
+  "timestamp": "2023-07-03T11:32:51",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.4.0",
@@ -3141,22 +3141,6 @@
       },
       "props": [
         {
-          "name": "activities",
-          "type": "any[]",
-          "mutable": false,
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "default": "[]",
-          "values": [
-            {
-              "type": "any[]"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "blockSize",
           "type": "number",
           "mutable": false,
@@ -3168,6 +3152,22 @@
           "values": [
             {
               "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "data",
+          "type": "any[]",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "[]",
+          "values": [
+            {
+              "type": "any[]"
             }
           ],
           "optional": false,
@@ -15482,22 +15482,6 @@
           },
           "props": [
             {
-              "name": "activities",
-              "type": "any[]",
-              "mutable": false,
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "default": "[]",
-              "values": [
-                {
-                  "type": "any[]"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
               "name": "blockSize",
               "type": "number",
               "mutable": false,
@@ -15509,6 +15493,22 @@
               "values": [
                 {
                   "type": "number"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "data",
+              "type": "any[]",
+              "mutable": false,
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "[]",
+              "values": [
+                {
+                  "type": "any[]"
                 }
               ],
               "optional": false,
