@@ -16,7 +16,7 @@ export class FlowDesigner {
 
   @Prop() blockSize: number = 16;
 
-  @Prop() activities: any[] = [];
+  @Prop() data: any[] = [];
 
   @Prop() disabled: boolean = false;
 
@@ -64,10 +64,6 @@ export class FlowDesigner {
       // this.nativeScrollElm.scrollLeft = (this.canvasElm.clientWidth - this.nativeScrollElm.clientWidth) / 2;
     }, 100);
   }
-
-
-
-
 
   render() {
     return (
@@ -128,44 +124,61 @@ export class FlowDesigner {
                     showArrow: true,
                     path: [{ direction: 'down', length: 7 }],
                     clickable: true,
-                  }
+                  },
                 ]}
               />
 
               <div class="flow-items">
                 <div class="flow-items-container">
-                  <div
-                    class="activity"
-                    style={{
-                      top: this.zoom * 11 + 'px',
-                      left: this.zoom * 11 + 'px',
-                      width: 230 * this.zoom + 'px',
-                      height: 70 * this.zoom + 'px'
-                    }}
-                    onDrop={event => {
-                      event.preventDefault();
-                      alert('drop');
-                    }}
-                    onDragOver={ev => {
-                      ev.preventDefault();
-                    }}
-                  >
-                    <div class="activity-icon">
-                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Slack_icon_2019.svg/2048px-Slack_icon_2019.svg.png" />
-                    </div>
-                    <div class="activity-content">
-                      <h1 class="activity-title"
+                  {this.data.map(activity => {
+                    return (
+                      <div
+                        class="activity"
+                        style={{
+                          top: this.zoom * 11 + 'px',
+                          left: this.zoom * 11 + 'px',
+                          width: 230 * this.zoom + 'px',
+                          height: 70 * this.zoom + 'px',
+                        }}
+                        onDrop={event => {
+                          event.preventDefault();
+                          alert('drop');
+                        }}
+                        onDragOver={ev => {
+                          ev.preventDefault();
+                        }}
+                      >
+                        <div
+                          class="activity-icon"
                           style={{
-                        "font-size": 16 * this.zoom + 'px',
-                      }}>New issue in github</h1>
-                      <p class="activity-description"
-                         style={{
-                           "font-size": 14 * this.zoom + 'px',
-                         }}>
-                        trigger
-                      </p>
-                    </div>
-                  </div>
+                            width: 60 * this.zoom + 'px',
+                            height: 60 * this.zoom + 'px',
+                            padding: 10 * this.zoom + 'px',
+                          }}
+                        >
+                          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Slack_icon_2019.svg/2048px-Slack_icon_2019.svg.png" />
+                        </div>
+                        <div class="activity-content">
+                          <h1
+                            class="activity-title"
+                            style={{
+                              'font-size': 16 * this.zoom + 'px',
+                            }}
+                          >
+                            {activity.title}
+                          </h1>
+                          <p
+                            class="activity-description"
+                            style={{
+                              'font-size': 14 * this.zoom + 'px',
+                            }}
+                          >
+                            trigger
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
 
                   <div
                     class="new-activity"
@@ -179,10 +192,15 @@ export class FlowDesigner {
                     <goat-icon name={'plus'} size={this.zoom * 20 + 'px'} />
                   </div>
 
-                  <goat-tag class="test-activity color-blue" style={{
-                    top: 121 * this.zoom + 'px',
-                    left: 116 * this.zoom + 'px'
-                  }}>Testing</goat-tag>
+                  <goat-tag
+                    class="test-activity color-blue"
+                    style={{
+                      top: 121 * this.zoom + 'px',
+                      left: 116 * this.zoom + 'px',
+                    }}
+                  >
+                    Testing
+                  </goat-tag>
 
                   <div
                     class="activity"
@@ -190,7 +208,7 @@ export class FlowDesigner {
                       top: this.zoom * 151 + 'px',
                       left: this.zoom * 11 + 'px',
                       width: 230 * this.zoom + 'px',
-                      height: 70 * this.zoom + 'px'
+                      height: 70 * this.zoom + 'px',
                     }}
                     onDrop={event => {
                       event.preventDefault();
@@ -200,23 +218,35 @@ export class FlowDesigner {
                       ev.preventDefault();
                     }}
                   >
-                    <div class="activity-icon">
+                    <div
+                      class="activity-icon"
+                      style={{
+                        width: 60 * this.zoom + 'px',
+                        height: 60 * this.zoom + 'px',
+                        padding: 10 * this.zoom + 'px',
+                      }}
+                    >
                       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Circle-icons-mail.svg/1024px-Circle-icons-mail.svg.png" />
                     </div>
                     <div class="activity-content">
-                      <h1 class="activity-title"
-                          style={{
-                            "font-size": 16 * this.zoom + 'px',
-                          }}>Send status update</h1>
-                      <p class="activity-description"
-                         style={{
-                           "font-size": 14 * this.zoom + 'px',
-                         }}>
+                      <h1
+                        class="activity-title"
+                        style={{
+                          'font-size': 16 * this.zoom + 'px',
+                        }}
+                      >
+                        Send status update
+                      </h1>
+                      <p
+                        class="activity-description"
+                        style={{
+                          'font-size': 14 * this.zoom + 'px',
+                        }}
+                      >
                         email
                       </p>
                     </div>
                   </div>
-
                 </div>
               </div>
               <div class="clear"></div>

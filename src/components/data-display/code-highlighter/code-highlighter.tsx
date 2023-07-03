@@ -121,7 +121,6 @@ enum Language {
   r = 'r',
 }
 
-
 /**
  * @name Code Highlighter
  * @description A browser based code highlighter.
@@ -135,8 +134,6 @@ enum Language {
   shadow: true,
 })
 export class CodeHighlighter implements ComponentInterface {
-
-
   @Prop() language: string = Language.javascript;
 
   @Prop() lineNumbers: boolean = false;
@@ -157,26 +154,21 @@ export class CodeHighlighter implements ComponentInterface {
     this.renderPrism();
   }
 
-
   @Element() elm!: HTMLElement;
 
   async componentWillLoad() {
     if (!window['Prism']) {
       await loadPrism();
-      // @ts-ignore
-      const Prism = window['Prism'];
-      const autoloader = Prism.plugins.autoloader;
-      if (autoloader) {
-        const all = [];
-        for (const key in Language) {
-          all.push(Language[key]);
-        }
-        autoloader.loadLanguages(all);
-      }
     }
   }
 
   componentDidLoad() {
+    // @ts-ignore
+    const Prism = window['Prism'];
+    const autoloader = Prism.plugins.autoloader;
+    if (autoloader) {
+      if (!Prism.languages[this.language]) autoloader.loadLanguages([this.language]);
+    }
     setTimeout(() => this.renderPrism(), 1000);
   }
 
@@ -212,29 +204,34 @@ export class CodeHighlighter implements ComponentInterface {
   render() {
     return (
       <Host>
-        {this.compiledCode && <div class='code-highlighter'>
-          <div class='scroll-wrapper'>
-            <div class={{ 'line-numbers-wrapper': true, 'line-numbers': this.lineNumbers }}>
-              <pre dir='ltr' class='highlighter line-numbers' innerHTML={this.compiledCode} />
+        {this.compiledCode && (
+          <div class="code-highlighter">
+            <div class="scroll-wrapper">
+              <div class={{ 'line-numbers-wrapper': true, 'line-numbers': this.lineNumbers }}>
+                <pre dir="ltr" class="highlighter line-numbers" innerHTML={this.compiledCode} />
+              </div>
             </div>
+            <goat-button
+              class="copy-btn color-secondary icon-only"
+              size="sm"
+              variant="ghost"
+              aria-label="Copy code"
+              title="Copy code"
+              onGoat:click={() => {
+                this.handleCopyClick();
+              }}
+            >
+              <goat-icon name="files" size="1rem" />
+            </goat-button>
           </div>
-          <goat-button class='copy-btn color-secondary icon-only'
-                       size='sm'
-                       variant='ghost'
-                       aria-label='Copy code'
-                       title='Copy code' onGoat:click={() => {
-            this.handleCopyClick();
-          }}>
-            <goat-icon name='files' size='1rem' />
-          </goat-button>
-
-        </div>}
-        {!this.compiledCode && <div class='code-loader'>
-          <goat-spinner class='rainbow' />
-          Loading code...
-        </div>}
+        )}
+        {!this.compiledCode && (
+          <div class="code-loader">
+            <goat-spinner class="rainbow" />
+            Loading code...
+          </div>
+        )}
       </Host>
     );
   }
-
 }

@@ -154,6 +154,7 @@ export class Canvas {
                 stroke={shape.color || '#000'}
                 marker-end={shape.showArrow ? 'url(#endarrow)' : ''}
                 d={pathString}
+                stroke-dasharray="6,6"
                 fill="none"
               />
               <path stroke-width="10" stroke-linecap="round" stroke-linejoin="round" stroke="transparent" d={pathString} fill="none" />

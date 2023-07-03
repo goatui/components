@@ -18,6 +18,7 @@ sections:
     <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style="padding-bottom: var(--spacing-4)">
       <goat-text type="heading" level="2" size="sm">{{ section.title }}</goat-text>
 
+
       {% include_relative {{ section.source }} %}
     </div>
     {% endfor %}

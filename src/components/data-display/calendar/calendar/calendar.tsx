@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Listen, Prop } from '@stencil/core';
-import { addDays, format } from 'date-fns';
+import { addDays, addMonths, format } from 'date-fns';
 import { CalendarEvent } from './CalendarEvent';
 
 /**
@@ -83,6 +83,22 @@ export class Calendar implements ComponentInterface {
     this.currentView = this.availableViews.find(view => view.value === this.view);
   }
 
+  previous() {
+    if (this.currentView.days) {
+      this.contextDate = addDays(this.contextDate, -1 * this.currentView.days);
+    } else if (this.currentView.type === 'month') {
+      this.contextDate = addMonths(this.contextDate, -1);
+    }
+  }
+
+  next() {
+    if (this.currentView.days) {
+      this.contextDate = addDays(this.contextDate, this.currentView.days);
+    } else if (this.currentView.type === 'month') {
+      this.contextDate = addMonths(this.contextDate, 1);
+    }
+  }
+
   renderHeader() {
     return (
       <div class="calendar-header-classic">
@@ -95,14 +111,14 @@ export class Calendar implements ComponentInterface {
             size="sm"
             class="color-secondary"
             icon="chevron-left"
-            onClick={() => (this.contextDate = addDays(this.contextDate, -1 * this.currentView.days))}
+            onClick={() => this.previous()}
           ></goat-button>
           <goat-button
             variant="ghost"
             size="sm"
             class="color-secondary"
             icon="chevron-right"
-            onClick={() => (this.contextDate = addDays(this.contextDate, this.currentView.days))}
+            onClick={() => this.next()}
           ></goat-button>
           <div class="title">{format(this.contextDate, 'MMMM d, yyyy')}</div>
         </div>

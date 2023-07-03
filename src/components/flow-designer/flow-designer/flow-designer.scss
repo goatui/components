@@ -91,15 +91,9 @@
     align-items: center;
     box-sizing: border-box;
 
-    &:hover {
-      border-color: v(--color-primary);
-      cursor: pointer;
-    }
+
 
     .activity-icon {
-      width: 60px;
-      height: 60px;
-      padding: 10px;
       background: v(--background);
       border: 2px solid v(--border-color);
       border-radius: 5px;
@@ -134,6 +128,12 @@
       }
     }
 
+    &:hover {
+      .activity-icon {
+        border-color: v(--color-primary);
+      }
+      cursor: pointer;
+    }
   }
 }
 

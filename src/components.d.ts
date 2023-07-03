@@ -398,8 +398,8 @@ export namespace Components {
      * @img /assets/img/flow-designer.png
      */
     interface GoatFlowDesigner {
-        "activities": any[];
         "blockSize": number;
+        "data": any[];
         "disabled": boolean;
     }
     /**
@@ -2186,8 +2186,8 @@ declare namespace LocalJSX {
      * @img /assets/img/flow-designer.png
      */
     interface GoatFlowDesigner {
-        "activities"?: any[];
         "blockSize"?: number;
+        "data"?: any[];
         "disabled"?: boolean;
     }
     /**
