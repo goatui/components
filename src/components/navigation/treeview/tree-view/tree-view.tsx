@@ -2,11 +2,12 @@ import { Component, ComponentInterface, Element, h, Listen, Method, Prop, State,
 
 /**
  * @name TreeView
- * @description Menus display a list of choices on temporary surfaces.
+ * @description A tree view is a hierarchical structure that provides nested levels of navigation.
+ * @category Navigation
  * @img /assets/img/no-image.jpg
  */
 @Component({
-  tag: 'tree-view',
+  tag: 'goat-tree-view',
   styleUrl: 'tree-view.scss',
   shadow: true,
 })
@@ -15,16 +16,13 @@ export class TreeView implements ComponentInterface {
 
   @Element() elm!: HTMLElement;
 
-  @Prop() showLoader: boolean = false;
-
-  @Prop({ mutable: true }) value?: string | number;
 
   @Prop({ mutable: true }) empty: boolean = false;
 
-  @Prop({ mutable: true }) emptyState: any = {
-    'headline': 'No items',
-    'description': 'There are no items to display',
-  };
+  @Prop({ mutable: true }) emptyState: string = `{
+    "headline": "No items",
+    "description": "There are no items to display"
+  }`;
 
   @State()
   internalEmptyState: any;
@@ -33,6 +31,8 @@ export class TreeView implements ComponentInterface {
   parseEmptyState() {
     if (typeof this.emptyState === 'string') {
       this.internalEmptyState = JSON.parse(this.emptyState);
+    } else {
+      this.internalEmptyState = this.emptyState;
     }
   }
 
@@ -42,7 +42,7 @@ export class TreeView implements ComponentInterface {
     let menuItem = null;
     for (const elm of path) {
       // @ts-ignore
-      if (elm.tagName === 'GOAT-MENU-ITEM') {
+      if (elm.tagName === 'GOAT-TREE-NODE') {
         menuItem = elm;
       }
       if (elm !== this.elm)
@@ -74,12 +74,12 @@ export class TreeView implements ComponentInterface {
   private focusNextItem(currentItem) {
     let nextItem: any = currentItem.nextElementSibling;
     do {
-      if (nextItem && nextItem.tagName === 'GOAT-MENU-ITEM' && !nextItem.disabled) {
+      if (nextItem && nextItem.tagName === 'GOAT-TREE-NODE' && !nextItem.disabled) {
         nextItem.setFocus();
         return;
       }
       if (!nextItem) {
-        nextItem = this.elm.querySelector('goat-menu-item');
+        nextItem = this.elm.querySelector('goat-tree-node:first-child');
       } else {
         nextItem = nextItem.nextElementSibling;
       }
@@ -89,12 +89,12 @@ export class TreeView implements ComponentInterface {
   private focusPreviousItem(currentItem) {
     let previousItem: any = currentItem.previousElementSibling;
     do {
-      if (previousItem && previousItem.tagName === 'GOAT-MENU-ITEM' && !previousItem.disabled) {
+      if (previousItem && previousItem.tagName === 'GOAT-TREE-NODE' && !previousItem.disabled) {
         previousItem.setFocus();
         return;
       }
       if (!previousItem) {
-        previousItem = this.elm.querySelector('goat-menu-item:last-child');
+        previousItem = this.elm.querySelector('goat-tree-node:last-child');
       } else {
         previousItem = previousItem.previousElementSibling;
       }
@@ -108,9 +108,13 @@ export class TreeView implements ComponentInterface {
 
 
   render() {
-    return <div class='menu'>
-      <slot />
-      {this.renderEmptyState()}
+    if (this.empty) {
+      return <div class='treeview'>
+        {this.renderEmptyState()}
+      </div>;
+    } else
+    return <div class='treeview'>
+      <slot></slot>
     </div>;
   }
 

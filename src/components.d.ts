@@ -1058,20 +1058,44 @@ export namespace Components {
          */
         "value": boolean;
     }
+    interface GoatTreeNode {
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled": boolean;
+        "expand": boolean;
+        "label": string;
+        "level": number;
+        /**
+          * Menu item selection state.
+         */
+        "selected": boolean;
+        /**
+          * Sets blur on the native `input` in `goat-input`. Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `input` in `goat-input`. Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * The menu item value.
+         */
+        "value"?: string | number | null;
+    }
     /**
      * @name TreeView
-     * @description Menus display a list of choices on temporary surfaces.
+     * @description A tree view is a hierarchical structure that provides nested levels of navigation.
+     * @category Navigation
      * @img /assets/img/no-image.jpg
      */
-    interface TreeView {
+    interface GoatTreeView {
         "empty": boolean;
-        "emptyState": any;
+        "emptyState": string;
         /**
           * Sets focus on first menu item. Use this method instead of the global `element.focus()`.
          */
         "setFocus": () => Promise<void>;
-        "showLoader": boolean;
-        "value"?: string | number;
     }
 }
 export interface GoatAccordionItemCustomEvent<T> extends CustomEvent<T> {
@@ -1153,6 +1177,10 @@ export interface GoatTimePickerCustomEvent<T> extends CustomEvent<T> {
 export interface GoatToggleCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLGoatToggleElement;
+}
+export interface GoatTreeNodeCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatTreeNodeElement;
 }
 declare global {
     /**
@@ -1719,16 +1747,23 @@ declare global {
         prototype: HTMLGoatToggleElement;
         new (): HTMLGoatToggleElement;
     };
+    interface HTMLGoatTreeNodeElement extends Components.GoatTreeNode, HTMLStencilElement {
+    }
+    var HTMLGoatTreeNodeElement: {
+        prototype: HTMLGoatTreeNodeElement;
+        new (): HTMLGoatTreeNodeElement;
+    };
     /**
      * @name TreeView
-     * @description Menus display a list of choices on temporary surfaces.
+     * @description A tree view is a hierarchical structure that provides nested levels of navigation.
+     * @category Navigation
      * @img /assets/img/no-image.jpg
      */
-    interface HTMLTreeViewElement extends Components.TreeView, HTMLStencilElement {
+    interface HTMLGoatTreeViewElement extends Components.GoatTreeView, HTMLStencilElement {
     }
-    var HTMLTreeViewElement: {
-        prototype: HTMLTreeViewElement;
-        new (): HTMLTreeViewElement;
+    var HTMLGoatTreeViewElement: {
+        prototype: HTMLGoatTreeViewElement;
+        new (): HTMLGoatTreeViewElement;
     };
     interface HTMLElementTagNameMap {
         "goat-accordion": HTMLGoatAccordionElement;
@@ -1782,7 +1817,8 @@ declare global {
         "goat-time-picker": HTMLGoatTimePickerElement;
         "goat-toast": HTMLGoatToastElement;
         "goat-toggle": HTMLGoatToggleElement;
-        "tree-view": HTMLTreeViewElement;
+        "goat-tree-node": HTMLGoatTreeNodeElement;
+        "goat-tree-view": HTMLGoatTreeViewElement;
     }
 }
 declare namespace LocalJSX {
@@ -2865,16 +2901,36 @@ declare namespace LocalJSX {
          */
         "value"?: boolean;
     }
+    interface GoatTreeNode {
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled"?: boolean;
+        "expand"?: boolean;
+        "label"?: string;
+        "level"?: number;
+        /**
+          * Emitted when the menu item is clicked.
+         */
+        "onGoat:tree-node-click"?: (event: GoatTreeNodeCustomEvent<any>) => void;
+        /**
+          * Menu item selection state.
+         */
+        "selected"?: boolean;
+        /**
+          * The menu item value.
+         */
+        "value"?: string | number | null;
+    }
     /**
      * @name TreeView
-     * @description Menus display a list of choices on temporary surfaces.
+     * @description A tree view is a hierarchical structure that provides nested levels of navigation.
+     * @category Navigation
      * @img /assets/img/no-image.jpg
      */
-    interface TreeView {
+    interface GoatTreeView {
         "empty"?: boolean;
-        "emptyState"?: any;
-        "showLoader"?: boolean;
-        "value"?: string | number;
+        "emptyState"?: string;
     }
     interface IntrinsicElements {
         "goat-accordion": GoatAccordion;
@@ -2928,7 +2984,8 @@ declare namespace LocalJSX {
         "goat-time-picker": GoatTimePicker;
         "goat-toast": GoatToast;
         "goat-toggle": GoatToggle;
-        "tree-view": TreeView;
+        "goat-tree-node": GoatTreeNode;
+        "goat-tree-view": GoatTreeView;
     }
 }
 export { LocalJSX as JSX };
@@ -3244,12 +3301,14 @@ declare module "@stencil/core" {
              * @example <goat-toggle value='true'>Want ice cream?</goat-toggle>
              */
             "goat-toggle": LocalJSX.GoatToggle & JSXBase.HTMLAttributes<HTMLGoatToggleElement>;
+            "goat-tree-node": LocalJSX.GoatTreeNode & JSXBase.HTMLAttributes<HTMLGoatTreeNodeElement>;
             /**
              * @name TreeView
-             * @description Menus display a list of choices on temporary surfaces.
+             * @description A tree view is a hierarchical structure that provides nested levels of navigation.
+             * @category Navigation
              * @img /assets/img/no-image.jpg
              */
-            "tree-view": LocalJSX.TreeView & JSXBase.HTMLAttributes<HTMLTreeViewElement>;
+            "goat-tree-view": LocalJSX.GoatTreeView & JSXBase.HTMLAttributes<HTMLGoatTreeViewElement>;
         }
     }
 }

@@ -7,27 +7,23 @@ sections:
     source: sections/usage.html
 ---
 
-<div class="row pt-3">
-  {% include sidebar.html %}
-
-  <div class="usage-tab">
-    <!-- Content -->
-    <div class="component-content">
-      <div style="padding-bottom: var(--spacing-6)">
-        <goat-text type="paragraph">{{page.description}}</goat-text>
-      </div>
-
-      {% for section in page.sections %}
-      <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style="padding-bottom: var(--spacing-4)">
-        <goat-text type="heading" level="2" size="sm">{{ section.title }}</goat-text>
-
-        {% include_relative {{ section.source }} %}
-      </div>
-      {% endfor %}
+<div class="usage-tab">
+  <!-- Content -->
+  <div class="component-content">
+    <div style="padding-bottom: var(--spacing-6)">
+      <goat-text type="paragraph">{{page.description}}</goat-text>
     </div>
-    <!-- End Content -->
-    {% include section-nav.html %}
+
+    {% for section in page.sections %}
+    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style="padding-bottom: var(--spacing-4)">
+      <goat-text type="heading" level="2" size="sm">{{ section.title }}</goat-text>
+
+
+      {% include_relative {{ section.source }} %}
+    </div>
+    {% endfor %}
   </div>
+  <!-- End Content -->
 
-
+  {% include section-nav.html %}
 </div>

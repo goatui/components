@@ -22,10 +22,10 @@ export class Menu implements ComponentInterface {
 
   @Prop({ mutable: true }) empty: boolean = false;
 
-  @Prop({ mutable: true }) emptyState: any = {
-    'headline': 'No items',
-    'description': 'There are no items to display',
-  };
+  @Prop({ mutable: true }) emptyState: any =  `{
+    "headline": "No items",
+    "description": "There are no items to display"
+  }`;
 
   @State()
   internalEmptyState: any;

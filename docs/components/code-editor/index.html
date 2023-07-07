@@ -1,10 +1,14 @@
 ---
 layout: component
 title: Code Editor
-menu:
+description: Code Editor is a component that allows users to edit code.
+sections:
   - title: Usage
+    source: sections/usage.html
   - title: Theme
+    source: sections/theme.html
   - title: Disabled State
+    source: sections/disabled.html
 ---
 
 <style>
@@ -13,95 +17,24 @@ menu:
   }
 </style>
 
-<div class="row pt-3">
-  {% include sidebar.html %}
-
+<div class="usage-tab">
   <!-- Content -->
-  <div class="col-xl-10 order-xl-1 duik-content border-bottom">
-    <div class="border-bottom mb-7">
-      <goat-text type="heading" size="md">{{ page.title }}</goat-text>
-      <goat-text type="paragraph"
-        >Use {{site.title}}’s custom code editor component for capturing input in forms, dialogs, and more. Built on
-        <goat-link href="https://microsoft.github.io/monaco-editor/">monaco</goat-link>.</goat-text
-      >
+  <div class="component-content">
+    <div style="padding-bottom: var(--spacing-6)">
+      <goat-text type="paragraph">{{page.description}}</goat-text>
     </div>
 
-    <!-- Usage -->
-    <div id="doc-usage" class="mb-7">
-      <goat-text type="heading" level="2" size="sm">Usage</goat-text>
+    {% for section in page.sections %}
+    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style="padding-bottom: var(--spacing-4)">
+      <goat-text type="heading" level="2" size="sm">{{ section.title }}</goat-text>
 
-      <goat-text type="paragraph">Here is code editor component, currently supports JS and JSON editing.</goat-text>
-      <goat-card>
-        <goat-card-content>
-          <goat-checkbox id="disableEditor">Disable editor</goat-checkbox>
-          <goat-checkbox id="darkTheme">Dark Theme</goat-checkbox>
 
-          <goat-code-editor id="business-rule-editor" style="height: 300px"></goat-code-editor>
-          <script>
-            document.getElementById('business-rule-editor').value = `/**
- * Sample Code
- */
- function myBusinessRuleFunction(){
-    const a = 1;
-    const b = 2;
-    let c = a + b;
-    console.log(c);
-}`;
-
-            document.querySelector('#disableEditor').addEventListener('goat:change', function (evt) {
-              document.getElementById('business-rule-editor').disabled = evt.target.value;
-            });
-            document.querySelector('#darkTheme').addEventListener('goat:change', function (evt) {
-              document.getElementById('business-rule-editor').theme = evt.target.value ? 'vs-dark' : 'vs-light';
-            });
-          </script>
-        </goat-card-content>
-        <goat-card-content>
-          {% GoatHighlighter language:"html" %}
-          <goat-code-editor id="business-rule-editor" style="height: 300px"></goat-code-editor>
-          {% endGoatHighlighter %}
-        </goat-card-content>
-        <goat-card-content>
-          {% GoatHighlighter language:"js" %} document.getElementById('business-rule-editor').value = \` /** * Sample Code */ function myBusinessRuleFunction(){ const a = 1; const
-          b = 2; let c = a + b; console.log(c); } \`; {% endGoatHighlighter %}
-        </goat-card-content>
-      </goat-card>
+      {% include_relative {{ section.source }} %}
     </div>
-    <!-- End Usage -->
-
-    <!-- Theme -->
-    <div id="doc-theme" class="mb-7">
-      <goat-text type="heading" level="2" size="sm">Theme <a class="js-anchor-link duik-anchorjs-link" href="#doc-theme" aria-label="Anchor" data-anchorjs-icon="#"></a></goat-text>
-
-      <goat-text type="paragraph">Please click on checkbox and try disabling able editor.</goat-text>
-
-      <div class="card">
-        <div class="card-body">
-          {% GoatHighlighter language:"html" %}
-          <goat-code-editor theme="vs-dark"></goat-code-editor>
-          {% endGoatHighlighter %}
-        </div>
-      </div>
-    </div>
-
-    <!-- Disabled State -->
-    <div id="doc-disabled-state" class="mb-7">
-      <goat-text type="heading" level="2" size="sm"
-        >Disabled state <a class="js-anchor-link duik-anchorjs-link" href="#doc-disabled-state" aria-label="Anchor" data-anchorjs-icon="#"></a
-      ></goat-text>
-      <goat-text type="paragraph"
-        >Make editor look inactive by adding the disabled <code class="highlighter-rouge" data-lang="html">boolean</code> attribute to any
-        <code class="highlighter-rouge" data-lang="html">&lt;input&gt;</code> element.</goat-text
-      >
-
-      <div class="card">
-        <div class="card-body">
-          {% GoatHighlighter language:"html" %}
-          <goat-code-editor disabled></goat-code-editor>
-          {% endGoatHighlighter %}
-        </div>
-      </div>
-    </div>
+    {% endfor %}
   </div>
   <!-- End Content -->
+
+  {% include section-nav.html %}
 </div>
+

@@ -154,7 +154,7 @@ export class Canvas {
                 stroke={shape.color || '#000'}
                 marker-end={shape.showArrow ? 'url(#endarrow)' : ''}
                 d={pathString}
-                stroke-dasharray="6,6"
+                stroke-dasharray={shape.dashed ? '6,6' : null}
                 fill="none"
               />
               <path stroke-width="10" stroke-linecap="round" stroke-linejoin="round" stroke="transparent" d={pathString} fill="none" />
@@ -192,17 +192,17 @@ export class Canvas {
   render() {
     const dotRadius = this.unitSize;
 
-    let computedViewbox: any = { width: 0, height: 0, x: 0, y: 0 };
+    let computedViewBox: any = { width: 0, height: 0, x: 0, y: 0 };
 
-    const shapes = this.renderShapes(computedViewbox);
+    const shapes = this.renderShapes(computedViewBox);
 
     if (this.viewbox) {
-      const viewbox = this.viewbox.split(' ');
-      computedViewbox = {
-        x: parseInt(viewbox[0], 10),
-        y: parseInt(viewbox[1], 10),
-        width: parseInt(viewbox[2], 10),
-        height: parseInt(viewbox[3], 10),
+      const viewBox = this.viewbox.split(' ');
+      computedViewBox = {
+        x: parseInt(viewBox[0], 10),
+        y: parseInt(viewBox[1], 10),
+        width: parseInt(viewBox[2], 10),
+        height: parseInt(viewBox[3], 10),
       };
     }
 
@@ -211,16 +211,16 @@ export class Canvas {
         <div
           class="canvas-wrapper"
           style={{
-            width: (computedViewbox.width * this.gap + 2) * dotRadius * this.zoom + 'px',
-            height: (computedViewbox.height * this.gap + 2) * dotRadius * this.zoom + 'px',
+            width: (computedViewBox.width * this.gap + 2) * dotRadius * this.zoom + 'px',
+            height: (computedViewBox.height * this.gap + 2) * dotRadius * this.zoom + 'px',
           }}
         >
           <svg
             class="canvas"
             height="100%"
             width="100%"
-            viewBox={`${computedViewbox.x * this.gap} ${computedViewbox.y * this.gap} ${computedViewbox.width * this.gap + 2 * dotRadius} ${
-              computedViewbox.height * this.gap + 2 * dotRadius
+            viewBox={`${computedViewBox.x * this.gap} ${computedViewBox.y * this.gap} ${computedViewBox.width * this.gap + 2 * dotRadius} ${
+              computedViewBox.height * this.gap + 2 * dotRadius
             }`}
           >
             <defs>
@@ -233,7 +233,7 @@ export class Canvas {
               </marker>
             </defs>
 
-            <rect x={computedViewbox.x * this.gap} y={computedViewbox.y * this.gap} width="100%" height="100%" fill="url(#canvas-background)" />
+            <rect x={computedViewBox.x * this.gap} y={computedViewBox.y * this.gap} width="100%" height="100%" fill="url(#canvas-background)" />
 
             {shapes}
           </svg>

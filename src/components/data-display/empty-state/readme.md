@@ -25,7 +25,7 @@
  - [goat-menu](../../navigation/menu/menu)
  - [goat-sidenav-menu](../../app-shell/sidenav-menu)
  - [goat-table](../table)
- - [tree-view](../../navigation/menu/tree-view)
+ - [tree-view](../../navigation/treeview/tree-view)
 
 ### Depends on
 

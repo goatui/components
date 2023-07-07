@@ -1,0 +1,79 @@
+@import "../../../../globalStyles/commons";
+
+:host {
+  display: block;
+}
+
+.tree-node {
+
+
+}
+
+.tree-node-content {
+  cursor: pointer;
+  @include font-style(text-md);
+  padding: v(--spacing-2) v(--spacing-4);
+  box-sizing: border-box;
+  color: v(--text-secondary);
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+
+  .tree-node-label {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.node-slot {
+  display: none;
+}
+
+.node-slot.expanded {
+  display: block;
+}
+
+
+.tree-node-content {
+  &:hover, &.has-focus:not(.active) {
+    background: v(--hover-ui);
+    color: v(--text-primary);
+
+    .slot-end {
+      color: v(--icon-01);
+    }
+  }
+
+  &.active, &.selected {
+    background: v(--selected-ui);
+  }
+
+
+}
+
+.tree-node-content.has-focus:not(.active) {
+  @include focus-ring;
+}
+
+.tree-node-content.selected {
+  border-left: 4px solid v(--color-primary) !important;
+}
+
+.tree-node-content.disabled {
+  cursor: not-allowed;
+  color: v(--text-disabled) !important;
+  background-color: v(--disabled-01) !important;
+
+  &:hover, &.has-focus:not(.active) {
+    color: v(--text-disabled) !important;
+    background-color: v(--disabled-01) !important;
+  }
+
+  &.active, &.selected {
+    color: v(--text-disabled) !important;
+    background-color: v(--disabled-01) !important;
+  }
+}

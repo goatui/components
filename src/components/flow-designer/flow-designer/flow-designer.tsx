@@ -33,6 +33,7 @@ export class FlowDesigner {
   @State() activityWidth: number = 5;
   @State() lines: any[] = [];
   @State() zoom: number = 1;
+  private gap: number = 10;
 
   @Listen('mouseup', { target: 'window', passive: false })
   handleMouseUp() {
@@ -65,7 +66,76 @@ export class FlowDesigner {
     }, 100);
   }
 
+  processData() {
+    const shapes = [];
+    let currentPosition = { x: 5, y: 2 };
+    const activities = this.data.map(activity => {
+
+      shapes.push({
+        type: 'connector',
+        start: { x: currentPosition.x + 3, y: currentPosition.y + 7 },
+        showArrow: true,
+        path: [{ direction: 'down', length: 7 }],
+        clickable: true,
+      });
+
+      return (
+        <div
+          class="activity"
+          style={{
+            top: this.zoom * ((currentPosition.y * this.gap) + 1) + 'px',
+            left: this.zoom * ((currentPosition.x * this.gap) + 1) + 'px',
+            width: 23 * this.gap * this.zoom + 'px',
+            height: 7 * this.gap * this.zoom + 'px',
+          }}
+          onDrop={event => {
+            event.preventDefault();
+            alert('drop');
+          }}
+          onDragOver={ev => {
+            ev.preventDefault();
+          }}
+        >
+          <div
+            class="activity-icon"
+            style={{
+              width: 6 * this.gap * this.zoom + 'px',
+              height: 6 * this.gap * this.zoom + 'px',
+              padding: this.gap * this.zoom + 'px',
+            }}
+          >
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Slack_icon_2019.svg/2048px-Slack_icon_2019.svg.png" />
+          </div>
+          <div class="activity-content">
+            <h1
+              class="activity-title"
+              style={{
+                'font-size': 16 * this.zoom + 'px',
+              }}
+            >
+              {activity.title}
+            </h1>
+            <p
+              class="activity-description"
+              style={{
+                'font-size': 14 * this.zoom + 'px',
+              }}
+            >
+              trigger
+            </p>
+          </div>
+        </div>
+      );
+    });
+    return {
+      shapes,
+      activities,
+    };
+  }
+
   render() {
+    const { activities, shapes } = this.processData();
+
     return (
       <Host disabled={this.disabled}>
         <img src="https://cdn.img42.com/4b6f5e63ac50c95fe147052d8a4db676.jpeg" style={{ height: '20px', width: '20px' }} draggable={true} />
@@ -111,74 +181,21 @@ export class FlowDesigner {
                 zoom={this.zoom}
                 shapes={[
                   { type: 'circle', x: 200, y: 200, radius: 0.25, color: 'red' },
-                  {
-                    type: 'connector',
-                    start: { x: 4, y: 8 },
-                    showArrow: true,
-                    path: [{ direction: 'down', length: 7 }],
-                    clickable: true,
-                  },
+                  ...shapes,
                   {
                     type: 'connector',
                     start: { x: 4, y: 22 },
                     showArrow: true,
                     path: [{ direction: 'down', length: 7 }],
                     clickable: true,
+                    dashed: true,
                   },
                 ]}
               />
 
               <div class="flow-items">
                 <div class="flow-items-container">
-                  {this.data.map(activity => {
-                    return (
-                      <div
-                        class="activity"
-                        style={{
-                          top: this.zoom * 11 + 'px',
-                          left: this.zoom * 11 + 'px',
-                          width: 230 * this.zoom + 'px',
-                          height: 70 * this.zoom + 'px',
-                        }}
-                        onDrop={event => {
-                          event.preventDefault();
-                          alert('drop');
-                        }}
-                        onDragOver={ev => {
-                          ev.preventDefault();
-                        }}
-                      >
-                        <div
-                          class="activity-icon"
-                          style={{
-                            width: 60 * this.zoom + 'px',
-                            height: 60 * this.zoom + 'px',
-                            padding: 10 * this.zoom + 'px',
-                          }}
-                        >
-                          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Slack_icon_2019.svg/2048px-Slack_icon_2019.svg.png" />
-                        </div>
-                        <div class="activity-content">
-                          <h1
-                            class="activity-title"
-                            style={{
-                              'font-size': 16 * this.zoom + 'px',
-                            }}
-                          >
-                            {activity.title}
-                          </h1>
-                          <p
-                            class="activity-description"
-                            style={{
-                              'font-size': 14 * this.zoom + 'px',
-                            }}
-                          >
-                            trigger
-                          </p>
-                        </div>
-                      </div>
-                    );
-                  })}
+                  {activities}
 
                   <div
                     class="new-activity"

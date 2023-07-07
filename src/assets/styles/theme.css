@@ -15,8 +15,14 @@
  * UI Shell base color
  */
 /*
-Container background on $layer-01;
-`Light` variant background
+ * Container color on $background;
+ * Secondary page background
+ */
+/*
+Container color on $layer-01
+ */
+/*
+Container color on $layer-02
  */
 /*
 Subtle border;
@@ -363,8 +369,9 @@ Secondary link color for lower contrast backgrounds
   --color-light: #ffffff;
   --border-color: var(--color-gray-50, #8d8d8d);
   --background: #ffffff;
-  --layer-01: var(--color-gray-20, #e0e0e0);
+  --layer-01: var(--color-gray-10, #f4f4f4);
   --layer-02: #ffffff;
+  --layer-03: var(--color-gray-10, #f4f4f4);
   --layer-accent-01: var(--color-gray-20, #e0e0e0);
   --border-subtle-00: var(--color-gray-30, #c6c6c6);
   --border-subtle-01: #e0e0e0;
@@ -522,8 +529,9 @@ html[data-theme=dark] {
   --color-dark: #ffffff;
   --color-light: #000000;
   --background: var(--color-gray-100, #161616);
-  --layer-01: var(--color-gray-80, #393939);
+  --layer-01: var(--color-gray-90, #262626);
   --layer-02: var(--color-gray-80, #393939);
+  --layer-03: var(--color-gray-70, #525252);
   --layer-accent-01: var(--color-gray-80, #393939);
   --border-subtle-00: var(--color-gray-30, #c6c6c6);
   --border-subtle-01: var(--color-gray-80, #393939);
