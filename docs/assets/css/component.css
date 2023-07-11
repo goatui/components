@@ -83,6 +83,7 @@ pre[class*='language-'] {
 }
 
 .component-content {
+  max-width: 1200px;
   flex: 1;
 }
 

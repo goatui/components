@@ -38,7 +38,13 @@
     {% endGoatHighlighter %}
   </goat-card-content>
   <goat-card-content>
-    {% GoatHighlighter language:"js" %} const $table = document.getElementById('table'); // Columns $table.columns = {% include_relative column-config.json %}; // Data $table.data
+    {% GoatHighlighter language:"js" %}
+const $table = document.getElementById('table');
+// Columns
+$table.columns = {% include_relative column-config.json %};
+
+// Data
+$table.data
     = {% include_relative data-source.json %}; {% endGoatHighlighter %}
   </goat-card-content>
 </goat-card>
