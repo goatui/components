@@ -26,6 +26,7 @@ export namespace Components {
           * The menu item value.
          */
         "heading": string;
+        "icon": boolean;
         /**
           * Menu item selection state.
          */
@@ -670,6 +671,7 @@ export namespace Components {
          */
         "disabled": boolean;
         "getComponentId": () => Promise<string>;
+        "hideDropdownIcon": boolean;
         "isOpen": boolean;
         /**
           * [{   label: 'Shivaji Varma',   value: 'shivaji-varma',   icon: 'person' }]
@@ -1908,6 +1910,7 @@ declare namespace LocalJSX {
           * The menu item value.
          */
         "heading"?: string;
+        "icon"?: boolean;
         /**
           * Emitted when the menu item is clicked.
          */
@@ -2553,6 +2556,7 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
+        "hideDropdownIcon"?: boolean;
         "isOpen"?: boolean;
         /**
           * [{   label: 'Shivaji Varma',   value: 'shivaji-varma',   icon: 'person' }]
@@ -2575,6 +2579,7 @@ declare namespace LocalJSX {
           * Emitted when a keyboard input occurred.
          */
         "onGoat:search"?: (event: GoatSelectCustomEvent<any>) => void;
+        "onGoat:search-enter"?: (event: GoatSelectCustomEvent<any>) => void;
         /**
           * The input field placeholder.
          */

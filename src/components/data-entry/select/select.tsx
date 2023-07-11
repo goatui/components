@@ -35,6 +35,8 @@ export class Select implements ComponentInterface, InputComponentInterface {
 
   @Prop() multiple: boolean = false;
 
+  @Prop() hideDropdownIcon: boolean = false;
+
   /**
    * The select input size.
    * Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
@@ -110,13 +112,19 @@ export class Select implements ComponentInterface, InputComponentInterface {
    */
   @Event({ eventName: 'goat:search' }) goatSearch: EventEmitter;
 
+  @Event({ eventName: 'goat:search-enter' }) goatSearchEnter: EventEmitter;
+
   /**
    * Sets focus on the native `input` in `ion-input`. Use this method instead of the global
    * `input.focus()`.
    */
   @Method()
   async setFocus(): Promise<void> {
-    this.displayElement.focus();
+    if (!this.isOpen && this.displayElement) {
+      this.displayElement.focus();
+    } else if (this.isOpen && this.nativeInput) {
+      this.nativeInput.focus();
+    }
   }
 
   /**
@@ -256,6 +264,10 @@ export class Select implements ComponentInterface, InputComponentInterface {
     if (evt.key === 'Enter') {
       evt.preventDefault();
       this.toggleList();
+      this.goatSearchEnter.emit({
+        value: this.searchString,
+        currentItems: this.filterItems()
+      });
     } else if (evt.key === 'ArrowDown') {
       if (this.isOpen) {
         console.log('inside select');
@@ -273,7 +285,9 @@ export class Select implements ComponentInterface, InputComponentInterface {
   private onInput = (ev: Event) => {
     const input = ev.target as HTMLInputElement;
     this.searchString = input.value || '';
-    this.goatSearch.emit({ value: this.searchString });
+    this.goatSearch.emit({
+      value: this.searchString
+    });
   };
 
   private hasValue(): boolean {
@@ -478,7 +492,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
     if (this.showLoader) {
       return <goat-spinner class="input-action rainbow" />;
     }
-    if (!this.disabled && !this.readonly) return <goat-icon name="chevron-down" size={this.size} class="input-action chevron-down" role="button" onClick={this.toggleList} />;
+    if (!this.disabled && !this.readonly && !this.hideDropdownIcon) return <goat-icon name="chevron-down" size={this.size} class="input-action chevron-down" role="button" onClick={this.toggleList} />;
   }
 
   private renderDropdownList() {

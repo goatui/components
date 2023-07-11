@@ -45,6 +45,48 @@ layout: base
     </div>
 
     <div slot="right-section">
+      <goat-select hide-dropdown-icon
+                   id='site-search'
+                   size='sm'
+                   search="contains"
+                   placeholder="Type '/' for search">
+        <goat-icon slot="start" name="search" size='sm'></goat-icon>
+      </goat-select>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const search = document.querySelector('#site-search');
+          search.items = [
+            {% for page in site.pages %}
+          {% if page.title %}
+          {
+            label: '{{page.title}}',
+              value: '{{page.url}}'
+          },
+          {% endif %}
+          {% endfor %}
+        ];
+
+          search.addEventListener('goat:change', function (e) {
+            window.location.href = e.detail.value;
+          });
+
+          search.addEventListener('goat:search-enter', function(e) {
+            if (e.detail.currentItems.length > 0)
+              window.location.href = e.detail.currentItems[0].value;
+          });
+
+          document.addEventListener('keydown', function (e) {
+            if (e.key === '/') {
+              e.preventDefault();
+              search.isOpen = true;
+              setTimeout(() =>  {
+                search.setFocus();
+              }, 300);
+            }
+          });
+        });
+      </script>
+
       <goat-button icon="sun-fill" class="color-brand-primary" id="theme-switcher" aria-title="Theme switcher" variant="ghost"></goat-button>
 
       <goat-button id="dir-switcher" class="color-brand-primary" variant="ghost">LTR</goat-button>

@@ -1,16 +1,5 @@
 @import "../common-input";
 
-:host([size=sm]) .input-container{
-  padding: 0 0.75rem 0 0;
-}
-
-:host([size=md]) .input-container {
-  padding: 0 0.875rem 0 0;
-}
-
-:host([size=lg]) .input-container {
-  padding: 0 1rem 0 0;
-}
 
 .dropdown {
   position: relative;
@@ -95,7 +84,6 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     cursor: pointer;
-    padding: 0.625rem 0 0.625rem 0.875rem;
   }
 
   .display-value-container {
@@ -104,12 +92,7 @@
     gap: v(--spacing-2);
   }
 
-  .input-native {
-    padding: 0.625rem 0 0.625rem 0.875rem;
-  }
-
   .multi-select-values {
-    padding: 0.625rem 0 0.625rem 0.875rem;
     display: flex;
     flex-wrap: wrap;
     gap: .5rem;
