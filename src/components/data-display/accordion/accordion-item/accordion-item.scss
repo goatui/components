@@ -18,6 +18,7 @@
     flex-direction: row-reverse;
     align-items: flex-start;
     justify-content: flex-start;
+    gap: 0.5rem;
 
     .accordion-title {
       width: 100%;
@@ -42,20 +43,21 @@
     height: 0;
     opacity: 0;
     pointer-events: none;
+    transition: all 0.1s linear;
+  }
+  .accordion-icon {
+    transition: transform 0.1s linear;
   }
 
   &.open {
     .item-section {
       height: 100%;
       opacity: 1;
-      transition: opacity 0.1s linear;
-      pointer-events: auto;
       padding: v(--spacing-2) var(--spacing-4) v(--spacing-4) var(--spacing-4);
     }
 
     .accordion-icon {
       transform: rotate(90deg);
-      transition: transform 0.1s linear;
     }
   }
 
@@ -71,4 +73,10 @@
 
 }
 
-
+:host-context(.icon-start) {
+  .accordion-item {
+    .accordion-heading {
+      flex-direction: row;
+    }
+  }
+}

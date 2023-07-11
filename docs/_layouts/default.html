@@ -45,10 +45,11 @@ layout: base
     </div>
 
     <div slot="right-section">
-      <goat-select hide-dropdown-icon
-                   id='site-search'
+      <goat-select id='site-search'
+                   class='show-desktop'
                    size='sm'
                    search="contains"
+                   hide-dropdown-icon
                    placeholder="Type '/' for search">
         <goat-icon slot="start" name="search" size='sm'></goat-icon>
       </goat-select>

@@ -24,6 +24,8 @@ export class GoatAccordionItem {
    */
   @Prop({ reflect: true }) open: boolean = false;
 
+  @Prop({ reflect: true }) icon: boolean = false;
+
   @State() hasFocus = false;
 
   /**
