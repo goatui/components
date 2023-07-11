@@ -444,6 +444,47 @@ export namespace Components {
         "subTitle": string;
     }
     /**
+     * @name HTML Editor
+     * @description A browser based code editor.
+     * @category Form Inputs
+     * @tags input, form
+     * @img /assets/img/code-editor.png
+     */
+    interface GoatHtmlEditor {
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
+         */
+        "debounce": number;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled": boolean;
+        "getComponentId": () => Promise<string>;
+        "lineNumbers": 'off' | 'on';
+        /**
+          * The input field name.
+         */
+        "name": string;
+        "readonly": boolean;
+        /**
+          * If true, required icon is show. Defaults to `false`.
+         */
+        "required": boolean;
+        /**
+          * Sets blur on the native `input` in `goat-input`. Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `input` in `goat-input`. Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
+        "theme": 'vs-light' | 'vs-dark';
+        /**
+          * The input field value.
+         */
+        "value": string;
+    }
+    /**
      * @name Icon
      * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
      * @category General
@@ -1063,13 +1104,17 @@ export namespace Components {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
-        "expand": boolean;
+        "expanded": boolean;
+        /**
+          * Hyperlink to navigate to on click.
+         */
+        "href": string;
         "label": string;
         "level": number;
         /**
           * Menu item selection state.
          */
-        "selected": boolean;
+        "selectedNode": string;
         /**
           * Sets blur on the native `input` in `goat-input`. Use this method instead of the global `input.blur()`.
          */
@@ -1087,15 +1132,18 @@ export namespace Components {
      * @name TreeView
      * @description A tree view is a hierarchical structure that provides nested levels of navigation.
      * @category Navigation
-     * @img /assets/img/no-image.jpg
+     * @img /assets/img/tree-view.png
      */
     interface GoatTreeView {
         "empty": boolean;
         "emptyState": string;
+        "getSelectedNode": () => Promise<string>;
+        "selectedNode": string;
         /**
           * Sets focus on first menu item. Use this method instead of the global `element.focus()`.
          */
         "setFocus": () => Promise<void>;
+        "subscribeToSelect": (cb: any) => Promise<void>;
     }
 }
 export interface GoatAccordionItemCustomEvent<T> extends CustomEvent<T> {
@@ -1129,6 +1177,10 @@ export interface GoatCodeEditorCustomEvent<T> extends CustomEvent<T> {
 export interface GoatDatePickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLGoatDatePickerElement;
+}
+export interface GoatHtmlEditorCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatHtmlEditorElement;
 }
 export interface GoatInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1468,6 +1520,19 @@ declare global {
         new (): HTMLGoatHeaderBrandElement;
     };
     /**
+     * @name HTML Editor
+     * @description A browser based code editor.
+     * @category Form Inputs
+     * @tags input, form
+     * @img /assets/img/code-editor.png
+     */
+    interface HTMLGoatHtmlEditorElement extends Components.GoatHtmlEditor, HTMLStencilElement {
+    }
+    var HTMLGoatHtmlEditorElement: {
+        prototype: HTMLGoatHtmlEditorElement;
+        new (): HTMLGoatHtmlEditorElement;
+    };
+    /**
      * @name Icon
      * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
      * @category General
@@ -1757,7 +1822,7 @@ declare global {
      * @name TreeView
      * @description A tree view is a hierarchical structure that provides nested levels of navigation.
      * @category Navigation
-     * @img /assets/img/no-image.jpg
+     * @img /assets/img/tree-view.png
      */
     interface HTMLGoatTreeViewElement extends Components.GoatTreeView, HTMLStencilElement {
     }
@@ -1792,6 +1857,7 @@ declare global {
         "goat-form-control": HTMLGoatFormControlElement;
         "goat-header": HTMLGoatHeaderElement;
         "goat-header-brand": HTMLGoatHeaderBrandElement;
+        "goat-html-editor": HTMLGoatHtmlEditorElement;
         "goat-icon": HTMLGoatIconElement;
         "goat-input": HTMLGoatInputElement;
         "goat-link": HTMLGoatLinkElement;
@@ -2266,6 +2332,42 @@ declare namespace LocalJSX {
         "logo"?: string;
         "name"?: string;
         "subTitle"?: string;
+    }
+    /**
+     * @name HTML Editor
+     * @description A browser based code editor.
+     * @category Form Inputs
+     * @tags input, form
+     * @img /assets/img/code-editor.png
+     */
+    interface GoatHtmlEditor {
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
+         */
+        "debounce"?: number;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled"?: boolean;
+        "lineNumbers"?: 'off' | 'on';
+        /**
+          * The input field name.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the value has changed..
+         */
+        "onGoat:change"?: (event: GoatHtmlEditorCustomEvent<any>) => void;
+        "readonly"?: boolean;
+        /**
+          * If true, required icon is show. Defaults to `false`.
+         */
+        "required"?: boolean;
+        "theme"?: 'vs-light' | 'vs-dark';
+        /**
+          * The input field value.
+         */
+        "value"?: string;
     }
     /**
      * @name Icon
@@ -2906,7 +3008,11 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
-        "expand"?: boolean;
+        "expanded"?: boolean;
+        /**
+          * Hyperlink to navigate to on click.
+         */
+        "href"?: string;
         "label"?: string;
         "level"?: number;
         /**
@@ -2916,7 +3022,7 @@ declare namespace LocalJSX {
         /**
           * Menu item selection state.
          */
-        "selected"?: boolean;
+        "selectedNode"?: string;
         /**
           * The menu item value.
          */
@@ -2926,11 +3032,12 @@ declare namespace LocalJSX {
      * @name TreeView
      * @description A tree view is a hierarchical structure that provides nested levels of navigation.
      * @category Navigation
-     * @img /assets/img/no-image.jpg
+     * @img /assets/img/tree-view.png
      */
     interface GoatTreeView {
         "empty"?: boolean;
         "emptyState"?: string;
+        "selectedNode"?: string;
     }
     interface IntrinsicElements {
         "goat-accordion": GoatAccordion;
@@ -2959,6 +3066,7 @@ declare namespace LocalJSX {
         "goat-form-control": GoatFormControl;
         "goat-header": GoatHeader;
         "goat-header-brand": GoatHeaderBrand;
+        "goat-html-editor": GoatHtmlEditor;
         "goat-icon": GoatIcon;
         "goat-input": GoatInput;
         "goat-link": GoatLink;
@@ -3147,6 +3255,14 @@ declare module "@stencil/core" {
             "goat-header": LocalJSX.GoatHeader & JSXBase.HTMLAttributes<HTMLGoatHeaderElement>;
             "goat-header-brand": LocalJSX.GoatHeaderBrand & JSXBase.HTMLAttributes<HTMLGoatHeaderBrandElement>;
             /**
+             * @name HTML Editor
+             * @description A browser based code editor.
+             * @category Form Inputs
+             * @tags input, form
+             * @img /assets/img/code-editor.png
+             */
+            "goat-html-editor": LocalJSX.GoatHtmlEditor & JSXBase.HTMLAttributes<HTMLGoatHtmlEditorElement>;
+            /**
              * @name Icon
              * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
              * @category General
@@ -3306,7 +3422,7 @@ declare module "@stencil/core" {
              * @name TreeView
              * @description A tree view is a hierarchical structure that provides nested levels of navigation.
              * @category Navigation
-             * @img /assets/img/no-image.jpg
+             * @img /assets/img/tree-view.png
              */
             "goat-tree-view": LocalJSX.GoatTreeView & JSXBase.HTMLAttributes<HTMLGoatTreeViewElement>;
         }

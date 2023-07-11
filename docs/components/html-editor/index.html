@@ -1,14 +1,21 @@
 ---
 layout: component
-title: Tree View
-description:  Tree View components are used to display hierarchical data.
+title: HTML Editor
+description: The HTML Editor component is a WYSIWYG editor that allows users to edit HTML content.
 sections:
   - title: Usage
     source: sections/usage.html
-  - title: Events
-    source: sections/events.html
+  - title: Theme
+    source: sections/theme.html
+  - title: Disabled State
+    source: sections/disabled.html
 ---
 
+<style>
+  goat-checkbox {
+    margin: 0 0.5rem 1rem 0;
+  }
+</style>
 
 <div class="usage-tab">
   <!-- Content -->
@@ -21,6 +28,7 @@ sections:
     <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style="padding-bottom: var(--spacing-4)">
       <goat-text type="heading" level="2" size="sm">{{ section.title }}</goat-text>
 
+
       {% include_relative {{ section.source }} %}
     </div>
     {% endfor %}
@@ -29,3 +37,4 @@ sections:
 
   {% include section-nav.html %}
 </div>
+

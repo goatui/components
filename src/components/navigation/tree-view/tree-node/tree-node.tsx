@@ -21,6 +21,11 @@ export class GoatTreeNode {
   @Prop({ mutable: true }) label: string = '';
 
   /**
+   * Hyperlink to navigate to on click.
+   */
+  @Prop() href: string;
+
+  /**
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
   @Prop({ reflect: true }) disabled: boolean = false;
@@ -28,9 +33,9 @@ export class GoatTreeNode {
   /**
    * Menu item selection state.
    */
-  @Prop({ reflect: true }) selected: boolean = false;
+  @Prop({ reflect: true }) selectedNode: string;
 
-  @Prop({ reflect: true }) expand: boolean = true;
+  @Prop({ reflect: true }) expanded: boolean = true;
 
   @Prop({ reflect: true }) level: number = 0;
 
@@ -79,12 +84,12 @@ export class GoatTreeNode {
 
   private clickHandler = event => {
     if (!this.disabled) {
-      this.expand = !this.expand;
+      this.expanded = !this.expanded;
       this.goatTreeNodeClick.emit({
         value: this.value || this.label,
-        expand: this.expand,
+        expand: this.expanded,
+        id: this.gid
       });
-      this.selected = true
     } else {
       event.preventDefault();
       event.stopPropagation();
@@ -104,25 +109,30 @@ export class GoatTreeNode {
     this.isActive = true;
   };
 
+  isSelected() {
+    if (this.value === undefined && this.label === undefined) return false;
+    else if (this.value === undefined) return this.selectedNode === this.label;
+    else return this.selectedNode === this.value;
+  }
+
   private keyDownHandler = evt => {
     if (evt.key == ' ' || evt.key == 'Enter') {
       evt.preventDefault();
       this.isActive = true;
-      this.selected = true;
       this.clickHandler(evt);
     } else if (evt.key === 'ArrowLeft') {
       evt.preventDefault();
-      this.expand = false;
+      this.expanded = false;
     } else if (evt.key === 'ArrowRight') {
       evt.preventDefault();
-      if (this.expand && this.hasChildNodes) {
+      if (this.expanded && this.hasChildNodes) {
         const childNodes = this.elm.querySelectorAll('goat-tree-node');
         if (childNodes.length) {
           const firstChild = childNodes[0] as any;
           firstChild.setFocus();
         }
       } else {
-        this.expand = true;
+        this.expanded = true;
       }
     }
   };
@@ -136,27 +146,48 @@ export class GoatTreeNode {
       this.tabindex = tabindex !== null ? tabindex : undefined;
       this.elm.removeAttribute('tabindex');
     }
+
+    const treeView = this.elm.closest('goat-tree-view');
+
+    // @ts-ignore
+    treeView.getSelectedNode().then((selectedNode: string) => {
+      this.selectedNode = selectedNode;
+    });
+
+    // @ts-ignore
+    treeView.subscribeToSelect((selectedNode: string) => {
+      this.selectedNode = selectedNode;
+    });
+
     const childNodes = this.elm.querySelectorAll('goat-tree-node');
     this.hasChildNodes = !!childNodes.length;
     childNodes.forEach((node: any) => {
       node.level = this.level + 1;
     });
-    debugger;
   }
 
   render = () => {
+    let paddingLeft = this.level + 1;
+    if (this.isSelected()) {
+      paddingLeft = paddingLeft - 0.25;
+    }
+
     return (
       <Host active={this.isActive} has-focus={this.hasFocus}>
+
+
         <div class="tree-node">
+
+          <a class="link" href={this.href}>
           <div
             class={{
               'tree-node-content': true,
-              'selected': this.selected,
+              'selected': this.isSelected(),
               'active': this.isActive,
               'disabled': this.disabled,
               'has-focus': this.hasFocus,
             }}
-            style={{ paddingLeft: `${(this.level + 1) * 2}rem` }}
+            style={{ paddingLeft: `${paddingLeft}rem` }}
             onClick={this.clickHandler}
             onMouseDown={this.mouseDownHandler}
             onKeyDown={this.keyDownHandler}
@@ -166,14 +197,18 @@ export class GoatTreeNode {
             tabindex={this.tabindex}
             ref={el => (this.nativeInput = el as HTMLElement)}
           >
-            {this.hasChildNodes && <goat-icon name={this.expand ? 'caret-down-fill' : 'caret-right-fill'} size="1rem" />}
+            {this.hasChildNodes && <goat-icon name='chevron-right' class={{"expand-icon":true, "expanded": this.expanded}} size="1rem" />}
+
+            {!this.hasChildNodes && <div class="icon-space" />}
+
             <span class="tree-node-label">{this.label}</span>
           </div>
+          </a>
 
           <div
             class={{
               'node-slot': true,
-              'expanded': this.expand,
+              'expanded': this.expanded,
             }}
           >
             <slot></slot>

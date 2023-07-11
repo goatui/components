@@ -67,7 +67,7 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
   }
 
   @Watch('disabled')
-  disabledWatcher(newValue: string) {
+  disabledWatcher(newValue: boolean) {
     this.editorMonacoInstance.updateOptions({ readOnly: newValue || this.readonly});
   }
 

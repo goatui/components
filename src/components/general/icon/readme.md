@@ -29,6 +29,7 @@
  - [goat-tag](../../data-display/tag)
  - [goat-textarea](../../data-entry/textarea)
  - [goat-toast](../../feedback/toast)
+ - [goat-tree-node](../../navigation/tree-view/tree-node)
 
 ### Graph
 ```mermaid
@@ -45,6 +46,7 @@ graph TD;
   goat-tag --> goat-icon
   goat-textarea --> goat-icon
   goat-toast --> goat-icon
+  goat-tree-node --> goat-icon
   style goat-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

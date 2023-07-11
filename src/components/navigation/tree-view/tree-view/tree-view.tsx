@@ -4,7 +4,7 @@ import { Component, ComponentInterface, Element, h, Listen, Method, Prop, State,
  * @name TreeView
  * @description A tree view is a hierarchical structure that provides nested levels of navigation.
  * @category Navigation
- * @img /assets/img/no-image.jpg
+ * @img /assets/img/tree-view.png
  */
 @Component({
   tag: 'goat-tree-view',
@@ -12,10 +12,7 @@ import { Component, ComponentInterface, Element, h, Listen, Method, Prop, State,
   shadow: true,
 })
 export class TreeView implements ComponentInterface {
-
-
   @Element() elm!: HTMLElement;
-
 
   @Prop({ mutable: true }) empty: boolean = false;
 
@@ -27,6 +24,9 @@ export class TreeView implements ComponentInterface {
   @State()
   internalEmptyState: any;
 
+  @Prop({mutable: true})
+  selectedNode: string;
+
   @Watch('emptyState')
   parseEmptyState() {
     if (typeof this.emptyState === 'string') {
@@ -34,6 +34,24 @@ export class TreeView implements ComponentInterface {
     } else {
       this.internalEmptyState = this.emptyState;
     }
+  }
+
+  @Listen('goat:tree-node-click')
+  treeNodeClick(evt) {
+    this.selectedNode = evt.detail.id;
+    this.subscribers.forEach(cb => cb(evt.detail.value));
+  }
+
+  subscribers: any[] = [];
+
+  @Method()
+  async getSelectedNode() {
+    return this.selectedNode;
+  }
+
+  @Method()
+  async subscribeToSelect(cb) {
+    this.subscribers.push(cb);
   }
 
   @Listen('keydown', { target: 'window' })
@@ -45,8 +63,7 @@ export class TreeView implements ComponentInterface {
       if (elm.tagName === 'GOAT-TREE-NODE') {
         menuItem = elm;
       }
-      if (elm !== this.elm)
-        continue;
+      if (elm !== this.elm) continue;
       if (evt.key === 'ArrowDown') {
         evt.preventDefault();
         this.focusNextItem(menuItem);
@@ -101,26 +118,22 @@ export class TreeView implements ComponentInterface {
     } while (previousItem !== currentItem);
   }
 
-
   componentDidLoad() {
     this.parseEmptyState();
   }
 
-
   render() {
     if (this.empty) {
-      return <div class='treeview'>
-        {this.renderEmptyState()}
-      </div>;
+      return <div class="treeview">{this.renderEmptyState()}</div>;
     } else
-    return <div class='treeview'>
-      <slot></slot>
-    </div>;
+      return (
+        <div class="treeview">
+          <slot></slot>
+        </div>
+      );
   }
 
   private renderEmptyState() {
-    if (this.empty)
-      return <goat-empty-state class='empty-menu' {...this.internalEmptyState} />;
+    if (this.empty) return <goat-empty-state class="empty-menu" {...this.internalEmptyState} />;
   }
-
 }

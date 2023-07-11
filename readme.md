@@ -52,57 +52,58 @@ Checkout the complete documentation over here -> https://goatui.com
 - 🔴 not ready (unstyled / no functions)
 - 🔵 planned (created, but empty files)
 
-| Name                                                                    | Component                 | State |
-|-------------------------------------------------------------------------|---------------------------|-------|
-| [Accordion](https://goatui.com/components/accordion)                    | goat-accordion            | 🟢    |
-| [Avatar](https://goatui.com/components/avatar)                          | goat-avatar               | 🟢    |
-| [Badge](https://goatui.com/components/badge)                            | goat-badge                | 🟢    |
-| [Breadcrumb](https://goatui.com/components/breadcrumb)                  | goat-breadcrumb           | 🟢    |
-| [Button](https://goatui.com/components/button)                          | goat-button               | 🟢    |
-| [Button Group](https://goatui.com/components/button-group)              | goat-button-group         | 🟢    |
-| [Calendar](https://goatui.com/components/calendar)                      | goat-calendar             | 🟢    |
-| Card                                                                    | goat-card                 | 🟡    |
-| Card Select                                                             | goat-cardselect           | 🔵    |
-| [Checkbox](https://goatui.com/components/checkbox)                      | goat-checkbox             | 🟢    |
-| Chip                                                                    | goat-chip                 | 🔵    |
-| [Code Editor](https://goatui.com/components/code-editor)                | goat-card-editor          | 🟢    |
-| [Code Highlighter](https://goatui.com/components/code-highlighter)      | goat-card-highlighter     | 🟢    |
-| Column                                                                  | goat-col                  | 🔵    |
-| Color picker                                                            | goat-colorpicker          | 🔵    |
-| [Date picker](https://goatui.com/components/date-picker)                | goat-date-picker          | 🟡    |
-| Date Time picker                                                        | goat-datetime-picker      | 🔵    |
-| Dialog                                                                  | goat-dialog               | 🔵    |
-| [Dropdown](https://goatui.com/components/dropdown)                      | goat-dropdown             | 🟡    |
-| [Empty State](https://goatui.com/components/empty-state)                | goat-empty-state          | 🟡    |
-| Filepicker                                                              | goat-filepicker           | 🔵    |
-| [Flow Designer ](https://goatui.com/components/flow-designer)           | goat-flow-designer        | 🔵    |
-| [Form Control](https://goatui.com/components/form-control)              | goat-form-control         | 🟡    |
-| Grid                                                                    | goat-grid                 | 🔵    |
-| Group                                                                   | goat-group                | 🔵    |
-| [Header](https://goatui.com/components/header)                          | goat-header               | 🟢    |
-| [Icon](https://goatui.com/components/icon)                              | goat-icon                 | 🟢    |
-| [Input](https://goatui.com/components/input)                            | goat-input                | 🟢    |
-| [Link](https://goatui.com/components/link)                              | goat-link                 | 🟢    |
-| Modal                                                                   | goat-modal                | 🔵    |
-| [Menu](https://goatui.com/components/menu)                              | goat-menu                 | 🟡    |
-| Month picker                                                            | goat-month-picker         | 🔵    |
-| [Notification](https://goatui.com/components/notification)              | goat-notification         | 🟢    |
+| Name                                                                       | Component                 | State |
+|----------------------------------------------------------------------------|---------------------------|-------|
+| [Accordion](https://goatui.com/components/accordion)                       | goat-accordion            | 🟢    |
+| [Avatar](https://goatui.com/components/avatar)                             | goat-avatar               | 🟢    |
+| [Badge](https://goatui.com/components/badge)                               | goat-badge                | 🟢    |
+| [Breadcrumb](https://goatui.com/components/breadcrumb)                     | goat-breadcrumb           | 🟢    |
+| [Button](https://goatui.com/components/button)                             | goat-button               | 🟢    |
+| [Button Group](https://goatui.com/components/button-group)                 | goat-button-group         | 🟢    |
+| [Calendar](https://goatui.com/components/calendar)                         | goat-calendar             | 🟢    |
+| Card                                                                       | goat-card                 | 🟡    |
+| Card Select                                                                | goat-cardselect           | 🔵    |
+| [Checkbox](https://goatui.com/components/checkbox)                         | goat-checkbox             | 🟢    |
+| Chip                                                                       | goat-chip                 | 🔵    |
+| [Code Editor](https://goatui.com/components/code-editor)                   | goat-card-editor          | 🟢    |
+| [Code Highlighter](https://goatui.com/components/code-highlighter)         | goat-card-highlighter     | 🟢    |
+| Column                                                                     | goat-col                  | 🔵    |
+| Color picker                                                               | goat-colorpicker          | 🔵    |
+| [Date picker](https://goatui.com/components/date-picker)                   | goat-date-picker          | 🟡    |
+| Date Time picker                                                           | goat-datetime-picker      | 🔵    |
+| Dialog                                                                     | goat-dialog               | 🔵    |
+| [Dropdown](https://goatui.com/components/dropdown)                         | goat-dropdown             | 🟡    |
+| [Empty State](https://goatui.com/components/empty-state)                   | goat-empty-state          | 🟡    |
+| Filepicker                                                                 | goat-filepicker           | 🔵    |
+| [Flow Designer ](https://goatui.com/components/flow-designer)              | goat-flow-designer        | 🔵    |
+| [Form Control](https://goatui.com/components/form-control)                 | goat-form-control         | 🟡    |
+| Grid                                                                       | goat-grid                 | 🔵    |
+| Group                                                                      | goat-group                | 🔵    |
+| [Header](https://goatui.com/components/header)                             | goat-header               | 🟢    |
+| [Icon](https://goatui.com/components/icon)                                 | goat-icon                 | 🟢    |
+| [Input](https://goatui.com/components/input)                               | goat-input                | 🟢    |
+| [Link](https://goatui.com/components/link)                                 | goat-link                 | 🟢    |
+| Modal                                                                      | goat-modal                | 🔵    |
+| [Menu](https://goatui.com/components/menu)                                 | goat-menu                 | 🟡    |
+| Month picker                                                               | goat-month-picker         | 🔵    |
+| [Notification](https://goatui.com/components/notification)                 | goat-notification         | 🟢    |
 | [Notification Manager](https://goatui.com/components/notification-manager) | goat-notification-manager | 🟡    |
-| Observer                                                                | goat-observer             | 🔵    |
-| Pagination                                                              | goat-pagination           | 🔵    |
-| Radio Group                                                             | goat-radiogroup           | 🔵    |
-| Row                                                                     | goat-row                  | 🔵    |
-| [Select](https://goatui.com/components/select)                          | goat-select               | 🟢    |
-| [Slider](https://goatui.com/components/slider)                          | goat-slider               | 🟡    |
-| [Spinner](https://goatui.com/components/spinner)                        | goat-spinner              | 🟢    |
-| Spoiler                                                                 | goat-spoiler              | 🔵    |
-| Stepper                                                                 | goat-stepper              | 🔵    |
-| [Table](https://goatui.com/components/table)                            | goat-table                | 🟡    |
-| [Tabs](https://goatui.com/components/tabs)                              | goat-tabs                 | 🟢    |
-| [Text](https://goatui.com/components/text)                              | goat-text                 | 🟡    |
-| [Textarea](https://goatui.com/components/textarea)                      | goat-textarea             | 🟢    |
-| [Time picker](https://goatui.com/components/time-picker)                | goat-time-picker          | 🟡    |
-| [[Toast](https://goatui.com/components/toast)                           | goat-toast                | 🟢    |
-| [Toggle](https://goatui.com/components/toggle)                          | goat-toggle               | 🟢    |
-| Tooltip                                                                 | goat-tooltip              | 🔵    |
-| Week picker                                                             | goat-week-picker          | 🔵    |
+| Observer                                                                   | goat-observer             | 🔵    |
+| Pagination                                                                 | goat-pagination           | 🔵    |
+| Radio Group                                                                | goat-radiogroup           | 🔵    |
+| Row                                                                        | goat-row                  | 🔵    |
+| [Select](https://goatui.com/components/select)                             | goat-select               | 🟢    |
+| [Slider](https://goatui.com/components/slider)                             | goat-slider               | 🟡    |
+| [Spinner](https://goatui.com/components/spinner)                           | goat-spinner              | 🟢    |
+| Spoiler                                                                    | goat-spoiler              | 🔵    |
+| Stepper                                                                    | goat-stepper              | 🔵    |
+| [Table](https://goatui.com/components/table)                               | goat-table                | 🟡    |
+| [Tabs](https://goatui.com/components/tabs)                                 | goat-tabs                 | 🟢    |
+| [Text](https://goatui.com/components/text)                                 | goat-text                 | 🟡    |
+| [Textarea](https://goatui.com/components/textarea)                         | goat-textarea             | 🟢    |
+| [Time picker](https://goatui.com/components/time-picker)                   | goat-time-picker          | 🟡    |
+| [Tree View](https://goatui.com/components/tree-view)                       | goat-tree-view            | 🟡    |
+| [Toast](https://goatui.com/components/toast)                               | goat-toast                | 🟢    |
+| [Toggle](https://goatui.com/components/toggle)                             | goat-toggle               | 🟢    |
+| Tooltip                                                                    | goat-tooltip              | 🔵    |
+| Week picker                                                                | goat-week-picker          | 🔵    |

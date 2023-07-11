@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-07-03T11:32:51",
+  "timestamp": "2023-07-11T05:49:19",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.4.0",
@@ -2909,7 +2909,7 @@
         "goat-menu",
         "goat-sidenav-menu",
         "goat-table",
-        "tree-view"
+        "goat-tree-view"
       ],
       "dependencies": [
         "goat-svg",
@@ -2933,7 +2933,7 @@
         "goat-table": [
           "goat-empty-state"
         ],
-        "tree-view": [
+        "goat-tree-view": [
           "goat-empty-state"
         ]
       },
@@ -3528,6 +3528,254 @@
       "metadata": {}
     },
     {
+      "filePath": "./src/components/data-entry/html-editor/html-editor.tsx",
+      "fileName": "html-editor.tsx",
+      "tag": "goat-html-editor",
+      "readme": "# goat-code-editor\r\n\r\n\r\n\r",
+      "overview": "",
+      "usage": {},
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "name",
+          "text": "HTML Editor"
+        },
+        {
+          "name": "description",
+          "text": "A browser based code editor."
+        },
+        {
+          "name": "category",
+          "text": "Form Inputs"
+        },
+        {
+          "name": "tags",
+          "text": "input, form"
+        },
+        {
+          "name": "img",
+          "text": "/assets/img/code-editor.png"
+        }
+      ],
+      "encapsulation": "none",
+      "dependents": [],
+      "dependencies": [
+        "goat-spinner"
+      ],
+      "dependencyGraph": {
+        "goat-html-editor": [
+          "goat-spinner"
+        ]
+      },
+      "props": [
+        {
+          "name": "debounce",
+          "type": "number",
+          "mutable": false,
+          "attr": "debounce",
+          "reflectToAttr": false,
+          "docs": "Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.",
+          "docsTags": [],
+          "default": "250",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": true,
+          "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "lineNumbers",
+          "type": "\"off\" | \"on\"",
+          "mutable": false,
+          "attr": "line-numbers",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'on'",
+          "values": [
+            {
+              "value": "off",
+              "type": "string"
+            },
+            {
+              "value": "on",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "The input field name.",
+          "docsTags": [],
+          "default": "`goat-input-${this.gid}`",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "readonly",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "required",
+          "reflectToAttr": true,
+          "docs": "If true, required icon is show. Defaults to `false`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "theme",
+          "type": "\"vs-dark\" | \"vs-light\"",
+          "mutable": false,
+          "attr": "theme",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'vs-light'",
+          "values": [
+            {
+              "value": "vs-dark",
+              "type": "string"
+            },
+            {
+              "value": "vs-light",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "mutable": true,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The input field value.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "getComponentId",
+          "returns": {
+            "type": "Promise<string>",
+            "docs": ""
+          },
+          "signature": "getComponentId() => Promise<string>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        },
+        {
+          "name": "setBlur",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setBlur() => Promise<void>",
+          "parameters": [],
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+          "docsTags": []
+        },
+        {
+          "name": "setFocus",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setFocus() => Promise<void>",
+          "parameters": [],
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+          "docsTags": []
+        }
+      ],
+      "events": [
+        {
+          "event": "goat:change",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the value has changed..",
+          "docsTags": []
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "listeners": [],
+      "metadata": {
+        "name": "HTML Editor",
+        "description": "A browser based code editor.",
+        "category": "Form Inputs",
+        "tags": [
+          "input",
+          " form"
+        ],
+        "img": "/assets/img/code-editor.png"
+      }
+    },
+    {
       "filePath": "./src/components/general/icon/icon.tsx",
       "fileName": "icon.tsx",
       "tag": "goat-icon",
@@ -3566,7 +3814,8 @@
         "goat-tab",
         "goat-tag",
         "goat-textarea",
-        "goat-toast"
+        "goat-toast",
+        "goat-tree-node"
       ],
       "dependencies": [],
       "dependencyGraph": {
@@ -3604,6 +3853,9 @@
           "goat-icon"
         ],
         "goat-toast": [
+          "goat-icon"
+        ],
+        "goat-tree-node": [
           "goat-icon"
         ]
       },
@@ -4271,7 +4523,7 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "{\n    'headline': 'No items',\n    'description': 'There are no items to display',\n  }",
+          "default": "`{\n    \"headline\": \"No items\",\n    \"description\": \"There are no items to display\"\n  }`",
           "values": [
             {
               "type": "any"
@@ -5419,7 +5671,7 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "`{\r\n    \"title\": \"No items\",\r\n    \"description\": \"There are no items to display\"\r\n  }`",
+          "default": "`{\n    \"headline\": \"No items\",\n    \"description\": \"There are no items to display\"\n  }`",
           "values": [
             {
               "type": "string"
@@ -5474,7 +5726,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on first menu item. Use this method instead of the global\r\n`element.focus()`.",
+          "docs": "Sets focus on first menu item. Use this method instead of the global\n`element.focus()`.",
           "docsTags": []
         }
       ],
@@ -5925,6 +6177,7 @@
         "goat-button",
         "goat-code-editor",
         "goat-code-highlighter",
+        "goat-html-editor",
         "goat-select",
         "goat-tab"
       ],
@@ -5937,6 +6190,9 @@
           "goat-spinner"
         ],
         "goat-code-highlighter": [
+          "goat-spinner"
+        ],
+        "goat-html-editor": [
           "goat-spinner"
         ],
         "goat-select": [
@@ -8143,9 +8399,203 @@
       }
     },
     {
-      "filePath": "./src/components/navigation/menu/tree-view/tree-view.tsx",
+      "filePath": "./src/components/navigation/tree-view/tree-node/tree-node.tsx",
+      "fileName": "tree-node.tsx",
+      "tag": "goat-tree-node",
+      "readme": "# goat-menu\r\n\r\n\r\n\r",
+      "overview": "",
+      "usage": {},
+      "docs": "",
+      "docsTags": [],
+      "encapsulation": "shadow",
+      "dependents": [],
+      "dependencies": [
+        "goat-icon"
+      ],
+      "dependencyGraph": {
+        "goat-tree-node": [
+          "goat-icon"
+        ]
+      },
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": true,
+          "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "expanded",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "expanded",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "mutable": false,
+          "attr": "href",
+          "reflectToAttr": false,
+          "docs": "Hyperlink to navigate to on click.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "mutable": true,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "''",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "level",
+          "type": "number",
+          "mutable": false,
+          "attr": "level",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "selectedNode",
+          "type": "string",
+          "mutable": false,
+          "attr": "selected-node",
+          "reflectToAttr": true,
+          "docs": "Menu item selection state.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "number | string",
+          "mutable": true,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The menu item value.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "setBlur",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setBlur() => Promise<void>",
+          "parameters": [],
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+          "docsTags": []
+        },
+        {
+          "name": "setFocus",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setFocus() => Promise<void>",
+          "parameters": [],
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+          "docsTags": []
+        }
+      ],
+      "events": [
+        {
+          "event": "goat:tree-node-click",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the menu item is clicked.",
+          "docsTags": []
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "listeners": [
+        {
+          "event": "mouseup",
+          "target": "window",
+          "capture": false,
+          "passive": true
+        },
+        {
+          "event": "keyup",
+          "target": "window",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "filePath": "./src/components/navigation/tree-view/tree-view/tree-view.tsx",
       "fileName": "tree-view.tsx",
-      "tag": "tree-view",
+      "tag": "goat-tree-view",
       "readme": "# goat-menu\r\n\r\n\r\n\r",
       "overview": "",
       "usage": {},
@@ -8157,11 +8607,15 @@
         },
         {
           "name": "description",
-          "text": "Menus display a list of choices on temporary surfaces."
+          "text": "A tree view is a hierarchical structure that provides nested levels of navigation."
+        },
+        {
+          "name": "category",
+          "text": "Navigation"
         },
         {
           "name": "img",
-          "text": "/assets/img/no-image.jpg"
+          "text": "/assets/img/tree-view.png"
         }
       ],
       "encapsulation": "shadow",
@@ -8170,7 +8624,7 @@
         "goat-empty-state"
       ],
       "dependencyGraph": {
-        "tree-view": [
+        "goat-tree-view": [
           "goat-empty-state"
         ],
         "goat-empty-state": [
@@ -8202,59 +8656,50 @@
         },
         {
           "name": "emptyState",
-          "type": "any",
+          "type": "string",
           "mutable": true,
           "attr": "empty-state",
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "{\n    'headline': 'No items',\n    'description': 'There are no items to display',\n  }",
+          "default": "`{\n    \"headline\": \"No items\",\n    \"description\": \"There are no items to display\"\n  }`",
           "values": [
-            {
-              "type": "any"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "showLoader",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "show-loader",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "value",
-          "type": "number | string",
-          "mutable": true,
-          "attr": "value",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "number"
-            },
             {
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "selectedNode",
+          "type": "string",
+          "mutable": true,
+          "attr": "selected-node",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
           "required": false
         }
       ],
       "methods": [
+        {
+          "name": "getSelectedNode",
+          "returns": {
+            "type": "Promise<string>",
+            "docs": ""
+          },
+          "signature": "getSelectedNode() => Promise<string>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        },
         {
           "name": "setFocus",
           "returns": {
@@ -8265,6 +8710,17 @@
           "parameters": [],
           "docs": "Sets focus on first menu item. Use this method instead of the global\n`element.focus()`.",
           "docsTags": []
+        },
+        {
+          "name": "subscribeToSelect",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "subscribeToSelect(cb: any) => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
         }
       ],
       "events": [],
@@ -8272,6 +8728,11 @@
       "slots": [],
       "parts": [],
       "listeners": [
+        {
+          "event": "goat:tree-node-click",
+          "capture": false,
+          "passive": false
+        },
         {
           "event": "keydown",
           "target": "window",
@@ -8281,8 +8742,9 @@
       ],
       "metadata": {
         "name": "TreeView",
-        "description": "Menus display a list of choices on temporary surfaces.",
-        "img": "/assets/img/no-image.jpg"
+        "description": "A tree view is a hierarchical structure that provides nested levels of navigation.",
+        "category": "Navigation",
+        "img": "/assets/img/tree-view.png"
       }
     }
   ],
@@ -8772,7 +9234,8 @@
             "goat-tab",
             "goat-tag",
             "goat-textarea",
-            "goat-toast"
+            "goat-toast",
+            "goat-tree-node"
           ],
           "dependencies": [],
           "dependencyGraph": {
@@ -8810,6 +9273,9 @@
               "goat-icon"
             ],
             "goat-toast": [
+              "goat-icon"
+            ],
+            "goat-tree-node": [
               "goat-icon"
             ]
           },
@@ -9605,7 +10071,7 @@
               "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
-              "default": "{\n    'headline': 'No items',\n    'description': 'There are no items to display',\n  }",
+              "default": "`{\n    \"headline\": \"No items\",\n    \"description\": \"There are no items to display\"\n  }`",
               "values": [
                 {
                   "type": "any"
@@ -9738,6 +10204,161 @@
               "navigation"
             ],
             "example": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
+          }
+        },
+        {
+          "filePath": "./src/components/navigation/tree-view/tree-view/tree-view.tsx",
+          "fileName": "tree-view.tsx",
+          "tag": "goat-tree-view",
+          "readme": "# goat-menu\r\n\r\n\r\n\r",
+          "overview": "",
+          "usage": {},
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "name",
+              "text": "TreeView"
+            },
+            {
+              "name": "description",
+              "text": "A tree view is a hierarchical structure that provides nested levels of navigation."
+            },
+            {
+              "name": "category",
+              "text": "Navigation"
+            },
+            {
+              "name": "img",
+              "text": "/assets/img/tree-view.png"
+            }
+          ],
+          "encapsulation": "shadow",
+          "dependents": [],
+          "dependencies": [
+            "goat-empty-state"
+          ],
+          "dependencyGraph": {
+            "goat-tree-view": [
+              "goat-empty-state"
+            ],
+            "goat-empty-state": [
+              "goat-svg",
+              "goat-button"
+            ],
+            "goat-button": [
+              "goat-icon",
+              "goat-spinner"
+            ]
+          },
+          "props": [
+            {
+              "name": "empty",
+              "type": "boolean",
+              "mutable": true,
+              "attr": "empty",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "emptyState",
+              "type": "string",
+              "mutable": true,
+              "attr": "empty-state",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "`{\n    \"headline\": \"No items\",\n    \"description\": \"There are no items to display\"\n  }`",
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "selectedNode",
+              "type": "string",
+              "mutable": true,
+              "attr": "selected-node",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
+          "methods": [
+            {
+              "name": "getSelectedNode",
+              "returns": {
+                "type": "Promise<string>",
+                "docs": ""
+              },
+              "signature": "getSelectedNode() => Promise<string>",
+              "parameters": [],
+              "docs": "",
+              "docsTags": []
+            },
+            {
+              "name": "setFocus",
+              "returns": {
+                "type": "Promise<void>",
+                "docs": ""
+              },
+              "signature": "setFocus() => Promise<void>",
+              "parameters": [],
+              "docs": "Sets focus on first menu item. Use this method instead of the global\n`element.focus()`.",
+              "docsTags": []
+            },
+            {
+              "name": "subscribeToSelect",
+              "returns": {
+                "type": "Promise<void>",
+                "docs": ""
+              },
+              "signature": "subscribeToSelect(cb: any) => Promise<void>",
+              "parameters": [],
+              "docs": "",
+              "docsTags": []
+            }
+          ],
+          "events": [],
+          "styles": [],
+          "slots": [],
+          "parts": [],
+          "listeners": [
+            {
+              "event": "goat:tree-node-click",
+              "capture": false,
+              "passive": false
+            },
+            {
+              "event": "keydown",
+              "target": "window",
+              "capture": false,
+              "passive": false
+            }
+          ],
+          "metadata": {
+            "name": "TreeView",
+            "description": "A tree view is a hierarchical structure that provides nested levels of navigation.",
+            "category": "Navigation",
+            "img": "/assets/img/tree-view.png"
           }
         }
       ]
@@ -10747,6 +11368,254 @@
               "form"
             ],
             "example": "<goat-form-control label='Full Name' required>\n<goat-input type='text'></goat-input>\n</goat-form-control>"
+          }
+        },
+        {
+          "filePath": "./src/components/data-entry/html-editor/html-editor.tsx",
+          "fileName": "html-editor.tsx",
+          "tag": "goat-html-editor",
+          "readme": "# goat-code-editor\r\n\r\n\r\n\r",
+          "overview": "",
+          "usage": {},
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "name",
+              "text": "HTML Editor"
+            },
+            {
+              "name": "description",
+              "text": "A browser based code editor."
+            },
+            {
+              "name": "category",
+              "text": "Form Inputs"
+            },
+            {
+              "name": "tags",
+              "text": "input, form"
+            },
+            {
+              "name": "img",
+              "text": "/assets/img/code-editor.png"
+            }
+          ],
+          "encapsulation": "none",
+          "dependents": [],
+          "dependencies": [
+            "goat-spinner"
+          ],
+          "dependencyGraph": {
+            "goat-html-editor": [
+              "goat-spinner"
+            ]
+          },
+          "props": [
+            {
+              "name": "debounce",
+              "type": "number",
+              "mutable": false,
+              "attr": "debounce",
+              "reflectToAttr": false,
+              "docs": "Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.",
+              "docsTags": [],
+              "default": "250",
+              "values": [
+                {
+                  "type": "number"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "mutable": false,
+              "attr": "disabled",
+              "reflectToAttr": true,
+              "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "lineNumbers",
+              "type": "\"off\" | \"on\"",
+              "mutable": false,
+              "attr": "line-numbers",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "'on'",
+              "values": [
+                {
+                  "value": "off",
+                  "type": "string"
+                },
+                {
+                  "value": "on",
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "mutable": false,
+              "attr": "name",
+              "reflectToAttr": false,
+              "docs": "The input field name.",
+              "docsTags": [],
+              "default": "`goat-input-${this.gid}`",
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "readonly",
+              "type": "boolean",
+              "mutable": false,
+              "attr": "readonly",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "required",
+              "type": "boolean",
+              "mutable": false,
+              "attr": "required",
+              "reflectToAttr": true,
+              "docs": "If true, required icon is show. Defaults to `false`.",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "theme",
+              "type": "\"vs-dark\" | \"vs-light\"",
+              "mutable": false,
+              "attr": "theme",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "'vs-light'",
+              "values": [
+                {
+                  "value": "vs-dark",
+                  "type": "string"
+                },
+                {
+                  "value": "vs-light",
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "mutable": true,
+              "attr": "value",
+              "reflectToAttr": false,
+              "docs": "The input field value.",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
+          "methods": [
+            {
+              "name": "getComponentId",
+              "returns": {
+                "type": "Promise<string>",
+                "docs": ""
+              },
+              "signature": "getComponentId() => Promise<string>",
+              "parameters": [],
+              "docs": "",
+              "docsTags": []
+            },
+            {
+              "name": "setBlur",
+              "returns": {
+                "type": "Promise<void>",
+                "docs": ""
+              },
+              "signature": "setBlur() => Promise<void>",
+              "parameters": [],
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+              "docsTags": []
+            },
+            {
+              "name": "setFocus",
+              "returns": {
+                "type": "Promise<void>",
+                "docs": ""
+              },
+              "signature": "setFocus() => Promise<void>",
+              "parameters": [],
+              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+              "docsTags": []
+            }
+          ],
+          "events": [
+            {
+              "event": "goat:change",
+              "detail": "any",
+              "bubbles": true,
+              "cancelable": true,
+              "composed": true,
+              "docs": "Emitted when the value has changed..",
+              "docsTags": []
+            }
+          ],
+          "styles": [],
+          "slots": [],
+          "parts": [],
+          "listeners": [],
+          "metadata": {
+            "name": "HTML Editor",
+            "description": "A browser based code editor.",
+            "category": "Form Inputs",
+            "tags": [
+              "input",
+              " form"
+            ],
+            "img": "/assets/img/code-editor.png"
           }
         },
         {
@@ -13448,7 +14317,7 @@
             "goat-menu",
             "goat-sidenav-menu",
             "goat-table",
-            "tree-view"
+            "goat-tree-view"
           ],
           "dependencies": [
             "goat-svg",
@@ -13472,7 +14341,7 @@
             "goat-table": [
               "goat-empty-state"
             ],
-            "tree-view": [
+            "goat-tree-view": [
               "goat-empty-state"
             ]
           },
@@ -14562,6 +15431,7 @@
             "goat-button",
             "goat-code-editor",
             "goat-code-highlighter",
+            "goat-html-editor",
             "goat-select",
             "goat-tab"
           ],
@@ -14574,6 +15444,9 @@
               "goat-spinner"
             ],
             "goat-code-highlighter": [
+              "goat-spinner"
+            ],
+            "goat-html-editor": [
               "goat-spinner"
             ],
             "goat-select": [
@@ -15894,7 +16767,7 @@
               "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
-              "default": "`{\r\n    \"title\": \"No items\",\r\n    \"description\": \"There are no items to display\"\r\n  }`",
+              "default": "`{\n    \"headline\": \"No items\",\n    \"description\": \"There are no items to display\"\n  }`",
               "values": [
                 {
                   "type": "string"
@@ -15949,7 +16822,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on first menu item. Use this method instead of the global\r\n`element.focus()`.",
+              "docs": "Sets focus on first menu item. Use this method instead of the global\n`element.focus()`.",
               "docsTags": []
             }
           ],
@@ -16457,92 +17330,120 @@
           "metadata": {}
         },
         {
-          "filePath": "./src/components/navigation/menu/tree-view/tree-view.tsx",
-          "fileName": "tree-view.tsx",
-          "tag": "tree-view",
+          "filePath": "./src/components/navigation/tree-view/tree-node/tree-node.tsx",
+          "fileName": "tree-node.tsx",
+          "tag": "goat-tree-node",
           "readme": "# goat-menu\r\n\r\n\r\n\r",
           "overview": "",
           "usage": {},
           "docs": "",
-          "docsTags": [
-            {
-              "name": "name",
-              "text": "TreeView"
-            },
-            {
-              "name": "description",
-              "text": "Menus display a list of choices on temporary surfaces."
-            },
-            {
-              "name": "img",
-              "text": "/assets/img/no-image.jpg"
-            }
-          ],
+          "docsTags": [],
           "encapsulation": "shadow",
           "dependents": [],
           "dependencies": [
-            "goat-empty-state"
+            "goat-icon"
           ],
           "dependencyGraph": {
-            "tree-view": [
-              "goat-empty-state"
-            ],
-            "goat-empty-state": [
-              "goat-svg",
-              "goat-button"
-            ],
-            "goat-button": [
-              "goat-icon",
-              "goat-spinner"
+            "goat-tree-node": [
+              "goat-icon"
             ]
           },
           "props": [
             {
-              "name": "empty",
-              "type": "boolean",
-              "mutable": true,
-              "attr": "empty",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "default": "false",
-              "values": [
-                {
-                  "type": "boolean"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "emptyState",
-              "type": "any",
-              "mutable": true,
-              "attr": "empty-state",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "default": "{\n    'headline': 'No items',\n    'description': 'There are no items to display',\n  }",
-              "values": [
-                {
-                  "type": "any"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "showLoader",
+              "name": "disabled",
               "type": "boolean",
               "mutable": false,
-              "attr": "show-loader",
-              "reflectToAttr": false,
-              "docs": "",
+              "attr": "disabled",
+              "reflectToAttr": true,
+              "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
               "docsTags": [],
               "default": "false",
               "values": [
                 {
                   "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "expanded",
+              "type": "boolean",
+              "mutable": false,
+              "attr": "expanded",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "true",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "href",
+              "type": "string",
+              "mutable": false,
+              "attr": "href",
+              "reflectToAttr": false,
+              "docs": "Hyperlink to navigate to on click.",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "mutable": true,
+              "attr": "label",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "''",
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "level",
+              "type": "number",
+              "mutable": false,
+              "attr": "level",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "0",
+              "values": [
+                {
+                  "type": "number"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "selectedNode",
+              "type": "string",
+              "mutable": false,
+              "attr": "selected-node",
+              "reflectToAttr": true,
+              "docs": "Menu item selection state.",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
                 }
               ],
               "optional": false,
@@ -16554,7 +17455,7 @@
               "mutable": true,
               "attr": "value",
               "reflectToAttr": false,
-              "docs": "",
+              "docs": "The menu item value.",
               "docsTags": [],
               "values": [
                 {
@@ -16570,6 +17471,17 @@
           ],
           "methods": [
             {
+              "name": "setBlur",
+              "returns": {
+                "type": "Promise<void>",
+                "docs": ""
+              },
+              "signature": "setBlur() => Promise<void>",
+              "parameters": [],
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+              "docsTags": []
+            },
+            {
               "name": "setFocus",
               "returns": {
                 "type": "Promise<void>",
@@ -16577,27 +17489,39 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on first menu item. Use this method instead of the global\n`element.focus()`.",
+              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
               "docsTags": []
             }
           ],
-          "events": [],
+          "events": [
+            {
+              "event": "goat:tree-node-click",
+              "detail": "any",
+              "bubbles": true,
+              "cancelable": true,
+              "composed": true,
+              "docs": "Emitted when the menu item is clicked.",
+              "docsTags": []
+            }
+          ],
           "styles": [],
           "slots": [],
           "parts": [],
           "listeners": [
             {
-              "event": "keydown",
+              "event": "mouseup",
+              "target": "window",
+              "capture": false,
+              "passive": true
+            },
+            {
+              "event": "keyup",
               "target": "window",
               "capture": false,
               "passive": false
             }
           ],
-          "metadata": {
-            "name": "TreeView",
-            "description": "Menus display a list of choices on temporary surfaces.",
-            "img": "/assets/img/no-image.jpg"
-          }
+          "metadata": {}
         }
       ]
     }

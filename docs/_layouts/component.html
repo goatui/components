@@ -5,33 +5,25 @@ layout: default
 <div class='sidenav m-hide'>
 
   <div class='sidenav-components'>
-    <a class='sidenav-link {% if page.title == "Components" %}active{% endif %}'
-       href='/components'>
-      <goat-text class='inherit'>Overview</goat-text>
-    </a>
 
-    {% for category in site.data.componentsDetails.categories %}
-    <div class='category-name'>
-      <goat-text shade='secondary' size='sm'>{{category.name}}</goat-text>
-    </div>
+    <goat-tree-view value='{{page.title}}' selected-node='{{page.title}}'>
+      <goat-tree-node label="Overview" href='/components'></goat-tree-node>
 
-      {% for component in category.components %}
-      {% if component.metadata.name %}
-        {% if component.metadata.category == 'General' %}
-        <a class='sidenav-link {% if page.title == component.metadata.name %}active{% endif %}'
-           href='/components/{{component.tag | replace: "goat-", ""}}'>
-          <goat-text class='inherit'>{{component.metadata.name}}</goat-text>
-        </a>
-        {% else %}
-      <a class='sidenav-link {% if page.title == component.metadata.name %}active{% endif %}'
-         href='/components/{{component.tag | replace: "goat-", ""}}'>
-        <goat-text class='inherit'>{{component.metadata.name}}</goat-text>
-      </a>
+      {% for category in site.data.componentsDetails.categories %}
+      <goat-tree-node label="{{category.name}}">
+
+        {% for component in category.components %}
+        {% if component.metadata.name %}
+        <goat-tree-node label="{{component.metadata.name}}" href='/components/{{component.tag | replace: "goat-", ""}}'></goat-tree-node>
         {% endif %}
-      {% endif %}
+        {% endfor %}
+
+
+      </goat-tree-node>
       {% endfor %}
 
-    {% endfor %}
+    </goat-tree-view>
+
   </div>
 
 </div>

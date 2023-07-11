@@ -1,0 +1,38 @@
+<goat-card>
+  <goat-card-content>
+    <goat-textarea id="input-with-actions"></goat-textarea>
+    <script>
+      document.querySelector('#input-with-actions').actions = [
+        {
+          icon: 'search',
+          eventName: 'search-item',
+        },
+        {
+          icon: 'x',
+          eventName: 'close',
+        },
+        {
+          icon: 'info-circle',
+          eventName: 'info-circle',
+          disabled: true,
+        },
+      ];
+      document.querySelector('#input-with-actions').addEventListener('goat:action-click', function (evt) {
+        window.notyf.success('Action clicked :: ' + evt.detail.eventName);
+      });
+    </script>
+  </goat-card-content>
+  <goat-card-content>
+    {% GoatHighlighter language:"js" %}
+document.querySelector('#input-with-actions').actions = [
+  { icon: 'search', eventName: 'search-item' },
+  { icon: 'x', eventName: 'close'},
+  { icon: 'info-circle', eventName: 'info-circle', disabled: true }
+];
+
+document.querySelector('#input-with-actions').addEventListener('goat:action-click', function(evt) {
+  console.log("Action clicked :: " + evt.detail.eventName);
+});
+    {% endGoatHighlighter %}
+  </goat-card-content>
+</goat-card>
