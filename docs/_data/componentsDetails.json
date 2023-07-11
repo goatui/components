@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-07-11T05:51:31",
+  "timestamp": "2023-07-11T17:08:39",
   "compiler": {
     "name": "@stencil/core",
     "version": "3.4.0",
@@ -106,6 +106,23 @@
           "values": [
             {
               "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "icon",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
             }
           ],
           "optional": false,
@@ -5201,6 +5218,23 @@
           "required": false
         },
         {
+          "name": "hideDropdownIcon",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "hide-dropdown-icon",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "isOpen",
           "type": "boolean",
           "mutable": true,
@@ -5520,6 +5554,15 @@
           "cancelable": true,
           "composed": true,
           "docs": "Emitted when a keyboard input occurred.",
+          "docsTags": []
+        },
+        {
+          "event": "goat:search-enter",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
           "docsTags": []
         }
       ],
@@ -12186,6 +12229,23 @@
               "required": false
             },
             {
+              "name": "hideDropdownIcon",
+              "type": "boolean",
+              "mutable": false,
+              "attr": "hide-dropdown-icon",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
               "name": "isOpen",
               "type": "boolean",
               "mutable": true,
@@ -12505,6 +12565,15 @@
               "cancelable": true,
               "composed": true,
               "docs": "Emitted when a keyboard input occurred.",
+              "docsTags": []
+            },
+            {
+              "event": "goat:search-enter",
+              "detail": "any",
+              "bubbles": true,
+              "cancelable": true,
+              "composed": true,
+              "docs": "",
               "docsTags": []
             }
           ],
@@ -15645,6 +15714,23 @@
               "values": [
                 {
                   "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "icon",
+              "type": "boolean",
+              "mutable": false,
+              "attr": "icon",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
                 }
               ],
               "optional": false,

@@ -11,6 +11,7 @@
 | ---------- | ---------- | ----------------------------------------------------------------------- | --------- | ----------- |
 | `disabled` | `disabled` | If true, the user cannot interact with the button. Defaults to `false`. | `boolean` | `false`     |
 | `heading`  | `heading`  | The menu item value.                                                    | `string`  | `'Heading'` |
+| `icon`     | `icon`     |                                                                         | `boolean` | `false`     |
 | `open`     | `open`     | Menu item selection state.                                              | `boolean` | `false`     |
 
 
