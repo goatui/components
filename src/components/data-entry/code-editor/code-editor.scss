@@ -63,6 +63,15 @@
 
 }
 
+:host(.no-border) {
+  .code-editor-component {
+    .editor {
+      border: none;
+      border-radius: 0;
+    }
+  }
+}
+
 
 /**
  * States

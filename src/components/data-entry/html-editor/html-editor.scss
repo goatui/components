@@ -7,6 +7,12 @@
 }
 
 .code-editor-component {
+  height: 100%;
+  .editor {
+    height: 100%;
+    min-height: 20rem;
+    background: red;
+  }
 
 }
 

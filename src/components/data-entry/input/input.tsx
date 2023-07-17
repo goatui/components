@@ -274,6 +274,10 @@ export class Input implements ComponentInterface, InputComponentInterface {
             {...this.configAria}
           />
 
+          {this.clearable && this.hasValue() &&
+            <goat-icon
+              class="clear inherit input-action" name="x-circle-fill" size="1rem" onClick={this.clearInput} role="button" />}
+
           {this.type === 'password' && !this.hideActions && <goat-button class="color-secondary" icon={this.passwordVisible ? 'eye-slash' : 'eye'} variant="ghost" size="none" onGoat:click={() => {
             this.passwordVisible = !this.passwordVisible;
           }}></goat-button>}
@@ -287,9 +291,7 @@ export class Input implements ComponentInterface, InputComponentInterface {
           }}></goat-button>}
 
 
-          {this.clearable && this.hasValue() &&
-            <goat-icon
-              class="clear inherit input-action" name="x-circle-fill" size={this.size} onClick={this.clearInput} role="button" />}
+
 
           <div class="slot-container end">
             <slot name="end" />

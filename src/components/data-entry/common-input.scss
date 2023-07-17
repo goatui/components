@@ -22,6 +22,7 @@
   cursor: text;
   font-weight: var(--font-weight-regular);
   gap: v(--spacing-2);
+  padding: 0 1rem;
 
   .input {
     flex: 1;
@@ -30,8 +31,15 @@
     background: none;
     width: 100%;
     cursor: inherit;
-    padding: 0;
     color: v(--text-primary);
+
+    /*
+     * Font styles
+     */
+    font-size: 0.875rem;
+
+    line-height: 1.28572;
+    letter-spacing: 0.16px;
 
     &::placeholder {
       color: v(--text-placeholder);
@@ -56,17 +64,6 @@
 
   }
 
-  &.start-slot-has-content {
-    .input {
-      padding-left: v(--spacing-2);
-    }
-  }
-
-  &.end-slot-has-content {
-    .input {
-      padding-right: v(--spacing-2);
-    }
-  }
 
   &:not(.start-slot-has-content) {
     .slot-container.start {
@@ -86,6 +83,10 @@
     &:hover {
       --text-color: var(--text-secondary);
     }
+  }
+
+  slot::slotted(*) {
+    font-size: 0.875rem;
   }
 }
 
@@ -127,41 +128,15 @@
  * Sizes
  */
 :host([size="sm"]) .input-container {
-  padding: 0.5rem 0.75rem;
-  min-height: 2.375rem;
-
-  .input {
-    @include font-style(text-sm);
-  }
-
-  slot::slotted(*) {
-    @include font-style(text-sm);
-  }
+  min-height: 2rem;
 }
 
 :host([size="md"]) .input-container {
-  padding: 0.625rem 0.875rem;
-  min-height: 2.875rem;
-
-  .input {
-    @include font-style(text-md);
-  }
-
-  slot::slotted(*) {
-    @include font-style(text-md);
-  }
+  min-height: 2.5rem;
 }
 
 :host([size="lg"]) .input-container {
-  padding: 0.75rem 1rem;
-  min-height: 3.375rem;
-  .input {
-    @include font-style(text-lg);
-  }
-
-  slot::slotted(*) {
-    @include font-style(text-lg);
-  }
+  min-height: 3rem;
 }
 
 

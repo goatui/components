@@ -43,7 +43,7 @@ export class Icon {
   private getSize() {
     let size;
     if (this.size === 'sm')
-      size = '1.25rem';
+      size = '1rem';
     else if (!this.size || this.size === 'md')
       size = '1.5rem';
     else if (this.size === 'lg')

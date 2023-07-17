@@ -30,7 +30,16 @@ layout: default
 <div class='main-content'>
   <div class='container'>
 
+    <goat-breadcrumb>
+      <goat-breadcrumb-item href="/">Home</goat-breadcrumb-item>
+      {% if page.title != "Overview" %}
+      <goat-breadcrumb-item href="/components">Overview</goat-breadcrumb-item>
+      {% endif %}
+      <goat-breadcrumb-item active>{{page.title}}</goat-breadcrumb-item>
+    </goat-breadcrumb>
+
     <goat-text type='heading' size='md'>{{page.title}}</goat-text>
+
 
     {{content}}
 

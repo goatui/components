@@ -58,26 +58,28 @@ colors: ['primary', 'secondary', 'success', 'error']
 
   <goat-tab-panel>
     <div class="playground-tab">
-      <div class="playground">
-        <div id="demo-area"></div>
-        <div id="demo-controls">
-          <goat-form-control label="Variants">
-            <goat-select id="comp-variants" search="contains" placeholder="Select" clearable></goat-select>
-          </goat-form-control>
+      <div class="playground-container">
+        <div class="playground">
+          <div id="demo-area"></div>
+          <div id="demo-controls">
+            <goat-form-control label="Variants">
+              <goat-select id="comp-variants" search="contains" placeholder="Select" clearable></goat-select>
+            </goat-form-control>
 
-          <goat-form-control label="Size">
-            <goat-select id="comp-size" search="contains" placeholder="Select" clearable></goat-select>
-          </goat-form-control>
+            <goat-form-control label="Size">
+              <goat-select id="comp-size" search="contains" placeholder="Select" clearable></goat-select>
+            </goat-form-control>
 
-          <goat-form-control label="Disabled">
-            <goat-checkbox id="comp-disabled"></goat-checkbox>
-          </goat-form-control>
-          <goat-form-control label="Selected">
-            <goat-checkbox id="comp-selected"></goat-checkbox>
-          </goat-form-control>
+            <goat-form-control label="Disabled">
+              <goat-checkbox id="comp-disabled"></goat-checkbox>
+            </goat-form-control>
+            <goat-form-control label="Selected">
+              <goat-checkbox id="comp-selected"></goat-checkbox>
+            </goat-form-control>
+          </div>
         </div>
+        <div id="code-editor-container"></div>
       </div>
-      <div id="code-editor-container"></div>
     </div>
   </goat-tab-panel>
 
@@ -87,7 +89,7 @@ colors: ['primary', 'secondary', 'success', 'error']
       if (window.isTabLoaded) {
         return;
       }
-      document.getElementById('code-editor-container').innerHTML = `<goat-code-editor id='code-editor' style='height: 200px' theme='vs-dark'></goat-code-editor>`;
+      document.getElementById('code-editor-container').innerHTML = `<goat-code-editor id='code-editor'  class='no-border' style='height: 200px' theme='vs-dark'></goat-code-editor>`;
       document.getElementById('code-editor').value = `
 <goat-button class='color-primary' size='md'>Click me</goat-button>
 `;

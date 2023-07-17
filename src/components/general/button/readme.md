@@ -73,6 +73,7 @@ Type: `Promise<void>`
  - [goat-code-highlighter](../../data-display/code-highlighter)
  - [goat-empty-state](../../data-display/empty-state)
  - [goat-flow-designer](../../flow-designer/flow-designer)
+ - [goat-html-editor](../../data-entry/html-editor)
  - [goat-input](../../data-entry/input)
  - [goat-notification](../../feedback/notification)
  - [goat-table](../../data-display/table)
@@ -91,6 +92,7 @@ graph TD;
   goat-code-highlighter --> goat-button
   goat-empty-state --> goat-button
   goat-flow-designer --> goat-button
+  goat-html-editor --> goat-button
   goat-input --> goat-button
   goat-notification --> goat-button
   goat-table --> goat-button

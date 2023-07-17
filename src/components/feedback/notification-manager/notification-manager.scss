@@ -20,6 +20,7 @@
   display: block;
   position: absolute;
   z-index: v(--z-index-notification-manager);
+  pointer-events: none;
 }
 
 :host([name='global']) {
@@ -28,13 +29,14 @@
 }
 
 .notification-manager {
-
+  pointer-events: none;
   display: flex;
   flex-direction: column;
   margin: v(--spacing-4);
 
   .notification {
     animation: reveal 0.5s ease-in;
+    pointer-events: auto;
   }
 
   .notification.hidden {

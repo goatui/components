@@ -7,6 +7,14 @@
     "stenciljs",
     "web components"
   ],
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/goatui/goatui.esm.js",
   "homepage": "https://goatui.com",
   "bugs": {
     "url": "https://github.com/goatui/components/issues"
@@ -18,10 +26,6 @@
   "license": "MIT",
   "author": "Shivaji Varma <contact@shivajivarma.com>",
   "contributors": [],
-  "main": "dist/index.cjs.js",
-  "unpkg": "dist/goatui/goatui.esm.js",
-  "module": "dist/index.js",
-  "types": "dist/types/components.d.ts",
   "files": [
     "dist/",
     "loader/"
@@ -43,11 +47,15 @@
   "dependencies": {
     "date-fns": "^2.29.3",
     "dompurify": "^3.0.1",
+    "lexical": "^0.11.2",
+    "@lexical/plain-text": "^0.11.2",
+    "@lexical/rich-text": "^0.11.2",
+    "@lexical/history": "^0.11.2",
     "prismjs": "^1.29.0"
   },
   "devDependencies": {
     "@shopify/prettier-plugin-liquid": "^1.1.0",
-    "@stencil/core": "3.4.0",
+    "@stencil/core": "^4.0.0",
     "@stencil/sass": "3.0.4",
     "@types/dompurify": "^2.4.0",
     "@types/jest": "^27.5.2",
@@ -57,7 +65,7 @@
     "jest": "^27.5.1",
     "jest-cli": "^27.5.1",
     "prettier": "^2.8.8",
-    "puppeteer": "^19.5.2",
+    "puppeteer": "^20.7.3",
     "sass": "^1.49.11"
   },
   "engines": {
@@ -65,9 +73,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "collection": "dist/collection/collection-manifest.json",
-  "collection:main": "dist/collection/index.js",
-  "es2015": "dist/esm/index.mjs",
-  "es2017": "dist/esm/index.mjs"
+  }
 }

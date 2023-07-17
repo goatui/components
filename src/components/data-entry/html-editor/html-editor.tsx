@@ -1,6 +1,18 @@
 import { Component, ComponentInterface, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
 import { debounceEvent, getComponentIndex } from '../../../utils/utils';
-import loadQuilljs from '../../../3d-party/quilljs';
+import {
+  $createParagraphNode,
+  $createTextNode,
+  $getRoot,
+  $getSelection,
+  CAN_UNDO_COMMAND,
+  createEditor,
+  FORMAT_ELEMENT_COMMAND,
+  SELECTION_CHANGE_COMMAND,
+  UNDO_COMMAND,
+} from 'lexical';
+import { registerRichText } from '@lexical/rich-text';
+import { createEmptyHistoryState, registerHistory } from '@lexical/history';
 
 /**
  * @name HTML Editor
@@ -17,7 +29,6 @@ import loadQuilljs from '../../../3d-party/quilljs';
 export class HtmlEditor implements ComponentInterface, InputComponentInterface {
   gid: string = getComponentIndex();
 
-
   /**
    * The input field name.
    */
@@ -33,13 +44,12 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
    */
   @Prop({ reflect: true }) required: boolean = false;
 
-
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
-  @Prop({reflect: true}) disabled: boolean = false;
+  @Prop({ reflect: true }) disabled: boolean = false;
 
-  @Prop({reflect: true}) readonly : boolean = false;
+  @Prop({ reflect: true }) readonly: boolean = false;
 
   @Prop() theme: 'vs-light' | 'vs-dark' = 'vs-light';
 
@@ -57,7 +67,6 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
 
   @State() hasFocus = false;
 
-
   @Watch('debounce')
   protected debounceChanged() {
     this.p4Change = debounceEvent(this.p4Change, this.debounce);
@@ -66,16 +75,15 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
   @Watch('disabled')
   disabledWatcher(newValue: boolean) {
     if (newValue) {
-      this.editorMonacoInstance.enableReadOnlyMode("123")
+      this.editorInstance.enableReadOnlyMode('123');
     } else {
-      this.editorMonacoInstance.disableReadOnlyMode("123")
+      this.editorInstance.disableReadOnlyMode('123');
     }
-
   }
 
   @Watch('readonly')
   readonlyWatcher(newValue: string) {
-    this.editorMonacoInstance.updateOptions({ readOnly: newValue || this.disabled});
+    this.editorInstance.updateOptions({ readOnly: newValue || this.disabled });
   }
 
   @Watch('theme')
@@ -85,8 +93,8 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
 
   @Watch('value')
   valueWatcher(newValue: string) {
-    if (this.editorMonacoInstance.getValue() !== this.value) {
-      this.editorMonacoInstance.setValue(newValue);
+    if (this.editorInstance.getValue() !== this.value) {
+      this.editorInstance.setValue(newValue);
     }
   }
 
@@ -101,8 +109,8 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
    */
   @Method()
   async setFocus() {
-    if (this.editorMonacoInstance) {
-      this.editorMonacoInstance.focus();
+    if (this.editorInstance) {
+      this.editorInstance.focus();
     }
   }
 
@@ -112,138 +120,121 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
    */
   @Method()
   async setBlur() {
-    if (this.editorMonacoInstance) {
-      this.editorMonacoInstance.blur();
+    if (this.editorInstance) {
+      this.editorInstance.blur();
     }
   }
 
   private editorElement?: HTMLElement;
-  @State() editorMonacoInstance: any;
+  editorInstance: any;
 
   async componentWillLoad() {
     this.debounceChanged();
-    if (!window['CKEDITOR']) {
+    /*if (!window['CKEDITOR']) {
       await loadQuilljs();
-    }
+    }*/
   }
-
 
   componentDidLoad() {
-    setTimeout(() => this.initializeMonaco(), 1000);
+    setTimeout(() => this.initializeEditor(), 1000);
   }
 
-  private initializeMonaco() {
-    const CKEDITOR = window['CKEDITOR'];
+  private initializeEditor() {
+    //const CKEDITOR = window['CKEDITOR'];
 
     this.editorElement.innerHTML = '';
 
     // This sample still does not showcase all CKEditor 5 features (!)
     // Visit https://ckeditor.com/docs/ckeditor5/latest/features/index.html to browse all the features.
-    CKEDITOR.ClassicEditor.create(this.editorElement, {
-      // https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format
-      toolbar: [
-        'undo', 'redo',
-        '|',
-        'sourceEditing',
-        '|',
-        'wproofreader',
-        '|',
-        'heading',
-        '|',
-        'bold', 'italic', 'strikethrough', 'code',
-        '|',
-        'bulletedList', 'numberedList', 'todoList',
-        '|',
-        'link', 'uploadImage', 'insertTable', 'blockQuote', 'codeBlock', 'horizontalLine', 'specialCharacters'
-      ],
-      // Changing the language of the interface requires loading the language file using the <script> tag.
-      // language: 'es',
-      list: {
-        properties: {
-          styles: true,
-          startIndex: true,
-          reversed: true,
-        },
-      },
-      // https://ckeditor.com/docs/ckeditor5/latest/features/headings.html#configuration
-      heading: {
-        options: [
-          { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-          { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
-          { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
-          { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
-          { model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_heading4' },
-          { model: 'heading5', view: 'h5', title: 'Heading 5', class: 'ck-heading_heading5' },
-          { model: 'heading6', view: 'h6', title: 'Heading 6', class: 'ck-heading_heading6' },
-        ],
-      },
-      // https://ckeditor.com/docs/ckeditor5/latest/features/editor-placeholder.html#using-the-editor-configuration
-      placeholder: 'Welcome to CKEditor 5!',
+    this.editorInstance = createEditor({
+      editable: true,
+    });
 
-      // https://ckeditor.com/docs/ckeditor5/latest/features/mentions.html#configuration
-      mention: {
-        feeds: [
-          {
-            marker: '@',
-            feed: [
-              '@apple', '@bears', '@brownie', '@cake', '@cake', '@candy', '@canes', '@chocolate', '@cookie', '@cotton', '@cream',
-              '@cupcake', '@danish', '@donut', '@dragée', '@fruitcake', '@gingerbread', '@gummi', '@ice', '@jelly-o',
-              '@liquorice', '@macaroon', '@marzipan', '@oat', '@pie', '@plum', '@pudding', '@sesame', '@snaps', '@soufflé',
-              '@sugar', '@sweet', '@topping', '@wafer',
-            ],
-            minimumCharacters: 1,
-          },
-        ],
+    registerRichText(this.editorInstance);
+    registerHistory(this.editorInstance, createEmptyHistoryState(), 0);
+
+    //@ts-ignore
+    window.myEditor = this.editorInstance;
+    this.editorInstance.setRootElement(this.editorElement);
+
+    this.editorInstance.update(() => {
+      // Get the RootNode from the EditorState
+      const root = $getRoot();
+
+      // Get the selection from the EditorState
+      // const selection = $getSelection();
+
+      // Create a new ParagraphNode
+      const paragraphNode = $createParagraphNode();
+
+      // Create a new TextNode
+      const textNode = $createTextNode('Hello world');
+
+      // Append the text node to the paragraph
+      paragraphNode.append(textNode);
+
+      // Finally, append the paragraph to the root
+      root.append(paragraphNode);
+    });
+    this.editorInstance.registerCommand(
+      SELECTION_CHANGE_COMMAND,
+      () => {
+        console.log($getSelection());
+        return true;
       },
-      // The "super-build" contains more premium features that require additional configuration, disable them below.
-      // Do not turn them on unless you read the documentation and know how to configure them and setup the editor.
-      plugins: [
-        'Autoformat',
-        'BlockQuote',
-        'Bold',
-        'CloudServices',
-        'Essentials',
-        'Heading',
-        'Markdown'
-      ],
-    }).then( editor => {
-      console.log( 'Editor was initialized', editor );
-      // @ts-ignore
-      window.testeditor = editor;
-      this.editorMonacoInstance = editor;
-      const toolbarElement = editor.ui.view.toolbar.element;
-      editor.on('change:isReadOnly', (_evt, _propertyName, isReadOnly) => {
-        if (isReadOnly) {
-          toolbarElement.style.display = 'none';
-        } else {
-          toolbarElement.style.display = 'flex';
-        }
-      });
-    })
-      .catch( error => {
-        console.error( error );
-      } );
+      1,
+    );
+    this.editorInstance.registerCommand(
+      CAN_UNDO_COMMAND,
+      payload => {
+        console.log(payload);
+        return false;
+      },
+      1,
+    );
   }
 
   render() {
     return (
       <Host>
-        <div class={{
-          'component': true,
-          'code-editor-component': true,
-          [this.theme]: true,
-          'disabled': this.disabled,
-          'readonly': this.readonly,
-          'has-focus': this.hasFocus,
-        }}>
-          <div class='editor' ref={el => this.editorElement = el} />
-          {!this.editorMonacoInstance && <div class='code-editor-loader'>
-            <goat-spinner class='rainbow' />
-            Loading editor...
-          </div>}
+        <div
+          class={{
+            'component': true,
+            'code-editor-component': true,
+            [this.theme]: true,
+            'disabled': this.disabled,
+            'readonly': this.readonly,
+            'has-focus': this.hasFocus,
+          }}
+        >
+          <div class="toolbar">
+            <goat-button
+              class="btn"
+              variant="outline"
+              icon="house"
+              onGoat:click={() => {
+                this.editorInstance.dispatchCommand(UNDO_COMMAND);
+                this.editorInstance.dispatchCommand(FORMAT_ELEMENT_COMMAND, "right");
+              }}
+            />
+            <goat-button
+              class="btn"
+              variant="outline"
+              icon="house"
+              onGoat:click={() => {
+                this.editorInstance.dispatchCommand(UNDO_COMMAND);
+                this.editorInstance.dispatchCommand(FORMAT_ELEMENT_COMMAND, "right");
+              }}
+            />
+          </div>
+          <div class="editor" contenteditable ref={el => (this.editorElement = el)}></div>
+          {!this.editorInstance && (
+            <div class="code-editor-loader">
+              <goat-spinner class="rainbow" />
+              Loading editor...
+            </div>
+          )}
         </div>
-
-
       </Host>
     );
   }

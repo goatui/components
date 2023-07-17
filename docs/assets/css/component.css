@@ -100,9 +100,14 @@ pre[class*='language-'] {
   width: 100%;
 }
 
+.playground-container {
+  border: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+}
+
 .playground {
   display: flex;
-  border: 1px solid var(--border-color);
+
   border-radius: var(--border-radius);
   height: 400px;
 }

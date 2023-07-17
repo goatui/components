@@ -25,7 +25,7 @@ sections:
           <goat-text type="paragraph">{{page.description}}</goat-text>
           <goat-text type="paragraph"
             >We use bootstrap icons on this component. You can find full list of icon names in bootstrap website ->
-            <goat-link href="https://icons.getbootstrap.com">https://icons.getbootstrap.com </goat-link>
+            <goat-link href="https://icons.getbootstrap.com">https://icons.getbootstrap.com</goat-link>
           </goat-text>
         </div>
 
@@ -45,18 +45,20 @@ sections:
 
   <goat-tab-panel>
     <div class="playground-tab">
-      <div class="playground">
-        <div id="demo-area"></div>
-        <div id="demo-controls">
-          <goat-form-control label="Icon">
-            <goat-select id="comp-select" search="contains" placeholder="Select" clearable></goat-select>
-          </goat-form-control>
-          <goat-form-control label="Size">
-            <goat-input id="comp-size"></goat-input>
-          </goat-form-control>
+      <div class="playground-container">
+        <div class="playground">
+          <div id="demo-area"></div>
+          <div id="demo-controls">
+            <goat-form-control label="Icon">
+              <goat-select id="comp-select" search="contains" placeholder="Select" clearable></goat-select>
+            </goat-form-control>
+            <goat-form-control label="Size">
+              <goat-input id="comp-size"></goat-input>
+            </goat-form-control>
+          </div>
         </div>
+        <div id="code-editor-container"></div>
       </div>
-      <div id="code-editor-container"></div>
     </div>
   </goat-tab-panel>
 
@@ -67,9 +69,9 @@ sections:
       if (window.isTabLoaded) {
         return;
       }
-      document.getElementById('code-editor-container').innerHTML = `<goat-code-editor id='code-editor' style='height: 200px' theme='vs-dark'></goat-code-editor>`;
+      document.getElementById('code-editor-container').innerHTML = `<goat-code-editor id='code-editor' class='no-border' style='height: 200px' theme='vs-dark'></goat-code-editor>`;
       document.getElementById('code-editor').value = `
-<goat-icon name='alarm' size='sm'></goat-icon>
+<goat-icon name='alarm' size='lg'></goat-icon>
 `;
       document.getElementById('demo-area').innerHTML = document.getElementById('code-editor').value;
 
@@ -2047,7 +2049,9 @@ sections:
     $dropDown.addEventListener('goat:change', function (evt) {
       updateProperty('name', evt.detail.value);
     });
-    document.getElementById('comp-size').addEventListener('goat:change', function (evt) {
+    const $size = document.getElementById('comp-size');
+    $size.value = 'lg';
+    $size.addEventListener('goat:change', function (evt) {
       updateProperty('size', evt.target.value);
     });
   </script>

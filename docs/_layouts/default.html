@@ -51,7 +51,7 @@ layout: base
                    search="contains"
                    hide-dropdown-icon
                    placeholder="Type '/' for search">
-        <goat-icon slot="start" name="search" size='sm'></goat-icon>
+        <goat-icon slot="start" name="search" size='1rem'></goat-icon>
       </goat-select>
       <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -91,6 +91,10 @@ layout: base
       <goat-button icon="sun-fill" class="color-brand-primary" id="theme-switcher" aria-title="Theme switcher" variant="ghost"></goat-button>
 
       <goat-button id="dir-switcher" class="color-brand-primary" variant="ghost">LTR</goat-button>
+
+      <goat-button class="color-brand-primary" href="https://opencollective.com/goat-ui-components#support" variant="ghost">
+        Become a backer
+      </goat-button>
 
       {% if page.root %}
       <goat-button
