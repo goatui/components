@@ -1,132 +1,72 @@
 @import "../../../globalStyles/commons";
 
+:host {
+  display: block;
+  margin-bottom: v(--spacing-02);
+}
 
-.heading {
-  font-weight: v(--font-weight-semi-bold);
+:host([inline]) {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+
+.text {
+  &.inline {
+    display: inline-block;
+  }
+}
+
+.native-element {
   margin: 0;
 }
 
-.paragraph {
-  margin: 0;
-}
 
 :host([type="heading"]) {
-  display: block;
-  margin-bottom: v(--spacing-4);
+  margin-bottom: v(--spacing-05);
 
-  &:host([size="xl"]) {
-    .heading {
-      @include font-style(display-xl);
+  @for $i from 1 through 7 {
+    &:host([heading-size="#{$i}"]) {
+      .native-element {
+        @include font-style(heading-0#{$i});
+      }
     }
   }
-
-  &:host([size="lg"]) {
-    .heading {
-      @include font-style(display-lg);
-    }
-  }
-
-  &:host([size="md"]) {
-    .heading {
-      @include font-style(display-md);
-    }
-  }
-
-  &:host([size="sm"]) {
-    .heading {
-      @include font-style(display-sm);
-    }
-  }
-
-  &:host([size="xs"]) {
-    .heading {
-      @include font-style(display-xs);
-    }
-  }
-
 }
 
-:host([type="paragraph"]) {
-  display: block;
-  margin-bottom: v(--spacing-2);
+$types: "body", "body-compact", "code", "helper", "legal", "label";
 
-  &:host([size="xl"]) {
-    .paragraph {
-      @include font-style(text-xl);
+@each $type in $types {
+  :host([type="#{$type}"]) {
+    .native-element {
+      @include font-style(#{$type}-01);
+    }
+
+    .expressive .native-element {
+      @include font-style(#{$type}-02);
     }
   }
-
-  &:host([size="lg"]) {
-    .paragraph {
-      @include font-style(text-lg);
-    }
-  }
-
-  &:host([size="md"]) {
-    .paragraph {
-      @include font-style(text-md);
-    }
-  }
-
-  &:host([size="sm"]) {
-    .paragraph {
-      @include font-style(text-sm);
-    }
-  }
-
-  &:host([size="xs"]) {
-    .paragraph {
-      @include font-style(text-xs);
-    }
-  }
-
 }
 
-:host([type="text"]) {
-  display: inline-block;
-
-  &:host([size="xl"]) {
-    .text {
-      @include font-style(text-xl);
-    }
-  }
-
-  &:host([size="lg"]) {
-    .text {
-      @include font-style(text-lg);
-    }
-  }
-
-  &:host([size="md"]) {
-    .text {
-      @include font-style(text-md);
-    }
-  }
-
-  &:host([size="sm"]) {
-    .text {
-      @include font-style(text-sm);
-    }
-  }
-
-  &:host([size="xs"]) {
-    .text {
-      @include font-style(text-xs);
-    }
-  }
-
-}
 
 
 :host {
   color: var(--text-color, v(--text-primary));
 
-  &:host([shade="secondary"]) {
-    color: var(--text-shade-secondary, v(--text-secondary));
+  &:host([color="secondary"]) {
+    color: v(--text-secondary);
   }
 
-  &:host([shade="tertiary"]) {
-    color: var(--text-share-tertiary, v(--text-05));
+  &:host([color="tertiary"]), &:host([color="helper"]) {
+    color: v(--text-helper);
+  }
+
+  &:host([color="error"]) {
+    color: v(--text-error);
+  }
+
+  &:host([color="inverse"]) {
+    color: v(--text-inverse);
   }
 }
 
@@ -134,4 +74,3 @@
 :host(.inherit) {
   color: inherit;
 }
-

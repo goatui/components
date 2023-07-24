@@ -5,7 +5,7 @@ import { Component, h, Host, Prop } from '@stencil/core';
  * @description Renders a specified badge.
  * @category Data Display
  * @tag content
- * @example <goat-badge content="5" class='color-error'> <goat-icon name="bell"></goat-icon></goat-badge>
+ * @example <goat-badge content="5" class='color-error'> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
  */
 @Component({
   tag: 'goat-badge',

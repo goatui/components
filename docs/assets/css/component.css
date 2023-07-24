@@ -21,7 +21,7 @@
   width: 20rem;
   position: fixed;
   top: var(--header-height);
-  background: var(--ui-01);
+  background: var(--layer-01);
   height: calc(100vh - var(--header-height));
   overflow-y: auto;
   border-right: 1px solid var(--border-color);
@@ -83,18 +83,34 @@ pre[class*='language-'] {
 }
 
 .component-content {
-  max-width: 1200px;
   flex: 1;
-}
-
-.component-content goat-code-highlighter {
-
+  width: calc(100% - 360px);
 }
 
 .section-nav {
   padding: 0 1rem;
   width: 360px;
 }
+
+.component-section > goat-text[type="body"] {
+  margin-bottom: var(--spacing-05);
+}
+
+.component-content .component-description {
+  margin-bottom: var(--spacing-09);
+}
+
+.component-section {
+  margin-bottom: var(--spacing-09);
+}
+
+.component-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-05);
+}
+
+
 
 .section-nav .link {
   width: 100%;
@@ -128,6 +144,10 @@ pre[class*='language-'] {
   padding: 1rem;
 }
 
+.container {
+  padding: var(--spacing-05) var(--spacing-09);
+}
+
 @media only screen and (max-width: 600px) {
   .sidenav {
     width: 100%;
@@ -138,6 +158,11 @@ pre[class*='language-'] {
   .main-content {
     margin-inline-start: 0;
   }
+
+  .container {
+    padding: var(--spacing-05) var(--spacing-06);
+  }
+
 
   #dir-switcher {
     display: none;

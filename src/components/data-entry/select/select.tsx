@@ -103,11 +103,6 @@ export class Select implements ComponentInterface, InputComponentInterface {
   @Event({ eventName: 'goat:change' }) goatChange: EventEmitter;
 
   /**
-   * Emitted when the action button is clicked..
-   */
-  @Event({ eventName: 'goat:action-click' }) p4ActionClick: EventEmitter;
-
-  /**
    * Emitted when a keyboard input occurred.
    */
   @Event({ eventName: 'goat:search' }) goatSearch: EventEmitter;
@@ -471,7 +466,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
             })()}
 
             {this.clearable && !this.multiple && this.hasValue() && (
-              <goat-icon class="clear input-action" name="x-circle-fill" size={this.size} onClick={this.clearInput} role="button" />
+              <goat-icon class="clear input-action" name="close" size={this.size} onClick={this.clearInput} role="button" />
             )}
 
             <div class="slot-container end">
@@ -492,7 +487,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
     if (this.showLoader) {
       return <goat-spinner class="input-action rainbow" />;
     }
-    if (!this.disabled && !this.readonly && !this.hideDropdownIcon) return <goat-icon name="chevron-down" size={this.size} class="input-action chevron-down" role="button" onClick={this.toggleList} />;
+    if (!this.disabled && !this.readonly && !this.hideDropdownIcon) return <goat-icon name="chevron--down" size={this.size} class="input-action chevron-down" role="button" onClick={this.toggleList} />;
   }
 
   private renderDropdownList() {
@@ -501,7 +496,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
         <goat-menu class="menu" ref={el => (this.menuElm = el)}>
           <div class="start-search">
             <goat-icon name="search" size={this.size} />
-            <goat-text shade="secondary">Start typing to perform search</goat-text>
+            <goat-text class="text-secondary">Start typing to perform search</goat-text>
           </div>
         </goat-menu>
       );

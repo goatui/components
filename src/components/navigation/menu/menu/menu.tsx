@@ -34,6 +34,8 @@ export class Menu implements ComponentInterface {
   parseEmptyState() {
     if (typeof this.emptyState === 'string') {
       this.internalEmptyState = JSON.parse(this.emptyState);
+    } else {
+      this.internalEmptyState = this.emptyState;
     }
   }
 

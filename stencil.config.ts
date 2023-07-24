@@ -57,6 +57,7 @@ export const config: Config = {
             cat = {
               // @ts-ignore
               name: categoryName,
+              hide: categoryName === 'Uncategorized',
               components: [],
             };
             // @ts-ignore

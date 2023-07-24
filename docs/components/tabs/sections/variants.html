@@ -1,6 +1,6 @@
-<goat-text type="paragraph">Here are several predefined button styles, each serving its own semantic purpose. </goat-text>
+<goat-text type="body" expressive>Here are several predefined button styles, each serving its own semantic purpose. </goat-text>
 
-{% capture sample-code %}
+{% GoatHighlighterCard language:"html" %}
 <goat-tabs>
   <goat-tabs-list>
     <goat-tab>First tab</goat-tab>
@@ -23,10 +23,10 @@
 
 <goat-tabs>
   <goat-tabs-list>
-    <goat-tab icon="house"></goat-tab>
-    <goat-tab icon="circle" selected="true">Circle</goat-tab>
-    <goat-tab disabled icon="envelope">Email</goat-tab>
-    <goat-tab icon="star-fill"></goat-tab>
+    <goat-tab icon="home"></goat-tab>
+    <goat-tab icon="circle--solid" selected="true">Circle</goat-tab>
+    <goat-tab disabled icon="email">Email</goat-tab>
+    <goat-tab icon="star--filled"></goat-tab>
   </goat-tabs-list>
 </goat-tabs>
-{% endcapture %} {% include demo-html.html content=sample-code %}
+{% endGoatHighlighterCard %}

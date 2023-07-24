@@ -1,6 +1,7 @@
 import { Component, ComponentInterface, Element, h, Host, Prop, State, Watch } from '@stencil/core';
 import { loadPrism } from '../../../3d-party/prism';
 
+
 enum Language {
   markup = 'markup',
   css = 'css',
@@ -140,9 +141,12 @@ export class CodeHighlighter implements ComponentInterface {
 
   @Prop() value: string = '';
 
+  @Prop() format: boolean = true;
+
   @State() compiledCode: string = '';
 
   private parsedValue: string = '';
+
 
   @Watch('language')
   languageWatcher() {
@@ -177,15 +181,43 @@ export class CodeHighlighter implements ComponentInterface {
   }
 
   private renderPrism() {
-    // @ts-ignore
-    const Prism = window['Prism'];
-
     let value = this.value;
     if (!value) {
       value = this.elm.innerHTML;
     }
     value = this.decode(value);
-    this.parsedValue = value.trim();
+    if (this.format && this.language === 'js' || this.language === 'html'){
+
+      // @ts-ignore
+      const prettier = window['prettier'];
+      let prettierLang = 'js';
+      switch (this.language) {
+        case 'js':
+          prettierLang = 'babel';
+          break;
+        case 'html':
+          prettierLang = 'html';
+          break;
+      }
+
+      prettier.format(value, {
+        parser: prettierLang,
+        plugins: window['prettierPlugins']
+      }).then(value => {
+        this.parsedValue = value;
+        this.populateCode();
+      });
+
+
+    } else {
+      this.parsedValue = value;
+      this.populateCode();
+    }
+  }
+
+  private populateCode() {
+    // @ts-ignore
+    const Prism = window['Prism'];
     const formatted = Prism.highlight(this.parsedValue, Prism.languages[this.language], this.language);
     let lineNumbersWrapper = '';
     if (this.lineNumbers) {
@@ -217,11 +249,11 @@ export class CodeHighlighter implements ComponentInterface {
               variant="ghost"
               aria-label="Copy code"
               title="Copy code"
+              icon="copy"
               onGoat:click={() => {
                 this.handleCopyClick();
               }}
             >
-              <goat-icon name="files" size="1rem" />
             </goat-button>
           </div>
         )}

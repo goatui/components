@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-07-17T09:44:39",
+  "timestamp": "2023-07-23T14:29:37",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.0.1",
@@ -40,13 +40,100 @@
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
-      "props": [],
+      "props": [
+        {
+          "name": "align",
+          "type": "\"end\" | \"start\"",
+          "complexType": {
+            "original": "'start' | 'end'",
+            "resolved": "\"end\" | \"start\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "align",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "'end'",
+          "values": [
+            {
+              "value": "end",
+              "type": "string"
+            },
+            {
+              "value": "start",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "multiple",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"lg\" | \"md\" | \"sm\"",
+          "complexType": {
+            "original": "'sm' | 'md' | 'lg'",
+            "resolved": "\"lg\" | \"md\" | \"sm\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": true,
+          "docs": "The According size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+          "docsTags": [],
+          "default": "'md'",
+          "values": [
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
       "methods": [],
       "events": [],
       "styles": [],
       "slots": [],
       "parts": [],
-      "listeners": [],
+      "listeners": [
+        {
+          "event": "goat:accordion-item-click",
+          "capture": false,
+          "passive": false
+        }
+      ],
       "metadata": {
         "name": "Accordion",
         "description": "An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.",
@@ -151,7 +238,7 @@
             "resolved": "boolean",
             "references": {}
           },
-          "mutable": false,
+          "mutable": true,
           "attr": "open",
           "reflectToAttr": true,
           "docs": "Menu item selection state.",
@@ -169,7 +256,7 @@
       "methods": [],
       "events": [
         {
-          "event": "goat:menu-item-click",
+          "event": "goat:accordion-item-click",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -339,7 +426,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-badge content=\"5\" class='color-error'> <goat-icon name=\"bell\"></goat-icon></goat-badge>"
+          "text": "<goat-badge content=\"5\" class='color-error'> <goat-icon name=\"notification\" size=\"lg\"></goat-icon></goat-badge>"
         }
       ],
       "encapsulation": "shadow",
@@ -380,7 +467,7 @@
         "description": "Renders a specified badge.",
         "category": "Data Display",
         "tag": "content",
-        "example": "<goat-badge content=\"5\" class='color-error'> <goat-icon name=\"bell\"></goat-icon></goat-badge>"
+        "example": "<goat-badge content=\"5\" class='color-error'> <goat-icon name=\"notification\" size=\"lg\"></goat-icon></goat-badge>"
       }
     },
     {
@@ -746,7 +833,7 @@
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
-          "docs": "Icon which will displayed on button.\nPossible values are bootstrap icon names.",
+          "docs": "Icon which will displayed on button.\nPossible values are icon names.",
           "docsTags": [],
           "values": [
             {
@@ -757,22 +844,27 @@
           "required": false
         },
         {
-          "name": "iconEnd",
-          "type": "boolean",
+          "name": "iconAlign",
+          "type": "\"end\" | \"start\"",
           "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
+            "original": "'start' | 'end'",
+            "resolved": "\"end\" | \"start\"",
             "references": {}
           },
           "mutable": false,
-          "attr": "icon-end",
+          "attr": "icon-align",
           "reflectToAttr": false,
           "docs": "Icon position.",
           "docsTags": [],
-          "default": "false",
+          "default": "'end'",
           "values": [
             {
-              "type": "boolean"
+              "value": "end",
+              "type": "string"
+            },
+            {
+              "value": "start",
+              "type": "string"
             }
           ],
           "optional": false,
@@ -812,6 +904,28 @@
           "attr": "show-loader",
           "reflectToAttr": false,
           "docs": "Show loader.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "simple",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "simple",
+          "reflectToAttr": false,
+          "docs": "",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -1065,16 +1179,20 @@
         },
         {
           "name": "example",
-          "text": "<goat-button-group><goat-button>\nButton CTA\n</goat-button><goat-button>\nButton CTA\n</goat-button></goat-button-group>"
+          "text": "<goat-button-group>\n<goat-button block icon=\"home\"></goat-button>\n<goat-button block icon=\"alarm\"></goat-button>\n</goat-button-group>"
         }
       ],
       "encapsulation": "shadow",
       "dependents": [
-        "goat-flow-designer"
+        "goat-flow-designer",
+        "goat-html-editor"
       ],
       "dependencies": [],
       "dependencyGraph": {
         "goat-flow-designer": [
+          "goat-button-group"
+        ],
+        "goat-html-editor": [
           "goat-button-group"
         ]
       },
@@ -1092,11 +1210,11 @@
         "tags": [
           "controls"
         ],
-        "example": "<goat-button-group><goat-button>\nButton CTA\n</goat-button><goat-button>\nButton CTA\n</goat-button></goat-button-group>"
+        "example": "<goat-button-group>\n<goat-button block icon=\"home\"></goat-button>\n<goat-button block icon=\"alarm\"></goat-button>\n</goat-button-group>"
       }
     },
     {
-      "filePath": "src/components/data-display/calendar/calendar/calendar.tsx",
+      "filePath": "src/components/calendar/calendar/calendar.tsx",
       "fileName": "calendar.tsx",
       "tag": "goat-calendar",
       "readme": "# goat-avatar\r\n\r\n\r\n\r",
@@ -1367,7 +1485,7 @@
       }
     },
     {
-      "filePath": "src/components/data-display/calendar/calendar/column-view/column-view.tsx",
+      "filePath": "src/components/calendar/calendar/column-view/column-view.tsx",
       "fileName": "column-view.tsx",
       "tag": "goat-calendar-column-view",
       "readme": "# goat-calendar-column-view\n\n\n",
@@ -1567,7 +1685,7 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/data-display/calendar/calendar/column-view/column-view-background/column-view-background.tsx",
+      "filePath": "src/components/calendar/calendar/column-view/column-view-background/column-view-background.tsx",
       "fileName": "column-view-background.tsx",
       "tag": "goat-calendar-column-view-background",
       "readme": "# goat-calendar-column-view-background\n\n\n",
@@ -1618,7 +1736,7 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/data-display/calendar/calendar/month-view/month-view.tsx",
+      "filePath": "src/components/calendar/calendar/month-view/month-view.tsx",
       "fileName": "month-view.tsx",
       "tag": "goat-calendar-month-view",
       "readme": "# goat-calendar-column-view\n\n\n",
@@ -1769,7 +1887,7 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/data-display/calendar/calendar/month-view/month-view-background/month-view-background.tsx",
+      "filePath": "src/components/calendar/calendar/month-view/month-view-background/month-view-background.tsx",
       "fileName": "month-view-background.tsx",
       "tag": "goat-calendar-month-view-background",
       "readme": "# goat-calendar-column-view-background\n\n\n",
@@ -2811,13 +2929,11 @@
       "dependents": [],
       "dependencies": [
         "goat-button",
-        "goat-icon",
         "goat-spinner"
       ],
       "dependencyGraph": {
         "goat-code-highlighter": [
           "goat-button",
-          "goat-icon",
           "goat-spinner"
         ],
         "goat-button": [
@@ -2826,6 +2942,28 @@
         ]
       },
       "props": [
+        {
+          "name": "format",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "format",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
         {
           "name": "language",
           "type": "string",
@@ -4348,11 +4486,13 @@
       "encapsulation": "none",
       "dependents": [],
       "dependencies": [
+        "goat-button-group",
         "goat-button",
         "goat-spinner"
       ],
       "dependencyGraph": {
         "goat-html-editor": [
+          "goat-button-group",
           "goat-button",
           "goat-spinner"
         ],
@@ -4670,14 +4810,13 @@
         },
         {
           "name": "example",
-          "text": "<goat-icon name=\"house\"></goat-icon>"
+          "text": "<goat-icon name=\"home\"></goat-icon>"
         }
       ],
       "encapsulation": "shadow",
       "dependents": [
         "goat-accordion-item",
         "goat-button",
-        "goat-code-highlighter",
         "goat-dropdown",
         "goat-flow-designer",
         "goat-input",
@@ -4695,9 +4834,6 @@
           "goat-icon"
         ],
         "goat-button": [
-          "goat-icon"
-        ],
-        "goat-code-highlighter": [
           "goat-icon"
         ],
         "goat-dropdown": [
@@ -4757,16 +4893,15 @@
           "name": "size",
           "type": "string",
           "complexType": {
-            "original": "'sm' | 'md' | 'lg' | 'xl' | string",
+            "original": "string",
             "resolved": "string",
             "references": {}
           },
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
-          "docs": "The Icon size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"` and size in pixel. Defaults to `\"md\"`.",
+          "docs": "The Icon size.",
           "docsTags": [],
-          "default": "'md'",
           "values": [
             {
               "type": "string"
@@ -4786,7 +4921,7 @@
         "name": "Icon",
         "description": "Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.",
         "category": "General",
-        "example": "<goat-icon name=\"house\"></goat-icon>"
+        "example": "<goat-icon name=\"home\"></goat-icon>"
       }
     },
     {
@@ -6988,10 +7123,10 @@
         },
         {
           "name": "emptyState",
-          "type": "string",
+          "type": "any",
           "complexType": {
-            "original": "string",
-            "resolved": "string",
+            "original": "any",
+            "resolved": "any",
             "references": {}
           },
           "mutable": true,
@@ -7002,7 +7137,7 @@
           "default": "`{\n    \"headline\": \"No items\",\n    \"description\": \"There are no items to display\"\n  }`",
           "values": [
             {
-              "type": "string"
+              "type": "any"
             }
           ],
           "optional": false,
@@ -7872,7 +8007,7 @@
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
-          "docs": "Icon which will displayed on button.\r\nPossible values are bootstrap icon names.",
+          "docs": "Icon which will displayed on button.\nPossible values are bootstrap icon names.",
           "docsTags": [],
           "values": [
             {
@@ -7942,45 +8077,6 @@
           "values": [
             {
               "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "size",
-          "type": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xxl\"",
-          "complexType": {
-            "original": "'sm' | 'md' | 'lg' | 'xl' | 'xxl'",
-            "resolved": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xxl\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "size",
-          "reflectToAttr": false,
-          "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`. Defaults to `\"md\"`.",
-          "docsTags": [],
-          "default": "'md'",
-          "values": [
-            {
-              "value": "lg",
-              "type": "string"
-            },
-            {
-              "value": "md",
-              "type": "string"
-            },
-            {
-              "value": "sm",
-              "type": "string"
-            },
-            {
-              "value": "xl",
-              "type": "string"
-            },
-            {
-              "value": "xxl",
-              "type": "string"
             }
           ],
           "optional": false,
@@ -8970,17 +9066,108 @@
       },
       "props": [
         {
-          "name": "level",
-          "type": "1 | 2 | 3 | 4 | 5",
+          "name": "color",
+          "type": "\"error\" | \"helper\" | \"inverse\" | \"on-color\" | \"primary\" | \"secondary\" | \"tertiary\"",
           "complexType": {
-            "original": "1 | 2 | 3 | 4 | 5",
-            "resolved": "1 | 2 | 3 | 4 | 5",
+            "original": "'primary' | 'secondary' | 'tertiary' | 'helper' | 'error' | 'on-color' | 'inverse'",
+            "resolved": "\"error\" | \"helper\" | \"inverse\" | \"on-color\" | \"primary\" | \"secondary\" | \"tertiary\"",
             "references": {}
           },
           "mutable": false,
-          "attr": "level",
+          "attr": "color",
           "reflectToAttr": false,
-          "docs": "The heading level.",
+          "docs": "",
+          "docsTags": [],
+          "default": "'primary'",
+          "values": [
+            {
+              "value": "error",
+              "type": "string"
+            },
+            {
+              "value": "helper",
+              "type": "string"
+            },
+            {
+              "value": "inverse",
+              "type": "string"
+            },
+            {
+              "value": "on-color",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "tertiary",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "configAria",
+          "type": "any",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "config-aria",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "{}",
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "expressive",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "expressive",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "headingLevel",
+          "type": "1 | 2 | 3 | 4 | 5 | 6",
+          "complexType": {
+            "original": "1 | 2 | 3 | 4 | 5 | 6",
+            "resolved": "1 | 2 | 3 | 4 | 5 | 6",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "heading-level",
+          "reflectToAttr": false,
+          "docs": "",
           "docsTags": [],
           "default": "1",
           "values": [
@@ -9003,75 +9190,79 @@
             {
               "value": "5",
               "type": "number"
+            },
+            {
+              "value": "6",
+              "type": "number"
             }
           ],
           "optional": false,
           "required": false
         },
         {
-          "name": "shade",
-          "type": "\"primary\" | \"secondary\" | \"tertiary\"",
+          "name": "headingSize",
+          "type": "1 | 2 | 3 | 4 | 5 | 6 | 7",
           "complexType": {
-            "original": "'primary' | 'secondary' | 'tertiary'",
-            "resolved": "\"primary\" | \"secondary\" | \"tertiary\"",
+            "original": "1 | 2 | 3 | 4 | 5 | 6 | 7",
+            "resolved": "1 | 2 | 3 | 4 | 5 | 6 | 7",
             "references": {}
           },
           "mutable": false,
-          "attr": "shade",
-          "reflectToAttr": true,
+          "attr": "heading-size",
+          "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "'primary'",
+          "default": "7",
           "values": [
             {
-              "value": "primary",
-              "type": "string"
+              "value": "1",
+              "type": "number"
             },
             {
-              "value": "secondary",
-              "type": "string"
+              "value": "2",
+              "type": "number"
             },
             {
-              "value": "tertiary",
-              "type": "string"
+              "value": "3",
+              "type": "number"
+            },
+            {
+              "value": "4",
+              "type": "number"
+            },
+            {
+              "value": "5",
+              "type": "number"
+            },
+            {
+              "value": "6",
+              "type": "number"
+            },
+            {
+              "value": "7",
+              "type": "number"
             }
           ],
           "optional": false,
           "required": false
         },
         {
-          "name": "size",
-          "type": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
+          "name": "inline",
+          "type": "boolean",
           "complexType": {
-            "original": "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
-            "resolved": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
+            "original": "boolean",
+            "resolved": "boolean",
             "references": {}
           },
-          "mutable": true,
-          "attr": "size",
+          "mutable": false,
+          "attr": "inline",
           "reflectToAttr": true,
-          "docs": "Text size.",
+          "docs": "",
           "docsTags": [],
+          "default": "false",
           "values": [
             {
-              "value": "lg",
-              "type": "string"
-            },
-            {
-              "value": "md",
-              "type": "string"
-            },
-            {
-              "value": "sm",
-              "type": "string"
-            },
-            {
-              "value": "xl",
-              "type": "string"
-            },
-            {
-              "value": "xs",
-              "type": "string"
+              "type": "boolean"
             }
           ],
           "optional": false,
@@ -9079,10 +9270,10 @@
         },
         {
           "name": "type",
-          "type": "\"heading\" | \"paragraph\" | \"text\"",
+          "type": "\"body\" | \"body-compact\" | \"code\" | \"heading\" | \"heading-compact\" | \"helper-text\" | \"label\" | \"legal\"",
           "complexType": {
-            "original": "'heading' | 'paragraph' | 'text'",
-            "resolved": "\"heading\" | \"paragraph\" | \"text\"",
+            "original": "'code' | 'helper-text' | 'label' | 'legal' | 'heading' | 'body' | 'body-compact' | 'heading-compact'",
+            "resolved": "\"body\" | \"body-compact\" | \"code\" | \"heading\" | \"heading-compact\" | \"helper-text\" | \"label\" | \"legal\"",
             "references": {}
           },
           "mutable": false,
@@ -9090,18 +9281,38 @@
           "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
-          "default": "'text'",
+          "default": "'body'",
           "values": [
+            {
+              "value": "body",
+              "type": "string"
+            },
+            {
+              "value": "body-compact",
+              "type": "string"
+            },
+            {
+              "value": "code",
+              "type": "string"
+            },
             {
               "value": "heading",
               "type": "string"
             },
             {
-              "value": "paragraph",
+              "value": "heading-compact",
               "type": "string"
             },
             {
-              "value": "text",
+              "value": "helper-text",
+              "type": "string"
+            },
+            {
+              "value": "label",
+              "type": "string"
+            },
+            {
+              "value": "legal",
               "type": "string"
             }
           ],
@@ -10887,6 +11098,7 @@
   "categories": [
     {
       "name": "General",
+      "hide": false,
       "components": [
         {
           "filePath": "src/components/general/button/button.tsx",
@@ -11084,7 +11296,7 @@
               "mutable": false,
               "attr": "icon",
               "reflectToAttr": false,
-              "docs": "Icon which will displayed on button.\nPossible values are bootstrap icon names.",
+              "docs": "Icon which will displayed on button.\nPossible values are icon names.",
               "docsTags": [],
               "values": [
                 {
@@ -11095,22 +11307,27 @@
               "required": false
             },
             {
-              "name": "iconEnd",
-              "type": "boolean",
+              "name": "iconAlign",
+              "type": "\"end\" | \"start\"",
               "complexType": {
-                "original": "boolean",
-                "resolved": "boolean",
+                "original": "'start' | 'end'",
+                "resolved": "\"end\" | \"start\"",
                 "references": {}
               },
               "mutable": false,
-              "attr": "icon-end",
+              "attr": "icon-align",
               "reflectToAttr": false,
               "docs": "Icon position.",
               "docsTags": [],
-              "default": "false",
+              "default": "'end'",
               "values": [
                 {
-                  "type": "boolean"
+                  "value": "end",
+                  "type": "string"
+                },
+                {
+                  "value": "start",
+                  "type": "string"
                 }
               ],
               "optional": false,
@@ -11150,6 +11367,28 @@
               "attr": "show-loader",
               "reflectToAttr": false,
               "docs": "Show loader.",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "simple",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "simple",
+              "reflectToAttr": false,
+              "docs": "",
               "docsTags": [],
               "default": "false",
               "values": [
@@ -11403,16 +11642,20 @@
             },
             {
               "name": "example",
-              "text": "<goat-button-group><goat-button>\nButton CTA\n</goat-button><goat-button>\nButton CTA\n</goat-button></goat-button-group>"
+              "text": "<goat-button-group>\n<goat-button block icon=\"home\"></goat-button>\n<goat-button block icon=\"alarm\"></goat-button>\n</goat-button-group>"
             }
           ],
           "encapsulation": "shadow",
           "dependents": [
-            "goat-flow-designer"
+            "goat-flow-designer",
+            "goat-html-editor"
           ],
           "dependencies": [],
           "dependencyGraph": {
             "goat-flow-designer": [
+              "goat-button-group"
+            ],
+            "goat-html-editor": [
               "goat-button-group"
             ]
           },
@@ -11430,7 +11673,7 @@
             "tags": [
               "controls"
             ],
-            "example": "<goat-button-group><goat-button>\nButton CTA\n</goat-button><goat-button>\nButton CTA\n</goat-button></goat-button-group>"
+            "example": "<goat-button-group>\n<goat-button block icon=\"home\"></goat-button>\n<goat-button block icon=\"alarm\"></goat-button>\n</goat-button-group>"
           }
         },
         {
@@ -11456,14 +11699,13 @@
             },
             {
               "name": "example",
-              "text": "<goat-icon name=\"house\"></goat-icon>"
+              "text": "<goat-icon name=\"home\"></goat-icon>"
             }
           ],
           "encapsulation": "shadow",
           "dependents": [
             "goat-accordion-item",
             "goat-button",
-            "goat-code-highlighter",
             "goat-dropdown",
             "goat-flow-designer",
             "goat-input",
@@ -11481,9 +11723,6 @@
               "goat-icon"
             ],
             "goat-button": [
-              "goat-icon"
-            ],
-            "goat-code-highlighter": [
               "goat-icon"
             ],
             "goat-dropdown": [
@@ -11543,16 +11782,15 @@
               "name": "size",
               "type": "string",
               "complexType": {
-                "original": "'sm' | 'md' | 'lg' | 'xl' | string",
+                "original": "string",
                 "resolved": "string",
                 "references": {}
               },
               "mutable": false,
               "attr": "size",
               "reflectToAttr": true,
-              "docs": "The Icon size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"` and size in pixel. Defaults to `\"md\"`.",
+              "docs": "The Icon size.",
               "docsTags": [],
-              "default": "'md'",
               "values": [
                 {
                   "type": "string"
@@ -11572,7 +11810,7 @@
             "name": "Icon",
             "description": "Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.",
             "category": "General",
-            "example": "<goat-icon name=\"house\"></goat-icon>"
+            "example": "<goat-icon name=\"home\"></goat-icon>"
           }
         },
         {
@@ -11621,17 +11859,108 @@
           },
           "props": [
             {
-              "name": "level",
-              "type": "1 | 2 | 3 | 4 | 5",
+              "name": "color",
+              "type": "\"error\" | \"helper\" | \"inverse\" | \"on-color\" | \"primary\" | \"secondary\" | \"tertiary\"",
               "complexType": {
-                "original": "1 | 2 | 3 | 4 | 5",
-                "resolved": "1 | 2 | 3 | 4 | 5",
+                "original": "'primary' | 'secondary' | 'tertiary' | 'helper' | 'error' | 'on-color' | 'inverse'",
+                "resolved": "\"error\" | \"helper\" | \"inverse\" | \"on-color\" | \"primary\" | \"secondary\" | \"tertiary\"",
                 "references": {}
               },
               "mutable": false,
-              "attr": "level",
+              "attr": "color",
               "reflectToAttr": false,
-              "docs": "The heading level.",
+              "docs": "",
+              "docsTags": [],
+              "default": "'primary'",
+              "values": [
+                {
+                  "value": "error",
+                  "type": "string"
+                },
+                {
+                  "value": "helper",
+                  "type": "string"
+                },
+                {
+                  "value": "inverse",
+                  "type": "string"
+                },
+                {
+                  "value": "on-color",
+                  "type": "string"
+                },
+                {
+                  "value": "primary",
+                  "type": "string"
+                },
+                {
+                  "value": "secondary",
+                  "type": "string"
+                },
+                {
+                  "value": "tertiary",
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "configAria",
+              "type": "any",
+              "complexType": {
+                "original": "any",
+                "resolved": "any",
+                "references": {}
+              },
+              "mutable": true,
+              "attr": "config-aria",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "{}",
+              "values": [
+                {
+                  "type": "any"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "expressive",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "expressive",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "headingLevel",
+              "type": "1 | 2 | 3 | 4 | 5 | 6",
+              "complexType": {
+                "original": "1 | 2 | 3 | 4 | 5 | 6",
+                "resolved": "1 | 2 | 3 | 4 | 5 | 6",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "heading-level",
+              "reflectToAttr": false,
+              "docs": "",
               "docsTags": [],
               "default": "1",
               "values": [
@@ -11654,75 +11983,79 @@
                 {
                   "value": "5",
                   "type": "number"
+                },
+                {
+                  "value": "6",
+                  "type": "number"
                 }
               ],
               "optional": false,
               "required": false
             },
             {
-              "name": "shade",
-              "type": "\"primary\" | \"secondary\" | \"tertiary\"",
+              "name": "headingSize",
+              "type": "1 | 2 | 3 | 4 | 5 | 6 | 7",
               "complexType": {
-                "original": "'primary' | 'secondary' | 'tertiary'",
-                "resolved": "\"primary\" | \"secondary\" | \"tertiary\"",
+                "original": "1 | 2 | 3 | 4 | 5 | 6 | 7",
+                "resolved": "1 | 2 | 3 | 4 | 5 | 6 | 7",
                 "references": {}
               },
               "mutable": false,
-              "attr": "shade",
-              "reflectToAttr": true,
+              "attr": "heading-size",
+              "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
-              "default": "'primary'",
+              "default": "7",
               "values": [
                 {
-                  "value": "primary",
-                  "type": "string"
+                  "value": "1",
+                  "type": "number"
                 },
                 {
-                  "value": "secondary",
-                  "type": "string"
+                  "value": "2",
+                  "type": "number"
                 },
                 {
-                  "value": "tertiary",
-                  "type": "string"
+                  "value": "3",
+                  "type": "number"
+                },
+                {
+                  "value": "4",
+                  "type": "number"
+                },
+                {
+                  "value": "5",
+                  "type": "number"
+                },
+                {
+                  "value": "6",
+                  "type": "number"
+                },
+                {
+                  "value": "7",
+                  "type": "number"
                 }
               ],
               "optional": false,
               "required": false
             },
             {
-              "name": "size",
-              "type": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
+              "name": "inline",
+              "type": "boolean",
               "complexType": {
-                "original": "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
-                "resolved": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xs\"",
+                "original": "boolean",
+                "resolved": "boolean",
                 "references": {}
               },
-              "mutable": true,
-              "attr": "size",
+              "mutable": false,
+              "attr": "inline",
               "reflectToAttr": true,
-              "docs": "Text size.",
+              "docs": "",
               "docsTags": [],
+              "default": "false",
               "values": [
                 {
-                  "value": "lg",
-                  "type": "string"
-                },
-                {
-                  "value": "md",
-                  "type": "string"
-                },
-                {
-                  "value": "sm",
-                  "type": "string"
-                },
-                {
-                  "value": "xl",
-                  "type": "string"
-                },
-                {
-                  "value": "xs",
-                  "type": "string"
+                  "type": "boolean"
                 }
               ],
               "optional": false,
@@ -11730,10 +12063,10 @@
             },
             {
               "name": "type",
-              "type": "\"heading\" | \"paragraph\" | \"text\"",
+              "type": "\"body\" | \"body-compact\" | \"code\" | \"heading\" | \"heading-compact\" | \"helper-text\" | \"label\" | \"legal\"",
               "complexType": {
-                "original": "'heading' | 'paragraph' | 'text'",
-                "resolved": "\"heading\" | \"paragraph\" | \"text\"",
+                "original": "'code' | 'helper-text' | 'label' | 'legal' | 'heading' | 'body' | 'body-compact' | 'heading-compact'",
+                "resolved": "\"body\" | \"body-compact\" | \"code\" | \"heading\" | \"heading-compact\" | \"helper-text\" | \"label\" | \"legal\"",
                 "references": {}
               },
               "mutable": false,
@@ -11741,18 +12074,38 @@
               "reflectToAttr": true,
               "docs": "",
               "docsTags": [],
-              "default": "'text'",
+              "default": "'body'",
               "values": [
+                {
+                  "value": "body",
+                  "type": "string"
+                },
+                {
+                  "value": "body-compact",
+                  "type": "string"
+                },
+                {
+                  "value": "code",
+                  "type": "string"
+                },
                 {
                   "value": "heading",
                   "type": "string"
                 },
                 {
-                  "value": "paragraph",
+                  "value": "heading-compact",
                   "type": "string"
                 },
                 {
-                  "value": "text",
+                  "value": "helper-text",
+                  "type": "string"
+                },
+                {
+                  "value": "label",
+                  "type": "string"
+                },
+                {
+                  "value": "legal",
                   "type": "string"
                 }
               ],
@@ -11777,6 +12130,7 @@
     },
     {
       "name": "Layout",
+      "hide": false,
       "components": [
         {
           "filePath": "src/components/layout/divider/divider.tsx",
@@ -11855,6 +12209,7 @@
     },
     {
       "name": "Navigation",
+      "hide": false,
       "components": [
         {
           "filePath": "src/components/navigation/breadcrumb/breadcrumb.tsx",
@@ -12788,6 +13143,7 @@
     },
     {
       "name": "Form Inputs",
+      "hide": false,
       "components": [
         {
           "filePath": "src/components/data-entry/checkbox/checkbox.tsx",
@@ -14130,11 +14486,13 @@
           "encapsulation": "none",
           "dependents": [],
           "dependencies": [
+            "goat-button-group",
             "goat-button",
             "goat-spinner"
           ],
           "dependencyGraph": {
             "goat-html-editor": [
+              "goat-button-group",
               "goat-button",
               "goat-spinner"
             ],
@@ -17204,6 +17562,7 @@
     },
     {
       "name": "Data Display",
+      "hide": false,
       "components": [
         {
           "filePath": "src/components/data-display/accordion/accordion.tsx",
@@ -17239,13 +17598,100 @@
           "dependents": [],
           "dependencies": [],
           "dependencyGraph": {},
-          "props": [],
+          "props": [
+            {
+              "name": "align",
+              "type": "\"end\" | \"start\"",
+              "complexType": {
+                "original": "'start' | 'end'",
+                "resolved": "\"end\" | \"start\"",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "align",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "'end'",
+              "values": [
+                {
+                  "value": "end",
+                  "type": "string"
+                },
+                {
+                  "value": "start",
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "multiple",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "multiple",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "size",
+              "type": "\"lg\" | \"md\" | \"sm\"",
+              "complexType": {
+                "original": "'sm' | 'md' | 'lg'",
+                "resolved": "\"lg\" | \"md\" | \"sm\"",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "size",
+              "reflectToAttr": true,
+              "docs": "The According size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+              "docsTags": [],
+              "default": "'md'",
+              "values": [
+                {
+                  "value": "lg",
+                  "type": "string"
+                },
+                {
+                  "value": "md",
+                  "type": "string"
+                },
+                {
+                  "value": "sm",
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
           "methods": [],
           "events": [],
           "styles": [],
           "slots": [],
           "parts": [],
-          "listeners": [],
+          "listeners": [
+            {
+              "event": "goat:accordion-item-click",
+              "capture": false,
+              "passive": false
+            }
+          ],
           "metadata": {
             "name": "Accordion",
             "description": "An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.",
@@ -17401,7 +17847,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-badge content=\"5\" class='color-error'> <goat-icon name=\"bell\"></goat-icon></goat-badge>"
+              "text": "<goat-badge content=\"5\" class='color-error'> <goat-icon name=\"notification\" size=\"lg\"></goat-icon></goat-badge>"
             }
           ],
           "encapsulation": "shadow",
@@ -17442,11 +17888,11 @@
             "description": "Renders a specified badge.",
             "category": "Data Display",
             "tag": "content",
-            "example": "<goat-badge content=\"5\" class='color-error'> <goat-icon name=\"bell\"></goat-icon></goat-badge>"
+            "example": "<goat-badge content=\"5\" class='color-error'> <goat-icon name=\"notification\" size=\"lg\"></goat-icon></goat-badge>"
           }
         },
         {
-          "filePath": "src/components/data-display/calendar/calendar/calendar.tsx",
+          "filePath": "src/components/calendar/calendar/calendar.tsx",
           "fileName": "calendar.tsx",
           "tag": "goat-calendar",
           "readme": "# goat-avatar\r\n\r\n\r\n\r",
@@ -17750,13 +18196,11 @@
           "dependents": [],
           "dependencies": [
             "goat-button",
-            "goat-icon",
             "goat-spinner"
           ],
           "dependencyGraph": {
             "goat-code-highlighter": [
               "goat-button",
-              "goat-icon",
               "goat-spinner"
             ],
             "goat-button": [
@@ -17765,6 +18209,28 @@
             ]
           },
           "props": [
+            {
+              "name": "format",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "format",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "true",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
             {
               "name": "language",
               "type": "string",
@@ -18789,6 +19255,7 @@
     },
     {
       "name": "Feedback",
+      "hide": false,
       "components": [
         {
           "filePath": "src/components/feedback/notification/notification.tsx",
@@ -19370,6 +19837,7 @@
     },
     {
       "name": "Uncategorized",
+      "hide": true,
       "components": [
         {
           "filePath": "src/components/data-display/accordion/accordion-item/accordion-item.tsx",
@@ -19465,7 +19933,7 @@
                 "resolved": "boolean",
                 "references": {}
               },
-              "mutable": false,
+              "mutable": true,
               "attr": "open",
               "reflectToAttr": true,
               "docs": "Menu item selection state.",
@@ -19483,7 +19951,7 @@
           "methods": [],
           "events": [
             {
-              "event": "goat:menu-item-click",
+              "event": "goat:accordion-item-click",
               "detail": "any",
               "bubbles": true,
               "complexType": {
@@ -19625,7 +20093,7 @@
           "metadata": {}
         },
         {
-          "filePath": "src/components/data-display/calendar/calendar/column-view/column-view.tsx",
+          "filePath": "src/components/calendar/calendar/column-view/column-view.tsx",
           "fileName": "column-view.tsx",
           "tag": "goat-calendar-column-view",
           "readme": "# goat-calendar-column-view\n\n\n",
@@ -19825,7 +20293,7 @@
           "metadata": {}
         },
         {
-          "filePath": "src/components/data-display/calendar/calendar/column-view/column-view-background/column-view-background.tsx",
+          "filePath": "src/components/calendar/calendar/column-view/column-view-background/column-view-background.tsx",
           "fileName": "column-view-background.tsx",
           "tag": "goat-calendar-column-view-background",
           "readme": "# goat-calendar-column-view-background\n\n\n",
@@ -19876,7 +20344,7 @@
           "metadata": {}
         },
         {
-          "filePath": "src/components/data-display/calendar/calendar/month-view/month-view.tsx",
+          "filePath": "src/components/calendar/calendar/month-view/month-view.tsx",
           "fileName": "month-view.tsx",
           "tag": "goat-calendar-month-view",
           "readme": "# goat-calendar-column-view\n\n\n",
@@ -20027,7 +20495,7 @@
           "metadata": {}
         },
         {
-          "filePath": "src/components/data-display/calendar/calendar/month-view/month-view-background/month-view-background.tsx",
+          "filePath": "src/components/calendar/calendar/month-view/month-view-background/month-view-background.tsx",
           "fileName": "month-view-background.tsx",
           "tag": "goat-calendar-month-view-background",
           "readme": "# goat-calendar-column-view-background\n\n\n",
@@ -20810,10 +21278,10 @@
             },
             {
               "name": "emptyState",
-              "type": "string",
+              "type": "any",
               "complexType": {
-                "original": "string",
-                "resolved": "string",
+                "original": "any",
+                "resolved": "any",
                 "references": {}
               },
               "mutable": true,
@@ -20824,7 +21292,7 @@
               "default": "`{\n    \"headline\": \"No items\",\n    \"description\": \"There are no items to display\"\n  }`",
               "values": [
                 {
-                  "type": "string"
+                  "type": "any"
                 }
               ],
               "optional": false,
@@ -21156,7 +21624,7 @@
               "mutable": false,
               "attr": "icon",
               "reflectToAttr": false,
-              "docs": "Icon which will displayed on button.\r\nPossible values are bootstrap icon names.",
+              "docs": "Icon which will displayed on button.\nPossible values are bootstrap icon names.",
               "docsTags": [],
               "values": [
                 {
@@ -21226,45 +21694,6 @@
               "values": [
                 {
                   "type": "boolean"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "size",
-              "type": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xxl\"",
-              "complexType": {
-                "original": "'sm' | 'md' | 'lg' | 'xl' | 'xxl'",
-                "resolved": "\"lg\" | \"md\" | \"sm\" | \"xl\" | \"xxl\"",
-                "references": {}
-              },
-              "mutable": false,
-              "attr": "size",
-              "reflectToAttr": false,
-              "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`. Defaults to `\"md\"`.",
-              "docsTags": [],
-              "default": "'md'",
-              "values": [
-                {
-                  "value": "lg",
-                  "type": "string"
-                },
-                {
-                  "value": "md",
-                  "type": "string"
-                },
-                {
-                  "value": "sm",
-                  "type": "string"
-                },
-                {
-                  "value": "xl",
-                  "type": "string"
-                },
-                {
-                  "value": "xxl",
-                  "type": "string"
                 }
               ],
               "optional": false,

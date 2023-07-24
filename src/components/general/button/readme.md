@@ -14,10 +14,11 @@
 | `disabled`       | `disabled`        | If true, the user cannot interact with the button. Defaults to `false`.                                                 | `boolean`                                                | `false`     |
 | `disabledReason` | `disabled-reason` |                                                                                                                         | `string`                                                 | `''`        |
 | `href`           | `href`            | Hyperlink to navigate to on click.                                                                                      | `string`                                                 | `undefined` |
-| `icon`           | `icon`            | Icon which will displayed on button. Possible values are bootstrap icon names.                                          | `string`                                                 | `undefined` |
-| `iconEnd`        | `icon-end`        | Icon position.                                                                                                          | `boolean`                                                | `false`     |
+| `icon`           | `icon`            | Icon which will displayed on button. Possible values are icon names.                                                    | `string`                                                 | `undefined` |
+| `iconAlign`      | `icon-align`      | Icon position.                                                                                                          | `"end" \| "start"`                                       | `'end'`     |
 | `selected`       | `selected`        | Button selection state.                                                                                                 | `boolean`                                                | `false`     |
 | `showLoader`     | `show-loader`     | Show loader.                                                                                                            | `boolean`                                                | `false`     |
+| `simple`         | `simple`          |                                                                                                                         | `boolean`                                                | `false`     |
 | `size`           | `size`            | Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"none"`. Defaults to `"md"`.                 | `"lg" \| "md" \| "none" \| "sm" \| "xl" \| "xxl"`        | `'md'`      |
 | `target`         | `target`          | Sets or retrieves the window or frame at which to target content.                                                       | `string`                                                 | `'_self'`   |
 | `variant`        | `variant`         | Button variants. Possible values are `"default"`, `"light"`, `"outline"`, `"ghost"`, `"link"`. Defaults to `"default"`. | `"default" \| "ghost" \| "light" \| "link" \| "outline"` | `'default'` |
@@ -69,7 +70,7 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [goat-calendar](../../data-display/calendar/calendar)
+ - [goat-calendar](../../calendar/calendar)
  - [goat-code-highlighter](../../data-display/code-highlighter)
  - [goat-empty-state](../../data-display/empty-state)
  - [goat-flow-designer](../../flow-designer/flow-designer)

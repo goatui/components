@@ -244,7 +244,7 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
                {...this.configAria}/>
 
           {this.clearable && this.hasValue() &&
-            <goat-icon class='clear inherit input-action' name='x-circle-fill' onClick={this.clearInput} />}
+            <goat-icon class='clear inherit input-action' name='close' onClick={this.clearInput} />}
 
           <div class='slot-container end'>
             <slot name='end' />

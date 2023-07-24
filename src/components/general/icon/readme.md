@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                                                               | Type     | Default     |
-| -------- | --------- | --------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| `name`   | `name`    |                                                                                                           | `string` | `undefined` |
-| `size`   | `size`    | The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`. | `string` | `'md'`      |
+| Property | Attribute | Description    | Type     | Default     |
+| -------- | --------- | -------------- | -------- | ----------- |
+| `name`   | `name`    |                | `string` | `undefined` |
+| `size`   | `size`    | The Icon size. | `string` | `undefined` |
 
 
 ## Dependencies
@@ -19,7 +19,6 @@
 
  - [goat-accordion-item](../../data-display/accordion/accordion-item)
  - [goat-button](../button)
- - [goat-code-highlighter](../../data-display/code-highlighter)
  - [goat-dropdown](../../navigation/menu/dropdown)
  - [goat-flow-designer](../../flow-designer/flow-designer)
  - [goat-input](../../data-entry/input)
@@ -36,7 +35,6 @@
 graph TD;
   goat-accordion-item --> goat-icon
   goat-button --> goat-icon
-  goat-code-highlighter --> goat-icon
   goat-dropdown --> goat-icon
   goat-flow-designer --> goat-icon
   goat-input --> goat-icon

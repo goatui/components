@@ -1,21 +1,35 @@
-<goat-text type="paragraph">Here are several predefined button styles, each serving its own semantic purpose. </goat-text>
+<goat-text type="body" expressive>Here are several predefined button styles, each serving its own semantic purpose. </goat-text>
 
-{% GoatHighlighterCard language:"html" %}{% for color in page.colors %}<goat-button class="color-{{color}}">{{color | capitalize }}</goat-button>
-{% endfor %}
-<br />
+{% GoatHighlighterCard language:"html" %}
 
-{% for color in page.colors %}<goat-button class="color-{{color}}" variant="outline">{{color | capitalize }}</goat-button>
-{% endfor %}
-<br />
+<div class="component-container">
+  {% for color in page.colors %}
+  <goat-button class="color-{{color}}">{{color | capitalize }}</goat-button>
+  {% endfor %}
+</div>
 
-{% for color in page.colors %}<goat-button class="color-{{color}}" variant="ghost">{{color | capitalize }}</goat-button>
-{% endfor %}
-<br />
+<div class="component-container">
+  {% for color in page.colors %}
+  <goat-button class="color-{{color}}" variant="outline">{{color | capitalize }}</goat-button>
+  {% endfor %}
+</div>
+
+<div class="component-container">
+  {% for color in page.colors %}
+  <goat-button class="color-{{color}}" variant="ghost">{{color | capitalize }}</goat-button>
+  {% endfor %}
+</div>
+
+<div class="component-container">
+  <goat-button class="color-default" simple>Simple</goat-button>
+</div>
 
 {% endGoatHighlighterCard %}
 
-<goat-text size="xl" style="margin-bottom: 10px">Custom branding</goat-text>
-{% GoatHighlighterCard language:"html" %}<style>
+<br />
+<goat-text type="heading" heading-size="3">Custom branding</goat-text>
+{% GoatHighlighterCard language:"html" %}
+<style>
   .custom {
     --button-color: var(--color-brand-primary);
     --button-color-hover: var(--color-brand-primary-70);
@@ -23,7 +37,7 @@
     --button-color-support: var(--color-brand-secondary);
   }
 </style>
-<goat-button class="custom">Custom</goat-button>
+<goat-button class="custom" icon="home">Custom</goat-button>
 <goat-button class="custom" variant="outline">Custom</goat-button>
 <goat-button class="custom" variant="ghost">Custom</goat-button>
 <br />

@@ -12,8 +12,14 @@
       });
     </script>
   </goat-card-content>
+  <!-- prettier-ignore -->
   <goat-card-content>
-    {% GoatHighlighter language:"js" %} document.querySelector('#click-me-btn').addEventListener('goat:click', function(event) { alert("Button clicked"); });
-    document.querySelector('#disabled-btn').addEventListener('goat:click', function(event) { alert("Button clicked"); // this will not be fired }); {% endGoatHighlighter %}
+    {% GoatHighlighter language:"js" %}
+    document.querySelector('#click-me-btn').addEventListener('goat:click', function(event) { alert("Button clicked");
+    });
+    document.querySelector('#disabled-btn').addEventListener('goat:click', function(event) {
+    alert("Button clicked"); // this will not be fired
+    });
+    {% endGoatHighlighter %}
   </goat-card-content>
 </goat-card>

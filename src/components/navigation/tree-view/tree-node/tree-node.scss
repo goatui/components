@@ -11,8 +11,9 @@
 
 .tree-node-content {
   cursor: pointer;
+  height: 2rem;
   @include font-style(text-md);
-  padding: v(--spacing-2) v(--spacing-4);
+  padding: 0 v(--spacing-04);
   box-sizing: border-box;
   color: v(--text-secondary);
   outline: none;
@@ -65,6 +66,7 @@
 
   &.selected {
     background: v(--selected-ui);
+    font-weight: v(--font-weight-semi-bold);
     border-left: 0.125rem solid transparent;
   }
 

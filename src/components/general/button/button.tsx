@@ -37,6 +37,8 @@ export class Button implements ComponentInterface {
    */
   @Prop() size: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'none' = 'md';
 
+  @Prop() simple: boolean = false;
+
   /**
    * Button variants.
    * Possible values are `"default"`, `"light"`, `"outline"`, `"ghost"`, `"link"`. Defaults to `"default"`.
@@ -60,16 +62,17 @@ export class Button implements ComponentInterface {
   @Prop({ reflect: true }) disabled: boolean = false;
 
   @Prop() disabledReason: string = '';
+
   /**
    * Icon which will displayed on button.
-   * Possible values are bootstrap icon names.
+   * Possible values are icon names.
    */
   @Prop() icon: string;
 
   /**
    * Icon position.
    */
-  @Prop() iconEnd: boolean = false;
+  @Prop() iconAlign: 'start' | 'end' = 'end';
 
   /**
    * Show loader.
@@ -148,20 +151,20 @@ export class Button implements ComponentInterface {
   private getIconSize() {
     switch (this.size) {
       case ElementSize.SMALL:
-        return 'sm';
+        return '1rem';
       case ElementSize.LARGE:
-        return 'md';
+        return '1rem';
       case ElementSize.X_LARGE:
-        return 'md';
+        return '1rem';
       case ElementSize.XX_LARGE:
-        return 'lg';
+        return '1rem';
       default:
-        return 'sm';
+        return '1rem';
     }
   }
 
-  private renderIcon = () => {
-    return <goat-icon name={this.icon} size={this.getIconSize()} class='icon inherit' />;
+  private renderIcon = (iconName) => {
+    return <goat-icon name={iconName} size={this.getIconSize()} class='icon inherit' />;
   };
 
   private clickHandler = (event: PointerEvent) => {
@@ -194,9 +197,9 @@ export class Button implements ComponentInterface {
   };
 
   componentWillLoad() {
-    // If the ion-input has a tabindex attribute we get the value
+    // If the goat-button has a tabindex attribute we get the value
     // and pass it down to the native input, then remove it from the
-    // goat-input to avoid causing tabbing twice on the same element
+    // goat-button to avoid causing tabbing twice on the same element
     if (this.elm.hasAttribute('tabindex')) {
       const tabindex = this.elm.getAttribute('tabindex');
       this.tabindex = tabindex !== null ? tabindex : undefined;
@@ -230,13 +233,14 @@ export class Button implements ComponentInterface {
         button: true,
         [`size-${this.size}`]: true,
         block: this.block,
+        simple: this.simple,
         [`variant-${this.variant}`]: true,
         'disabled': this.disabled,
         'selected': this.selected,
         'has-focus': this.hasFocus,
         'active': this.isActive,
         'has-content': this.slotHasContent,
-        'icon-end': this.iconEnd,
+        'has-icon': !!this.icon,
         'show-loader': this.showLoader,
       }}>
         <div class='button-background' />
@@ -258,11 +262,13 @@ export class Button implements ComponentInterface {
           <div class='button-content'>
             {this.showLoader && <goat-spinner class='spinner inherit' size={this.getIconSize()} />}
 
-            {!this.showLoader && this.icon && this.renderIcon()}
+            {!this.showLoader && this.icon && this.iconAlign == 'start' && this.renderIcon(this.icon)}
 
             {!this.showLoader && <div class='slot-container'>
               <slot />
             </div>}
+
+            {!this.showLoader && this.icon && this.iconAlign == 'end' && this.renderIcon(this.icon)}
           </div>
 
         </NativeElementTag>

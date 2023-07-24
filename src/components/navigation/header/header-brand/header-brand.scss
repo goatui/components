@@ -1,6 +1,6 @@
 @import "../../../../globalStyles/commons";
 
-$header-height: var(--header-height, #{v(--spacing-12)});
+$header-height: var(--header-height, #{v(--spacing-012)});
 
 :host {
   display: block;
@@ -14,9 +14,9 @@ $header-height: var(--header-height, #{v(--spacing-12)});
   .brand {
     display: flex;
     align-items: center;
-    gap: v(--spacing-3);
+    gap: v(--spacing-03);
     height: 100%;
-    padding: 0 v(--spacing-2);
+    padding: 0 v(--spacing-02);
     font-weight: v(--font-weight-bold);
   }
 
@@ -32,7 +32,7 @@ $header-height: var(--header-height, #{v(--spacing-12)});
 }
 
 .subtitle {
-  padding: 0 v(--spacing-2);
+  padding: 0 v(--spacing-02);
 }
 
 

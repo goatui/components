@@ -33,7 +33,7 @@
   "scripts": {
     "build": "stencil build --docs --prod",
     "build:full": "npm run build:theme && npm run build",
-    "build:theme": "sass ./src/globalStyles/theme/theme.scss:/src/assets/styles/theme.css",
+    "build:theme": "sass ./src/globalStyles/theme/theme.scss ./src/assets/styles/theme.css",
     "generate": "stencil generate",
     "release:minor": "npm version minor && npm run release-to-docs && git add . && git commit -m \"Release to docs\"",
     "release:patch": "npm version patch && npm run release-to-docs && git add . && git commit -m \"Release to docs\"",
@@ -45,16 +45,19 @@
     "test.watch": "stencil test --spec --e2e --watchAll"
   },
   "dependencies": {
+    "@carbon/icons": "^11.22.1",
+    "@lexical/history": "^0.11.2",
+    "@lexical/markdown": "^0.11.2",
+    "@lexical/plain-text": "^0.11.2",
+    "@lexical/rich-text": "^0.11.2",
     "date-fns": "^2.29.3",
     "dompurify": "^3.0.1",
     "lexical": "^0.11.2",
-    "@lexical/plain-text": "^0.11.2",
-    "@lexical/rich-text": "^0.11.2",
-    "@lexical/history": "^0.11.2",
+    "prettier": "^3.0.0",
     "prismjs": "^1.29.0"
   },
   "devDependencies": {
-    "@shopify/prettier-plugin-liquid": "^1.1.0",
+    "@shopify/prettier-plugin-liquid": "^1.2.2",
     "@stencil/core": "^4.0.0",
     "@stencil/sass": "3.0.4",
     "@types/dompurify": "^2.4.0",
@@ -64,7 +67,6 @@
     "concurrently": "^7.1.0",
     "jest": "^27.5.1",
     "jest-cli": "^27.5.1",
-    "prettier": "^2.8.8",
     "puppeteer": "^20.7.3",
     "sass": "^1.49.11"
   },

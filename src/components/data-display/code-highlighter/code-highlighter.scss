@@ -14,14 +14,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: v(--spacing-2);
+  gap: v(--spacing-02);
 }
 
 .code-highlighter {
   position: relative;
   height: 100%;
   background-color: v(--color-brand-primary-10);
-  padding: v(--spacing-3);
   color: v(--text-primary);
 
   .scroll-wrapper {
@@ -38,15 +37,15 @@
       @include font-style(text-sm);
       .highlighter {
         margin: 0;
-        padding: 0;
+        padding: v(--spacing-05);
       }
     }
   }
 
   .copy-btn {
     position: absolute;
-    top: v(--spacing-3);
-    right: v(--spacing-3);
+    top: v(--spacing-03);
+    right: v(--spacing-03);
   }
 
 }

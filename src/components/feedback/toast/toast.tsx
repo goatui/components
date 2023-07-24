@@ -36,13 +36,13 @@ export class Toast implements ComponentInterface {
 
   renderStateIcon() {
     if (this.state === 'success') {
-      return <goat-icon class="inherit" name="check-circle-fill" size="sm" />;
+      return <goat-icon class='inherit' name='checkmark--filled' />;
     } else if (this.state === 'error') {
-      return <goat-icon class="inherit" name="x-circle-fill" size="sm" />;
+      return <goat-icon class='inherit' name='error--filled' />;
     } else if (this.state === 'info') {
-      return <goat-icon class="inherit" name="info-circle-fill" size="sm" />;
+      return <goat-icon class='inherit' name='information--filled' />;
     } else if (this.state === 'warning') {
-      return <goat-icon class="inherit" name="exclamation-circle-fill" size="sm" />;
+      return <goat-icon class='inherit' name='warning--filled' />;
     }
   }
 

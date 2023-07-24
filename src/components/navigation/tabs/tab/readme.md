@@ -7,17 +7,16 @@
 
 ## Properties
 
-| Property         | Attribute         | Description                                                                                   | Type                                    | Default     |
-| ---------------- | ----------------- | --------------------------------------------------------------------------------------------- | --------------------------------------- | ----------- |
-| `disabled`       | `disabled`        | If true, the user cannot interact with the button. Defaults to `false`.                       | `boolean`                               | `false`     |
-| `disabledReason` | `disabled-reason` |                                                                                               | `string`                                | `''`        |
-| `icon`           | `icon`            | Icon which will displayed on button. Possible values are bootstrap icon names.                | `string`                                | `undefined` |
-| `label`          | `label`           |                                                                                               | `string`                                | `undefined` |
-| `selected`       | `selected`        | Button selection state.                                                                       | `boolean`                               | `false`     |
-| `showLoader`     | `show-loader`     | Show loader.                                                                                  | `boolean`                               | `false`     |
-| `size`           | `size`            | Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`. Defaults to `"md"`. | `"lg" \| "md" \| "sm" \| "xl" \| "xxl"` | `'md'`      |
-| `target`         | `target`          |                                                                                               | `string`                                | `undefined` |
-| `value`          | `value`           |                                                                                               | `string`                                | `undefined` |
+| Property         | Attribute         | Description                                                                    | Type      | Default     |
+| ---------------- | ----------------- | ------------------------------------------------------------------------------ | --------- | ----------- |
+| `disabled`       | `disabled`        | If true, the user cannot interact with the button. Defaults to `false`.        | `boolean` | `false`     |
+| `disabledReason` | `disabled-reason` |                                                                                | `string`  | `''`        |
+| `icon`           | `icon`            | Icon which will displayed on button. Possible values are bootstrap icon names. | `string`  | `undefined` |
+| `label`          | `label`           |                                                                                | `string`  | `undefined` |
+| `selected`       | `selected`        | Button selection state.                                                        | `boolean` | `false`     |
+| `showLoader`     | `show-loader`     | Show loader.                                                                   | `boolean` | `false`     |
+| `target`         | `target`          |                                                                                | `string`  | `undefined` |
+| `value`          | `value`           |                                                                                | `string`  | `undefined` |
 
 
 ## Events

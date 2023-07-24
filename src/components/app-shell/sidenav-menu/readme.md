@@ -10,7 +10,7 @@
 | Property     | Attribute     | Description | Type               | Default                                                                                  |
 | ------------ | ------------- | ----------- | ------------------ | ---------------------------------------------------------------------------------------- |
 | `empty`      | `empty`       |             | `boolean`          | `false`                                                                                  |
-| `emptyState` | `empty-state` |             | `string`           | ``{     "headline": "No items",     "description": "There are no items to display"   }`` |
+| `emptyState` | `empty-state` |             | `any`              | ``{     "headline": "No items",     "description": "There are no items to display"   }`` |
 | `showLoader` | `show-loader` |             | `boolean`          | `false`                                                                                  |
 | `value`      | `value`       |             | `number \| string` | `undefined`                                                                              |
 

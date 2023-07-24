@@ -8,7 +8,7 @@ layout: base
 
     function setTheme(theme) {
       document.documentElement.setAttribute('data-theme', theme);
-      themeSwitcher.icon = theme === 'dark' ? 'moon-fill' : 'sun-fill';
+      themeSwitcher.icon = theme === 'dark' ? 'asleep--filled' : 'light--filled';
       localStorage.setItem('theme', theme);
     }
 
@@ -47,7 +47,6 @@ layout: base
     <div slot="right-section">
       <goat-select id='site-search'
                    class='show-desktop'
-                   size='sm'
                    search="contains"
                    hide-dropdown-icon
                    placeholder="Type '/' for search">
@@ -88,18 +87,19 @@ layout: base
         });
       </script>
 
-      <goat-button icon="sun-fill" class="color-brand-primary" id="theme-switcher" aria-title="Theme switcher" variant="ghost"></goat-button>
+      <goat-button icon="light--filled" simple  class="color-brand-primary" id="theme-switcher" aria-title="Theme switcher" variant="ghost"></goat-button>
 
-      <goat-button id="dir-switcher" class="color-brand-primary" variant="ghost">LTR</goat-button>
+      <goat-button id="dir-switcher" simple class="color-brand-primary" variant="ghost">LTR</goat-button>
 
-      <goat-button class="color-brand-primary" href="https://opencollective.com/goat-ui-components#support" variant="ghost">
+      <goat-button class="color-brand-primary" simple href="https://opencollective.com/goat-ui-components#support" variant="ghost">
         Become a backer
       </goat-button>
 
       {% if page.root %}
       <goat-button
-        icon="github"
+        icon="logo--github"
         variant="ghost"
+        simple
         class="show-desktop full-height color-brand-primary"
         href="https://github.com/{{site.github_username}}/{{site.github_project}}"
         target="_blank"
@@ -107,8 +107,9 @@ layout: base
       </goat-button>
 
       <goat-button
-        icon="github"
+        icon="logo--github"
         variant="ghost"
+        simple
         class="show-mobile full-height color-brand-primary"
         href="https://github.com/{{site.github_username}}/{{site.github_project}}"
         target="_blank"
@@ -116,8 +117,10 @@ layout: base
 
       {% else %}
       <goat-button
-        icon="bug"
+        icon="debug"
+        block
         variant="ghost"
+        simple
         class="show-desktop full-height color-brand-primary"
         href="https://github.com/{{site.github_username}}/{{site.github_project}}/issues"
         target="_blank"
@@ -125,8 +128,9 @@ layout: base
       </goat-button>
 
       <goat-button
-        icon="bug"
+        icon="debug"
         variant="ghost"
+        simple
         class="show-mobile full-height color-brand-primary"
         href="https://github.com/{{site.github_username}}/{{site.github_project}}/issues"
         target="_blank"

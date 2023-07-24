@@ -6,9 +6,18 @@
 }
 
 .banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
   height: 100vh;
+  min-height: 512px;
   padding-top: var(--header-height);
   background: var(--color-brand-secondary-10);
+}
+
+.banner-content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,20 +29,12 @@
   --text-color: var(--text-primary);
 }
 
-.banner .title {
-  margin-bottom: var(--spacing-1);
-}
-
-.banner .tagline {
-  margin-bottom: var(--spacing-8);
-}
-
 html[data-theme='dark'] .banner {
   background: var(--color-black);
 }
 
 .section {
-  padding-bottom: var(--spacing-2);
+  padding-bottom: var(--spacing-09);
 }
 
 .banner-logo {
@@ -44,6 +45,14 @@ html[data-theme='dark'] .banner {
 .banner-logo path,
 .banner-logo circle {
   stroke: var(--color-brand-primary);
+}
+
+.container {
+  padding: var(--spacing-09) var(--spacing-13);
+}
+
+goat-text[type='code'] {
+  background: var(--layer-03);
 }
 
 .made-in-india {
@@ -64,8 +73,13 @@ html[data-theme='dark'] .banner {
 
 .made-in-india .country-flag {
   height: 1rem;
-  padding: 0 var(--spacing-1);
+  padding: 0 var(--spacing-04);
 }
+
+.banner-logo .head {
+  transform-origin: center;
+}
+
 
 @media (min-width: 1024px) {
   .made-in-india {
@@ -107,11 +121,11 @@ html[data-theme='dark'] .banner {
     background: var(--text-primary);
   }
 
-  .container {
-    padding: var(--spacing-5) var(--spacing-24);
-  }
 }
 
-.banner-logo .head {
-  transform-origin: center;
+
+@media only screen and (max-width: 600px) {
+  .container {
+    padding: var(--spacing-09) var(--spacing-07);
+  }
 }

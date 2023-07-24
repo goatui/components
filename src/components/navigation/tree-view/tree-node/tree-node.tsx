@@ -167,10 +167,6 @@ export class GoatTreeNode {
   }
 
   render = () => {
-    let paddingLeft = this.level + 1;
-    if (this.isSelected()) {
-      paddingLeft = paddingLeft - 0.25;
-    }
 
     return (
       <Host active={this.isActive} has-focus={this.hasFocus}>
@@ -187,7 +183,7 @@ export class GoatTreeNode {
               'disabled': this.disabled,
               'has-focus': this.hasFocus,
             }}
-            style={{ paddingLeft: `${paddingLeft}rem` }}
+            style={{ paddingLeft: `${this.level + 1}rem` }}
             onClick={this.clickHandler}
             onMouseDown={this.mouseDownHandler}
             onKeyDown={this.keyDownHandler}
@@ -197,7 +193,7 @@ export class GoatTreeNode {
             tabindex={this.tabindex}
             ref={el => (this.nativeInput = el as HTMLElement)}
           >
-            {this.hasChildNodes && <goat-icon name='chevron-right' class={{"expand-icon":true, "expanded": this.expanded}} size="1rem" />}
+            {this.hasChildNodes && <goat-icon name='chevron--right' class={{"expand-icon":true, "expanded": this.expanded}} size="1rem" />}
 
             {!this.hasChildNodes && <div class="icon-space" />}
 

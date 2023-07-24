@@ -7,12 +7,15 @@
 
 ## Properties
 
-| Property | Attribute | Description        | Type                                     | Default     |
-| -------- | --------- | ------------------ | ---------------------------------------- | ----------- |
-| `level`  | `level`   | The heading level. | `1 \| 2 \| 3 \| 4 \| 5`                  | `1`         |
-| `shade`  | `shade`   |                    | `"primary" \| "secondary" \| "tertiary"` | `'primary'` |
-| `size`   | `size`    | Text size.         | `"lg" \| "md" \| "sm" \| "xl" \| "xs"`   | `undefined` |
-| `type`   | `type`    |                    | `"heading" \| "paragraph" \| "text"`     | `'text'`    |
+| Property       | Attribute       | Description | Type                                                                                                          | Default     |
+| -------------- | --------------- | ----------- | ------------------------------------------------------------------------------------------------------------- | ----------- |
+| `color`        | `color`         |             | `"error" \| "helper" \| "inverse" \| "on-color" \| "primary" \| "secondary" \| "tertiary"`                    | `'primary'` |
+| `configAria`   | `config-aria`   |             | `any`                                                                                                         | `{}`        |
+| `expressive`   | `expressive`    |             | `boolean`                                                                                                     | `false`     |
+| `headingLevel` | `heading-level` |             | `1 \| 2 \| 3 \| 4 \| 5 \| 6`                                                                                  | `1`         |
+| `headingSize`  | `heading-size`  |             | `1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 7`                                                                             | `7`         |
+| `inline`       | `inline`        |             | `boolean`                                                                                                     | `false`     |
+| `type`         | `type`          |             | `"body" \| "body-compact" \| "code" \| "heading" \| "heading-compact" \| "helper-text" \| "label" \| "legal"` | `'body'`    |
 
 
 ## Dependencies

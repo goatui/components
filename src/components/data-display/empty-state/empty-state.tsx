@@ -62,8 +62,7 @@ export class EmptyState implements ComponentInterface {
               {this.action &&
                 <goat-button
                   href={this.actionUrl}
-                  icon={'arrow-right'}
-                  iconEnd={true}
+                  icon={'arrow--right'}
                   disabled={this.actionDisabled}
                   variant={this.actionVariant}>
                   {this.action}

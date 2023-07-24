@@ -22,7 +22,7 @@ export class GoatAccordionItem {
   /**
    * Menu item selection state.
    */
-  @Prop({ reflect: true }) open: boolean = false;
+  @Prop({ reflect: true, mutable: true }) open: boolean = false;
 
   @Prop({ reflect: true }) icon: boolean = false;
 
@@ -31,7 +31,7 @@ export class GoatAccordionItem {
   /**
    * Emitted when the menu item is clicked.
    */
-  @Event({ eventName: 'goat:menu-item-click' }) goatMenuItemClick: EventEmitter;
+  @Event({ eventName: 'goat:accordion-item-click' }) goatAccordionItemClick: EventEmitter;
 
   @State() startSlotHasContent = false;
   @State() endSlotHasContent = false;
@@ -67,12 +67,12 @@ export class GoatAccordionItem {
               if (!this.disabled) {
                 this.open = !this.open;
                 this.hasFocus = true;
-                this.goatMenuItemClick.emit({ gid: this.gid, open: this.open });
+                this.goatAccordionItemClick.emit({ gid: this.gid, open: this.open, element: this.elm });
               }
             }}
             aria-expanded={this.open}
           >
-            <goat-icon name="chevron-right" class="accordion-icon inherit" size="sm" />
+            <goat-icon name="chevron--down" class="accordion-icon inherit" size="1rem" />
             <div part="title" class="accordion-title">
               <slot name="heading">{this.heading}</slot>
             </div>

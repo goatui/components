@@ -37,9 +37,11 @@ $tab-color: var(--tab-color, v(--color-primary));
     align-items: center;
     flex-direction: row;
     height: 100%;
-    gap: v(--spacing-2);
+    gap: v(--spacing-02);
     border: 2px solid transparent;
     border-bottom: 0;
+    padding: removeBorder(0.625) removeBorder(1.125);
+    @include font-style(body-compact-01);
   }
 
   .tab-background {
@@ -61,53 +63,7 @@ $tab-color: var(--tab-color, v(--color-primary));
 }
 
 /**
-  * SIZES
-  */
-.tab.size-sm, .tab.size-small {
-  .tab-content {
-    padding: removeBorder(0.5) removeBorder(0.875);
-    @include font-style(text-sm);
-    font-weight: var(--button-font-weight, v(--font-weight-medium));
-  }
-}
-
-
-.tab.size-md, .tab.size-medium {
-  .tab-content {
-    padding: removeBorder(0.625) removeBorder(1.125);
-    @include font-style(text-sm);
-    font-weight: var(--button-font-weight, v(--font-weight-medium));
-  }
-}
-
-.tab.size-lg, .tab.size-large {
-  .tab-content {
-    padding: removeBorder(0.625);
-    @include font-style(text-md);
-    font-weight: var(--button-font-weight, v(--font-weight-medium));
-  }
-}
-
-.tab.size-xl {
-  .tab-content {
-    padding: removeBorder(0.75);
-    @include font-style(text-md);
-    font-weight: var(--button-font-weight, v(--font-weight-medium));
-  }
-}
-
-
-.tab.size-xxl {
-  .tab-content {
-    padding: removeBorder(1);
-    @include font-style(text-lg);
-    font-weight: var(--button-font-weight, v(--font-weight-medium));
-  }
-}
-
-
-/**
- * Tab variant definitions
+ * Tab variant definitions - bottom line
  */
 .tab {
 
@@ -134,7 +90,7 @@ $tab-color: var(--tab-color, v(--color-primary));
     }
 
     .tab-content {
-      font-weight: v(--font-weight-bold);
+      @include font-style(heading-compact-01);
     }
   }
 

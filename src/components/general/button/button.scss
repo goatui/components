@@ -25,6 +25,7 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
 :host {
   display: inline-block;
   height: var(--button-height, auto);
+  --button-padding: 1rem;
 }
 
 .button {
@@ -37,6 +38,7 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
     font-family: var(--font-family-base);
     text-decoration: none;
     height: 100%;
+    width: 100%;
     cursor: pointer;
     z-index: v(--z-index-button);
     background: transparent;
@@ -52,13 +54,15 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
   }
 
   .button-content {
+    @include font-style(body-compact-01);
     display: flex;
     align-items: center;
     flex-direction: row;
     height: 100%;
-    gap: v(--spacing-2);
     border-radius: 2px;
     border: #{$border-width}rem solid transparent;
+    padding-left: var(--button-padding);
+    padding-right: var(--button-padding);
   }
 
   .button-background {
@@ -75,112 +79,62 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
     cursor: not-allowed;
   }
 
-  &.has-content .slot-container {
-    display: flex;
+  &.has-content {
+    .slot-container {
+      display: flex;
+      flex: 1;
+      padding-right: 2rem;
+    }
   }
 
+  &.has-content.has-icon {
+    .button-content {
+      gap: 2rem;
+    }
+    .slot-container {
+      padding-right: 0;
+    }
+  }
 }
+
+.button.simple {
+  &.has-content .slot-container {
+    padding-right: 0;
+  }
+}
+
 
 /**
   * SIZES
   */
 .button.size-sm, .button.size-small {
   .button-content {
-    padding: removeBorder(0.5);
-    @include font-style(text-sm);
-    font-weight: var(--button-font-weight, v(--font-weight-medium));
-  }
-
-  &.has-content .button-content {
-    padding: removeBorder(0.5) removeBorder(0.875);
+    height: removeBorder(2);
   }
 }
 
-:host(.icon-only) {
-  .button.size-sm, .button.size-small {
-    .button-content {
-      padding: removeBorder(0.5);
-    }
-  }
-}
 
 .button.size-md, .button.size-medium {
   .button-content {
-    padding: removeBorder(0.625);
-    @include font-style(text-sm);
-    font-weight: var(--button-font-weight, v(--font-weight-medium));
-  }
-
-  &.has-content .button-content {
-    padding: removeBorder(0.625) removeBorder(1.125);
-  }
-}
-
-:host(.icon-only) {
-  .button.size-md, .button.size-medium {
-    .button-content {
-      padding: removeBorder(0.625);
-    }
+    height: removeBorder(2.5);
   }
 }
 
 .button.size-lg, .button.size-large {
   .button-content {
-    padding: removeBorder(0.625);
-    @include font-style(text-md);
-    font-weight: var(--button-font-weight, v(--font-weight-medium));
-  }
-
-  &.has-content .button-content {
-    padding: removeBorder(0.625) removeBorder(1);
-  }
-}
-
-:host(.icon-only) {
-  .button.size-lg, .button.size-large {
-    .button-content {
-      padding: removeBorder(0.625);
-    }
+    height: removeBorder(3);
   }
 }
 
 .button.size-xl {
   .button-content {
-    padding: removeBorder(0.75);
-    @include font-style(text-md);
-    font-weight: var(--button-font-weight, v(--font-weight-medium));
-  }
-
-  &.has-content .button-content {
-    padding: removeBorder(0.75) removeBorder(1.25);
-  }
-}
-
-:host(.icon-only) {
-  .button.size-xl {
-    .button-content {
-      padding: removeBorder(0.75);
-    }
+    height: removeBorder(4);
   }
 }
 
 .button.size-xxl {
   .button-content {
-    padding: removeBorder(1);
-    @include font-style(text-lg);
-    font-weight: var(--button-font-weight, v(--font-weight-medium));
-  }
-
-  &.has-content .button-content {
-    padding: removeBorder(1) removeBorder(1.75);
-  }
-}
-
-:host(.icon-only) {
-  .button.size-xxl {
-    .button-content {
-      padding: removeBorder(1);
-    }
+    height: removeBorder(5);
   }
 }
 
@@ -389,24 +343,30 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
   }
 }
 
-.button.icon-end .button-content {
-  flex-direction: row-reverse;
-}
-
-
 :host([block]) {
   display: block;
 
-  .native-button {
-    width: 100%;
-  }
+  .button {
 
-  .button-content {
-    justify-content: center;
-  }
+    .native-button {
+      width: 100%;
+    }
 
-  .spinner {
-    margin: auto;
+    .button-content {
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .spinner {
+      margin: auto;
+    }
+
+    &.has-content {
+      .slot-container {
+        padding-right: 0;
+        justify-content: center;
+      }
+    }
   }
 }
 
@@ -421,5 +381,11 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
 
   .button-background {
     border-radius: 100%;
+  }
+}
+
+:host(.no-padding) {
+  .button-content {
+    padding: 0;
   }
 }

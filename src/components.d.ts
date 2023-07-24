@@ -16,6 +16,12 @@ export namespace Components {
      * </goat-accordion>
      */
     interface GoatAccordion {
+        "align": 'start' | 'end';
+        "multiple": boolean;
+        /**
+          * The According size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size": 'sm' | 'md' | 'lg';
     }
     interface GoatAccordionItem {
         /**
@@ -52,7 +58,7 @@ export namespace Components {
      * @description Renders a specified badge.
      * @category Data Display
      * @tag content
-     * @example <goat-badge content="5" class='color-error'> <goat-icon name="bell"></goat-icon></goat-badge>
+     * @example <goat-badge content="5" class='color-error'> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
      */
     interface GoatBadge {
         "content": string;
@@ -103,13 +109,13 @@ export namespace Components {
          */
         "href": string;
         /**
-          * Icon which will displayed on button. Possible values are bootstrap icon names.
+          * Icon which will displayed on button. Possible values are icon names.
          */
         "icon": string;
         /**
           * Icon position.
          */
-        "iconEnd": boolean;
+        "iconAlign": 'start' | 'end';
         /**
           * Button selection state.
          */
@@ -126,6 +132,7 @@ export namespace Components {
           * Show loader.
          */
         "showLoader": boolean;
+        "simple": boolean;
         /**
           * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"none"`. Defaults to `"md"`.
          */
@@ -145,11 +152,10 @@ export namespace Components {
      * @description Group a series of buttons together on a single line with the button group, and super-power.
      * @category General
      * @tags controls
-     * @example <goat-button-group><goat-button>
-     * Button CTA
-     * </goat-button><goat-button>
-     * Button CTA
-     * </goat-button></goat-button-group>
+     * @example <goat-button-group>
+     * <goat-button block icon="home"></goat-button>
+     * <goat-button block icon="alarm"></goat-button>
+     * </goat-button-group>
      */
     interface GoatButtonGroup {
     }
@@ -302,6 +308,7 @@ export namespace Components {
      * @img /assets/img/code-highlighter.png
      */
     interface GoatCodeHighlighter {
+        "format": boolean;
         "language": string;
         "lineNumbers": boolean;
         "value": string;
@@ -489,14 +496,14 @@ export namespace Components {
      * @name Icon
      * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
      * @category General
-     * @example <goat-icon name="house"></goat-icon>
+     * @example <goat-icon name="home"></goat-icon>
      */
     interface GoatIcon {
         "name": string;
         /**
-          * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
+          * The Icon size.
          */
-        "size": 'sm' | 'md' | 'lg' | 'xl' | string;
+        "size": string;
     }
     /**
      * @name Input
@@ -731,7 +738,7 @@ export namespace Components {
     }
     interface GoatSidenavMenu {
         "empty": boolean;
-        "emptyState": string;
+        "emptyState": any;
         /**
           * Sets focus on first menu item. Use this method instead of the global `element.focus()`.
          */
@@ -825,6 +832,10 @@ export namespace Components {
      * @example <goat-svg src="https://icons.getbootstrap.com/assets/icons/bug.svg"></goat-svg>
      */
     interface GoatSvg {
+        /**
+          * The Icon size.
+         */
+        "size": string;
         "src": string;
     }
     interface GoatTab {
@@ -847,10 +858,6 @@ export namespace Components {
           * Show loader.
          */
         "showLoader": boolean;
-        /**
-          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`. Defaults to `"md"`.
-         */
-        "size": 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
         "target": string;
         "triggerClick": () => Promise<void>;
         "value": string;
@@ -927,16 +934,13 @@ export namespace Components {
      * @example <goat-text type="heading" level="1">Heading</goat-typography>
      */
     interface GoatText {
-        /**
-          * The heading level.
-         */
-        "level": 1 | 2 | 3 | 4 | 5;
-        "shade": 'primary' | 'secondary' | 'tertiary';
-        /**
-          * Text size.
-         */
-        "size": 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-        "type": 'heading' | 'paragraph' | 'text';
+        "color": 'primary' | 'secondary' | 'tertiary' | 'helper' | 'error' | 'on-color' | 'inverse';
+        "configAria": any;
+        "expressive": boolean;
+        "headingLevel": 1 | 2 | 3 | 4 | 5 | 6;
+        "headingSize": 1 | 2 | 3 | 4 | 5 | 6 | 7;
+        "inline": boolean;
+        "type": 'code' | 'helper-text' | 'label' | 'legal' | 'heading' | 'body' | 'body-compact' | 'heading-compact';
     }
     /**
      * @name Textarea
@@ -1276,7 +1280,7 @@ declare global {
      * @description Renders a specified badge.
      * @category Data Display
      * @tag content
-     * @example <goat-badge content="5" class='color-error'> <goat-icon name="bell"></goat-icon></goat-badge>
+     * @example <goat-badge content="5" class='color-error'> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
      */
     interface HTMLGoatBadgeElement extends Components.GoatBadge, HTMLStencilElement {
     }
@@ -1323,11 +1327,10 @@ declare global {
      * @description Group a series of buttons together on a single line with the button group, and super-power.
      * @category General
      * @tags controls
-     * @example <goat-button-group><goat-button>
-     * Button CTA
-     * </goat-button><goat-button>
-     * Button CTA
-     * </goat-button></goat-button-group>
+     * @example <goat-button-group>
+     * <goat-button block icon="home"></goat-button>
+     * <goat-button block icon="alarm"></goat-button>
+     * </goat-button-group>
      */
     interface HTMLGoatButtonGroupElement extends Components.GoatButtonGroup, HTMLStencilElement {
     }
@@ -1538,7 +1541,7 @@ declare global {
      * @name Icon
      * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
      * @category General
-     * @example <goat-icon name="house"></goat-icon>
+     * @example <goat-icon name="home"></goat-icon>
      */
     interface HTMLGoatIconElement extends Components.GoatIcon, HTMLStencilElement {
     }
@@ -1900,6 +1903,12 @@ declare namespace LocalJSX {
      * </goat-accordion>
      */
     interface GoatAccordion {
+        "align"?: 'start' | 'end';
+        "multiple"?: boolean;
+        /**
+          * The According size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size"?: 'sm' | 'md' | 'lg';
     }
     interface GoatAccordionItem {
         /**
@@ -1914,7 +1923,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the menu item is clicked.
          */
-        "onGoat:menu-item-click"?: (event: GoatAccordionItemCustomEvent<any>) => void;
+        "onGoat:accordion-item-click"?: (event: GoatAccordionItemCustomEvent<any>) => void;
         /**
           * Menu item selection state.
          */
@@ -1940,7 +1949,7 @@ declare namespace LocalJSX {
      * @description Renders a specified badge.
      * @category Data Display
      * @tag content
-     * @example <goat-badge content="5" class='color-error'> <goat-icon name="bell"></goat-icon></goat-badge>
+     * @example <goat-badge content="5" class='color-error'> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
      */
     interface GoatBadge {
         "content"?: string;
@@ -1991,13 +2000,13 @@ declare namespace LocalJSX {
          */
         "href"?: string;
         /**
-          * Icon which will displayed on button. Possible values are bootstrap icon names.
+          * Icon which will displayed on button. Possible values are icon names.
          */
         "icon"?: string;
         /**
           * Icon position.
          */
-        "iconEnd"?: boolean;
+        "iconAlign"?: 'start' | 'end';
         /**
           * On click of button, a CustomEvent 'goat:click' will be triggered.
          */
@@ -2010,6 +2019,7 @@ declare namespace LocalJSX {
           * Show loader.
          */
         "showLoader"?: boolean;
+        "simple"?: boolean;
         /**
           * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"none"`. Defaults to `"md"`.
          */
@@ -2028,11 +2038,10 @@ declare namespace LocalJSX {
      * @description Group a series of buttons together on a single line with the button group, and super-power.
      * @category General
      * @tags controls
-     * @example <goat-button-group><goat-button>
-     * Button CTA
-     * </goat-button><goat-button>
-     * Button CTA
-     * </goat-button></goat-button-group>
+     * @example <goat-button-group>
+     * <goat-button block icon="home"></goat-button>
+     * <goat-button block icon="alarm"></goat-button>
+     * </goat-button-group>
      */
     interface GoatButtonGroup {
     }
@@ -2188,6 +2197,7 @@ declare namespace LocalJSX {
      * @img /assets/img/code-highlighter.png
      */
     interface GoatCodeHighlighter {
+        "format"?: boolean;
         "language"?: string;
         "lineNumbers"?: boolean;
         "value"?: string;
@@ -2376,14 +2386,14 @@ declare namespace LocalJSX {
      * @name Icon
      * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
      * @category General
-     * @example <goat-icon name="house"></goat-icon>
+     * @example <goat-icon name="home"></goat-icon>
      */
     interface GoatIcon {
         "name"?: string;
         /**
-          * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
+          * The Icon size.
          */
-        "size"?: 'sm' | 'md' | 'lg' | 'xl' | string;
+        "size"?: string;
     }
     /**
      * @name Input
@@ -2568,10 +2578,6 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
-          * Emitted when the action button is clicked..
-         */
-        "onGoat:action-click"?: (event: GoatSelectCustomEvent<any>) => void;
-        /**
           * Emitted when the value has changed.
          */
         "onGoat:change"?: (event: GoatSelectCustomEvent<any>) => void;
@@ -2621,7 +2627,7 @@ declare namespace LocalJSX {
     }
     interface GoatSidenavMenu {
         "empty"?: boolean;
-        "emptyState"?: string;
+        "emptyState"?: any;
         "showLoader"?: boolean;
         "value"?: string | number;
     }
@@ -2703,6 +2709,10 @@ declare namespace LocalJSX {
      * @example <goat-svg src="https://icons.getbootstrap.com/assets/icons/bug.svg"></goat-svg>
      */
     interface GoatSvg {
+        /**
+          * The Icon size.
+         */
+        "size"?: string;
         "src"?: string;
     }
     interface GoatTab {
@@ -2728,10 +2738,6 @@ declare namespace LocalJSX {
           * Show loader.
          */
         "showLoader"?: boolean;
-        /**
-          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`. Defaults to `"md"`.
-         */
-        "size"?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
         "target"?: string;
         "value"?: string;
     }
@@ -2813,16 +2819,13 @@ declare namespace LocalJSX {
      * @example <goat-text type="heading" level="1">Heading</goat-typography>
      */
     interface GoatText {
-        /**
-          * The heading level.
-         */
-        "level"?: 1 | 2 | 3 | 4 | 5;
-        "shade"?: 'primary' | 'secondary' | 'tertiary';
-        /**
-          * Text size.
-         */
-        "size"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-        "type"?: 'heading' | 'paragraph' | 'text';
+        "color"?: 'primary' | 'secondary' | 'tertiary' | 'helper' | 'error' | 'on-color' | 'inverse';
+        "configAria"?: any;
+        "expressive"?: boolean;
+        "headingLevel"?: 1 | 2 | 3 | 4 | 5 | 6;
+        "headingSize"?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
+        "inline"?: boolean;
+        "type"?: 'code' | 'helper-text' | 'label' | 'legal' | 'heading' | 'body' | 'body-compact' | 'heading-compact';
     }
     /**
      * @name Textarea
@@ -3129,7 +3132,7 @@ declare module "@stencil/core" {
              * @description Renders a specified badge.
              * @category Data Display
              * @tag content
-             * @example <goat-badge content="5" class='color-error'> <goat-icon name="bell"></goat-icon></goat-badge>
+             * @example <goat-badge content="5" class='color-error'> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
              */
             "goat-badge": LocalJSX.GoatBadge & JSXBase.HTMLAttributes<HTMLGoatBadgeElement>;
             /**
@@ -3156,11 +3159,10 @@ declare module "@stencil/core" {
              * @description Group a series of buttons together on a single line with the button group, and super-power.
              * @category General
              * @tags controls
-             * @example <goat-button-group><goat-button>
-             * Button CTA
-             * </goat-button><goat-button>
-             * Button CTA
-             * </goat-button></goat-button-group>
+             * @example <goat-button-group>
+             * <goat-button block icon="home"></goat-button>
+             * <goat-button block icon="alarm"></goat-button>
+             * </goat-button-group>
              */
             "goat-button-group": LocalJSX.GoatButtonGroup & JSXBase.HTMLAttributes<HTMLGoatButtonGroupElement>;
             /**
@@ -3271,7 +3273,7 @@ declare module "@stencil/core" {
              * @name Icon
              * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
              * @category General
-             * @example <goat-icon name="house"></goat-icon>
+             * @example <goat-icon name="home"></goat-icon>
              */
             "goat-icon": LocalJSX.GoatIcon & JSXBase.HTMLAttributes<HTMLGoatIconElement>;
             /**

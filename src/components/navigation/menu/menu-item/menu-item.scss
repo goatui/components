@@ -7,11 +7,11 @@
 .menu-item {
   cursor: pointer;
   @include font-style(text-md);
-  padding: v(--spacing-2) v(--spacing-4);
+  padding: v(--spacing-02) v(--spacing-04);
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  gap: v(--spacing-2);
+  gap: v(--spacing-02);
   color: v(--text-secondary);
   outline: none;
 
@@ -29,7 +29,7 @@
   }
 
   .slot-end {
-    color: v(--text-05);
+    color: v(--text-helper);
   }
 
 }

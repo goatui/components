@@ -5,11 +5,10 @@ import { Component, ComponentInterface, h, Host } from '@stencil/core';
  * @description Group a series of buttons together on a single line with the button group, and super-power.
  * @category General
  * @tags controls
- * @example <goat-button-group><goat-button>
- *   Button CTA
- *   </goat-button><goat-button>
- *   Button CTA
- *   </goat-button></goat-button-group>
+ * @example <goat-button-group>
+ *   <goat-button block icon="home"></goat-button>
+ *   <goat-button block icon="alarm"></goat-button>
+ *   </goat-button-group>
  */
 @Component({
   tag: 'goat-button-group',

@@ -1,11 +1,22 @@
+import icons from "./icons";
+
 export async function fetchIcon(name: string) {
   if (!name) return '';
 
   const cache = await caches.open('goat-icons');
-  const request = new Request(`https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/${name}.svg`);
+  const icon = icons.find((icon: any) => {
+    if (icon.name === name) {
+      return icon;
+    }
+  });
+
+  if (!icon) return '';
+
+  const request = new Request(`https://unpkg.com/@carbon/icons@11.22.1/svg/32${icon.folder ? icon.folder : ''}/${icon.name}.svg`);
   let response = await cache.match(request);
   if (response) {
-    return response.text();
+    const result = await response.text();
+    return result;
   }
   response = await fetch(request.url, {
     method: 'GET',
@@ -13,6 +24,9 @@ export async function fetchIcon(name: string) {
     credentials: 'omit',
   });
   const result = await response.text();
-  await cache.put(request, new Response(result));
+  if (response.status === 200) {
+    await cache.put(request, new Response(result));
+  }
   return result;
 }
+

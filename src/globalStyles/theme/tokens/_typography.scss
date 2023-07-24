@@ -1,7 +1,7 @@
 @use "sass:map";
 @use "sass:list";
 
-$font-family-base: 'Inter', sans-serif;
+$font-family-base: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
 $font-family-secondary: Arial, Helvetica, sans-serif;
 $font-weights: (
   regular: normal,
@@ -23,6 +23,170 @@ $typography: (
   display-xl: [3.75, 4.625, -0.02],
 );
 
+/*
+ * There are two body styles for productive and expressive moments. Productive styles have a suffix of -01 and expressive styles have a suffix of -02
+ */
+$font-styles: (
+
+  // Utility font styles
+  code-01: (
+    font-family: "IBM Plex Mono",
+    font-size: .75rem,
+    line-height: 1rem,
+    weight: 400,
+    letter-spacing: .32px
+  ),
+  code-02: (
+    font-family: "IBM Plex Mono",
+    font-size:  .875rem,
+    line-height: 1.25rem,
+    weight: 400,
+    letter-spacing: .32px
+  ),
+
+  label-01: (
+    font-family: "IBM Plex Sans",
+    font-size:  .75rem,
+    line-height: 1rem,
+    weight: 400,
+    letter-spacing: .32px
+  ),
+  label-02: (
+    font-family: "IBM Plex Sans",
+    font-size:  .875rem,
+    line-height:  1.125rem,
+    weight: 400,
+    letter-spacing: .16px
+  ),
+
+  helper-text-01: (
+    font-family: "IBM Plex Sans",
+    font-size:  .75rem,
+    line-height: 1rem,
+    weight: 400,
+    letter-spacing: .32px
+  ),
+  helper-text-02: (
+    font-family: "IBM Plex Sans",
+    font-size:  .875rem,
+    line-height:  1.125rem,
+    weight: 400,
+    letter-spacing: .16px
+  ),
+
+  legal-01: (
+    font-family: "IBM Plex Sans",
+    font-size:  .75rem,
+    line-height: 1rem,
+    weight: 400,
+    letter-spacing: .32px
+  ),
+  legal-02: (
+    font-family: "IBM Plex Sans",
+    font-size:  .875rem,
+    line-height:  1.125rem,
+    weight: 400,
+    letter-spacing: .16px
+  ),
+
+  // Body font styles
+  body-01: (
+    font-family: "IBM Plex Sans",
+    font-size:  .875rem,
+    line-height: 1.25rem,
+    weight: 400,
+    letter-spacing: .16px
+  ),
+  body-02: (
+    font-family: "IBM Plex Sans",
+    font-size: 1rem,
+    line-height: 1.5rem,
+    weight: 400,
+    letter-spacing: 0
+  ),
+
+  body-compact-01: (
+    font-family: "IBM Plex Sans",
+    font-size: .875rem,
+    line-height: 1.125rem,
+    weight: 400,
+    letter-spacing: .16px
+  ),
+  body-compact-02: (
+    font-family: "IBM Plex Sans",
+    font-size: 1rem,
+    line-height: 1.375rem,
+    weight: 400,
+    letter-spacing: 0
+  ),
+
+  // Heading font styles
+  heading-compact-01: (
+    font-family: "IBM Plex Sans",
+    font-size: .875rem,
+    line-height: 1.125rem,
+    weight: 600,
+    letter-spacing: .16px
+  ),
+  heading-compact-02: (
+    font-family: "IBM Plex Sans",
+    font-size: .875rem,
+    line-height: 1.375rem,
+    weight: 400,
+    letter-spacing: 0
+  ),
+
+  heading-01: (
+    font-family: "IBM Plex Sans",
+    font-size:  .875rem,
+    line-height: 1.25rem,
+    weight: 600,
+    letter-spacing: .16px
+  ),
+  heading-02: (
+    font-family: "IBM Plex Sans",
+    font-size:  1rem,
+    line-height: 1.5rem,
+    weight: 600,
+    letter-spacing: 0
+  ),
+  heading-03: (
+    font-family: "IBM Plex Sans",
+    font-size:   1.25rem,
+    line-height: 1.75rem,
+    weight: 400,
+    letter-spacing: 0
+  ),
+  heading-04: (
+    font-family: "IBM Plex Sans",
+    font-size:  1.75rem,
+    line-height: 2.25rem,
+    weight: 400,
+    letter-spacing: 0
+  ),
+  heading-05: (
+    font-family: "IBM Plex Sans",
+    font-size:  2rem,
+    line-height: 2.5rem,
+    weight: 400,
+    letter-spacing: 0
+  ),
+  heading-06: (
+    font-family: "IBM Plex Sans",
+    font-size:  2.625rem,
+    line-height: 3.125rem,
+    weight: 300,
+    letter-spacing: 0
+  ),
+  heading-07: (
+    font-family: "IBM Plex Sans",
+    font-size:  3.375rem,
+    line-height: 4rem,
+    weight: 300,
+    letter-spacing: 0
+  )
+);
+
 $typography-css-variables: ();
 
 $typography-css-variables: map-merge($typography-css-variables, ("--font-family-base": $font-family-base));
@@ -42,3 +206,12 @@ $typography-css-variables: map-merge($typography-css-variables, ("--font-family-
   $typography-css-variables: map-merge($typography-css-variables, $map);
 }
 
+@each $key, $value in $font-styles {
+  $map: ();
+  $map: map-merge($map, ("--"+$key+"-font-family": #{map.get($value, "font-family")}));
+  $map: map-merge($map, ("--"+$key+"-font-size": #{map.get($value, "font-size")}));
+  $map: map-merge($map, ("--"+$key+"-line-height": #{map.get($value, "line-height")}));
+  $map: map-merge($map, ("--"+$key+"-font-weight": #{map.get($value, "weight")}));
+  $map: map-merge($map, ("--"+$key+"-letter-spacing": #{map.get($value, "letter-spacing")}));
+  $typography-css-variables: map-merge($typography-css-variables, $map);
+}

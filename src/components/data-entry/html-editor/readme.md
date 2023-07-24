@@ -65,12 +65,14 @@ Type: `Promise<void>`
 
 ### Depends on
 
+- [goat-button-group](../../general/button-group)
 - [goat-button](../../general/button)
 - [goat-spinner](../../feedback/spinner)
 
 ### Graph
 ```mermaid
 graph TD;
+  goat-html-editor --> goat-button-group
   goat-html-editor --> goat-button
   goat-html-editor --> goat-spinner
   goat-button --> goat-icon

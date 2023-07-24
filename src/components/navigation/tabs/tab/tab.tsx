@@ -10,7 +10,7 @@ import {
   Prop,
   State,
 } from '@stencil/core';
-import { ElementSize, getComponentIndex } from '../../../../utils/utils';
+import { getComponentIndex } from '../../../../utils/utils';
 
 
 @Component({
@@ -21,12 +21,6 @@ import { ElementSize, getComponentIndex } from '../../../../utils/utils';
 export class Tab implements ComponentInterface {
 
   gid: string = getComponentIndex();
-
-  /**
-   * Button size.
-   * Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`. Defaults to `"md"`.
-   */
-  @Prop() size: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' = 'md';
 
 
   /**
@@ -96,23 +90,6 @@ export class Tab implements ComponentInterface {
     }
   }
 
-
-  private getIconSize() {
-    switch (this.size) {
-      case ElementSize.SMALL:
-        return 'sm';
-      case ElementSize.LARGE:
-        return 'md';
-      case ElementSize.X_LARGE:
-        return 'md';
-      case ElementSize.XX_LARGE:
-        return 'lg';
-      default:
-        return 'sm';
-    }
-  }
-
-
   private clickHandler = () => {
     this.goatTabClick.emit({
       value: this.value,
@@ -162,7 +139,6 @@ export class Tab implements ComponentInterface {
     return (<Host has-focus={this.hasFocus} active={this.isActive}>
       <div class={{
         tab: true,
-        [`size-${this.size}`]: true,
         'disabled': this.disabled,
         'selected': this.selected,
         'has-focus': this.hasFocus,
@@ -185,7 +161,7 @@ export class Tab implements ComponentInterface {
           aria-disabled={(this.disabled || this.showLoader) + ''}>
 
           <div class='tab-content'>
-            {this.showLoader && <goat-spinner class='spinner inherit' size={this.getIconSize()} />}
+            {this.showLoader && <goat-spinner class='spinner inherit' size="1rem" />}
 
             {!this.showLoader && this.icon && this.renderIcon()}
 
@@ -201,7 +177,7 @@ export class Tab implements ComponentInterface {
   }
 
   private renderIcon = () => {
-    return <goat-icon name={this.icon} size={this.getIconSize()} class='icon inherit' />;
+    return <goat-icon name={this.icon} size="1rem" class='icon inherit' />;
   };
 
 }
