@@ -25,7 +25,10 @@ colors: ['primary', 'secondary', 'success', 'error']
 
 <style>
   .component-content goat-button {
-    margin: 0 0.5rem 1rem 0;
+    margin-inline-end: 1rem;
+  }
+  .mb {
+    margin-bottom: 1rem;
   }
 </style>
 <goat-tabs>
@@ -38,13 +41,13 @@ colors: ['primary', 'secondary', 'success', 'error']
     <div class="usage-tab">
       <!-- Content -->
       <div class="component-content">
-        <div style="padding-bottom: var(--spacing-6)">
-          <goat-text type="paragraph">{{page.description}}</goat-text>
+        <div class="component-description">
+          <goat-text type="body" expressive>{{page.description}}</goat-text>
         </div>
 
         {% for section in page.sections %}
-        <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style="padding-bottom: var(--spacing-4)">
-          <goat-text type="heading" level="2" size="sm">{{ section.title }}</goat-text>
+        <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' class="component-section">
+          <goat-text type="heading" heading-size="4">{{ section.title }}</goat-text>
 
           {% include_relative {{ section.source }} %}
         </div>
@@ -70,6 +73,9 @@ colors: ['primary', 'secondary', 'success', 'error']
               <goat-select id="comp-size" search="contains" placeholder="Select" clearable></goat-select>
             </goat-form-control>
 
+            <goat-form-control label="Simple">
+              <goat-checkbox id="comp-simple"></goat-checkbox>
+            </goat-form-control>
             <goat-form-control label="Disabled">
               <goat-checkbox id="comp-disabled"></goat-checkbox>
             </goat-form-control>
@@ -154,6 +160,9 @@ colors: ['primary', 'secondary', 'success', 'error']
     });
     document.getElementById('comp-selected').addEventListener('goat:change', function (evt) {
       updateProperty('selected', evt.target.value);
+    });
+    document.getElementById('comp-simple').addEventListener('goat:change', function (evt) {
+      updateProperty('simple', evt.target.value);
     });
   </script>
 </goat-tabs>

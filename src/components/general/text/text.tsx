@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h, Host, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Host, Prop } from '@stencil/core';
 
 /**
  * @name Text
@@ -12,84 +12,67 @@ import { Component, ComponentInterface, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class Text implements ComponentInterface {
+  @Prop({ reflect: true }) type: 'code' | 'helper-text' | 'label' | 'legal' | 'heading' | 'body' | 'body-compact' | 'heading-compact' = 'body';
 
+  @Prop({ reflect: true }) expressive: boolean = false;
 
-  @Prop({ reflect: true }) type: 'heading' | 'paragraph' | 'text' = 'text';
+  @Prop() headingSize: 1 | 2 | 3 | 4 | 5 | 6 | 7 = 7;
 
-  @Prop({ reflect: true }) shade: 'primary' | 'secondary' | 'tertiary' = 'primary';
+  @Prop() headingLevel: 1 | 2 | 3 | 4 | 5 | 6 = 1;
 
-  /**
-   * The heading level.
-   */
-  @Prop() level: 1 | 2 | 3 | 4 | 5 = 1;
+  @Prop({ reflect: true }) inline: boolean = false;
 
-  /**
-   * Text size.
-   */
-  @Prop({ reflect: true, mutable: true}) size: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  @Prop({ reflect: true, mutable: true }) configAria: any = {};
+
+  @Prop() color: 'primary' | 'secondary' | 'tertiary' | 'helper' | 'error' | 'on-color' | 'inverse' = 'primary';
+
+  @Element() elm!: HTMLElement;
+
+  componentWillLoad() {
+    // If the goat-text has a tabindex attribute we get the value
+    // and pass it down to the native input, then remove it from the
+    // goat-text to avoid causing tabbing twice on the same element
+    this.elm.getAttributeNames().forEach((name: string) => {
+      if (name.includes('aria-')) {
+        this.configAria[name] = this.elm.getAttribute(name);
+        this.elm.removeAttribute(name);
+      }
+    });
+  }
 
   render() {
     return (
       <Host>
-        {(() => {
-          if (this.type === 'heading')
-            return this.renderHeading();
-          else if (this.type === 'paragraph')
-            return this.renderParagraph();
-          else if (this.type === 'text')
-            return this.renderText();
-        })()}
+        <div class={{ text: true, inline: this.inline, expressive: this.expressive }}>
+          {this.renderText()}
+        </div>
       </Host>
     );
   }
 
-  componentWillLoad() {
-    if (this.type === 'heading') {
-      if (!this.size) {
-        if (this.level === 1) {
-          this.size = 'xl';
-        } else if (this.level === 2) {
-          this.size = 'lg';
-        } else if (this.level === 3) {
-          this.size = 'md';
-        } else if (this.level === 4) {
-          this.size = 'sm';
-        } else if (this.level === 5) {
-          this.size = 'xs';
-        }
-      }
+  renderText() {
+    if (this.type == 'heading') return this.renderHeading();
+    else return this.renderSimpleText();
+  }
+
+  renderSimpleText() {
+    if (this.inline) {
+      return (<span class='native-element' {...this.configAria}>
+        <slot />
+      </span>);
     } else {
-      if (!this.size) {
-        this.size = 'md';
-      }
+      return (
+        <p class='native-element' {...this.configAria}>
+          <slot />
+        </p>
+      );
     }
   }
 
-
   renderHeading() {
-    const HeadingTag = `h${this.level}`;
-
-    return (
-      <HeadingTag class='heading'>
+    const Heading = `h${this.headingLevel}`;
+    return (<Heading class='native-element' {...this.configAria}>
         <slot />
-      </HeadingTag>
-    );
+      </Heading>);
   }
-
-  renderParagraph() {
-    return (
-      <p class={{ 'paragraph': true, [`size-${this.size}`]: true }}>
-        <slot />
-      </p>
-    );
-  }
-
-  renderText() {
-    return (
-      <span class={{ 'text': true, [`size-${this.size}`]: true }}>
-        <slot />
-      </span>
-    );
-  }
-
 }

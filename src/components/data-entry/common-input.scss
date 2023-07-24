@@ -3,7 +3,7 @@
 
 :host {
   display: block;
-  margin-bottom: v(--spacing-3);
+  margin-bottom: v(--spacing-03);
   --input-border-radius: #{v(--border-radius)};
   --input-border-style: solid;
   color: v(--text-primary);
@@ -21,7 +21,7 @@
   overflow: hidden;
   cursor: text;
   font-weight: var(--font-weight-regular);
-  gap: v(--spacing-2);
+  gap: v(--spacing-02);
   padding: 0 1rem;
 
   .input {

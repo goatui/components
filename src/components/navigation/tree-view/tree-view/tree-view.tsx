@@ -118,7 +118,7 @@ export class TreeView implements ComponentInterface {
     } while (previousItem !== currentItem);
   }
 
-  componentDidLoad() {
+  componentWillLoad() {
     this.parseEmptyState();
   }
 

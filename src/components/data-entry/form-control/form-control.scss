@@ -2,7 +2,7 @@
 
 :host {
   display: block;
-  margin-bottom: v(--spacing-4);
+  margin-bottom: v(--spacing-04);
 }
 
 .form-control {
@@ -30,7 +30,7 @@
 
   .required {
     color: v(--danger-02);
-    padding-right: v(--spacing-1);
+    padding-right: v(--spacing-01);
   }
 }
 
@@ -38,7 +38,7 @@
   @include font-style(text-xs);
   font-weight: v(--font-weight-regular);
   .subtitle-caption {
-    color: v(--text-05);
+    color: v(--text-helper);
   }
   .subtitle-error {
     color: v(--support-error-inverse);
@@ -57,6 +57,6 @@
   align-items: center;
   .label {
     margin-bottom: 0;
-    margin-inline-end: v(--spacing-2);
+    margin-inline-end: v(--spacing-04);
   }
 }

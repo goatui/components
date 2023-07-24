@@ -39,25 +39,25 @@
   }
 
   &.bottom-right .dropdown-content {
-    top: calc(100% + #{v(--spacing-2)});
+    top: calc(100% + #{v(--spacing-02)});
     left: 0;
     transform-origin: top;
   }
 
   &.bottom-left .dropdown-content {
-    top: calc(100% + #{v(--spacing-2)});
+    top: calc(100% + #{v(--spacing-02)});
     right: 0;
     transform-origin: top;
   }
 
   &.top-right .dropdown-content {
-    bottom: calc(100% + #{v(--spacing-2)});
+    bottom: calc(100% + #{v(--spacing-02)});
     left: 0;
     transform-origin: bottom;
   }
 
   &.top-left .dropdown-content {
-    bottom: calc(100% + #{v(--spacing-2)});
+    bottom: calc(100% + #{v(--spacing-02)});
     right: 0;
     transform-origin: bottom;
   }

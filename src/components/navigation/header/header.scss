@@ -1,6 +1,6 @@
 @import "../../../globalStyles/commons";
 
-$header-height: var(--header-height, #{v(--spacing-12)});
+$header-height: var(--header-height, #{v(--spacing-012)});
 
 :host {
   display: block;
@@ -8,7 +8,7 @@ $header-height: var(--header-height, #{v(--spacing-12)});
 
 .header {
   height: $header-height;
-  padding: 0 v(--spacing-8);
+  padding: 0 v(--spacing-08);
   display: flex;
   align-items: center;
 }
@@ -16,7 +16,7 @@ $header-height: var(--header-height, #{v(--spacing-12)});
 
 @include for-phone-only {
   .header {
-    padding: 0 v(--spacing-4);
+    padding: 0 v(--spacing-04);
   }
 }
 
@@ -48,7 +48,7 @@ $header-height: var(--header-height, #{v(--spacing-12)});
 }
 
 :host(.actions-separated) .header-content {
-  --header-action-gap: #{v(--spacing-2)};
+  --header-action-gap: #{v(--spacing-02)};
 }
 :host(:not(.actions-separated)) .header-content {
   --button-border-radius: none;

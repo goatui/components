@@ -1,5 +1,9 @@
 @import "../../../globalStyles/commons";
 
+:host {
+  display: block;
+  margin-bottom: v(--spacing-02);
+}
 
 .breadcrumb {
   display: flex;
@@ -9,8 +13,8 @@
 slot::slotted(*) {
   &::before {
     display: inline-block;
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
+    padding-right: v(--spacing-03);
+    padding-left: v(--spacing-03);
     color: var(--border-color);
     content: "/";
   }

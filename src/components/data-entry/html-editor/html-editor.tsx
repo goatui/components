@@ -7,12 +7,17 @@ import {
   $getSelection,
   CAN_UNDO_COMMAND,
   createEditor,
-  FORMAT_ELEMENT_COMMAND,
+  FORMAT_ELEMENT_COMMAND, FORMAT_TEXT_COMMAND, REDO_COMMAND,
   SELECTION_CHANGE_COMMAND,
   UNDO_COMMAND,
 } from 'lexical';
 import { registerRichText } from '@lexical/rich-text';
 import { createEmptyHistoryState, registerHistory } from '@lexical/history';
+import {
+  $convertToMarkdownString,
+  TRANSFORMERS,
+} from '@lexical/markdown';
+
 
 /**
  * @name HTML Editor
@@ -126,6 +131,8 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
   }
 
   private editorElement?: HTMLElement;
+
+  @State()
   editorInstance: any;
 
   async componentWillLoad() {
@@ -153,11 +160,13 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
     registerRichText(this.editorInstance);
     registerHistory(this.editorInstance, createEmptyHistoryState(), 0);
 
+
     //@ts-ignore
     window.myEditor = this.editorInstance;
     this.editorInstance.setRootElement(this.editorElement);
 
     this.editorInstance.update(() => {
+
       // Get the RootNode from the EditorState
       const root = $getRoot();
 
@@ -168,13 +177,19 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
       const paragraphNode = $createParagraphNode();
 
       // Create a new TextNode
-      const textNode = $createTextNode('Hello world');
+      const textNode = $createTextNode('Hello world').toggleFormat('italic');
 
       // Append the text node to the paragraph
       paragraphNode.append(textNode);
 
+
+
       // Finally, append the paragraph to the root
       root.append(paragraphNode);
+
+
+      const markdown = $convertToMarkdownString(TRANSFORMERS, root);
+      console.log(markdown);
     });
     this.editorInstance.registerCommand(
       SELECTION_CHANGE_COMMAND,
@@ -208,24 +223,44 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
           }}
         >
           <div class="toolbar">
-            <goat-button
-              class="btn"
-              variant="outline"
-              icon="house"
-              onGoat:click={() => {
-                this.editorInstance.dispatchCommand(UNDO_COMMAND);
+            <goat-button-group>
+              <goat-button  icon="arrow-counterclockwise"
+                            variant="outline"
+                            onGoat:click={() => {
+                              this.editorInstance.dispatchCommand(REDO_COMMAND);
+                            }}
+              ></goat-button>
+              <goat-button  icon="arrow-clockwise"
+                            variant="outline"
+                            onGoat:click={() => {
+                              this.editorInstance.dispatchCommand(UNDO_COMMAND);
+                            }}
+              ></goat-button>
+              <goat-button  icon="text-left"
+                            variant="outline"
+                            onGoat:click={() => {
+                              this.editorInstance.dispatchCommand(FORMAT_ELEMENT_COMMAND, "left");
+                            }}
+              ></goat-button>
+              <goat-button icon="text-center" variant="outline"
+                           onGoat:click={() => {
+                             this.editorInstance.dispatchCommand(FORMAT_ELEMENT_COMMAND, "center");
+                           }}></goat-button>
+              <goat-button icon="text-right" variant="outline"
+                           onGoat:click={() => {
                 this.editorInstance.dispatchCommand(FORMAT_ELEMENT_COMMAND, "right");
-              }}
-            />
-            <goat-button
-              class="btn"
-              variant="outline"
-              icon="house"
-              onGoat:click={() => {
-                this.editorInstance.dispatchCommand(UNDO_COMMAND);
-                this.editorInstance.dispatchCommand(FORMAT_ELEMENT_COMMAND, "right");
-              }}
-            />
+              }}></goat-button>
+
+              <goat-button icon="type-bold" variant="outline"
+                           onGoat:click={() => {
+                             this.editorInstance.dispatchCommand(FORMAT_TEXT_COMMAND, "bold");
+                           }}></goat-button>
+
+              <goat-button icon="type-italic" variant="outline"
+                           onGoat:click={() => {
+                             this.editorInstance.dispatchCommand(FORMAT_TEXT_COMMAND, "italic");
+                           }}></goat-button>
+            </goat-button-group>
           </div>
           <div class="editor" contenteditable ref={el => (this.editorElement = el)}></div>
           {!this.editorInstance && (

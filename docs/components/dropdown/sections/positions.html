@@ -1,8 +1,8 @@
-<goat-text type="paragraph">
+<goat-text type="body">
   The dropdown can be positioned relative to the trigger element. Possible positions are: <code class="language-html">top-right</code>, <code class="language-html">top-left</code>,
   <code class="language-html">bottom-left</code>, <code class="language-html">bottom-right</code>.
 </goat-text>
-<goat-text type="paragraph">
+<goat-text type="body">
   You can also use the <code class="language-html">positions</code> attribute to set all preferred position of the dropdown. On scroll, the dropdown will be repositioned to the
   closest position.
 </goat-text>
@@ -10,26 +10,26 @@
 <goat-card>
   <goat-card-content>
     <goat-dropdown id="dropdown" item-variant="icon" positions="bottom-right,top-right">
-      <goat-button icon="house" variant="outline" aria-label="House"> Open</goat-button>
+      <goat-button icon="home" variant="outline" aria-label="House"> Open</goat-button>
       <goat-menu slot="dropdown-content" class="menu" style="width: 200px">
         <goat-menu-item value="cut">
-          <goat-icon name="scissors" slot="start" size="sm"></goat-icon>
+          <goat-icon name="cut" slot="start"></goat-icon>
           Cut
           <span slot="end">⌘X</span>
         </goat-menu-item>
         <goat-menu-item value="copy">
-          <goat-icon name="files" slot="start" size="sm"></goat-icon>
+          <goat-icon name="copy" slot="start"></goat-icon>
           Copy
           <span slot="end">⌘C</span>
         </goat-menu-item>
         <goat-menu-item value="paste">
-          <goat-icon name="clipboard" slot="start" size="sm"></goat-icon>
+          <goat-icon name="paste" slot="start"></goat-icon>
           Paste
           <span slot="end">⌘X</span>
         </goat-menu-item>
         <goat-divider></goat-divider>
         <goat-menu-item value="delete">
-          <goat-icon name="trash" slot="start" size="sm"></goat-icon>
+          <goat-icon name="trash-can" slot="start"></goat-icon>
           Delete
           <span slot="end">←</span>
         </goat-menu-item>
@@ -37,27 +37,27 @@
     </goat-dropdown>
 
     <goat-dropdown id="dropdown" item-variant="icon" positions="top-left,bottom-left">
-      <goat-button icon="trash" class="color-error" aria-label="House"></goat-button>
+      <goat-button icon="trash-can" class="color-error" aria-label="House"></goat-button>
 
       <goat-menu slot="dropdown-content" class="menu" style="width: 200px">
         <goat-menu-item value="cut">
-          <goat-icon name="scissors" slot="start" size="sm"></goat-icon>
+          <goat-icon name="scissors" slot="start"></goat-icon>
           Cut
           <span slot="end">⌘X</span>
         </goat-menu-item>
         <goat-menu-item value="copy">
-          <goat-icon name="files" slot="start" size="sm"></goat-icon>
+          <goat-icon name="files" slot="start"></goat-icon>
           Copy
           <span slot="end">⌘C</span>
         </goat-menu-item>
         <goat-menu-item value="paste">
-          <goat-icon name="clipboard" slot="start" size="sm"></goat-icon>
+          <goat-icon name="clipboard" slot="start"></goat-icon>
           Paste
           <span slot="end">⌘X</span>
         </goat-menu-item>
         <goat-divider></goat-divider>
         <goat-menu-item value="delete">
-          <goat-icon name="trash" slot="start" size="sm"></goat-icon>
+          <goat-icon name="trash" slot="start"></goat-icon>
           Delete
           <span slot="end">←</span>
         </goat-menu-item>

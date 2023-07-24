@@ -10,6 +10,7 @@ layout: default
       <goat-tree-node label="Overview" href='/components'></goat-tree-node>
 
       {% for category in site.data.componentsDetails.categories %}
+      {% if category.hide == false %}
       <goat-tree-node label="{{category.name}}">
 
         {% for component in category.components %}
@@ -18,8 +19,8 @@ layout: default
         {% endif %}
         {% endfor %}
 
-
       </goat-tree-node>
+      {% endif %}
       {% endfor %}
 
     </goat-tree-view>
@@ -38,7 +39,7 @@ layout: default
       <goat-breadcrumb-item active>{{page.title}}</goat-breadcrumb-item>
     </goat-breadcrumb>
 
-    <goat-text type='heading' size='md'>{{page.title}}</goat-text>
+    <goat-text type='heading' heading-size='6'>{{page.title}}</goat-text>
 
 
     {{content}}
@@ -52,9 +53,8 @@ layout: default
 
   <div class='footer container'>
     <goat-divider></goat-divider>
-    <goat-text type='paragraph' size='sm'>&copy; 2021
-      <goat-link href='https://shivajivarma.com'>Shivaji Varma</goat-link>
-      . All Rights Reserved.
+    <goat-text type='legal' expressive>
+      &copy; 2021 <goat-link href='https://shivajivarma.com'>Shivaji Varma</goat-link>. All Rights Reserved.
     </goat-text>
   </div>
 </div>

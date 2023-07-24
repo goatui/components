@@ -2,7 +2,9 @@
 @import "functions";
 
 @mixin font-style($type) {
+  font-family: v(--#{$type}-font-family);
   font-size: v(--#{$type}-font-size);
+  font-weight: v(--#{$type}-font-weight);
   line-height: v(--#{$type}-line-height);
   letter-spacing: v(--#{$type}-letter-spacing);
 }
@@ -12,31 +14,31 @@
 }
 
 @mixin for-phone-only {
-  @media (max-width: 599px) {
+  @media (max-width: 671px) {
     @content;
   }
 }
 
 @mixin for-tablet-portrait-up {
-  @media (min-width: 600px) {
+  @media (min-width: 672px) {
     @content;
   }
 }
 
 @mixin for-tablet-landscape-up {
-  @media (min-width: 900px) {
+  @media (min-width: 1056px) {
     @content;
   }
 }
 
 @mixin for-desktop-up {
-  @media (min-width: 1200px) {
+  @media (min-width: 1312px) {
     @content;
   }
 }
 
 @mixin for-big-desktop-up {
-  @media (min-width: 1800px) {
+  @media (min-width: 1584px) {
     @content;
   }
 }

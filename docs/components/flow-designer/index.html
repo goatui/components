@@ -10,14 +10,14 @@ sections:
 <div class="usage-tab">
   <!-- Content -->
   <div class="component-content">
-    <div style="padding-bottom: var(--spacing-6)">
-      <goat-text type="paragraph">{{page.description}}</goat-text>
+    <div class="component-description">
+      <goat-text type="body">{{page.description}}</goat-text>
     </div>
     <goat-tag class='color-red'>Work in progress</goat-tag>
 
     {% for section in page.sections %}
-    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' style="padding-bottom: var(--spacing-4)">
-      <goat-text type="heading" level="2" size="sm">{{ section.title }}</goat-text>
+    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' class="component-section">
+      <goat-text type="heading" heading-size="4">{{ section.title }}</goat-text>
 
 
       {% include_relative {{ section.source }} %}

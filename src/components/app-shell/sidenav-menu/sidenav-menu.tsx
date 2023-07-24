@@ -17,7 +17,7 @@ export class SidenavMenu implements ComponentInterface {
 
   @Prop({ mutable: true }) empty: boolean = false;
 
-  @Prop({ mutable: true }) emptyState: string = `{
+  @Prop({ mutable: true }) emptyState: any =  `{
     "headline": "No items",
     "description": "There are no items to display"
   }`;
@@ -29,6 +29,8 @@ export class SidenavMenu implements ComponentInterface {
   parseEmptyState() {
     if (this.emptyState) {
       this.internalEmptyState = JSON.parse(this.emptyState);
+    } else {
+      this.internalEmptyState = this.emptyState;
     }
   }
 

@@ -201,8 +201,8 @@ $colors: (
   )
 );
 
-@function getColor($colorName, $grade) {
-  @return map.get(map.get($colors, $colorName), $grade);
+@function getColor($colorName, $grade, $opacity: 1) {
+  @return rgba(map.get(map.get($colors, $colorName), $grade), $opacity);
 }
 
 @mixin cloneColor($to, $from) {
@@ -271,102 +271,110 @@ $dark-color-css-variables: ();
 @include defineVariable(--color-black, getColor(black, 100));
 @include defineVariable(--color-dark, getColor(black, 100), getColor(white, 0));
 @include defineVariable(--color-light, getColor(white, 0), getColor(black, 100));
-@include defineVariable(--border-color, getColor(neutral, 50));
+@include defineVariable(--border-color, getColor(gray, 50));
 
 /*
  * Default page background;
  * UI Shell base color
  */
-@include defineVariable(--background, getColor(white, 0), getColor(neutral, 100));
+@include defineVariable(--background, getColor(white, 0), getColor(gray, 100));
 
 /*
  * Container color on $background;
  * Secondary page background
  */
-@include defineVariable(--layer-01, getColor(neutral, 10), getColor(neutral, 90));
+@include defineVariable(--layer-01, getColor(gray, 10), getColor(gray, 90));
 
 /*
 Container color on $layer-01
  */
-@include defineVariable(--layer-02, getColor(white, 0), getColor(neutral, 80));
+@include defineVariable(--layer-02, getColor(white, 0), getColor(gray, 80));
 
 /*
 Container color on $layer-02
  */
-@include defineVariable(--layer-03, getColor(neutral, 10), getColor(neutral, 70));
+@include defineVariable(--layer-03, getColor(gray, 10), getColor(gray, 70));
 /*
 Subtle border;
 Tertiary background
  */
-@include defineVariable(--layer-accent-01, getColor(neutral, 20), getColor(neutral, 80));
+@include defineVariable(--layer-accent-01, getColor(gray, 20), getColor(gray, 80));
 
 
-@include defineVariable(--border-subtle-00, getColor(gray, 20), getColor(neutral, 80));
-@include defineVariable(--border-subtle-01, getColor(gray, 20), getColor(neutral, 80));
-@include defineVariable(--border-subtle-02, getColor(gray, 20), getColor(neutral, 70));
-@include defineVariable(--border-subtle-03, getColor(gray, 20), getColor(neutral, 60));
+@include defineVariable(--border-subtle-00, getColor(gray, 20), getColor(gray, 80));
+@include defineVariable(--border-subtle-01, getColor(gray, 20), getColor(gray, 80));
+@include defineVariable(--border-subtle-02, getColor(gray, 20), getColor(gray, 70));
+@include defineVariable(--border-subtle-03, getColor(gray, 20), getColor(gray, 60));
 
-@include defineVariable(--ui-04, getColor(neutral, 50), getColor(neutral, 10));
-@include defineVariable(--border-inverse, getColor(neutral, 100), getColor(neutral, 10));
+@include defineVariable(--ui-04, getColor(gray, 50), getColor(gray, 10));
+@include defineVariable(--border-inverse, getColor(gray, 100), getColor(gray, 10));
 
-@include defineVariable(--background-inverse, getColor(neutral, 80), getColor(neutral, 10));
+@include defineVariable(--background-inverse, getColor(gray, 80), getColor(gray, 10));
 
 
-@include defineVariable(--layer-hover-01, getColor(neutral, 10), getColor(neutral, 90));
+@include defineVariable(--layer-hover-01, getColor(gray, 10), getColor(gray, 90));
 /**
 Primary text;
 Body copy;
 Headers;
 Hover text color for --text-secondary
  */
-@include defineVariable(--text-primary, getColor(neutral, 100), getColor(neutral, 10));
+@include defineVariable(--text-primary, getColor(gray, 100), getColor(gray, 10));
 
 /**
-Secondary text;
-Input labels
+ * Secondary text;
+ * Input labels
  */
-@include defineVariable(--text-secondary, getColor(neutral, 70), getColor(neutral, 30));
+@include defineVariable(--text-secondary, getColor(gray, 70), getColor(gray, 30));
 
 /**
-Placeholder text
+ * Placeholder text
  */
-@include defineVariable(--text-placeholder, getColor(neutral, 40), getColor(neutral, 60));
+@include defineVariable(--text-placeholder, getColor(gray, 40), getColor(gray, 60));
 
 /**
-Text on interactive colors
+Text on interactive colors;
+Text on button colors
  */
-@include defineVariable(--text-04, getColor(white, 0), getColor(white, 0));
+@include defineVariable(--text-on-color, getColor(white, 0), getColor(white, 0));
 
 
 /**
 Tertiary text;
 Help text
  */
-@include defineVariable(--text-05, getColor(neutral, 60), getColor(neutral, 50));
+@include defineVariable(--text-helper, getColor(gray, 60), getColor(gray, 50));
+
+/**
+Error message text
+ */
+@include defineVariable(--text-error, getColor(red, 60), getColor(red, 40));
 
 /**
 Inverse text color
  */
-@include defineVariable(--text-inverse, getColor(white, 0), getColor(neutral, 100));
+@include defineVariable(--text-inverse, getColor(white, 0), getColor(gray, 100));
+
+
 
 /*
 Default input fields;
 Fields on $backgrounds
  */
-@include defineVariable(--field-01, getColor(neutral, 10), getColor(neutral, 90));
-@include defineVariable(--field-02, getColor(white, 0), getColor(neutral, 80));
+@include defineVariable(--field-01, getColor(gray, 10), getColor(gray, 90));
+@include defineVariable(--field-02, getColor(white, 0), getColor(gray, 80));
 
 /*
 Selected UI elements
  */
-@include defineVariable(--selected-ui, getColor(neutral, 20), getColor(neutral, 80));
+@include defineVariable(--selected-ui, getColor(gray, 20), getColor(gray, 80));
 
 /**
 * Disabled fields;
 * Disabled backgrounds;
 * Disabled border
 */
-@include defineVariable(--disabled-01, getColor(neutral, 10), getColor(neutral, 90));
+@include defineVariable(--disabled-01, getColor(gray, 10), getColor(gray, 90));
 
 /**
 * Disabled elements on $disabled-01;
@@ -375,14 +383,14 @@ Selected UI elements
 * Disabled icons;
 * Disabled border
 */
-@include defineVariable(--text-disabled, getColor(neutral, 30), getColor(neutral, 70));
-@include defineVariable(--border-disabled, getColor(neutral, 30), getColor(neutral, 70));
+@include defineVariable(--text-disabled, getColor(gray, 100, 0.25), getColor(gray, 10, 0.25));
+@include defineVariable(--border-disabled, getColor(gray, 30), getColor(gray, 70));
 
 /**
 * Disabled text on $disabled-02;
 * Disabled icons on $disabled-02
 */
-@include defineVariable(--disabled-03, getColor(neutral, 50), getColor(neutral, 60));
+@include defineVariable(--disabled-03, getColor(gray, 50), getColor(gray, 60));
 
 /**
 * Primary links;
@@ -405,16 +413,16 @@ Secondary link color for lower contrast backgrounds
 */
 @include defineVariable(--link-02, getColor(primary, 40));
 
-@include defineVariable(--icon-01, getColor(neutral, 100), getColor(neutral, 10));
-@include defineVariable(--icon-02, getColor(neutral, 70), getColor(neutral, 30));
+@include defineVariable(--icon-01, getColor(gray, 100), getColor(gray, 10));
+@include defineVariable(--icon-02, getColor(gray, 70), getColor(gray, 30));
 
 
-@include defineVariable(--hover-ui, getColor(neutral, 10), getColor(neutral, 90));
-@include defineVariable(--active-ui, getColor(neutral, 30), getColor(neutral, 30));
+@include defineVariable(--hover-ui, getColor(gray, 10), getColor(gray, 90));
+@include defineVariable(--active-ui, getColor(gray, 30), getColor(gray, 30));
 
-@include defineVariable(--border-subtle-00, getColor(neutral, 30), getColor(neutral, 30));
+@include defineVariable(--border-subtle-00, getColor(gray, 30), getColor(gray, 30));
 
-@include defineVariable(--border-strong-01, getColor(neutral, 50), getColor(neutral, 60));
+@include defineVariable(--border-strong-01, getColor(gray, 50), getColor(gray, 60));
 
 @include defineVariable(--danger-01, getColor(red, 60));
 
@@ -430,11 +438,11 @@ Secondary link color for lower contrast backgrounds
 @include defineVariable(--support-warning-inverse, getColor(warning, 30), getColor(warning, 30));
 @include defineVariable(--support-info-inverse, getColor(info, 50), getColor(info, 70));
 
-@include defineVariable(--toggle-off, getColor(neutral, 50), getColor(neutral, 60));
+@include defineVariable(--toggle-off, getColor(gray, 50), getColor(gray, 60));
 
-@include defineVariable(--button-disabled, getColor(neutral, 30), getColor(neutral, 70));
-@include defineVariable(--icon-on-color-disabled, getColor(neutral, 50), getColor(white, 0));
-@include defineVariable(--icon-primary, getColor(neutral, 100), getColor(neutral, 10));
+@include defineVariable(--button-disabled, getColor(gray, 30), getColor(gray, 70));
+@include defineVariable(--icon-on-color-disabled, getColor(gray, 50), getColor(white, 0));
+@include defineVariable(--icon-primary, getColor(gray, 100), getColor(gray, 10));
 
 
 

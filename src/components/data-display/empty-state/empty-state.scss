@@ -6,9 +6,9 @@
 
 .empty-state {
   display: flex;
-  padding: v(--spacing-3);
+  padding: v(--spacing-03);
   justify-content: center;
-  gap: v(--spacing-8);
+  gap: v(--spacing-08);
   height: 100%;
   align-items: center;
   max-width: v(--container-lg);
@@ -50,13 +50,13 @@
   .title {
     @include font-style(text-md);
     font-weight: v(--font-weight-semi-bold);
-    margin-bottom: v(--spacing-2);
+    margin-bottom: v(--spacing-02);
     color: var(--text-color, v(--text-primary))
   }
 
   .description {
     @include font-style(text-sm);
-    margin-bottom: v(--spacing-4);
+    margin-bottom: v(--spacing-04);
     color: var(--text-color, v(--text-secondary))
   }
 }
@@ -79,7 +79,7 @@
 
 .empty-state.vertical {
   flex-direction: column;
-  gap: v(--spacing-5);
+  gap: v(--spacing-05);
 
   .illustration {
     height: auto;

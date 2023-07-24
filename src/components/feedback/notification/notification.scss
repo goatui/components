@@ -3,7 +3,7 @@
 
 :host {
   display: block;
-  margin-bottom: v(--spacing-3);
+  margin-bottom: v(--spacing-03);
 }
 
 .notification {
@@ -12,13 +12,13 @@
   display: flex;
 
   .state-icon {
-    padding: v(--spacing-5) v(--spacing-4);
+    padding: v(--spacing-05) v(--spacing-04);
     line-height: 0;
   }
 
   .content {
     flex: 1;
-    padding: v(--spacing-4) 0;
+    padding: v(--spacing-04) 0;
 
     .title {
       @include font-style(text-md);
@@ -33,12 +33,12 @@
 
   .close-button {
     margin: 0;
-    padding: v(--spacing-3);
+    padding: v(--spacing-03);
   }
 }
 
 :host(:not([dismissible])) .content {
-  padding-inline-end: v(--spacing-4);
+  padding-inline-end: v(--spacing-04);
 }
 
 

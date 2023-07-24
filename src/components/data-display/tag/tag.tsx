@@ -39,7 +39,7 @@ export class Tag implements ComponentInterface {
     }
     const size = this.size === 'md' ? '24px' : '16px';
     return <button class='close-btn' onClick={() => this.dismissClickHandler()}>
-      <goat-icon class='close-btn-icon inherit' name='x' size={size}></goat-icon>
+      <goat-icon class='close-btn-icon inherit' name='close' size={size}></goat-icon>
     </button>;
   }
 

@@ -5,6 +5,7 @@
 }
 
 .accordion-item {
+
   .accordion-heading {
     cursor: pointer;
     width: 100%;
@@ -12,18 +13,19 @@
     color: v(--text-primary);
     background: transparent;
     border: 0;
-    padding: v(--spacing-2) var(--spacing-4);
+    padding: 0 var(--spacing-05);
 
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
     justify-content: flex-start;
     gap: 0.5rem;
+    @include font-style(body);
 
     .accordion-title {
       width: 100%;
       text-align: left;
-      @include font-style(text-md);
+
     }
 
     svg {
@@ -42,6 +44,7 @@
   .item-section {
     height: 0;
     opacity: 0;
+    text-align: start;
     pointer-events: none;
     transition: all 0.1s linear;
   }
@@ -53,11 +56,11 @@
     .item-section {
       height: 100%;
       opacity: 1;
-      padding: v(--spacing-2) var(--spacing-4) v(--spacing-4) var(--spacing-4);
+      padding: v(--spacing-03) v(--spacing-10) v(--spacing-06) v(--spacing-05);
     }
 
     .accordion-icon {
-      transform: rotate(90deg);
+      transform: rotate(180deg);
     }
   }
 
@@ -73,7 +76,33 @@
 
 }
 
-:host-context(.icon-start) {
+/*
+ * Sizes
+ */
+.accordion-item {
+  .accordion-heading {
+    height: 2.5rem;
+  }
+}
+
+:host-context([size="sm"]) {
+  .accordion-item {
+    .accordion-heading {
+      height: 2rem;
+    }
+  }
+}
+
+:host-context([size="lg"]) {
+  .accordion-item {
+    .accordion-heading {
+      height: 3rem;
+    }
+  }
+}
+
+
+:host-context(goat-accordion[align="start"]) {
   .accordion-item {
     .accordion-heading {
       flex-direction: row;

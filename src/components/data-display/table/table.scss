@@ -43,14 +43,18 @@
     }
 
     .page-sizes-select {
-      margin-inline-start: v(--spacing-3);
+      margin-inline-start: v(--spacing-03);
     }
 
     .pagination-item-count {
-      margin-inline-start: v(--spacing-4);
+      margin-inline-start: v(--spacing-04);
       flex: 1;
       display: flex;
       align-items: center;
+    }
+
+    .arrows {
+      --border-radius: 0;
     }
   }
 }
@@ -78,7 +82,7 @@
       height: 100%;
 
       .col-text {
-        padding: v(--spacing-2) v(--spacing-3);
+        padding: v(--spacing-02) v(--spacing-03);
         flex: 1;
         overflow: hidden;
         white-space: nowrap;
@@ -94,7 +98,7 @@
       }
 
       .checkbox {
-        padding: 0 v(--spacing-3);
+        padding: 0 v(--spacing-03);
       }
     }
 

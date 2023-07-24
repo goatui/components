@@ -78,7 +78,7 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [goat-calendar](../../data-display/calendar/calendar)
+ - [goat-calendar](../../calendar/calendar)
  - [goat-table](../../data-display/table)
 
 ### Depends on

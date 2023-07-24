@@ -11,11 +11,7 @@
   .editor {
     height: 100%;
     min-height: 20rem;
-    background: red;
+    outline: none;
+    border: 1px solid v(--border-color);
   }
-
-}
-
-.ck-powered-by-balloon {
-  display: none;
 }

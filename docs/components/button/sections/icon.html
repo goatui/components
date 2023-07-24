@@ -1,18 +1,15 @@
-<goat-card>
-  <goat-card-content>
-    <goat-button icon="circle"></goat-button>
-    <goat-button icon="circle">Button CTA</goat-button>
-    <goat-button icon="circle" icon-end="">Button CTA</goat-button>
-    <br /><br />
-    <goat-button icon="circle" variant="outline"></goat-button>
-    <goat-button icon="circle" variant="ghost"></goat-button>
-    <goat-button icon="circle" variant="ghost" size="sm">Button CTA</goat-button>
-  </goat-card-content>
-  <goat-card-content>
-    {% GoatHighlighter language:"html" %}
-    <goat-button icon="circle"></goat-button>
-    <goat-button icon="circle">Button CTA</goat-button>
-    <goat-button icon="circle" icon-end="">Button CTA</goat-button>
-    {% endGoatHighlighter %}
-  </goat-card-content>
-</goat-card>
+{% GoatHighlighterCard language:"html" %}
+<div class='component-container'>
+  <goat-button icon="add"></goat-button>
+  <goat-button icon="add">Add</goat-button>
+
+  <goat-button icon="chevron--left" icon-align='start'>Previous</goat-button>
+  <goat-button icon="chevron--right">Next</goat-button>
+</div>
+
+<div class='component-container'>
+  <goat-button icon="save" variant="outline"></goat-button>
+  <goat-button icon="save" variant="ghost"></goat-button>
+  <goat-button icon="circle-stroke" variant="ghost" size="sm">Button CTA</goat-button>
+</div>
+{% endGoatHighlighterCard %}

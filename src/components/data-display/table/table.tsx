@@ -157,15 +157,14 @@ export class Table {
               (() => {
                 if (!this.sortable)
                   return;
-                let icon = 'arrow-down-up';
+                let icon = 'arrows--vertical';
                 if (this.sortBy === col.name) {
                   if (this.sortOrder === 'asc')
-                    icon = 'arrow-up';
+                    icon = 'arrow--up';
                   else
-                    icon = 'arrow-down';
+                    icon = 'arrow--down';
                 }
-                return <goat-button size='sm'
-                                    icon={icon}
+                return <goat-button icon={icon}
                                     class='col-action color-secondary'
                                     variant='ghost' onClick={() => {
                   if (this.sortBy === col.name) {
@@ -281,8 +280,7 @@ export class Table {
       return <div class='pagination'>
         <div class='page-sizes-select'>
           <goat-form-control label='Items per page:' inline class='form-control'>
-            <goat-select size='sm'
-                         class='select'
+            <goat-select class='select'
                          items={SUPPORTED_PAGE_SIZES}
                          positions='top-right'
                          value={this.pageSize}
@@ -293,21 +291,24 @@ export class Table {
           </goat-form-control>
         </div>
         <div class='pagination-item-count'>
-          <goat-text
-            size='sm'>{this.pageSize * (this.page - 1)} - {this.pageSize * (this.page) < this.getTotalItems() ? this.pageSize * (this.page) : this.getTotalItems()} of {this.getTotalItems()} items
+          <goat-text inline>{this.pageSize * (this.page - 1)} - {this.pageSize * (this.page) < this.getTotalItems() ? this.pageSize * (this.page) : this.getTotalItems()} of {this.getTotalItems()} items
           </goat-text>
         </div>
         <div class='pagination-right'>
           <div class='table-footer-right-content'>
 
             <div class='table-footer-right-content-pagination'>
-              <goat-button size='sm' icon='arrow-left' variant='ghost'
+              <goat-button icon='arrow--left'
+                           class="arrows"
+                           variant='ghost'
                            disabled={this.page === 1}
                            onClick={() => {
                              this.page = this.page - 1;
                              this.goatPage.emit({ page: this.page, pageSize: this.pageSize });
                            }} />
-              <goat-button size='sm' icon='arrow-right' variant='ghost'
+              <goat-button icon='arrow--right'
+                           variant='ghost'
+                           class="arrows"
                            disabled={this.pageSize * (this.page) >= this.getTotalItems()}
                            onClick={() => {
                              this.page = this.page + 1;

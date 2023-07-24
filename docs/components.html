@@ -7,9 +7,10 @@ keywords: web components, button, input, grid, ui library, calendar, table, acco
 <style>
   .cards {
     display: flex;
-    gap: 1rem;
+    gap: var(--spacing-09) var(--spacing-06);
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin-bottom: var(--spacing-09);
   }
 
   .card {
@@ -17,7 +18,7 @@ keywords: web components, button, input, grid, ui library, calendar, table, acco
   }
 
   .card-wrapper {
-    min-width: 18rem;
+    min-width: 17rem;
     width: 18%;
     position: relative;
     --link-decoration: none;
@@ -77,7 +78,7 @@ keywords: web components, button, input, grid, ui library, calendar, table, acco
   }
 
   #component-search {
-    margin-bottom: var(--spacing-8);
+    margin-bottom: var(--spacing-09);
   }
 
   .hidden {
@@ -120,7 +121,7 @@ keywords: web components, button, input, grid, ui library, calendar, table, acco
       </goat-card-content>
 
       <goat-card-content class="body">
-        <goat-text class="text" type="heading" level="5">{{component.metadata.name}}</goat-text>
+        <goat-text class="text" type="heading" heading-size='3'>{{component.metadata.name}}</goat-text>
 
         {% for tag in component.metadata.tags %}
         <goat-link href="/components?filter={{tag}}"> <goat-tag class="color-blue" tag="{{tag}}">{{tag}}</goat-tag></goat-link>

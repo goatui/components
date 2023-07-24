@@ -103,21 +103,21 @@ export class Calendar implements ComponentInterface {
     return (
       <div class="calendar-header-classic">
         <div class="header-left">
-          <goat-button variant="outline" size="sm" class="color-secondary" onClick={() => (this.contextDate = this.currentTime)}>
+          <goat-button variant="outline" size="sm" block class="color-secondary" onClick={() => (this.contextDate = this.currentTime)}>
             Today
           </goat-button>
           <goat-button
             variant="ghost"
             size="sm"
             class="color-secondary"
-            icon="chevron-left"
+            icon="chevron--left"
             onClick={() => this.previous()}
           ></goat-button>
           <goat-button
             variant="ghost"
             size="sm"
             class="color-secondary"
-            icon="chevron-right"
+            icon="chevron--right"
             onClick={() => this.next()}
           ></goat-button>
           <div class="title">{format(this.contextDate, 'MMMM d, yyyy')}</div>
