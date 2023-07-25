@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-07-23T14:29:37",
+  "timestamp": "2023-07-24T15:27:22",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.0.1",
@@ -2566,6 +2566,10 @@
         {
           "name": "img",
           "text": "/assets/img/code-editor.png"
+        },
+        {
+          "name": "imgDark",
+          "text": "/assets/img/code-editor-dark.png"
         }
       ],
       "encapsulation": "shadow",
@@ -2892,7 +2896,8 @@
           "input",
           " form"
         ],
-        "img": "/assets/img/code-editor.png"
+        "img": "/assets/img/code-editor.png",
+        "imgDark": "/assets/img/code-editor-dark.png"
       }
     },
     {
@@ -4925,6 +4930,114 @@
       }
     },
     {
+      "filePath": "src/components/general/image/image.tsx",
+      "fileName": "image.tsx",
+      "tag": "goat-image",
+      "readme": "# goat-icon\n\n\n",
+      "overview": "",
+      "usage": {},
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "name",
+          "text": "Image"
+        },
+        {
+          "name": "description",
+          "text": "Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information."
+        },
+        {
+          "name": "category",
+          "text": "General"
+        },
+        {
+          "name": "example",
+          "text": "<goat-icon name=\"home\"></goat-icon>"
+        }
+      ],
+      "encapsulation": "shadow",
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {},
+      "props": [
+        {
+          "name": "darkSrc",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "dark-src",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "imageTitle",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "image-title",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "src",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "src",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "listeners": [],
+      "metadata": {
+        "name": "Image",
+        "description": "Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.",
+        "category": "General",
+        "example": "<goat-icon name=\"home\"></goat-icon>"
+      }
+    },
+    {
       "filePath": "src/components/data-entry/input/input.tsx",
       "fileName": "input.tsx",
       "tag": "goat-input",
@@ -6915,20 +7028,6 @@
       ],
       "events": [
         {
-          "event": "goat:action-click",
-          "detail": "any",
-          "bubbles": true,
-          "complexType": {
-            "original": "any",
-            "resolved": "any",
-            "references": {}
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "Emitted when the action button is clicked..",
-          "docsTags": []
-        },
-        {
           "event": "goat:change",
           "detail": "any",
           "bubbles": true,
@@ -7894,6 +7993,27 @@
         ]
       },
       "props": [
+        {
+          "name": "size",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": true,
+          "docs": "The Icon size.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
         {
           "name": "src",
           "type": "string",
@@ -11814,6 +11934,114 @@
           }
         },
         {
+          "filePath": "src/components/general/image/image.tsx",
+          "fileName": "image.tsx",
+          "tag": "goat-image",
+          "readme": "# goat-icon\n\n\n",
+          "overview": "",
+          "usage": {},
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "name",
+              "text": "Image"
+            },
+            {
+              "name": "description",
+              "text": "Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information."
+            },
+            {
+              "name": "category",
+              "text": "General"
+            },
+            {
+              "name": "example",
+              "text": "<goat-icon name=\"home\"></goat-icon>"
+            }
+          ],
+          "encapsulation": "shadow",
+          "dependents": [],
+          "dependencies": [],
+          "dependencyGraph": {},
+          "props": [
+            {
+              "name": "darkSrc",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "dark-src",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "imageTitle",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "image-title",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "src",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "src",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
+          "methods": [],
+          "events": [],
+          "styles": [],
+          "slots": [],
+          "parts": [],
+          "listeners": [],
+          "metadata": {
+            "name": "Image",
+            "description": "Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.",
+            "category": "General",
+            "example": "<goat-icon name=\"home\"></goat-icon>"
+          }
+        },
+        {
           "filePath": "src/components/general/text/text.tsx",
           "fileName": "text.tsx",
           "tag": "goat-text",
@@ -13583,6 +13811,10 @@
             {
               "name": "img",
               "text": "/assets/img/code-editor.png"
+            },
+            {
+              "name": "imgDark",
+              "text": "/assets/img/code-editor-dark.png"
             }
           ],
           "encapsulation": "shadow",
@@ -13909,7 +14141,8 @@
               "input",
               " form"
             ],
-            "img": "/assets/img/code-editor.png"
+            "img": "/assets/img/code-editor.png",
+            "imgDark": "/assets/img/code-editor-dark.png"
           }
         },
         {
@@ -15912,20 +16145,6 @@
             }
           ],
           "events": [
-            {
-              "event": "goat:action-click",
-              "detail": "any",
-              "bubbles": true,
-              "complexType": {
-                "original": "any",
-                "resolved": "any",
-                "references": {}
-              },
-              "cancelable": true,
-              "composed": true,
-              "docs": "Emitted when the action button is clicked..",
-              "docsTags": []
-            },
             {
               "event": "goat:change",
               "detail": "any",
@@ -18602,6 +18821,27 @@
             ]
           },
           "props": [
+            {
+              "name": "size",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "size",
+              "reflectToAttr": true,
+              "docs": "The Icon size.",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
             {
               "name": "src",
               "type": "string",

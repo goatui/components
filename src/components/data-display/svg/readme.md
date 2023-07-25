@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default |
-| -------- | --------- | ----------- | -------- | ------- |
-| `src`    | `src`     |             | `string` | `''`    |
+| Property | Attribute | Description    | Type     | Default     |
+| -------- | --------- | -------------- | -------- | ----------- |
+| `size`   | `size`    | The Icon size. | `string` | `undefined` |
+| `src`    | `src`     |                | `string` | `''`        |
 
 
 ## Dependencies

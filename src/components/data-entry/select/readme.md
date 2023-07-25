@@ -31,12 +31,11 @@
 
 ## Events
 
-| Event               | Description                                 | Type               |
-| ------------------- | ------------------------------------------- | ------------------ |
-| `goat:action-click` | Emitted when the action button is clicked.. | `CustomEvent<any>` |
-| `goat:change`       | Emitted when the value has changed.         | `CustomEvent<any>` |
-| `goat:search`       | Emitted when a keyboard input occurred.     | `CustomEvent<any>` |
-| `goat:search-enter` |                                             | `CustomEvent<any>` |
+| Event               | Description                             | Type               |
+| ------------------- | --------------------------------------- | ------------------ |
+| `goat:change`       | Emitted when the value has changed.     | `CustomEvent<any>` |
+| `goat:search`       | Emitted when a keyboard input occurred. | `CustomEvent<any>` |
+| `goat:search-enter` |                                         | `CustomEvent<any>` |
 
 
 ## Methods

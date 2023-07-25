@@ -264,6 +264,7 @@ export namespace Components {
      * @category Form Inputs
      * @tags input, form
      * @img /assets/img/code-editor.png
+     * @imgDark /assets/img/code-editor-dark.png
      */
     interface GoatCodeEditor {
         /**
@@ -321,6 +322,10 @@ export namespace Components {
      */
     interface GoatDatePicker {
         "configAria": any;
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
+         */
+        "debounce": number;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -504,6 +509,17 @@ export namespace Components {
           * The Icon size.
          */
         "size": string;
+    }
+    /**
+     * @name Image
+     * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
+     * @category General
+     * @example <goat-icon name="home"></goat-icon>
+     */
+    interface GoatImage {
+        "darkSrc": string;
+        "imageTitle": string;
+        "src": string;
     }
     /**
      * @name Input
@@ -1411,6 +1427,7 @@ declare global {
      * @category Form Inputs
      * @tags input, form
      * @img /assets/img/code-editor.png
+     * @imgDark /assets/img/code-editor-dark.png
      */
     interface HTMLGoatCodeEditorElement extends Components.GoatCodeEditor, HTMLStencilElement {
     }
@@ -1548,6 +1565,18 @@ declare global {
     var HTMLGoatIconElement: {
         prototype: HTMLGoatIconElement;
         new (): HTMLGoatIconElement;
+    };
+    /**
+     * @name Image
+     * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
+     * @category General
+     * @example <goat-icon name="home"></goat-icon>
+     */
+    interface HTMLGoatImageElement extends Components.GoatImage, HTMLStencilElement {
+    }
+    var HTMLGoatImageElement: {
+        prototype: HTMLGoatImageElement;
+        new (): HTMLGoatImageElement;
     };
     /**
      * @name Input
@@ -1864,6 +1893,7 @@ declare global {
         "goat-header-brand": HTMLGoatHeaderBrandElement;
         "goat-html-editor": HTMLGoatHtmlEditorElement;
         "goat-icon": HTMLGoatIconElement;
+        "goat-image": HTMLGoatImageElement;
         "goat-input": HTMLGoatInputElement;
         "goat-link": HTMLGoatLinkElement;
         "goat-menu": HTMLGoatMenuElement;
@@ -2158,6 +2188,7 @@ declare namespace LocalJSX {
      * @category Form Inputs
      * @tags input, form
      * @img /assets/img/code-editor.png
+     * @imgDark /assets/img/code-editor-dark.png
      */
     interface GoatCodeEditor {
         /**
@@ -2210,6 +2241,10 @@ declare namespace LocalJSX {
      */
     interface GoatDatePicker {
         "configAria"?: any;
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
+         */
+        "debounce"?: number;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -2394,6 +2429,17 @@ declare namespace LocalJSX {
           * The Icon size.
          */
         "size"?: string;
+    }
+    /**
+     * @name Image
+     * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
+     * @category General
+     * @example <goat-icon name="home"></goat-icon>
+     */
+    interface GoatImage {
+        "darkSrc"?: string;
+        "imageTitle"?: string;
+        "src"?: string;
     }
     /**
      * @name Input
@@ -3076,6 +3122,7 @@ declare namespace LocalJSX {
         "goat-header-brand": GoatHeaderBrand;
         "goat-html-editor": GoatHtmlEditor;
         "goat-icon": GoatIcon;
+        "goat-image": GoatImage;
         "goat-input": GoatInput;
         "goat-link": GoatLink;
         "goat-menu": GoatMenu;
@@ -3198,6 +3245,7 @@ declare module "@stencil/core" {
              * @category Form Inputs
              * @tags input, form
              * @img /assets/img/code-editor.png
+             * @imgDark /assets/img/code-editor-dark.png
              */
             "goat-code-editor": LocalJSX.GoatCodeEditor & JSXBase.HTMLAttributes<HTMLGoatCodeEditorElement>;
             /**
@@ -3276,6 +3324,13 @@ declare module "@stencil/core" {
              * @example <goat-icon name="home"></goat-icon>
              */
             "goat-icon": LocalJSX.GoatIcon & JSXBase.HTMLAttributes<HTMLGoatIconElement>;
+            /**
+             * @name Image
+             * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
+             * @category General
+             * @example <goat-icon name="home"></goat-icon>
+             */
+            "goat-image": LocalJSX.GoatImage & JSXBase.HTMLAttributes<HTMLGoatImageElement>;
             /**
              * @name Input
              * @description Enables native inputs to be used within a Form field.

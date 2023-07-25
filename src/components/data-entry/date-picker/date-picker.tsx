@@ -8,9 +8,9 @@ import {
   Host,
   Method,
   Prop,
-  State,
+  State, Watch,
 } from '@stencil/core';
-import { getComponentIndex } from '../../../utils/utils';
+import { debounceEvent, getComponentIndex } from '../../../utils/utils';
 
 /**
  * @name Date Picker
@@ -61,6 +61,11 @@ export class DatePicker implements ComponentInterface {
 
   @Prop({ reflect: true, mutable: true }) configAria: any = {};
 
+  /**
+   * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
+   */
+  @Prop() debounce = 300;
+
 
   /**
    * Emitted when a keyboard input occurred.
@@ -96,6 +101,11 @@ export class DatePicker implements ComponentInterface {
   }
 
 
+  @Watch('debounce')
+  protected debounceChanged() {
+    this.goatChange = debounceEvent(this.goatChange, this.debounce);
+  }
+
   @Method()
   async getComponentId() {
     return this.gid;
@@ -123,6 +133,10 @@ export class DatePicker implements ComponentInterface {
       this.nativeInput.blur();
       this.hasFocus = false;
     }
+  }
+
+  connectedCallback() {
+    this.debounceChanged();
   }
 
 
@@ -187,6 +201,7 @@ export class DatePicker implements ComponentInterface {
           'has-focus': this.hasFocus,
         }}>
           <input type='date'
+                 ref={input => (this.nativeInput = input)}
                  tabindex={this.tabindex}
                  class='input input-native'
                  disabled={this.disabled}
@@ -195,6 +210,13 @@ export class DatePicker implements ComponentInterface {
                  onInput={this.inputHandler}
                  onBlur={this.blurHandler}
                  onFocus={this.focusHandler}/>
+
+
+          <goat-button class="color-secondary" block icon={'calendar' } variant="ghost" size="none" onGoat:click={() => {
+            setTimeout(() => {
+              this.nativeInput.showPicker();
+            });
+          }}></goat-button>
         </div>
       </Host>
     );

@@ -278,15 +278,15 @@ export class Input implements ComponentInterface, InputComponentInterface {
             <goat-icon
               class="clear inherit input-action" name="close" size="1rem" onClick={this.clearInput} role="button" />}
 
-          {this.type === 'password' && !this.hideActions && <goat-button class="color-secondary no-padding" icon={this.passwordVisible ? 'view--off' : 'view'} variant="ghost" size="none" onGoat:click={() => {
+          {this.type === 'password' && !this.hideActions && <goat-button class="color-secondary" block icon={this.passwordVisible ? 'view--off' : 'view'} variant="ghost" size="none" onGoat:click={() => {
             this.passwordVisible = !this.passwordVisible;
           }}></goat-button>}
 
-          {this.type === 'number' && !this.hideActions && <goat-button class="color-secondary no-padding" icon="subtract" variant="ghost" size="none" onGoat:click={(evt) => {
+          {this.type === 'number' && !this.hideActions && <goat-button class="color-secondary" block icon="subtract" variant="ghost" size="none" onGoat:click={(evt) => {
             this.decrease(evt);
           }}></goat-button>}
 
-          {this.type === 'number' && !this.hideActions && <goat-button class="color-secondary no-padding" icon="add" variant="ghost" size="none" onGoat:click={(evt) => {
+          {this.type === 'number' && !this.hideActions && <goat-button class="color-secondary" block icon="add" variant="ghost" size="none" onGoat:click={(evt) => {
             this.increment(evt);
           }}></goat-button>}
 

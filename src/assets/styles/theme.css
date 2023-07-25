@@ -726,6 +726,7 @@ Secondary link color for lower contrast backgrounds
 
 html {
   color: var(--text-primary);
+  cursor: url("http://upload.wikimedia.org/wikipedia/commons/d/de/POL_apple.jpg");
 }
 
 p {
