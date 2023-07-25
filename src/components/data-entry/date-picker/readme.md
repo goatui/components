@@ -7,15 +7,16 @@
 
 ## Properties
 
-| Property      | Attribute     | Description                                                                            | Type                   | Default                    |
-| ------------- | ------------- | -------------------------------------------------------------------------------------- | ---------------------- | -------------------------- |
-| `configAria`  | `config-aria` |                                                                                        | `any`                  | `{}`                       |
-| `disabled`    | `disabled`    | If true, the user cannot interact with the button. Defaults to `false`.                | `boolean`              | `false`                    |
-| `name`        | `name`        | The input field name.                                                                  | `string`               | ``goat-input-${this.gid}`` |
-| `placeholder` | `placeholder` | The input field placeholder.                                                           | `string`               | `undefined`                |
-| `readonly`    | `readonly`    | If true, the user read the value cannot modify it. Defaults to `false`.                | `boolean`              | `false`                    |
-| `size`        | `size`        | The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`. | `"lg" \| "md" \| "sm"` | `'md'`                     |
-| `value`       | `value`       | The input field value.                                                                 | `number \| string`     | `''`                       |
+| Property      | Attribute     | Description                                                                                              | Type                   | Default                    |
+| ------------- | ------------- | -------------------------------------------------------------------------------------------------------- | ---------------------- | -------------------------- |
+| `configAria`  | `config-aria` |                                                                                                          | `any`                  | `{}`                       |
+| `debounce`    | `debounce`    | Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke. | `number`               | `300`                      |
+| `disabled`    | `disabled`    | If true, the user cannot interact with the button. Defaults to `false`.                                  | `boolean`              | `false`                    |
+| `name`        | `name`        | The input field name.                                                                                    | `string`               | ``goat-input-${this.gid}`` |
+| `placeholder` | `placeholder` | The input field placeholder.                                                                             | `string`               | `undefined`                |
+| `readonly`    | `readonly`    | If true, the user read the value cannot modify it. Defaults to `false`.                                  | `boolean`              | `false`                    |
+| `size`        | `size`        | The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.                   | `"lg" \| "md" \| "sm"` | `'md'`                     |
+| `value`       | `value`       | The input field value.                                                                                   | `number \| string`     | `''`                       |
 
 
 ## Events
@@ -62,6 +63,21 @@ Type: `Promise<void>`
 
 
 
+
+## Dependencies
+
+### Depends on
+
+- [goat-button](../../general/button)
+
+### Graph
+```mermaid
+graph TD;
+  goat-date-picker --> goat-button
+  goat-button --> goat-icon
+  goat-button --> goat-spinner
+  style goat-date-picker fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

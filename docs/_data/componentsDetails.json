@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-07-24T15:27:22",
+  "timestamp": "2023-07-25T04:33:31",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.0.1",
@@ -671,6 +671,7 @@
       "dependents": [
         "goat-calendar",
         "goat-code-highlighter",
+        "goat-date-picker",
         "goat-empty-state",
         "goat-flow-designer",
         "goat-html-editor",
@@ -691,6 +692,9 @@
           "goat-button"
         ],
         "goat-code-highlighter": [
+          "goat-button"
+        ],
+        "goat-date-picker": [
           "goat-button"
         ],
         "goat-empty-state": [
@@ -3078,8 +3082,18 @@
       ],
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "dependencies": [
+        "goat-button"
+      ],
+      "dependencyGraph": {
+        "goat-date-picker": [
+          "goat-button"
+        ],
+        "goat-button": [
+          "goat-icon",
+          "goat-spinner"
+        ]
+      },
       "props": [
         {
           "name": "configAria",
@@ -3098,6 +3112,28 @@
           "values": [
             {
               "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "debounce",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "debounce",
+          "reflectToAttr": false,
+          "docs": "Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.",
+          "docsTags": [],
+          "default": "300",
+          "values": [
+            {
+              "type": "number"
             }
           ],
           "optional": false,
@@ -11254,6 +11290,7 @@
           "dependents": [
             "goat-calendar",
             "goat-code-highlighter",
+            "goat-date-picker",
             "goat-empty-state",
             "goat-flow-designer",
             "goat-html-editor",
@@ -11274,6 +11311,9 @@
               "goat-button"
             ],
             "goat-code-highlighter": [
+              "goat-button"
+            ],
+            "goat-date-picker": [
               "goat-button"
             ],
             "goat-empty-state": [
@@ -14173,8 +14213,18 @@
           ],
           "encapsulation": "shadow",
           "dependents": [],
-          "dependencies": [],
-          "dependencyGraph": {},
+          "dependencies": [
+            "goat-button"
+          ],
+          "dependencyGraph": {
+            "goat-date-picker": [
+              "goat-button"
+            ],
+            "goat-button": [
+              "goat-icon",
+              "goat-spinner"
+            ]
+          },
           "props": [
             {
               "name": "configAria",
@@ -14193,6 +14243,28 @@
               "values": [
                 {
                   "type": "any"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "debounce",
+              "type": "number",
+              "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "debounce",
+              "reflectToAttr": false,
+              "docs": "Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.",
+              "docsTags": [],
+              "default": "300",
+              "values": [
+                {
+                  "type": "number"
                 }
               ],
               "optional": false,
