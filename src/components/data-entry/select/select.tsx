@@ -250,7 +250,9 @@ export class Select implements ComponentInterface, InputComponentInterface {
     }
   };
 
-  private toggleList = () => {
+  private toggleList = (evt) => {
+    evt.stopPropagation();
+    evt.preventDefault();
     if (this.isOpen) this.closeList();
     else this.openList();
   };
@@ -258,10 +260,10 @@ export class Select implements ComponentInterface, InputComponentInterface {
   private keyDownHandler = evt => {
     if (evt.key === 'Enter') {
       evt.preventDefault();
-      this.toggleList();
+      this.toggleList(evt);
       this.goatSearchEnter.emit({
         value: this.searchString,
-        currentItems: this.filterItems()
+        currentItems: this.filterItems(),
       });
     } else if (evt.key === 'ArrowDown') {
       if (this.isOpen) {
@@ -281,7 +283,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
     const input = ev.target as HTMLInputElement;
     this.searchString = input.value || '';
     this.goatSearch.emit({
-      value: this.searchString
+      value: this.searchString,
     });
   };
 
@@ -453,10 +455,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
                     onFocus={this.focusHandler}
                     onBlur={this.blurHandler}
                     onKeyDown={this.keyDownHandler}
-                    onClick={evt => {
-                      evt.preventDefault();
-                      this.toggleList();
-                    }}
+                    onClick={this.toggleList}
                     {...this.configAria}
                   >
                     {this.getDisplayValue()}
@@ -465,9 +464,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
               }
             })()}
 
-            {this.clearable && !this.multiple && this.hasValue() && (
-              <goat-icon class="clear input-action" name="close" size={this.size} onClick={this.clearInput} role="button" />
-            )}
+            {this.clearable && !this.multiple && this.hasValue() && <goat-button class="clear input-action color-secondary" variant="ghost" icon="close" onClick={this.clearInput} />}
 
             <div class="slot-container end">
               <slot name="end" />
@@ -487,7 +484,8 @@ export class Select implements ComponentInterface, InputComponentInterface {
     if (this.showLoader) {
       return <goat-spinner class="input-action rainbow" />;
     }
-    if (!this.disabled && !this.readonly && !this.hideDropdownIcon) return <goat-icon name="chevron--down" size={this.size} class="input-action chevron-down" role="button" onClick={this.toggleList} />;
+    if (!this.disabled && !this.readonly && !this.hideDropdownIcon)
+      return <goat-button class="input-action chevron-down color-secondary" variant="ghost" icon="chevron--down" onGoat:click={this.toggleList}></goat-button>;
   }
 
   private renderDropdownList() {

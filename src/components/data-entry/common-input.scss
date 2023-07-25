@@ -21,7 +21,6 @@
   overflow: hidden;
   cursor: text;
   font-weight: var(--font-weight-regular);
-  gap: v(--spacing-02);
 
   .input {
     flex: 1;
@@ -64,6 +63,25 @@
 
   }
 
+  .slot-container.start {
+    margin-inline-start: 1rem;
+  }
+
+  .slot-container.end {
+    margin-inline-end: 1rem;
+  }
+
+  &.start-slot-has-content {
+    .input {
+      padding-inline-start: .5rem;
+    }
+  }
+
+  &.end-slot-has-content {
+    .input {
+      padding-inline-end: .5rem;
+    }
+  }
 
   &:not(.start-slot-has-content) {
     .slot-container.start {
