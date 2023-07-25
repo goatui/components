@@ -255,6 +255,7 @@ export class Button implements ComponentInterface {
           onClick={this.clickHandler}
           onMouseDown={this.mouseDownHandler}
           onKeyDown={this.keyDownHandler}
+          role='button'
           aria-describedby={this.disabled && this.disabledReason ? `disabled-reason-${this.gid}` : null}
           aria-disabled={(this.disabled || this.showLoader) + ''}
           {...this.configAria}>

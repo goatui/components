@@ -22,7 +22,6 @@
   cursor: text;
   font-weight: var(--font-weight-regular);
   gap: v(--spacing-02);
-  padding: 0 1rem;
 
   .input {
     flex: 1;
@@ -32,6 +31,7 @@
     width: 100%;
     cursor: inherit;
     color: v(--text-primary);
+    padding: 0 1rem;
 
     /*
      * Font styles
@@ -127,16 +127,31 @@
 /**
  * Sizes
  */
+.input-container {
+  goat-button {
+    --button-height: 100%;
+    --button-border-radius: 0;
+  }
+}
 :host([size="sm"]) .input-container {
   min-height: 2rem;
+  goat-button {
+    height: calc(2rem - 2px);
+  }
 }
 
 :host([size="md"]) .input-container {
   min-height: 2.5rem;
+  goat-button {
+    height: calc(2.5rem - 2px);
+  }
 }
 
 :host([size="lg"]) .input-container {
   min-height: 3rem;
+  goat-button {
+    height: calc(3rem - 2px);
+  }
 }
 
 

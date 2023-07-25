@@ -44,10 +44,13 @@
 
   .copy-btn {
     position: absolute;
-    top: v(--spacing-03);
+    top: 0.675rem;
     right: v(--spacing-03);
   }
 
+  .icon-only {
+    --button-padding: .5rem;
+  }
 }
 
 

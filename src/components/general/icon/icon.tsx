@@ -32,7 +32,9 @@ export class Icon {
   }
 
   async componentWillLoad() {
-    await this.fetchSvg(this.name);
+    setTimeout(() => {
+        this.fetchSvg(this.name);
+    });
   }
 
   private getSize() {
@@ -49,6 +51,8 @@ export class Icon {
   }
 
   render() {
+    if (this.svg === '') return (<Host></Host>);
+
     const svg = this.convertToDom(this.svg);
     let svgHtmlString = 'No icon found';
     if (svg.tagName === 'svg') {

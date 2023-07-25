@@ -8,6 +8,7 @@ import loadMonaco from '../../../3d-party/monaco';
  * @category Form Inputs
  * @tags input, form
  * @img /assets/img/code-editor.png
+ * @imgDark /assets/img/code-editor-dark.png
  */
 @Component({
   tag: 'goat-code-editor',
