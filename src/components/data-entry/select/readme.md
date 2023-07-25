@@ -84,6 +84,7 @@ Type: `Promise<void>`
 
 - [goat-icon](../../general/icon)
 - [goat-tag](../../data-display/tag)
+- [goat-button](../../general/button)
 - [goat-spinner](../../feedback/spinner)
 - [goat-menu](../../navigation/menu/menu)
 - [goat-text](../../general/text)
@@ -94,16 +95,17 @@ Type: `Promise<void>`
 graph TD;
   goat-select --> goat-icon
   goat-select --> goat-tag
+  goat-select --> goat-button
   goat-select --> goat-spinner
   goat-select --> goat-menu
   goat-select --> goat-text
   goat-select --> goat-menu-item
   goat-tag --> goat-icon
+  goat-button --> goat-icon
+  goat-button --> goat-spinner
   goat-menu --> goat-empty-state
   goat-empty-state --> goat-svg
   goat-empty-state --> goat-button
-  goat-button --> goat-icon
-  goat-button --> goat-spinner
   goat-calendar --> goat-select
   goat-table --> goat-select
   style goat-select fill:#f9f,stroke:#333,stroke-width:4px

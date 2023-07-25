@@ -73,7 +73,6 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   goat-slider --> goat-input
-  goat-input --> goat-icon
   goat-input --> goat-button
   goat-button --> goat-icon
   goat-button --> goat-spinner

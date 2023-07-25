@@ -275,8 +275,8 @@ export class Input implements ComponentInterface, InputComponentInterface {
           />
 
           {this.clearable && this.hasValue() &&
-            <goat-icon
-              class="clear inherit input-action" name="close" size="1rem" onClick={this.clearInput} role="button" />}
+            <goat-button class="clear input-action color-secondary" variant="ghost" icon="close" onClick={this.clearInput} />
+            }
 
           {this.type === 'password' && !this.hideActions && <goat-button class="color-secondary" block icon={this.passwordVisible ? 'view--off' : 'view'} variant="ghost" size="none" onGoat:click={() => {
             this.passwordVisible = !this.passwordVisible;

@@ -21,7 +21,6 @@
  - [goat-button](../button)
  - [goat-dropdown](../../navigation/menu/dropdown)
  - [goat-flow-designer](../../flow-designer/flow-designer)
- - [goat-input](../../data-entry/input)
  - [goat-notification](../../feedback/notification)
  - [goat-select](../../data-entry/select)
  - [goat-tab](../../navigation/tabs/tab)
@@ -37,7 +36,6 @@ graph TD;
   goat-button --> goat-icon
   goat-dropdown --> goat-icon
   goat-flow-designer --> goat-icon
-  goat-input --> goat-icon
   goat-notification --> goat-icon
   goat-select --> goat-icon
   goat-tab --> goat-icon

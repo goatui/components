@@ -12,7 +12,7 @@ export async function fetchIcon(name: string) {
 
   if (!icon) return '';
 
-  const request = new Request(`https://unpkg.com/@carbon/icons@11.22.1/svg/32${icon.folder ? icon.folder : ''}/${icon.name}.svg`);
+  const request = new Request(`https://cdn.jsdelivr.net/npm/@carbon/icons@11.23.0/svg/32${icon.folder ? icon.folder : ''}/${icon.name}.svg`);
   let response = await cache.match(request);
   if (response) {
     const result = await response.text();
