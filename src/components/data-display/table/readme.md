@@ -59,6 +59,7 @@ graph TD;
   goat-button --> goat-spinner
   goat-select --> goat-icon
   goat-select --> goat-tag
+  goat-select --> goat-button
   goat-select --> goat-spinner
   goat-select --> goat-menu
   goat-select --> goat-text

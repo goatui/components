@@ -78,13 +78,11 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [goat-icon](../../general/icon)
 - [goat-button](../../general/button)
 
 ### Graph
 ```mermaid
 graph TD;
-  goat-input --> goat-icon
   goat-input --> goat-button
   goat-button --> goat-icon
   goat-button --> goat-spinner

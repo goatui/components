@@ -78,6 +78,7 @@ Type: `Promise<void>`
  - [goat-html-editor](../../data-entry/html-editor)
  - [goat-input](../../data-entry/input)
  - [goat-notification](../../feedback/notification)
+ - [goat-select](../../data-entry/select)
  - [goat-table](../../data-display/table)
 
 ### Depends on
@@ -98,6 +99,7 @@ graph TD;
   goat-html-editor --> goat-button
   goat-input --> goat-button
   goat-notification --> goat-button
+  goat-select --> goat-button
   goat-table --> goat-button
   style goat-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
