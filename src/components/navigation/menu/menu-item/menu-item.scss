@@ -2,18 +2,21 @@
 
 :host {
   display: block;
+  --menu-item-padding: #{v(--spacing-02)} #{v(--spacing-04)};
 }
 
+
 .menu-item {
+  border: 1px solid transparent;
+
   cursor: pointer;
   @include font-style(text-md);
-  padding: v(--spacing-02) v(--spacing-04);
+  padding: var(--menu-item-padding);
   box-sizing: border-box;
   display: flex;
   align-items: center;
   gap: v(--spacing-02);
   color: v(--text-secondary);
-  outline: none;
 
   .item-section {
     display: flex;
@@ -51,7 +54,8 @@
 }
 
 .menu-item.has-focus:not(.active) {
-  @include focus-ring;
+  outline: none;
+  border: 1px solid v(--color-primary);
 }
 
 .menu-item.disabled {

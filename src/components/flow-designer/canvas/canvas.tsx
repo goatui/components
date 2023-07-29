@@ -2,6 +2,7 @@ import { Component, Element, h, Host, Prop } from '@stencil/core';
 
 /**
  * @name Canvas
+ * @category Work in progress
  * @description Canvas for drawing lines and shapes on.
  * @img /assets/img/canvas.png
  */

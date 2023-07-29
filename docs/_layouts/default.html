@@ -3,7 +3,7 @@ layout: base
 ---
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', function() {
     const themeSwitcher = document.querySelector('#theme-switcher');
 
     function setTheme(theme) {
@@ -15,7 +15,7 @@ layout: base
     const theme = localStorage.getItem('theme') || 'light';
     setTheme(theme);
 
-    themeSwitcher.addEventListener('click', function () {
+    themeSwitcher.addEventListener('click', function() {
       const theme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
       setTheme(theme);
     });
@@ -31,42 +31,38 @@ layout: base
     const dir = localStorage.getItem('dir') || 'ltr';
     setDir(dir);
 
-    dirSwitcher.addEventListener('click', function () {
+    dirSwitcher.addEventListener('click', function() {
       const dir = localStorage.getItem('dir') === 'ltr' ? 'rtl' : 'ltr';
       setDir(dir);
     });
   });
 </script>
 
-<nav class="top-nav">
-  <goat-header class="brand actions-separated {% if page.root != true %}border{% endif %}">
-    <div slot="left-section">
-      <goat-header-brand logo="/assets/img/logo.svg" href="/#" name="{{site.title}}" {% if page.root !="true" %}sub-title="{{page.title}}" {% endif %}> </goat-header-brand>
+<nav class='top-nav'>
+  <goat-header class='brand actions-separated {% if page.root != true %}border{% endif %}'>
+    <div slot='left-section'>
+      <goat-header-brand logo='/assets/img/logo.svg' href='/#' name='{{site.title}}' {% if page.root !='true'
+                         %}sub-title='{{page.title}}' {% endif %}></goat-header-brand>
     </div>
 
-    <div slot="right-section">
+    <div slot='right-section'>
+
+      {% if page.root != true %}
       <goat-select id='site-search'
                    class='show-desktop'
-                   search="contains"
+                   search='contains'
                    hide-dropdown-icon
                    placeholder="Type '/' for search">
-        <goat-icon slot="start" name="search" size='1rem'></goat-icon>
+        <goat-icon slot='start' name='search' size='1rem'></goat-icon>
       </goat-select>
       <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
           const search = document.querySelector('#site-search');
-          search.items = [
-            {% for page in site.pages %}
-          {% if page.title %}
-          {
-            label: '{{page.title}}',
-              value: '{{page.url}}'
-          },
-          {% endif %}
-          {% endfor %}
-        ];
 
-          search.addEventListener('goat:change', function (e) {
+          // prettier-ignore
+          search.items = JSON.parse(`[{% for page in site.pages %}{"label": "{{page.title}}", "value": "{{page.url}}"}{% if forloop.last == false %},{% endif %}{% endfor %}]`);
+          search.items = search.items.filter(item => !!item.label);
+          search.addEventListener('goat:change', function(e) {
             window.location.href = e.detail.value;
           });
 
@@ -75,65 +71,66 @@ layout: base
               window.location.href = e.detail.currentItems[0].value;
           });
 
-          document.addEventListener('keydown', function (e) {
+          document.addEventListener('keydown', function(e) {
             if (e.key === '/') {
               e.preventDefault();
               search.isOpen = true;
-              setTimeout(() =>  {
+              setTimeout(() => {
                 search.setFocus();
               }, 300);
             }
           });
         });
       </script>
+      {% endif %}
 
-      <goat-button icon="light--filled" simple  class="color-brand-primary" id="theme-switcher" aria-title="Theme switcher" variant="ghost"></goat-button>
 
-      <goat-button id="dir-switcher" simple class="color-brand-primary" variant="ghost">LTR</goat-button>
+      <goat-button icon='light--filled' simple class='color-brand-primary' id='theme-switcher'
+                   aria-title='Theme switcher' variant='ghost'></goat-button>
 
-      <goat-button class="color-brand-primary" simple href="https://opencollective.com/goat-ui-components#support" variant="ghost">
+      <goat-button id='dir-switcher' simple class='color-brand-primary show-desktop' variant='ghost'>LTR</goat-button>
+
+      <goat-button class='color-brand-primary' simple href='https://opencollective.com/goat-ui-components#support'
+                   variant='ghost'>
         Become a backer
       </goat-button>
 
       {% if page.root %}
       <goat-button
-        icon="logo--github"
-        variant="ghost"
+        icon='logo--github'
+        variant='ghost'
         simple
-        class="show-desktop full-height color-brand-primary"
-        href="https://github.com/{{site.github_username}}/{{site.github_project}}"
-        target="_blank"
-        >Github
-      </goat-button>
+        class='show-desktop full-height color-brand-primary'
+        href='https://github.com/{{site.github_username}}/{{site.github_project}}'
+        target='_blank'
+      ></goat-button>
 
       <goat-button
-        icon="logo--github"
-        variant="ghost"
+        icon='logo--github'
+        variant='ghost'
         simple
-        class="show-mobile full-height color-brand-primary"
-        href="https://github.com/{{site.github_username}}/{{site.github_project}}"
-        target="_blank"
+        class='show-mobile full-height color-brand-primary'
+        href='https://github.com/{{site.github_username}}/{{site.github_project}}'
+        target='_blank'
       ></goat-button>
 
       {% else %}
       <goat-button
-        icon="debug"
-        block
-        variant="ghost"
+        variant='ghost'
         simple
-        class="show-desktop full-height color-brand-primary"
-        href="https://github.com/{{site.github_username}}/{{site.github_project}}/issues"
-        target="_blank"
-        >Report Issue
+        class='show-desktop full-height color-brand-primary'
+        href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues'
+        target='_blank'
+      >Report Issue
       </goat-button>
 
       <goat-button
-        icon="debug"
-        variant="ghost"
+        icon='debug'
+        variant='ghost'
         simple
-        class="show-mobile full-height color-brand-primary"
-        href="https://github.com/{{site.github_username}}/{{site.github_project}}/issues"
-        target="_blank"
+        class='show-mobile full-height color-brand-primary'
+        href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues'
+        target='_blank'
       ></goat-button>
       {% endif %}
     </div>

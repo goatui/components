@@ -19,7 +19,7 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
 --button-color-focus: #{v(--color-brand-primary)};*/
 
 @function removeBorder($width) {
-  @return #{($width*1 - ($border-width * 2))}rem;
+  @return #{($width*1 - ($border-width * 4))}rem;
 }
 
 :host {
@@ -334,6 +334,20 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
   --button-color-hover: #{v(--color-white)};
   --button-color-active: #{v(--color-white)};
   --button-color-support: #{v(--color-white)};
+
+  &.variant-ghost {
+    &:hover {
+      .native-button {
+        color: v(--color-black);
+      }
+    }
+
+    &.active, &.selected {
+      .native-button {
+        color: v(--color-black);
+      }
+    }
+  }
 }
 
 

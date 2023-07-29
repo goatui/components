@@ -36,8 +36,8 @@
 
 :host-context([data-theme="dark"]) {
   .illustration {
-    --empty-state-bg-secondary: #{v(--color-brand-secondary-80)};
-    --empty-state-bg-tertiary: #{v(--color-brand-secondary-100)};
+    --empty-state-bg-secondary: #{v(--color-brand-secondary-50)};
+    --empty-state-bg-tertiary: #{v(--color-brand-secondary-90)};
   }
 }
 

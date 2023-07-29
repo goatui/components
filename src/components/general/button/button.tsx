@@ -11,7 +11,7 @@ import {
   Prop,
   State,
 } from '@stencil/core';
-import { ElementSize, getComponentIndex } from '../../../utils/utils';
+import { getComponentIndex } from '../../../utils/utils';
 
 /**
  * @name Button
@@ -73,6 +73,11 @@ export class Button implements ComponentInterface {
    * Icon position.
    */
   @Prop() iconAlign: 'start' | 'end' = 'end';
+
+  /**
+   * Icon size.
+   */
+  @Prop() iconSize: 'sm' | 'md' | 'lg' = 'md';
 
   /**
    * Show loader.
@@ -149,18 +154,10 @@ export class Button implements ComponentInterface {
   }
 
   private getIconSize() {
-    switch (this.size) {
-      case ElementSize.SMALL:
-        return '1rem';
-      case ElementSize.LARGE:
-        return '1rem';
-      case ElementSize.X_LARGE:
-        return '1rem';
-      case ElementSize.XX_LARGE:
-        return '1rem';
-      default:
-        return '1rem';
-    }
+    if (this.iconSize)
+      return this.iconSize;
+    else
+      return '1rem';
   }
 
   private renderIcon = (iconName) => {

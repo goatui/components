@@ -13,8 +13,8 @@
       });
     </script>
   </goat-card-content>
-  <goat-card-content>
-    {% GoatHighlighter language:"js" %}
+  <goat-card-content class='no-padding'>
+    {% GoatHighlighter language:"javascript" %}
 document.querySelector('#date-field').addEventListener('goat:input', function (event) {
   myConsole.log('goat:input :: ' + event.target.value);
 });

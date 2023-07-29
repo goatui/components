@@ -1,6 +1,6 @@
 import { Component, ComponentInterface, Element, h, Host, Prop, State, Watch } from '@stencil/core';
 import { loadPrism } from '../../../3d-party/prism';
-
+import * as beautify from 'js-beautify/js';
 
 enum Language {
   markup = 'markup',
@@ -145,8 +145,8 @@ export class CodeHighlighter implements ComponentInterface {
 
   @State() compiledCode: string = '';
 
-  private parsedValue: string = '';
-
+  private codeString: string = '';
+  private parsedCodeString: string = '';
 
   @Watch('language')
   languageWatcher() {
@@ -161,6 +161,12 @@ export class CodeHighlighter implements ComponentInterface {
   @Element() elm!: HTMLElement;
 
   async componentWillLoad() {
+    if (this.value) {
+      this.codeString = this.value;
+    } else {
+      this.codeString = this.elm.querySelector('code').innerHTML;
+    }
+    this.codeString = this.decode(this.codeString);
     if (!window['Prism']) {
       await loadPrism();
     }
@@ -181,36 +187,21 @@ export class CodeHighlighter implements ComponentInterface {
   }
 
   private renderPrism() {
-    let value = this.value;
-    if (!value) {
-      value = this.elm.innerHTML;
-    }
-    value = this.decode(value);
-    if (this.format && this.language === 'js' || this.language === 'html'){
-
-      // @ts-ignore
-      const prettier = window['prettier'];
-      let prettierLang = 'js';
+    if ((this.format && this.language === 'javascript') || this.language === 'html' || this.language === 'css') {
       switch (this.language) {
-        case 'js':
-          prettierLang = 'babel';
+        case 'javascript':
+          this.parsedCodeString = beautify.js(this.codeString, { wrap_line_length: 120 });
           break;
         case 'html':
-          prettierLang = 'html';
+          this.parsedCodeString = beautify.html(this.codeString, { wrap_line_length: 120 });
+          break;
+        case 'css':
+          this.parsedCodeString = beautify.css(this.codeString, { wrap_line_length: 120 });
           break;
       }
-
-      prettier.format(value, {
-        parser: prettierLang,
-        plugins: window['prettierPlugins']
-      }).then(value => {
-        this.parsedValue = value;
-        this.populateCode();
-      });
-
-
+      this.populateCode();
     } else {
-      this.parsedValue = value;
+      this.parsedCodeString = this.codeString;
       this.populateCode();
     }
   }
@@ -218,7 +209,7 @@ export class CodeHighlighter implements ComponentInterface {
   private populateCode() {
     // @ts-ignore
     const Prism = window['Prism'];
-    const formatted = Prism.highlight(this.parsedValue, Prism.languages[this.language], this.language);
+    const formatted = Prism.highlight(this.parsedCodeString, Prism.languages[this.language], this.language);
     let lineNumbersWrapper = '';
     if (this.lineNumbers) {
       const linesNum = formatted.split('\n').length;
@@ -229,7 +220,7 @@ export class CodeHighlighter implements ComponentInterface {
   }
 
   handleCopyClick() {
-    window.navigator.clipboard.writeText(this.parsedValue);
+    window.navigator.clipboard.writeText(this.parsedCodeString);
     alert('copied');
   }
 
@@ -253,8 +244,7 @@ export class CodeHighlighter implements ComponentInterface {
               onGoat:click={() => {
                 this.handleCopyClick();
               }}
-            >
-            </goat-button>
+            ></goat-button>
           </div>
         )}
         {!this.compiledCode && (

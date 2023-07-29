@@ -2,10 +2,15 @@ import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 import { JsonDocs } from '@stencil/core/internal';
 import * as fs from 'fs';
+import { reactOutputTarget } from '@stencil/react-output-target';
 
 export const config: Config = {
   namespace: 'goatui',
   outputTargets: [
+    reactOutputTarget({
+      componentCorePackage: 'goatui',
+      proxiesFile: 'dist/generated/goatui-react/src/components.ts'
+    }),
     {
       type: 'dist',
       esmLoaderPath: '../loader',
@@ -48,7 +53,7 @@ export const config: Config = {
           // @ts-ignore
           let categoryName = component.metadata.category;
           if (!categoryName) {
-            categoryName = 'Uncategorized';
+            categoryName = 'Work in progress';
           }
 
           // @ts-ignore
@@ -57,7 +62,7 @@ export const config: Config = {
             cat = {
               // @ts-ignore
               name: categoryName,
-              hide: categoryName === 'Uncategorized',
+              hide: false,
               components: [],
             };
             // @ts-ignore
@@ -66,7 +71,7 @@ export const config: Config = {
           cat.components.push(component);
         });
 
-        const order = ['General', 'Layout', 'Navigation', 'Form Inputs', 'Data Display',  'Feedback', 'Uncategorized'];
+        const order = ['General', 'Layout', 'Navigation', 'Form Inputs', 'Data Display',  'Feedback', 'Work in progress'];
 
         // @ts-ignore
         docs.categories.sort((a, b) => {

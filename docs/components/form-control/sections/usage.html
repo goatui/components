@@ -1,4 +1,4 @@
-{% capture sample-code %}
+{% GoatHighlighterCard language:"html" %}
 <goat-form-control label="Full Name" required caption="Write your first and last name">
   <goat-input type="text"></goat-input>
 </goat-form-control>
@@ -17,7 +17,7 @@
 <goat-form-control label="Write some script" required warning="You can code here!">
   <goat-code-editor style="height: 20rem" value="function add(a,b){ return a+b;}"></goat-code-editor>
 </goat-form-control>
-{% endcapture %} {% include demo-html.html content=sample-code %}
+{% endGoatHighlighterCard %}
 
 <script>
   const $dropDown = document.getElementById('select');

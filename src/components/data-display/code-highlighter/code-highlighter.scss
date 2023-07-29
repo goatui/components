@@ -9,7 +9,7 @@
 }
 
 .code-loader {
-  height: 20rem;
+  height: 10rem;
   background-color: v(--field-01);
   display: flex;
   align-items: center;
@@ -22,10 +22,11 @@
   height: 100%;
   background-color: v(--color-brand-primary-10);
   color: v(--text-primary);
-
   .scroll-wrapper {
     height: 100%;
     overflow-y: auto;
+    padding: v(--spacing-05);
+
     .line-numbers-wrapper {
       height: 100%;
       position: relative;
@@ -37,7 +38,6 @@
       @include font-style(text-sm);
       .highlighter {
         margin: 0;
-        padding: v(--spacing-05);
       }
     }
   }

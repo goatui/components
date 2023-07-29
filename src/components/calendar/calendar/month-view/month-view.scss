@@ -18,8 +18,8 @@
   height: 100%;
 
   .view-header {
-    border-top: 1px solid v(--border-color);
-    border-bottom: 1px solid v(--border-color);
+    border-top: 1px solid v(--border-strong-01);
+    border-bottom: 1px solid v(--border-strong-01);
     display: flex;
 
     .scale {
@@ -37,7 +37,6 @@
 
         .column-content {
           display: flex;
-          border-top: .5rem solid transparent;
           align-items: center;
           padding: .5rem;
           gap: .5rem;
@@ -77,7 +76,7 @@
 
         .multi-day-section {
           border-bottom: 1px solid v(--scale-color);
-          min-height: 12rem;
+          min-height: 9rem;
           height: 20%;
 
           .multi-day-body-scroll {
@@ -92,7 +91,7 @@
             width: 100%;
 
             .scale {
-              border-right: 1px solid v(--scale-color);
+              border-inline-end: 1px solid v(--scale-color);
             }
 
             .columns {
@@ -102,6 +101,20 @@
               .column {
                 flex: 1;
                 border-right: 1px solid v(--scale-color);
+
+                .column-header {
+                  @include font-style(helper-text-01);
+                  padding-inline-start: .5rem;
+                  padding-top: .3rem;
+                  border-top: .2rem solid transparent;
+                }
+
+                &.today {
+                  background: v(--color-primary-10);
+                  .column-header {
+                    border-top-color: v(--color-primary);
+                  }
+                }
               }
             }
           }
@@ -112,7 +125,7 @@
             height: 100%;
 
             .row {
-              height: 2rem;
+              height: 1.8rem;
               box-sizing: content-box;
               position: relative;
               padding-bottom: .5rem;
@@ -126,21 +139,24 @@
             }
 
             .event {
-              background: v(--color-primary-20);
-              border-left: .35rem solid v(--color-primary);
-              border-radius: 3px;
+              background: v(--color-primary-30);
+              border-left: .25rem solid v(--color-primary);
+              border-radius: v(--border-radius);
               position: absolute;
-              height: 2rem;
+              height: 1.8rem;
+              text-overflow: ellipsis;
+              overflow: hidden;
 
               .event-title {
                 padding: 0.25rem;
+                @include font-style(body-01);
               }
 
               &.clickable {
                 cursor: pointer;
 
                 &:hover {
-                  background: v(--color-primary-30);
+                  background: v(--color-primary-40);
                 }
               }
             }

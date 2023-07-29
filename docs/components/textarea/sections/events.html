@@ -5,17 +5,17 @@
 
   <script>
     document.querySelector('#name-input-field').addEventListener('goat:input', function (event) {
-      myConsole.log('goat:input :: <pre>' + event.target.value + '</pre>');
+      myConsole.log('goat:input :: ' + event.target.value);
     });
     document.querySelector('#name-input-field').addEventListener('goat:change', function (event) {
-      myConsole.warn('goat:change :: <pre>' + event.target.value + '</pre>');
+      myConsole.warn('goat:change :: ' + event.target.value);
     });
   </script>
 </div>
 
 <goat-card>
-  <goat-card-content>
-{% GoatHighlighter language:"js" %}
+  <goat-card-content class='no-padding'>
+{% GoatHighlighter language:"javascript" %}
 document.querySelector('#name-input-field').addEventListener('goat:input', function(event) {
   console.log("goat:input :: " + event.target.value);
 });

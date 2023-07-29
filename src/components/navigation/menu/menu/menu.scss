@@ -2,18 +2,23 @@
 
 :host {
   display: inline-block;
-  --list-border-radius: #{v(--border-radius)};
+  --list-border-radius: var(--border-radius);
   --list-max-height: 100%;
+  --list-border-color:  #{v(--border-strong-01)};
+  --list-shadow: #{v(--shadow-sm)};
 }
-
 
 .menu {
   background-color: v(--field-02);
-  padding: v(--spacing-02) 0;
-  border: 1px solid v(--color-neutral-200);
   box-sizing: border-box;
   border-radius: var(--list-border-radius);
-  box-shadow: v(--shadow-sm);
   max-height: var(--list-max-height);
   overflow: auto;
+  border: 1px solid var(--list-border-color);
+  box-shadow: var(--list-shadow);
+}
+
+slot::slotted(goat-divider) {
+  --divider-color:#{v(--border-subtle-01)};
+  --divider-padding:#{v(--spacing-03)};
 }

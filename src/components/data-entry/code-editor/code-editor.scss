@@ -25,40 +25,9 @@
   .editor {
     height: 100%;
     min-height: 2rem;
-    border: 1px solid v(--border-color);
+    border: 1px solid v(--border-strong-01);
     border-radius: v(--border-radius);
     overflow: hidden;
-
-    &[readonly], &[readonly="true"] {
-      color: v(--color-neutral);
-      background-color: v(--color-neutral-10);
-      border-color: v(--color-neutral);
-      cursor: default;
-    }
-    &[disabled], &[disabled="true"] {
-      color: v(--color-neutral);
-      background-color: v(--color-neutral-10);
-      border-color: v(--color-neutral);
-      cursor: not-allowed;
-    }
-  }
-
-  &.disabled {
-    .monaco-editor, .monaco-editor-background, .monaco-editor .inputarea.ime-input, .view-lines {
-      cursor: default;
-    }
-  }
-
-  &.disabled.vs-light {
-    .monaco-editor, .monaco-editor-background, .monaco-editor .inputarea.ime-input, .monaco-editor .margin {
-      background: v(--color-neutral-200);
-    }
-  }
-
-  &.disabled.vs-dark {
-    .monaco-editor, .monaco-editor-background, .monaco-editor .inputarea.ime-input, .monaco-editor .margin {
-      background: v(--color-neutral-800);
-    }
   }
 
 }

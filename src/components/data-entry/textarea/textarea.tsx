@@ -91,27 +91,27 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
   /**
    * Emitted when a keyboard input occurred.
    */
-  @Event({ eventName: 'goat:input' }) p4Input: EventEmitter;
+  @Event({ eventName: 'goat:input' }) goatInput: EventEmitter;
 
   /**
    * Emitted when the value has changed..
    */
-  @Event({ eventName: 'goat:change' }) p4Change: EventEmitter;
+  @Event({ eventName: 'goat:change' }) goatChange: EventEmitter;
 
   /**
    * Emitted when the input loses focus.
    */
-  @Event({ eventName: 'goat:blur' }) p4Blur: EventEmitter;
+  @Event({ eventName: 'goat:blur' }) goatBlur: EventEmitter;
 
   /**
    * Emitted when the input has focus.
    */
-  @Event({ eventName: 'goat:focus' }) p4Focus: EventEmitter;
+  @Event({ eventName: 'goat:focus' }) goatFocus: EventEmitter;
 
   /**
    * Emitted when the action button is clicked.
    */
-  @Event({ eventName: 'goat:action-click' }) p4ActionClick: EventEmitter;
+  @Event({ eventName: 'goat:action-click' }) goatActionClick: EventEmitter;
 
   /**
    * Sets focus on the native `textarea` in `goat-textarea`. Use this method instead of the global
@@ -144,7 +144,7 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
 
   @Watch('debounce')
   protected debounceChanged() {
-    this.p4Change = debounceEvent(this.p4Change, this.debounce);
+    this.goatChange = debounceEvent(this.goatChange, this.debounce);
   }
 
 
@@ -160,18 +160,18 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
     if (input) {
       this.value = input.value || '';
     }
-    this.p4Input.emit(ev as KeyboardEvent);
-    this.p4Change.emit(ev as KeyboardEvent);
+    this.goatInput.emit(ev as KeyboardEvent);
+    this.goatChange.emit(ev as KeyboardEvent);
   };
 
   private blurHandler = (ev: FocusEvent) => {
     this.hasFocus = false;
-    this.p4Blur.emit(ev);
+    this.goatBlur.emit(ev);
   };
 
   private focusHandler = (ev: FocusEvent) => {
     this.hasFocus = true;
-    this.p4Focus.emit(ev);
+    this.goatFocus.emit(ev);
   };
 
 

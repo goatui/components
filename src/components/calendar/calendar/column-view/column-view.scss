@@ -18,7 +18,7 @@
   height: 100%;
 
   .view-header {
-    border-top: 1px solid v(--border-color);
+    border-top: 1px solid v(--border-strong-01);
     display: flex;
 
     .scale {
@@ -110,11 +110,10 @@
 
 
           .row {
-            height: 2rem;
+            height: 1.8rem;
             box-sizing: content-box;
             position: relative;
             padding-bottom: .5rem;
-
             &:last-child {
               padding-bottom: 0;
             }
@@ -129,10 +128,13 @@
             border-left: .35rem solid v(--color-primary);
             border-radius: 3px;
             position: absolute;
-            height: 2rem;
+            height: 1.8rem;
+            text-overflow: ellipsis;
+            overflow: hidden;
 
             .event-title {
               padding: 0.25rem;
+              @include font-style(body-01);
             }
 
             &.clickable {

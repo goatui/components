@@ -73,11 +73,15 @@ export class CalendarMonthView implements ComponentInterface {
       if (diff === 0) cls.push('today');
       else if (diff < 0) cls.push('past');
       else if (diff < 0) cls.push('future');
-      columns.push(<div class={cls.join(' ')}>
-        <div class="column-content">
-<div class="day">{format(i, 'd')}</div>
-        </div>
-      </div>);
+      columns.push(
+        <div class={cls.join(' ')}>
+          <div class="column-content">
+            <div class="column-header">
+              <div class="day">{format(i, 'd')}</div>
+            </div>
+          </div>
+        </div>,
+      );
     }
     return columns;
   }
@@ -104,6 +108,8 @@ export class CalendarMonthView implements ComponentInterface {
   }
 
   renderEvents() {
+    const eventPadding = 0.25;
+
     return this.weekDayEvents.map((eventDay, index) => {
       return (
         <div class="multi-day-section">
@@ -128,10 +134,11 @@ export class CalendarMonthView implements ComponentInterface {
                               }
                             }}
                             style={{
-                              left: `${this.getDatePercent(node.start, { startDate: addDays(this.dateRange.startDate, index * 7) })}%`,
+                              left: `${this.getDatePercent(node.start, { startDate: addDays(this.dateRange.startDate, index * 7) }) + eventPadding}%`,
                               width: `${
                                 this.getDatePercent(addDays(node.end, 1), { startDate: addDays(this.dateRange.startDate, index * 7) }) -
-                                this.getDatePercent(node.start, { startDate: addDays(this.dateRange.startDate, index * 7) })
+                                this.getDatePercent(node.start, { startDate: addDays(this.dateRange.startDate, index * 7) }) -
+                                2 * eventPadding
                               }%`,
                             }}
                           >

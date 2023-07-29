@@ -1,5 +1,6 @@
 import { Component, ComponentInterface, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
 import { debounceEvent, getComponentIndex } from '../../../utils/utils';
+import { isDarkMode, observeThemeChange } from '../../../utils/utils';
 import loadMonaco from '../../../3d-party/monaco';
 
 /**
@@ -16,9 +17,7 @@ import loadMonaco from '../../../3d-party/monaco';
   shadow: true,
 })
 export class CodeEditor implements ComponentInterface, InputComponentInterface {
-
   gid: string = getComponentIndex();
-
 
   /**
    * The input field name.
@@ -35,24 +34,23 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
    */
   @Prop({ reflect: true }) required: boolean = false;
 
-
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
-  @Prop({reflect: true}) disabled: boolean = false;
+  @Prop({ reflect: true }) disabled: boolean = false;
 
-  @Prop({reflect: true}) readonly : boolean = false;
-
-  @Prop() theme: 'vs-light' | 'vs-dark' = 'vs-light';
+  @Prop({ reflect: true }) readonly: boolean = false;
 
   @Prop() language: 'javascript' | 'json' | 'html' = 'javascript';
 
   @Prop() lineNumbers: 'off' | 'on' = 'on';
 
+  @State() isDarkMode: boolean = isDarkMode();
+
   /**
-   * Emitted when the value has changed..
+   * Emitted when the value has changed.
    */
-  @Event({ eventName: 'goat:change' }) p4Change: EventEmitter;
+  @Event({ eventName: 'goat:change' }) goatChange: EventEmitter;
 
   /**
    * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
@@ -61,30 +59,31 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
 
   @State() hasFocus = false;
 
-
   @Watch('debounce')
   protected debounceChanged() {
-    this.p4Change = debounceEvent(this.p4Change, this.debounce);
+    this.goatChange = debounceEvent(this.goatChange, this.debounce);
   }
 
   @Watch('disabled')
   disabledWatcher(newValue: boolean) {
-    this.editorMonacoInstance.updateOptions({ readOnly: newValue || this.readonly});
+    this.editorMonacoInstance.updateOptions({ readOnly: newValue || this.readonly });
+    this.themeWatcher();
   }
 
   @Watch('readonly')
   readonlyWatcher(newValue: string) {
-    this.editorMonacoInstance.updateOptions({ readOnly: newValue || this.disabled});
+    this.editorMonacoInstance.updateOptions({ readOnly: newValue || this.disabled });
+    this.themeWatcher();
   }
+
 
   @Watch('language')
   languageWatcher(newValue: string) {
     window['monaco'].editor.setModelLanguage(this.editorMonacoInstance.getModel(), newValue);
   }
 
-  @Watch('theme')
-  themeWatcher(newValue: string) {
-    window['monaco'].editor.setTheme(newValue);
+  themeWatcher() {
+    window['monaco'].editor.setTheme(this.getTheme());
   }
 
   @Watch('value')
@@ -125,35 +124,49 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
   @State() editorMonacoInstance: any;
 
   async componentWillLoad() {
-    this.debounceChanged();
     if (!window['monaco']) {
       await loadMonaco();
     }
+    this.debounceChanged();
+    observeThemeChange(() => {
+      this.isDarkMode = isDarkMode();
+      this.themeWatcher();
+    });
   }
 
   componentDidLoad() {
     setTimeout(() => this.initializeMonaco(), 1000);
   }
 
+  getTheme() {
+    let theme: string;
+    if (!this.isDarkMode) {
+      if (this.disabled || this.readonly) theme = 'hc-black';
+      else theme = 'vs';
+    } else {
+      if (this.disabled || this.readonly) theme = 'hc-light';
+      else theme = 'vs-dark';
+    }
+    return theme;
+  }
+
   private initializeMonaco() {
-    const monaco = window['monaco'];
 
     //monaco.languages.typescript.javascriptDefaults.addExtraLib(this.extraLibs);
 
     this.editorElement.innerHTML = '';
 
-    this.editorMonacoInstance = monaco.editor.create(this.editorElement, {
+    this.editorMonacoInstance = window['monaco'].editor.create(this.editorElement, {
       value: this.value,
       lineNumbers: this.lineNumbers,
       language: this.language,
-      theme: this.theme,
+      theme: this.getTheme(),
       readOnly: this.disabled || this.readonly,
     });
 
-
     this.editorMonacoInstance.onDidChangeModelContent(() => {
       this.value = this.editorMonacoInstance.getValue();
-      this.p4Change.emit({ value: this.value });
+      this.goatChange.emit({ value: this.value });
     });
 
     this.editorMonacoInstance.onDidFocusEditorText(() => {
@@ -168,24 +181,25 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
   render() {
     return (
       <Host>
-        <div class={{
-          'component': true,
-          'code-editor-component': true,
-          [this.theme]: true,
-          'disabled': this.disabled,
-          'readonly': this.readonly,
-          'has-focus': this.hasFocus,
-        }}>
-          <div class='editor' ref={el => this.editorElement = el} />
-          {!this.editorMonacoInstance && <div class='code-editor-loader'>
-            <goat-spinner class='rainbow' />
-            Loading editor...
-          </div>}
+        <div
+          class={{
+            'component': true,
+            'code-editor-component': true,
+            [this.getTheme()]: true,
+            'disabled': this.disabled,
+            'readonly': this.readonly,
+            'has-focus': this.hasFocus,
+          }}
+        >
+          <div class="editor" ref={el => (this.editorElement = el)} />
+          {!this.editorMonacoInstance && (
+            <div class="code-editor-loader">
+              <goat-spinner class="rainbow" />
+              Loading editor...
+            </div>
+          )}
         </div>
-
-
       </Host>
     );
   }
-
 }

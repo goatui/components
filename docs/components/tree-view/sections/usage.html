@@ -1,18 +1,17 @@
-{% capture sample-code %}
-<goat-tree-view style="width: 300px; height: 300px">
+{% GoatHighlighterCard language:"html" %}
+<goat-tree-view style="width: 300px;">
   <goat-tree-node label="Artificial intelligence"></goat-tree-node>
   <goat-tree-node label="Blockchain"></goat-tree-node>
   <goat-tree-node label="Cloud computing">
     <goat-tree-node label="Containers"> </goat-tree-node>
     <goat-tree-node label="Databases"> </goat-tree-node>
   </goat-tree-node>
-
 </goat-tree-view>
-{% endcapture %} {% include demo-html.html content=sample-code %}
+{% endGoatHighlighterCard %}
 
 <script>
   const treeView = document.querySelectorAll('goat-tree-view');
   treeView.addEventListener('goat:tree-node-click', function (evt) {
-      myConsole.log(`<pre>${JSON.stringify(evt.detail.value, null, 4)}</pre>`);
+      myConsole.log(JSON.stringify(evt.detail.value, null, 4)});
     });
 </script>

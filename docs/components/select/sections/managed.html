@@ -31,14 +31,14 @@
     </script>
   </goat-card-content>
 
-  <goat-card-content>
+  <goat-card-content class='no-padding'>
     {% GoatHighlighter language:"html" %}
     <goat-select id="managed-selected" placeholder="Search" search="managed" clearable style="width: 20rem"></goat-select>
     {% endGoatHighlighter %}
   </goat-card-content>
 
-  <goat-card-content>
-    {% GoatHighlighter language:"js" %}
+  <goat-card-content class='no-padding'>
+    {% GoatHighlighter language:"javascript" %}
 const $managed = document.getElementById('managed-selected');
 $managed.items = [];
 $managed.addEventListener('goat:search', function (evt) {

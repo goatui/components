@@ -24,13 +24,13 @@
       });
     </script>
   </goat-card-content>
-  <goat-card-content>
+  <goat-card-content class='no-padding'>
     {% GoatHighlighter language:"html" %}
     <goat-code-editor id="business-rule-editor" style="height: 300px"></goat-code-editor>
     {% endGoatHighlighter %}
   </goat-card-content>
-  <goat-card-content>
-    {% GoatHighlighter language:"js" %} document.getElementById('business-rule-editor').value =
+  <goat-card-content class='no-padding'>
+    {% GoatHighlighter language:"javascript" %} document.getElementById('business-rule-editor').value =
     "/**\\n"+
     "* Sample Code\\n"+
     "*/\\n"+

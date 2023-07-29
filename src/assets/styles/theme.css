@@ -60,6 +60,23 @@ Default input fields;
 Fields on $backgrounds
  */
 /*
+Secondary input fields;
+Fields on $layer-01
+ */
+/*
+Secondary input fields;
+Fields on $layer-02
+ */
+/*
+Hover color for $field-01
+ */
+/*
+Hover color for $field-02
+ */
+/*
+Hover color for $field-03
+ */
+/*
 Selected UI elements
  */
 /**
@@ -88,6 +105,33 @@ Secondary link color for lower contrast backgrounds
 /**
 * Secondary link color for lower contrast backgrounds
 */
+/*
+Subtle borders paired with $background
+ */
+/*
+Subtle borders paired with $layer-01
+ */
+/*
+Subtle borders paired with $layer-02
+ */
+/*
+Subtle borders paired with $layer-03
+ */
+/*
+Medium contrast border;
+Border-bottom paired with $field-01;
+3:1 AA non-text contrast
+ */
+/*
+Medium contrast border;
+Border-bottom paired with $field-02;
+3:1 AA non-text contrast
+ */
+/*
+Medium contrast border;
+Border-bottom paired with $field-03;
+3:1 AA non-text contrast
+ */
 /*
  * There are two body styles for productive and expressive moments. Productive styles have a suffix of -01 and expressive styles have a suffix of -02
  */
@@ -153,6 +197,23 @@ Default input fields;
 Fields on $backgrounds
  */
 /*
+Secondary input fields;
+Fields on $layer-01
+ */
+/*
+Secondary input fields;
+Fields on $layer-02
+ */
+/*
+Hover color for $field-01
+ */
+/*
+Hover color for $field-02
+ */
+/*
+Hover color for $field-03
+ */
+/*
 Selected UI elements
  */
 /**
@@ -181,6 +242,33 @@ Secondary link color for lower contrast backgrounds
 /**
 * Secondary link color for lower contrast backgrounds
 */
+/*
+Subtle borders paired with $background
+ */
+/*
+Subtle borders paired with $layer-01
+ */
+/*
+Subtle borders paired with $layer-02
+ */
+/*
+Subtle borders paired with $layer-03
+ */
+/*
+Medium contrast border;
+Border-bottom paired with $field-01;
+3:1 AA non-text contrast
+ */
+/*
+Medium contrast border;
+Border-bottom paired with $field-02;
+3:1 AA non-text contrast
+ */
+/*
+Medium contrast border;
+Border-bottom paired with $field-03;
+3:1 AA non-text contrast
+ */
 /*
  * There are two body styles for productive and expressive moments. Productive styles have a suffix of -01 and expressive styles have a suffix of -02
  */
@@ -387,39 +475,39 @@ Secondary link color for lower contrast backgrounds
   --color-brand-secondary-80: #004144;
   --color-brand-secondary-90: #022b30;
   --color-brand-secondary-100: #081a1c;
-  --color-neutral-10: var(--color-gray-10, #f4f4f4);
-  --color-neutral-20: var(--color-gray-20, #e0e0e0);
-  --color-neutral-30: var(--color-gray-30, #c6c6c6);
-  --color-neutral-40: var(--color-gray-40, #a8a8a8);
-  --color-neutral-50: var(--color-gray-50, #8d8d8d);
-  --color-neutral-60: var(--color-gray-60, #6f6f6f);
-  --color-neutral: var(--color-gray-60, #6f6f6f);
-  --color-neutral-70: var(--color-gray-70, #525252);
-  --color-neutral-80: var(--color-gray-80, #393939);
-  --color-neutral-90: var(--color-gray-90, #262626);
-  --color-neutral-100: var(--color-gray-100, #161616);
-  --color-primary-10: var(--color-blue-10, #edf5ff);
-  --color-primary-20: var(--color-blue-20, #d0e2ff);
-  --color-primary-30: var(--color-blue-30, #a6c8ff);
-  --color-primary-40: var(--color-blue-40, #78a9ff);
-  --color-primary-50: var(--color-blue-50, #4589ff);
-  --color-primary-60: var(--color-blue-60, #0f62fe);
-  --color-primary: var(--color-blue-60, #0f62fe);
-  --color-primary-70: var(--color-blue-70, #0043ce);
-  --color-primary-80: var(--color-blue-80, #002d9c);
-  --color-primary-90: var(--color-blue-90, #001d6c);
-  --color-primary-100: var(--color-blue-100, #001141);
-  --color-secondary-10: var(--color-warmGray-10, #f7f3f2);
-  --color-secondary-20: var(--color-warmGray-20, #e5e0df);
-  --color-secondary-30: var(--color-warmGray-30, #cac5c4);
-  --color-secondary-40: var(--color-warmGray-40, #ada8a8);
-  --color-secondary-50: var(--color-warmGray-50, #8f8b8b);
-  --color-secondary-60: var(--color-warmGray-60, #726e6e);
-  --color-secondary: var(--color-warmGray-60, #726e6e);
-  --color-secondary-70: var(--color-warmGray-70, #565151);
-  --color-secondary-80: var(--color-warmGray-80, #3c3838);
-  --color-secondary-90: var(--color-warmGray-90, #272525);
-  --color-secondary-100: var(--color-warmGray-100, #171414);
+  --color-neutral-10: #f4f4f4;
+  --color-neutral-20: #e0e0e0;
+  --color-neutral-30: #c6c6c6;
+  --color-neutral-40: #a8a8a8;
+  --color-neutral-50: #8d8d8d;
+  --color-neutral-60: #6f6f6f;
+  --color-neutral: #6f6f6f;
+  --color-neutral-70: #525252;
+  --color-neutral-80: #393939;
+  --color-neutral-90: #262626;
+  --color-neutral-100: #161616;
+  --color-primary-10: #edf5ff;
+  --color-primary-20: #d0e2ff;
+  --color-primary-30: #a6c8ff;
+  --color-primary-40: #78a9ff;
+  --color-primary-50: #4589ff;
+  --color-primary-60: #0f62fe;
+  --color-primary: #0f62fe;
+  --color-primary-70: #0043ce;
+  --color-primary-80: #002d9c;
+  --color-primary-90: #001d6c;
+  --color-primary-100: #001141;
+  --color-secondary-10: #f7f3f2;
+  --color-secondary-20: #e5e0df;
+  --color-secondary-30: #cac5c4;
+  --color-secondary-40: #ada8a8;
+  --color-secondary-50: #8f8b8b;
+  --color-secondary-60: #726e6e;
+  --color-secondary: #726e6e;
+  --color-secondary-70: #565151;
+  --color-secondary-80: #3c3838;
+  --color-secondary-90: #272525;
+  --color-secondary-100: #171414;
   --color-info-10: #edf5ff;
   --color-info-20: #d0e2ff;
   --color-info-30: #a6c8ff;
@@ -474,10 +562,6 @@ Secondary link color for lower contrast backgrounds
   --layer-02: white;
   --layer-03: #f4f4f4;
   --layer-accent-01: #e0e0e0;
-  --border-subtle-00: #c6c6c6;
-  --border-subtle-01: #e0e0e0;
-  --border-subtle-02: #e0e0e0;
-  --border-subtle-03: #e0e0e0;
   --ui-04: #8d8d8d;
   --border-inverse: #161616;
   --background-inverse: #393939;
@@ -491,21 +575,31 @@ Secondary link color for lower contrast backgrounds
   --text-inverse: white;
   --field-01: #f4f4f4;
   --field-02: white;
+  --field-03: #f4f4f4;
+  --field-hover-01: #f4f4f4;
+  --field-hover-02: #f4f4f4;
+  --field-hover-03: #f4f4f4;
   --selected-ui: #e0e0e0;
   --disabled-01: #f4f4f4;
   --text-disabled: rgba(22, 22, 22, 0.25);
   --border-disabled: #c6c6c6;
   --disabled-03: #8d8d8d;
-  --link-01: rgba(var(--color-blue-60, #0f62fe), 1);
-  --link-02: rgba(var(--color-blue-40, #78a9ff), 1);
-  --hover-primary: rgba(var(--color-blue-60, #0f62fe), 1);
-  --hover-primary-text: rgba(var(--color-blue-70, #0043ce), 1);
+  --link-01: #0f62fe;
+  --link-02: #78a9ff;
+  --hover-primary: #0f62fe;
+  --hover-primary-text: #0043ce;
   --visited-link: #8a3ffc;
   --icon-01: #161616;
   --icon-02: #525252;
   --hover-ui: #f4f4f4;
   --active-ui: #c6c6c6;
+  --border-subtle-00: #e0e0e0;
+  --border-subtle-01: #e0e0e0;
+  --border-subtle-02: #e0e0e0;
+  --border-subtle-03: #e0e0e0;
   --border-strong-01: #8d8d8d;
+  --border-strong-02: #8d8d8d;
+  --border-strong-03: #8d8d8d;
   --danger-01: #da1e28;
   --danger-02: #da1e28;
   --support-error: #da1e28;
@@ -535,9 +629,9 @@ Secondary link color for lower contrast backgrounds
   --tag-background-yellow: #fddc69;
   --tag-hover-yellow: #f1c21b;
   --tag-color-yellow: #483700;
-  --tag-background-primary: rgba(var(--color-blue-20, #d0e2ff), 1);
-  --tag-hover-primary: rgba(var(--color-blue-30, #a6c8ff), 1);
-  --tag-color-primary: rgba(var(--color-blue-80, #002d9c), 1);
+  --tag-background-primary: #d0e2ff;
+  --tag-hover-primary: #a6c8ff;
+  --tag-color-primary: #002d9c;
   --tag-background-success: #a7f0ba;
   --tag-hover-success: #6fdc8c;
   --tag-color-success: #044317;
@@ -736,7 +830,7 @@ p {
   letter-spacing: var(--body-01-letter-spacing, 0.16px);
 }
 
-html[data-theme=dark] {
+[data-theme=dark] {
   --color-dark: white;
   --color-light: black;
   --background: #161616;
@@ -744,10 +838,6 @@ html[data-theme=dark] {
   --layer-02: #393939;
   --layer-03: #525252;
   --layer-accent-01: #393939;
-  --border-subtle-00: #c6c6c6;
-  --border-subtle-01: #393939;
-  --border-subtle-02: #525252;
-  --border-subtle-03: #6f6f6f;
   --ui-04: #f4f4f4;
   --border-inverse: #f4f4f4;
   --background-inverse: #f4f4f4;
@@ -761,6 +851,10 @@ html[data-theme=dark] {
   --text-inverse: #161616;
   --field-01: #262626;
   --field-02: #393939;
+  --field-03: #525252;
+  --field-hover-01: #262626;
+  --field-hover-02: #393939;
+  --field-hover-03: #525252;
   --selected-ui: #393939;
   --disabled-01: #262626;
   --text-disabled: rgba(244, 244, 244, 0.25);
@@ -771,7 +865,13 @@ html[data-theme=dark] {
   --icon-02: #c6c6c6;
   --hover-ui: #262626;
   --active-ui: #c6c6c6;
+  --border-subtle-00: #393939;
+  --border-subtle-01: #393939;
+  --border-subtle-02: #525252;
+  --border-subtle-03: #6f6f6f;
   --border-strong-01: #6f6f6f;
+  --border-strong-02: #8d8d8d;
+  --border-strong-03: #a8a8a8;
   --danger-02: #fa4d56;
   --support-error: #fa4d56;
   --support-success: #42be65;
@@ -800,9 +900,9 @@ html[data-theme=dark] {
   --tag-background-yellow: #483700;
   --tag-hover-yellow: #684e00;
   --tag-color-yellow: #f1c21b;
-  --tag-background-primary: rgba(var(--color-blue-80, #002d9c), 1);
-  --tag-hover-primary: rgba(var(--color-blue-70, #0043ce), 1);
-  --tag-color-primary: rgba(var(--color-blue-30, #a6c8ff), 1);
+  --tag-background-primary: #002d9c;
+  --tag-hover-primary: #0043ce;
+  --tag-color-primary: #a6c8ff;
   --tag-background-success: #044317;
   --tag-hover-success: #0e6027;
   --tag-color-success: #6fdc8c;

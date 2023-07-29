@@ -9,24 +9,34 @@ $tag-hover-color: var(--tag-color, v(--tag-hover-gray));
 }
 
 .tag {
-  @include font-style(text-sm);
+  @include font-style(label-01);
   background: $tag-background-color;
   color: $tag-color;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+
+  .tag-image {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 100%;
+    background: $tag-hover-color;
+  }
+
+  .tag-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 .5rem;
+  }
+
+  &.filter .tag-content {
+    padding-inline-end: .25rem;
+  }
 }
 
-.tag-content {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding: 0 .5rem;
-}
 
-:host([filter]) .tag-content {
-  padding-inline-end: .25rem;
-}
+
 
 .close-btn {
   border-radius: 12px;
@@ -36,15 +46,16 @@ $tag-hover-color: var(--tag-color, v(--tag-hover-gray));
   background: transparent;
   line-height: 0;
   cursor: pointer;
-}
+  margin-inline-end: var(--spacing-01);
 
-.close-btn:hover{
-  background: $tag-hover-color;
-  .close-btn-icon {
-    color: v(--background);
+  &:hover {
+    background: $tag-hover-color;
+
+    .close-btn-icon {
+      color: v(--background);
+    }
   }
 }
-
 
 /**
  * Sizes

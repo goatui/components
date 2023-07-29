@@ -58,7 +58,7 @@
 
   // Events
   $calendar.addEventListener('goat:calendar-event-click', function (evt) {
-    myConsole.log("<pre>" + JSON.stringify(evt.detail, null, 4) + "</pre>");
+    myConsole.log(JSON.stringify(evt.detail, null, 4));
   });
 </script>
 {% endGoatHighlighterCard %}

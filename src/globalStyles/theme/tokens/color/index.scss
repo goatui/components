@@ -1,0 +1,147 @@
+@import "base";
+
+
+@include defineVariable(--color-white, getColor(white, 0));
+@include defineVariable(--color-black, getColor(black, 100));
+@include defineVariable(--color-dark, getColor(black, 100), getColor(white, 0));
+@include defineVariable(--color-light, getColor(white, 0), getColor(black, 100));
+
+
+
+@include defineVariable(--border-color, getColor(gray, 50));
+
+/*
+ * Default page background;
+ * UI Shell base color
+ */
+@include defineVariable(--background, getColor(white, 0), getColor(gray, 100));
+
+/*
+ * Container color on $background;
+ * Secondary page background
+ */
+@include defineVariable(--layer-01, getColor(gray, 10), getColor(gray, 90));
+
+/*
+Container color on $layer-01
+ */
+@include defineVariable(--layer-02, getColor(white, 0), getColor(gray, 80));
+
+/*
+Container color on $layer-02
+ */
+@include defineVariable(--layer-03, getColor(gray, 10), getColor(gray, 70));
+/*
+Subtle border;
+Tertiary background
+ */
+@include defineVariable(--layer-accent-01, getColor(gray, 20), getColor(gray, 80));
+
+
+
+
+@include defineVariable(--ui-04, getColor(gray, 50), getColor(gray, 10));
+@include defineVariable(--border-inverse, getColor(gray, 100), getColor(gray, 10));
+
+@include defineVariable(--background-inverse, getColor(gray, 80), getColor(gray, 10));
+
+
+@include defineVariable(--layer-hover-01, getColor(gray, 10), getColor(gray, 90));
+
+
+@import "text-colors";
+@import "field-colors";
+
+
+
+/*
+Selected UI elements
+ */
+@include defineVariable(--selected-ui, getColor(gray, 20), getColor(gray, 80));
+
+/**
+* Disabled fields;
+* Disabled backgrounds;
+* Disabled border
+*/
+@include defineVariable(--disabled-01, getColor(gray, 10), getColor(gray, 90));
+
+/**
+* Disabled elements on $disabled-01;
+* Disabled label;
+* Disabled text on $disabled-01;
+* Disabled icons;
+* Disabled border
+*/
+@include defineVariable(--text-disabled, getColor(gray, 100, 0.25), getColor(gray, 10, 0.25));
+@include defineVariable(--border-disabled, getColor(gray, 30), getColor(gray, 70));
+
+/**
+* Disabled text on $disabled-02;
+* Disabled icons on $disabled-02
+*/
+@include defineVariable(--disabled-03, getColor(gray, 50), getColor(gray, 60));
+
+/**
+* Primary links;
+* Ghost button
+*/
+@include defineVariable(--link-01, getColor(primary, 60));
+
+/**
+Secondary link color for lower contrast backgrounds
+ */
+@include defineVariable(--link-02, getColor(primary, 60));
+
+@include defineVariable(--hover-primary, getColor(primary, 60));
+@include defineVariable(--hover-primary-text, getColor(primary, 70));
+
+@include defineVariable(--visited-link, getColor(purple, 60), getColor(purple, 40));
+
+/**
+* Secondary link color for lower contrast backgrounds
+*/
+@include defineVariable(--link-02, getColor(primary, 40));
+
+@include defineVariable(--icon-01, getColor(gray, 100), getColor(gray, 10));
+@include defineVariable(--icon-02, getColor(gray, 70), getColor(gray, 30));
+
+
+@include defineVariable(--hover-ui, getColor(gray, 10), getColor(gray, 90));
+@include defineVariable(--active-ui, getColor(gray, 30), getColor(gray, 30));
+
+@include defineVariable(--border-subtle-00, getColor(gray, 30), getColor(gray, 30));
+
+
+@import "border-colors";
+
+
+
+
+@include defineVariable(--danger-01, getColor(red, 60));
+@include defineVariable(--danger-02, getColor(red, 60), getColor(red, 50));
+
+@include defineVariable(--support-error, getColor(error, 60), getColor(error, 50));
+@include defineVariable(--support-success, getColor(success, 60), getColor(success, 40));
+@include defineVariable(--support-warning, getColor(warning, 30), getColor(warning, 30));
+@include defineVariable(--support-info, getColor(info, 70), getColor(info, 50));
+
+@include defineVariable(--support-error-inverse, getColor(error, 50), getColor(error, 60));
+@include defineVariable(--support-success-inverse, getColor(success, 40), getColor(success, 50));
+@include defineVariable(--support-warning-inverse, getColor(warning, 30), getColor(warning, 30));
+@include defineVariable(--support-info-inverse, getColor(info, 50), getColor(info, 70));
+
+@include defineVariable(--toggle-off, getColor(gray, 50), getColor(gray, 60));
+
+@include defineVariable(--button-disabled, getColor(gray, 30), getColor(gray, 70));
+@include defineVariable(--icon-on-color-disabled, getColor(gray, 50), getColor(white, 0));
+@include defineVariable(--icon-primary, getColor(gray, 100), getColor(gray, 10));
+
+
+
+
+@each $color in [gray, blue, green, red, yellow, primary, success, info, warning, error] {
+  @include defineVariable(--tag-background-#{$color}, getColor($color, 20), getColor($color, 80));
+  @include defineVariable(--tag-hover-#{$color}, getColor($color, 30), getColor($color, 70));
+  @include defineVariable(--tag-color-#{$color}, getColor($color, 80), getColor($color, 30));
+}

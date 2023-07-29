@@ -79,14 +79,17 @@ export class Notification implements ComponentInterface {
     if (this.dismissible) {
       return (
         <div class="close-button-container">
-          <goat-button class={{ 'close-button': true }}
+          <goat-button class='close-button color-secondary'
                        aria-label='Close alert'
-                       icon='close'
                        variant='link'
+                       simple={true}
                        onGoat:click={(evt) => {
                          this.hidden = true;
                          this.goatDismiss.emit(evt);
-                       }} />
+                       }}>
+
+            <goat-icon class='icon' size="1.5rem" name='close' />
+          </goat-button>
         </div>
       );
     }

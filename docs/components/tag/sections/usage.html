@@ -1,16 +1,24 @@
-{% capture sample-code %}
-<goat-tag>Gray</goat-tag>
-<goat-tag class="color-blue">Blue</goat-tag>
-<goat-tag class="color-red">Red</goat-tag>
-<goat-tag class="color-green">Green</goat-tag>
-<goat-tag class="color-yellow">Yellow</goat-tag>
+{% GoatHighlighterCard language:'html' %}
 
-<br />
-<br />
+<div class="component-container">
+  <goat-tag>Gray</goat-tag>
+  <goat-tag class="color-blue">Blue</goat-tag>
+  <goat-tag class="color-red">Red</goat-tag>
+  <goat-tag
+    class="color-green"
+    image-src="https://image.winudf.com/v2/image1/bmV0LndsbHBwci5ib3lzX3Byb2ZpbGVfcGljdHVyZXNfc2NyZWVuXzBfMTY2NzUzNzYxN18wOTk/screen-0.webp?fakeurl=1&type=.webp"
+  >
+    Green
+  </goat-tag>
+  <goat-tag class="color-yellow" filter>Yellow</goat-tag>
+</div>
 
-<goat-tag size="sm" filter>Gray</goat-tag>
-<goat-tag class="color-blue" size="sm" filter>Blue</goat-tag>
-<goat-tag class="color-red" size="sm">Red</goat-tag>
-<goat-tag class="color-green" size="sm">Green</goat-tag>
-<goat-tag class="color-yellow" size="sm">Yellow</goat-tag>
-{% endcapture %} {% include demo-html.html content=sample-code %}
+<div class="component-container">
+  <goat-tag size="sm">Gray</goat-tag>
+  <goat-tag class="color-blue" size="sm">Blue</goat-tag>
+  <goat-tag class="color-red" size="sm">Red</goat-tag>
+  <goat-tag class="color-green" size="sm" filter>Green</goat-tag>
+  <goat-tag class="color-yellow" size="sm" filter>Yellow</goat-tag>
+</div>
+
+{% endGoatHighlighterCard %}

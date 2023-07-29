@@ -6,9 +6,8 @@
   slot::slotted(goat-button) {
     display: block;
     margin: 0;
-    --button-border-width: 0.125rem;
+    --button-border-width: 0.125rem 0 0.125rem 0.125rem;
     --button-border-radius: 0;
-    border-right: 1px solid white;
   }
 
   slot::slotted(goat-button:first-child) {
@@ -16,8 +15,8 @@
   }
 
   slot::slotted(goat-button:last-child) {
+    --button-border-width: 0.125rem;
     --button-border-radius: 0 #{v(--border-radius)} #{v(--border-radius)} 0;
-    border-right: 0;
   }
 
   slot::slotted(goat-button:only-child) {

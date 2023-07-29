@@ -1,0 +1,41 @@
+/**
+Primary text;
+Body copy;
+Headers;
+Hover text color for --text-secondary
+ */
+@include defineVariable(--text-primary, getColor(gray, 100), getColor(gray, 10));
+
+/**
+ * Secondary text;
+ * Input labels
+ */
+@include defineVariable(--text-secondary, getColor(gray, 70), getColor(gray, 30));
+
+/**
+ * Placeholder text
+ */
+@include defineVariable(--text-placeholder, getColor(gray, 40), getColor(gray, 60));
+
+/**
+Text on interactive colors;
+Text on button colors
+ */
+@include defineVariable(--text-on-color, getColor(white, 0), getColor(white, 0));
+
+
+/**
+Tertiary text;
+Help text
+ */
+@include defineVariable(--text-helper, getColor(gray, 60), getColor(gray, 50));
+
+/**
+Error message text
+ */
+@include defineVariable(--text-error, getColor(red, 60), getColor(red, 40));
+
+/**
+Inverse text color
+ */
+@include defineVariable(--text-inverse, getColor(white, 0), getColor(gray, 100));

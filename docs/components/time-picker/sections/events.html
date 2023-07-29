@@ -13,8 +13,8 @@
       });
     </script>
   </goat-card-content>
-  <goat-card-content>
-    {% GoatHighlighter language:"js" %} document.querySelector('#time-field').addEventListener('goat:input', function(event) { console.log('goat:input :: ' + event.target.value);
+  <goat-card-content class='no-padding'>
+    {% GoatHighlighter language:"javascript" %} document.querySelector('#time-field').addEventListener('goat:input', function(event) { console.log('goat:input :: ' + event.target.value);
     }); document.querySelector('#time-field').addEventListener('goat:change', function(event) { console.warn('goat:change :: ' + event.target.value); }); {% endGoatHighlighter %}
   </goat-card-content>
 </goat-card>

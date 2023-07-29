@@ -35,6 +35,9 @@ export class Header {
       <header class={{ 'header': true }}>
         <div class='header-content'>
           {this.renderLeftSection()}
+          <div class='center-section section'>
+            <slot />
+          </div>
           {this.renderRightSection()}
         </div>
       </header>
