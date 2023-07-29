@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-07-25T07:45:47",
+  "timestamp": "2023-07-29T17:49:46",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.0.1",
@@ -33,7 +33,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-accordion>\n<goat-accordion-item heading=\"Title 1\"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>\n</goat-accordion>"
+          "text": "<goat-accordion>\r\n<goat-accordion-item heading=\"Title 1\"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>\r\n</goat-accordion>"
         }
       ],
       "encapsulation": "shadow",
@@ -101,7 +101,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
-          "docs": "The According size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+          "docs": "The According size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -141,7 +141,7 @@
         "tags": [
           "display"
         ],
-        "example": "<goat-accordion>\n<goat-accordion-item heading=\"Title 1\"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>\n</goat-accordion>"
+        "example": "<goat-accordion>\r\n<goat-accordion-item heading=\"Title 1\"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>\r\n</goat-accordion>"
       }
     },
     {
@@ -641,7 +641,7 @@
       "filePath": "src/components/general/button/button.tsx",
       "fileName": "button.tsx",
       "tag": "goat-button",
-      "readme": "# goat-button\n\n\n",
+      "readme": "# goat-button\r\n\r\n\r\n\r",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -664,7 +664,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-button>\nButton CTA\n</goat-button>"
+          "text": "<goat-button>\r\nButton CTA\r\n</goat-button>"
         }
       ],
       "encapsulation": "shadow",
@@ -841,7 +841,7 @@
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
-          "docs": "Icon which will displayed on button.\nPossible values are icon names.",
+          "docs": "Icon which will displayed on button.\r\nPossible values are icon names.",
           "docsTags": [],
           "values": [
             {
@@ -955,7 +955,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"none\"`. Defaults to `\"md\"`.",
+          "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"none\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -1020,7 +1020,7 @@
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "Button variants.\nPossible values are `\"default\"`, `\"light\"`, `\"outline\"`, `\"ghost\"`, `\"link\"`. Defaults to `\"default\"`.",
+          "docs": "Button variants.\r\nPossible values are `\"default\"`, `\"light\"`, `\"outline\"`, `\"ghost\"`, `\"link\"`. Defaults to `\"default\"`.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -1069,7 +1069,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\n`button.blur()`.",
+          "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.blur()`.",
           "docsTags": []
         },
         {
@@ -1091,7 +1091,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\n`button.focus()`.",
+          "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.focus()`.",
           "docsTags": []
         },
         {
@@ -1157,7 +1157,7 @@
         "tags": [
           "controls"
         ],
-        "example": "<goat-button>\nButton CTA\n</goat-button>"
+        "example": "<goat-button>\r\nButton CTA\r\n</goat-button>"
       }
     },
     {
@@ -2851,7 +2851,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -2873,7 +2873,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -3242,7 +3242,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
-          "docs": "The input field size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+          "docs": "The input field size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -3330,7 +3330,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -3352,7 +3352,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -4154,7 +4154,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-form-control label='Full Name' required>\n<goat-input type='text'></goat-input>\n</goat-form-control>"
+          "text": "<goat-form-control label='Full Name' required>\r\n<goat-input type='text'></goat-input>\r\n</goat-form-control>"
         }
       ],
       "encapsulation": "shadow",
@@ -4331,7 +4331,7 @@
         "tags": [
           "form"
         ],
-        "example": "<goat-form-control label='Full Name' required>\n<goat-input type='text'></goat-input>\n</goat-form-control>"
+        "example": "<goat-form-control label='Full Name' required>\r\n<goat-input type='text'></goat-input>\r\n</goat-form-control>"
       }
     },
     {
@@ -4776,7 +4776,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -4798,7 +4798,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -4837,7 +4837,7 @@
       "filePath": "src/components/general/icon/icon.tsx",
       "fileName": "icon.tsx",
       "tag": "goat-icon",
-      "readme": "# goat-icon\n\n\n",
+      "readme": "# goat-icon\r\n\r\n\r\n\r",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -4970,7 +4970,7 @@
       "filePath": "src/components/general/image/image.tsx",
       "fileName": "image.tsx",
       "tag": "goat-image",
-      "readme": "# goat-icon\n\n\n",
+      "readme": "# goat-icon\r\n\r\n\r\n\r",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -6054,7 +6054,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -6076,7 +6076,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -6142,7 +6142,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-notification state=\"success\" low-contrast dismissible>\n     <div slot='title'>Successful saved the record</div>\n   </goat-notification>"
+          "text": "<goat-notification state=\"success\" low-contrast dismissible>\r\n     <div slot='title'>Successful saved the record</div>\r\n   </goat-notification>"
         }
       ],
       "encapsulation": "shadow",
@@ -6341,7 +6341,7 @@
         "tags": [
           "notification"
         ],
-        "example": "<goat-notification state=\"success\" low-contrast dismissible>\n     <div slot='title'>Successful saved the record</div>\n   </goat-notification>"
+        "example": "<goat-notification state=\"success\" low-contrast dismissible>\r\n     <div slot='title'>Successful saved the record</div>\r\n   </goat-notification>"
       }
     },
     {
@@ -6489,7 +6489,7 @@
       "filePath": "src/components/data-entry/select/select.tsx",
       "fileName": "select.tsx",
       "tag": "goat-select",
-      "readme": "# goat-select\n\n\n",
+      "readme": "# goat-select\r\n\r\n\r\n\r",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -7532,7 +7532,7 @@
       "filePath": "src/components/data-entry/slider/slider.tsx",
       "fileName": "slider.tsx",
       "tag": "goat-slider",
-      "readme": "# goat-select\n\n\n",
+      "readme": "# goat-select\r\n\r\n\r\n\r",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -7992,7 +7992,7 @@
       "filePath": "src/components/data-display/svg/svg.tsx",
       "fileName": "svg.tsx",
       "tag": "goat-svg",
-      "readme": "# goat-icon\n\n\n",
+      "readme": "# goat-icon\r\n\r\n\r\n\r",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -8432,7 +8432,7 @@
       "filePath": "src/components/data-display/table/table.tsx",
       "fileName": "table.tsx",
       "tag": "goat-table",
-      "readme": "# goat-table\n\n\n",
+      "readme": "# goat-table\r\n\r\n\r\n\r",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -9717,7 +9717,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
-          "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+          "docs": "The button size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -9748,7 +9748,7 @@
           "mutable": false,
           "attr": "state",
           "reflectToAttr": true,
-          "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+          "docs": "The input state.\r\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -9836,7 +9836,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `textarea` in `goat-textarea`. Use this method instead of the global\n`textarea.blur()`.",
+          "docs": "Sets blur on the native `textarea` in `goat-textarea`. Use this method instead of the global\r\n`textarea.blur()`.",
           "docsTags": []
         },
         {
@@ -9858,7 +9858,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `textarea` in `goat-textarea`. Use this method instead of the global\n`textarea.focus()`.",
+          "docs": "Sets focus on the native `textarea` in `goat-textarea`. Use this method instead of the global\r\n`textarea.focus()`.",
           "docsTags": []
         }
       ],
@@ -11261,7 +11261,7 @@
           "filePath": "src/components/general/button/button.tsx",
           "fileName": "button.tsx",
           "tag": "goat-button",
-          "readme": "# goat-button\n\n\n",
+          "readme": "# goat-button\r\n\r\n\r\n\r",
           "overview": "",
           "usage": {},
           "docs": "",
@@ -11284,7 +11284,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-button>\nButton CTA\n</goat-button>"
+              "text": "<goat-button>\r\nButton CTA\r\n</goat-button>"
             }
           ],
           "encapsulation": "shadow",
@@ -11461,7 +11461,7 @@
               "mutable": false,
               "attr": "icon",
               "reflectToAttr": false,
-              "docs": "Icon which will displayed on button.\nPossible values are icon names.",
+              "docs": "Icon which will displayed on button.\r\nPossible values are icon names.",
               "docsTags": [],
               "values": [
                 {
@@ -11575,7 +11575,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": false,
-              "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"none\"`. Defaults to `\"md\"`.",
+              "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"none\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -11640,7 +11640,7 @@
               "mutable": false,
               "attr": "variant",
               "reflectToAttr": false,
-              "docs": "Button variants.\nPossible values are `\"default\"`, `\"light\"`, `\"outline\"`, `\"ghost\"`, `\"link\"`. Defaults to `\"default\"`.",
+              "docs": "Button variants.\r\nPossible values are `\"default\"`, `\"light\"`, `\"outline\"`, `\"ghost\"`, `\"link\"`. Defaults to `\"default\"`.",
               "docsTags": [],
               "default": "'default'",
               "values": [
@@ -11689,7 +11689,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\n`button.blur()`.",
+              "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.blur()`.",
               "docsTags": []
             },
             {
@@ -11711,7 +11711,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\n`button.focus()`.",
+              "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.focus()`.",
               "docsTags": []
             },
             {
@@ -11777,7 +11777,7 @@
             "tags": [
               "controls"
             ],
-            "example": "<goat-button>\nButton CTA\n</goat-button>"
+            "example": "<goat-button>\r\nButton CTA\r\n</goat-button>"
           }
         },
         {
@@ -11845,7 +11845,7 @@
           "filePath": "src/components/general/icon/icon.tsx",
           "fileName": "icon.tsx",
           "tag": "goat-icon",
-          "readme": "# goat-icon\n\n\n",
+          "readme": "# goat-icon\r\n\r\n\r\n\r",
           "overview": "",
           "usage": {},
           "docs": "",
@@ -11978,7 +11978,7 @@
           "filePath": "src/components/general/image/image.tsx",
           "fileName": "image.tsx",
           "tag": "goat-image",
-          "readme": "# goat-icon\n\n\n",
+          "readme": "# goat-icon\r\n\r\n\r\n\r",
           "overview": "",
           "usage": {},
           "docs": "",
@@ -14128,7 +14128,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
               "docsTags": []
             },
             {
@@ -14150,7 +14150,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
               "docsTags": []
             }
           ],
@@ -14369,7 +14369,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": true,
-              "docs": "The input field size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+              "docs": "The input field size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -14457,7 +14457,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
               "docsTags": []
             },
             {
@@ -14479,7 +14479,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
               "docsTags": []
             }
           ],
@@ -14579,7 +14579,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-form-control label='Full Name' required>\n<goat-input type='text'></goat-input>\n</goat-form-control>"
+              "text": "<goat-form-control label='Full Name' required>\r\n<goat-input type='text'></goat-input>\r\n</goat-form-control>"
             }
           ],
           "encapsulation": "shadow",
@@ -14756,7 +14756,7 @@
             "tags": [
               "form"
             ],
-            "example": "<goat-form-control label='Full Name' required>\n<goat-input type='text'></goat-input>\n</goat-form-control>"
+            "example": "<goat-form-control label='Full Name' required>\r\n<goat-input type='text'></goat-input>\r\n</goat-form-control>"
           }
         },
         {
@@ -15036,7 +15036,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
               "docsTags": []
             },
             {
@@ -15058,7 +15058,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
               "docsTags": []
             }
           ],
@@ -15643,7 +15643,7 @@
           "filePath": "src/components/data-entry/select/select.tsx",
           "fileName": "select.tsx",
           "tag": "goat-select",
-          "readme": "# goat-select\n\n\n",
+          "readme": "# goat-select\r\n\r\n\r\n\r",
           "overview": "",
           "usage": {},
           "docs": "",
@@ -16303,7 +16303,7 @@
           "filePath": "src/components/data-entry/slider/slider.tsx",
           "fileName": "slider.tsx",
           "tag": "goat-slider",
-          "readme": "# goat-select\n\n\n",
+          "readme": "# goat-select\r\n\r\n\r\n\r",
           "overview": "",
           "usage": {},
           "docs": "",
@@ -16893,7 +16893,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": true,
-              "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+              "docs": "The button size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -16924,7 +16924,7 @@
               "mutable": false,
               "attr": "state",
               "reflectToAttr": true,
-              "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+              "docs": "The input state.\r\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
               "docsTags": [],
               "default": "'default'",
               "values": [
@@ -17012,7 +17012,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `textarea` in `goat-textarea`. Use this method instead of the global\n`textarea.blur()`.",
+              "docs": "Sets blur on the native `textarea` in `goat-textarea`. Use this method instead of the global\r\n`textarea.blur()`.",
               "docsTags": []
             },
             {
@@ -17034,7 +17034,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `textarea` in `goat-textarea`. Use this method instead of the global\n`textarea.focus()`.",
+              "docs": "Sets focus on the native `textarea` in `goat-textarea`. Use this method instead of the global\r\n`textarea.focus()`.",
               "docsTags": []
             }
           ],
@@ -17882,7 +17882,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-accordion>\n<goat-accordion-item heading=\"Title 1\"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>\n</goat-accordion>"
+              "text": "<goat-accordion>\r\n<goat-accordion-item heading=\"Title 1\"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>\r\n</goat-accordion>"
             }
           ],
           "encapsulation": "shadow",
@@ -17950,7 +17950,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": true,
-              "docs": "The According size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+              "docs": "The According size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -17990,7 +17990,7 @@
             "tags": [
               "display"
             ],
-            "example": "<goat-accordion>\n<goat-accordion-item heading=\"Title 1\"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>\n</goat-accordion>"
+            "example": "<goat-accordion>\r\n<goat-accordion-item heading=\"Title 1\"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>\r\n</goat-accordion>"
           }
         },
         {
@@ -18857,7 +18857,7 @@
           "filePath": "src/components/data-display/svg/svg.tsx",
           "fileName": "svg.tsx",
           "tag": "goat-svg",
-          "readme": "# goat-icon\n\n\n",
+          "readme": "# goat-icon\r\n\r\n\r\n\r",
           "overview": "",
           "usage": {},
           "docs": "",
@@ -18955,7 +18955,7 @@
           "filePath": "src/components/data-display/table/table.tsx",
           "fileName": "table.tsx",
           "tag": "goat-table",
-          "readme": "# goat-table\n\n\n",
+          "readme": "# goat-table\r\n\r\n\r\n\r",
           "overview": "",
           "usage": {},
           "docs": "",
@@ -19598,7 +19598,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-notification state=\"success\" low-contrast dismissible>\n     <div slot='title'>Successful saved the record</div>\n   </goat-notification>"
+              "text": "<goat-notification state=\"success\" low-contrast dismissible>\r\n     <div slot='title'>Successful saved the record</div>\r\n   </goat-notification>"
             }
           ],
           "encapsulation": "shadow",
@@ -19797,7 +19797,7 @@
             "tags": [
               "notification"
             ],
-            "example": "<goat-notification state=\"success\" low-contrast dismissible>\n     <div slot='title'>Successful saved the record</div>\n   </goat-notification>"
+            "example": "<goat-notification state=\"success\" low-contrast dismissible>\r\n     <div slot='title'>Successful saved the record</div>\r\n   </goat-notification>"
           }
         },
         {
@@ -21417,7 +21417,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
               "docsTags": []
             },
             {
@@ -21439,7 +21439,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
               "docsTags": []
             }
           ],
