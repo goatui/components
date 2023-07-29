@@ -1,4 +1,5 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Prop } from '@stencil/core';
+import { ElementSize } from '../../../utils/utils';
 
 /**
  * @name Tag
@@ -23,6 +24,8 @@ export class Tag implements ComponentInterface {
 
   @Prop({ reflect: true }) value: string = '';
 
+  @Prop() imageSrc: string = '';
+
   @Event({ eventName: 'goat:click' }) goatClick: EventEmitter;
 
   @Event({ eventName: 'goat:tag-dismiss' }) goatTagDismissClick: EventEmitter;
@@ -33,20 +36,36 @@ export class Tag implements ComponentInterface {
     this.goatTagDismissClick.emit({ value: this.value || this.elm.textContent });
   };
 
+  private getIconSize() {
+    switch (this.size) {
+      case ElementSize.SMALL:
+        return '1rem';
+      case ElementSize.MEDIUM:
+        return '1.25rem';
+      default:
+        return '1rem';
+    }
+  }
+
   renderCloseButton() {
     if (!this.filter) {
       return;
     }
-    const size = this.size === 'md' ? '24px' : '16px';
     return <button class='close-btn' onClick={() => this.dismissClickHandler()}>
-      <goat-icon class='close-btn-icon inherit' name='close' size={size}></goat-icon>
+      <goat-icon class='close-btn-icon inherit' name='close' size={this.getIconSize()}></goat-icon>
     </button>;
+  }
+
+  renderImage() {
+    if (this.imageSrc)
+    return <img src={this.imageSrc} alt="Tag image" class='tag-image' />;
   }
 
   render() {
     return (
       <Host>
-        <div class={{ 'tag': true, [`size-${this.size}`]: true }}>
+        <div class={{ 'tag': true, [`size-${this.size}`]: true, filter: this.filter }}>
+          {this.renderImage()}
           <div class='tag-content'>
             <slot />
           </div>

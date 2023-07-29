@@ -5,7 +5,7 @@
     <goat-notification state="warning"> {{page.notificationContent}} </goat-notification>
     <goat-notification state="error"> {{page.notificationContent}} </goat-notification>
   </goat-card-content>
-  <goat-card-content>
+  <goat-card-content class='no-padding'>
     {% GoatHighlighter language:"html" %}
     <goat-notification> {{page.notificationContent}} </goat-notification>
     <goat-notification state="success">...</goat-notification>
@@ -22,7 +22,7 @@
     <goat-notification low-contrast state="warning"> {{page.notificationContent}} </goat-notification>
     <goat-notification low-contrast state="error"> {{page.notificationContent}} </goat-notification>
   </goat-card-content>
-  <goat-card-content>
+  <goat-card-content class='no-padding'>
     {% GoatHighlighter language:"html" %}
     <goat-notification low-contrast> {{page.notificationContent}} </goat-notification>
     {% endGoatHighlighter %}

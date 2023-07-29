@@ -7,7 +7,7 @@
   },
   "components": [
     {
-      "filePath": "src/components/data-display/accordion/accordion.tsx",
+      "filePath": "src/components/data-display/accordion/accordion/accordion.tsx",
       "fileName": "accordion.tsx",
       "tag": "goat-accordion",
       "readme": "# goat-avatar\r\n\r\n\r\n\r",
@@ -1954,6 +1954,10 @@
           "text": "Canvas"
         },
         {
+          "name": "category",
+          "text": "Work in progress"
+        },
+        {
           "name": "description",
           "text": "Canvas for drawing lines and shapes on."
         },
@@ -2068,6 +2072,7 @@
       "listeners": [],
       "metadata": {
         "name": "Canvas",
+        "category": "Work in progress",
         "description": "Canvas for drawing lines and shapes on.",
         "img": "/assets/img/canvas.png"
       }
@@ -2755,33 +2760,6 @@
           "values": [
             {
               "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "theme",
-          "type": "\"vs-dark\" | \"vs-light\"",
-          "complexType": {
-            "original": "'vs-light' | 'vs-dark'",
-            "resolved": "\"vs-dark\" | \"vs-light\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "theme",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "default": "'vs-light'",
-          "values": [
-            {
-              "value": "vs-dark",
-              "type": "string"
-            },
-            {
-              "value": "vs-light",
-              "type": "string"
             }
           ],
           "optional": false,
@@ -4008,6 +3986,10 @@
           "text": "Flow Designer"
         },
         {
+          "name": "category",
+          "text": "Work in progress"
+        },
+        {
           "name": "description",
           "text": "An interactive button with a range of presentation options."
         },
@@ -4123,6 +4105,7 @@
       ],
       "metadata": {
         "name": "Flow Designer",
+        "category": "Work in progress",
         "description": "An interactive button with a range of presentation options.",
         "img": "/assets/img/flow-designer.png"
       }
@@ -4974,24 +4957,7 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Image"
-        },
-        {
-          "name": "description",
-          "text": "Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information."
-        },
-        {
-          "name": "category",
-          "text": "General"
-        },
-        {
-          "name": "example",
-          "text": "<goat-icon name=\"home\"></goat-icon>"
-        }
-      ],
+      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -5067,12 +5033,7 @@
       "slots": [],
       "parts": [],
       "listeners": [],
-      "metadata": {
-        "name": "Image",
-        "description": "Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.",
-        "category": "General",
-        "example": "<goat-icon name=\"home\"></goat-icon>"
-      }
+      "metadata": {}
     },
     {
       "filePath": "src/components/data-entry/input/input.tsx",
@@ -9079,6 +9040,28 @@
           "values": [
             {
               "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "imageSrc",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "image-src",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "''",
+          "values": [
+            {
+              "type": "string"
             }
           ],
           "optional": false,
@@ -14038,33 +14021,6 @@
               "required": false
             },
             {
-              "name": "theme",
-              "type": "\"vs-dark\" | \"vs-light\"",
-              "complexType": {
-                "original": "'vs-light' | 'vs-dark'",
-                "resolved": "\"vs-dark\" | \"vs-light\"",
-                "references": {}
-              },
-              "mutable": false,
-              "attr": "theme",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "default": "'vs-light'",
-              "values": [
-                {
-                  "value": "vs-dark",
-                  "type": "string"
-                },
-                {
-                  "value": "vs-light",
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
               "name": "value",
               "type": "string",
               "complexType": {
@@ -17856,7 +17812,7 @@
       "hide": false,
       "components": [
         {
-          "filePath": "src/components/data-display/accordion/accordion.tsx",
+          "filePath": "src/components/data-display/accordion/accordion/accordion.tsx",
           "fileName": "accordion.tsx",
           "tag": "goat-accordion",
           "readme": "# goat-avatar\r\n\r\n\r\n\r",
@@ -19473,6 +19429,28 @@
               "required": false
             },
             {
+              "name": "imageSrc",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "image-src",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "''",
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
               "name": "size",
               "type": "\"md\" | \"sm\"",
               "complexType": {
@@ -20150,8 +20128,8 @@
       ]
     },
     {
-      "name": "Uncategorized",
-      "hide": true,
+      "name": "Work in progress",
+      "hide": false,
       "components": [
         {
           "filePath": "src/components/data-display/accordion/accordion-item/accordion-item.tsx",
@@ -20867,6 +20845,10 @@
               "text": "Canvas"
             },
             {
+              "name": "category",
+              "text": "Work in progress"
+            },
+            {
               "name": "description",
               "text": "Canvas for drawing lines and shapes on."
             },
@@ -20981,6 +20963,7 @@
           "listeners": [],
           "metadata": {
             "name": "Canvas",
+            "category": "Work in progress",
             "description": "Canvas for drawing lines and shapes on.",
             "img": "/assets/img/canvas.png"
           }
@@ -21062,6 +21045,10 @@
             {
               "name": "name",
               "text": "Flow Designer"
+            },
+            {
+              "name": "category",
+              "text": "Work in progress"
             },
             {
               "name": "description",
@@ -21179,6 +21166,7 @@
           ],
           "metadata": {
             "name": "Flow Designer",
+            "category": "Work in progress",
             "description": "An interactive button with a range of presentation options.",
             "img": "/assets/img/flow-designer.png"
           }
@@ -21287,6 +21275,92 @@
               "docs": "",
               "docsTags": [],
               "default": "''",
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
+          "methods": [],
+          "events": [],
+          "styles": [],
+          "slots": [],
+          "parts": [],
+          "listeners": [],
+          "metadata": {}
+        },
+        {
+          "filePath": "src/components/general/image/image.tsx",
+          "fileName": "image.tsx",
+          "tag": "goat-image",
+          "readme": "# goat-icon\n\n\n",
+          "overview": "",
+          "usage": {},
+          "docs": "",
+          "docsTags": [],
+          "encapsulation": "shadow",
+          "dependents": [],
+          "dependencies": [],
+          "dependencyGraph": {},
+          "props": [
+            {
+              "name": "darkSrc",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "dark-src",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "imageTitle",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "image-title",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "src",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "src",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
               "values": [
                 {
                   "type": "string"

@@ -98,7 +98,8 @@
   .multi-select-values {
     display: flex;
     flex-wrap: wrap;
-    gap: .5rem;
+    gap: v(--spacing-03);
+    padding-inline-start: v(--spacing-05);
   }
 
   .input-container:not(.has-value) {

@@ -485,7 +485,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
       return <goat-spinner class="input-action rainbow" />;
     }
     if (!this.disabled && !this.readonly && !this.hideDropdownIcon)
-      return <goat-button class="input-action chevron-down color-secondary" variant="ghost" icon="chevron--down" onGoat:click={this.toggleList}></goat-button>;
+      return <goat-button class="input-action chevron-down color-secondary" size={this.size} variant="ghost" icon="chevron--down" onGoat:click={this.toggleList}></goat-button>;
   }
 
   private renderDropdownList() {

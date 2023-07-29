@@ -5,8 +5,6 @@ module Jekyll
     def template(context)
       # Declare props as variables here
       content = @props["content"]
-      parsedContent = content.gsub(/`/, '\`')
-      parsedContent = parsedContent.gsub(/</, '&lt;')
       language = @props["language"]
 
       # Output rendered markup
@@ -15,13 +13,10 @@ module Jekyll
         <goat-card-content>
           #{content}
         </goat-card-content>
-        <goat-card-content>
-        <goat-code-highlighter language='#{language}' class='demo-html'></goat-code-highlighter>
-        <script>
-          (function run(currentScript) {
-            currentScript.parentElement.querySelector('.demo-html').value = `#{parsedContent}`;
-          })(document.currentScript);
-        </script>
+        <goat-card-content class="no-padding">
+        <goat-code-highlighter language='#{language}' class='demo-html'>
+        <pre><code>#{content}</code></pre>
+        </goat-code-highlighter>
         </goat-card-content>
        </goat-card>
       ]

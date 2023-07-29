@@ -89,21 +89,21 @@ export class FormControl implements ComponentInterface {
   }
 
 
-  renderSubtitle() {
+  renderHelper() {
     if (this.error)
-      return <div class='subtitle-error'>
+      return <div class='helper-error'>
         {this.error}
       </div>;
     else if (this.success)
-      return <div class='subtitle-success'>
+      return <div class='helper-success'>
         {this.success}
       </div>;
     else if (this.warning)
-      return <div class='subtitle-warning'>
+      return <div class='helper-warning'>
         {this.warning}
       </div>;
     else if (this.caption)
-      return <div class='subtitle-caption'>
+      return <div class='helper-caption'>
         {this.caption}
       </div>;
   }
@@ -128,8 +128,8 @@ export class FormControl implements ComponentInterface {
           <div class='field'>
             <slot />
           </div>
-          <div class='subtitle'>
-            {this.renderSubtitle()}
+          <div class='helper'>
+            {this.renderHelper()}
           </div>
         </div>
       </Host>

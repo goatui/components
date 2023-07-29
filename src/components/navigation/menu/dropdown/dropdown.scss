@@ -39,25 +39,25 @@
   }
 
   &.bottom-right .dropdown-content {
-    top: calc(100% + #{v(--spacing-02)});
+    top: 100%;
     left: 0;
     transform-origin: top;
   }
 
   &.bottom-left .dropdown-content {
-    top: calc(100% + #{v(--spacing-02)});
+    top: 100%;
     right: 0;
     transform-origin: top;
   }
 
   &.top-right .dropdown-content {
-    bottom: calc(100% + #{v(--spacing-02)});
+    bottom: 100%;
     left: 0;
     transform-origin: bottom;
   }
 
   &.top-left .dropdown-content {
-    bottom: calc(100% + #{v(--spacing-02)});
+    bottom: 100%;
     right: 0;
     transform-origin: bottom;
   }

@@ -85,7 +85,11 @@
       border-width: 0 0 0 3px;
 
       .close-button {
-        --button-color: #{v(--text-inverse)};
+        --button-padding: .5rem;
+        .icon {
+          --icon-color: #{v(--text-inverse)};
+        }
+
       }
       .state-icon {
         color: v(--support-#{$state}-inverse);
@@ -97,7 +101,9 @@
         background: v(--color-#{$state}-10);
         border-width: 1px 1px 1px 3px;
         .close-button {
-          --button-color: #{v(--color-neutral-100)};
+          .icon {
+            --icon-color: #{v(--color-neutral-100)};
+          }
         }
         .state-icon {
           color: v(--support-#{$state});

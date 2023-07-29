@@ -39,14 +39,14 @@
       ];
     </script>
   </goat-card-content>
-  <goat-card-content>
+  <goat-card-content class='no-padding'>
     {% GoatHighlighter language:"html" %}
     <goat-select id="select" placeholder="Select" clearable style="width: 20rem"></goat-select>
 <goat-select id="select2" class='no-border' placeholder="Select"  style="width: 20rem"></goat-select>
     {% endGoatHighlighter %}
   </goat-card-content>
-  <goat-card-content>
-    {% GoatHighlighter language:"js" %}
+  <goat-card-content class='no-padding'>
+    {% GoatHighlighter language:"javascript" %}
 const $dropDown = document.getElementById('select');
 $dropDown.items = [
   { label: 'New', value: 'new', icon: 'file-earmark' },

@@ -34,19 +34,19 @@
   }
 }
 
-.subtitle {
-  @include font-style(text-xs);
-  font-weight: v(--font-weight-regular);
-  .subtitle-caption {
+.helper {
+  @include font-style(helper-text-01);
+
+  .helper-caption {
     color: v(--text-helper);
   }
-  .subtitle-error {
+  .helper-error {
     color: v(--support-error-inverse);
   }
-  .subtitle-success {
+  .helper-success {
     color: v(--support-success-inverse);
   }
-  .subtitle-warning {
+  .helper-warning {
     color: v(--support-warning-inverse);
   }
 }

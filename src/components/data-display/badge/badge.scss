@@ -14,20 +14,30 @@
 .badge-content {
   position: absolute;
   z-index: v(--z-index-badge);
-  top: -0.325rem;
-  right: -0.25rem;
   color: v(--color-white);
   display: flex;
   justify-content: center;
-  width: 0.875rem;
-  height: 0.875rem;
   align-items: center;
   background-color: var(--badge-color, v(--color-neutral));
-  border-radius: 50%;
-  padding: v(--spacing-01);
+  border-radius: 12px;
+  padding: v(--spacing-01) v(--spacing-02);
   @include font-style(code-01);
-  font-size: .625rem;
+
+  &.has-content {
+    top: -0.5rem;
+    right: -0.5rem;
+    height: 1.25rem;
+    min-width: 1.25rem;
+  }
+
+  &:not(.has-content) {
+    top: -0.25rem;
+    right: -0.25rem;
+    height: 0.5rem;
+    min-width: 0.5rem;
+  }
 }
+
 
 
 @each $state in [success, warning, error] {

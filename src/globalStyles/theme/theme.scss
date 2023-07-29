@@ -18,7 +18,7 @@ p {
   @include font-style(body-01);
 }
 
-html[data-theme="dark"] {
+[data-theme="dark"] {
   @each $name, $value in $dark-color-css-variables {
     #{$name}: #{$value};
   }

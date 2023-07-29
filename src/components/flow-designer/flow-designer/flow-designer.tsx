@@ -3,6 +3,7 @@ import { loadScript } from '../../../utils/utils';
 
 /**
  * @name Flow Designer
+ * @category Work in progress
  * @description An interactive button with a range of presentation options.
  * @img /assets/img/flow-designer.png
  */

@@ -114,20 +114,22 @@
     <script src="/assets/js/main.js"></script>
     <script>
       myConsole = {
-        log: function (message) {
+        log: function (message, title) {
           window.dispatchEvent(
             new CustomEvent('goat:notification', {
               detail: {
+                title: title ? title : undefined,
                 subtitle: `<pre>${message}</pre>`,
                 state: 'success',
               },
             }),
           );
         },
-        warn: function (message) {
+        warn: function (message, title) {
           window.dispatchEvent(
             new CustomEvent('goat:notification', {
               detail: {
+                title: title ? title : undefined,
                 subtitle: `<pre>${message}</pre>`,
                 state: 'warning',
               },

@@ -16,7 +16,6 @@
 | `name`        | `name`         | The input field name.                                                                                  | `string`                           | ``goat-input-${this.gid}`` |
 | `readonly`    | `readonly`     |                                                                                                        | `boolean`                          | `false`                    |
 | `required`    | `required`     | If true, required icon is show. Defaults to `false`.                                                   | `boolean`                          | `false`                    |
-| `theme`       | `theme`        |                                                                                                        | `"vs-dark" \| "vs-light"`          | `'vs-light'`               |
 | `value`       | `value`        | The input field value.                                                                                 | `string`                           | `undefined`                |
 
 

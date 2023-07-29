@@ -80,6 +80,7 @@ export class GoatMenu {
 
   private clickHandler = (event) => {
     if (!this.disabled) {
+      this.setFocus();
       this.goatMenuItemClick.emit({
         value: this.value || this.elm.innerText,
       });
@@ -144,15 +145,15 @@ export class GoatMenu {
         onKeyDown={this.keyDownHandler}
         aria-disabled={this.disabled}>
 
-        <div class='item-section slot-start'>
+        <div class='item-section slot-start' tabindex={0}>
           <slot name='start' />
         </div>
 
-        <div class='item-section slot-main'>
+        <div class='item-section slot-main' tabindex={0}>
           <slot />
         </div>
 
-        <div class='item-section slot-end'>
+        <div class='item-section slot-end' tabindex={0}>
           <slot name='end' />
         </div>
 

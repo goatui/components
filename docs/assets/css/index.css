@@ -68,6 +68,7 @@ goat-text[type='code'] {
 .social-icons {
   display: flex;
   align-items: center;
+  gap: .5rem;
   --button-color: var(--text-primary);
 }
 

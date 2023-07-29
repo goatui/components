@@ -32,13 +32,13 @@
       <div>Check console for full event detail.</div>
     </div>
   </goat-card-content>
-  <goat-card-content>
+  <goat-card-content class='no-padding'>
     {% GoatHighlighter language:"html" %}
     <goat-table id="table" key-field="_id" selection-type="checkbox" sortable paginate></goat-table>
     {% endGoatHighlighter %}
   </goat-card-content>
   <goat-card-content>
-    {% GoatHighlighter language:"js" format:"false" %}
+    {% GoatHighlighter language:"javascript" format:"false" %}
 const $table = document.getElementById('table');
 // Columns
 $table.columns = {% include_relative column-config.json %};

@@ -63,7 +63,7 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
   /**
    * Emitted when the value has changed..
    */
-  @Event({ eventName: 'goat:change' }) p4Change: EventEmitter;
+  @Event({ eventName: 'goat:change' }) goatChange: EventEmitter;
 
   /**
    * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
@@ -74,7 +74,7 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
 
   @Watch('debounce')
   protected debounceChanged() {
-    this.p4Change = debounceEvent(this.p4Change, this.debounce);
+    this.goatChange = debounceEvent(this.goatChange, this.debounce);
   }
 
   @Watch('disabled')

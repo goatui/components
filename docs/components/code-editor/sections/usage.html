@@ -1,45 +1,39 @@
 <goat-card>
   <goat-card-content>
     <goat-checkbox id="disableEditor">Disable editor</goat-checkbox>
-    <goat-checkbox id="darkTheme">Dark Theme</goat-checkbox>
 
-    <goat-code-editor id="business-rule-editor" style="height: 300px"></goat-code-editor>
+    <goat-code-editor id="business-rule-editor" style="display:block; height: 300px"></goat-code-editor>
     <script>
-      document.getElementById('business-rule-editor').value = value =
-        "/**\n"+
-        "* Sample Code\n"+
-        "*/\n"+
-        "function myBusinessRuleFunction(){\n"+
-        "   const a = 1;\n"+
-        "   const b = 2;\n"+
-        "   let c = a + b;\n"+
-        "   console.log(c);\n"+
-        "}";
+      document.getElementById('business-rule-editor').value = `/**
+* Sample Code
+*/
+function myBusinessRuleFunction(){
+  const a = 1;
+  const b = 2;
+  let c = a + b;
+  console.log(c);
+}`;
 
       document.querySelector('#disableEditor').addEventListener('goat:change', function (evt) {
         document.getElementById('business-rule-editor').disabled = evt.target.value;
       });
-      document.querySelector('#darkTheme').addEventListener('goat:change', function (evt) {
-        document.getElementById('business-rule-editor').theme = evt.target.value ? 'vs-dark' : 'vs-light';
-      });
     </script>
   </goat-card-content>
-  <goat-card-content>
+  <goat-card-content class='no-padding'>
     {% GoatHighlighter language:"html" %}
     <goat-code-editor id="business-rule-editor" style="height: 300px"></goat-code-editor>
     {% endGoatHighlighter %}
   </goat-card-content>
-  <goat-card-content>
-    {% GoatHighlighter language:"js" %} document.getElementById('business-rule-editor').value =
-    "/**\\n"+
-    "* Sample Code\\n"+
-    "*/\\n"+
-    "function myBusinessRuleFunction(){\\n"+
-    "   const a = 1;\\n"+
-    "   const b = 2;\\n"+
-    "   let c = a + b;\\n"+
-    "   console.log(c);\\n"+
-    "}";
+  <goat-card-content class='no-padding'>
+    {% GoatHighlighter language:"javascript" %} document.getElementById('business-rule-editor').value = `/**
+* Sample Code
+*/
+function myBusinessRuleFunction(){
+  const a = 1;
+  const b = 2;
+  let c = a + b;
+  console.log(c);
+}`;
     {% endGoatHighlighter %}
   </goat-card-content>
 </goat-card>

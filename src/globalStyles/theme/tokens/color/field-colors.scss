@@ -1,0 +1,32 @@
+/*
+Default input fields;
+Fields on $backgrounds
+ */
+@include defineVariable(--field-01, getColor(gray, 10), getColor(gray, 90));
+
+/*
+Secondary input fields;
+Fields on $layer-01
+ */
+@include defineVariable(--field-02, getColor(white, 0), getColor(gray, 80));
+
+/*
+Secondary input fields;
+Fields on $layer-02
+ */
+@include defineVariable(--field-03, getColor(gray, 10), getColor(gray, 70));
+
+/*
+Hover color for $field-01
+ */
+@include defineVariable(--field-hover-01, getColor(gray, 10), getColor(gray, 90));
+
+/*
+Hover color for $field-02
+ */
+@include defineVariable(--field-hover-02, getColor(gray, 10), getColor(gray, 80));
+
+/*
+Hover color for $field-03
+ */
+@include defineVariable(--field-hover-03, getColor(gray, 10), getColor(gray, 70));

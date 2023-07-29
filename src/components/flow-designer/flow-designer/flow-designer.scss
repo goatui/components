@@ -27,7 +27,7 @@
   width: 100%;
   border-radius: var(--table-border-radius);
   background-color: v(--background-color);
-  border: 1px solid v(--border-color);
+  border: 1px solid v(--border-strong-01);
 
   .canvas-container {
     position: relative;
@@ -95,7 +95,7 @@
 
     .activity-icon {
       background: v(--background);
-      border: 2px solid v(--border-color);
+      border: 2px solid v(--border-strong-01);
       border-radius: 5px;
 
       img {
@@ -139,7 +139,7 @@
 
 .activity {
   fill: v(--background);
-  stroke: v(--border-color);
+  stroke: v(--border-strong-01);
 }
 
 .flow-designer {

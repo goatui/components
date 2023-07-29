@@ -117,6 +117,10 @@ export namespace Components {
          */
         "iconAlign": 'start' | 'end';
         /**
+          * Icon size.
+         */
+        "iconSize": 'sm' | 'md' | 'lg';
+        /**
           * Button selection state.
          */
         "selected": boolean;
@@ -200,6 +204,7 @@ export namespace Components {
     }
     /**
      * @name Canvas
+     * @category Work in progress
      * @description Canvas for drawing lines and shapes on.
      * @img /assets/img/canvas.png
      */
@@ -295,7 +300,6 @@ export namespace Components {
           * Sets focus on the native `input` in `goat-input`. Use this method instead of the global `input.focus()`.
          */
         "setFocus": () => Promise<void>;
-        "theme": 'vs-light' | 'vs-dark';
         /**
           * The input field value.
          */
@@ -407,6 +411,7 @@ export namespace Components {
     }
     /**
      * @name Flow Designer
+     * @category Work in progress
      * @description An interactive button with a range of presentation options.
      * @img /assets/img/flow-designer.png
      */
@@ -510,12 +515,6 @@ export namespace Components {
          */
         "size": string;
     }
-    /**
-     * @name Image
-     * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
-     * @category General
-     * @example <goat-icon name="home"></goat-icon>
-     */
     interface GoatImage {
         "darkSrc": string;
         "imageTitle": string;
@@ -937,6 +936,7 @@ export namespace Components {
      */
     interface GoatTag {
         "filter": boolean;
+        "imageSrc": string;
         /**
           * Text size.
          */
@@ -1393,6 +1393,7 @@ declare global {
     };
     /**
      * @name Canvas
+     * @category Work in progress
      * @description Canvas for drawing lines and shapes on.
      * @img /assets/img/canvas.png
      */
@@ -1499,6 +1500,7 @@ declare global {
     };
     /**
      * @name Flow Designer
+     * @category Work in progress
      * @description An interactive button with a range of presentation options.
      * @img /assets/img/flow-designer.png
      */
@@ -1566,12 +1568,6 @@ declare global {
         prototype: HTMLGoatIconElement;
         new (): HTMLGoatIconElement;
     };
-    /**
-     * @name Image
-     * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
-     * @category General
-     * @example <goat-icon name="home"></goat-icon>
-     */
     interface HTMLGoatImageElement extends Components.GoatImage, HTMLStencilElement {
     }
     var HTMLGoatImageElement: {
@@ -2038,6 +2034,10 @@ declare namespace LocalJSX {
          */
         "iconAlign"?: 'start' | 'end';
         /**
+          * Icon size.
+         */
+        "iconSize"?: 'sm' | 'md' | 'lg';
+        /**
           * On click of button, a CustomEvent 'goat:click' will be triggered.
          */
         "onGoat:click"?: (event: GoatButtonCustomEvent<any>) => void;
@@ -2121,6 +2121,7 @@ declare namespace LocalJSX {
     }
     /**
      * @name Canvas
+     * @category Work in progress
      * @description Canvas for drawing lines and shapes on.
      * @img /assets/img/canvas.png
      */
@@ -2206,7 +2207,7 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
-          * Emitted when the value has changed..
+          * Emitted when the value has changed.
          */
         "onGoat:change"?: (event: GoatCodeEditorCustomEvent<any>) => void;
         "readonly"?: boolean;
@@ -2214,7 +2215,6 @@ declare namespace LocalJSX {
           * If true, required icon is show. Defaults to `false`.
          */
         "required"?: boolean;
-        "theme"?: 'vs-light' | 'vs-dark';
         /**
           * The input field value.
          */
@@ -2332,6 +2332,7 @@ declare namespace LocalJSX {
     }
     /**
      * @name Flow Designer
+     * @category Work in progress
      * @description An interactive button with a range of presentation options.
      * @img /assets/img/flow-designer.png
      */
@@ -2430,12 +2431,6 @@ declare namespace LocalJSX {
          */
         "size"?: string;
     }
-    /**
-     * @name Image
-     * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
-     * @category General
-     * @example <goat-icon name="home"></goat-icon>
-     */
     interface GoatImage {
         "darkSrc"?: string;
         "imageTitle"?: string;
@@ -2850,6 +2845,7 @@ declare namespace LocalJSX {
      */
     interface GoatTag {
         "filter"?: boolean;
+        "imageSrc"?: string;
         "onGoat:click"?: (event: GoatTagCustomEvent<any>) => void;
         "onGoat:tag-dismiss"?: (event: GoatTagCustomEvent<any>) => void;
         /**
@@ -3226,6 +3222,7 @@ declare module "@stencil/core" {
             "goat-calendar-month-view-background": LocalJSX.GoatCalendarMonthViewBackground & JSXBase.HTMLAttributes<HTMLGoatCalendarMonthViewBackgroundElement>;
             /**
              * @name Canvas
+             * @category Work in progress
              * @description Canvas for drawing lines and shapes on.
              * @img /assets/img/canvas.png
              */
@@ -3287,6 +3284,7 @@ declare module "@stencil/core" {
             "goat-empty-state": LocalJSX.GoatEmptyState & JSXBase.HTMLAttributes<HTMLGoatEmptyStateElement>;
             /**
              * @name Flow Designer
+             * @category Work in progress
              * @description An interactive button with a range of presentation options.
              * @img /assets/img/flow-designer.png
              */
@@ -3324,12 +3322,6 @@ declare module "@stencil/core" {
              * @example <goat-icon name="home"></goat-icon>
              */
             "goat-icon": LocalJSX.GoatIcon & JSXBase.HTMLAttributes<HTMLGoatIconElement>;
-            /**
-             * @name Image
-             * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
-             * @category General
-             * @example <goat-icon name="home"></goat-icon>
-             */
             "goat-image": LocalJSX.GoatImage & JSXBase.HTMLAttributes<HTMLGoatImageElement>;
             /**
              * @name Input

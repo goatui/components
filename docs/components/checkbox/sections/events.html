@@ -11,8 +11,8 @@
     </script>
   </goat-card-content>
   <!-- prettier-ignore -->
-  <goat-card-content>
-    {% GoatHighlighter language:"js" %} document.querySelector('#change-checkbox-field').addEventListener('goat:change',
+  <goat-card-content class='no-padding'>
+    {% GoatHighlighter language:"javascript" %} document.querySelector('#change-checkbox-field').addEventListener('goat:change',
     function(event) { console.log('Input changed to :: ' +
     event.target.value); });
     {% endGoatHighlighter %}

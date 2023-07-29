@@ -34,7 +34,7 @@ sections:
     const $lists = document.querySelectorAll('.menu');
     $lists.forEach($list => {
       $list.addEventListener('goat:menu-item-click', function (evt) {
-        myConsole.log(`<pre>${JSON.stringify(evt.detail.value, null, 4)}</pre>`);
+        myConsole.log(JSON.stringify(evt.detail.value, null, 4));
       });
     });
   </script>

@@ -1,5 +1,6 @@
 import { Component, h, Host, Prop } from '@stencil/core';
 
+
 /**
  * @name Badge
  * @description Renders a specified badge.
@@ -21,7 +22,10 @@ export class Badge {
     return (
       <Host>
         <div class='badge'>
-          {this.content && <div class='badge-content'>{this.content}</div>}
+          <div class={{
+            'badge-content': true,
+            'has-content': this.content !== ''
+          }}>{this.content}</div>
           <slot />
         </div>
       </Host>

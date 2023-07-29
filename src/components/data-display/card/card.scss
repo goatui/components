@@ -6,7 +6,7 @@
 }
 
 .card {
-  border: 1px solid v(--border-color);
+  border: 1px solid v(--border-strong-01);
   border-radius: v(--border-radius);
   height: 100%;
   background-color: v(--background);
@@ -40,7 +40,11 @@
 slot::slotted(goat-card-content) {
   display: block;
   padding: 1rem;
-  border-bottom: 1px solid v(--border-color);
+  border-bottom: 1px solid v(--border-strong-01);
+}
+
+slot::slotted(goat-card-content.no-padding) {
+  padding: 0;
 }
 
 slot::slotted(goat-card-content:last-child) {

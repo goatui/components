@@ -3,20 +3,17 @@
 {% GoatHighlighterCard language:"html" %}
 
 <div class="component-container">
-  {% for color in page.colors %}
-  <goat-button class="color-{{color}}">{{color | capitalize }}</goat-button>
+  {% for color in page.colors %}<goat-button class="color-{{color}}">{{color | capitalize }}</goat-button>
   {% endfor %}
 </div>
 
 <div class="component-container">
-  {% for color in page.colors %}
-  <goat-button class="color-{{color}}" variant="outline">{{color | capitalize }}</goat-button>
+  {% for color in page.colors %}<goat-button class="color-{{color}}" variant="outline">{{color | capitalize }}</goat-button>
   {% endfor %}
 </div>
 
 <div class="component-container">
-  {% for color in page.colors %}
-  <goat-button class="color-{{color}}" variant="ghost">{{color | capitalize }}</goat-button>
+  {% for color in page.colors %}<goat-button class="color-{{color}}" variant="ghost">{{color | capitalize }}</goat-button>
   {% endfor %}
 </div>
 
@@ -40,5 +37,4 @@
 <goat-button class="custom" icon="home">Custom</goat-button>
 <goat-button class="custom" variant="outline">Custom</goat-button>
 <goat-button class="custom" variant="ghost">Custom</goat-button>
-<br />
 {% endGoatHighlighterCard %}

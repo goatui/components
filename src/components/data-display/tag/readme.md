@@ -7,11 +7,12 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type           | Default |
-| -------- | --------- | ----------- | -------------- | ------- |
-| `filter` | `filter`  |             | `boolean`      | `false` |
-| `size`   | `size`    | Text size.  | `"md" \| "sm"` | `'md'`  |
-| `value`  | `value`   |             | `string`       | `''`    |
+| Property   | Attribute   | Description | Type           | Default |
+| ---------- | ----------- | ----------- | -------------- | ------- |
+| `filter`   | `filter`    |             | `boolean`      | `false` |
+| `imageSrc` | `image-src` |             | `string`       | `''`    |
+| `size`     | `size`      | Text size.  | `"md" \| "sm"` | `'md'`  |
+| `value`    | `value`     |             | `string`       | `''`    |
 
 
 ## Events

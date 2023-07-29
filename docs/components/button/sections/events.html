@@ -4,21 +4,25 @@
     <goat-button disabled id="disabled-btn">Disabled Button</goat-button>
 
     <script>
-      document.querySelector('#click-me-btn').addEventListener('goat:click', function (event) {
-        myConsole.log('Button clicked');
+      document.querySelector('#click-me-btn').addEventListener('goat:click',  (event) => {
+        myConsole.log('Button clicked', 'goat:click');
       });
-      document.querySelector('#disabled-btn').addEventListener('goat:click', function (event) {
-        myConsole.log('Button clicked'); // this will not be fired
+      document.querySelector('#disabled-btn').addEventListener('goat:click', (event) => {
+        myConsole.log('Button clicked', 'goat:click'); // this will not be fired
       });
     </script>
   </goat-card-content>
   <!-- prettier-ignore -->
-  <goat-card-content>
-    {% GoatHighlighter language:"js" %}
-    document.querySelector('#click-me-btn').addEventListener('goat:click', function(event) { alert("Button clicked");
+  <goat-card-content class='no-padding'>
+    {% GoatHighlighter language:"javascript" %}
+    document.querySelector('#click-me-btn')
+    .addEventListener('goat:click', (event) => {
+    alert("Button clicked");
     });
-    document.querySelector('#disabled-btn').addEventListener('goat:click', function(event) {
-    alert("Button clicked"); // this will not be fired
+
+    document.querySelector('#disabled-btn')
+    .addEventListener('goat:click', (event) => {
+      alert("Button clicked"); // this will not be fired
     });
     {% endGoatHighlighter %}
   </goat-card-content>

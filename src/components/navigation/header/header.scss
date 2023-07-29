@@ -55,7 +55,7 @@ $header-height: var(--header-height, #{v(--spacing-012)});
 }
 
 :host(.border) .header {
-  border-bottom: 1px solid var(--border-color)
+  border-bottom: 1px solid var(--border-strong-01)
 }
 
 /*
