@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-07-29T17:52:16",
+  "timestamp": "2023-07-29T18:35:28",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.0.1",
@@ -872,6 +872,37 @@
             },
             {
               "value": "start",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "iconSize",
+          "type": "\"lg\" | \"md\" | \"sm\"",
+          "complexType": {
+            "original": "'sm' | 'md' | 'lg'",
+            "resolved": "\"lg\" | \"md\" | \"sm\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "icon-size",
+          "reflectToAttr": false,
+          "docs": "Icon size.",
+          "docsTags": [],
+          "default": "'md'",
+          "values": [
+            {
+              "value": "lg",
+              "type": "string"
+            },
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "sm",
               "type": "string"
             }
           ],
@@ -2867,7 +2898,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "Emitted when the value has changed..",
+          "docs": "Emitted when the value has changed.",
           "docsTags": []
         }
       ],
@@ -11482,6 +11513,37 @@
               "required": false
             },
             {
+              "name": "iconSize",
+              "type": "\"lg\" | \"md\" | \"sm\"",
+              "complexType": {
+                "original": "'sm' | 'md' | 'lg'",
+                "resolved": "\"lg\" | \"md\" | \"sm\"",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "icon-size",
+              "reflectToAttr": false,
+              "docs": "Icon size.",
+              "docsTags": [],
+              "default": "'md'",
+              "values": [
+                {
+                  "value": "lg",
+                  "type": "string"
+                },
+                {
+                  "value": "md",
+                  "type": "string"
+                },
+                {
+                  "value": "sm",
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
               "name": "selected",
               "type": "boolean",
               "complexType": {
@@ -11952,114 +12014,6 @@
           "listeners": [],
           "metadata": {
             "name": "Icon",
-            "description": "Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.",
-            "category": "General",
-            "example": "<goat-icon name=\"home\"></goat-icon>"
-          }
-        },
-        {
-          "filePath": "src/components/general/image/image.tsx",
-          "fileName": "image.tsx",
-          "tag": "goat-image",
-          "readme": "# goat-icon\r\n\r\n\r\n\r",
-          "overview": "",
-          "usage": {},
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "name",
-              "text": "Image"
-            },
-            {
-              "name": "description",
-              "text": "Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information."
-            },
-            {
-              "name": "category",
-              "text": "General"
-            },
-            {
-              "name": "example",
-              "text": "<goat-icon name=\"home\"></goat-icon>"
-            }
-          ],
-          "encapsulation": "shadow",
-          "dependents": [],
-          "dependencies": [],
-          "dependencyGraph": {},
-          "props": [
-            {
-              "name": "darkSrc",
-              "type": "string",
-              "complexType": {
-                "original": "string",
-                "resolved": "string",
-                "references": {}
-              },
-              "mutable": false,
-              "attr": "dark-src",
-              "reflectToAttr": true,
-              "docs": "",
-              "docsTags": [],
-              "values": [
-                {
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "imageTitle",
-              "type": "string",
-              "complexType": {
-                "original": "string",
-                "resolved": "string",
-                "references": {}
-              },
-              "mutable": false,
-              "attr": "image-title",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "values": [
-                {
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "src",
-              "type": "string",
-              "complexType": {
-                "original": "string",
-                "resolved": "string",
-                "references": {}
-              },
-              "mutable": false,
-              "attr": "src",
-              "reflectToAttr": true,
-              "docs": "",
-              "docsTags": [],
-              "values": [
-                {
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            }
-          ],
-          "methods": [],
-          "events": [],
-          "styles": [],
-          "slots": [],
-          "parts": [],
-          "listeners": [],
-          "metadata": {
-            "name": "Image",
             "description": "Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.",
             "category": "General",
             "example": "<goat-icon name=\"home\"></goat-icon>"
@@ -14122,7 +14076,7 @@
               },
               "cancelable": true,
               "composed": true,
-              "docs": "Emitted when the value has changed..",
+              "docs": "Emitted when the value has changed.",
               "docsTags": []
             }
           ],
@@ -21296,7 +21250,7 @@
           "filePath": "src/components/general/image/image.tsx",
           "fileName": "image.tsx",
           "tag": "goat-image",
-          "readme": "# goat-icon\n\n\n",
+          "readme": "# goat-icon\r\n\r\n\r\n\r",
           "overview": "",
           "usage": {},
           "docs": "",

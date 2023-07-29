@@ -97,6 +97,7 @@
 
   .input-action {
     cursor: pointer;
+    --button-padding: .5rem;
 
     &:hover {
       --text-color: var(--text-secondary);

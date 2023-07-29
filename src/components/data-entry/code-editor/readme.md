@@ -21,9 +21,9 @@
 
 ## Events
 
-| Event         | Description                          | Type               |
-| ------------- | ------------------------------------ | ------------------ |
-| `goat:change` | Emitted when the value has changed.. | `CustomEvent<any>` |
+| Event         | Description                         | Type               |
+| ------------- | ----------------------------------- | ------------------ |
+| `goat:change` | Emitted when the value has changed. | `CustomEvent<any>` |
 
 
 ## Methods
