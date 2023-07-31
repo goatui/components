@@ -72,7 +72,6 @@ Checkout the complete documentation over here -> https://goatui.com
 | Card                                                                       | goat-card                 | 🟡    |
 | Card Select                                                                | goat-cardselect           | 🔵    |
 | [Checkbox](https://goatui.com/components/checkbox)                         | goat-checkbox             | 🟢    |
-| Chip                                                                       | goat-chip                 | 🔵    |
 | [Code Editor](https://goatui.com/components/code-editor)                   | goat-card-editor          | 🟢    |
 | [Code Highlighter](https://goatui.com/components/code-highlighter)         | goat-card-highlighter     | 🟢    |
 | Column                                                                     | goat-col                  | 🔵    |
@@ -107,7 +106,7 @@ Checkout the complete documentation over here -> https://goatui.com
 | Stepper                                                                    | goat-stepper              | 🔵    |
 | [Table](https://goatui.com/components/table)                               | goat-table                | 🟡    |
 | [Tabs](https://goatui.com/components/tabs)                                 | goat-tabs                 | 🟢    |
-| [Tag](https://goatui.com/components/tag)                                   | goat-tag                  | 🟢    |
+| [Tag](https://goatui.com/components/tag) / Chip                            | goat-tag                  | 🟢    |
 | [Text](https://goatui.com/components/text)                                 | goat-text                 | 🟡    |
 | [Textarea](https://goatui.com/components/textarea)                         | goat-textarea             | 🟢    |
 | [Time picker](https://goatui.com/components/time-picker)                   | goat-time-picker          | 🟡    |
