@@ -129,12 +129,13 @@ pre[class*='language-'] {
 .playground-container {
   border: 1px solid var(--border-color);
   margin-bottom: 2rem;
+  border-radius: var(--border-radius);
+  background: var(--background);
 }
 
 .playground {
   display: flex;
-
-  border-radius: var(--border-radius);
+  border-bottom: 1px solid var(--border-color);
   height: 400px;
 }
 
