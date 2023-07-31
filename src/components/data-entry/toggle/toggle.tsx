@@ -37,7 +37,7 @@ export class Toggle implements ComponentInterface, InputComponentInterface {
    * The button size.
    * Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
    */
-  @Prop() size: 'sm' | 'md' | 'lg' = 'md';
+  @Prop() size: 'md' | 'lg' = 'md';
 
   /**
    * If true, required icon is show. Defaults to `false`.
@@ -196,7 +196,9 @@ export class Toggle implements ComponentInterface, InputComponentInterface {
             aria-required={this.required + ''}
             aria-checked={this.value + ''}
             {...this.configAria}
-          ></div>
+          >
+            <div class="node"/>
+          </div>
 
           <input
             type="checkbox"

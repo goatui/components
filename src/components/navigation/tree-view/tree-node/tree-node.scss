@@ -52,10 +52,13 @@
   display: block;
 }
 
-
 .tree-node-content {
 
-  &:hover, &.has-focus:not(.selected) {
+  &:hover {
+    background: v(--layer-hover-01);
+  }
+
+  &.has-focus:not(.selected) {
     color: v(--text-primary);
     border-color: v(--color-primary);
 

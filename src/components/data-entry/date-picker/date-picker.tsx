@@ -212,7 +212,7 @@ export class DatePicker implements ComponentInterface {
                  onFocus={this.focusHandler}/>
 
 
-          <goat-button class="color-secondary" block icon={'calendar' } variant="ghost" size="none" onGoat:click={() => {
+          <goat-button class="color-secondary input-action" simple={true} icon={'calendar' } variant="ghost" size="none" onGoat:click={() => {
             setTimeout(() => {
               this.nativeInput.showPicker();
             });

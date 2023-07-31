@@ -67,13 +67,13 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [goat-input](../input)
+- [goat-number](../number)
 
 ### Graph
 ```mermaid
 graph TD;
-  goat-slider --> goat-input
-  goat-input --> goat-button
+  goat-slider --> goat-number
+  goat-number --> goat-button
   goat-button --> goat-icon
   goat-button --> goat-spinner
   style goat-slider fill:#f9f,stroke:#333,stroke-width:4px

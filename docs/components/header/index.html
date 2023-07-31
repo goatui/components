@@ -3,9 +3,25 @@ layout: component
 title: Header
 description: The header component is used to display a header with a brand, navigation, and actions.
 sections:
-  - title: Usages
+  - title: Usage
+    source: sections/usage.html
+  - title: Application Header
+    source: sections/app-header.html
 ---
-
+<style>
+  .component-container goat-header {
+    width: 100%;
+    --header-height: 3rem;
+    --header-background: var(--background);
+    --header-background-dark: var(--background);
+  }
+  .avatar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+</style>
 <div class="usage-tab">
   <!-- Content -->
   <div class="component-content">
@@ -13,71 +29,13 @@ sections:
       <goat-text type="body">{{page.description}}</goat-text>
     </div>
 
-    <!-- Usage -->
-    <div id="section-usages" class="mb-7">
-      <goat-text type="heading" level="2" size="sm">Usage <a class="js-anchor-link duik-anchorjs-link" href="#section-usages" aria-label="Anchor" data-anchorjs-icon="#"></a></goat-text>
+    {% for section in page.sections %}
+    <div id='section-{{section.title | downcase | replace: " ", "-" | replace: "/", "-"}}' class="component-section">
+      <goat-text type="heading" heading-size="4">{{ section.title }}</goat-text>
 
-      <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          const themeSwitcher = document.querySelector('.theme-switcher');
-
-          function setTheme(theme) {
-            document.documentElement.setAttribute('data-theme', theme);
-            themeSwitcher.icon = theme === 'dark' ? 'moon' : 'sun';
-            localStorage.setItem('theme', theme);
-          }
-
-          const theme = localStorage.getItem('theme') || 'light';
-          setTheme(theme);
-
-          themeSwitcher.addEventListener('click', function () {
-            const theme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
-            setTheme(theme);
-          });
-        });
-      </script>
-
-      <goat-card>
-        <style>
-          .demo {
-            --header-height: auto;
-          }
-
-          .avatar-container {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-04);
-          }
-        </style>
-        <goat-card-content class="demo">
-          <goat-header class="brand" page-title="">
-            <div slot="left-section">
-              <goat-header-brand logo="/assets/img/logo.svg" href="#" name="Goat" sub-title="Subtitle"> </goat-header-brand>
-            </div>
-
-            {% include_relative header-content.html %}
-          </goat-header>
-
-          <br />
-
-          <goat-header class="float">
-            <div slot="left-section">
-              <goat-header-brand logo="/assets/img/logo.svg" href="#" name="Goat" sub-title="Non-brand - floating"> </goat-header-brand>
-            </div>
-
-            {% include_relative header-content.html %}
-          </goat-header>
-        </goat-card-content>
-        <goat-card-content class='no-padding'>
-          {% GoatHighlighter language:"html" %}
-          <goat-header class="brand" brand-name="Goat" brand-logo="/assets/img/logo.svg" brand-url="/" page-title="Button">
-            {% include_relative header-content.html %}
-          </goat-header>
-          {% endGoatHighlighter %}
-        </goat-card-content>
-      </goat-card>
+      {% include_relative {{ section.source }} %}
     </div>
-    <!-- End About -->
+    {% endfor %}
   </div>
   <!-- End Content -->
 

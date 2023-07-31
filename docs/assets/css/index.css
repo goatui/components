@@ -1,8 +1,31 @@
+/* width */
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 @keyframes reveal {
   0% {
     opacity: 0;
     transform: translateY(8px);
   }
+}
+
+:root {
+  --header-height: 4rem;
 }
 
 .banner {
@@ -12,9 +35,9 @@
   flex-direction: column;
 
   height: 100vh;
-  min-height: 512px;
+  min-height: 410px;
   padding-top: var(--header-height);
-  background: var(--color-brand-secondary-10);
+  background: var(--header-background);
 }
 
 .banner-content {
@@ -30,12 +53,9 @@
 }
 
 html[data-theme='dark'] .banner {
-  background: var(--color-black);
+  background: var(--header-background-dark);
 }
 
-.section {
-  padding-bottom: var(--spacing-09);
-}
 
 .banner-logo {
   width: 15rem;
@@ -47,8 +67,21 @@ html[data-theme='dark'] .banner {
   stroke: var(--color-brand-primary);
 }
 
+
+
+
 .container {
-  padding: var(--spacing-09) var(--spacing-13);
+  padding: var(--spacing-09) 0;
+}
+
+.container .section {
+  padding: 0 var(--spacing-13);
+  padding-bottom: var(--spacing-09);
+}
+
+.container .code-highlighter {
+  padding: 0 var(--spacing-13);
+  padding-bottom: var(--spacing-09);
 }
 
 goat-text[type='code'] {
@@ -73,7 +106,6 @@ goat-text[type='code'] {
 }
 
 .made-in-india .country-flag {
-  height: 1rem;
   padding: 0 var(--spacing-04);
 }
 
@@ -125,8 +157,22 @@ goat-text[type='code'] {
 }
 
 
-@media only screen and (max-width: 600px) {
-  .container {
+@media only screen and (max-width: 1024px) {
+  .container .section {
     padding: var(--spacing-09) var(--spacing-07);
+  }
+
+  .social-icons {
+    justify-content: center;
+    padding-bottom: 1rem;
+  }
+  .made-in-india {
+    justify-content: center;
+    font-size: var(--font-size-body-02);
+    padding-bottom: 1rem;
+  }
+
+  .container .code-highlighter {
+    padding: 0;
   }
 }

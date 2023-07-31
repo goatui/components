@@ -17,6 +17,15 @@
   background: #555;
 }
 
+:root {
+  --header-height: 3rem;
+}
+
+.top-nav {
+  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--border-strong-01);
+}
+
 .sidenav {
   width: 20rem;
   position: fixed;
@@ -58,6 +67,7 @@
 .main-content {
   margin-top: var(--header-height);
   margin-inline-start: 20rem;
+  background: var(--layer-03);
   position: relative;
 }
 

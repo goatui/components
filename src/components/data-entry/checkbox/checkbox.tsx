@@ -124,7 +124,6 @@ export class Checkbox implements ComponentInterface, InputComponentInterface {
   private iconContainer?: HTMLElement;
   private tabindex?: string | number = 1;
   @State() hasFocus = false;
-  @State() animate = true;
   @State() isActive = false;
   @State() slotHasContent = false;
 
@@ -202,12 +201,7 @@ export class Checkbox implements ComponentInterface, InputComponentInterface {
             aria-checked={this.value + ''}
             {...this.configAria}
           >
-            <div
-              class={{
-                tick: true,
-                animate: this.animate,
-              }}
-            />
+            <div class="tick" />
           </div>
 
           <input

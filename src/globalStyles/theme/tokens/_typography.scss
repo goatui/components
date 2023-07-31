@@ -1,8 +1,9 @@
 @use "sass:map";
 @use "sass:list";
 
-$font-family-base: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
-$font-family-secondary: Arial, Helvetica, sans-serif;
+$font-family-sans-serif: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+$font-family-monospace: 'IBM Plex Mono', 'Courier New', monospace;
+
 $font-weights: (
   regular: normal,
   medium: 500,
@@ -30,14 +31,14 @@ $font-styles: (
 
   // Utility font styles
   code-01: (
-    font-family: "IBM Plex Mono",
+    font-family: $font-family-monospace,
     font-size: .75rem,
     line-height: 1rem,
     weight: 400,
     letter-spacing: .32px
   ),
   code-02: (
-    font-family: "IBM Plex Mono",
+    font-family: $font-family-monospace,
     font-size:  .875rem,
     line-height: 1.25rem,
     weight: 400,
@@ -45,14 +46,14 @@ $font-styles: (
   ),
 
   label-01: (
-    font-family: "IBM Plex Sans",
+    font-family: $font-family-sans-serif,
     font-size:  .75rem,
     line-height: 1rem,
     weight: 400,
     letter-spacing: .32px
   ),
   label-02: (
-    font-family: "IBM Plex Sans",
+    font-family: $font-family-sans-serif,
     font-size:  .875rem,
     line-height:  1.125rem,
     weight: 400,
@@ -60,14 +61,14 @@ $font-styles: (
   ),
 
   helper-text-01: (
-    font-family: "IBM Plex Sans",
+    font-family: $font-family-sans-serif,
     font-size:  .75rem,
     line-height: 1rem,
     weight: 400,
     letter-spacing: .32px
   ),
   helper-text-02: (
-    font-family: "IBM Plex Sans",
+    font-family: $font-family-sans-serif,
     font-size:  .875rem,
     line-height:  1.125rem,
     weight: 400,
@@ -75,14 +76,14 @@ $font-styles: (
   ),
 
   legal-01: (
-    font-family: "IBM Plex Sans",
+    font-family: $font-family-sans-serif,
     font-size:  .75rem,
     line-height: 1rem,
     weight: 400,
     letter-spacing: .32px
   ),
   legal-02: (
-    font-family: "IBM Plex Sans",
+    font-family: $font-family-sans-serif,
     font-size:  .875rem,
     line-height:  1.125rem,
     weight: 400,
@@ -91,14 +92,14 @@ $font-styles: (
 
   // Body font styles
   body-01: (
-    font-family: "IBM Plex Sans",
+    font-family: $font-family-sans-serif,
     font-size:  .875rem,
     line-height: 1.25rem,
     weight: 400,
     letter-spacing: .16px
   ),
   body-02: (
-    font-family: "IBM Plex Sans",
+    font-family: $font-family-sans-serif,
     font-size: 1rem,
     line-height: 1.5rem,
     weight: 400,
@@ -106,14 +107,14 @@ $font-styles: (
   ),
 
   body-compact-01: (
-    font-family: "IBM Plex Sans",
+    font-family: $font-family-sans-serif,
     font-size: .875rem,
     line-height: 1.125rem,
     weight: 400,
     letter-spacing: .16px
   ),
   body-compact-02: (
-    font-family: "IBM Plex Sans",
+    font-family: $font-family-sans-serif,
     font-size: 1rem,
     line-height: 1.375rem,
     weight: 400,
@@ -122,14 +123,14 @@ $font-styles: (
 
   // Heading font styles
   heading-compact-01: (
-    font-family: "IBM Plex Sans",
+    font-family: $font-family-sans-serif,
     font-size: .875rem,
     line-height: 1.125rem,
     weight: 600,
     letter-spacing: .16px
   ),
   heading-compact-02: (
-    font-family: "IBM Plex Sans",
+    font-family: $font-family-sans-serif,
     font-size: .875rem,
     line-height: 1.375rem,
     weight: 400,
@@ -137,49 +138,49 @@ $font-styles: (
   ),
 
   heading-01: (
-    font-family: "IBM Plex Sans",
+    font-family: $font-family-sans-serif,
     font-size:  .875rem,
     line-height: 1.25rem,
     weight: 600,
     letter-spacing: .16px
   ),
   heading-02: (
-    font-family: "IBM Plex Sans",
+    font-family: $font-family-sans-serif,
     font-size:  1rem,
     line-height: 1.5rem,
     weight: 600,
     letter-spacing: 0
   ),
   heading-03: (
-    font-family: "IBM Plex Sans",
+    font-family: $font-family-sans-serif,
     font-size:   1.25rem,
     line-height: 1.75rem,
     weight: 400,
     letter-spacing: 0
   ),
   heading-04: (
-    font-family: "IBM Plex Sans",
+    font-family: $font-family-sans-serif,
     font-size:  1.75rem,
     line-height: 2.25rem,
     weight: 400,
     letter-spacing: 0
   ),
   heading-05: (
-    font-family: "IBM Plex Sans",
+    font-family: $font-family-sans-serif,
     font-size:  2rem,
     line-height: 2.5rem,
     weight: 400,
     letter-spacing: 0
   ),
   heading-06: (
-    font-family: "IBM Plex Sans",
+    font-family: $font-family-sans-serif,
     font-size:  2.625rem,
     line-height: 3.125rem,
     weight: 300,
     letter-spacing: 0
   ),
   heading-07: (
-    font-family: "IBM Plex Sans",
+    font-family: $font-family-sans-serif,
     font-size:  3.375rem,
     line-height: 4rem,
     weight: 300,
@@ -189,8 +190,7 @@ $font-styles: (
 
 $typography-css-variables: ();
 
-$typography-css-variables: map-merge($typography-css-variables, ("--font-family-base": $font-family-base));
-$typography-css-variables: map-merge($typography-css-variables, ("--font-family-secondary": $font-family-secondary));
+$typography-css-variables: map-merge($typography-css-variables, ("--font-family-base": $font-family-sans-serif));
 
 @each $key, $value in $font-weights {
   $map: ();

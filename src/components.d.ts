@@ -11,9 +11,8 @@ export namespace Components {
      * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
      * @category Data Display
      * @tags display
-     * @example <goat-accordion>
-     * <goat-accordion-item heading="Title 1"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>
-     * </goat-accordion>
+     * @img /assets/img/accordion.png
+     * @imgDark /assets/img/accordion-dark.png
      */
     interface GoatAccordion {
         "align": 'start' | 'end';
@@ -119,7 +118,7 @@ export namespace Components {
         /**
           * Icon size.
          */
-        "iconSize": 'sm' | 'md' | 'lg';
+        "iconSize": 'sm' | 'md' | 'lg' | string;
         /**
           * Button selection state.
          */
@@ -452,10 +451,37 @@ export namespace Components {
      * @description Headers are compositions that extend standard navbar functionalities.
      * @category Navigation
      * @img /assets/img/header.png
+     * @imgDark /assets/img/header-dark.png
      */
     interface GoatHeader {
+        "float": boolean;
+    }
+    interface GoatHeaderAction {
+        "badge": string;
+        "color": string;
+        /**
+          * Hyperlink to navigate to on click.
+         */
+        "href": string;
+        /**
+          * Icon which will displayed on button. Possible values are icon names.
+         */
+        "icon": string;
+        /**
+          * Button selection state.
+         */
+        "selected": boolean;
+        /**
+          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"none"`. Defaults to `"md"`.
+         */
+        "size": 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'none';
+        /**
+          * Sets or retrieves the window or frame at which to target content.
+         */
+        "target": string;
     }
     interface GoatHeaderBrand {
+        "color": string;
         "href": string;
         "logo": string;
         "name": string;
@@ -580,9 +606,9 @@ export namespace Components {
          */
         "state": 'success' | 'error' | 'warning' | 'default';
         /**
-          * The type of control to display. Possible values are: `"text"`, `"password"`, `"number"`, `"email"`, `"tel"`. Defaults to `"text"`.
+          * The type of control to display. Possible values are: `"text"`, `"password"`, `"email"`, `"tel"`. Defaults to `"text"`.
          */
-        "type": 'text' | 'password' | 'number' | 'email' | 'tel';
+        "type": 'text' | 'password' | 'email' | 'tel';
         /**
           * The input field value.
          */
@@ -670,6 +696,70 @@ export namespace Components {
     interface GoatNotificationManager {
         "name": string;
         "position": 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
+    }
+    /**
+     * @name Number
+     * @description Enables native inputs to be used within a Form field.
+     * @category Form Inputs
+     * @tags input, form
+     * @example <goat-number value="100"></goat-input>
+     */
+    interface GoatNumber {
+        /**
+          * Indicates whether the value of the control can be automatically completed by the browser.
+         */
+        "autocomplete": 'on' | 'off';
+        /**
+          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
+         */
+        "clearable": boolean;
+        "configAria": any;
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
+         */
+        "debounce": number;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled": boolean;
+        "getComponentId": () => Promise<string>;
+        "hideActions": boolean;
+        /**
+          * The input field name.
+         */
+        "name": string;
+        /**
+          * The input field placeholder.
+         */
+        "placeholder": string;
+        /**
+          * If true, the user read the value cannot modify it. Defaults to `false`.
+         */
+        "readonly": boolean;
+        /**
+          * If true, required icon is show. Defaults to `false`.
+         */
+        "required": boolean;
+        /**
+          * Sets blur on the native `input` in `goat-input`. Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `input` in `goat-input`. Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size": 'sm' | 'md' | 'lg';
+        /**
+          * The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
+         */
+        "state": 'success' | 'error' | 'warning' | 'default';
+        /**
+          * The input field value.
+         */
+        "value"?: number | null;
     }
     /**
      * @name Select
@@ -1115,7 +1205,7 @@ export namespace Components {
         /**
           * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
-        "size": 'sm' | 'md' | 'lg';
+        "size": 'md' | 'lg';
         /**
           * The input field value.
          */
@@ -1216,6 +1306,10 @@ export interface GoatNotificationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLGoatNotificationElement;
 }
+export interface GoatNumberCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatNumberElement;
+}
 export interface GoatSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLGoatSelectElement;
@@ -1262,9 +1356,8 @@ declare global {
      * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
      * @category Data Display
      * @tags display
-     * @example <goat-accordion>
-     * <goat-accordion-item heading="Title 1"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>
-     * </goat-accordion>
+     * @img /assets/img/accordion.png
+     * @imgDark /assets/img/accordion-dark.png
      */
     interface HTMLGoatAccordionElement extends Components.GoatAccordion, HTMLStencilElement {
     }
@@ -1530,12 +1623,19 @@ declare global {
      * @description Headers are compositions that extend standard navbar functionalities.
      * @category Navigation
      * @img /assets/img/header.png
+     * @imgDark /assets/img/header-dark.png
      */
     interface HTMLGoatHeaderElement extends Components.GoatHeader, HTMLStencilElement {
     }
     var HTMLGoatHeaderElement: {
         prototype: HTMLGoatHeaderElement;
         new (): HTMLGoatHeaderElement;
+    };
+    interface HTMLGoatHeaderActionElement extends Components.GoatHeaderAction, HTMLStencilElement {
+    }
+    var HTMLGoatHeaderActionElement: {
+        prototype: HTMLGoatHeaderActionElement;
+        new (): HTMLGoatHeaderActionElement;
     };
     interface HTMLGoatHeaderBrandElement extends Components.GoatHeaderBrand, HTMLStencilElement {
     }
@@ -1644,6 +1744,19 @@ declare global {
     var HTMLGoatNotificationManagerElement: {
         prototype: HTMLGoatNotificationManagerElement;
         new (): HTMLGoatNotificationManagerElement;
+    };
+    /**
+     * @name Number
+     * @description Enables native inputs to be used within a Form field.
+     * @category Form Inputs
+     * @tags input, form
+     * @example <goat-number value="100"></goat-input>
+     */
+    interface HTMLGoatNumberElement extends Components.GoatNumber, HTMLStencilElement {
+    }
+    var HTMLGoatNumberElement: {
+        prototype: HTMLGoatNumberElement;
+        new (): HTMLGoatNumberElement;
     };
     /**
      * @name Select
@@ -1886,6 +1999,7 @@ declare global {
         "goat-flow-designer": HTMLGoatFlowDesignerElement;
         "goat-form-control": HTMLGoatFormControlElement;
         "goat-header": HTMLGoatHeaderElement;
+        "goat-header-action": HTMLGoatHeaderActionElement;
         "goat-header-brand": HTMLGoatHeaderBrandElement;
         "goat-html-editor": HTMLGoatHtmlEditorElement;
         "goat-icon": HTMLGoatIconElement;
@@ -1896,6 +2010,7 @@ declare global {
         "goat-menu-item": HTMLGoatMenuItemElement;
         "goat-notification": HTMLGoatNotificationElement;
         "goat-notification-manager": HTMLGoatNotificationManagerElement;
+        "goat-number": HTMLGoatNumberElement;
         "goat-select": HTMLGoatSelectElement;
         "goat-sidenav": HTMLGoatSidenavElement;
         "goat-sidenav-menu": HTMLGoatSidenavMenuElement;
@@ -1924,9 +2039,8 @@ declare namespace LocalJSX {
      * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
      * @category Data Display
      * @tags display
-     * @example <goat-accordion>
-     * <goat-accordion-item heading="Title 1"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>
-     * </goat-accordion>
+     * @img /assets/img/accordion.png
+     * @imgDark /assets/img/accordion-dark.png
      */
     interface GoatAccordion {
         "align"?: 'start' | 'end';
@@ -2036,7 +2150,7 @@ declare namespace LocalJSX {
         /**
           * Icon size.
          */
-        "iconSize"?: 'sm' | 'md' | 'lg';
+        "iconSize"?: 'sm' | 'md' | 'lg' | string;
         /**
           * On click of button, a CustomEvent 'goat:click' will be triggered.
          */
@@ -2373,10 +2487,37 @@ declare namespace LocalJSX {
      * @description Headers are compositions that extend standard navbar functionalities.
      * @category Navigation
      * @img /assets/img/header.png
+     * @imgDark /assets/img/header-dark.png
      */
     interface GoatHeader {
+        "float"?: boolean;
+    }
+    interface GoatHeaderAction {
+        "badge"?: string;
+        "color"?: string;
+        /**
+          * Hyperlink to navigate to on click.
+         */
+        "href"?: string;
+        /**
+          * Icon which will displayed on button. Possible values are icon names.
+         */
+        "icon"?: string;
+        /**
+          * Button selection state.
+         */
+        "selected"?: boolean;
+        /**
+          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"none"`. Defaults to `"md"`.
+         */
+        "size"?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'none';
+        /**
+          * Sets or retrieves the window or frame at which to target content.
+         */
+        "target"?: string;
     }
     interface GoatHeaderBrand {
+        "color"?: string;
         "href"?: string;
         "logo"?: string;
         "name"?: string;
@@ -2503,9 +2644,9 @@ declare namespace LocalJSX {
          */
         "state"?: 'success' | 'error' | 'warning' | 'default';
         /**
-          * The type of control to display. Possible values are: `"text"`, `"password"`, `"number"`, `"email"`, `"tel"`. Defaults to `"text"`.
+          * The type of control to display. Possible values are: `"text"`, `"password"`, `"email"`, `"tel"`. Defaults to `"text"`.
          */
-        "type"?: 'text' | 'password' | 'number' | 'email' | 'tel';
+        "type"?: 'text' | 'password' | 'email' | 'tel';
         /**
           * The input field value.
          */
@@ -2585,6 +2726,77 @@ declare namespace LocalJSX {
     interface GoatNotificationManager {
         "name"?: string;
         "position"?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
+    }
+    /**
+     * @name Number
+     * @description Enables native inputs to be used within a Form field.
+     * @category Form Inputs
+     * @tags input, form
+     * @example <goat-number value="100"></goat-input>
+     */
+    interface GoatNumber {
+        /**
+          * Indicates whether the value of the control can be automatically completed by the browser.
+         */
+        "autocomplete"?: 'on' | 'off';
+        /**
+          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
+         */
+        "clearable"?: boolean;
+        "configAria"?: any;
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
+         */
+        "debounce"?: number;
+        /**
+          * If true, the user cannot interact with the button. Defaults to `false`.
+         */
+        "disabled"?: boolean;
+        "hideActions"?: boolean;
+        /**
+          * The input field name.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the input loses focus.
+         */
+        "onGoat:blur"?: (event: GoatNumberCustomEvent<any>) => void;
+        /**
+          * Emitted when the value has changed.
+         */
+        "onGoat:change"?: (event: GoatNumberCustomEvent<any>) => void;
+        /**
+          * Emitted when the input has focus.
+         */
+        "onGoat:focus"?: (event: GoatNumberCustomEvent<any>) => void;
+        /**
+          * Emitted when a keyboard input occurred.
+         */
+        "onGoat:input"?: (event: GoatNumberCustomEvent<any>) => void;
+        /**
+          * The input field placeholder.
+         */
+        "placeholder"?: string;
+        /**
+          * If true, the user read the value cannot modify it. Defaults to `false`.
+         */
+        "readonly"?: boolean;
+        /**
+          * If true, required icon is show. Defaults to `false`.
+         */
+        "required"?: boolean;
+        /**
+          * The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size"?: 'sm' | 'md' | 'lg';
+        /**
+          * The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
+         */
+        "state"?: 'success' | 'error' | 'warning' | 'default';
+        /**
+          * The input field value.
+         */
+        "value"?: number | null;
     }
     /**
      * @name Select
@@ -3047,7 +3259,7 @@ declare namespace LocalJSX {
         /**
           * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
-        "size"?: 'sm' | 'md' | 'lg';
+        "size"?: 'md' | 'lg';
         /**
           * The input field value.
          */
@@ -3115,6 +3327,7 @@ declare namespace LocalJSX {
         "goat-flow-designer": GoatFlowDesigner;
         "goat-form-control": GoatFormControl;
         "goat-header": GoatHeader;
+        "goat-header-action": GoatHeaderAction;
         "goat-header-brand": GoatHeaderBrand;
         "goat-html-editor": GoatHtmlEditor;
         "goat-icon": GoatIcon;
@@ -3125,6 +3338,7 @@ declare namespace LocalJSX {
         "goat-menu-item": GoatMenuItem;
         "goat-notification": GoatNotification;
         "goat-notification-manager": GoatNotificationManager;
+        "goat-number": GoatNumber;
         "goat-select": GoatSelect;
         "goat-sidenav": GoatSidenav;
         "goat-sidenav-menu": GoatSidenavMenu;
@@ -3156,9 +3370,8 @@ declare module "@stencil/core" {
              * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
              * @category Data Display
              * @tags display
-             * @example <goat-accordion>
-             * <goat-accordion-item heading="Title 1"><goat-text>The accordion component delivers large amounts of content in a small space through progressive disclosure. The user gets key details about the underlying content and can choose to expand that content within the constraints of the accordion. Accordions work especially well on mobile interfaces or whenever vertical space is at a premium.</goat-text></goat-accordion-item>
-             * </goat-accordion>
+             * @img /assets/img/accordion.png
+             * @imgDark /assets/img/accordion-dark.png
              */
             "goat-accordion": LocalJSX.GoatAccordion & JSXBase.HTMLAttributes<HTMLGoatAccordionElement>;
             "goat-accordion-item": LocalJSX.GoatAccordionItem & JSXBase.HTMLAttributes<HTMLGoatAccordionItemElement>;
@@ -3304,8 +3517,10 @@ declare module "@stencil/core" {
              * @description Headers are compositions that extend standard navbar functionalities.
              * @category Navigation
              * @img /assets/img/header.png
+             * @imgDark /assets/img/header-dark.png
              */
             "goat-header": LocalJSX.GoatHeader & JSXBase.HTMLAttributes<HTMLGoatHeaderElement>;
+            "goat-header-action": LocalJSX.GoatHeaderAction & JSXBase.HTMLAttributes<HTMLGoatHeaderActionElement>;
             "goat-header-brand": LocalJSX.GoatHeaderBrand & JSXBase.HTMLAttributes<HTMLGoatHeaderBrandElement>;
             /**
              * @name HTML Editor
@@ -3364,6 +3579,14 @@ declare module "@stencil/core" {
              * @img /assets/img/notification-manager.png
              */
             "goat-notification-manager": LocalJSX.GoatNotificationManager & JSXBase.HTMLAttributes<HTMLGoatNotificationManagerElement>;
+            /**
+             * @name Number
+             * @description Enables native inputs to be used within a Form field.
+             * @category Form Inputs
+             * @tags input, form
+             * @example <goat-number value="100"></goat-input>
+             */
+            "goat-number": LocalJSX.GoatNumber & JSXBase.HTMLAttributes<HTMLGoatNumberElement>;
             /**
              * @name Select
              * @description Allows the user to select one or more options using a dropdown.

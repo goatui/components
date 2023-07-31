@@ -1,15 +1,22 @@
 @import "../../../../globalStyles/commons";
 
-$header-height: var(--header-height, #{v(--spacing-012)});
 
 :host {
   display: block;
+  height: 100%;
 }
 
 .header-brand {
   display: flex;
   align-items: center;
+  height: 100%;
+  padding-inline-start: 1rem;
 
+  .brand-link {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
 
   .brand {
     display: flex;
@@ -29,6 +36,7 @@ $header-height: var(--header-height, #{v(--spacing-012)});
 
 .subtitle-divider {
   height: 1.5rem;
+  --divider-color: #{v(--border-subtle-01)};
 }
 
 .subtitle {
@@ -62,3 +70,4 @@ $header-height: var(--header-height, #{v(--spacing-012)});
     color: v(--color-neutral-50);
   }
 }
+

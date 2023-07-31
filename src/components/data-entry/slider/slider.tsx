@@ -230,8 +230,7 @@ export class Slider implements ComponentInterface, InputComponentInterface {
             <span>{this.max}</span>
           </div>
           <div class="slide-input">
-            <goat-input
-              type="number"
+            <goat-number
               value={this.value}
               size="sm"
               hide-actions={true}
@@ -241,7 +240,7 @@ export class Slider implements ComponentInterface, InputComponentInterface {
               onGoat:input={e => {
                 e.stopPropagation();
               }}
-            ></goat-input>
+            ></goat-number>
           </div>
         </div>
       </Host>

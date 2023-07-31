@@ -4,11 +4,11 @@ layout: base
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const themeSwitcher = document.querySelector('#theme-switcher');
+    const themeSwitcher = document.querySelector('.theme-switcher');
 
     function setTheme(theme) {
       document.documentElement.setAttribute('data-theme', theme);
-      themeSwitcher.icon = theme === 'dark' ? 'asleep--filled' : 'light--filled';
+      themeSwitcher.icon = theme === 'dark' ? 'asleep--filled' : 'sun';
       localStorage.setItem('theme', theme);
     }
 
@@ -40,16 +40,16 @@ layout: base
 
 <nav class='top-nav'>
   <goat-header class='brand actions-separated {% if page.root != true %}border{% endif %}'>
-    <div slot='left-section'>
+    <div slot='left'>
       <goat-header-brand logo='/assets/img/logo.svg' href='/#' name='{{site.title}}' {% if page.root !='true'
                          %}sub-title='{{page.title}}' {% endif %}></goat-header-brand>
     </div>
 
-    <div slot='right-section'>
+    <div slot='right'>
 
       {% if page.root != true %}
       <goat-select id='site-search'
-                   class='show-desktop'
+                   class='show-desktop bg-light no-border'
                    search='contains'
                    hide-dropdown-icon
                    placeholder="Type '/' for search">
@@ -84,54 +84,49 @@ layout: base
       </script>
       {% endif %}
 
+      <goat-header-action
+        id='theme-switcher'
+        icon="sun"
+        class="theme-switcher"
+        aria-title='Theme switcher'></goat-header-action>
 
-      <goat-button icon='light--filled' simple class='color-brand-primary' id='theme-switcher'
-                   aria-title='Theme switcher' variant='ghost'></goat-button>
+      <goat-header-action id='dir-switcher' class='show-desktop'>LTR</goat-header-action>
 
-      <goat-button id='dir-switcher' simple class='color-brand-primary show-desktop' variant='ghost'>LTR</goat-button>
-
-      <goat-button class='color-brand-primary' simple href='https://opencollective.com/goat-ui-components#support'
-                   variant='ghost'>
+      <goat-header-action
+        class='show-desktop'
+        href='https://opencollective.com/goat-ui-components#support'>
         Become a backer
-      </goat-button>
+      </goat-header-action>
 
       {% if page.root %}
-      <goat-button
+      <goat-header-action
         icon='logo--github'
-        variant='ghost'
-        simple
-        class='show-desktop full-height color-brand-primary'
+        class='show-desktop'
         href='https://github.com/{{site.github_username}}/{{site.github_project}}'
         target='_blank'
-      ></goat-button>
+      ></goat-header-action>
 
-      <goat-button
+      <goat-header-action
         icon='logo--github'
-        variant='ghost'
-        simple
-        class='show-mobile full-height color-brand-primary'
+        class='show-mobile'
         href='https://github.com/{{site.github_username}}/{{site.github_project}}'
         target='_blank'
-      ></goat-button>
+      ></goat-header-action>
 
       {% else %}
-      <goat-button
-        variant='ghost'
-        simple
-        class='show-desktop full-height color-brand-primary'
+      <goat-header-action
+        class='show-desktop'
         href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues'
         target='_blank'
       >Report Issue
-      </goat-button>
+      </goat-header-action>
 
-      <goat-button
+      <goat-header-action
         icon='debug'
-        variant='ghost'
-        simple
-        class='show-mobile full-height color-brand-primary'
+        class='show-mobile'
         href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues'
         target='_blank'
-      ></goat-button>
+      ></goat-header-action>
       {% endif %}
     </div>
   </goat-header>

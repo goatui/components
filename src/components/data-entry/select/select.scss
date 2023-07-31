@@ -15,6 +15,13 @@
 
   .chevron-down {
     transition: transform 0.1s ease-out 0s;
+    height: 100%;
+    padding: 0 0.625rem;
+    cursor: pointer;
+  }
+
+  .loader {
+    padding: 0 0.625rem;
   }
 
   &.is-open {
@@ -50,7 +57,7 @@
     transform-origin: bottom;
   }
 
-  &.center .dropdown-content {
+  &.search-none.center .dropdown-content {
     top: 0;
     left: 0;
     position: fixed;
@@ -63,6 +70,7 @@
     justify-content: center;
     background: rgba(0, 0, 0, 0.5);
     pointer-events: none;
+    padding: 0 1rem;
   }
 
 }

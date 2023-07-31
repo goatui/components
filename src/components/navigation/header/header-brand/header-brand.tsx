@@ -11,6 +11,7 @@ export class HeaderBrand {
   @Prop() name: string = '';
   @Prop() href: string = '#';
   @Prop() subTitle: string = '';
+  @Prop() color: string = 'brand-primary';
 
   render() {
     const isLogoSVG = this.logo.endsWith('.svg');

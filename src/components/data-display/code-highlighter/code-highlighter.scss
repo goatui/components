@@ -20,7 +20,7 @@
 .code-highlighter {
   position: relative;
   height: 100%;
-  background-color: v(--color-brand-primary-10);
+  background-color: var(--code-highlighter-background, v(--color-purple-10));
   color: v(--text-primary);
   .scroll-wrapper {
     height: 100%;
@@ -55,5 +55,5 @@
 
 
 :host-context([data-theme="dark"]) .code-highlighter {
-  background-color: v(--color-brand-primary-100);
+  background-color: var(--code-highlighter-background-dark, v(--color-purple-100));
 }
