@@ -32,8 +32,8 @@ twitter_username: goatui
 github_username: goatui
 github_project: components
 npm_package: '@goatui/components'
-script: 'https://cdn.jsdelivr.net/npm/@goatui/components@0.16.0/dist/goatui/goatui.esm.js'
-themeCss: 'https://cdn.jsdelivr.net/npm/@goatui/components@0.16.0/dist/goatui/assets/styles/theme.css'
+script: 'https://cdn.jsdelivr.net/npm/@goatui/components@0.17.0/dist/goatui/goatui.esm.js'
+themeCss: 'https://cdn.jsdelivr.net/npm/@goatui/components@0.17.0/dist/goatui/assets/styles/theme.css'
 
 include:
   - .well-known
