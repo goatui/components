@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-07-31T06:32:05",
+  "timestamp": "2023-07-31T06:40:16",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.0.1",
@@ -2404,7 +2404,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+          "docs": "The button size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -2489,7 +2489,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -2511,7 +2511,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -4428,7 +4428,7 @@
       "filePath": "src/components/navigation/header/header-action/header-action.tsx",
       "fileName": "header-action.tsx",
       "tag": "goat-header-action",
-      "readme": "# p4-top-navigation\n\n\n",
+      "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -4524,7 +4524,7 @@
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
-          "docs": "Icon which will displayed on button.\nPossible values are icon names.",
+          "docs": "Icon which will displayed on button.\r\nPossible values are icon names.",
           "docsTags": [],
           "values": [
             {
@@ -4567,7 +4567,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"none\"`. Defaults to `\"md\"`.",
+          "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"none\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -4634,7 +4634,7 @@
       "filePath": "src/components/navigation/header/header-brand/header-brand.tsx",
       "fileName": "header-brand.tsx",
       "tag": "goat-header-brand",
-      "readme": "# p4-top-navigation\n\n\n",
+      "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -8564,7 +8564,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -8586,7 +8586,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\r\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -8710,7 +8710,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "The Icon size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"` and size in pixel. Defaults to `\"md\"`.",
+          "docs": "The Icon size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"` and size in pixel. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -9255,7 +9255,7 @@
           },
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "Grid columns configuration.\n[\n{\n  \"name\":\"name\",\n  \"label\":\"Name\",\n  \"width\":300,\n  \"fixed\":true\n },\n{\n  \"name\":\"age\",\n  \"label\":\"Age\"\n}\n]",
+          "docs": "Grid columns configuration.\r\n[\r\n{\r\n  \"name\":\"name\",\r\n  \"label\":\"Name\",\r\n  \"width\":300,\r\n  \"fixed\":true\r\n },\r\n{\r\n  \"name\":\"age\",\r\n  \"label\":\"Age\"\r\n}\r\n]",
           "docsTags": [],
           "default": "[]",
           "values": [
@@ -9276,7 +9276,7 @@
           },
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "Grid data to display on table\n[{\n 'id': '5e7118ddce4b3d577956457f',\n 'age': 21,\n 'name': 'John',\n 'company': 'India',\n 'email': 'john@example.com',\n 'phone': '+1 (839) 560-3581',\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\n }]",
+          "docs": "Grid data to display on table\r\n[{\r\n 'id': '5e7118ddce4b3d577956457f',\r\n 'age': 21,\r\n 'name': 'John',\r\n 'company': 'India',\r\n 'email': 'john@example.com',\r\n 'phone': '+1 (839) 560-3581',\r\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\r\n }]",
           "docsTags": [],
           "default": "[]",
           "values": [
@@ -9300,7 +9300,7 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "{\n    'title': 'No items',\n    'description': 'There are no items to display',\n  }",
+          "default": "{\r\n    'title': 'No items',\r\n    'description': 'There are no items to display',\r\n  }",
           "values": [
             {
               "type": "any"
@@ -11177,7 +11177,7 @@
       "filePath": "src/components/data-entry/toggle/toggle.tsx",
       "fileName": "toggle.tsx",
       "tag": "goat-toggle",
-      "readme": "# goat-checkbox\n\n\n",
+      "readme": "# goat-checkbox\r\n\r\n\r\n\r",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -11372,7 +11372,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+          "docs": "The button size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -11453,7 +11453,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -11475,7 +11475,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -14356,7 +14356,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": false,
-              "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+              "docs": "The button size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -14441,7 +14441,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
               "docsTags": []
             },
             {
@@ -14463,7 +14463,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
               "docsTags": []
             }
           ],
@@ -17771,7 +17771,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
               "docsTags": []
             },
             {
@@ -17793,7 +17793,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\n`input.focus()`.",
+              "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\r\n`input.focus()`.",
               "docsTags": []
             }
           ],
@@ -18654,7 +18654,7 @@
           "filePath": "src/components/data-entry/toggle/toggle.tsx",
           "fileName": "toggle.tsx",
           "tag": "goat-toggle",
-          "readme": "# goat-checkbox\n\n\n",
+          "readme": "# goat-checkbox\r\n\r\n\r\n\r",
           "overview": "",
           "usage": {},
           "docs": "",
@@ -18849,7 +18849,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": false,
-              "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+              "docs": "The button size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -18930,7 +18930,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
               "docsTags": []
             },
             {
@@ -18952,7 +18952,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
               "docsTags": []
             }
           ],
@@ -20215,7 +20215,7 @@
               },
               "mutable": false,
               "reflectToAttr": false,
-              "docs": "Grid columns configuration.\n[\n{\n  \"name\":\"name\",\n  \"label\":\"Name\",\n  \"width\":300,\n  \"fixed\":true\n },\n{\n  \"name\":\"age\",\n  \"label\":\"Age\"\n}\n]",
+              "docs": "Grid columns configuration.\r\n[\r\n{\r\n  \"name\":\"name\",\r\n  \"label\":\"Name\",\r\n  \"width\":300,\r\n  \"fixed\":true\r\n },\r\n{\r\n  \"name\":\"age\",\r\n  \"label\":\"Age\"\r\n}\r\n]",
               "docsTags": [],
               "default": "[]",
               "values": [
@@ -20236,7 +20236,7 @@
               },
               "mutable": false,
               "reflectToAttr": false,
-              "docs": "Grid data to display on table\n[{\n 'id': '5e7118ddce4b3d577956457f',\n 'age': 21,\n 'name': 'John',\n 'company': 'India',\n 'email': 'john@example.com',\n 'phone': '+1 (839) 560-3581',\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\n }]",
+              "docs": "Grid data to display on table\r\n[{\r\n 'id': '5e7118ddce4b3d577956457f',\r\n 'age': 21,\r\n 'name': 'John',\r\n 'company': 'India',\r\n 'email': 'john@example.com',\r\n 'phone': '+1 (839) 560-3581',\r\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\r\n }]",
               "docsTags": [],
               "default": "[]",
               "values": [
@@ -20260,7 +20260,7 @@
               "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
-              "default": "{\n    'title': 'No items',\n    'description': 'There are no items to display',\n  }",
+              "default": "{\r\n    'title': 'No items',\r\n    'description': 'There are no items to display',\r\n  }",
               "values": [
                 {
                   "type": "any"
@@ -21215,7 +21215,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": false,
-              "docs": "The Icon size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"` and size in pixel. Defaults to `\"md\"`.",
+              "docs": "The Icon size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"` and size in pixel. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -22403,7 +22403,7 @@
           "filePath": "src/components/navigation/header/header-action/header-action.tsx",
           "fileName": "header-action.tsx",
           "tag": "goat-header-action",
-          "readme": "# p4-top-navigation\n\n\n",
+          "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
           "overview": "",
           "usage": {},
           "docs": "",
@@ -22499,7 +22499,7 @@
               "mutable": false,
               "attr": "icon",
               "reflectToAttr": false,
-              "docs": "Icon which will displayed on button.\nPossible values are icon names.",
+              "docs": "Icon which will displayed on button.\r\nPossible values are icon names.",
               "docsTags": [],
               "values": [
                 {
@@ -22542,7 +22542,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": false,
-              "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"none\"`. Defaults to `\"md\"`.",
+              "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"none\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -22609,7 +22609,7 @@
           "filePath": "src/components/navigation/header/header-brand/header-brand.tsx",
           "fileName": "header-brand.tsx",
           "tag": "goat-header-brand",
-          "readme": "# p4-top-navigation\n\n\n",
+          "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
           "overview": "",
           "usage": {},
           "docs": "",
