@@ -1,17 +1,65 @@
-@import "../../../globalStyles/commons";
+@import "../../../../globalStyles/commons";
 
-$header-height: var(--header-height, #{v(--spacing-012)});
-
+$header-height: var(--header-height, 3rem);
+$header-background: var(--header-background, transparent);
+$header-background-dark: var(--header-background-dark, var(--header-background));
 :host {
   display: block;
 }
 
-.header {
-  height: $header-height;
-  padding: 0 v(--spacing-08);
+.header-container {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
+
+.header {
+  height: $header-height;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  background: $header-background;
+
+  .left-section {
+    justify-self: flex-start;
+  }
+  .center-section {
+    justify-self: center;
+  }
+  .right-section {
+    justify-self: flex-end;
+  }
+
+  .section {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    slot::slotted(*) {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+  }
+
+  &.float {
+    margin: v(--spacing-05);
+    border-radius: v(--border-radius);
+    border: 1px solid v(--layer-accent-01);
+    box-shadow: v(--shadow-md);
+  }
+}
+
+:host-context([data-theme="dark"]) {
+  .header {
+    background: $header-background-dark;
+  }
+}
+
+
+
+/*
 
 
 @include for-phone-only {
@@ -58,9 +106,9 @@ $header-height: var(--header-height, #{v(--spacing-012)});
   border-bottom: 1px solid var(--border-strong-01)
 }
 
-/*
+!*
  * Colors
- */
+ *!
 .header {
   background-color: v(--color-white);
 
@@ -92,16 +140,13 @@ $header-height: var(--header-height, #{v(--spacing-012)});
   }
 }
 
+:host(.brand:not(.float)) .header {
+  background-color: v(--color-brand-secondary-10);
+}
 
 :host(.brand) .header {
-  background-color: v(--color-brand-secondary-10);
-
   .header-content {
     background-color: v(--color-brand-secondary-10);
-  }
-
-  .left-section {
-
   }
 }
 
@@ -114,3 +159,4 @@ $header-height: var(--header-height, #{v(--spacing-012)});
     }
   }
 }
+*/

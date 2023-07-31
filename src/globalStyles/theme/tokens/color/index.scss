@@ -46,12 +46,11 @@ Tertiary background
 @include defineVariable(--background-inverse, getColor(gray, 80), getColor(gray, 10));
 
 
-@include defineVariable(--layer-hover-01, getColor(gray, 10), getColor(gray, 90));
-
+@include defineVariable(--layer-hover-01, #e8e8e8, #333333);
 
 @import "text-colors";
 @import "field-colors";
-
+@import "icon-colors";
 
 
 /*

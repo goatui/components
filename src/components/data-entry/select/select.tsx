@@ -409,11 +409,10 @@ export class Select implements ComponentInterface, InputComponentInterface {
   render() {
     return (
       <Host has-value={this.hasValue()} has-focus={this.hasFocus} is-open={this.isOpen} position={this.position}>
-        <div class={{ 'dropdown': true, 'select': true, [this.position]: true, 'is-open': this.isOpen }}>
+        <div class={{ 'dropdown': true, 'select': true, [this.position]: true, 'is-open': this.isOpen,  [`search-${this.search}`]: true, }}>
           <div
             class={{
               'input-container': true,
-              [`search-${this.search}`]: true,
               'has-focus': this.hasFocus,
               'disabled': this.disabled,
               'readonly': this.readonly,
@@ -482,10 +481,10 @@ export class Select implements ComponentInterface, InputComponentInterface {
 
   private getModeIcon() {
     if (this.showLoader) {
-      return <goat-spinner class="input-action rainbow" />;
+      return <goat-spinner class="input-action rainbow loader" />;
     }
     if (!this.disabled && !this.readonly && !this.hideDropdownIcon)
-      return <goat-button class="input-action chevron-down color-secondary" size={this.size} variant="ghost" icon="chevron--down" onGoat:click={this.toggleList}></goat-button>;
+      return <goat-icon tabindex={-1} class="chevron-down color-secondary" size={this.size} name="chevron--down" onClick={this.toggleList}></goat-icon>;
   }
 
   private renderDropdownList() {

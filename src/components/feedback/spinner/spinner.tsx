@@ -1,5 +1,4 @@
 import { Component, h, Host, Prop } from '@stencil/core';
-import { ElementSize } from '../../../utils/utils';
 
 /**
  * @name Spinner
@@ -22,16 +21,14 @@ export class Spinner {
 
   private getSize() {
     let size;
-    if (this.size === ElementSize.SMALL)
-      size = '1.25rem';
-    else if (!this.size || this.size === ElementSize.MEDIUM)
-      size = '1.5rem';
-    else if (this.size === ElementSize.LARGE)
-      size = '1.75rem';
-    else if (this.size === ElementSize.X_LARGE)
-      size = '2rem';
-    else
-      size = this.size;
+    if (!this.size) size = '1rem';
+    else if (this.size === 'xs') size = '0.5rem';
+    else if (this.size === 'sm') size = '0.75rem';
+    else if (this.size === 'md') size = '1rem';
+    else if (this.size === 'lg') size = '1.5rem';
+    else if (this.size === 'xl') size = '1.75rem';
+    else if (!this.size.endsWith('px') && !this.size.endsWith('rem')) size = '1rem';
+    else size = this.size;
     return size;
   }
 

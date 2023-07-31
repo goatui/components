@@ -45,9 +45,9 @@ export class Input implements ComponentInterface, InputComponentInterface {
 
   /**
    * The type of control to display.
-   * Possible values are: `"text"`, `"password"`, `"number"`, `"email"`, `"tel"`. Defaults to `"text"`.
+   * Possible values are: `"text"`, `"password"`, `"email"`, `"tel"`. Defaults to `"text"`.
    */
-  @Prop() type: 'text' | 'password' | 'number' | 'email' | 'tel' = 'text';
+  @Prop() type: 'text' | 'password' | 'email' | 'tel' = 'text';
 
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
@@ -174,16 +174,6 @@ export class Input implements ComponentInterface, InputComponentInterface {
     }
   }
 
-  /**
-   * Update the native input element when the value changes
-   */
-  @Watch('value')
-  protected valueChanged() {
-    let value = this.value;
-    if (this.type === 'number') {
-      if (value) this.value = JSON.parse(value + '');
-    }
-  }
 
   @Watch('debounce')
   protected debounceChanged() {
@@ -219,22 +209,6 @@ export class Input implements ComponentInterface, InputComponentInterface {
 
   private hasValue(): boolean {
     return this.getValue().length > 0;
-  }
-
-  private decrease(ev) {
-    if (this.value === undefined || this.value === '') this.value = 0;
-    if (typeof this.value === 'number') {
-      this.value = (this.value || 0) - 1;
-      this.goatChange.emit(ev);
-    }
-  }
-
-  private increment(ev) {
-    if (this.value === undefined || this.value === '') this.value = 0;
-    if (typeof this.value === 'number') {
-      this.value = (this.value || 0) + 1;
-      this.goatChange.emit(ev);
-    }
   }
 
   render() {
@@ -278,24 +252,14 @@ export class Input implements ComponentInterface, InputComponentInterface {
             <goat-button class="clear input-action color-secondary" variant="ghost" icon="close" onClick={this.clearInput} />
             }
 
-          {this.type === 'password' && !this.hideActions && <goat-button class="color-secondary input-action" simple={true} icon={this.passwordVisible ? 'view--off' : 'view'} variant="ghost" size="none" onGoat:click={() => {
+          {this.type === 'password' && !this.hideActions && <goat-button class="color-secondary" simple={true} icon={this.passwordVisible ? 'view--off' : 'view'} variant="ghost" size="none" onGoat:click={() => {
             this.passwordVisible = !this.passwordVisible;
           }}></goat-button>}
-
-          {this.type === 'number' && !this.hideActions && <goat-button class="color-secondary input-action" simple={true} icon="subtract" variant="ghost" size="none" onGoat:click={(evt) => {
-            this.decrease(evt);
-          }}></goat-button>}
-
-          {this.type === 'number' && !this.hideActions && <goat-button class="color-secondary input-action" simple={true} icon="add" variant="ghost" size="none" onGoat:click={(evt) => {
-            this.increment(evt);
-          }}></goat-button>}
-
-
-
 
           <div class="slot-container end">
             <slot name="end" />
           </div>
+
         </div>
       </Host>
     );

@@ -218,11 +218,6 @@ $colors: (
   $colors: map-merge($colors, ($to: $toMap)) !global;
 }
 
-/*
- * Theme colors
- */
-@include cloneColor(brand-primary, purple);
-@include cloneColor(brand-secondary, teal);
 
 /*
  * Application colors
@@ -230,6 +225,12 @@ $colors: (
 @include cloneColor(neutral, gray);
 @include cloneColor(primary, blue);
 @include cloneColor(secondary, warmGray);
+
+/*
+ * Theme colors
+ */
+@include cloneColor(brand-primary, primary);
+@include cloneColor(brand-secondary, secondary);
 
 
 /*

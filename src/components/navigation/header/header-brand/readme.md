@@ -7,12 +7,13 @@
 
 ## Properties
 
-| Property   | Attribute   | Description | Type     | Default |
-| ---------- | ----------- | ----------- | -------- | ------- |
-| `href`     | `href`      |             | `string` | `'#'`   |
-| `logo`     | `logo`      |             | `string` | `''`    |
-| `name`     | `name`      |             | `string` | `''`    |
-| `subTitle` | `sub-title` |             | `string` | `''`    |
+| Property   | Attribute   | Description | Type     | Default           |
+| ---------- | ----------- | ----------- | -------- | ----------------- |
+| `color`    | `color`     |             | `string` | `'brand-primary'` |
+| `href`     | `href`      |             | `string` | `'#'`             |
+| `logo`     | `logo`      |             | `string` | `''`              |
+| `name`     | `name`      |             | `string` | `''`              |
+| `subTitle` | `sub-title` |             | `string` | `''`              |
 
 
 ## Dependencies

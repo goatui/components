@@ -24,15 +24,15 @@
   @include font-style(code-01);
 
   &.has-content {
-    top: -0.5rem;
-    right: -0.5rem;
+    top: var(--badge-top, -0.5rem);
+    right: var(--badge-left, -0.5rem);
     height: 1.25rem;
     min-width: 1.25rem;
   }
 
   &:not(.has-content) {
-    top: -0.25rem;
-    right: -0.25rem;
+    top: var(--badge-top, -0.25rem);
+    right: var(--badge-left, -0.25rem);
     height: 0.5rem;
     min-width: 0.5rem;
   }

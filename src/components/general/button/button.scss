@@ -11,12 +11,7 @@ $button-color-support: var(--button-color-support, $button-color);
 
 $button-color-light-hover: var(--button-color-light-hover, v(--color-primary-20));
 $button-color-light-active: var(--button-color-light-active, v(--color-primary-30));
-/*
---button-text-color: #{v(--text-primary)};
---button-color: transparent;
---button-color-hover: #{v(--color-brand-primary-20)};
---button-color-active: #{v(--color-brand-primary-30)};
---button-color-focus: #{v(--color-brand-primary)};*/
+
 
 @function removeBorder($width) {
   @return #{($width*1 - ($border-width * 4))}rem;
@@ -24,7 +19,7 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
 
 :host {
   display: inline-block;
-  height: var(--button-height, auto);
+  --button-height: #{removeBorder(2.5)};
   --button-padding: 1rem;
 }
 
@@ -32,7 +27,7 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
   position: relative;
   display: flex;
   align-items: center;
-  height: var(--button-height, auto);
+  height: 100%;
 
   .native-button {
     font-family: var(--font-family-base);
@@ -61,8 +56,7 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
     height: 100%;
     border-radius: 2px;
     border: #{$border-width}rem solid transparent;
-    padding-left: var(--button-padding);
-    padding-right: var(--button-padding);
+    padding: 0 var(--button-padding, var(--button-padding-right)) 0 var(--button-padding, var(--button-padding-left));
   }
 
   .button-background {
@@ -116,7 +110,7 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
 
 .button.size-md, .button.size-medium {
   .button-content {
-    height: removeBorder(2.5);
+    height: var(--button-height);
   }
 }
 

@@ -1,6 +1,8 @@
 @use "sass:map";
 @import "../../globalStyles/commons";
 
+$input-background-color: var(--input-background-color, #{v(--field-01)});
+
 :host {
   display: block;
   margin-bottom: v(--spacing-03);
@@ -15,7 +17,7 @@
   align-items: center;
   justify-content: center;
 
-  background-color: v(--field-01);
+  background-color: $input-background-color;
   border: 1px var(--input-border-style) v(--border-strong-01);
   border-radius: var(--input-border-radius);
   overflow: hidden;
@@ -69,6 +71,7 @@
 
   .slot-container.end {
     margin-inline-end: 1rem;
+    margin-inline-start: .5rem;
   }
 
   &.start-slot-has-content {
@@ -97,7 +100,7 @@
 
   .input-action {
     cursor: pointer;
-    --button-padding: .5rem;
+    --button-padding: .625rem;
 
     &:hover {
       --text-color: var(--text-secondary);
@@ -109,7 +112,7 @@
   }
 }
 
-:host(.light) .input-container {
+:host(.bg-light) .input-container {
   background-color: v(--field-02);
 }
 
@@ -135,11 +138,15 @@
 }
 
 
-
 :host(.no-border) {
   .input-container {
     border-color: transparent;
-    background-color: transparent;
+  }
+}
+
+:host(.bg-light) {
+  .input-container {
+    background-color: v(--field-02);
   }
 }
 

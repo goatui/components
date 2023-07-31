@@ -1,8 +1,8 @@
 /*
- * Theme colors
+ * Application colors
  */
 /*
- * Application colors
+ * Theme colors
  */
 /*
  * Alert colors
@@ -77,6 +77,13 @@ Hover color for $field-02
 Hover color for $field-03
  */
 /*
+Primary icons
+ */
+/*
+
+Inverse icon color
+ */
+/*
 Selected UI elements
  */
 /**
@@ -136,10 +143,10 @@ Border-bottom paired with $field-03;
  * There are two body styles for productive and expressive moments. Productive styles have a suffix of -01 and expressive styles have a suffix of -02
  */
 /*
- * Theme colors
+ * Application colors
  */
 /*
- * Application colors
+ * Theme colors
  */
 /*
  * Alert colors
@@ -214,6 +221,13 @@ Hover color for $field-02
 Hover color for $field-03
  */
 /*
+Primary icons
+ */
+/*
+
+Inverse icon color
+ */
+/*
 Selected UI elements
  */
 /**
@@ -272,7 +286,6 @@ Border-bottom paired with $field-03;
 /*
  * There are two body styles for productive and expressive moments. Productive styles have a suffix of -01 and expressive styles have a suffix of -02
  */
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans+Condensed:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Serif:ital@0;1&display=swap");
 :root {
   font-size: 16px;
   --color-black-100: #000000;
@@ -453,28 +466,6 @@ Border-bottom paired with $field-03;
   --color-new-teal-80: #5589A9;
   --color-new-teal-90: #366388;
   --color-new-teal-100: #204671;
-  --color-brand-primary-10: #f6f2ff;
-  --color-brand-primary-20: #e8daff;
-  --color-brand-primary-30: #d4bbff;
-  --color-brand-primary-40: #be95ff;
-  --color-brand-primary-50: #a56eff;
-  --color-brand-primary-60: #8a3ffc;
-  --color-brand-primary: #8a3ffc;
-  --color-brand-primary-70: #6929c4;
-  --color-brand-primary-80: #491d8b;
-  --color-brand-primary-90: #31135e;
-  --color-brand-primary-100: #1c0f30;
-  --color-brand-secondary-10: #d9fbfb;
-  --color-brand-secondary-20: #9ef0f0;
-  --color-brand-secondary-30: #3ddbd9;
-  --color-brand-secondary-40: #08bdba;
-  --color-brand-secondary-50: #009d9a;
-  --color-brand-secondary-60: #007d79;
-  --color-brand-secondary: #007d79;
-  --color-brand-secondary-70: #005d5d;
-  --color-brand-secondary-80: #004144;
-  --color-brand-secondary-90: #022b30;
-  --color-brand-secondary-100: #081a1c;
   --color-neutral-10: #f4f4f4;
   --color-neutral-20: #e0e0e0;
   --color-neutral-30: #c6c6c6;
@@ -508,6 +499,28 @@ Border-bottom paired with $field-03;
   --color-secondary-80: #3c3838;
   --color-secondary-90: #272525;
   --color-secondary-100: #171414;
+  --color-brand-primary-10: #edf5ff;
+  --color-brand-primary-20: #d0e2ff;
+  --color-brand-primary-30: #a6c8ff;
+  --color-brand-primary-40: #78a9ff;
+  --color-brand-primary-50: #4589ff;
+  --color-brand-primary-60: #0f62fe;
+  --color-brand-primary: #0f62fe;
+  --color-brand-primary-70: #0043ce;
+  --color-brand-primary-80: #002d9c;
+  --color-brand-primary-90: #001d6c;
+  --color-brand-primary-100: #001141;
+  --color-brand-secondary-10: #f7f3f2;
+  --color-brand-secondary-20: #e5e0df;
+  --color-brand-secondary-30: #cac5c4;
+  --color-brand-secondary-40: #ada8a8;
+  --color-brand-secondary-50: #8f8b8b;
+  --color-brand-secondary-60: #726e6e;
+  --color-brand-secondary: #726e6e;
+  --color-brand-secondary-70: #565151;
+  --color-brand-secondary-80: #3c3838;
+  --color-brand-secondary-90: #272525;
+  --color-brand-secondary-100: #171414;
   --color-info-10: #edf5ff;
   --color-info-20: #d0e2ff;
   --color-info-30: #a6c8ff;
@@ -565,7 +578,7 @@ Border-bottom paired with $field-03;
   --ui-04: #8d8d8d;
   --border-inverse: #161616;
   --background-inverse: #393939;
-  --layer-hover-01: #f4f4f4;
+  --layer-hover-01: #e8e8e8;
   --text-primary: #161616;
   --text-secondary: #525252;
   --text-placeholder: #a8a8a8;
@@ -579,6 +592,8 @@ Border-bottom paired with $field-03;
   --field-hover-01: #f4f4f4;
   --field-hover-02: #f4f4f4;
   --field-hover-03: #f4f4f4;
+  --icon-primary: #161616;
+  --icon-inverse: white;
   --selected-ui: #e0e0e0;
   --disabled-01: #f4f4f4;
   --text-disabled: rgba(22, 22, 22, 0.25);
@@ -613,7 +628,6 @@ Border-bottom paired with $field-03;
   --toggle-off: #8d8d8d;
   --button-disabled: #c6c6c6;
   --icon-on-color-disabled: #8d8d8d;
-  --icon-primary: #161616;
   --tag-background-gray: #e0e0e0;
   --tag-hover-gray: #c6c6c6;
   --tag-color-gray: #393939;
@@ -645,7 +659,6 @@ Border-bottom paired with $field-03;
   --tag-hover-error: #ffb3b8;
   --tag-color-error: #750e13;
   --font-family-base: IBM Plex Sans, Helvetica Neue, Arial, sans-serif;
-  --font-family-secondary: Arial, Helvetica, sans-serif;
   --font-weight-regular: normal;
   --font-weight-medium: 500;
   --font-weight-semi-bold: 600;
@@ -680,107 +693,107 @@ Border-bottom paired with $field-03;
   --display-xl-font-size: 3.75rem;
   --display-xl-line-height: 4.625rem;
   --display-xl-letter-spacing: -0.02rem;
-  --code-01-font-family: IBM Plex Mono;
+  --code-01-font-family: IBM Plex Mono, Courier New, monospace;
   --code-01-font-size: 0.75rem;
   --code-01-line-height: 1rem;
   --code-01-font-weight: 400;
   --code-01-letter-spacing: 0.32px;
-  --code-02-font-family: IBM Plex Mono;
+  --code-02-font-family: IBM Plex Mono, Courier New, monospace;
   --code-02-font-size: 0.875rem;
   --code-02-line-height: 1.25rem;
   --code-02-font-weight: 400;
   --code-02-letter-spacing: 0.32px;
-  --label-01-font-family: IBM Plex Sans;
+  --label-01-font-family: IBM Plex Sans, Helvetica Neue, Arial, sans-serif;
   --label-01-font-size: 0.75rem;
   --label-01-line-height: 1rem;
   --label-01-font-weight: 400;
   --label-01-letter-spacing: 0.32px;
-  --label-02-font-family: IBM Plex Sans;
+  --label-02-font-family: IBM Plex Sans, Helvetica Neue, Arial, sans-serif;
   --label-02-font-size: 0.875rem;
   --label-02-line-height: 1.125rem;
   --label-02-font-weight: 400;
   --label-02-letter-spacing: 0.16px;
-  --helper-text-01-font-family: IBM Plex Sans;
+  --helper-text-01-font-family: IBM Plex Sans, Helvetica Neue, Arial, sans-serif;
   --helper-text-01-font-size: 0.75rem;
   --helper-text-01-line-height: 1rem;
   --helper-text-01-font-weight: 400;
   --helper-text-01-letter-spacing: 0.32px;
-  --helper-text-02-font-family: IBM Plex Sans;
+  --helper-text-02-font-family: IBM Plex Sans, Helvetica Neue, Arial, sans-serif;
   --helper-text-02-font-size: 0.875rem;
   --helper-text-02-line-height: 1.125rem;
   --helper-text-02-font-weight: 400;
   --helper-text-02-letter-spacing: 0.16px;
-  --legal-01-font-family: IBM Plex Sans;
+  --legal-01-font-family: IBM Plex Sans, Helvetica Neue, Arial, sans-serif;
   --legal-01-font-size: 0.75rem;
   --legal-01-line-height: 1rem;
   --legal-01-font-weight: 400;
   --legal-01-letter-spacing: 0.32px;
-  --legal-02-font-family: IBM Plex Sans;
+  --legal-02-font-family: IBM Plex Sans, Helvetica Neue, Arial, sans-serif;
   --legal-02-font-size: 0.875rem;
   --legal-02-line-height: 1.125rem;
   --legal-02-font-weight: 400;
   --legal-02-letter-spacing: 0.16px;
-  --body-01-font-family: IBM Plex Sans;
+  --body-01-font-family: IBM Plex Sans, Helvetica Neue, Arial, sans-serif;
   --body-01-font-size: 0.875rem;
   --body-01-line-height: 1.25rem;
   --body-01-font-weight: 400;
   --body-01-letter-spacing: 0.16px;
-  --body-02-font-family: IBM Plex Sans;
+  --body-02-font-family: IBM Plex Sans, Helvetica Neue, Arial, sans-serif;
   --body-02-font-size: 1rem;
   --body-02-line-height: 1.5rem;
   --body-02-font-weight: 400;
   --body-02-letter-spacing: 0;
-  --body-compact-01-font-family: IBM Plex Sans;
+  --body-compact-01-font-family: IBM Plex Sans, Helvetica Neue, Arial, sans-serif;
   --body-compact-01-font-size: 0.875rem;
   --body-compact-01-line-height: 1.125rem;
   --body-compact-01-font-weight: 400;
   --body-compact-01-letter-spacing: 0.16px;
-  --body-compact-02-font-family: IBM Plex Sans;
+  --body-compact-02-font-family: IBM Plex Sans, Helvetica Neue, Arial, sans-serif;
   --body-compact-02-font-size: 1rem;
   --body-compact-02-line-height: 1.375rem;
   --body-compact-02-font-weight: 400;
   --body-compact-02-letter-spacing: 0;
-  --heading-compact-01-font-family: IBM Plex Sans;
+  --heading-compact-01-font-family: IBM Plex Sans, Helvetica Neue, Arial, sans-serif;
   --heading-compact-01-font-size: 0.875rem;
   --heading-compact-01-line-height: 1.125rem;
   --heading-compact-01-font-weight: 600;
   --heading-compact-01-letter-spacing: 0.16px;
-  --heading-compact-02-font-family: IBM Plex Sans;
+  --heading-compact-02-font-family: IBM Plex Sans, Helvetica Neue, Arial, sans-serif;
   --heading-compact-02-font-size: 0.875rem;
   --heading-compact-02-line-height: 1.375rem;
   --heading-compact-02-font-weight: 400;
   --heading-compact-02-letter-spacing: 0;
-  --heading-01-font-family: IBM Plex Sans;
+  --heading-01-font-family: IBM Plex Sans, Helvetica Neue, Arial, sans-serif;
   --heading-01-font-size: 0.875rem;
   --heading-01-line-height: 1.25rem;
   --heading-01-font-weight: 600;
   --heading-01-letter-spacing: 0.16px;
-  --heading-02-font-family: IBM Plex Sans;
+  --heading-02-font-family: IBM Plex Sans, Helvetica Neue, Arial, sans-serif;
   --heading-02-font-size: 1rem;
   --heading-02-line-height: 1.5rem;
   --heading-02-font-weight: 600;
   --heading-02-letter-spacing: 0;
-  --heading-03-font-family: IBM Plex Sans;
+  --heading-03-font-family: IBM Plex Sans, Helvetica Neue, Arial, sans-serif;
   --heading-03-font-size: 1.25rem;
   --heading-03-line-height: 1.75rem;
   --heading-03-font-weight: 400;
   --heading-03-letter-spacing: 0;
-  --heading-04-font-family: IBM Plex Sans;
+  --heading-04-font-family: IBM Plex Sans, Helvetica Neue, Arial, sans-serif;
   --heading-04-font-size: 1.75rem;
   --heading-04-line-height: 2.25rem;
   --heading-04-font-weight: 400;
   --heading-04-letter-spacing: 0;
-  --heading-05-font-family: IBM Plex Sans;
+  --heading-05-font-family: IBM Plex Sans, Helvetica Neue, Arial, sans-serif;
   --heading-05-font-size: 2rem;
   --heading-05-line-height: 2.5rem;
   --heading-05-font-weight: 400;
   --heading-05-letter-spacing: 0;
-  --heading-06-font-family: IBM Plex Sans;
+  --heading-06-font-family: IBM Plex Sans, Helvetica Neue, Arial, sans-serif;
   --heading-06-font-size: 2.625rem;
   --heading-06-line-height: 3.125rem;
   --heading-06-font-weight: 300;
   --heading-06-letter-spacing: 0;
-  --heading-07-font-family: IBM Plex Sans;
+  --heading-07-font-family: IBM Plex Sans, Helvetica Neue, Arial, sans-serif;
   --heading-07-font-size: 3.375rem;
   --heading-07-line-height: 4rem;
   --heading-07-font-weight: 300;
@@ -823,7 +836,7 @@ html {
 }
 
 p {
-  font-family: var(--body-01-font-family, IBM Plex Sans);
+  font-family: var(--body-01-font-family, IBM Plex Sans, Helvetica Neue, Arial, sans-serif);
   font-size: var(--body-01-font-size, 0.875rem);
   font-weight: var(--body-01-font-weight, 400);
   line-height: var(--body-01-line-height, 1.25rem);
@@ -841,7 +854,7 @@ p {
   --ui-04: #f4f4f4;
   --border-inverse: #f4f4f4;
   --background-inverse: #f4f4f4;
-  --layer-hover-01: #262626;
+  --layer-hover-01: #333333;
   --text-primary: #f4f4f4;
   --text-secondary: #c6c6c6;
   --text-placeholder: #6f6f6f;
@@ -855,6 +868,8 @@ p {
   --field-hover-01: #262626;
   --field-hover-02: #393939;
   --field-hover-03: #525252;
+  --icon-primary: #f4f4f4;
+  --icon-inverse: #161616;
   --selected-ui: #393939;
   --disabled-01: #262626;
   --text-disabled: rgba(244, 244, 244, 0.25);
@@ -884,7 +899,6 @@ p {
   --toggle-off: #6f6f6f;
   --button-disabled: #525252;
   --icon-on-color-disabled: white;
-  --icon-primary: #f4f4f4;
   --tag-background-gray: #393939;
   --tag-hover-gray: #525252;
   --tag-color-gray: #c6c6c6;

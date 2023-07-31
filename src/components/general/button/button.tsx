@@ -77,7 +77,7 @@ export class Button implements ComponentInterface {
   /**
    * Icon size.
    */
-  @Prop() iconSize: 'sm' | 'md' | 'lg' = 'md';
+  @Prop() iconSize: 'sm' | 'md' | 'lg' | string = 'md';
 
   /**
    * Show loader.

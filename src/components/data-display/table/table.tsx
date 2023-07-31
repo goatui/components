@@ -93,6 +93,7 @@ export class Table {
 
   @State() private hoveredCell: any = {};
   @State() private isSelectAll: boolean = false;
+  @State() private isSelectAllIntermidiate: boolean = false;
 
   @Event({ eventName: 'goat:table-cell-click' }) goatCellClick: EventEmitter;
   @Event({ eventName: 'goat:table-select-change' }) goatSelectChange: EventEmitter;
@@ -103,7 +104,7 @@ export class Table {
     let selectedRowKeys = [];
     this.isSelectAll = !this.isSelectAll;
     if (this.isSelectAll)
-      selectedRowKeys = this.data.map((row) => row[this.keyField]);
+      selectedRowKeys = this.data.map((row) => row[this.keyField]).slice((this.page - 1) * this.pageSize, (this.page * this.pageSize));
     this.onSelectChange(selectedRowKeys);
   };
 
@@ -139,7 +140,7 @@ export class Table {
       fixedCols.push(
         <div class='col center'>
           <div class='col-content'>
-            <goat-checkbox class='checkbox light' size='sm' value={this.isSelectAll}
+            <goat-checkbox class='checkbox light' value={this.isSelectAll} intermediate={this.isSelectAllIntermidiate}
                            onGoat:change={this.onSelectAllClick} />
           </div>
         </div>);
@@ -226,7 +227,7 @@ export class Table {
       if (this.selectionType === 'checkbox')
         fixedCols.push(<div class={{ 'col': true, 'center': true }}>
           <div class='col-content'>
-            <goat-checkbox class='checkbox light' size='sm' value={this.selectedRowKeys.includes(row[this.keyField])}
+            <goat-checkbox class='checkbox light' value={this.selectedRowKeys.includes(row[this.keyField])}
                            onGoat:change={() => this.onRowSelectClick(row)} />
           </div>
         </div>);

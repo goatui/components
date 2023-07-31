@@ -16,7 +16,7 @@
 | `href`           | `href`            | Hyperlink to navigate to on click.                                                                                      | `string`                                                 | `undefined` |
 | `icon`           | `icon`            | Icon which will displayed on button. Possible values are icon names.                                                    | `string`                                                 | `undefined` |
 | `iconAlign`      | `icon-align`      | Icon position.                                                                                                          | `"end" \| "start"`                                       | `'end'`     |
-| `iconSize`       | `icon-size`       | Icon size.                                                                                                              | `"lg" \| "md" \| "sm"`                                   | `'md'`      |
+| `iconSize`       | `icon-size`       | Icon size.                                                                                                              | `string`                                                 | `'md'`      |
 | `selected`       | `selected`        | Button selection state.                                                                                                 | `boolean`                                                | `false`     |
 | `showLoader`     | `show-loader`     | Show loader.                                                                                                            | `boolean`                                                | `false`     |
 | `simple`         | `simple`          |                                                                                                                         | `boolean`                                                | `false`     |
@@ -76,9 +76,11 @@ Type: `Promise<void>`
  - [goat-date-picker](../../data-entry/date-picker)
  - [goat-empty-state](../../data-display/empty-state)
  - [goat-flow-designer](../../flow-designer/flow-designer)
+ - [goat-header-action](../../navigation/header/header-action)
  - [goat-html-editor](../../data-entry/html-editor)
  - [goat-input](../../data-entry/input)
  - [goat-notification](../../feedback/notification)
+ - [goat-number](../../data-entry/number)
  - [goat-select](../../data-entry/select)
  - [goat-table](../../data-display/table)
 
@@ -97,9 +99,11 @@ graph TD;
   goat-date-picker --> goat-button
   goat-empty-state --> goat-button
   goat-flow-designer --> goat-button
+  goat-header-action --> goat-button
   goat-html-editor --> goat-button
   goat-input --> goat-button
   goat-notification --> goat-button
+  goat-number --> goat-button
   goat-select --> goat-button
   goat-table --> goat-button
   style goat-button fill:#f9f,stroke:#333,stroke-width:4px
