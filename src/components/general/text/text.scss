@@ -5,11 +5,6 @@
   margin-bottom: v(--spacing-03);
 }
 
-:host([inline]) {
-  display: inline-block;
-  margin-bottom: 0;
-}
-
 
 .text {
   &.inline {
@@ -21,14 +16,21 @@
   margin: 0;
 }
 
+:host([inline]) {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
 
 :host([type="heading"]) {
   margin-bottom: v(--spacing-05);
 
-  @for $i from 1 through 7 {
-    &:host([heading-size="#{$i}"]) {
-      .native-element {
-        @include font-style(heading-0#{$i});
+  .text {
+    @for $i from 1 through 7 {
+      &.heading-size-#{$i} {
+        .native-element {
+          @include font-style(heading-0#{$i});
+        }
       }
     }
   }
@@ -47,7 +49,6 @@ $types: "body", "body-compact", "code", "helper", "legal", "label";
     }
   }
 }
-
 
 
 :host {

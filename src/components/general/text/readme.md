@@ -12,7 +12,7 @@
 | `color`        | `color`         |             | `"error" \| "helper" \| "inverse" \| "on-color" \| "primary" \| "secondary" \| "tertiary"`                    | `'primary'` |
 | `configAria`   | `config-aria`   |             | `any`                                                                                                         | `{}`        |
 | `expressive`   | `expressive`    |             | `boolean`                                                                                                     | `false`     |
-| `headingLevel` | `heading-level` |             | `1 \| 2 \| 3 \| 4 \| 5 \| 6`                                                                                  | `1`         |
+| `headingLevel` | `heading-level` |             | `1 \| 2 \| 3 \| 4 \| 5 \| 6`                                                                                  | `undefined` |
 | `headingSize`  | `heading-size`  |             | `1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 7`                                                                             | `7`         |
 | `inline`       | `inline`        |             | `boolean`                                                                                                     | `false`     |
 | `type`         | `type`          |             | `"body" \| "body-compact" \| "code" \| "heading" \| "heading-compact" \| "helper-text" \| "label" \| "legal"` | `'body'`    |

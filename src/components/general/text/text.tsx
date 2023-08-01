@@ -18,7 +18,7 @@ export class Text implements ComponentInterface {
 
   @Prop() headingSize: 1 | 2 | 3 | 4 | 5 | 6 | 7 = 7;
 
-  @Prop() headingLevel: 1 | 2 | 3 | 4 | 5 | 6 = 1;
+  @Prop() headingLevel: 1 | 2 | 3 | 4 | 5 | 6;
 
   @Prop({ reflect: true }) inline: boolean = false;
 
@@ -43,7 +43,14 @@ export class Text implements ComponentInterface {
   render() {
     return (
       <Host>
-        <div class={{ text: true, inline: this.inline, expressive: this.expressive }}>
+        <div
+          class={{
+            text: true,
+            inline: this.inline,
+            expressive: this.expressive,
+            [`heading-size-${this.headingSize}`]: true,
+          }}
+        >
           {this.renderText()}
         </div>
       </Host>
@@ -57,12 +64,14 @@ export class Text implements ComponentInterface {
 
   renderSimpleText() {
     if (this.inline) {
-      return (<span class='native-element' {...this.configAria}>
-        <slot />
-      </span>);
+      return (
+        <span class="native-element" {...this.configAria}>
+          <slot />
+        </span>
+      );
     } else {
       return (
-        <p class='native-element' {...this.configAria}>
+        <p class="native-element" {...this.configAria}>
           <slot />
         </p>
       );
@@ -70,9 +79,34 @@ export class Text implements ComponentInterface {
   }
 
   renderHeading() {
-    const Heading = `h${this.headingLevel}`;
-    return (<Heading class='native-element' {...this.configAria}>
+    let headingLevel = this.headingLevel;
+    if (!headingLevel) {
+      switch (this.headingSize) {
+        case 7 || 6:
+          headingLevel = 1;
+          break;
+        case 5:
+          headingLevel = 2;
+          break;
+        case 4:
+          headingLevel = 3;
+          break;
+        case 3:
+          headingLevel = 4;
+          break;
+        case 2:
+          headingLevel = 5;
+          break;
+        default:
+          headingLevel = 6;
+      }
+    }
+
+    const Heading = `h${headingLevel}`;
+    return (
+      <Heading class="native-element" {...this.configAria}>
         <slot />
-      </Heading>);
+      </Heading>
+    );
   }
 }
