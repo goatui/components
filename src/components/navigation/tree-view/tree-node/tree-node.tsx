@@ -9,7 +9,7 @@ import { getComponentIndex } from '../../../../utils/utils';
 export class GoatTreeNode {
   gid: string = getComponentIndex();
 
-  private nativeInput?: HTMLElement;
+  private nativeElement?: HTMLElement;
 
   private tabindex?: string | number = 1;
 
@@ -52,8 +52,8 @@ export class GoatTreeNode {
    */
   @Method()
   async setFocus() {
-    if (this.nativeInput) {
-      this.nativeInput.focus();
+    if (this.nativeElement) {
+      this.nativeElement.focus();
     }
   }
 
@@ -63,8 +63,8 @@ export class GoatTreeNode {
    */
   @Method()
   async setBlur() {
-    if (this.nativeInput) {
-      this.nativeInput.blur();
+    if (this.nativeElement) {
+      this.nativeElement.blur();
     }
   }
 
@@ -191,7 +191,7 @@ export class GoatTreeNode {
             onBlur={this.blurHandler}
             onFocus={this.focusHandler}
             tabindex={this.tabindex}
-            ref={el => (this.nativeInput = el as HTMLElement)}
+            ref={el => (this.nativeElement = el as HTMLElement)}
           >
             {this.hasChildNodes && <goat-icon name='chevron--right' class={{"expand-icon":true, "expanded": this.expanded}} size="1rem" />}
 

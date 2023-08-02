@@ -6,7 +6,8 @@ import { debounceEvent, getComponentIndex, DRAG_EVENT_TYPES, DRAG_STOP_EVENT_TYP
  * @description Allows the user to select one or more options using a dropdown.
  * @category Form Inputs
  * @tags input, form
- * @img /assets/img/slider.jpg
+ * @img /assets/img/slider.png
+ * @imgDark /assets/img/slider-dark.png
  */
 @Component({
   tag: 'goat-slider',
@@ -73,8 +74,8 @@ export class Slider implements ComponentInterface, InputComponentInterface {
    */
   @Method()
   async setBlur() {
-    if (this.nativeInput) {
-      this.nativeInput.blur();
+    if (this.nativeElement) {
+      this.nativeElement.blur();
     }
   }
 
@@ -98,7 +99,7 @@ export class Slider implements ComponentInterface, InputComponentInterface {
   }
 
   @Element() elm!: HTMLElement;
-  private nativeInput?: HTMLInputElement;
+  private nativeElement?: HTMLInputElement;
   @State() hasFocus = false;
   @State() percentageValue = 0;
   @State() needsOnRelease = false;
@@ -218,19 +219,22 @@ export class Slider implements ComponentInterface, InputComponentInterface {
     return (
       <Host has-value={this.hasValue()} has-focus={this.hasFocus}>
         <div class="slider-container">
-          <div class="slider-range-label">
-            <span>{this.min}</span>
-          </div>
-          <div class={{ 'slider': true, 'has-focus': this.hasFocus }} ref={elm => (this.slideElement = elm)} onMouseDown={this.onDragStart} onTouchStart={this.onDragStart}>
-            <div class="slider__thumb" onBlur={this.blurHandler} onFocus={this.focusHandler} tabindex={0} style={{ left: `${this.percentageValue}%` }}></div>
-            <div class="slider__track"></div>
-            <div class="slider__track--filled" style={{ width: `${this.percentageValue}%` }}></div>
-          </div>
-          <div class="slider-range-label">
-            <span>{this.max}</span>
+          <div class="slider-wrapper">
+            <div class="slider-range-label">
+              <span>{this.min}</span>
+            </div>
+            <div class={{ 'slider': true, 'has-focus': this.hasFocus }} ref={elm => (this.slideElement = elm)} onMouseDown={this.onDragStart} onTouchStart={this.onDragStart}>
+              <div class="slider__thumb" onBlur={this.blurHandler} onFocus={this.focusHandler} tabIndex={0} style={{ left: `${this.percentageValue}%` }}></div>
+              <div class="slider__track"></div>
+              <div class="slider__track--filled" style={{ width: `${this.percentageValue}%` }}></div>
+            </div>
+            <div class="slider-range-label">
+              <span>{this.max}</span>
+            </div>
           </div>
           <div class="slide-input">
             <goat-number
+              class="input"
               value={this.value}
               size="sm"
               hide-actions={true}

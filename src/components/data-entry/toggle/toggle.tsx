@@ -79,8 +79,8 @@ export class Toggle implements ComponentInterface, InputComponentInterface {
    */
   @Method()
   async setFocus() {
-    if (this.nativeInput) {
-      this.nativeInput.focus();
+    if (this.nativeElement) {
+      this.nativeElement.focus();
     }
   }
 
@@ -90,8 +90,8 @@ export class Toggle implements ComponentInterface, InputComponentInterface {
    */
   @Method()
   async setBlur() {
-    if (this.nativeInput) {
-      this.nativeInput.blur();
+    if (this.nativeElement) {
+      this.nativeElement.blur();
     }
   }
 
@@ -118,7 +118,7 @@ export class Toggle implements ComponentInterface, InputComponentInterface {
   };
 
   @Element() elm!: HTMLElement;
-  private nativeInput?: HTMLInputElement;
+  private nativeElement?: HTMLInputElement;
   private iconContainer?: HTMLElement;
   private tabindex?: string | number = 1;
   @State() hasFocus = false;
@@ -127,7 +127,7 @@ export class Toggle implements ComponentInterface, InputComponentInterface {
 
   private clickHandler = (ev: MouseEvent | KeyboardEvent) => {
     if (!this.disabled && !this.readonly) {
-      this.value = !JSON.parse(this.nativeInput.value);
+      this.value = !JSON.parse(this.nativeElement.value);
       this.goatChange.emit(ev);
       this.iconContainer.focus();
     }
@@ -208,7 +208,7 @@ export class Toggle implements ComponentInterface, InputComponentInterface {
             checked={this.value}
             aria-hidden="true"
             required={this.required}
-            ref={elm => (this.nativeInput = elm)}
+            ref={elm => (this.nativeElement = elm)}
             tabindex="-1"
             onClick={this.clickHandler}
           />

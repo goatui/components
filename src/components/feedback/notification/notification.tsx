@@ -82,7 +82,7 @@ export class Notification implements ComponentInterface {
           <goat-button class='close-button color-secondary'
                        aria-label='Close alert'
                        variant='link'
-                       simple={true}
+                       kind='simple'
                        onGoat:click={(evt) => {
                          this.hidden = true;
                          this.goatDismiss.emit(evt);

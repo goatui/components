@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-08-01T06:24:12",
+  "timestamp": "2023-08-02T14:57:47",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.0.1",
@@ -669,7 +669,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-button>\r\nButton CTA\r\n</goat-button>"
+          "text": "<goat-button>\nButton CTA\n</goat-button>"
         }
       ],
       "encapsulation": "shadow",
@@ -735,22 +735,51 @@
       },
       "props": [
         {
-          "name": "block",
-          "type": "boolean",
+          "name": "color",
+          "type": "\"brand-primary\" | \"brand-secondary\" | \"danger\" | \"dark\" | \"light\" | \"primary\" | \"secondary\" | \"success\"",
           "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
+            "original": "'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light'",
+            "resolved": "\"brand-primary\" | \"brand-secondary\" | \"danger\" | \"dark\" | \"light\" | \"primary\" | \"secondary\" | \"success\"",
             "references": {}
           },
           "mutable": false,
-          "attr": "block",
+          "attr": "color",
           "reflectToAttr": true,
-          "docs": "If true, fits button width to its parent width. Defaults to `false`.",
+          "docs": "",
           "docsTags": [],
-          "default": "false",
+          "default": "'primary'",
           "values": [
             {
-              "type": "boolean"
+              "value": "brand-primary",
+              "type": "string"
+            },
+            {
+              "value": "brand-secondary",
+              "type": "string"
+            },
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "dark",
+              "type": "string"
+            },
+            {
+              "value": "light",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
             }
           ],
           "optional": false,
@@ -854,7 +883,7 @@
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
-          "docs": "Icon which will displayed on button.\r\nPossible values are icon names.",
+          "docs": "Icon which will displayed on button.\nPossible values are icon names.",
           "docsTags": [],
           "values": [
             {
@@ -907,6 +936,37 @@
           "default": "'md'",
           "values": [
             {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "kind",
+          "type": "\"block\" | \"default\" | \"simple\"",
+          "complexType": {
+            "original": "'default' | 'simple' | 'block'",
+            "resolved": "\"block\" | \"default\" | \"simple\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "kind",
+          "reflectToAttr": false,
+          "docs": "Button kind.\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\n`\"default\"` is a long button.\n`\"simple\"` is a text-only button.\n`\"block\"` is a full-width button.",
+          "docsTags": [],
+          "default": "'default'",
+          "values": [
+            {
+              "value": "block",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "simple",
               "type": "string"
             }
           ],
@@ -990,7 +1050,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"none\"`. Defaults to `\"md\"`.",
+          "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"none\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -1045,17 +1105,48 @@
           "required": false
         },
         {
-          "name": "variant",
-          "type": "\"default\" | \"ghost\" | \"light\" | \"link\" | \"outline\"",
+          "name": "type",
+          "type": "\"button\" | \"reset\" | \"submit\"",
           "complexType": {
-            "original": "'default' | 'light' | 'outline' | 'ghost' | 'link'",
-            "resolved": "\"default\" | \"ghost\" | \"light\" | \"link\" | \"outline\"",
+            "original": "'button' | 'submit' | 'reset'",
+            "resolved": "\"button\" | \"reset\" | \"submit\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'button'",
+          "values": [
+            {
+              "value": "button",
+              "type": "string"
+            },
+            {
+              "value": "reset",
+              "type": "string"
+            },
+            {
+              "value": "submit",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"default\" | \"ghost\" | \"link\" | \"outline\"",
+          "complexType": {
+            "original": "'default' | 'outline' | 'ghost' | 'link'",
+            "resolved": "\"default\" | \"ghost\" | \"link\" | \"outline\"",
             "references": {}
           },
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "Button variants.\r\nPossible values are `\"default\"`, `\"light\"`, `\"outline\"`, `\"ghost\"`, `\"link\"`. Defaults to `\"default\"`.",
+          "docs": "Button variants.\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\n`\"default\"` is a filled button.\n`\"outline\"` is an outlined button.\n`\"ghost\"` is a transparent button.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -1065,10 +1156,6 @@
             },
             {
               "value": "ghost",
-              "type": "string"
-            },
-            {
-              "value": "light",
               "type": "string"
             },
             {
@@ -1104,7 +1191,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.blur()`.",
+          "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\n`button.blur()`.",
           "docsTags": []
         },
         {
@@ -1126,7 +1213,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.focus()`.",
+          "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\n`button.focus()`.",
           "docsTags": []
         },
         {
@@ -1192,7 +1279,7 @@
         "tags": [
           "controls"
         ],
-        "example": "<goat-button>\r\nButton CTA\r\n</goat-button>"
+        "example": "<goat-button>\nButton CTA\n</goat-button>"
       }
     },
     {
@@ -1284,6 +1371,10 @@
         {
           "name": "img",
           "text": "/assets/img/calendar.png"
+        },
+        {
+          "name": "imgDark",
+          "text": "/assets/img/calendar-dark.png"
         }
       ],
       "encapsulation": "shadow",
@@ -1525,7 +1616,8 @@
         "tags": [
           "calendar"
         ],
-        "img": "/assets/img/calendar.png"
+        "img": "/assets/img/calendar.png",
+        "imgDark": "/assets/img/calendar-dark.png"
       }
     },
     {
@@ -2950,6 +3042,10 @@
         {
           "name": "img",
           "text": "/assets/img/code-highlighter.png"
+        },
+        {
+          "name": "imgDark",
+          "text": "/assets/img/code-highlighter-dark.png"
         }
       ],
       "encapsulation": "shadow",
@@ -3069,8 +3165,54 @@
         "description": "A browser based code highlighter.",
         "category": "Data Display",
         "tag": "display, code",
-        "img": "/assets/img/code-highlighter.png"
+        "img": "/assets/img/code-highlighter.png",
+        "imgDark": "/assets/img/code-highlighter-dark.png"
       }
+    },
+    {
+      "filePath": "src/components/layout/container/container.tsx",
+      "fileName": "container.tsx",
+      "tag": "goat-container",
+      "readme": "# goat-heading\n\n\n",
+      "overview": "",
+      "usage": {},
+      "docs": "",
+      "docsTags": [],
+      "encapsulation": "shadow",
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {},
+      "props": [
+        {
+          "name": "vertical",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "vertical",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "listeners": [],
+      "metadata": {}
     },
     {
       "filePath": "src/components/data-entry/date-picker/date-picker.tsx",
@@ -3884,10 +4026,10 @@
         },
         {
           "name": "actionVariant",
-          "type": "\"default\" | \"ghost\" | \"light\" | \"link\" | \"outline\"",
+          "type": "\"default\" | \"ghost\" | \"link\" | \"outline\"",
           "complexType": {
-            "original": "'default' | 'light' | 'outline' | 'ghost' | 'link'",
-            "resolved": "\"default\" | \"ghost\" | \"light\" | \"link\" | \"outline\"",
+            "original": "'default' | 'outline' | 'ghost' | 'link'",
+            "resolved": "\"default\" | \"ghost\" | \"link\" | \"outline\"",
             "references": {}
           },
           "mutable": false,
@@ -3903,10 +4045,6 @@
             },
             {
               "value": "ghost",
-              "type": "string"
-            },
-            {
-              "value": "light",
               "type": "string"
             },
             {
@@ -4472,10 +4610,10 @@
         },
         {
           "name": "color",
-          "type": "string",
+          "type": "\"brand-primary\" | \"brand-secondary\" | \"danger\" | \"primary\" | \"secondary\" | \"success\"",
           "complexType": {
-            "original": "string",
-            "resolved": "string",
+            "original": "'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary'",
+            "resolved": "\"brand-primary\" | \"brand-secondary\" | \"danger\" | \"primary\" | \"secondary\" | \"success\"",
             "references": {}
           },
           "mutable": false,
@@ -4483,9 +4621,30 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "'brand-primary'",
+          "default": "'brand-secondary'",
           "values": [
             {
+              "value": "brand-primary",
+              "type": "string"
+            },
+            {
+              "value": "brand-secondary",
+              "type": "string"
+            },
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
               "type": "string"
             }
           ],
@@ -8302,7 +8461,11 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/slider.jpg"
+          "text": "/assets/img/slider.png"
+        },
+        {
+          "name": "imgDark",
+          "text": "/assets/img/slider-dark.png"
         }
       ],
       "encapsulation": "shadow",
@@ -8639,7 +8802,8 @@
           "input",
           " form"
         ],
-        "img": "/assets/img/slider.jpg"
+        "img": "/assets/img/slider.png",
+        "imgDark": "/assets/img/slider-dark.png"
       }
     },
     {
@@ -9199,6 +9363,10 @@
         {
           "name": "img",
           "text": "/assets/img/table.png"
+        },
+        {
+          "name": "imgDark",
+          "text": "/assets/img/table-dark.png"
         }
       ],
       "encapsulation": "shadow",
@@ -9621,11 +9789,12 @@
         "name": "Table",
         "description": "A configurable component for displaying tabular data.",
         "category": "Data Display",
-        "img": "/assets/img/table.png"
+        "img": "/assets/img/table.png",
+        "imgDark": "/assets/img/table-dark.png"
       }
     },
     {
-      "filePath": "src/components/navigation/tabs/tabs.tsx",
+      "filePath": "src/components/navigation/tabs/tabs/tabs.tsx",
       "fileName": "tabs.tsx",
       "tag": "goat-tabs",
       "readme": "# goat-tabs\r\n\r\n\r\n\r",
@@ -12048,7 +12217,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-button>\r\nButton CTA\r\n</goat-button>"
+              "text": "<goat-button>\nButton CTA\n</goat-button>"
             }
           ],
           "encapsulation": "shadow",
@@ -12114,22 +12283,51 @@
           },
           "props": [
             {
-              "name": "block",
-              "type": "boolean",
+              "name": "color",
+              "type": "\"brand-primary\" | \"brand-secondary\" | \"danger\" | \"dark\" | \"light\" | \"primary\" | \"secondary\" | \"success\"",
               "complexType": {
-                "original": "boolean",
-                "resolved": "boolean",
+                "original": "'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light'",
+                "resolved": "\"brand-primary\" | \"brand-secondary\" | \"danger\" | \"dark\" | \"light\" | \"primary\" | \"secondary\" | \"success\"",
                 "references": {}
               },
               "mutable": false,
-              "attr": "block",
+              "attr": "color",
               "reflectToAttr": true,
-              "docs": "If true, fits button width to its parent width. Defaults to `false`.",
+              "docs": "",
               "docsTags": [],
-              "default": "false",
+              "default": "'primary'",
               "values": [
                 {
-                  "type": "boolean"
+                  "value": "brand-primary",
+                  "type": "string"
+                },
+                {
+                  "value": "brand-secondary",
+                  "type": "string"
+                },
+                {
+                  "value": "danger",
+                  "type": "string"
+                },
+                {
+                  "value": "dark",
+                  "type": "string"
+                },
+                {
+                  "value": "light",
+                  "type": "string"
+                },
+                {
+                  "value": "primary",
+                  "type": "string"
+                },
+                {
+                  "value": "secondary",
+                  "type": "string"
+                },
+                {
+                  "value": "success",
+                  "type": "string"
                 }
               ],
               "optional": false,
@@ -12233,7 +12431,7 @@
               "mutable": false,
               "attr": "icon",
               "reflectToAttr": false,
-              "docs": "Icon which will displayed on button.\r\nPossible values are icon names.",
+              "docs": "Icon which will displayed on button.\nPossible values are icon names.",
               "docsTags": [],
               "values": [
                 {
@@ -12286,6 +12484,37 @@
               "default": "'md'",
               "values": [
                 {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "kind",
+              "type": "\"block\" | \"default\" | \"simple\"",
+              "complexType": {
+                "original": "'default' | 'simple' | 'block'",
+                "resolved": "\"block\" | \"default\" | \"simple\"",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "kind",
+              "reflectToAttr": false,
+              "docs": "Button kind.\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\n`\"default\"` is a long button.\n`\"simple\"` is a text-only button.\n`\"block\"` is a full-width button.",
+              "docsTags": [],
+              "default": "'default'",
+              "values": [
+                {
+                  "value": "block",
+                  "type": "string"
+                },
+                {
+                  "value": "default",
+                  "type": "string"
+                },
+                {
+                  "value": "simple",
                   "type": "string"
                 }
               ],
@@ -12369,7 +12598,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": false,
-              "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"none\"`. Defaults to `\"md\"`.",
+              "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"none\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -12424,17 +12653,48 @@
               "required": false
             },
             {
-              "name": "variant",
-              "type": "\"default\" | \"ghost\" | \"light\" | \"link\" | \"outline\"",
+              "name": "type",
+              "type": "\"button\" | \"reset\" | \"submit\"",
               "complexType": {
-                "original": "'default' | 'light' | 'outline' | 'ghost' | 'link'",
-                "resolved": "\"default\" | \"ghost\" | \"light\" | \"link\" | \"outline\"",
+                "original": "'button' | 'submit' | 'reset'",
+                "resolved": "\"button\" | \"reset\" | \"submit\"",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "type",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "'button'",
+              "values": [
+                {
+                  "value": "button",
+                  "type": "string"
+                },
+                {
+                  "value": "reset",
+                  "type": "string"
+                },
+                {
+                  "value": "submit",
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "variant",
+              "type": "\"default\" | \"ghost\" | \"link\" | \"outline\"",
+              "complexType": {
+                "original": "'default' | 'outline' | 'ghost' | 'link'",
+                "resolved": "\"default\" | \"ghost\" | \"link\" | \"outline\"",
                 "references": {}
               },
               "mutable": false,
               "attr": "variant",
               "reflectToAttr": false,
-              "docs": "Button variants.\r\nPossible values are `\"default\"`, `\"light\"`, `\"outline\"`, `\"ghost\"`, `\"link\"`. Defaults to `\"default\"`.",
+              "docs": "Button variants.\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\n`\"default\"` is a filled button.\n`\"outline\"` is an outlined button.\n`\"ghost\"` is a transparent button.",
               "docsTags": [],
               "default": "'default'",
               "values": [
@@ -12444,10 +12704,6 @@
                 },
                 {
                   "value": "ghost",
-                  "type": "string"
-                },
-                {
-                  "value": "light",
                   "type": "string"
                 },
                 {
@@ -12483,7 +12739,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.blur()`.",
+              "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\n`button.blur()`.",
               "docsTags": []
             },
             {
@@ -12505,7 +12761,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.focus()`.",
+              "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\n`button.focus()`.",
               "docsTags": []
             },
             {
@@ -12571,7 +12827,7 @@
             "tags": [
               "controls"
             ],
-            "example": "<goat-button>\r\nButton CTA\r\n</goat-button>"
+            "example": "<goat-button>\nButton CTA\n</goat-button>"
           }
         },
         {
@@ -13857,7 +14113,7 @@
           }
         },
         {
-          "filePath": "src/components/navigation/tabs/tabs.tsx",
+          "filePath": "src/components/navigation/tabs/tabs/tabs.tsx",
           "fileName": "tabs.tsx",
           "tag": "goat-tabs",
           "readme": "# goat-tabs\r\n\r\n\r\n\r",
@@ -17507,7 +17763,11 @@
             },
             {
               "name": "img",
-              "text": "/assets/img/slider.jpg"
+              "text": "/assets/img/slider.png"
+            },
+            {
+              "name": "imgDark",
+              "text": "/assets/img/slider-dark.png"
             }
           ],
           "encapsulation": "shadow",
@@ -17844,7 +18104,8 @@
               "input",
               " form"
             ],
-            "img": "/assets/img/slider.jpg"
+            "img": "/assets/img/slider.png",
+            "imgDark": "/assets/img/slider-dark.png"
           }
         },
         {
@@ -19392,6 +19653,10 @@
             {
               "name": "img",
               "text": "/assets/img/calendar.png"
+            },
+            {
+              "name": "imgDark",
+              "text": "/assets/img/calendar-dark.png"
             }
           ],
           "encapsulation": "shadow",
@@ -19633,7 +19898,8 @@
             "tags": [
               "calendar"
             ],
-            "img": "/assets/img/calendar.png"
+            "img": "/assets/img/calendar.png",
+            "imgDark": "/assets/img/calendar-dark.png"
           }
         },
         {
@@ -19664,6 +19930,10 @@
             {
               "name": "img",
               "text": "/assets/img/code-highlighter.png"
+            },
+            {
+              "name": "imgDark",
+              "text": "/assets/img/code-highlighter-dark.png"
             }
           ],
           "encapsulation": "shadow",
@@ -19783,7 +20053,8 @@
             "description": "A browser based code highlighter.",
             "category": "Data Display",
             "tag": "display, code",
-            "img": "/assets/img/code-highlighter.png"
+            "img": "/assets/img/code-highlighter.png",
+            "imgDark": "/assets/img/code-highlighter-dark.png"
           }
         },
         {
@@ -19912,10 +20183,10 @@
             },
             {
               "name": "actionVariant",
-              "type": "\"default\" | \"ghost\" | \"light\" | \"link\" | \"outline\"",
+              "type": "\"default\" | \"ghost\" | \"link\" | \"outline\"",
               "complexType": {
-                "original": "'default' | 'light' | 'outline' | 'ghost' | 'link'",
-                "resolved": "\"default\" | \"ghost\" | \"light\" | \"link\" | \"outline\"",
+                "original": "'default' | 'outline' | 'ghost' | 'link'",
+                "resolved": "\"default\" | \"ghost\" | \"link\" | \"outline\"",
                 "references": {}
               },
               "mutable": false,
@@ -19931,10 +20202,6 @@
                 },
                 {
                   "value": "ghost",
-                  "type": "string"
-                },
-                {
-                  "value": "light",
                   "type": "string"
                 },
                 {
@@ -20157,6 +20424,10 @@
             {
               "name": "img",
               "text": "/assets/img/table.png"
+            },
+            {
+              "name": "imgDark",
+              "text": "/assets/img/table-dark.png"
             }
           ],
           "encapsulation": "shadow",
@@ -20579,7 +20850,8 @@
             "name": "Table",
             "description": "A configurable component for displaying tabular data.",
             "category": "Data Display",
-            "img": "/assets/img/table.png"
+            "img": "/assets/img/table.png",
+            "imgDark": "/assets/img/table-dark.png"
           }
         },
         {
@@ -22260,6 +22532,51 @@
           "metadata": {}
         },
         {
+          "filePath": "src/components/layout/container/container.tsx",
+          "fileName": "container.tsx",
+          "tag": "goat-container",
+          "readme": "# goat-heading\n\n\n",
+          "overview": "",
+          "usage": {},
+          "docs": "",
+          "docsTags": [],
+          "encapsulation": "shadow",
+          "dependents": [],
+          "dependencies": [],
+          "dependencyGraph": {},
+          "props": [
+            {
+              "name": "vertical",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "vertical",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
+          "methods": [],
+          "events": [],
+          "styles": [],
+          "slots": [],
+          "parts": [],
+          "listeners": [],
+          "metadata": {}
+        },
+        {
           "filePath": "src/components/flow-designer/flow-designer/flow-designer.tsx",
           "fileName": "flow-designer.tsx",
           "tag": "goat-flow-designer",
@@ -22445,10 +22762,10 @@
             },
             {
               "name": "color",
-              "type": "string",
+              "type": "\"brand-primary\" | \"brand-secondary\" | \"danger\" | \"primary\" | \"secondary\" | \"success\"",
               "complexType": {
-                "original": "string",
-                "resolved": "string",
+                "original": "'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary'",
+                "resolved": "\"brand-primary\" | \"brand-secondary\" | \"danger\" | \"primary\" | \"secondary\" | \"success\"",
                 "references": {}
               },
               "mutable": false,
@@ -22456,9 +22773,30 @@
               "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
-              "default": "'brand-primary'",
+              "default": "'brand-secondary'",
               "values": [
                 {
+                  "value": "brand-primary",
+                  "type": "string"
+                },
+                {
+                  "value": "brand-secondary",
+                  "type": "string"
+                },
+                {
+                  "value": "danger",
+                  "type": "string"
+                },
+                {
+                  "value": "primary",
+                  "type": "string"
+                },
+                {
+                  "value": "secondary",
+                  "type": "string"
+                },
+                {
+                  "value": "success",
                   "type": "string"
                 }
               ],

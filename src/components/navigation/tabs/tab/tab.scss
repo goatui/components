@@ -1,11 +1,10 @@
 @import "../../../../globalStyles/commons";
+@import "../common-tabs";
+
 
 $border-width: 0.125;
 $tab-color: var(--tab-color, v(--color-primary));
 
-@function removeBorder($width) {
-  @return #{($width*1 - ($border-width * 2))}rem;
-}
 
 :host {
   display: inline-block;
@@ -15,7 +14,7 @@ $tab-color: var(--tab-color, v(--color-primary));
   position: relative;
   display: flex;
   align-items: center;
-  height: var(--button-height, auto);
+  height: 2.5rem;
 
   .native-button {
     height: 100%;
@@ -40,7 +39,7 @@ $tab-color: var(--tab-color, v(--color-primary));
     gap: v(--spacing-02);
     border: 2px solid transparent;
     border-bottom: 0;
-    padding: removeBorder(0.625) removeBorder(1.125);
+    padding: 0 1rem;
     @include font-style(body-compact-01);
   }
 
@@ -69,11 +68,15 @@ $tab-color: var(--tab-color, v(--color-primary));
 
   .native-button {
     color: v(--text-secondary);
-    border-bottom-color: v(--border-subtle-00);
+    border-bottom-color: $tab-inactive-border-bottom;
   }
 
   .tab-background {
     background: transparent;
+  }
+
+  .tab-content {
+    @include font-style(body-01);
   }
 
   &:hover {

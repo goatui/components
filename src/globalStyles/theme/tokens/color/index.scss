@@ -40,7 +40,6 @@ Tertiary background
 
 
 
-@include defineVariable(--ui-04, getColor(gray, 50), getColor(gray, 10));
 @include defineVariable(--border-inverse, getColor(gray, 100), getColor(gray, 10));
 
 @include defineVariable(--background-inverse, getColor(gray, 80), getColor(gray, 10));

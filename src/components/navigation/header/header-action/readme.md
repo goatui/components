@@ -7,15 +7,15 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                                                                             | Type                                              | Default           |
-| ---------- | ---------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ----------------- |
-| `badge`    | `badge`    |                                                                                                         | `string`                                          | `'_self'`         |
-| `color`    | `color`    |                                                                                                         | `string`                                          | `'brand-primary'` |
-| `href`     | `href`     | Hyperlink to navigate to on click.                                                                      | `string`                                          | `undefined`       |
-| `icon`     | `icon`     | Icon which will displayed on button. Possible values are icon names.                                    | `string`                                          | `undefined`       |
-| `selected` | `selected` | Button selection state.                                                                                 | `boolean`                                         | `false`           |
-| `size`     | `size`     | Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"none"`. Defaults to `"md"`. | `"lg" \| "md" \| "none" \| "sm" \| "xl" \| "xxl"` | `'md'`            |
-| `target`   | `target`   | Sets or retrieves the window or frame at which to target content.                                       | `string`                                          | `'_self'`         |
+| Property   | Attribute  | Description                                                                                             | Type                                                                                        | Default             |
+| ---------- | ---------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------- |
+| `badge`    | `badge`    |                                                                                                         | `string`                                                                                    | `'_self'`           |
+| `color`    | `color`    |                                                                                                         | `"brand-primary" \| "brand-secondary" \| "danger" \| "primary" \| "secondary" \| "success"` | `'brand-secondary'` |
+| `href`     | `href`     | Hyperlink to navigate to on click.                                                                      | `string`                                                                                    | `undefined`         |
+| `icon`     | `icon`     | Icon which will displayed on button. Possible values are icon names.                                    | `string`                                                                                    | `undefined`         |
+| `selected` | `selected` | Button selection state.                                                                                 | `boolean`                                                                                   | `false`             |
+| `size`     | `size`     | Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"none"`. Defaults to `"md"`. | `"lg" \| "md" \| "none" \| "sm" \| "xl" \| "xxl"`                                           | `'md'`              |
+| `target`   | `target`   | Sets or retrieves the window or frame at which to target content.                                       | `string`                                                                                    | `'_self'`           |
 
 
 ## Dependencies

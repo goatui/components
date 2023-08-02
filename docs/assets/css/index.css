@@ -68,12 +68,6 @@ html[data-theme='dark'] .banner {
 }
 
 
-
-
-.container {
-  padding: var(--spacing-09) 0;
-}
-
 .container .section {
   padding: 0 var(--spacing-13);
   padding-bottom: var(--spacing-09);
@@ -127,10 +121,8 @@ goat-text[type='code'] {
 
   .social-icons {
     position: fixed;
-    font-size: 1rem;
     bottom: 2rem;
-    right: 2rem;
-    text-align: left;
+    right: 0;
     display: flex;
     flex-direction: column;
   }

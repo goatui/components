@@ -119,8 +119,8 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
    */
   @Method()
   async setFocus() {
-    if (this.nativeInput) {
-      this.nativeInput.focus();
+    if (this.nativeElement) {
+      this.nativeElement.focus();
       this.hasFocus = true;
     }
   }
@@ -131,8 +131,8 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
    */
   @Method()
   async setBlur() {
-    if (this.nativeInput) {
-      this.nativeInput.blur();
+    if (this.nativeElement) {
+      this.nativeElement.blur();
       this.hasFocus = false;
     }
   }
@@ -149,7 +149,7 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
 
 
   @Element() elm!: HTMLElement;
-  private nativeInput?: HTMLTextAreaElement;
+  private nativeElement?: HTMLTextAreaElement;
   private tabindex?: string | number;
   @State() hasFocus = false;
   @State() endSlotHasContent = false;
@@ -184,7 +184,7 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
   }
 
   private clearInput = (evt: Event) => {
-    this.nativeInput.value = '';
+    this.nativeElement.value = '';
     this.inputHandler(evt);
   };
 
@@ -229,7 +229,7 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
         }}>
              <textarea
                rows={4}
-               ref={input => this.nativeInput = input}
+               ref={input => this.nativeElement = input}
                required={this.required}
                class='input input-native'
                name={this.name}

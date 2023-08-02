@@ -22,6 +22,7 @@ const SUPPORTED_PAGE_SIZES = [{
  * @description A configurable component for displaying tabular data.
  * @category Data Display
  * @img /assets/img/table.png
+ * @imgDark /assets/img/table-dark.png
  */
 @Component({
   tag: 'goat-table',

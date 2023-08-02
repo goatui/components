@@ -59,11 +59,17 @@ defaults:
       path: 'components/**/sections/**/*'
     values:
       sitemap: false
+
+
 assets:
   compression: true
   assets:
-    - '*.png'
-    - '_scss/styles.scss'
+    - "*.png"
+    - "*.css"
+  sources:
+    - _assets/css
+    - _assets/js
+    - _assets/img
   digest: true
   defaults:
     js: { integrity: false } # true on JEKYLL_ENV=production

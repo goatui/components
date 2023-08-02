@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+
+<script src="https://cdn.jsdelivr.net/npm/values.js"></script>
+
+<script type="module">
+  const color = new Values('#b1fc3f');
+
+  var output = "";
+  for(var i =1; i<=10; i=i+1) {
+    var newColor;
+    if (i < 5) {
+      newColor = color.tint((5 * 20) - (i * 20));
+    }
+    else if (i==5)
+      newColor = color;
+    else if (i > 5)
+      newColor = color.shade((i * 20) - (5 * 20));
+
+    output = output + "--color-brand-secondary-" + (i * 10) + ": #" + newColor.hex + ";\n";
+  }
+  console.log(output);
+</script>
+
+</body>
+</html>

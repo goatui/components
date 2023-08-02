@@ -3,13 +3,14 @@
 :host {
   display: inline-block;
   --list-border-radius: var(--border-radius);
+  --list-background: #{v(--field-02)};
   --list-max-height: 100%;
   --list-border-color:  #{v(--border-strong-01)};
   --list-shadow: #{v(--shadow-sm)};
 }
 
 .menu {
-  background-color: v(--field-02);
+  background: var(--list-background);
   box-sizing: border-box;
   border-radius: var(--list-border-radius);
   max-height: var(--list-max-height);

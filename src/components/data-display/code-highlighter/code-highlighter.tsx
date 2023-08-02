@@ -128,6 +128,7 @@ enum Language {
  * @category Data Display
  * @tag display, code
  * @img /assets/img/code-highlighter.png
+ * @imgDark /assets/img/code-highlighter-dark.png
  */
 @Component({
   tag: 'goat-code-highlighter',

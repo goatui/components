@@ -11,7 +11,7 @@ export class SidenavMenuItem {
 
   gid: string = getComponentIndex();
 
-  private nativeInput?: HTMLElement;
+  private nativeElement?: HTMLElement;
 
   private tabindex?: string | number = 1;
 
@@ -46,8 +46,8 @@ export class SidenavMenuItem {
    */
   @Method()
   async setFocus() {
-    if (this.nativeInput) {
-      this.nativeInput.focus();
+    if (this.nativeElement) {
+      this.nativeElement.focus();
     }
   }
 
@@ -57,8 +57,8 @@ export class SidenavMenuItem {
    */
   @Method()
   async setBlur() {
-    if (this.nativeInput) {
-      this.nativeInput.blur();
+    if (this.nativeElement) {
+      this.nativeElement.blur();
     }
   }
 
@@ -126,7 +126,7 @@ export class SidenavMenuItem {
   render = () => {
     return <Host active={this.isActive} has-focus={this.hasFocus}>
       <div
-        ref={(el) => this.nativeInput = el as HTMLElement}
+        ref={(el) => this.nativeElement = el as HTMLElement}
         class={{
           'sidenav-menu-item': true,
           'selected': this.selected,

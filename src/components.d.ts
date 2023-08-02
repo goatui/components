@@ -93,10 +93,7 @@ export namespace Components {
      * </goat-button>
      */
     interface GoatButton {
-        /**
-          * If true, fits button width to its parent width. Defaults to `false`.
-         */
-        "block": boolean;
+        "color": 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light';
         "configAria": any;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
@@ -119,6 +116,10 @@ export namespace Components {
           * Icon size.
          */
         "iconSize": 'sm' | 'md' | 'lg' | string;
+        /**
+          * Button kind. Possible values are `"default"`, `"simple"`, `"block"`. Defaults to `"default"`. `"default"` is a long button. `"simple"` is a text-only button. `"block"` is a full-width button.
+         */
+        "kind": 'default' | 'simple' | 'block';
         /**
           * Button selection state.
          */
@@ -145,10 +146,11 @@ export namespace Components {
          */
         "target": string;
         "triggerClick": () => Promise<void>;
+        "type": 'button' | 'submit' | 'reset';
         /**
-          * Button variants. Possible values are `"default"`, `"light"`, `"outline"`, `"ghost"`, `"link"`. Defaults to `"default"`.
+          * Button variants. Possible values are `"default"`, `"outline"`, `"ghost"`. Defaults to `"default"`. `"default"` is a filled button. `"outline"` is an outlined button. `"ghost"` is a transparent button.
          */
-        "variant": 'default' | 'light' | 'outline' | 'ghost' | 'link';
+        "variant": 'default' | 'outline' | 'ghost' | 'link';
     }
     /**
      * @name Button Group
@@ -168,6 +170,7 @@ export namespace Components {
      * @category Data Display
      * @tags calendar
      * @img /assets/img/calendar.png
+     * @imgDark /assets/img/calendar-dark.png
      */
     interface GoatCalendar {
         "availableViews": any;
@@ -310,12 +313,16 @@ export namespace Components {
      * @category Data Display
      * @tag display, code
      * @img /assets/img/code-highlighter.png
+     * @imgDark /assets/img/code-highlighter-dark.png
      */
     interface GoatCodeHighlighter {
         "format": boolean;
         "language": string;
         "lineNumbers": boolean;
         "value": string;
+    }
+    interface GoatContainer {
+        "vertical": boolean;
     }
     /**
      * @name Date Picker
@@ -403,7 +410,7 @@ export namespace Components {
         "action": string;
         "actionDisabled": boolean;
         "actionUrl": string;
-        "actionVariant": 'default' | 'light' | 'outline' | 'ghost' | 'link';
+        "actionVariant": 'default' | 'outline' | 'ghost' | 'link';
         "description": string;
         "headline": string;
         "illustration": 'no-document';
@@ -458,7 +465,7 @@ export namespace Components {
     }
     interface GoatHeaderAction {
         "badge": string;
-        "color": string;
+        "color": 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary';
         /**
           * Hyperlink to navigate to on click.
          */
@@ -878,7 +885,8 @@ export namespace Components {
      * @description Allows the user to select one or more options using a dropdown.
      * @category Form Inputs
      * @tags input, form
-     * @img /assets/img/slider.jpg
+     * @img /assets/img/slider.png
+     * @imgDark /assets/img/slider-dark.png
      */
     interface GoatSlider {
         "configAria": any;
@@ -976,6 +984,7 @@ export namespace Components {
      * @description A configurable component for displaying tabular data.
      * @category Data Display
      * @img /assets/img/table.png
+     * @imgDark /assets/img/table-dark.png
      */
     interface GoatTable {
         /**
@@ -1453,6 +1462,7 @@ declare global {
      * @category Data Display
      * @tags calendar
      * @img /assets/img/calendar.png
+     * @imgDark /assets/img/calendar-dark.png
      */
     interface HTMLGoatCalendarElement extends Components.GoatCalendar, HTMLStencilElement {
     }
@@ -1535,12 +1545,19 @@ declare global {
      * @category Data Display
      * @tag display, code
      * @img /assets/img/code-highlighter.png
+     * @imgDark /assets/img/code-highlighter-dark.png
      */
     interface HTMLGoatCodeHighlighterElement extends Components.GoatCodeHighlighter, HTMLStencilElement {
     }
     var HTMLGoatCodeHighlighterElement: {
         prototype: HTMLGoatCodeHighlighterElement;
         new (): HTMLGoatCodeHighlighterElement;
+    };
+    interface HTMLGoatContainerElement extends Components.GoatContainer, HTMLStencilElement {
+    }
+    var HTMLGoatContainerElement: {
+        prototype: HTMLGoatContainerElement;
+        new (): HTMLGoatContainerElement;
     };
     /**
      * @name Date Picker
@@ -1799,7 +1816,8 @@ declare global {
      * @description Allows the user to select one or more options using a dropdown.
      * @category Form Inputs
      * @tags input, form
-     * @img /assets/img/slider.jpg
+     * @img /assets/img/slider.png
+     * @imgDark /assets/img/slider-dark.png
      */
     interface HTMLGoatSliderElement extends Components.GoatSlider, HTMLStencilElement {
     }
@@ -1848,6 +1866,7 @@ declare global {
      * @description A configurable component for displaying tabular data.
      * @category Data Display
      * @img /assets/img/table.png
+     * @imgDark /assets/img/table-dark.png
      */
     interface HTMLGoatTableElement extends Components.GoatTable, HTMLStencilElement {
     }
@@ -1992,6 +2011,7 @@ declare global {
         "goat-checkbox": HTMLGoatCheckboxElement;
         "goat-code-editor": HTMLGoatCodeEditorElement;
         "goat-code-highlighter": HTMLGoatCodeHighlighterElement;
+        "goat-container": HTMLGoatContainerElement;
         "goat-date-picker": HTMLGoatDatePickerElement;
         "goat-divider": HTMLGoatDividerElement;
         "goat-dropdown": HTMLGoatDropdownElement;
@@ -2125,10 +2145,7 @@ declare namespace LocalJSX {
      * </goat-button>
      */
     interface GoatButton {
-        /**
-          * If true, fits button width to its parent width. Defaults to `false`.
-         */
-        "block"?: boolean;
+        "color"?: 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light';
         "configAria"?: any;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
@@ -2152,6 +2169,10 @@ declare namespace LocalJSX {
          */
         "iconSize"?: 'sm' | 'md' | 'lg' | string;
         /**
+          * Button kind. Possible values are `"default"`, `"simple"`, `"block"`. Defaults to `"default"`. `"default"` is a long button. `"simple"` is a text-only button. `"block"` is a full-width button.
+         */
+        "kind"?: 'default' | 'simple' | 'block';
+        /**
           * On click of button, a CustomEvent 'goat:click' will be triggered.
          */
         "onGoat:click"?: (event: GoatButtonCustomEvent<any>) => void;
@@ -2172,10 +2193,11 @@ declare namespace LocalJSX {
           * Sets or retrieves the window or frame at which to target content.
          */
         "target"?: string;
+        "type"?: 'button' | 'submit' | 'reset';
         /**
-          * Button variants. Possible values are `"default"`, `"light"`, `"outline"`, `"ghost"`, `"link"`. Defaults to `"default"`.
+          * Button variants. Possible values are `"default"`, `"outline"`, `"ghost"`. Defaults to `"default"`. `"default"` is a filled button. `"outline"` is an outlined button. `"ghost"` is a transparent button.
          */
-        "variant"?: 'default' | 'light' | 'outline' | 'ghost' | 'link';
+        "variant"?: 'default' | 'outline' | 'ghost' | 'link';
     }
     /**
      * @name Button Group
@@ -2195,6 +2217,7 @@ declare namespace LocalJSX {
      * @category Data Display
      * @tags calendar
      * @img /assets/img/calendar.png
+     * @imgDark /assets/img/calendar-dark.png
      */
     interface GoatCalendar {
         "availableViews"?: any;
@@ -2340,12 +2363,16 @@ declare namespace LocalJSX {
      * @category Data Display
      * @tag display, code
      * @img /assets/img/code-highlighter.png
+     * @imgDark /assets/img/code-highlighter-dark.png
      */
     interface GoatCodeHighlighter {
         "format"?: boolean;
         "language"?: string;
         "lineNumbers"?: boolean;
         "value"?: string;
+    }
+    interface GoatContainer {
+        "vertical"?: boolean;
     }
     /**
      * @name Date Picker
@@ -2439,7 +2466,7 @@ declare namespace LocalJSX {
         "action"?: string;
         "actionDisabled"?: boolean;
         "actionUrl"?: string;
-        "actionVariant"?: 'default' | 'light' | 'outline' | 'ghost' | 'link';
+        "actionVariant"?: 'default' | 'outline' | 'ghost' | 'link';
         "description"?: string;
         "headline"?: string;
         "illustration"?: 'no-document';
@@ -2494,7 +2521,7 @@ declare namespace LocalJSX {
     }
     interface GoatHeaderAction {
         "badge"?: string;
-        "color"?: string;
+        "color"?: 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary';
         /**
           * Hyperlink to navigate to on click.
          */
@@ -2907,7 +2934,8 @@ declare namespace LocalJSX {
      * @description Allows the user to select one or more options using a dropdown.
      * @category Form Inputs
      * @tags input, form
-     * @img /assets/img/slider.jpg
+     * @img /assets/img/slider.png
+     * @imgDark /assets/img/slider-dark.png
      */
     interface GoatSlider {
         "configAria"?: any;
@@ -3003,6 +3031,7 @@ declare namespace LocalJSX {
      * @description A configurable component for displaying tabular data.
      * @category Data Display
      * @img /assets/img/table.png
+     * @imgDark /assets/img/table-dark.png
      */
     interface GoatTable {
         /**
@@ -3320,6 +3349,7 @@ declare namespace LocalJSX {
         "goat-checkbox": GoatCheckbox;
         "goat-code-editor": GoatCodeEditor;
         "goat-code-highlighter": GoatCodeHighlighter;
+        "goat-container": GoatContainer;
         "goat-date-picker": GoatDatePicker;
         "goat-divider": GoatDivider;
         "goat-dropdown": GoatDropdown;
@@ -3427,6 +3457,7 @@ declare module "@stencil/core" {
              * @category Data Display
              * @tags calendar
              * @img /assets/img/calendar.png
+             * @imgDark /assets/img/calendar-dark.png
              */
             "goat-calendar": LocalJSX.GoatCalendar & JSXBase.HTMLAttributes<HTMLGoatCalendarElement>;
             "goat-calendar-column-view": LocalJSX.GoatCalendarColumnView & JSXBase.HTMLAttributes<HTMLGoatCalendarColumnViewElement>;
@@ -3464,8 +3495,10 @@ declare module "@stencil/core" {
              * @category Data Display
              * @tag display, code
              * @img /assets/img/code-highlighter.png
+             * @imgDark /assets/img/code-highlighter-dark.png
              */
             "goat-code-highlighter": LocalJSX.GoatCodeHighlighter & JSXBase.HTMLAttributes<HTMLGoatCodeHighlighterElement>;
+            "goat-container": LocalJSX.GoatContainer & JSXBase.HTMLAttributes<HTMLGoatContainerElement>;
             /**
              * @name Date Picker
              * @category Form Inputs
@@ -3608,7 +3641,8 @@ declare module "@stencil/core" {
              * @description Allows the user to select one or more options using a dropdown.
              * @category Form Inputs
              * @tags input, form
-             * @img /assets/img/slider.jpg
+             * @img /assets/img/slider.png
+             * @imgDark /assets/img/slider-dark.png
              */
             "goat-slider": LocalJSX.GoatSlider & JSXBase.HTMLAttributes<HTMLGoatSliderElement>;
             /**
@@ -3632,6 +3666,7 @@ declare module "@stencil/core" {
              * @description A configurable component for displaying tabular data.
              * @category Data Display
              * @img /assets/img/table.png
+             * @imgDark /assets/img/table-dark.png
              */
             "goat-table": LocalJSX.GoatTable & JSXBase.HTMLAttributes<HTMLGoatTableElement>;
             /**

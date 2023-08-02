@@ -11,6 +11,34 @@
 
 <goat-button-group>
   <goat-button variant='outline'>Save</goat-button>
-  <goat-button icon='chevron--down' variant='outline' style='--button-padding:.5rem'></goat-button>
+
+  <goat-dropdown id="dropdown" item-variant="icon" positions="bottom-left,top-left" style='padding-inline-end: var(--spacing-05)'>
+    <goat-button icon='chevron--down' class='last-child' variant='outline' style='--button-padding:.5rem'></goat-button>
+    <goat-menu slot="dropdown-content" class="menu" style="width: 200px">
+      <goat-menu-item value="cut">
+        <goat-icon name="cut" slot="start"></goat-icon>
+        Cut
+        <span slot="end">⌘X</span>
+      </goat-menu-item>
+      <goat-menu-item value="copy">
+        <goat-icon name="copy" slot="start"></goat-icon>
+        Copy
+        <span slot="end">⌘C</span>
+      </goat-menu-item>
+      <goat-menu-item value="paste">
+        <goat-icon name="paste" slot="start"></goat-icon>
+        Paste
+        <span slot="end">⌘X</span>
+      </goat-menu-item>
+      <goat-divider></goat-divider>
+      <goat-menu-item value="delete">
+        <goat-icon name="trash-can" slot="start"></goat-icon>
+        Delete
+        <span slot="end">←</span>
+      </goat-menu-item>
+    </goat-menu>
+  </goat-dropdown>
+
+
 </goat-button-group>
 {% endGoatHighlighterCard %}

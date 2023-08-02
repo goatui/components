@@ -8,6 +8,7 @@ import { CalendarEvent } from './CalendarEvent';
  * @category Data Display
  * @tags calendar
  * @img /assets/img/calendar.png
+ * @imgDark /assets/img/calendar-dark.png
  */
 @Component({
   tag: 'goat-calendar',
@@ -103,7 +104,7 @@ export class Calendar implements ComponentInterface {
     return (
       <div class="calendar-header-classic">
         <div class="header-left">
-          <goat-button variant="outline" size="sm" block class="color-secondary" onClick={() => (this.contextDate = this.currentTime)}>
+          <goat-button variant="outline" size="sm" kind="simple" class="color-secondary" onClick={() => (this.contextDate = this.currentTime)}>
             Today
           </goat-button>
           <goat-button

@@ -5,7 +5,7 @@
 }
 
 .header-action {
-  --button-padding: 0.75rem;
+  --button-padding: 0 .75rem;
   margin-inline-end: .5rem;
 }
 
@@ -13,4 +13,5 @@
   --button-border-radius: 0;
   --button-height: calc(var(--header-height) - 2px);
   margin-inline-end: 0;
+  --button-text-color: var(--color-brand-primary);
 }

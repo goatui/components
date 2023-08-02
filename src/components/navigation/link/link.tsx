@@ -33,7 +33,7 @@ export class Link implements ComponentInterface {
   @Element() elm!: HTMLElement;
   private tabindex?: string | number;
   private itemprop?: string;
-  private nativeInput?: HTMLAnchorElement;
+  private nativeElement?: HTMLAnchorElement;
 
   @Listen('mouseup', { target: 'window' })
   windowMouseUp() {
@@ -49,8 +49,8 @@ export class Link implements ComponentInterface {
 
   @Method()
   async triggerClick() {
-    if (this.nativeInput) {
-      this.nativeInput.click();
+    if (this.nativeElement) {
+      this.nativeElement.click();
     }
   }
 
@@ -100,7 +100,7 @@ export class Link implements ComponentInterface {
          href={this.href}
          target={this.target}
          itemprop={this.itemprop}
-         ref={input => this.nativeInput = input}
+         ref={input => this.nativeElement = input}
          tabindex={this.tabindex}
          onBlur={this.blurHandler}
          onFocus={this.focusHandler}

@@ -88,7 +88,7 @@ export class DatePicker implements ComponentInterface {
   @Event({ eventName: 'goat:focus' }) goatFocus: EventEmitter;
 
   @Element() elm!: HTMLElement;
-  private nativeInput?: HTMLInputElement;
+  private nativeElement?: HTMLInputElement;
   private tabindex?: string | number;
   @State() hasFocus = false;
 
@@ -117,8 +117,8 @@ export class DatePicker implements ComponentInterface {
    */
   @Method()
   async setFocus() {
-    if (this.nativeInput) {
-      this.nativeInput.focus();
+    if (this.nativeElement) {
+      this.nativeElement.focus();
       this.hasFocus = true;
     }
   }
@@ -129,8 +129,8 @@ export class DatePicker implements ComponentInterface {
    */
   @Method()
   async setBlur() {
-    if (this.nativeInput) {
-      this.nativeInput.blur();
+    if (this.nativeElement) {
+      this.nativeElement.blur();
       this.hasFocus = false;
     }
   }
@@ -186,7 +186,7 @@ export class DatePicker implements ComponentInterface {
   };
 
   private clearInput = (evt: Event) => {
-    this.nativeInput.value = '';
+    this.nativeElement.value = '';
     this.inputHandler(evt);
   };
 
@@ -201,7 +201,7 @@ export class DatePicker implements ComponentInterface {
           'has-focus': this.hasFocus,
         }}>
           <input type='date'
-                 ref={input => (this.nativeInput = input)}
+                 ref={input => (this.nativeElement = input)}
                  tabindex={this.tabindex}
                  class='input input-native'
                  disabled={this.disabled}
@@ -214,7 +214,7 @@ export class DatePicker implements ComponentInterface {
 
           <goat-button class="color-secondary input-action" simple={true} icon={'calendar' } variant="ghost" size="none" onGoat:click={() => {
             setTimeout(() => {
-              this.nativeInput.showPicker();
+              this.nativeElement.showPicker();
             });
           }}></goat-button>
         </div>

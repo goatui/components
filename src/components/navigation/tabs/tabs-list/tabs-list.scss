@@ -1,4 +1,5 @@
 @import "../../../../globalStyles/commons";
+@import "../common-tabs";
 
 
 .tabs-list {
@@ -18,7 +19,7 @@
     bottom: 0;
     display: block;
     width: 100%;
-    border-bottom: 2px solid v(--border-strong-01);
+    border-bottom: 2px solid $tab-inactive-border-bottom;
   }
 
   .tabs-container {

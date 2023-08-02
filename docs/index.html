@@ -6,7 +6,7 @@ keywords: web components, button, input, grid, ui library, calendar, table, acco
 ---
 
 <div class="banner">
-  <div class='banner-content'>
+  <div class="banner-content">
     <svg
       class="banner-logo"
       xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -28,14 +28,14 @@ keywords: web components, button, input, grid, ui library, calendar, table, acco
       width="98.959908"
       height="91.039795"
     >
-    <path
-      class="head"
-      stroke-miterlimit="10"
-      d="m 27.167958,58.106694 c 0,0 -0.5,2.377 4.333,5.113 4.833,2.736 6.833,2.736 6.833,2.736 0,0 -2.75,-3 -2.417,-4.417 0.333,-1.417 5.417,4.083 10.333,2.417 0,0 -1.655,-1.591 -2.953,-5.004 -1.089,-2.725 -2.157,-3.589 -3.006,-4.288 0,0 6.708,-7.125 4.958,-17.125 0,0 -0.75,-4.75 -3.5,-7.75 0,0 6.167,8.167 16.5,3.417 0,0 -1.167,-3.75 -5.833,-6.917 -4.666,-3.167 -8.25,-1.333 -12.583,-1.417 -4.333,-0.083 -5.25,-3.667 -5.25,-3.667 0,0 -3,2.75 -6.333,1.667 -3.333,-1.083 -3.25,-3.25 -8.167,-1.667 -4.917,1.583 -9.083,7.5 -9.083,7.5 0,0 8.333,5.333 12.833,-2.583 0,0 -4,10.5 -5.667,14 -1.667,3.5 -7.5,20.5 14,17.667"
-      id="path4"
-      inkscape:connector-curvature="0"
-      style="fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10"
-    />
+      <path
+        class="head"
+        stroke-miterlimit="10"
+        d="m 27.167958,58.106694 c 0,0 -0.5,2.377 4.333,5.113 4.833,2.736 6.833,2.736 6.833,2.736 0,0 -2.75,-3 -2.417,-4.417 0.333,-1.417 5.417,4.083 10.333,2.417 0,0 -1.655,-1.591 -2.953,-5.004 -1.089,-2.725 -2.157,-3.589 -3.006,-4.288 0,0 6.708,-7.125 4.958,-17.125 0,0 -0.75,-4.75 -3.5,-7.75 0,0 6.167,8.167 16.5,3.417 0,0 -1.167,-3.75 -5.833,-6.917 -4.666,-3.167 -8.25,-1.333 -12.583,-1.417 -4.333,-0.083 -5.25,-3.667 -5.25,-3.667 0,0 -3,2.75 -6.333,1.667 -3.333,-1.083 -3.25,-3.25 -8.167,-1.667 -4.917,1.583 -9.083,7.5 -9.083,7.5 0,0 8.333,5.333 12.833,-2.583 0,0 -4,10.5 -5.667,14 -1.667,3.5 -7.5,20.5 14,17.667"
+        id="path4"
+        inkscape:connector-curvature="0"
+        style="fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10"
+      />
       <path
         class="head"
         stroke-miterlimit="10"
@@ -147,10 +147,14 @@ keywords: web components, button, input, grid, ui library, calendar, table, acco
         inkscape:connector-curvature="0"
         style="fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10"
       />
-  </svg>
+    </svg>
     <goat-text type="heading" heading-size="7" class="title">{{site.title}}</goat-text>
     <goat-text type="heading" heading-size="3">{{site.tagline}}</goat-text>
-    <goat-button href="/components.html" size="lg" class="color-brand-primary" icon='arrow--right'>Browse Components</goat-button>
+    <div style='display: flex; gap: 1rem'>
+      <goat-button href="#getting-started" size="lg" color="dark" icon="arrow--right">Get Started</goat-button>
+      <goat-button href="/components.html" size="lg" color="brand-primary" kind='simple'>Browse Components</goat-button>
+    </div>
+
   </div>
 </div>
 
@@ -184,47 +188,49 @@ keywords: web components, button, input, grid, ui library, calendar, table, acco
   });
 </script>
 
-<div class="container">
-  <div class="section">
+<div class="sections-wrapper">
+  <goat-container class="section">
     <goat-text type="heading" heading-size="5">Introduction</goat-text>
     <goat-text expressive
       >{{site.title}} contains most used web components built using Stencil. So you don't need to include any additional framework dependencies, You can simply import required
       component js, and right away start using it.
     </goat-text>
     <goat-text expressive>Can easily be consumed by any other framework, like Vue, React, Angular, etc.</goat-text>
-  </div>
+  </goat-container>
 
-  <div class="section">
+  <goat-container class="section">
     <goat-text type="heading" heading-size="5">About</goat-text>
     <goat-text expressive
       >{{site.title}} components are beautiful Open Source web components under MIT license. They are maintained by
       <goat-link href="https://shivajivarma.com">Shivaji Varma</goat-link>
       . Do not miss any updates and announcements, stay tuned on our social pages. You can contribute to the project by creating pull requests or issues.
     </goat-text>
-  </div>
+  </goat-container>
 
-  <div class="section">
-    <goat-text type="heading" heading-size="5">Getting Started</goat-text>
-    <goat-text type="heading" heading-size="3">Script tag</goat-text>
-    <ul style='padding-inline-start: 1.5rem'>
-      <li>
-        <goat-text expressive=''>
-          Put a script tag similar to this <goat-text expressive type='code' inline style='overflow: auto;width: -webkit-fill-available;'>&lt;script type="module" src="{{site.script}}"&gt;&lt;/script&gt;</goat-text>
-          in the head of your index.html
-        </goat-text>
-      </li>
-      <li>
-        <goat-text expressive>Then you can use the element anywhere in your template, JSX, html etc</goat-text>
-      </li>
-    </ul>
+  <div class='section'>
+    <goat-container>
+      <goat-text type="heading" heading-size="5" id='getting-started'>Getting Started</goat-text>
+      <ul style="padding-inline-start: 1.5rem">
+        <li>
+          <goat-text expressive="">
+            Put a script tag similar to this
+            <goat-text expressive type="code" inline style="overflow: auto; width: -webkit-fill-available"
+            >&lt;script type="module" src="{{site.script}}"&gt;&lt;/script&gt;
+            </goat-text>
+            in the head of your index.html
+          </goat-text>
+        </li>
+        <li>
+          <goat-text expressive>Then you can use the element anywhere in your template, JSX, html etc</goat-text>
+        </li>
+      </ul>
+    </goat-container>
+    <goat-container class='container-code'>
+      <goat-code-highlighter language="html" id="get-started-code" class="code-highlighter">
 
-
-  </div>
-
-  <goat-code-highlighter language="html" id="get-started-code" class='code-highlighter'></goat-code-highlighter>
-
-  <script>
-    document.getElementById('get-started-code').value = `<!DOCTYPE html>
+      </goat-code-highlighter>
+      <script>
+        document.getElementById('get-started-code').value = `<!DOCTYPE html>
 <html>
 <head>
   <meta charset='utf-8'>
@@ -233,7 +239,9 @@ keywords: web components, button, input, grid, ui library, calendar, table, acco
 
   <!-- include your custom theme variable values, view variable names at {{site.themeCss}} -->
   <!--link rel="stylesheet" href="/custom-theme.css"></link-->
-  <style>
+   &lt;script type='module' src='{{site.script}}'>&lt;/script>
+
+      <style>
     @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans+Condensed:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Serif:ital@0;1&display=swap');
     :root {
       --font-family-base: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
@@ -246,22 +254,34 @@ keywords: web components, button, input, grid, ui library, calendar, table, acco
 
 </body>
 </html>`;
-  </script>
+      </script>
+    </goat-container>
+
+  </div>
+
+  <div class='sections'>
+    <goat-container>
+      <goat-button href="/components.html" size="lg" kind='block' icon="arrow--right">Browse Components</goat-button>
+    </goat-container>
+  </div>
 </div>
+
+
 
 <div class="social-icons">
   <goat-button
     icon="logo--github"
-    icon-size='lg'
+    icon-size="lg"
     variant="ghost"
-    class="color-secondary"
+    color="secondary"
     target="_blank"
     aria-label="Github"
-    href="https://www.github.com/{{site.github_username}}"></goat-button>
+    href="https://www.github.com/{{site.github_username}}"
+  ></goat-button>
   <goat-button
-    icon-size='lg'
+    icon-size="lg"
     icon="logo--twitter"
-    class="color-secondary"
+    color="secondary"
     variant="ghost"
     target="_blank"
     aria-label="Twitter"
@@ -270,6 +290,7 @@ keywords: web components, button, input, grid, ui library, calendar, table, acco
 </div>
 
 <div class="made-in-india">
-  <span>&copy; 2022 <goat-link class="no-decoration" href="{{site.author_url}}">{{site.author}}</goat-link>.</span>
-  <goat-svg class="country-flag" size='1.5rem' src="https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/in.svg"></goat-svg> Made in India.
+  <span>&copy; 2023 <goat-link class="no-decoration" href="{{site.author_url}}">{{site.author}}</goat-link>.</span>
+  <goat-svg class="country-flag" size="1.5rem" src="https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/in.svg"></goat-svg>
+  Made in India.
 </div>

@@ -100,7 +100,7 @@ $input-background-color: var(--input-background-color, #{v(--field-01)});
 
   .input-action {
     cursor: pointer;
-    --button-padding: .625rem;
+    --button-padding: 0 .625rem;
 
     &:hover {
       --text-color: var(--text-secondary);

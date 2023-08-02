@@ -1,12 +1,15 @@
 @import "../../../globalStyles/commons";
 
+$border-width: 0.0625rem;
+
+
 :host .button-group {
   display: flex;
 
   slot::slotted(goat-button) {
     display: block;
     margin: 0;
-    --button-border-width: 0.125rem 0 0.125rem 0.125rem;
+    --button-border-width: #{$border-width} 0 #{$border-width} #{$border-width};
     --button-border-radius: 0;
   }
 
@@ -15,12 +18,12 @@
   }
 
   slot::slotted(goat-button:last-child) {
-    --button-border-width: 0.125rem;
+    --button-border-width: #{$border-width};
     --button-border-radius: 0 #{v(--border-radius)} #{v(--border-radius)} 0;
   }
 
   slot::slotted(goat-button:only-child) {
     --button-border-radius: #{v(--border-radius)};
-    --button-border-width: 0.125rem;
+    --button-border-width: #{$border-width};
   }
 }

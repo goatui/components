@@ -17,7 +17,7 @@ export class HeaderBrand {
     const isLogoSVG = this.logo.endsWith('.svg');
     return (
       <div class='header-brand'>
-        <goat-link class='brand-link full-height no-style' href={this.href}>
+        <goat-link class='brand-link no-style' href={this.href}>
           <div class='brand'>
             {(() => {
               if (this.logo) {

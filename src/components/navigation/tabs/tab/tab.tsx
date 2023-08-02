@@ -61,7 +61,7 @@ export class Tab implements ComponentInterface {
   @State() slotHasContent = false;
   @Element() elm!: HTMLElement;
   private tabindex?: string | number;
-  private nativeInput?: HTMLButtonElement;
+  private nativeElement?: HTMLButtonElement;
 
 
   @Listen('mouseup', { target: 'window' })
@@ -78,15 +78,15 @@ export class Tab implements ComponentInterface {
 
   @Method()
   async setFocus() {
-    if (this.nativeInput) {
-      this.nativeInput.focus();
+    if (this.nativeElement) {
+      this.nativeElement.focus();
     }
   }
 
   @Method()
   async triggerClick() {
-    if (this.nativeInput) {
-      this.nativeInput.click();
+    if (this.nativeElement) {
+      this.nativeElement.click();
     }
   }
 
@@ -150,7 +150,7 @@ export class Tab implements ComponentInterface {
         <button
           class='native-button'
           tabindex={this.tabindex}
-          ref={input => this.nativeInput = input}
+          ref={input => this.nativeElement = input}
           onBlur={this.blurHandler}
           onFocus={this.focusHandler}
           onClick={this.clickHandler}

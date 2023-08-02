@@ -117,8 +117,8 @@ export class Select implements ComponentInterface, InputComponentInterface {
   async setFocus(): Promise<void> {
     if (!this.isOpen && this.displayElement) {
       this.displayElement.focus();
-    } else if (this.isOpen && this.nativeInput) {
-      this.nativeInput.focus();
+    } else if (this.isOpen && this.nativeElement) {
+      this.nativeElement.focus();
     }
   }
 
@@ -128,8 +128,8 @@ export class Select implements ComponentInterface, InputComponentInterface {
    */
   @Method()
   async setBlur() {
-    if (this.nativeInput) {
-      this.nativeInput.blur();
+    if (this.nativeElement) {
+      this.nativeElement.blur();
     }
   }
 
@@ -158,7 +158,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
   }
 
   @Element() elm!: HTMLElement;
-  private nativeInput?: HTMLInputElement;
+  private nativeElement?: HTMLInputElement;
   private dropdownContentElm?: HTMLElement;
   private menuElm?: GoatMenu;
   private dropdownContentHeight: any;
@@ -237,7 +237,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
           this.dropdownContentHeight = dropdownContent.getBoundingClientRect().height;
           this.dropdownContentWidth = dropdownContent.getBoundingClientRect().width;
           this.fixPosition();
-          this.nativeInput.focus();
+          this.nativeElement.focus();
         }, 100);
       } else {
         setTimeout(() => {
@@ -432,7 +432,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
                 return (
                   <input
                     class="input input-native"
-                    ref={input => (this.nativeInput = input)}
+                    ref={input => (this.nativeElement = input)}
                     type="text"
                     name={this.name}
                     value={this.searchString}

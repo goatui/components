@@ -3,7 +3,7 @@
 :host {
   display: block;
   height: 100%;
-  --calendar-border-color: #{v(--ui-04)};
+  --calendar-border-color: #{v(--border-strong-01)};
   --scale-size: 3rem;
   --scale-color: #{v(--text-placeholder)}
 }

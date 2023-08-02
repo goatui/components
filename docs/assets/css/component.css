@@ -26,6 +26,7 @@
   border-bottom: 1px solid var(--border-strong-01);
 }
 
+
 .sidenav {
   width: 20rem;
   position: fixed;
@@ -67,21 +68,17 @@
 .main-content {
   margin-top: var(--header-height);
   margin-inline-start: 20rem;
-  background: var(--layer-03);
+  background: var(--layer-02);
   position: relative;
 }
 
-goat-tab-panel {
-  padding-top: 1rem;
+.page-container {
+  padding: var(--spacing-09) var(--spacing-07);
 }
 
-[type='heading']::before {
-  content: '';
-  display: block;
-  height: var(--header-height);
-  margin-top: calc(-1 * var(--header-height));
-  visibility: hidden;
-  pointer-events: none;
+
+goat-tab-panel {
+  padding-top: 1rem;
 }
 
 pre[class*='language-'] {
@@ -90,6 +87,7 @@ pre[class*='language-'] {
 
 .usage-tab {
   display: flex;
+  gap: 1rem;
 }
 
 .component-content {
@@ -98,8 +96,11 @@ pre[class*='language-'] {
 }
 
 .section-nav {
-  padding: 0 1rem;
-  width: 360px;
+  width: 23rem;
+}
+
+.section-nav goat-menu {
+  --list-background: var(--layer-01);
 }
 
 .component-section > goat-text[type="body"] {
@@ -118,6 +119,8 @@ pre[class*='language-'] {
   display: flex;
   align-items: center;
   margin-bottom: var(--spacing-05);
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 
@@ -139,6 +142,13 @@ pre[class*='language-'] {
   height: 400px;
 }
 
+.demo-canvas .demo-area {
+  display: flex;
+  padding: var(--spacing-09);
+  align-items: center;
+  justify-content: center;
+}
+
 #demo-area {
   display: flex;
   height: 100%;
@@ -155,10 +165,6 @@ pre[class*='language-'] {
   padding: 1rem;
 }
 
-.container {
-  padding: var(--spacing-05) var(--spacing-09);
-}
-
 @media only screen and (max-width: 600px) {
   .sidenav {
     width: 100%;
@@ -169,11 +175,6 @@ pre[class*='language-'] {
   .main-content {
     margin-inline-start: 0;
   }
-
-  .container {
-    padding: var(--spacing-05) var(--spacing-06);
-  }
-
 
   #dir-switcher {
     display: none;

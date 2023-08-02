@@ -73,7 +73,7 @@ export class TimePicker {
   @Event({ eventName: 'goat:focus' }) goatFocus: EventEmitter;
 
   @Element() elm!: HTMLElement;
-  private nativeInput?: HTMLInputElement;
+  private nativeElement?: HTMLInputElement;
   private tabindex?: string | number;
   @State() hasFocus = false;
 
@@ -97,8 +97,8 @@ export class TimePicker {
    */
   @Method()
   async setFocus() {
-    if (this.nativeInput) {
-      this.nativeInput.focus();
+    if (this.nativeElement) {
+      this.nativeElement.focus();
       this.hasFocus = true;
     }
   }
@@ -109,8 +109,8 @@ export class TimePicker {
    */
   @Method()
   async setBlur() {
-    if (this.nativeInput) {
-      this.nativeInput.blur();
+    if (this.nativeElement) {
+      this.nativeElement.blur();
       this.hasFocus = false;
     }
   }
@@ -162,7 +162,7 @@ export class TimePicker {
   };
 
   private clearInput = (evt: Event) => {
-    this.nativeInput.value = '';
+    this.nativeElement.value = '';
     this.inputHandler(evt);
   };
 

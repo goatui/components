@@ -98,7 +98,7 @@ export class Number implements ComponentInterface, InputComponentInterface {
   @Event({ eventName: 'goat:focus' }) goatFocus: EventEmitter;
 
   @Element() elm!: HTMLElement;
-  private nativeInput?: HTMLInputElement;
+  private nativeElement?: HTMLInputElement;
   private tabindex?: string | number;
 
   @State() startSlotHasContent = false;
@@ -139,7 +139,7 @@ export class Number implements ComponentInterface, InputComponentInterface {
   };
 
   private clearInput = (evt: Event) => {
-    this.nativeInput.value = null;
+    this.nativeElement.value = null;
     this.inputHandler(evt);
   };
 
@@ -154,8 +154,8 @@ export class Number implements ComponentInterface, InputComponentInterface {
    */
   @Method()
   async setFocus() {
-    if (this.nativeInput) {
-      this.nativeInput.focus();
+    if (this.nativeElement) {
+      this.nativeElement.focus();
       this.hasFocus = true;
     }
   }
@@ -166,8 +166,8 @@ export class Number implements ComponentInterface, InputComponentInterface {
    */
   @Method()
   async setBlur() {
-    if (this.nativeInput) {
-      this.nativeInput.blur();
+    if (this.nativeElement) {
+      this.nativeElement.blur();
       this.hasFocus = false;
     }
   }
@@ -244,7 +244,7 @@ export class Number implements ComponentInterface, InputComponentInterface {
           <input
             class="input input-native"
             name={this.name}
-            ref={input => (this.nativeInput = input)}
+            ref={input => (this.nativeElement = input)}
             type='number'
             placeholder={this.placeholder}
             autocomplete={this.autocomplete}

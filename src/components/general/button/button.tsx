@@ -28,7 +28,6 @@ import { getComponentIndex } from '../../../utils/utils';
   shadow: true,
 })
 export class Button implements ComponentInterface {
-
   gid: string = getComponentIndex();
 
   /**
@@ -40,16 +39,25 @@ export class Button implements ComponentInterface {
   @Prop() simple: boolean = false;
 
   /**
-   * Button variants.
-   * Possible values are `"default"`, `"light"`, `"outline"`, `"ghost"`, `"link"`. Defaults to `"default"`.
+   * Button kind.
+   * Possible values are `"default"`, `"simple"`, `"block"`. Defaults to `"default"`.
+   * `"default"` is a long button.
+   * `"simple"` is a text-only button.
+   * `"block"` is a full-width button.
    */
-  @Prop() variant: 'default' | 'light' | 'outline' | 'ghost' | 'link' = 'default';
+  @Prop() kind: 'default' | 'simple' | 'block' = 'default';
+
+  @Prop() type: 'button' | 'submit' | 'reset' = 'button';
+
 
   /**
-   * If true, fits button width to its parent width. Defaults to `false`.
+   * Button variants.
+   * Possible values are `"default"`, `"outline"`, `"ghost"`. Defaults to `"default"`.
+   * `"default"` is a filled button.
+   * `"outline"` is an outlined button.
+   * `"ghost"` is a transparent button.
    */
-  @Prop({ reflect: true }) block: boolean = false;
-
+  @Prop() variant: 'default' | 'outline' | 'ghost' | 'link' = 'default';
 
   /**
    * Button selection state.
@@ -62,6 +70,8 @@ export class Button implements ComponentInterface {
   @Prop({ reflect: true }) disabled: boolean = false;
 
   @Prop() disabledReason: string = '';
+
+  @Prop({reflect: true}) color: 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light' = 'primary';
 
   /**
    * Icon which will displayed on button.
@@ -101,25 +111,22 @@ export class Button implements ComponentInterface {
    */
   @Event({ eventName: 'goat:click' }) goatClick: EventEmitter;
 
-
   @State() hasFocus = false;
   @State() isActive = false;
   @State() slotHasContent = false;
 
   @Element() elm!: HTMLElement;
   private tabindex?: string | number;
-  private nativeInput?: HTMLButtonElement;
+  private nativeElement?: HTMLButtonElement;
 
   @Listen('mouseup', { target: 'window' })
   windowMouseUp() {
-    if (this.isActive)
-      this.isActive = false;
+    if (this.isActive) this.isActive = false;
   }
 
   @Listen('keyup', { target: 'window' })
-  windowKeyUp(evt) {
-    if (this.isActive && (evt.key == ' '))
-      this.isActive = false;
+  windowKeyUp(evt: { key: string }) {
+    if (this.isActive && evt.key == ' ') this.isActive = false;
   }
 
   /**
@@ -128,8 +135,8 @@ export class Button implements ComponentInterface {
    */
   @Method()
   async setFocus() {
-    if (this.nativeInput) {
-      this.nativeInput.focus();
+    if (this.nativeElement) {
+      this.nativeElement.focus();
       this.hasFocus = true;
     }
   }
@@ -140,31 +147,29 @@ export class Button implements ComponentInterface {
    */
   @Method()
   async setBlur() {
-    if (this.nativeInput) {
-      this.nativeInput.blur();
+    if (this.nativeElement) {
+      this.nativeElement.blur();
       this.hasFocus = false;
     }
   }
 
   @Method()
   async triggerClick() {
-    if (this.nativeInput) {
-      this.nativeInput.click();
+    if (this.nativeElement) {
+      this.nativeElement.click();
     }
   }
 
   private getIconSize() {
-    if (this.iconSize)
-      return this.iconSize;
-    else
-      return '1rem';
+    if (this.iconSize) return this.iconSize;
+    else return '1rem';
   }
 
-  private renderIcon = (iconName) => {
-    return <goat-icon name={iconName} size={this.getIconSize()} class='icon inherit' />;
+  private renderIcon = (iconName: string) => {
+    return <goat-icon name={iconName} size={this.getIconSize()} class="icon inherit" />;
   };
 
-  private clickHandler = (event: PointerEvent) => {
+  private clickHandler = (event: KeyboardEvent) => {
     if (!this.disabled && !this.showLoader) {
       this.goatClick.emit();
     } else {
@@ -186,7 +191,7 @@ export class Button implements ComponentInterface {
     this.isActive = true;
   };
 
-  private keyDownHandler = (evt) => {
+  private keyDownHandler = (evt: KeyboardEvent) => {
     if (evt.key == ' ') {
       this.isActive = true;
       this.clickHandler(evt);
@@ -213,67 +218,72 @@ export class Button implements ComponentInterface {
 
   private renderDisabledReason() {
     if (this.disabled && this.disabledReason)
-      return <div id={`disabled-reason-${this.gid}`} role='tooltip' class='sr-only'>
-        {this.disabledReason}
-      </div>;
+      return (
+        <div id={`disabled-reason-${this.gid}`} role="tooltip" class="sr-only">
+          {this.disabledReason}
+        </div>
+      );
   }
 
   render() {
-
     let NativeElementTag = 'button';
     if (this.href) {
       NativeElementTag = 'a';
     }
 
-    return (<Host has-focus={this.hasFocus} active={this.isActive}>
-      <div class={{
-        button: true,
-        [`size-${this.size}`]: true,
-        block: this.block,
-        simple: this.simple,
-        [`variant-${this.variant}`]: true,
-        'disabled': this.disabled,
-        'selected': this.selected,
-        'has-focus': this.hasFocus,
-        'active': this.isActive,
-        'has-content': this.slotHasContent,
-        'has-icon': !!this.icon,
-        'show-loader': this.showLoader,
-      }}>
-        <div class='button-background' />
-        <NativeElementTag
-          class='native-button'
-          tabindex={this.tabindex}
-          href={this.href}
-          target={this.target}
-          ref={input => this.nativeInput = input}
-          onBlur={this.blurHandler}
-          onFocus={this.focusHandler}
-          onClick={this.clickHandler}
-          onMouseDown={this.mouseDownHandler}
-          onKeyDown={this.keyDownHandler}
-          role='button'
-          aria-describedby={this.disabled && this.disabledReason ? `disabled-reason-${this.gid}` : null}
-          aria-disabled={(this.disabled || this.showLoader) + ''}
-          {...this.configAria}>
+    return (
+      <Host has-focus={this.hasFocus} type={this.kind} active={this.isActive}>
+        <div
+          class={{
+            'button': true,
+            [`size-${this.size}`]: true,
+            [`type-${this.kind}`]: true,
+            [`variant-${this.variant}`]: true,
+            [`color-${this.color}`]: true,
+            'disabled': this.disabled,
+            'selected': this.selected,
+            'has-focus': this.hasFocus,
+            'active': this.isActive,
+            'has-content': this.slotHasContent,
+            'has-icon': !!this.icon,
+            'show-loader': this.showLoader,
+          }}
+        >
+          <div class="button-background" />
+          <NativeElementTag
+            class="native-button"
+            tabindex={this.tabindex}
+            href={this.href}
+            target={this.target}
+            type={this.type}
+            ref={(input: HTMLButtonElement) => (this.nativeElement = input)}
+            onBlur={this.blurHandler}
+            onFocus={this.focusHandler}
+            onClick={this.clickHandler}
+            onMouseDown={this.mouseDownHandler}
+            onKeyDown={this.keyDownHandler}
+            role="button"
+            aria-describedby={this.disabled && this.disabledReason ? `disabled-reason-${this.gid}` : null}
+            aria-disabled={(this.disabled || this.showLoader) + ''}
+            {...this.configAria}
+          >
+            <div class="button-content">
+              {this.showLoader && <goat-spinner class="spinner inherit" size={this.getIconSize()} />}
 
-          <div class='button-content'>
-            {this.showLoader && <goat-spinner class='spinner inherit' size={this.getIconSize()} />}
+              {!this.showLoader && this.icon && this.iconAlign == 'start' && this.renderIcon(this.icon)}
 
-            {!this.showLoader && this.icon && this.iconAlign == 'start' && this.renderIcon(this.icon)}
+              {!this.showLoader && (
+                <div class="slot-container">
+                  <slot />
+                </div>
+              )}
 
-            {!this.showLoader && <div class='slot-container'>
-              <slot />
-            </div>}
-
-            {!this.showLoader && this.icon && this.iconAlign == 'end' && this.renderIcon(this.icon)}
-          </div>
-
-        </NativeElementTag>
-        {this.renderDisabledReason()}
-      </div>
-
-    </Host>);
+              {!this.showLoader && this.icon && this.iconAlign == 'end' && this.renderIcon(this.icon)}
+            </div>
+          </NativeElementTag>
+          {this.renderDisabledReason()}
+        </div>
+      </Host>
+    );
   }
-
 }
