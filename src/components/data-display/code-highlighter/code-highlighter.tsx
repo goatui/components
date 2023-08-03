@@ -144,7 +144,7 @@ export class CodeHighlighter implements ComponentInterface {
 
   @Prop() format: boolean = true;
 
-  @State() compiledCode: string = '';
+  @State() compiledCode: string = null;
 
   private codeString: string = '';
   private parsedCodeString: string = '';
@@ -162,9 +162,10 @@ export class CodeHighlighter implements ComponentInterface {
   @Element() elm!: HTMLElement;
 
   async componentWillLoad() {
+    this.codeString = "";
     if (this.value) {
       this.codeString = this.value;
-    } else {
+    } else if(this.elm.querySelector('code')) {
       this.codeString = this.elm.querySelector('code').innerHTML;
     }
     this.codeString = this.decode(this.codeString);
@@ -228,7 +229,7 @@ export class CodeHighlighter implements ComponentInterface {
   render() {
     return (
       <Host>
-        {this.compiledCode && (
+        {this.compiledCode !== null && (
           <div class="code-highlighter">
             <div class="scroll-wrapper">
               <div class={{ 'line-numbers-wrapper': true, 'line-numbers': this.lineNumbers }}>
@@ -236,8 +237,9 @@ export class CodeHighlighter implements ComponentInterface {
               </div>
             </div>
             <goat-button
-              class="copy-btn color-secondary icon-only"
+              class="copy-btn icon-only"
               size="sm"
+              color="secondary"
               variant="ghost"
               aria-label="Copy code"
               title="Copy code"
@@ -248,7 +250,7 @@ export class CodeHighlighter implements ComponentInterface {
             ></goat-button>
           </div>
         )}
-        {!this.compiledCode && (
+        {this.compiledCode === null && (
           <div class="code-loader">
             <goat-spinner class="rainbow" />
             Loading code...

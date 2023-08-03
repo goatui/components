@@ -29,7 +29,6 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
   position: relative;
   display: flex;
   align-items: center;
-  height: 100%;
 
   .native-button {
     font-family: var(--font-family-base);

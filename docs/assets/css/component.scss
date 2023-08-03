@@ -1,21 +1,9 @@
-/* width */
-::-webkit-scrollbar {
-  width: 0.5rem;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+@import "mixin";
+@import "device-utils";
 
 :root {
   --header-height: 3rem;
@@ -73,9 +61,14 @@
 }
 
 .page-container {
-  padding: var(--spacing-09) var(--spacing-07);
+  padding: var(--spacing-07) var(--spacing-05);
 }
 
+@include for-tablet-landscape-up {
+  .page-container {
+    padding: var(--spacing-09) var(--spacing-07);
+  }
+}
 
 goat-tab-panel {
   padding-top: 1rem;
@@ -165,7 +158,7 @@ pre[class*='language-'] {
   padding: 1rem;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1055px) {
   .sidenav {
     width: 100%;
     position: inherit;

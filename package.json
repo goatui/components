@@ -27,8 +27,7 @@
   "author": "Shivaji Varma <contact@shivajivarma.com>",
   "contributors": [],
   "files": [
-    "dist/",
-    "loader/"
+    "dist/"
   ],
   "scripts": {
     "build": "stencil build --docs --prod",

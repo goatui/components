@@ -2,24 +2,21 @@ import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 import { JsonDocs } from '@stencil/core/internal';
 import * as fs from 'fs';
-import * as path from 'path';
-import fg from 'fast-glob';
-import { reactOutputTarget } from '@stencil/react-output-target';
 
 export const config: Config = {
   namespace: 'goatui',
   outputTargets: [
-    reactOutputTarget({
+   /* reactOutputTarget({
       componentCorePackage: 'goatui',
       proxiesFile: 'dist/generated/goatui-react/src/components.ts'
-    }),
+    }),*/
     {
       type: 'dist',
-      esmLoaderPath: '../loader',
       copy: [{ src: 'assets' }],
     },
     {
       type: 'dist-custom-elements',
+      externalRuntime: false
     },
     {
       type: 'docs-readme',
@@ -90,19 +87,6 @@ export const config: Config = {
       copy: [{ src: 'assets', dest: 'build/assets' }],
     },
   ],
-  rollupPlugins: {
-    before: [
-      {
-        name: 'watch-external',
-        async buildStart() {
-          const styleFiles = await fg(path.resolve(__dirname, './components/**/*.scss'));
-          for (let file of styleFiles) {
-            this.addWatchFile(file);
-          }
-        },
-      },
-    ],
-  },
   plugins: [sass()],
   testing: {
     browserHeadless: "new",

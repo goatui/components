@@ -1,16 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Event,
-  EventEmitter,
-  h,
-  Host,
-  Listen,
-  Method,
-  Prop,
-  State,
-} from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Listen, Method, Prop, State } from '@stencil/core';
 import { getComponentIndex } from '../../../utils/utils';
 
 /**
@@ -34,9 +22,7 @@ export class Button implements ComponentInterface {
    * Button size.
    * Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"none"`. Defaults to `"md"`.
    */
-  @Prop() size: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'none' = 'md';
-
-  @Prop() simple: boolean = false;
+  @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'none' = 'md';
 
   /**
    * Button kind.
@@ -48,7 +34,6 @@ export class Button implements ComponentInterface {
   @Prop() kind: 'default' | 'simple' | 'block' = 'default';
 
   @Prop() type: 'button' | 'submit' | 'reset' = 'button';
-
 
   /**
    * Button variants.
@@ -71,7 +56,7 @@ export class Button implements ComponentInterface {
 
   @Prop() disabledReason: string = '';
 
-  @Prop({reflect: true}) color: 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light' = 'primary';
+  @Prop({ reflect: true }) color: 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light' = 'primary';
 
   /**
    * Icon which will displayed on button.
@@ -225,18 +210,20 @@ export class Button implements ComponentInterface {
       );
   }
 
+  getNativeElementTagName() {
+    if (this.href) return 'a';
+    else return 'button';
+  }
+
   render() {
-    let NativeElementTag = 'button';
-    if (this.href) {
-      NativeElementTag = 'a';
-    }
+    const NativeElementTag = this.getNativeElementTagName();
 
     return (
       <Host has-focus={this.hasFocus} type={this.kind} active={this.isActive}>
         <div
           class={{
             'button': true,
-            [`size-${this.size}`]: true,
+            [`size-${this.size || 'md'}`]: true,
             [`type-${this.kind}`]: true,
             [`variant-${this.variant}`]: true,
             [`color-${this.color}`]: true,
