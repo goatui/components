@@ -20,8 +20,7 @@
 | `kind`           | `kind`            | Button kind. Possible values are `"default"`, `"simple"`, `"block"`. Defaults to `"default"`. `"default"` is a long button. `"simple"` is a text-only button. `"block"` is a full-width button.          | `"block" \| "default" \| "simple"`                                                                               | `'default'` |
 | `selected`       | `selected`        | Button selection state.                                                                                                                                                                                  | `boolean`                                                                                                        | `false`     |
 | `showLoader`     | `show-loader`     | Show loader.                                                                                                                                                                                             | `boolean`                                                                                                        | `false`     |
-| `simple`         | `simple`          |                                                                                                                                                                                                          | `boolean`                                                                                                        | `false`     |
-| `size`           | `size`            | Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"none"`. Defaults to `"md"`.                                                                                                  | `"lg" \| "md" \| "none" \| "sm" \| "xl" \| "xxl"`                                                                | `'md'`      |
+| `size`           | `size`            | Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"full"`. Defaults to `"md"`.                                                                                                  | `"full" \| "lg" \| "md" \| "sm" \| "xl" \| "xxl"`                                                                | `'md'`      |
 | `target`         | `target`          | Sets or retrieves the window or frame at which to target content.                                                                                                                                        | `string`                                                                                                         | `'_self'`   |
 | `type`           | `type`            |                                                                                                                                                                                                          | `"button" \| "reset" \| "submit"`                                                                                | `'button'`  |
 | `variant`        | `variant`         | Button variants. Possible values are `"default"`, `"outline"`, `"ghost"`. Defaults to `"default"`. `"default"` is a filled button. `"outline"` is an outlined button. `"ghost"` is a transparent button. | `"default" \| "ghost" \| "link" \| "outline"`                                                                    | `'default'` |
@@ -75,16 +74,17 @@ Type: `Promise<void>`
 
  - [goat-calendar](../../calendar/calendar)
  - [goat-code-highlighter](../../data-display/code-highlighter)
- - [goat-date-picker](../../data-entry/date-picker)
+ - [goat-date-picker](../../data-entry/date/date-picker)
  - [goat-empty-state](../../data-display/empty-state)
  - [goat-flow-designer](../../flow-designer/flow-designer)
  - [goat-header-action](../../navigation/header/header-action)
  - [goat-html-editor](../../data-entry/html-editor)
- - [goat-input](../../data-entry/input)
+ - [goat-input](../../data-entry/input/input)
  - [goat-notification](../../feedback/notification)
- - [goat-number](../../data-entry/number)
+ - [goat-number](../../data-entry/input/number)
  - [goat-select](../../data-entry/select)
  - [goat-table](../../data-display/table)
+ - [goat-time-picker](../../data-entry/date/time-picker)
 
 ### Depends on
 
@@ -108,6 +108,7 @@ graph TD;
   goat-number --> goat-button
   goat-select --> goat-button
   goat-table --> goat-button
+  goat-time-picker --> goat-button
   style goat-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

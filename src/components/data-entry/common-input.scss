@@ -155,29 +155,21 @@ $input-background-color: var(--input-background-color, #{v(--field-01)});
  */
 .input-container {
   goat-button {
+    height: 100%;
     --button-height: 100%;
     --button-border-radius: 0;
   }
 }
 :host([size="sm"]) .input-container {
-  min-height: 2rem;
-  goat-button {
-    height: calc(2rem - 2px);
-  }
+  height: var(--input-height, 2rem);
 }
 
 :host([size="md"]) .input-container {
-  min-height: 2.5rem;
-  goat-button {
-    height: calc(2.5rem - 2px);
-  }
+  height: var(--input-height, 2.5rem);
 }
 
 :host([size="lg"]) .input-container {
-  min-height: 3rem;
-  goat-button {
-    height: calc(3rem - 2px);
-  }
+  height: var(--input-height, 3rem);
 }
 
 

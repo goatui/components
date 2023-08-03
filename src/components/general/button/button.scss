@@ -29,7 +29,6 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
   position: relative;
   display: flex;
   align-items: center;
-  height: 100%;
 
   .native-button {
     font-family: var(--font-family-base);
@@ -110,6 +109,13 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
   }
 }
 
+.button.size-full, .button.size-full {
+  height: 100%;
+  .button-content {
+    height: 100%;
+  }
+}
+
 .button.size-lg, .button.size-large {
   .button-content {
     height: removeBorder(3);
@@ -137,7 +143,7 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
   }
 }
 
-:host([type="block"]) {
+:host([kind="block"]) {
   display: block;
   width: 100%;
 }

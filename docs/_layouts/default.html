@@ -49,7 +49,7 @@ layout: base
 
       {% if page.root != true %}
       <goat-select id='site-search'
-                   class='show-desktop'
+                   class='hide-mobile'
                    search='contains'
                    hide-dropdown-icon
                    placeholder="Type '/' for search">
@@ -90,10 +90,10 @@ layout: base
         class="theme-switcher"
         aria-title='Theme switcher'></goat-header-action>
 
-      <goat-header-action id='dir-switcher' class='show-desktop'>LTR</goat-header-action>
+      <goat-header-action id='dir-switcher' class='hide-tablet-landscape-below'>LTR</goat-header-action>
 
       <goat-header-action
-        class='show-desktop'
+        class='hide-tablet-portrait-below'
         href='https://opencollective.com/goat-ui-components#support'>
         Become a backer
       </goat-header-action>
@@ -101,18 +101,9 @@ layout: base
       {% if page.root %}
       <goat-header-action
         icon='logo--github'
-        class='show-desktop'
         href='https://github.com/{{site.github_username}}/{{site.github_project}}'
         target='_blank'
       ></goat-header-action>
-
-      <goat-header-action
-        icon='logo--github'
-        class='show-mobile'
-        href='https://github.com/{{site.github_username}}/{{site.github_project}}'
-        target='_blank'
-      ></goat-header-action>
-
       {% else %}
       <goat-header-action
         class='show-desktop'
@@ -122,8 +113,8 @@ layout: base
       </goat-header-action>
 
       <goat-header-action
-        icon='debug'
-        class='show-mobile'
+        icon='logo--github'
+        class='hide-desktop'
         href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues'
         target='_blank'
       ></goat-header-action>

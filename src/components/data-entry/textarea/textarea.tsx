@@ -45,12 +45,6 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
   @Prop({ mutable: true }) value: string;
 
   /**
-   * The button size.
-   * Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
-   */
-  @Prop( {reflect: true}) size: 'sm' | 'md' | 'lg' = 'md';
-
-  /**
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
   @Prop({reflect: true}) disabled: boolean = false;
@@ -234,6 +228,7 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
                class='input input-native'
                name={this.name}
                placeholder={this.placeholder}
+               readonly={this.readonly}
                value={this.value}
                tabindex={this.tabindex}
                onKeyDown={this.keyDownHandler}

@@ -136,11 +136,10 @@ export namespace Components {
           * Show loader.
          */
         "showLoader": boolean;
-        "simple": boolean;
         /**
-          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"none"`. Defaults to `"md"`.
+          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"full"`. Defaults to `"md"`.
          */
-        "size": 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'none';
+        "size": 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'full';
         /**
           * Sets or retrieves the window or frame at which to target content.
          */
@@ -539,7 +538,7 @@ export namespace Components {
      * @name Icon
      * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
      * @category General
-     * @example <goat-icon name="home"></goat-icon>
+     * @example <goat-icon name="home" size="3rem"></goat-icon>
      */
     interface GoatIcon {
         "name": string;
@@ -930,6 +929,7 @@ export namespace Components {
      * @name Spinner
      * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
      * @category Feedback
+     * @tags feedback, loading, progress, spinner
      * @example <goat-spinner class="rainbow"></goat-spinner>
      */
     interface GoatSpinner {
@@ -1103,10 +1103,6 @@ export namespace Components {
           * Sets focus on the native `textarea` in `goat-textarea`. Use this method instead of the global `textarea.focus()`.
          */
         "setFocus": () => Promise<void>;
-        /**
-          * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
-         */
-        "size": 'sm' | 'md' | 'lg';
         /**
           * The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
          */
@@ -1677,7 +1673,7 @@ declare global {
      * @name Icon
      * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
      * @category General
-     * @example <goat-icon name="home"></goat-icon>
+     * @example <goat-icon name="home" size="3rem"></goat-icon>
      */
     interface HTMLGoatIconElement extends Components.GoatIcon, HTMLStencilElement {
     }
@@ -1829,6 +1825,7 @@ declare global {
      * @name Spinner
      * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
      * @category Feedback
+     * @tags feedback, loading, progress, spinner
      * @example <goat-spinner class="rainbow"></goat-spinner>
      */
     interface HTMLGoatSpinnerElement extends Components.GoatSpinner, HTMLStencilElement {
@@ -2184,11 +2181,10 @@ declare namespace LocalJSX {
           * Show loader.
          */
         "showLoader"?: boolean;
-        "simple"?: boolean;
         /**
-          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"none"`. Defaults to `"md"`.
+          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"full"`. Defaults to `"md"`.
          */
-        "size"?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'none';
+        "size"?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'full';
         /**
           * Sets or retrieves the window or frame at which to target content.
          */
@@ -2590,7 +2586,7 @@ declare namespace LocalJSX {
      * @name Icon
      * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
      * @category General
-     * @example <goat-icon name="home"></goat-icon>
+     * @example <goat-icon name="home" size="3rem"></goat-icon>
      */
     interface GoatIcon {
         "name"?: string;
@@ -2975,6 +2971,7 @@ declare namespace LocalJSX {
      * @name Spinner
      * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
      * @category Feedback
+     * @tags feedback, loading, progress, spinner
      * @example <goat-spinner class="rainbow"></goat-spinner>
      */
     interface GoatSpinner {
@@ -3167,10 +3164,6 @@ declare namespace LocalJSX {
           * If true, required icon is show. Defaults to `false`.
          */
         "required"?: boolean;
-        /**
-          * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
-         */
-        "size"?: 'sm' | 'md' | 'lg';
         /**
           * The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
          */
@@ -3567,7 +3560,7 @@ declare module "@stencil/core" {
              * @name Icon
              * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
              * @category General
-             * @example <goat-icon name="home"></goat-icon>
+             * @example <goat-icon name="home" size="3rem"></goat-icon>
              */
             "goat-icon": LocalJSX.GoatIcon & JSXBase.HTMLAttributes<HTMLGoatIconElement>;
             "goat-image": LocalJSX.GoatImage & JSXBase.HTMLAttributes<HTMLGoatImageElement>;
@@ -3649,6 +3642,7 @@ declare module "@stencil/core" {
              * @name Spinner
              * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
              * @category Feedback
+             * @tags feedback, loading, progress, spinner
              * @example <goat-spinner class="rainbow"></goat-spinner>
              */
             "goat-spinner": LocalJSX.GoatSpinner & JSXBase.HTMLAttributes<HTMLGoatSpinnerElement>;

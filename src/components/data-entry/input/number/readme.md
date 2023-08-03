@@ -73,11 +73,11 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [goat-slider](../slider)
+ - [goat-slider](../../slider)
 
 ### Depends on
 
-- [goat-button](../../general/button)
+- [goat-button](../../../general/button)
 
 ### Graph
 ```mermaid

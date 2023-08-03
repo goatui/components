@@ -1,6 +1,6 @@
 {
   "name": "@goatui/components",
-  "version": "0.19.0",
+  "version": "0.20.1",
   "description": "A light weight web component library",
   "keywords": [
     "goatui",
@@ -27,8 +27,7 @@
   "author": "Shivaji Varma <contact@shivajivarma.com>",
   "contributors": [],
   "files": [
-    "dist/",
-    "loader/"
+    "dist/"
   ],
   "scripts": {
     "build": "stencil build --docs --prod",

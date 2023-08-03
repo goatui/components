@@ -1,29 +1,19 @@
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Event,
-  EventEmitter,
-  h,
-  Host,
-  Method,
-  Prop,
-  State, Watch,
-} from '@stencil/core';
-import { debounceEvent, getComponentIndex } from '../../../utils/utils';
+import { Component, Host, h, Prop, State, Event, EventEmitter, Element, Method } from '@stencil/core';
+import { getComponentIndex } from '../../../../utils/utils';
 
 /**
- * @name Date Picker
+ * @name Time Picker
+ * @description Captures time input.
  * @category Form Inputs
- * @description Captures date input.
- * @example <goat-date-picker value='true'></goat-date-picker>
+ * @tags input, form
+ * @example <goat-time-picker value='true'></goat-time-picker>
  */
 @Component({
-  tag: 'goat-date-picker',
-  styleUrl: 'date-picker.scss',
+  tag: 'goat-time-picker',
+  styleUrl: 'time-picker.scss',
   shadow: true,
 })
-export class DatePicker implements ComponentInterface {
+export class TimePicker {
 
   gid: string = getComponentIndex();
 
@@ -61,11 +51,6 @@ export class DatePicker implements ComponentInterface {
 
   @Prop({ reflect: true, mutable: true }) configAria: any = {};
 
-  /**
-   * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
-   */
-  @Prop() debounce = 300;
-
 
   /**
    * Emitted when a keyboard input occurred.
@@ -101,11 +86,6 @@ export class DatePicker implements ComponentInterface {
   }
 
 
-  @Watch('debounce')
-  protected debounceChanged() {
-    this.goatChange = debounceEvent(this.goatChange, this.debounce);
-  }
-
   @Method()
   async getComponentId() {
     return this.gid;
@@ -133,10 +113,6 @@ export class DatePicker implements ComponentInterface {
       this.nativeElement.blur();
       this.hasFocus = false;
     }
-  }
-
-  connectedCallback() {
-    this.debounceChanged();
   }
 
 
@@ -190,7 +166,6 @@ export class DatePicker implements ComponentInterface {
     this.inputHandler(evt);
   };
 
-
   render() {
     return (
       <Host has-focus={this.hasFocus}
@@ -200,19 +175,18 @@ export class DatePicker implements ComponentInterface {
           'disabled': this.disabled,
           'has-focus': this.hasFocus,
         }}>
-          <input type='date'
+          <input type='time'
                  ref={input => (this.nativeElement = input)}
                  tabindex={this.tabindex}
                  class='input input-native'
                  disabled={this.disabled}
-                 readonly={this.readonly}
+                 readOnly={this.readonly}
                  onKeyDown={this.keyDownHandler}
                  onInput={this.inputHandler}
                  onBlur={this.blurHandler}
-                 onFocus={this.focusHandler}/>
+                 onFocus={this.focusHandler} />
 
-
-          <goat-button class="color-secondary input-action" simple={true} icon={'calendar' } variant="ghost" size="none" onGoat:click={() => {
+          <goat-button class="input-action" kind={'simple'} color={'secondary'} icon={'time' } variant="ghost" size="full" onGoat:click={() => {
             setTimeout(() => {
               this.nativeElement.showPicker();
             });

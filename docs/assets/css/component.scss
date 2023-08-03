@@ -1,21 +1,10 @@
-/* width */
-::-webkit-scrollbar {
-  width: 0.5rem;
-}
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+@import "mixin";
+@import "device-utils";
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
 
 :root {
   --header-height: 3rem;
@@ -27,8 +16,10 @@
 }
 
 
+$sideBarWidth: 15rem;
+
 .sidenav {
-  width: 20rem;
+  width: $sideBarWidth;
   position: fixed;
   top: var(--header-height);
   background: var(--layer-01);
@@ -67,15 +58,20 @@
 
 .main-content {
   margin-top: var(--header-height);
-  margin-inline-start: 20rem;
+  margin-inline-start: $sideBarWidth;
   background: var(--layer-02);
   position: relative;
 }
 
 .page-container {
-  padding: var(--spacing-09) var(--spacing-07);
+  padding: var(--spacing-07) var(--spacing-05);
 }
 
+@include for-tablet-landscape-up {
+  .page-container {
+    padding: var(--spacing-09) var(--spacing-07);
+  }
+}
 
 goat-tab-panel {
   padding-top: 1rem;
@@ -124,7 +120,6 @@ pre[class*='language-'] {
 }
 
 
-
 .section-nav .link {
   width: 100%;
 }
@@ -134,13 +129,62 @@ pre[class*='language-'] {
   margin-bottom: 2rem;
   border-radius: var(--border-radius);
   background: var(--background);
+
+  .playground {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+
+    flex-direction: column-reverse;
+
+    .demo-area {
+      min-height: 10rem;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-inline-end: 1px solid var(--border-color);
+    }
+
+    .demo-controls {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 1rem;
+      width: 100%;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+  }
+
+
+
+  .code-editor-container {
+    padding: 1px;
+    .code-editor {
+      height: 5rem;
+    }
+  }
+
 }
 
-.playground {
-  display: flex;
-  border-bottom: 1px solid var(--border-color);
-  height: 400px;
+@include for-tablet-landscape-up {
+  .playground-container {
+    .playground {
+      flex-direction: row;
+      .demo-area {
+        min-height: 20rem;
+        flex: 1;
+      }
+
+      .demo-controls {
+        width: 20rem;
+        display: block;
+        border-bottom: none;
+      }
+    }
+  }
 }
+
 
 .demo-canvas .demo-area {
   display: flex;
@@ -149,23 +193,9 @@ pre[class*='language-'] {
   justify-content: center;
 }
 
-#demo-area {
-  display: flex;
-  height: 100%;
-  flex: 1;
-  padding: 1rem;
-  align-items: center;
-  justify-content: center;
-  border-inline-end: 1px solid var(--border-color);
-}
 
-#demo-controls {
-  height: 100%;
-  width: 20rem;
-  padding: 1rem;
-}
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1055px) {
   .sidenav {
     width: 100%;
     position: inherit;

@@ -45,46 +45,79 @@ sections:
 
   <goat-tab-panel>
     <div class="playground-tab">
-      <div class="playground-container">
+      <div class="playground-container"  id="playground-controller">
         <div class="playground">
-          <div id="demo-area"></div>
-          <div id="demo-controls">
+          <div class="demo-area" id="demo-area"></div>
+          <div class="demo-controls" id="demo-controls">
+
             <goat-form-control label="Icon">
               <goat-select id="comp-select" search="contains" placeholder="Select" clearable></goat-select>
             </goat-form-control>
+
             <goat-form-control label="Size">
               <goat-input id="comp-size"></goat-input>
             </goat-form-control>
           </div>
         </div>
-        <div id="code-editor-container"></div>
+        <div class="code-editor-container">
+          <goat-code-editor class='code-editor no-border' theme='vs-dark'></goat-code-editor>
+        </div>
       </div>
     </div>
   </goat-tab-panel>
 
-  {% include playground.html %}
 
   <script>
-    document.querySelector('goat-tabs').addEventListener('goat:tab-click', function (e) {
-      if (window.isTabLoaded) {
-        return;
-      }
-      document.getElementById('code-editor-container').innerHTML = `<goat-code-editor id='code-editor' class='no-border' style='height: 200px' theme='vs-dark'></goat-code-editor>`;
-      document.getElementById('code-editor').value = `
-<goat-icon name='alarm' size='2rem'></goat-icon>
-`;
-      document.getElementById('demo-area').innerHTML = document.getElementById('code-editor').value;
+    class Playground {
 
-      document.getElementById('code-editor').addEventListener('goat:change', function (e) {
-        document.getElementById('demo-area').innerHTML = e.target.value;
-      });
-      window.isTabLoaded = true;
-    });
+      constructor(elm) {
+        this.elm = elm;
+      }
+
+      init() {
+        const $codeEditor = this.elm.querySelector('.code-editor');
+        const $demoArea = this.elm.querySelector('.demo-area');
+
+        $codeEditor.value = `
+    <goat-icon name='alarm' size='2rem'></goat-icon>
+    `;
+        $codeEditor.addEventListener('goat:change', (e) => {
+          $demoArea.innerHTML = e.target.value;
+        });
+        $demoArea.innerHTML = $codeEditor.value;
+      }
+
+      populateDropdown(elm, prop, items, value) {
+        elm.items = items.map((item) => {
+          return {
+            label: item,
+            value: item,
+          }
+        });
+        elm.value = value;
+        elm.addEventListener('goat:change', (evt) => {
+          this.updateProperty(prop, evt.detail.value);
+        });
+      }
+
+      updateProperty(propertyName, propertyValue) {
+        const $codeEditor = this.elm.querySelector('.code-editor');
+        const $demoArea = this.elm.querySelector('.demo-area');
+        if (propertyValue === '' || propertyValue === false) {
+          $demoArea.children[0].removeAttribute(propertyName);
+        } else {
+          $demoArea.children[0].setAttribute(propertyName, propertyValue);
+        }
+        $codeEditor.value = $demoArea.innerHTML;
+      }
+    }
+
+
+    const playground = new Playground(document.getElementById('playground-controller'));
+    playground.init();
 
     const $dropDown = document.getElementById('comp-select');
-
     $dropDown.items = [];
-
     fetch('/assets/goatui-dev/build/assets/icons.json').then(res => res.json()).then(data => {
       $dropDown.items = data.map(item => {
         return {
@@ -94,15 +127,15 @@ sections:
         };
       })
     });
-
     $dropDown.value = 'alarm';
     $dropDown.addEventListener('goat:change', function (evt) {
-      updateProperty('name', evt.detail.value);
+      playground.updateProperty('name', evt.detail.value);
     });
+
     const $size = document.getElementById('comp-size');
     $size.value = '2rem';
     $size.addEventListener('goat:change', function (evt) {
-      updateProperty('size', evt.target.value);
+      playground.updateProperty('size', evt.target.value);
     });
   </script>
 </goat-tabs>

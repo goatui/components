@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
-import { debounceEvent, getComponentIndex } from '../../../utils/utils';
+import { debounceEvent, getComponentIndex } from '../../../../utils/utils';
 
 /**
  * @name Number
@@ -172,7 +172,6 @@ export class Number implements ComponentInterface, InputComponentInterface {
     }
   }
 
-
   @Watch('debounce')
   protected debounceChanged() {
     this.goatChange = debounceEvent(this.goatChange, this.debounce);
@@ -245,7 +244,7 @@ export class Number implements ComponentInterface, InputComponentInterface {
             class="input input-native"
             name={this.name}
             ref={input => (this.nativeElement = input)}
-            type='number'
+            type="number"
             placeholder={this.placeholder}
             autocomplete={this.autocomplete}
             value={this.value}
@@ -260,24 +259,39 @@ export class Number implements ComponentInterface, InputComponentInterface {
             {...this.configAria}
           />
 
-          {this.clearable && this.hasValue() &&
-            <goat-button class="clear input-action color-secondary" variant="ghost" icon="close" onClick={this.clearInput} />
-            }
+          {this.clearable && this.hasValue() && <goat-button class="clear input-action color-secondary" variant="ghost" icon="close" onClick={this.clearInput} />}
 
+          {!this.readonly && !this.disabled && !this.hideActions && (
+            <goat-button
+              class="input-action"
+              color={'secondary'}
+              kind={'simple'}
+              icon="subtract"
+              variant="ghost"
+              size="full"
+              onGoat:click={evt => {
+                this.decrease(evt);
+              }}
+            ></goat-button>
+          )}
 
-          {!this.readonly && !this.disabled && !this.hideActions && <goat-button class="color-secondary input-action" simple={true} icon="subtract" variant="ghost" size="none" onGoat:click={(evt) => {
-            this.decrease(evt);
-          }}></goat-button>}
-
-          {!this.readonly && !this.disabled && !this.hideActions && <goat-button class="color-secondary input-action" simple={true} icon="add" variant="ghost" size="none" onGoat:click={(evt) => {
-            this.increment(evt);
-          }}></goat-button>}
-
+          {!this.readonly && !this.disabled && !this.hideActions && (
+            <goat-button
+              class="input-action"
+              color={'secondary'}
+              kind={'simple'}
+              icon="add"
+              variant="ghost"
+              size="full"
+              onGoat:click={evt => {
+                this.increment(evt);
+              }}
+            ></goat-button>
+          )}
 
           <div class="slot-container end">
             <slot name="end" />
           </div>
-
         </div>
       </Host>
     );
