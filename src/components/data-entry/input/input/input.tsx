@@ -1,5 +1,6 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
-import { debounceEvent, getComponentIndex } from '../../../utils/utils';
+import { debounceEvent, getComponentIndex } from '../../../../utils/utils';
+
 
 /**
  * @name Input
@@ -174,7 +175,6 @@ export class Input implements ComponentInterface, InputComponentInterface {
     }
   }
 
-
   @Watch('debounce')
   protected debounceChanged() {
     this.goatChange = debounceEvent(this.goatChange, this.debounce);
@@ -225,9 +225,6 @@ export class Input implements ComponentInterface, InputComponentInterface {
             'end-slot-has-content': this.endSlotHasContent,
           }}
         >
-          <div class="slot-container start">
-            <slot name="start" />
-          </div>
 
           <input
             class="input input-native"
@@ -248,18 +245,29 @@ export class Input implements ComponentInterface, InputComponentInterface {
             {...this.configAria}
           />
 
-          {this.clearable && this.hasValue() &&
-            <goat-button class="clear input-action color-secondary" variant="ghost" icon="close" onClick={this.clearInput} />
-            }
+          {this.clearable && this.hasValue() && <goat-button class="clear input-action"
+                                                             size={'full'}
+                                                             color={'secondary'}
+                                                             variant="ghost"
+                                                             icon="close"
+                                                             onClick={this.clearInput} />}
 
-          {this.type === 'password' && !this.hideActions && <goat-button class="color-secondary" simple={true} icon={this.passwordVisible ? 'view--off' : 'view'} variant="ghost" size="none" onGoat:click={() => {
-            this.passwordVisible = !this.passwordVisible;
-          }}></goat-button>}
+          {this.type === 'password' && !this.hideActions && (
+            <goat-button
+              color={'secondary'}
+              kind={'simple'}
+              icon={this.passwordVisible ? 'view--off' : 'view'}
+              variant="ghost"
+              size="full"
+              onGoat:click={() => {
+                this.passwordVisible = !this.passwordVisible;
+              }}
+            ></goat-button>
+          )}
 
           <div class="slot-container end">
-            <slot name="end" />
+            <slot/>
           </div>
-
         </div>
       </Host>
     );

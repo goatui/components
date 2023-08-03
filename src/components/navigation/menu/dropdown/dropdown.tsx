@@ -29,7 +29,7 @@ export class Dropdown implements ComponentInterface {
 
   @Prop() positions: string = 'bottom-right,top-right,bottom-left,top-left';
 
-  @Prop() items: any[] = null;
+  @Prop() items: any[] = [];
 
   @Listen('click', { target: 'window' })
   windowClick(evt) {

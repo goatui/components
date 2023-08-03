@@ -18,11 +18,12 @@ import { getComponentIndex } from '../../../utils/utils';
 export class Button implements ComponentInterface {
   gid: string = getComponentIndex();
 
+
   /**
    * Button size.
-   * Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"none"`. Defaults to `"md"`.
+   * Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"full"`. Defaults to `"md"`.
    */
-  @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'none' = 'md';
+  @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'full' = 'md';
 
   /**
    * Button kind.
@@ -219,7 +220,7 @@ export class Button implements ComponentInterface {
     const NativeElementTag = this.getNativeElementTagName();
 
     return (
-      <Host has-focus={this.hasFocus} type={this.kind} active={this.isActive}>
+      <Host has-focus={this.hasFocus} kind={this.kind} active={this.isActive}>
         <div
           class={{
             'button': true,

@@ -17,7 +17,6 @@
 | `placeholder` | `placeholder` | The input field placeholder.                                                                                   | `string`                                         | `undefined`                |
 | `readonly`    | `readonly`    | If true, the user read the value cannot modify it. Defaults to `false`.                                        | `boolean`                                        | `false`                    |
 | `required`    | `required`    | If true, required icon is show. Defaults to `false`.                                                           | `boolean`                                        | `false`                    |
-| `size`        | `size`        | The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.                              | `"lg" \| "md" \| "sm"`                           | `'md'`                     |
 | `state`       | `state`       | The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`. | `"default" \| "error" \| "success" \| "warning"` | `'default'`                |
 | `value`       | `value`       | The input field value.                                                                                         | `string`                                         | `undefined`                |
 

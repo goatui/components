@@ -1,5 +1,6 @@
 @import "../common-input";
 
+
 .dropdown {
   position: relative;
 
@@ -15,7 +16,6 @@
 
   .chevron-down {
     transition: transform 0.1s ease-out 0s;
-    height: 100%;
     padding: 0 0.625rem;
     cursor: pointer;
   }

@@ -67,7 +67,7 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [goat-number](../number)
+- [goat-number](../input/number)
 
 ### Graph
 ```mermaid

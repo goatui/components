@@ -63,6 +63,21 @@ Type: `Promise<void>`
 
 
 
+## Dependencies
+
+### Depends on
+
+- [goat-button](../../../general/button)
+
+### Graph
+```mermaid
+graph TD;
+  goat-time-picker --> goat-button
+  goat-button --> goat-icon
+  goat-button --> goat-spinner
+  style goat-time-picker fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with love!*

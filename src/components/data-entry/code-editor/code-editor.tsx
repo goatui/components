@@ -1,4 +1,16 @@
-import { Component, ComponentInterface, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core';
 import { debounceEvent, getComponentIndex } from '../../../utils/utils';
 import { isDarkMode, observeThemeChange } from '../../../utils/utils';
 import loadMonaco from '../../../3d-party/monaco';
@@ -76,7 +88,6 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
     this.themeWatcher();
   }
 
-
   @Watch('language')
   languageWatcher(newValue: string) {
     window['monaco'].editor.setModelLanguage(this.editorMonacoInstance.getModel(), newValue);
@@ -88,7 +99,7 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
 
   @Watch('value')
   valueWatcher(newValue: string) {
-    if (this.editorMonacoInstance.getValue() !== this.value) {
+    if (this.editorMonacoInstance && this.editorMonacoInstance.getValue() !== this.value) {
       this.editorMonacoInstance.setValue(newValue);
     }
   }
@@ -120,6 +131,7 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
     }
   }
 
+  @Element() elm!: HTMLElement;
   private editorElement?: HTMLElement;
   @State() editorMonacoInstance: any;
 
@@ -150,10 +162,17 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
     return theme;
   }
 
+  isInViewport(element: HTMLElement) {
+    const rect = element.getBoundingClientRect();
+    return rect.top !== 0 && rect.left !== 0 && rect.bottom !== 0 && rect.right !== 0;
+  }
+
   private initializeMonaco() {
-
     //monaco.languages.typescript.javascriptDefaults.addExtraLib(this.extraLibs);
-
+    if (!this.editorMonacoInstance && !this.isInViewport(this.elm)) {
+      setTimeout(() => this.initializeMonaco(), 1000);
+      return;
+    }
     this.editorElement.innerHTML = '';
 
     this.editorMonacoInstance = window['monaco'].editor.create(this.editorElement, {

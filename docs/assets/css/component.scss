@@ -5,6 +5,7 @@
 @import "mixin";
 @import "device-utils";
 
+
 :root {
   --header-height: 3rem;
 }
@@ -119,7 +120,6 @@ pre[class*='language-'] {
 }
 
 
-
 .section-nav .link {
   width: 100%;
 }
@@ -129,13 +129,62 @@ pre[class*='language-'] {
   margin-bottom: 2rem;
   border-radius: var(--border-radius);
   background: var(--background);
+
+  .playground {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+
+    flex-direction: column-reverse;
+
+    .demo-area {
+      min-height: 10rem;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-inline-end: 1px solid var(--border-color);
+    }
+
+    .demo-controls {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 1rem;
+      width: 100%;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+  }
+
+
+
+  .code-editor-container {
+    padding: 1px;
+    .code-editor {
+      height: 5rem;
+    }
+  }
+
 }
 
-.playground {
-  display: flex;
-  border-bottom: 1px solid var(--border-color);
-  height: 400px;
+@include for-tablet-landscape-up {
+  .playground-container {
+    .playground {
+      flex-direction: row;
+      .demo-area {
+        min-height: 20rem;
+        flex: 1;
+      }
+
+      .demo-controls {
+        width: 20rem;
+        display: block;
+        border-bottom: none;
+      }
+    }
+  }
 }
+
 
 .demo-canvas .demo-area {
   display: flex;
@@ -144,21 +193,7 @@ pre[class*='language-'] {
   justify-content: center;
 }
 
-#demo-area {
-  display: flex;
-  height: 100%;
-  flex: 1;
-  padding: 1rem;
-  align-items: center;
-  justify-content: center;
-  border-inline-end: 1px solid var(--border-color);
-}
 
-#demo-controls {
-  height: 100%;
-  width: 20rem;
-  padding: 1rem;
-}
 
 @media only screen and (max-width: 1055px) {
   .sidenav {

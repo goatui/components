@@ -463,7 +463,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
               }
             })()}
 
-            {this.clearable && !this.multiple && this.hasValue() && <goat-button class="clear input-action color-secondary" variant="ghost" icon="close" onClick={this.clearInput} />}
+            {this.clearable && !this.multiple && this.hasValue() && <goat-button class="clear input-action" size={'full'} color={'secondary'} kind={'simple'} variant="ghost" icon="close" onClick={this.clearInput} />}
 
             <div class="slot-container end">
               <slot name="end" />
