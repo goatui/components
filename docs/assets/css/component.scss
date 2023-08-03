@@ -15,8 +15,10 @@
 }
 
 
+$sideBarWidth: 15rem;
+
 .sidenav {
-  width: 20rem;
+  width: $sideBarWidth;
   position: fixed;
   top: var(--header-height);
   background: var(--layer-01);
@@ -55,7 +57,7 @@
 
 .main-content {
   margin-top: var(--header-height);
-  margin-inline-start: 20rem;
+  margin-inline-start: $sideBarWidth;
   background: var(--layer-02);
   position: relative;
 }
