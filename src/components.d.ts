@@ -136,7 +136,6 @@ export namespace Components {
           * Show loader.
          */
         "showLoader": boolean;
-        "simple": boolean;
         /**
           * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"none"`. Defaults to `"md"`.
          */
@@ -2184,7 +2183,6 @@ declare namespace LocalJSX {
           * Show loader.
          */
         "showLoader"?: boolean;
-        "simple"?: boolean;
         /**
           * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"none"`. Defaults to `"md"`.
          */
