@@ -1,6 +1,11 @@
 /*
 Subtle borders paired with $background
  */
+@include defineVariable(--border-interactive, getColor(blue, 60), getColor(blue, 50));
+
+/*
+Subtle borders paired with $background
+ */
 @include defineVariable(--border-subtle-00, getColor(gray, 20), getColor(gray, 80));
 
 /*

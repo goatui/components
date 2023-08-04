@@ -771,6 +771,24 @@ export namespace Components {
         "value"?: number | null;
     }
     /**
+     * @name Progress
+     * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
+     * @category Feedback
+     * @tags feedback, loading, progress, spinner
+     * @example <goat-progress value="45"></goat-spinner>
+     */
+    interface GoatProgress {
+        "helperText": string;
+        "hideLabel": boolean;
+        "label": string;
+        /**
+          * Possible values are: `"sm"` and `"md"` in pixel. Defaults to `"md"`.
+         */
+        "size": 'sm' | 'md';
+        "status": 'active' | 'success' | 'error';
+        "value": number;
+    }
+    /**
      * @name Select
      * @description Allows the user to select one or more options using a dropdown.
      * @category Form Inputs
@@ -1780,6 +1798,19 @@ declare global {
         new (): HTMLGoatNumberElement;
     };
     /**
+     * @name Progress
+     * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
+     * @category Feedback
+     * @tags feedback, loading, progress, spinner
+     * @example <goat-progress value="45"></goat-spinner>
+     */
+    interface HTMLGoatProgressElement extends Components.GoatProgress, HTMLStencilElement {
+    }
+    var HTMLGoatProgressElement: {
+        prototype: HTMLGoatProgressElement;
+        new (): HTMLGoatProgressElement;
+    };
+    /**
      * @name Select
      * @description Allows the user to select one or more options using a dropdown.
      * @category Form Inputs
@@ -2038,6 +2069,7 @@ declare global {
         "goat-notification": HTMLGoatNotificationElement;
         "goat-notification-manager": HTMLGoatNotificationManagerElement;
         "goat-number": HTMLGoatNumberElement;
+        "goat-progress": HTMLGoatProgressElement;
         "goat-select": HTMLGoatSelectElement;
         "goat-sidenav": HTMLGoatSidenavElement;
         "goat-sidenav-menu": HTMLGoatSidenavMenuElement;
@@ -2835,6 +2867,24 @@ declare namespace LocalJSX {
         "value"?: number | null;
     }
     /**
+     * @name Progress
+     * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
+     * @category Feedback
+     * @tags feedback, loading, progress, spinner
+     * @example <goat-progress value="45"></goat-spinner>
+     */
+    interface GoatProgress {
+        "helperText"?: string;
+        "hideLabel"?: boolean;
+        "label"?: string;
+        /**
+          * Possible values are: `"sm"` and `"md"` in pixel. Defaults to `"md"`.
+         */
+        "size"?: 'sm' | 'md';
+        "status"?: 'active' | 'success' | 'error';
+        "value"?: number;
+    }
+    /**
      * @name Select
      * @description Allows the user to select one or more options using a dropdown.
      * @category Form Inputs
@@ -3377,6 +3427,7 @@ declare namespace LocalJSX {
         "goat-notification": GoatNotification;
         "goat-notification-manager": GoatNotificationManager;
         "goat-number": GoatNumber;
+        "goat-progress": GoatProgress;
         "goat-select": GoatSelect;
         "goat-sidenav": GoatSidenav;
         "goat-sidenav-menu": GoatSidenavMenu;
@@ -3631,6 +3682,14 @@ declare module "@stencil/core" {
              * @example <goat-number value="100"></goat-input>
              */
             "goat-number": LocalJSX.GoatNumber & JSXBase.HTMLAttributes<HTMLGoatNumberElement>;
+            /**
+             * @name Progress
+             * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
+             * @category Feedback
+             * @tags feedback, loading, progress, spinner
+             * @example <goat-progress value="45"></goat-spinner>
+             */
+            "goat-progress": LocalJSX.GoatProgress & JSXBase.HTMLAttributes<HTMLGoatProgressElement>;
             /**
              * @name Select
              * @description Allows the user to select one or more options using a dropdown.

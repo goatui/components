@@ -9,7 +9,7 @@
   letter-spacing: v(--#{$type}-letter-spacing);
 }
 
-@mixin focus-ring($color:v(--color-primary)) {
+@mixin focus-ring($color:v(--border-interactive)) {
   outline: 2px solid $color;
 }
 

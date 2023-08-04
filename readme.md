@@ -3,8 +3,6 @@
 [![GitHub license](https://img.shields.io/github/license/goatui/components.svg)](/LICENSE)
 ![npm](https://img.shields.io/npm/v/%40goatui%2Fcomponents)
 
-
-
 # GOAT UI
 
 GOAT UI contains most used web components built using Stencil. So you don't need to include any additional framework
@@ -21,35 +19,35 @@ Checkout the complete documentation over here -> https://goatui.com
 ### Script tag
 
 - Put a script tag similar to
-  this `<script type="module" src="https://cdn.jsdelivr.net/npm/@goatui/components@0.21.0/dist/goatui/goatui.esm.js"></script>` in
+  this `<script type="module" src="https://cdn.jsdelivr.net/npm/@goatui/components@0.21.0/dist/goatui/goatui.esm.js"></script>`
+  in
   the head of your index.html
 - Include default font Roboto in the page
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ```html
-<!DOCTYPE html>
-<html lang='en'>
-<head>
-  <meta charset='utf-8'>
-  <meta name='viewport' content='width=device-width'>
-  <title>Goat UI Component</title>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Goat UI Component</title>
 
-  <!-- include your custom theme variable values, view variable names at https://cdn.jsdelivr.net/npm/@goatui/components@0.21.0/dist/goatui/assets/styles/theme.css -->
-  <!--link rel="stylesheet" href="/custom-theme.css"></link-->
-  <script type='module' src='https://cdn.jsdelivr.net/npm/@goatui/components@0.21.0/dist/goatui/goatui.esm.js'></script>
+    <!-- include your custom theme variable values, view variable names at https://cdn.jsdelivr.net/npm/@goatui/components@0.21.0/dist/goatui/assets/styles/theme.css -->
+    <!--link rel="stylesheet" href="/custom-theme.css"></link-->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@goatui/components@0.21.0/dist/goatui/goatui.esm.js"></script>
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans+Condensed:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Serif:ital@0;1&display=swap');
-    :root {
-      --font-family-base: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
-    }
-  </style>
-</head>
-<body>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans+Condensed:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Serif:ital@0;1&display=swap');
 
-<goat-button size='lg' color='primary'>Click me</goat-button>
-
-</body>
+      :root {
+        --font-family-base: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <goat-button size="lg" color="primary">Click me</goat-button>
+  </body>
 </html>
 ```
 
@@ -97,6 +95,7 @@ Checkout the complete documentation over here -> https://goatui.com
 | [Notification Manager](https://goatui.com/components/notification-manager) | goat-notification-manager | 🟡    |
 | Observer                                                                   | goat-observer             | 🔵    |
 | Pagination                                                                 | goat-pagination           | 🔵    |
+| [Progress](https://goatui.com/components/progress)                         | goat-progress             | 🟢    |
 | Radio Group                                                                | goat-radiogroup           | 🔵    |
 | Row                                                                        | goat-row                  | 🔵    |
 | [Select](https://goatui.com/components/select)                             | goat-select               | 🟢    |

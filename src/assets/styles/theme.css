@@ -116,6 +116,9 @@ Secondary link color for lower contrast backgrounds
 Subtle borders paired with $background
  */
 /*
+Subtle borders paired with $background
+ */
+/*
 Subtle borders paired with $layer-01
  */
 /*
@@ -256,6 +259,9 @@ Secondary link color for lower contrast backgrounds
 /**
 * Secondary link color for lower contrast backgrounds
 */
+/*
+Subtle borders paired with $background
+ */
 /*
 Subtle borders paired with $background
  */
@@ -608,6 +614,7 @@ Border-bottom paired with $field-03;
   --hover-ui: #f4f4f4;
   --active-ui: #c6c6c6;
   --border-subtle-00: #e0e0e0;
+  --border-interactive: #0f62fe;
   --border-subtle-01: #e0e0e0;
   --border-subtle-02: #e0e0e0;
   --border-subtle-03: #e0e0e0;
@@ -879,6 +886,7 @@ p {
   --hover-ui: #262626;
   --active-ui: #c6c6c6;
   --border-subtle-00: #393939;
+  --border-interactive: #4589ff;
   --border-subtle-01: #393939;
   --border-subtle-02: #525252;
   --border-subtle-03: #6f6f6f;
