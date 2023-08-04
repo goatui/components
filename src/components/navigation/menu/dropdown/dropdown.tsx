@@ -6,6 +6,7 @@ import { isEventTriggerByElement, isMobile, isOutOfViewport } from '../../../../
  * @description Enables native inputs to be used within a Form field.
  * @category Navigation
  * @img /assets/img/dropdown.png
+ * @imgDark /assets/img/dropdown-dark.png
  */
 @Component({
   tag: 'goat-dropdown',
@@ -29,7 +30,7 @@ export class Dropdown implements ComponentInterface {
 
   @Prop() positions: string = 'bottom-right,top-right,bottom-left,top-left';
 
-  @Prop() items: any[] = [];
+  @Prop() items: any[] = null;
 
   @Listen('click', { target: 'window' })
   windowClick(evt) {
@@ -221,8 +222,7 @@ export class Dropdown implements ComponentInterface {
           </div>
         </button>
         <div class='dropdown-content'>
-          {this.renderItems()}
-          <slot name='dropdown-content' />
+          {this.items ? this.renderItems():  <slot name='dropdown-content' />}
         </div>
       </div>
     </Host>);

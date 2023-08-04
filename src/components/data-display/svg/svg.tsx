@@ -5,7 +5,7 @@ import { fetchIcon } from './datasource';
  * @name SVG
  * @description Render SVG content from an external source.
  * @category Data Display
- * @example <goat-svg src="https://icons.getbootstrap.com/assets/icons/bug.svg"></goat-svg>
+ * @example <goat-svg src="https://icons.getbootstrap.com/assets/icons/bug.svg" size="2rem"></goat-svg>
  */
 @Component({
   tag: 'goat-svg',

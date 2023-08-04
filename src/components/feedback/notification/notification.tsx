@@ -7,7 +7,7 @@ import { isDarkMode, observeThemeChange } from '../../../utils/utils';
  * @description Notifications are messages that communicate information to the user.
  * @category Feedback
  * @tags notification
- * @example <goat-notification state="success" low-contrast dismissible>
+ * @example <goat-notification state="success">
  *               <div slot='title'>Successful saved the record</div>
  *             </goat-notification>
  */

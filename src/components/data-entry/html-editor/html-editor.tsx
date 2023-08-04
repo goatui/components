@@ -21,8 +21,8 @@ import {
 
 /**
  * @name HTML Editor
- * @description A browser based code editor.
- * @category Form Inputs
+ * @description A browser based html editor.
+ * @category Up coming
  * @tags input, form
  * @img /assets/img/code-editor.png
  */

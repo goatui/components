@@ -205,7 +205,7 @@ export namespace Components {
     }
     /**
      * @name Canvas
-     * @category Work in progress
+     * @category Up coming
      * @description Canvas for drawing lines and shapes on.
      * @img /assets/img/canvas.png
      */
@@ -383,6 +383,7 @@ export namespace Components {
      * @description Enables native inputs to be used within a Form field.
      * @category Navigation
      * @img /assets/img/dropdown.png
+     * @imgDark /assets/img/dropdown-dark.png
      */
     interface GoatDropdown {
         /**
@@ -416,7 +417,7 @@ export namespace Components {
     }
     /**
      * @name Flow Designer
-     * @category Work in progress
+     * @category Up coming
      * @description An interactive button with a range of presentation options.
      * @img /assets/img/flow-designer.png
      */
@@ -495,8 +496,8 @@ export namespace Components {
     }
     /**
      * @name HTML Editor
-     * @description A browser based code editor.
-     * @category Form Inputs
+     * @description A browser based html editor.
+     * @category Up coming
      * @tags input, form
      * @img /assets/img/code-editor.png
      */
@@ -538,7 +539,7 @@ export namespace Components {
      * @name Icon
      * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
      * @category General
-     * @example <goat-icon name="home" size="3rem"></goat-icon>
+     * @example <goat-icon name="home" size="2rem"></goat-icon>
      */
     interface GoatIcon {
         "name": string;
@@ -642,6 +643,7 @@ export namespace Components {
      * @description Menus display a list of choices on temporary surfaces.
      * @category Navigation
      * @img /assets/img/menu.png
+     * @imgDark /assets/img/menu-dark.png
      */
     interface GoatMenu {
         "empty": boolean;
@@ -680,7 +682,7 @@ export namespace Components {
      * @description Notifications are messages that communicate information to the user.
      * @category Feedback
      * @tags notification
-     * @example <goat-notification state="success" low-contrast dismissible>
+     * @example <goat-notification state="success">
      *      <div slot='title'>Successful saved the record</div>
      *    </goat-notification>
      */
@@ -698,6 +700,7 @@ export namespace Components {
      * @category Feedback
      * @tags notification
      * @img /assets/img/notification-manager.png
+     * @imgDark /assets/img/notification-manager-dark.png
      */
     interface GoatNotificationManager {
         "name": string;
@@ -773,6 +776,7 @@ export namespace Components {
      * @category Form Inputs
      * @tags input, form
      * @img /assets/img/select.png
+     * @imgDark /assets/img/select-dark.png
      */
     interface GoatSelect {
         /**
@@ -930,7 +934,7 @@ export namespace Components {
      * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
      * @category Feedback
      * @tags feedback, loading, progress, spinner
-     * @example <goat-spinner class="rainbow"></goat-spinner>
+     * @example <goat-spinner class="rainbow" size="2rem"></goat-spinner>
      */
     interface GoatSpinner {
         /**
@@ -942,7 +946,7 @@ export namespace Components {
      * @name SVG
      * @description Render SVG content from an external source.
      * @category Data Display
-     * @example <goat-svg src="https://icons.getbootstrap.com/assets/icons/bug.svg"></goat-svg>
+     * @example <goat-svg src="https://icons.getbootstrap.com/assets/icons/bug.svg" size="2rem"></goat-svg>
      */
     interface GoatSvg {
         /**
@@ -1250,6 +1254,7 @@ export namespace Components {
      * @description A tree view is a hierarchical structure that provides nested levels of navigation.
      * @category Navigation
      * @img /assets/img/tree-view.png
+     * @imgDark /assets/img/tree-view-dark.png
      */
     interface GoatTreeView {
         "empty": boolean;
@@ -1492,7 +1497,7 @@ declare global {
     };
     /**
      * @name Canvas
-     * @category Work in progress
+     * @category Up coming
      * @description Canvas for drawing lines and shapes on.
      * @img /assets/img/canvas.png
      */
@@ -1584,6 +1589,7 @@ declare global {
      * @description Enables native inputs to be used within a Form field.
      * @category Navigation
      * @img /assets/img/dropdown.png
+     * @imgDark /assets/img/dropdown-dark.png
      */
     interface HTMLGoatDropdownElement extends Components.GoatDropdown, HTMLStencilElement {
     }
@@ -1606,7 +1612,7 @@ declare global {
     };
     /**
      * @name Flow Designer
-     * @category Work in progress
+     * @category Up coming
      * @description An interactive button with a range of presentation options.
      * @img /assets/img/flow-designer.png
      */
@@ -1658,8 +1664,8 @@ declare global {
     };
     /**
      * @name HTML Editor
-     * @description A browser based code editor.
-     * @category Form Inputs
+     * @description A browser based html editor.
+     * @category Up coming
      * @tags input, form
      * @img /assets/img/code-editor.png
      */
@@ -1673,7 +1679,7 @@ declare global {
      * @name Icon
      * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
      * @category General
-     * @example <goat-icon name="home" size="3rem"></goat-icon>
+     * @example <goat-icon name="home" size="2rem"></goat-icon>
      */
     interface HTMLGoatIconElement extends Components.GoatIcon, HTMLStencilElement {
     }
@@ -1717,6 +1723,7 @@ declare global {
      * @description Menus display a list of choices on temporary surfaces.
      * @category Navigation
      * @img /assets/img/menu.png
+     * @imgDark /assets/img/menu-dark.png
      */
     interface HTMLGoatMenuElement extends Components.GoatMenu, HTMLStencilElement {
     }
@@ -1735,7 +1742,7 @@ declare global {
      * @description Notifications are messages that communicate information to the user.
      * @category Feedback
      * @tags notification
-     * @example <goat-notification state="success" low-contrast dismissible>
+     * @example <goat-notification state="success">
      *      <div slot='title'>Successful saved the record</div>
      *    </goat-notification>
      */
@@ -1751,6 +1758,7 @@ declare global {
      * @category Feedback
      * @tags notification
      * @img /assets/img/notification-manager.png
+     * @imgDark /assets/img/notification-manager-dark.png
      */
     interface HTMLGoatNotificationManagerElement extends Components.GoatNotificationManager, HTMLStencilElement {
     }
@@ -1777,6 +1785,7 @@ declare global {
      * @category Form Inputs
      * @tags input, form
      * @img /assets/img/select.png
+     * @imgDark /assets/img/select-dark.png
      */
     interface HTMLGoatSelectElement extends Components.GoatSelect, HTMLStencilElement {
     }
@@ -1826,7 +1835,7 @@ declare global {
      * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
      * @category Feedback
      * @tags feedback, loading, progress, spinner
-     * @example <goat-spinner class="rainbow"></goat-spinner>
+     * @example <goat-spinner class="rainbow" size="2rem"></goat-spinner>
      */
     interface HTMLGoatSpinnerElement extends Components.GoatSpinner, HTMLStencilElement {
     }
@@ -1838,7 +1847,7 @@ declare global {
      * @name SVG
      * @description Render SVG content from an external source.
      * @category Data Display
-     * @example <goat-svg src="https://icons.getbootstrap.com/assets/icons/bug.svg"></goat-svg>
+     * @example <goat-svg src="https://icons.getbootstrap.com/assets/icons/bug.svg" size="2rem"></goat-svg>
      */
     interface HTMLGoatSvgElement extends Components.GoatSvg, HTMLStencilElement {
     }
@@ -1982,6 +1991,7 @@ declare global {
      * @description A tree view is a hierarchical structure that provides nested levels of navigation.
      * @category Navigation
      * @img /assets/img/tree-view.png
+     * @imgDark /assets/img/tree-view-dark.png
      */
     interface HTMLGoatTreeViewElement extends Components.GoatTreeView, HTMLStencilElement {
     }
@@ -2254,7 +2264,7 @@ declare namespace LocalJSX {
     }
     /**
      * @name Canvas
-     * @category Work in progress
+     * @category Up coming
      * @description Canvas for drawing lines and shapes on.
      * @img /assets/img/canvas.png
      */
@@ -2437,6 +2447,7 @@ declare namespace LocalJSX {
      * @description Enables native inputs to be used within a Form field.
      * @category Navigation
      * @img /assets/img/dropdown.png
+     * @imgDark /assets/img/dropdown-dark.png
      */
     interface GoatDropdown {
         /**
@@ -2469,7 +2480,7 @@ declare namespace LocalJSX {
     }
     /**
      * @name Flow Designer
-     * @category Work in progress
+     * @category Up coming
      * @description An interactive button with a range of presentation options.
      * @img /assets/img/flow-designer.png
      */
@@ -2548,8 +2559,8 @@ declare namespace LocalJSX {
     }
     /**
      * @name HTML Editor
-     * @description A browser based code editor.
-     * @category Form Inputs
+     * @description A browser based html editor.
+     * @category Up coming
      * @tags input, form
      * @img /assets/img/code-editor.png
      */
@@ -2586,7 +2597,7 @@ declare namespace LocalJSX {
      * @name Icon
      * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
      * @category General
-     * @example <goat-icon name="home" size="3rem"></goat-icon>
+     * @example <goat-icon name="home" size="2rem"></goat-icon>
      */
     interface GoatIcon {
         "name"?: string;
@@ -2696,6 +2707,7 @@ declare namespace LocalJSX {
      * @description Menus display a list of choices on temporary surfaces.
      * @category Navigation
      * @img /assets/img/menu.png
+     * @imgDark /assets/img/menu-dark.png
      */
     interface GoatMenu {
         "empty"?: boolean;
@@ -2726,7 +2738,7 @@ declare namespace LocalJSX {
      * @description Notifications are messages that communicate information to the user.
      * @category Feedback
      * @tags notification
-     * @example <goat-notification state="success" low-contrast dismissible>
+     * @example <goat-notification state="success">
      *      <div slot='title'>Successful saved the record</div>
      *    </goat-notification>
      */
@@ -2745,6 +2757,7 @@ declare namespace LocalJSX {
      * @category Feedback
      * @tags notification
      * @img /assets/img/notification-manager.png
+     * @imgDark /assets/img/notification-manager-dark.png
      */
     interface GoatNotificationManager {
         "name"?: string;
@@ -2827,6 +2840,7 @@ declare namespace LocalJSX {
      * @category Form Inputs
      * @tags input, form
      * @img /assets/img/select.png
+     * @imgDark /assets/img/select-dark.png
      */
     interface GoatSelect {
         /**
@@ -2972,7 +2986,7 @@ declare namespace LocalJSX {
      * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
      * @category Feedback
      * @tags feedback, loading, progress, spinner
-     * @example <goat-spinner class="rainbow"></goat-spinner>
+     * @example <goat-spinner class="rainbow" size="2rem"></goat-spinner>
      */
     interface GoatSpinner {
         /**
@@ -2984,7 +2998,7 @@ declare namespace LocalJSX {
      * @name SVG
      * @description Render SVG content from an external source.
      * @category Data Display
-     * @example <goat-svg src="https://icons.getbootstrap.com/assets/icons/bug.svg"></goat-svg>
+     * @example <goat-svg src="https://icons.getbootstrap.com/assets/icons/bug.svg" size="2rem"></goat-svg>
      */
     interface GoatSvg {
         /**
@@ -3317,6 +3331,7 @@ declare namespace LocalJSX {
      * @description A tree view is a hierarchical structure that provides nested levels of navigation.
      * @category Navigation
      * @img /assets/img/tree-view.png
+     * @imgDark /assets/img/tree-view-dark.png
      */
     interface GoatTreeView {
         "empty"?: boolean;
@@ -3459,7 +3474,7 @@ declare module "@stencil/core" {
             "goat-calendar-month-view-background": LocalJSX.GoatCalendarMonthViewBackground & JSXBase.HTMLAttributes<HTMLGoatCalendarMonthViewBackgroundElement>;
             /**
              * @name Canvas
-             * @category Work in progress
+             * @category Up coming
              * @description Canvas for drawing lines and shapes on.
              * @img /assets/img/canvas.png
              */
@@ -3511,6 +3526,7 @@ declare module "@stencil/core" {
              * @description Enables native inputs to be used within a Form field.
              * @category Navigation
              * @img /assets/img/dropdown.png
+             * @imgDark /assets/img/dropdown-dark.png
              */
             "goat-dropdown": LocalJSX.GoatDropdown & JSXBase.HTMLAttributes<HTMLGoatDropdownElement>;
             /**
@@ -3523,7 +3539,7 @@ declare module "@stencil/core" {
             "goat-empty-state": LocalJSX.GoatEmptyState & JSXBase.HTMLAttributes<HTMLGoatEmptyStateElement>;
             /**
              * @name Flow Designer
-             * @category Work in progress
+             * @category Up coming
              * @description An interactive button with a range of presentation options.
              * @img /assets/img/flow-designer.png
              */
@@ -3550,8 +3566,8 @@ declare module "@stencil/core" {
             "goat-header-brand": LocalJSX.GoatHeaderBrand & JSXBase.HTMLAttributes<HTMLGoatHeaderBrandElement>;
             /**
              * @name HTML Editor
-             * @description A browser based code editor.
-             * @category Form Inputs
+             * @description A browser based html editor.
+             * @category Up coming
              * @tags input, form
              * @img /assets/img/code-editor.png
              */
@@ -3560,7 +3576,7 @@ declare module "@stencil/core" {
              * @name Icon
              * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
              * @category General
-             * @example <goat-icon name="home" size="3rem"></goat-icon>
+             * @example <goat-icon name="home" size="2rem"></goat-icon>
              */
             "goat-icon": LocalJSX.GoatIcon & JSXBase.HTMLAttributes<HTMLGoatIconElement>;
             "goat-image": LocalJSX.GoatImage & JSXBase.HTMLAttributes<HTMLGoatImageElement>;
@@ -3584,6 +3600,7 @@ declare module "@stencil/core" {
              * @description Menus display a list of choices on temporary surfaces.
              * @category Navigation
              * @img /assets/img/menu.png
+             * @imgDark /assets/img/menu-dark.png
              */
             "goat-menu": LocalJSX.GoatMenu & JSXBase.HTMLAttributes<HTMLGoatMenuElement>;
             "goat-menu-item": LocalJSX.GoatMenuItem & JSXBase.HTMLAttributes<HTMLGoatMenuItemElement>;
@@ -3592,7 +3609,7 @@ declare module "@stencil/core" {
              * @description Notifications are messages that communicate information to the user.
              * @category Feedback
              * @tags notification
-             * @example <goat-notification state="success" low-contrast dismissible>
+             * @example <goat-notification state="success">
              *      <div slot='title'>Successful saved the record</div>
              *    </goat-notification>
              */
@@ -3603,6 +3620,7 @@ declare module "@stencil/core" {
              * @category Feedback
              * @tags notification
              * @img /assets/img/notification-manager.png
+             * @imgDark /assets/img/notification-manager-dark.png
              */
             "goat-notification-manager": LocalJSX.GoatNotificationManager & JSXBase.HTMLAttributes<HTMLGoatNotificationManagerElement>;
             /**
@@ -3619,6 +3637,7 @@ declare module "@stencil/core" {
              * @category Form Inputs
              * @tags input, form
              * @img /assets/img/select.png
+             * @imgDark /assets/img/select-dark.png
              */
             "goat-select": LocalJSX.GoatSelect & JSXBase.HTMLAttributes<HTMLGoatSelectElement>;
             /**
@@ -3643,14 +3662,14 @@ declare module "@stencil/core" {
              * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
              * @category Feedback
              * @tags feedback, loading, progress, spinner
-             * @example <goat-spinner class="rainbow"></goat-spinner>
+             * @example <goat-spinner class="rainbow" size="2rem"></goat-spinner>
              */
             "goat-spinner": LocalJSX.GoatSpinner & JSXBase.HTMLAttributes<HTMLGoatSpinnerElement>;
             /**
              * @name SVG
              * @description Render SVG content from an external source.
              * @category Data Display
-             * @example <goat-svg src="https://icons.getbootstrap.com/assets/icons/bug.svg"></goat-svg>
+             * @example <goat-svg src="https://icons.getbootstrap.com/assets/icons/bug.svg" size="2rem"></goat-svg>
              */
             "goat-svg": LocalJSX.GoatSvg & JSXBase.HTMLAttributes<HTMLGoatSvgElement>;
             "goat-tab": LocalJSX.GoatTab & JSXBase.HTMLAttributes<HTMLGoatTabElement>;
@@ -3729,6 +3748,7 @@ declare module "@stencil/core" {
              * @description A tree view is a hierarchical structure that provides nested levels of navigation.
              * @category Navigation
              * @img /assets/img/tree-view.png
+             * @imgDark /assets/img/tree-view-dark.png
              */
             "goat-tree-view": LocalJSX.GoatTreeView & JSXBase.HTMLAttributes<HTMLGoatTreeViewElement>;
         }

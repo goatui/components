@@ -41,7 +41,7 @@
 
 .menu-item {
   &:hover, &.has-focus:not(.active) {
-    background: v(--hover-ui);
+    background: v(--layer-hover-01);
     color: v(--text-primary);
     .slot-end {
       color: v(--icon-01);

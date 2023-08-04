@@ -5,7 +5,7 @@ import { fetchIcon } from './datasource';
  * @name Icon
  * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
  * @category General
- * @example <goat-icon name="home" size="3rem"></goat-icon>
+ * @example <goat-icon name="home" size="2rem"></goat-icon>
  */
 @Component({
   tag: 'goat-icon',

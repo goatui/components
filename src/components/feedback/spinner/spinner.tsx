@@ -5,7 +5,7 @@ import { Component, h, Host, Prop } from '@stencil/core';
  * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
  * @category Feedback
  * @tags feedback, loading, progress, spinner
- * @example <goat-spinner class="rainbow"></goat-spinner>
+ * @example <goat-spinner class="rainbow" size="2rem"></goat-spinner>
  */
 @Component({
   tag: 'goat-spinner',

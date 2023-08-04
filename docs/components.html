@@ -108,7 +108,9 @@ keywords: web components, button, input, grid, ui library, calendar, table, acco
 </script>
 
 <div class="cards">
-  {% for component in site.data.componentsDetails.components %} {% if component.metadata.name %}
+  {% for component in site.data.componentsDetails.components %}
+  {% if component.metadata.name %}
+  {% if component.metadata.category != 'Up coming' %}
   <div class="card-wrapper">
     <goat-card shadow-level="md" class="card">
       <goat-card-content class="header" onclick='(function(){window.location.href="/components/{{component.tag | replace: "goat-", ""}}#";})()'>
@@ -128,7 +130,41 @@ keywords: web components, button, input, grid, ui library, calendar, table, acco
       </goat-card-content>
     </goat-card>
   </div>
-  {% endif %} {% endfor %}
+  {% endif %}
+  {% endif %}
+  {% endfor %}
+</div>
+
+<goat-text type="heading" heading-size="4">Upcoming</goat-text>
+<div class="cards">
+
+
+  {% for component in site.data.componentsDetails.components %}
+  {% if component.metadata.name %}
+  {% if component.metadata.category == 'Up coming' %}
+
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/{{component.tag | replace: "goat-", ""}}#";})()'>
+        {% if component.metadata.example %} {{component.metadata.example}} {% else %}
+        <goat-image src="{{component.metadata.img}}" dark-src="{{component.metadata.imgDark}}" style="max-width: 100%; max-height: 100%" />
+        {% endif %}
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>{{component.metadata.name}}</goat-text>
+
+        {% for tag in component.metadata.tags %}
+        <goat-link href="/components?filter={{tag}}"> <goat-tag class="color-blue" tag="{{tag}}">{{tag}}</goat-tag></goat-link>
+        {% endfor %} {% if component.metadata.tags == null %}
+        <goat-link href="/components?filter=other"> <goat-tag class="color-blue" tag="other">other</goat-tag></goat-link>
+        {% endif %}
+      </goat-card-content>
+    </goat-card>
+  </div>
+  {% endif %}
+  {% endif %}
+  {% endfor %}
 
   <script>
     if (window.location.href.indexOf('?filter=') !== -1) {

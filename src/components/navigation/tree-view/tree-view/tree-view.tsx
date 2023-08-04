@@ -5,6 +5,7 @@ import { Component, ComponentInterface, Element, h, Listen, Method, Prop, State,
  * @description A tree view is a hierarchical structure that provides nested levels of navigation.
  * @category Navigation
  * @img /assets/img/tree-view.png
+ * @imgDark /assets/img/tree-view-dark.png
  */
 @Component({
   tag: 'goat-tree-view',

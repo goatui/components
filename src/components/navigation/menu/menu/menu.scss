@@ -3,7 +3,7 @@
 :host {
   display: inline-block;
   --list-border-radius: var(--border-radius);
-  --list-background: #{v(--field-02)};
+  --list-background: #{v(--layer-01)};
   --list-max-height: 100%;
   --list-border-color:  #{v(--border-strong-01)};
   --list-shadow: #{v(--shadow-sm)};
