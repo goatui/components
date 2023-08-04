@@ -5,6 +5,7 @@ $input-background-color: var(--input-background-color, #{v(--field-01)});
 
 :host {
   display: block;
+  width: 100%;
   margin-bottom: v(--spacing-03);
   --input-border-radius: #{v(--border-radius)};
   --input-border-style: solid;

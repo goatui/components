@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-08-03T18:48:28",
+  "timestamp": "2023-08-04T05:51:01",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.0.1",
@@ -2064,7 +2064,7 @@
         },
         {
           "name": "category",
-          "text": "Work in progress"
+          "text": "Up coming"
         },
         {
           "name": "description",
@@ -2181,7 +2181,7 @@
       "listeners": [],
       "metadata": {
         "name": "Canvas",
-        "category": "Work in progress",
+        "category": "Up coming",
         "description": "Canvas for drawing lines and shapes on.",
         "img": "/assets/img/canvas.png"
       }
@@ -3659,6 +3659,10 @@
         {
           "name": "img",
           "text": "/assets/img/dropdown.png"
+        },
+        {
+          "name": "imgDark",
+          "text": "/assets/img/dropdown-dark.png"
         }
       ],
       "encapsulation": "shadow",
@@ -3743,7 +3747,7 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "[]",
+          "default": "null",
           "values": [
             {
               "type": "any[]"
@@ -3879,7 +3883,8 @@
         "name": "Dropdown",
         "description": "Enables native inputs to be used within a Form field.",
         "category": "Navigation",
-        "img": "/assets/img/dropdown.png"
+        "img": "/assets/img/dropdown.png",
+        "imgDark": "/assets/img/dropdown-dark.png"
       }
     },
     {
@@ -4142,7 +4147,7 @@
         },
         {
           "name": "category",
-          "text": "Work in progress"
+          "text": "Up coming"
         },
         {
           "name": "description",
@@ -4260,7 +4265,7 @@
       ],
       "metadata": {
         "name": "Flow Designer",
-        "category": "Work in progress",
+        "category": "Up coming",
         "description": "An interactive button with a range of presentation options.",
         "img": "/assets/img/flow-designer.png"
       }
@@ -4929,11 +4934,11 @@
         },
         {
           "name": "description",
-          "text": "A browser based code editor."
+          "text": "A browser based html editor."
         },
         {
           "name": "category",
-          "text": "Form Inputs"
+          "text": "Up coming"
         },
         {
           "name": "tags",
@@ -5239,8 +5244,8 @@
       "listeners": [],
       "metadata": {
         "name": "HTML Editor",
-        "description": "A browser based code editor.",
-        "category": "Form Inputs",
+        "description": "A browser based html editor.",
+        "category": "Up coming",
         "tags": [
           "input",
           " form"
@@ -5271,7 +5276,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-icon name=\"home\" size=\"3rem\"></goat-icon>"
+          "text": "<goat-icon name=\"home\" size=\"2rem\"></goat-icon>"
         }
       ],
       "encapsulation": "shadow",
@@ -5378,7 +5383,7 @@
         "name": "Icon",
         "description": "Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.",
         "category": "General",
-        "example": "<goat-icon name=\"home\" size=\"3rem\"></goat-icon>"
+        "example": "<goat-icon name=\"home\" size=\"2rem\"></goat-icon>"
       }
     },
     {
@@ -6161,6 +6166,10 @@
         {
           "name": "img",
           "text": "/assets/img/menu.png"
+        },
+        {
+          "name": "imgDark",
+          "text": "/assets/img/menu-dark.png"
         }
       ],
       "encapsulation": "shadow",
@@ -6322,7 +6331,8 @@
         "name": "Menu",
         "description": "Menus display a list of choices on temporary surfaces.",
         "category": "Navigation",
-        "img": "/assets/img/menu.png"
+        "img": "/assets/img/menu.png",
+        "imgDark": "/assets/img/menu-dark.png"
       }
     },
     {
@@ -6526,7 +6536,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-notification state=\"success\" low-contrast dismissible>\r\n     <div slot='title'>Successful saved the record</div>\r\n   </goat-notification>"
+          "text": "<goat-notification state=\"success\">\r\n     <div slot='title'>Successful saved the record</div>\r\n   </goat-notification>"
         }
       ],
       "encapsulation": "shadow",
@@ -6725,7 +6735,7 @@
         "tags": [
           "notification"
         ],
-        "example": "<goat-notification state=\"success\" low-contrast dismissible>\r\n     <div slot='title'>Successful saved the record</div>\r\n   </goat-notification>"
+        "example": "<goat-notification state=\"success\">\r\n     <div slot='title'>Successful saved the record</div>\r\n   </goat-notification>"
       }
     },
     {
@@ -6756,6 +6766,10 @@
         {
           "name": "img",
           "text": "/assets/img/notification-manager.png"
+        },
+        {
+          "name": "imgDark",
+          "text": "/assets/img/notification-manager-dark.png"
         }
       ],
       "encapsulation": "shadow",
@@ -6866,7 +6880,8 @@
         "tags": [
           "notification"
         ],
-        "img": "/assets/img/notification-manager.png"
+        "img": "/assets/img/notification-manager.png",
+        "imgDark": "/assets/img/notification-manager-dark.png"
       }
     },
     {
@@ -7401,6 +7416,10 @@
         {
           "name": "img",
           "text": "/assets/img/select.png"
+        },
+        {
+          "name": "imgDark",
+          "text": "/assets/img/select-dark.png"
         }
       ],
       "encapsulation": "shadow",
@@ -8030,7 +8049,8 @@
           "input",
           " form"
         ],
-        "img": "/assets/img/select.png"
+        "img": "/assets/img/select.png",
+        "imgDark": "/assets/img/select-dark.png"
       }
     },
     {
@@ -8815,7 +8835,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-spinner class=\"rainbow\"></goat-spinner>"
+          "text": "<goat-spinner class=\"rainbow\" size=\"2rem\"></goat-spinner>"
         }
       ],
       "encapsulation": "shadow",
@@ -8888,7 +8908,7 @@
           " progress",
           " spinner"
         ],
-        "example": "<goat-spinner class=\"rainbow\"></goat-spinner>"
+        "example": "<goat-spinner class=\"rainbow\" size=\"2rem\"></goat-spinner>"
       }
     },
     {
@@ -8914,7 +8934,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-svg src=\"https://icons.getbootstrap.com/assets/icons/bug.svg\"></goat-svg>"
+          "text": "<goat-svg src=\"https://icons.getbootstrap.com/assets/icons/bug.svg\" size=\"2rem\"></goat-svg>"
         }
       ],
       "encapsulation": "shadow",
@@ -8986,7 +9006,7 @@
         "name": "SVG",
         "description": "Render SVG content from an external source.",
         "category": "Data Display",
-        "example": "<goat-svg src=\"https://icons.getbootstrap.com/assets/icons/bug.svg\"></goat-svg>"
+        "example": "<goat-svg src=\"https://icons.getbootstrap.com/assets/icons/bug.svg\" size=\"2rem\"></goat-svg>"
       }
     },
     {
@@ -11970,6 +11990,10 @@
         {
           "name": "img",
           "text": "/assets/img/tree-view.png"
+        },
+        {
+          "name": "imgDark",
+          "text": "/assets/img/tree-view-dark.png"
         }
       ],
       "encapsulation": "shadow",
@@ -12151,7 +12175,8 @@
         "name": "TreeView",
         "description": "A tree view is a hierarchical structure that provides nested levels of navigation.",
         "category": "Navigation",
-        "img": "/assets/img/tree-view.png"
+        "img": "/assets/img/tree-view.png",
+        "imgDark": "/assets/img/tree-view-dark.png"
       }
     }
   ],
@@ -12867,7 +12892,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-icon name=\"home\" size=\"3rem\"></goat-icon>"
+              "text": "<goat-icon name=\"home\" size=\"2rem\"></goat-icon>"
             }
           ],
           "encapsulation": "shadow",
@@ -12974,7 +12999,7 @@
             "name": "Icon",
             "description": "Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.",
             "category": "General",
-            "example": "<goat-icon name=\"home\" size=\"3rem\"></goat-icon>"
+            "example": "<goat-icon name=\"home\" size=\"2rem\"></goat-icon>"
           }
         },
         {
@@ -13449,6 +13474,10 @@
             {
               "name": "img",
               "text": "/assets/img/dropdown.png"
+            },
+            {
+              "name": "imgDark",
+              "text": "/assets/img/dropdown-dark.png"
             }
           ],
           "encapsulation": "shadow",
@@ -13533,7 +13562,7 @@
               "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
-              "default": "[]",
+              "default": "null",
               "values": [
                 {
                   "type": "any[]"
@@ -13669,7 +13698,8 @@
             "name": "Dropdown",
             "description": "Enables native inputs to be used within a Form field.",
             "category": "Navigation",
-            "img": "/assets/img/dropdown.png"
+            "img": "/assets/img/dropdown.png",
+            "imgDark": "/assets/img/dropdown-dark.png"
           }
         },
         {
@@ -13901,6 +13931,10 @@
             {
               "name": "img",
               "text": "/assets/img/menu.png"
+            },
+            {
+              "name": "imgDark",
+              "text": "/assets/img/menu-dark.png"
             }
           ],
           "encapsulation": "shadow",
@@ -14062,7 +14096,8 @@
             "name": "Menu",
             "description": "Menus display a list of choices on temporary surfaces.",
             "category": "Navigation",
-            "img": "/assets/img/menu.png"
+            "img": "/assets/img/menu.png",
+            "imgDark": "/assets/img/menu-dark.png"
           }
         },
         {
@@ -14146,6 +14181,10 @@
             {
               "name": "img",
               "text": "/assets/img/tree-view.png"
+            },
+            {
+              "name": "imgDark",
+              "text": "/assets/img/tree-view-dark.png"
             }
           ],
           "encapsulation": "shadow",
@@ -14327,7 +14366,8 @@
             "name": "TreeView",
             "description": "A tree view is a hierarchical structure that provides nested levels of navigation.",
             "category": "Navigation",
-            "img": "/assets/img/tree-view.png"
+            "img": "/assets/img/tree-view.png",
+            "imgDark": "/assets/img/tree-view-dark.png"
           }
         }
       ]
@@ -15655,340 +15695,6 @@
           }
         },
         {
-          "filePath": "src/components/data-entry/html-editor/html-editor.tsx",
-          "fileName": "html-editor.tsx",
-          "tag": "goat-html-editor",
-          "readme": "# goat-code-editor\r\n\r\n\r\n\r",
-          "overview": "",
-          "usage": {},
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "name",
-              "text": "HTML Editor"
-            },
-            {
-              "name": "description",
-              "text": "A browser based code editor."
-            },
-            {
-              "name": "category",
-              "text": "Form Inputs"
-            },
-            {
-              "name": "tags",
-              "text": "input, form"
-            },
-            {
-              "name": "img",
-              "text": "/assets/img/code-editor.png"
-            }
-          ],
-          "encapsulation": "none",
-          "dependents": [],
-          "dependencies": [
-            "goat-button-group",
-            "goat-button",
-            "goat-spinner"
-          ],
-          "dependencyGraph": {
-            "goat-html-editor": [
-              "goat-button-group",
-              "goat-button",
-              "goat-spinner"
-            ],
-            "goat-button": [
-              "goat-icon",
-              "goat-spinner"
-            ]
-          },
-          "props": [
-            {
-              "name": "debounce",
-              "type": "number",
-              "complexType": {
-                "original": "number",
-                "resolved": "number",
-                "references": {}
-              },
-              "mutable": false,
-              "attr": "debounce",
-              "reflectToAttr": false,
-              "docs": "Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.",
-              "docsTags": [],
-              "default": "250",
-              "values": [
-                {
-                  "type": "number"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "disabled",
-              "type": "boolean",
-              "complexType": {
-                "original": "boolean",
-                "resolved": "boolean",
-                "references": {}
-              },
-              "mutable": false,
-              "attr": "disabled",
-              "reflectToAttr": true,
-              "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
-              "docsTags": [],
-              "default": "false",
-              "values": [
-                {
-                  "type": "boolean"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "lineNumbers",
-              "type": "\"off\" | \"on\"",
-              "complexType": {
-                "original": "'off' | 'on'",
-                "resolved": "\"off\" | \"on\"",
-                "references": {}
-              },
-              "mutable": false,
-              "attr": "line-numbers",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "default": "'on'",
-              "values": [
-                {
-                  "value": "off",
-                  "type": "string"
-                },
-                {
-                  "value": "on",
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "name",
-              "type": "string",
-              "complexType": {
-                "original": "string",
-                "resolved": "string",
-                "references": {}
-              },
-              "mutable": false,
-              "attr": "name",
-              "reflectToAttr": false,
-              "docs": "The input field name.",
-              "docsTags": [],
-              "default": "`goat-input-${this.gid}`",
-              "values": [
-                {
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "readonly",
-              "type": "boolean",
-              "complexType": {
-                "original": "boolean",
-                "resolved": "boolean",
-                "references": {}
-              },
-              "mutable": false,
-              "attr": "readonly",
-              "reflectToAttr": true,
-              "docs": "",
-              "docsTags": [],
-              "default": "false",
-              "values": [
-                {
-                  "type": "boolean"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "required",
-              "type": "boolean",
-              "complexType": {
-                "original": "boolean",
-                "resolved": "boolean",
-                "references": {}
-              },
-              "mutable": false,
-              "attr": "required",
-              "reflectToAttr": true,
-              "docs": "If true, required icon is show. Defaults to `false`.",
-              "docsTags": [],
-              "default": "false",
-              "values": [
-                {
-                  "type": "boolean"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "theme",
-              "type": "\"vs-dark\" | \"vs-light\"",
-              "complexType": {
-                "original": "'vs-light' | 'vs-dark'",
-                "resolved": "\"vs-dark\" | \"vs-light\"",
-                "references": {}
-              },
-              "mutable": false,
-              "attr": "theme",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "default": "'vs-light'",
-              "values": [
-                {
-                  "value": "vs-dark",
-                  "type": "string"
-                },
-                {
-                  "value": "vs-light",
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "value",
-              "type": "string",
-              "complexType": {
-                "original": "string",
-                "resolved": "string",
-                "references": {}
-              },
-              "mutable": true,
-              "attr": "value",
-              "reflectToAttr": false,
-              "docs": "The input field value.",
-              "docsTags": [],
-              "values": [
-                {
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            }
-          ],
-          "methods": [
-            {
-              "name": "getComponentId",
-              "returns": {
-                "type": "Promise<string>",
-                "docs": ""
-              },
-              "complexType": {
-                "signature": "() => Promise<string>",
-                "parameters": [],
-                "references": {
-                  "Promise": {
-                    "location": "global",
-                    "id": "global::Promise"
-                  }
-                },
-                "return": "Promise<string>"
-              },
-              "signature": "getComponentId() => Promise<string>",
-              "parameters": [],
-              "docs": "",
-              "docsTags": []
-            },
-            {
-              "name": "setBlur",
-              "returns": {
-                "type": "Promise<void>",
-                "docs": ""
-              },
-              "complexType": {
-                "signature": "() => Promise<void>",
-                "parameters": [],
-                "references": {
-                  "Promise": {
-                    "location": "global",
-                    "id": "global::Promise"
-                  }
-                },
-                "return": "Promise<void>"
-              },
-              "signature": "setBlur() => Promise<void>",
-              "parameters": [],
-              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
-              "docsTags": []
-            },
-            {
-              "name": "setFocus",
-              "returns": {
-                "type": "Promise<void>",
-                "docs": ""
-              },
-              "complexType": {
-                "signature": "() => Promise<void>",
-                "parameters": [],
-                "references": {
-                  "Promise": {
-                    "location": "global",
-                    "id": "global::Promise"
-                  }
-                },
-                "return": "Promise<void>"
-              },
-              "signature": "setFocus() => Promise<void>",
-              "parameters": [],
-              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
-              "docsTags": []
-            }
-          ],
-          "events": [
-            {
-              "event": "goat:change",
-              "detail": "any",
-              "bubbles": true,
-              "complexType": {
-                "original": "any",
-                "resolved": "any",
-                "references": {}
-              },
-              "cancelable": true,
-              "composed": true,
-              "docs": "Emitted when the value has changed..",
-              "docsTags": []
-            }
-          ],
-          "styles": [],
-          "slots": [],
-          "parts": [],
-          "listeners": [],
-          "metadata": {
-            "name": "HTML Editor",
-            "description": "A browser based code editor.",
-            "category": "Form Inputs",
-            "tags": [
-              "input",
-              " form"
-            ],
-            "img": "/assets/img/code-editor.png"
-          }
-        },
-        {
           "filePath": "src/components/data-entry/input/input/input.tsx",
           "fileName": "input.tsx",
           "tag": "goat-input",
@@ -17057,6 +16763,10 @@
             {
               "name": "img",
               "text": "/assets/img/select.png"
+            },
+            {
+              "name": "imgDark",
+              "text": "/assets/img/select-dark.png"
             }
           ],
           "encapsulation": "shadow",
@@ -17686,7 +17396,8 @@
               "input",
               " form"
             ],
-            "img": "/assets/img/select.png"
+            "img": "/assets/img/select.png",
+            "imgDark": "/assets/img/select-dark.png"
           }
         },
         {
@@ -20257,7 +19968,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-svg src=\"https://icons.getbootstrap.com/assets/icons/bug.svg\"></goat-svg>"
+              "text": "<goat-svg src=\"https://icons.getbootstrap.com/assets/icons/bug.svg\" size=\"2rem\"></goat-svg>"
             }
           ],
           "encapsulation": "shadow",
@@ -20329,7 +20040,7 @@
             "name": "SVG",
             "description": "Render SVG content from an external source.",
             "category": "Data Display",
-            "example": "<goat-svg src=\"https://icons.getbootstrap.com/assets/icons/bug.svg\"></goat-svg>"
+            "example": "<goat-svg src=\"https://icons.getbootstrap.com/assets/icons/bug.svg\" size=\"2rem\"></goat-svg>"
           }
         },
         {
@@ -21006,7 +20717,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-notification state=\"success\" low-contrast dismissible>\r\n     <div slot='title'>Successful saved the record</div>\r\n   </goat-notification>"
+              "text": "<goat-notification state=\"success\">\r\n     <div slot='title'>Successful saved the record</div>\r\n   </goat-notification>"
             }
           ],
           "encapsulation": "shadow",
@@ -21205,7 +20916,7 @@
             "tags": [
               "notification"
             ],
-            "example": "<goat-notification state=\"success\" low-contrast dismissible>\r\n     <div slot='title'>Successful saved the record</div>\r\n   </goat-notification>"
+            "example": "<goat-notification state=\"success\">\r\n     <div slot='title'>Successful saved the record</div>\r\n   </goat-notification>"
           }
         },
         {
@@ -21236,6 +20947,10 @@
             {
               "name": "img",
               "text": "/assets/img/notification-manager.png"
+            },
+            {
+              "name": "imgDark",
+              "text": "/assets/img/notification-manager-dark.png"
             }
           ],
           "encapsulation": "shadow",
@@ -21346,7 +21061,8 @@
             "tags": [
               "notification"
             ],
-            "img": "/assets/img/notification-manager.png"
+            "img": "/assets/img/notification-manager.png",
+            "imgDark": "/assets/img/notification-manager-dark.png"
           }
         },
         {
@@ -21376,7 +21092,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-spinner class=\"rainbow\"></goat-spinner>"
+              "text": "<goat-spinner class=\"rainbow\" size=\"2rem\"></goat-spinner>"
             }
           ],
           "encapsulation": "shadow",
@@ -21449,7 +21165,7 @@
               " progress",
               " spinner"
             ],
-            "example": "<goat-spinner class=\"rainbow\"></goat-spinner>"
+            "example": "<goat-spinner class=\"rainbow\" size=\"2rem\"></goat-spinner>"
           }
         },
         {
@@ -21568,7 +21284,7 @@
       ]
     },
     {
-      "name": "Work in progress",
+      "name": "Up coming",
       "hide": false,
       "components": [
         {
@@ -22286,7 +22002,7 @@
             },
             {
               "name": "category",
-              "text": "Work in progress"
+              "text": "Up coming"
             },
             {
               "name": "description",
@@ -22403,7 +22119,7 @@
           "listeners": [],
           "metadata": {
             "name": "Canvas",
-            "category": "Work in progress",
+            "category": "Up coming",
             "description": "Canvas for drawing lines and shapes on.",
             "img": "/assets/img/canvas.png"
           }
@@ -22533,7 +22249,7 @@
             },
             {
               "name": "category",
-              "text": "Work in progress"
+              "text": "Up coming"
             },
             {
               "name": "description",
@@ -22651,7 +22367,7 @@
           ],
           "metadata": {
             "name": "Flow Designer",
-            "category": "Work in progress",
+            "category": "Up coming",
             "description": "An interactive button with a range of presentation options.",
             "img": "/assets/img/flow-designer.png"
           }
@@ -23025,6 +22741,340 @@
           "parts": [],
           "listeners": [],
           "metadata": {}
+        },
+        {
+          "filePath": "src/components/data-entry/html-editor/html-editor.tsx",
+          "fileName": "html-editor.tsx",
+          "tag": "goat-html-editor",
+          "readme": "# goat-code-editor\r\n\r\n\r\n\r",
+          "overview": "",
+          "usage": {},
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "name",
+              "text": "HTML Editor"
+            },
+            {
+              "name": "description",
+              "text": "A browser based html editor."
+            },
+            {
+              "name": "category",
+              "text": "Up coming"
+            },
+            {
+              "name": "tags",
+              "text": "input, form"
+            },
+            {
+              "name": "img",
+              "text": "/assets/img/code-editor.png"
+            }
+          ],
+          "encapsulation": "none",
+          "dependents": [],
+          "dependencies": [
+            "goat-button-group",
+            "goat-button",
+            "goat-spinner"
+          ],
+          "dependencyGraph": {
+            "goat-html-editor": [
+              "goat-button-group",
+              "goat-button",
+              "goat-spinner"
+            ],
+            "goat-button": [
+              "goat-icon",
+              "goat-spinner"
+            ]
+          },
+          "props": [
+            {
+              "name": "debounce",
+              "type": "number",
+              "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "debounce",
+              "reflectToAttr": false,
+              "docs": "Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.",
+              "docsTags": [],
+              "default": "250",
+              "values": [
+                {
+                  "type": "number"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "disabled",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "disabled",
+              "reflectToAttr": true,
+              "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "lineNumbers",
+              "type": "\"off\" | \"on\"",
+              "complexType": {
+                "original": "'off' | 'on'",
+                "resolved": "\"off\" | \"on\"",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "line-numbers",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "'on'",
+              "values": [
+                {
+                  "value": "off",
+                  "type": "string"
+                },
+                {
+                  "value": "on",
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "name",
+              "reflectToAttr": false,
+              "docs": "The input field name.",
+              "docsTags": [],
+              "default": "`goat-input-${this.gid}`",
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "readonly",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "readonly",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "required",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "required",
+              "reflectToAttr": true,
+              "docs": "If true, required icon is show. Defaults to `false`.",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "theme",
+              "type": "\"vs-dark\" | \"vs-light\"",
+              "complexType": {
+                "original": "'vs-light' | 'vs-dark'",
+                "resolved": "\"vs-dark\" | \"vs-light\"",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "theme",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "'vs-light'",
+              "values": [
+                {
+                  "value": "vs-dark",
+                  "type": "string"
+                },
+                {
+                  "value": "vs-light",
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "value",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": true,
+              "attr": "value",
+              "reflectToAttr": false,
+              "docs": "The input field value.",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
+          "methods": [
+            {
+              "name": "getComponentId",
+              "returns": {
+                "type": "Promise<string>",
+                "docs": ""
+              },
+              "complexType": {
+                "signature": "() => Promise<string>",
+                "parameters": [],
+                "references": {
+                  "Promise": {
+                    "location": "global",
+                    "id": "global::Promise"
+                  }
+                },
+                "return": "Promise<string>"
+              },
+              "signature": "getComponentId() => Promise<string>",
+              "parameters": [],
+              "docs": "",
+              "docsTags": []
+            },
+            {
+              "name": "setBlur",
+              "returns": {
+                "type": "Promise<void>",
+                "docs": ""
+              },
+              "complexType": {
+                "signature": "() => Promise<void>",
+                "parameters": [],
+                "references": {
+                  "Promise": {
+                    "location": "global",
+                    "id": "global::Promise"
+                  }
+                },
+                "return": "Promise<void>"
+              },
+              "signature": "setBlur() => Promise<void>",
+              "parameters": [],
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+              "docsTags": []
+            },
+            {
+              "name": "setFocus",
+              "returns": {
+                "type": "Promise<void>",
+                "docs": ""
+              },
+              "complexType": {
+                "signature": "() => Promise<void>",
+                "parameters": [],
+                "references": {
+                  "Promise": {
+                    "location": "global",
+                    "id": "global::Promise"
+                  }
+                },
+                "return": "Promise<void>"
+              },
+              "signature": "setFocus() => Promise<void>",
+              "parameters": [],
+              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
+              "docsTags": []
+            }
+          ],
+          "events": [
+            {
+              "event": "goat:change",
+              "detail": "any",
+              "bubbles": true,
+              "complexType": {
+                "original": "any",
+                "resolved": "any",
+                "references": {}
+              },
+              "cancelable": true,
+              "composed": true,
+              "docs": "Emitted when the value has changed..",
+              "docsTags": []
+            }
+          ],
+          "styles": [],
+          "slots": [],
+          "parts": [],
+          "listeners": [],
+          "metadata": {
+            "name": "HTML Editor",
+            "description": "A browser based html editor.",
+            "category": "Up coming",
+            "tags": [
+              "input",
+              " form"
+            ],
+            "img": "/assets/img/code-editor.png"
+          }
         },
         {
           "filePath": "src/components/general/image/image.tsx",

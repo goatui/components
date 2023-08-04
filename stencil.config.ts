@@ -52,7 +52,7 @@ export const config: Config = {
           // @ts-ignore
           let categoryName = component.metadata.category;
           if (!categoryName) {
-            categoryName = 'Work in progress';
+            categoryName = 'Up coming';
           }
 
           // @ts-ignore
@@ -70,7 +70,7 @@ export const config: Config = {
           cat.components.push(component);
         });
 
-        const order = ['General', 'Layout', 'Navigation', 'Form Inputs', 'Data Display',  'Feedback', 'Work in progress'];
+        const order = ['General', 'Layout', 'Navigation', 'Form Inputs', 'Data Display',  'Feedback', 'Up coming'];
 
         // @ts-ignore
         docs.categories.sort((a, b) => {

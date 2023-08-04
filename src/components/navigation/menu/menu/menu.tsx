@@ -5,6 +5,7 @@ import { Component, ComponentInterface, Element, h, Listen, Method, Prop, State,
  * @description Menus display a list of choices on temporary surfaces.
  * @category Navigation
  * @img /assets/img/menu.png
+ * @imgDark /assets/img/menu-dark.png
  */
 @Component({
   tag: 'goat-menu',

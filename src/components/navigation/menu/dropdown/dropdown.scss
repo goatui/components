@@ -38,26 +38,28 @@
     }
   }
 
+  $menuSpace: v(--spacing-02);
+
   &.bottom-right .dropdown-content {
-    top: 100%;
+    top: calc(100% + $menuSpace);
     left: 0;
     transform-origin: top;
   }
 
   &.bottom-left .dropdown-content {
-    top: 100%;
+    top: calc(100% + $menuSpace);
     right: 0;
     transform-origin: top;
   }
 
   &.top-right .dropdown-content {
-    bottom: 100%;
+    bottom: calc(100% + $menuSpace);
     left: 0;
     transform-origin: bottom;
   }
 
   &.top-left .dropdown-content {
-    bottom: 100%;
+    bottom: calc(100% + $menuSpace);
     right: 0;
     transform-origin: bottom;
   }

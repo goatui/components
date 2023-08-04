@@ -9,6 +9,7 @@ import GoatMenu = Components.GoatMenu;
  * @category Form Inputs
  * @tags input, form
  * @img /assets/img/select.png
+ * @imgDark /assets/img/select-dark.png
  */
 @Component({
   tag: 'goat-select',

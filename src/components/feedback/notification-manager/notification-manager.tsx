@@ -14,6 +14,7 @@ const getNotificationIndex = (() => {
  * @category Feedback
  * @tags notification
  * @img /assets/img/notification-manager.png
+ * @imgDark /assets/img/notification-manager-dark.png
  */
 @Component({
   tag: 'goat-notification-manager',
