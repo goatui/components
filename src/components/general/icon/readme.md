@@ -22,6 +22,7 @@
  - [goat-dropdown](../../navigation/menu/dropdown)
  - [goat-flow-designer](../../flow-designer/flow-designer)
  - [goat-notification](../../feedback/notification)
+ - [goat-progress](../../feedback/progress)
  - [goat-select](../../data-entry/select)
  - [goat-tab](../../navigation/tabs/tab)
  - [goat-tag](../../data-display/tag)
@@ -37,6 +38,7 @@ graph TD;
   goat-dropdown --> goat-icon
   goat-flow-designer --> goat-icon
   goat-notification --> goat-icon
+  goat-progress --> goat-icon
   goat-select --> goat-icon
   goat-tab --> goat-icon
   goat-tag --> goat-icon

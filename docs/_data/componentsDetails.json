@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-08-04T05:51:01",
+  "timestamp": "2023-08-05T06:39:25",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.0.1",
@@ -5286,6 +5286,7 @@
         "goat-dropdown",
         "goat-flow-designer",
         "goat-notification",
+        "goat-progress",
         "goat-select",
         "goat-tab",
         "goat-tag",
@@ -5308,6 +5309,9 @@
           "goat-icon"
         ],
         "goat-notification": [
+          "goat-icon"
+        ],
+        "goat-progress": [
           "goat-icon"
         ],
         "goat-select": [
@@ -7386,6 +7390,211 @@
           " form"
         ],
         "example": "<goat-number value=\"100\"></goat-input>"
+      }
+    },
+    {
+      "filePath": "src/components/feedback/progress/progress.tsx",
+      "fileName": "progress.tsx",
+      "tag": "goat-progress",
+      "readme": "# goat-spinner\n\n\n",
+      "overview": "",
+      "usage": {},
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "name",
+          "text": "Progress"
+        },
+        {
+          "name": "description",
+          "text": "Spinners provide a visual cue that an action is processing awaiting a course of change or a result."
+        },
+        {
+          "name": "category",
+          "text": "Feedback"
+        },
+        {
+          "name": "tags",
+          "text": "feedback, loading, progress, spinner"
+        },
+        {
+          "name": "example",
+          "text": "<goat-progress value=\"45\"></goat-spinner>"
+        }
+      ],
+      "encapsulation": "shadow",
+      "dependents": [],
+      "dependencies": [
+        "goat-icon"
+      ],
+      "dependencyGraph": {
+        "goat-progress": [
+          "goat-icon"
+        ]
+      },
+      "props": [
+        {
+          "name": "helperText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "helper-text",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "hideLabel",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-label",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"md\" | \"sm\"",
+          "complexType": {
+            "original": "'sm' | 'md'",
+            "resolved": "\"md\" | \"sm\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "\nPossible values are: `\"sm\"` and `\"md\"` in pixel. Defaults to `\"md\"`.",
+          "docsTags": [],
+          "default": "'md'",
+          "values": [
+            {
+              "value": "md",
+              "type": "string"
+            },
+            {
+              "value": "sm",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "\"active\" | \"error\" | \"success\"",
+          "complexType": {
+            "original": "'active' | 'success' | 'error'",
+            "resolved": "\"active\" | \"error\" | \"success\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "status",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'active'",
+          "values": [
+            {
+              "value": "active",
+              "type": "string"
+            },
+            {
+              "value": "error",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "null",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "listeners": [],
+      "metadata": {
+        "name": "Progress",
+        "description": "Spinners provide a visual cue that an action is processing awaiting a course of change or a result.",
+        "category": "Feedback",
+        "tags": [
+          "feedback",
+          " loading",
+          " progress",
+          " spinner"
+        ],
+        "example": "<goat-progress value=\"45\"></goat-spinner>"
       }
     },
     {
@@ -12902,6 +13111,7 @@
             "goat-dropdown",
             "goat-flow-designer",
             "goat-notification",
+            "goat-progress",
             "goat-select",
             "goat-tab",
             "goat-tag",
@@ -12924,6 +13134,9 @@
               "goat-icon"
             ],
             "goat-notification": [
+              "goat-icon"
+            ],
+            "goat-progress": [
               "goat-icon"
             ],
             "goat-select": [
@@ -21063,6 +21276,211 @@
             ],
             "img": "/assets/img/notification-manager.png",
             "imgDark": "/assets/img/notification-manager-dark.png"
+          }
+        },
+        {
+          "filePath": "src/components/feedback/progress/progress.tsx",
+          "fileName": "progress.tsx",
+          "tag": "goat-progress",
+          "readme": "# goat-spinner\n\n\n",
+          "overview": "",
+          "usage": {},
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "name",
+              "text": "Progress"
+            },
+            {
+              "name": "description",
+              "text": "Spinners provide a visual cue that an action is processing awaiting a course of change or a result."
+            },
+            {
+              "name": "category",
+              "text": "Feedback"
+            },
+            {
+              "name": "tags",
+              "text": "feedback, loading, progress, spinner"
+            },
+            {
+              "name": "example",
+              "text": "<goat-progress value=\"45\"></goat-spinner>"
+            }
+          ],
+          "encapsulation": "shadow",
+          "dependents": [],
+          "dependencies": [
+            "goat-icon"
+          ],
+          "dependencyGraph": {
+            "goat-progress": [
+              "goat-icon"
+            ]
+          },
+          "props": [
+            {
+              "name": "helperText",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "helper-text",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "hideLabel",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "hide-label",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "label",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "size",
+              "type": "\"md\" | \"sm\"",
+              "complexType": {
+                "original": "'sm' | 'md'",
+                "resolved": "\"md\" | \"sm\"",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "size",
+              "reflectToAttr": false,
+              "docs": "\nPossible values are: `\"sm\"` and `\"md\"` in pixel. Defaults to `\"md\"`.",
+              "docsTags": [],
+              "default": "'md'",
+              "values": [
+                {
+                  "value": "md",
+                  "type": "string"
+                },
+                {
+                  "value": "sm",
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "status",
+              "type": "\"active\" | \"error\" | \"success\"",
+              "complexType": {
+                "original": "'active' | 'success' | 'error'",
+                "resolved": "\"active\" | \"error\" | \"success\"",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "status",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "'active'",
+              "values": [
+                {
+                  "value": "active",
+                  "type": "string"
+                },
+                {
+                  "value": "error",
+                  "type": "string"
+                },
+                {
+                  "value": "success",
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "value",
+              "type": "number",
+              "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "value",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "null",
+              "values": [
+                {
+                  "type": "number"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
+          "methods": [],
+          "events": [],
+          "styles": [],
+          "slots": [],
+          "parts": [],
+          "listeners": [],
+          "metadata": {
+            "name": "Progress",
+            "description": "Spinners provide a visual cue that an action is processing awaiting a course of change or a result.",
+            "category": "Feedback",
+            "tags": [
+              "feedback",
+              " loading",
+              " progress",
+              " spinner"
+            ],
+            "example": "<goat-progress value=\"45\"></goat-spinner>"
           }
         },
         {
