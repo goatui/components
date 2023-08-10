@@ -2,7 +2,7 @@ import { Component, h, Host, Prop } from '@stencil/core';
 
 /**
  * @name Progress
- * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
+ * @description Progress indicators express an unspecified wait time or display the length of a process.
  * @category Feedback
  * @tags feedback, loading, progress, spinner
  * @example <goat-progress value="40" label="Progress" width="100%" helper-text="Optional helper text goes here..."></goat-progress>

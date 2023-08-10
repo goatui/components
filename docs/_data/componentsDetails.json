@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-08-10T08:04:34",
+  "timestamp": "2023-08-10T08:46:47",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.0.1",
@@ -7407,7 +7407,7 @@
         },
         {
           "name": "description",
-          "text": "Spinners provide a visual cue that an action is processing awaiting a course of change or a result."
+          "text": "Progress indicators express an unspecified wait time or display the length of a process."
         },
         {
           "name": "category",
@@ -7586,7 +7586,7 @@
       "listeners": [],
       "metadata": {
         "name": "Progress",
-        "description": "Spinners provide a visual cue that an action is processing awaiting a course of change or a result.",
+        "description": "Progress indicators express an unspecified wait time or display the length of a process.",
         "category": "Feedback",
         "tags": [
           "feedback",
@@ -21293,7 +21293,7 @@
             },
             {
               "name": "description",
-              "text": "Spinners provide a visual cue that an action is processing awaiting a course of change or a result."
+              "text": "Progress indicators express an unspecified wait time or display the length of a process."
             },
             {
               "name": "category",
@@ -21472,7 +21472,7 @@
           "listeners": [],
           "metadata": {
             "name": "Progress",
-            "description": "Spinners provide a visual cue that an action is processing awaiting a course of change or a result.",
+            "description": "Progress indicators express an unspecified wait time or display the length of a process.",
             "category": "Feedback",
             "tags": [
               "feedback",
