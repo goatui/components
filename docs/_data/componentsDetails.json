@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-08-05T06:39:25",
+  "timestamp": "2023-08-10T08:51:19",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.0.1",
@@ -7407,7 +7407,7 @@
         },
         {
           "name": "description",
-          "text": "Spinners provide a visual cue that an action is processing awaiting a course of change or a result."
+          "text": "Progress indicators express an unspecified wait time or display the length of a process."
         },
         {
           "name": "category",
@@ -7419,7 +7419,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-progress value=\"45\"></goat-spinner>"
+          "text": "<goat-progress value=\"40\" label=\"Progress\" width=\"100%\" helper-text=\"Optional helper text goes here...\"></goat-progress>"
         }
       ],
       "encapsulation": "shadow",
@@ -7586,7 +7586,7 @@
       "listeners": [],
       "metadata": {
         "name": "Progress",
-        "description": "Spinners provide a visual cue that an action is processing awaiting a course of change or a result.",
+        "description": "Progress indicators express an unspecified wait time or display the length of a process.",
         "category": "Feedback",
         "tags": [
           "feedback",
@@ -7594,7 +7594,7 @@
           " progress",
           " spinner"
         ],
-        "example": "<goat-progress value=\"45\"></goat-spinner>"
+        "example": "<goat-progress value=\"40\" label=\"Progress\" width=\"100%\" helper-text=\"Optional helper text goes here...\"></goat-progress>"
       }
     },
     {
@@ -21293,7 +21293,7 @@
             },
             {
               "name": "description",
-              "text": "Spinners provide a visual cue that an action is processing awaiting a course of change or a result."
+              "text": "Progress indicators express an unspecified wait time or display the length of a process."
             },
             {
               "name": "category",
@@ -21305,7 +21305,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-progress value=\"45\"></goat-spinner>"
+              "text": "<goat-progress value=\"40\" label=\"Progress\" width=\"100%\" helper-text=\"Optional helper text goes here...\"></goat-progress>"
             }
           ],
           "encapsulation": "shadow",
@@ -21472,7 +21472,7 @@
           "listeners": [],
           "metadata": {
             "name": "Progress",
-            "description": "Spinners provide a visual cue that an action is processing awaiting a course of change or a result.",
+            "description": "Progress indicators express an unspecified wait time or display the length of a process.",
             "category": "Feedback",
             "tags": [
               "feedback",
@@ -21480,7 +21480,7 @@
               " progress",
               " spinner"
             ],
-            "example": "<goat-progress value=\"45\"></goat-spinner>"
+            "example": "<goat-progress value=\"40\" label=\"Progress\" width=\"100%\" helper-text=\"Optional helper text goes here...\"></goat-progress>"
           }
         },
         {

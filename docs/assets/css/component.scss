@@ -38,28 +38,10 @@ $sideBarWidth: 15rem;
   border-bottom: 1px solid var(--border-color);
 }
 
-.sidenav-link {
-  padding: 0.5rem 1rem;
-  width: 100%;
-  text-decoration: none;
-  color: var(--text-primary);
-  display: inline-block;
-  font-size: var(--text-lg-font-size);
-}
-
-.sidenav-link:hover {
-  background: var(--active-ui);
-}
-
-.sidenav-link.active {
-  font-weight: 600;
-  background: var(--background);
-}
-
 .main-content {
   margin-top: var(--header-height);
   margin-inline-start: $sideBarWidth;
-  background: var(--layer-02);
+  background: var(--background);
   position: relative;
 }
 

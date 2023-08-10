@@ -6,6 +6,8 @@
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
   border: 1px solid v(--border-strong-01);
   border-radius: v(--border-radius);
   height: 100%;
@@ -49,4 +51,5 @@ slot::slotted(goat-card-content.no-padding) {
 
 slot::slotted(goat-card-content:last-child) {
   border-bottom: none;
+  flex: 1;
 }
