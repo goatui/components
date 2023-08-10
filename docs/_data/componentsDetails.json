@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-08-10T03:16:21",
+  "timestamp": "2023-08-10T07:10:18",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.0.1",
@@ -7419,7 +7419,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-progress value=\"45\"></goat-spinner>"
+          "text": "<goat-progress value=\"40\" label=\"Progress\" width=\"100%\" helper-text=\"Optional helper text goes here...\"></goat-progress>"
         }
       ],
       "encapsulation": "shadow",
@@ -7594,7 +7594,7 @@
           " progress",
           " spinner"
         ],
-        "example": "<goat-progress value=\"45\"></goat-spinner>"
+        "example": "<goat-progress value=\"40\" label=\"Progress\" width=\"100%\" helper-text=\"Optional helper text goes here...\"></goat-progress>"
       }
     },
     {
@@ -21305,7 +21305,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-progress value=\"45\"></goat-spinner>"
+              "text": "<goat-progress value=\"40\" label=\"Progress\" width=\"100%\" helper-text=\"Optional helper text goes here...\"></goat-progress>"
             }
           ],
           "encapsulation": "shadow",
@@ -21480,7 +21480,7 @@
               " progress",
               " spinner"
             ],
-            "example": "<goat-progress value=\"45\"></goat-spinner>"
+            "example": "<goat-progress value=\"40\" label=\"Progress\" width=\"100%\" helper-text=\"Optional helper text goes here...\"></goat-progress>"
           }
         },
         {

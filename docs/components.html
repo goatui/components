@@ -8,12 +8,13 @@ keywords: web components, button, input, grid, ui library, calendar, table, acco
   .cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-    gap: var(--spacing-06);
-    margin-bottom: var(--spacing-09);
+    gap: var(--spacing-08);
+    align-items: stretch;
+    margin-top: var(--spacing-09);
   }
 
   .card {
-    width: 100%;
+    height: 100%;
   }
 
   .card-wrapper {
@@ -30,21 +31,29 @@ keywords: web components, button, input, grid, ui library, calendar, table, acco
     box-shadow: 6px 6px 0 var(--active-ui);
   }
 
-  @media (max-width: 599px) {
+  .up-coming-title {
+    margin-top: var(--spacing-09);
+  }
+  .up-coming {
+    margin-top: var(--spacing-02);
+  }
+
+  @media (max-width: 671px) {
     .card-wrapper {
       width: 100%;
     }
-  }
-
-  @media (max-width: 576px) {
-    .card-wrapper {
-      width: 100%;
+    .cards {
+      gap: var(--spacing-08);
     }
   }
 
   .card-wrapper .header {
     position: relative;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 14rem;
   }
 
   .card-wrapper .header:after {
@@ -59,24 +68,15 @@ keywords: web components, button, input, grid, ui library, calendar, table, acco
     pointer-events: unset;
   }
 
-  .card-wrapper:hover .body {
+  .card-wrapper .body {
+    height: 100%;
     background: var(--layer-01);
-  }
-
-  .card-wrapper .header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 14rem;
   }
 
   .text {
     --text-color: var(--text-primary);
   }
 
-  #component-search {
-    margin-bottom: var(--spacing-09);
-  }
 
   .hidden {
     display: none;
@@ -94,6 +94,15 @@ keywords: web components, button, input, grid, ui library, calendar, table, acco
 <goat-input id="component-search" placeholder="Search">
   <goat-icon slot="start" size='1rem' name="search"></goat-icon>
 </goat-input>
+
+<div class='filters hidden'>
+  <goat-link href="/components">
+    Remove filter
+  </goat-link>
+</div>
+
+
+
 
 <script>
   document.getElementById('component-search').addEventListener('goat:input', function (e) {
@@ -120,13 +129,12 @@ keywords: web components, button, input, grid, ui library, calendar, table, acco
       </goat-card-content>
 
       <goat-card-content class="body">
-        <goat-text class="text" type="heading" heading-size='3'>{{component.metadata.name}}</goat-text>
-
-        {% for tag in component.metadata.tags %}
-        <goat-link href="/components?filter={{tag}}"> <goat-tag class="color-blue" tag="{{tag}}">{{tag}}</goat-tag></goat-link>
-        {% endfor %} {% if component.metadata.tags == null %}
-        <goat-link href="/components?filter=other"> <goat-tag class="color-blue" tag="other">other</goat-tag></goat-link>
-        {% endif %}
+        <goat-text class="text" type="heading" heading-size='3'>{{component.metadata.name}}
+          <goat-link href="/components?filter={{component.metadata.category}}">
+            <goat-tag class="color-blue" tag="{{component.metadata.category}}">{{component.metadata.category}}</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">{{component.metadata.description}}</goat-text>
       </goat-card-content>
     </goat-card>
   </div>
@@ -135,10 +143,9 @@ keywords: web components, button, input, grid, ui library, calendar, table, acco
   {% endfor %}
 </div>
 
-<goat-text type="heading" heading-size="4">Upcoming</goat-text>
-<div class="cards">
+<goat-text class="up-coming-title" type="heading" heading-size="4">Upcoming</goat-text>
 
-
+<div class="cards up-coming">
   {% for component in site.data.componentsDetails.components %}
   {% if component.metadata.name %}
   {% if component.metadata.category == 'Up coming' %}
@@ -168,7 +175,9 @@ keywords: web components, button, input, grid, ui library, calendar, table, acco
 
   <script>
     if (window.location.href.indexOf('?filter=') !== -1) {
-      const filter = window.location.href.split('?filter=')[1];
+      const filter = new URLSearchParams(window.location.search).get('filter');
+      if (filter)
+        document.querySelector('.filters').classList.remove('hidden');
       document.querySelectorAll('.card-wrapper').forEach(elm => {
         elm.classList.add('hidden-force');
         if (elm.querySelector(`goat-tag[tag="${filter}"]`)) {
