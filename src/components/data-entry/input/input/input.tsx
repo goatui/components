@@ -226,6 +226,10 @@ export class Input implements ComponentInterface, InputComponentInterface {
           }}
         >
 
+          <div class="slot-container start">
+            <slot name="start" />
+          </div>
+
           <input
             class="input input-native"
             name={this.name}
@@ -266,7 +270,7 @@ export class Input implements ComponentInterface, InputComponentInterface {
           )}
 
           <div class="slot-container end">
-            <slot/>
+            <slot name="end" />
           </div>
         </div>
       </Host>
