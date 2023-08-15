@@ -20,6 +20,8 @@ export class HeaderAction {
 
   @Prop() color: 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' = 'brand-secondary';
 
+  @Prop() variant: 'default' | 'outline' | 'ghost' | 'link' = 'default';
+
   /**
    * Sets or retrieves the window or frame at which to target content.
    */
@@ -50,6 +52,7 @@ export class HeaderAction {
       <goat-button
         class="header-action"
         color={this.color}
+        variant={this.variant}
         kind={'simple'}
         icon={this.icon}
         iconSize={'1.25rem'}

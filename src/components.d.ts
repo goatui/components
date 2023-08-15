@@ -486,6 +486,7 @@ export namespace Components {
           * Sets or retrieves the window or frame at which to target content.
          */
         "target": string;
+        "variant": 'default' | 'outline' | 'ghost' | 'link';
     }
     interface GoatHeaderBrand {
         "color": string;
@@ -2581,6 +2582,7 @@ declare namespace LocalJSX {
           * Sets or retrieves the window or frame at which to target content.
          */
         "target"?: string;
+        "variant"?: 'default' | 'outline' | 'ghost' | 'link';
     }
     interface GoatHeaderBrand {
         "color"?: string;

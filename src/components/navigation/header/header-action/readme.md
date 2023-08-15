@@ -16,6 +16,7 @@
 | `selected` | `selected` | Button selection state.                                                                                 | `boolean`                                                                                   | `false`             |
 | `size`     | `size`     | Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"none"`. Defaults to `"md"`. | `"lg" \| "md" \| "none" \| "sm" \| "xl" \| "xxl"`                                           | `'md'`              |
 | `target`   | `target`   | Sets or retrieves the window or frame at which to target content.                                       | `string`                                                                                    | `'_self'`           |
+| `variant`  | `variant`  |                                                                                                         | `"default" \| "ghost" \| "link" \| "outline"`                                               | `'default'`         |
 
 
 ## Dependencies

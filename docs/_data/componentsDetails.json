@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-08-10T08:51:19",
+  "timestamp": "2023-08-15T07:33:38",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.0.1",
@@ -4761,6 +4761,41 @@
           "default": "'_self'",
           "values": [
             {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"default\" | \"ghost\" | \"link\" | \"outline\"",
+          "complexType": {
+            "original": "'default' | 'outline' | 'ghost' | 'link'",
+            "resolved": "\"default\" | \"ghost\" | \"link\" | \"outline\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'default'",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "ghost",
+              "type": "string"
+            },
+            {
+              "value": "link",
+              "type": "string"
+            },
+            {
+              "value": "outline",
               "type": "string"
             }
           ],
@@ -23002,6 +23037,41 @@
               "default": "'_self'",
               "values": [
                 {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "variant",
+              "type": "\"default\" | \"ghost\" | \"link\" | \"outline\"",
+              "complexType": {
+                "original": "'default' | 'outline' | 'ghost' | 'link'",
+                "resolved": "\"default\" | \"ghost\" | \"link\" | \"outline\"",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "variant",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "'default'",
+              "values": [
+                {
+                  "value": "default",
+                  "type": "string"
+                },
+                {
+                  "value": "ghost",
+                  "type": "string"
+                },
+                {
+                  "value": "link",
+                  "type": "string"
+                },
+                {
+                  "value": "outline",
                   "type": "string"
                 }
               ],
