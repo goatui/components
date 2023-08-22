@@ -1,5 +1,5 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Prop } from '@stencil/core';
-import { ElementSize } from '../../../utils/utils';
+import {Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Prop} from '@stencil/core';
+import {ElementSize} from '../../../utils/utils';
 
 /**
  * @name Tag
@@ -18,22 +18,24 @@ export class Tag implements ComponentInterface {
   /**
    * Text size.
    */
-  @Prop({ reflect: true }) size: 'sm' | 'md' = 'md';
+  @Prop({reflect: true}) size: 'sm' | 'md' = 'md';
 
-  @Prop({ reflect: true }) filter: boolean = false;
+  @Prop({reflect: true}) filter: boolean = false;
 
-  @Prop({ reflect: true }) value: string = '';
+  @Prop({reflect: true}) color: 'gray' | 'blue' | 'green' | 'red' | 'yellow' | 'primary' | 'success' | 'info' | 'warning' | 'error' = 'gray';
+
+  @Prop({reflect: true}) value: string = '';
 
   @Prop() imageSrc: string = '';
 
-  @Event({ eventName: 'goat:click' }) goatClick: EventEmitter;
+  @Event({eventName: 'goat:click'}) goatClick: EventEmitter;
 
-  @Event({ eventName: 'goat:tag-dismiss' }) goatTagDismissClick: EventEmitter;
+  @Event({eventName: 'goat:tag-dismiss'}) goatTagDismissClick: EventEmitter;
 
   @Element() elm!: HTMLElement;
 
   private dismissClickHandler = () => {
-    this.goatTagDismissClick.emit({ value: this.value || this.elm.textContent });
+    this.goatTagDismissClick.emit({value: this.value || this.elm.textContent});
   };
 
   private getIconSize() {
@@ -58,16 +60,21 @@ export class Tag implements ComponentInterface {
 
   renderImage() {
     if (this.imageSrc)
-    return <img src={this.imageSrc} alt="Tag image" class='tag-image' />;
+      return <img src={this.imageSrc} alt="Tag image" class='tag-image'/>;
   }
 
   render() {
     return (
       <Host>
-        <div class={{ 'tag': true, [`size-${this.size}`]: true, filter: this.filter }}>
+        <div class={{
+          'tag': true,
+          [`size-${this.size}`]: true,
+          filter: this.filter,
+          [`color-${this.color}`]: true
+        }}>
           {this.renderImage()}
           <div class='tag-content'>
-            <slot />
+            <slot/>
           </div>
           {this.renderCloseButton()}
         </div>

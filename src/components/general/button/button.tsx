@@ -43,7 +43,7 @@ export class Button implements ComponentInterface {
    * `"outline"` is an outlined button.
    * `"ghost"` is a transparent button.
    */
-  @Prop() variant: 'default' | 'outline' | 'ghost' | 'link' = 'default';
+  @Prop() variant: 'default' | 'outline' | 'ghost' | 'light' | 'link' = 'default';
 
   /**
    * Button selection state.

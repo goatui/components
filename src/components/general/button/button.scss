@@ -229,6 +229,62 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
   }
 }
 
+.button.variant-light {
+
+  .native-button {
+    color: var(--button-color);
+    border-color: var(--button-color-light);
+  }
+
+  .button-background {
+    background: var(--button-color-light);
+  }
+
+  &:hover {
+    .native-button {
+      color: var(--color-white);
+      border-color: #{$button-color-hover};
+    }
+
+    .button-background {
+      background: #{$button-color-hover};
+    }
+  }
+
+  &.active, &.selected {
+    .native-button {
+      border-color: #{$button-color-active};
+    }
+
+    .button-background {
+      background: #{$button-color-active};
+    }
+  }
+
+  &.has-focus:not(.active) .native-button {
+    .button-content {
+      border-color: v(--color-white);
+    }
+
+    border-color: var(--button-color-focus, v(--color-primary));
+  }
+
+  &.disabled {
+    .native-button {
+      color: v(--disabled-03);
+      border-color: v(--text-disabled) !important;
+    }
+
+    .button-background {
+      background: v(--text-disabled) !important;
+    }
+
+    &.has-focus:not(.active) .native-button {
+      border-color: v(--color-neutral) !important;
+    }
+  }
+}
+
 .button.variant-outline {
   .native-button {
     color: var(--button-color);
@@ -344,6 +400,7 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
 @each $color in [primary, secondary, success, info, warning, error, brand-primary, brand-secondary] {
   :host([color="#{$color}"]) {
     --button-color: #{v(--color-#{$color})};
+    --button-color-light: #{v(--color-#{$color}-10)};
     --button-color-hover: #{v(--color-#{$color}-70)};
     --button-color-active: #{v(--color-#{$color}-80)};
     --button-color-support: #{v(--color-#{$color})};
@@ -354,6 +411,7 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
 
 :host([color="danger"]) {
   --button-color: #{v(--color-error)};
+  --button-color-light: #{v(--color-error-10)};
   --button-color-hover: #{v(--color-error-70)};
   --button-color-active: #{v(--color-error-80)};
   --button-color-support: #{v(--color-error)};

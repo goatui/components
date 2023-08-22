@@ -5,6 +5,7 @@
   height: 100%;
   min-height: 20em;
   --table-border-color: #{v(--border-strong-01)};
+  --table-col-content-padding: #{v(--spacing-02)} #{v(--spacing-03)};
 }
 
 .table {
@@ -55,6 +56,19 @@
 
     .arrows {
       --border-radius: 0;
+      --button-height: calc(2.5rem - 2px);
+    }
+  }
+
+  &.horizontal-scrolled {
+    .fixed-columns:after {
+      box-shadow: 10px 0 20px -20px var(--border-color) inset;
+      content: " ";
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: -20px;
+      width: 20px;
     }
   }
 }
@@ -72,9 +86,6 @@
   .col {
     margin: 0;
     color: v(--text-primary);
-    box-sizing: border-box;
-    vertical-align: middle;
-    line-height: normal;
 
     .col-content {
       display: flex;
@@ -82,11 +93,15 @@
       height: 100%;
 
       .col-text {
-        padding: v(--spacing-02) v(--spacing-03);
+        padding: var(--table-col-content-padding);
         flex: 1;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+      }
+
+      .col-template {
+        width: 100%;
       }
 
       .col-action {
@@ -119,7 +134,7 @@
 
   .scrollable-columns {
     flex: 1;
-    z-index: 0;
+    /*z-index: 0;*/
   }
 
 }
@@ -163,17 +178,28 @@
     .col {
       cursor: pointer;
       background: v(--background);
-      border: 2px solid transparent;
       border-bottom: 1px solid var(--layer-accent-01);
+
+      &.col-checkbox .col-content {
+        border: 0;
+      }
+
+      .col-content {
+        border: 2px solid transparent;
+        border-bottom: 1px solid transparent;
+      }
+
 
       &:focus {
         outline: none;
-        border: 2px solid v(--color-primary);
+        border-bottom-color: v(--color-primary);
         z-index: 1;
+        .col-content {
+          border-color: v(--color-primary);
+        }
       }
     }
   }
-
 
   .left-panel {
     position: sticky;

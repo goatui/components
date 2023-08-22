@@ -829,7 +829,7 @@ Border-bottom paired with $field-03;
   --shadow-xxl: 0px 24px 48px -12px rgba(16, 24, 40, 0.18);
   --shadow-xxxl: 0px 32px 64px -12px rgba(16, 24, 40, 0.14);
   --border-radius: 3px;
-  --z-index-button: 10;
+  --z-index-button: 0;
   --z-index-badge: 20;
   --z-index-table-header: 30;
   --z-index-dropdown-content: 40;

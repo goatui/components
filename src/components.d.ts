@@ -149,7 +149,7 @@ export namespace Components {
         /**
           * Button variants. Possible values are `"default"`, `"outline"`, `"ghost"`. Defaults to `"default"`. `"default"` is a filled button. `"outline"` is an outlined button. `"ghost"` is a transparent button.
          */
-        "variant": 'default' | 'outline' | 'ghost' | 'link';
+        "variant": 'default' | 'outline' | 'ghost' | 'light' | 'link';
     }
     /**
      * @name Button Group
@@ -1011,7 +1011,7 @@ export namespace Components {
      */
     interface GoatTable {
         /**
-          * Grid columns configuration. [ {   "name":"name",   "label":"Name",   "width":300,   "fixed":true  }, {   "name":"age",   "label":"Age" } ]
+          * Grid columns configuration. [ {   "name":"name",   "label":"Name",   "width":300,   "fixed":true,   "template": function(row, column) { return row[column.name];}  }, {   "name":"age",   "label":"Age" } ]
          */
         "columns": any[];
         /**
@@ -1057,6 +1057,7 @@ export namespace Components {
      * @example <goat-tag class="color-red">Important</goat-tag>
      */
     interface GoatTag {
+        "color": 'gray' | 'blue' | 'green' | 'red' | 'yellow' | 'primary' | 'success' | 'info' | 'warning' | 'error';
         "filter": boolean;
         "imageSrc": string;
         /**
@@ -2236,7 +2237,7 @@ declare namespace LocalJSX {
         /**
           * Button variants. Possible values are `"default"`, `"outline"`, `"ghost"`. Defaults to `"default"`. `"default"` is a filled button. `"outline"` is an outlined button. `"ghost"` is a transparent button.
          */
-        "variant"?: 'default' | 'outline' | 'ghost' | 'link';
+        "variant"?: 'default' | 'outline' | 'ghost' | 'light' | 'link';
     }
     /**
      * @name Button Group
@@ -3098,7 +3099,7 @@ declare namespace LocalJSX {
      */
     interface GoatTable {
         /**
-          * Grid columns configuration. [ {   "name":"name",   "label":"Name",   "width":300,   "fixed":true  }, {   "name":"age",   "label":"Age" } ]
+          * Grid columns configuration. [ {   "name":"name",   "label":"Name",   "width":300,   "fixed":true,   "template": function(row, column) { return row[column.name];}  }, {   "name":"age",   "label":"Age" } ]
          */
         "columns"?: any[];
         /**
@@ -3148,6 +3149,7 @@ declare namespace LocalJSX {
      * @example <goat-tag class="color-red">Important</goat-tag>
      */
     interface GoatTag {
+        "color"?: 'gray' | 'blue' | 'green' | 'red' | 'yellow' | 'primary' | 'success' | 'info' | 'warning' | 'error';
         "filter"?: boolean;
         "imageSrc"?: string;
         "onGoat:click"?: (event: GoatTagCustomEvent<any>) => void;

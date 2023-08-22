@@ -1,5 +1,4 @@
-import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core';
-
+import {Component, Element, Event, EventEmitter, h, Host, Prop, State} from '@stencil/core';
 
 const DEFAULT_CELL_WIDTH = 16; // in rem
 const SUPPORTED_PAGE_SIZES = [{
@@ -41,7 +40,8 @@ export class Table {
    *   "name":"name",
    *   "label":"Name",
    *   "width":300,
-   *   "fixed":true
+   *   "fixed":true,
+   *   "template": function(row, column) { return row[column.name];}
    *  },
    * {
    *   "name":"age",
@@ -67,7 +67,7 @@ export class Table {
 
   @Prop() selectionType: 'checkbox' | undefined;
 
-  @Prop({ mutable: true }) selectedRowKeys: string[] = [];
+  @Prop({mutable: true}) selectedRowKeys: string[] = [];
 
   @Prop() keyField: string = 'id';
 
@@ -75,9 +75,9 @@ export class Table {
 
   @Prop() sortable: boolean = true;
 
-  @Prop({ mutable: true }) sortBy: string;
+  @Prop({mutable: true}) sortBy: string;
 
-  @Prop({ mutable: true }) sortOrder: 'asc' | 'desc' = 'asc';
+  @Prop({mutable: true}) sortOrder: 'asc' | 'desc' = 'asc';
 
   @Prop() paginate: boolean = true;
 
@@ -85,21 +85,22 @@ export class Table {
 
   @Prop() pageSize: number = 10;
 
-  @Prop({ mutable: true }) totalItems;
+  @Prop({mutable: true}) totalItems;
 
-  @Prop({ mutable: true }) emptyState: any = {
+  @Prop({mutable: true}) emptyState: any = {
     'title': 'No items',
     'description': 'There are no items to display',
   };
 
   @State() private hoveredCell: any = {};
   @State() private isSelectAll: boolean = false;
-  @State() private isSelectAllIntermidiate: boolean = false;
+  @State() private isSelectAllIntermediate: boolean = false;
+  @State() private isHorizontallyScrolled: boolean = false;
 
-  @Event({ eventName: 'goat:table-cell-click' }) goatCellClick: EventEmitter;
-  @Event({ eventName: 'goat:table-select-change' }) goatSelectChange: EventEmitter;
-  @Event({ eventName: 'goat:sort' }) goatSort: EventEmitter;
-  @Event({ eventName: 'goat:page' }) goatPage: EventEmitter;
+  @Event({eventName: 'goat:table-cell-click'}) goatCellClick: EventEmitter;
+  @Event({eventName: 'goat:table-select-change'}) goatSelectChange: EventEmitter;
+  @Event({eventName: 'goat:sort'}) goatSort: EventEmitter;
+  @Event({eventName: 'goat:page'}) goatPage: EventEmitter;
 
   onSelectAllClick = () => {
     let selectedRowKeys = [];
@@ -121,16 +122,16 @@ export class Table {
   };
 
   onCellMouseOver = (row: any, column: any) => {
-    this.hoveredCell = { row, column };
+    this.hoveredCell = {row, column};
   };
 
   onSelectChange(selectedRowKeys: any) {
     this.selectedRowKeys = selectedRowKeys;
-    this.goatSelectChange.emit({ value: this.selectedRowKeys, isSelectAll: this.isSelectAll });
+    this.goatSelectChange.emit({value: this.selectedRowKeys, isSelectAll: this.isSelectAll});
   }
 
   onCellClick(row: any, col: any) {
-    this.goatCellClick.emit({ record: row, column: col });
+    this.goatCellClick.emit({record: row, column: col});
   }
 
   renderHeader() {
@@ -139,10 +140,10 @@ export class Table {
 
     if (this.selectionType === 'checkbox') {
       fixedCols.push(
-        <div class='col center'>
+        <div class='col col-checkbox center'>
           <div class='col-content'>
-            <goat-checkbox class='checkbox light' value={this.isSelectAll} intermediate={this.isSelectAllIntermidiate}
-                           onGoat:change={this.onSelectAllClick} />
+            <goat-checkbox class='checkbox light' value={this.isSelectAll} intermediate={this.isSelectAllIntermediate}
+                           onGoat:change={this.onSelectAllClick}/>
           </div>
         </div>);
     }
@@ -150,8 +151,8 @@ export class Table {
       let colWidth = DEFAULT_CELL_WIDTH;
       if (col.width)
         colWidth = parseInt(col.width);
-      const colEl = <div class={{ 'col': true, 'sort': this.sortBy === col.name }}
-                         style={{ width: colWidth + 'rem' }}>
+      const colEl = <div class={{'col': true, 'sort': this.sortBy === col.name}}
+                         style={{width: colWidth + 'rem'}}>
         <div class='col-content'>
           <div class='col-text'>{col.label}</div>
           <div class='col-actions'>
@@ -178,8 +179,8 @@ export class Table {
                     this.sortBy = col.name;
                     this.sortOrder = 'asc';
                   }
-                  this.goatSort.emit({ sortBy: this.sortBy, sortOrder: this.sortOrder });
-                }} />;
+                  this.goatSort.emit({sortBy: this.sortBy, sortOrder: this.sortOrder});
+                }}/>;
               })()
             }
           </div>
@@ -226,13 +227,12 @@ export class Table {
       const scrollCols = [];
 
       if (this.selectionType === 'checkbox')
-        fixedCols.push(<div class={{ 'col': true, 'center': true }}>
+        fixedCols.push(<div class={{'col': true, 'center': true, 'col-checkbox': true}}>
           <div class='col-content'>
             <goat-checkbox class='checkbox light' value={this.selectedRowKeys.includes(row[this.keyField])}
-                           onGoat:change={() => this.onRowSelectClick(row)} />
+                           onGoat:change={() => this.onRowSelectClick(row)}/>
           </div>
         </div>);
-
 
       this.columns.forEach((column) => {
         let colWidth = DEFAULT_CELL_WIDTH;
@@ -240,22 +240,35 @@ export class Table {
           colWidth = parseInt(column.width);
         const colEl = <div
           tabindex='1'
-          class={{ 'col': true, 'col-hover': (this.hoveredCell.row === row && this.hoveredCell.column === column) }}
-          style={{ width: colWidth + 'rem' }}
+          class={{'col': true, 'col-hover': (this.hoveredCell.row === row && this.hoveredCell.column === column)}}
+          style={{width: colWidth + 'rem'}}
           onMouseOver={() => this.onCellMouseOver(row, column)}
+          onKeyDown={(event) => {
+            if ((event.ctrlKey || event.metaKey) && event.key === 'c') {
+              const elem: any = event.target;
+              window.navigator.clipboard.writeText(elem.innerText);
+            }
+          }}
           onClick={() => {
             const selection = window.getSelection();
             if (selection.type != 'Range')
               this.onCellClick(row, column);
           }}>
           <div class='col-content'>
-            <div class='col-text' title={row?.[column.name]}>{row?.[column.name]}</div>
+            {
+              (() => {
+                if (column.template)
+                  return <div class='col-template' innerHTML={column.template(row, column)}></div>;
+                else
+                  return <div class='col-text' title={row?.[column.name]}>{row?.[column.name]}</div>;
+              })()
+            }
           </div>
         </div>;
 
         column.fixed ? fixedCols.push(colEl) : scrollCols.push(colEl);
       });
-      rows.push(<div class={{ 'row': true, 'row-hover': (this.hoveredCell.row === row) }}>
+      rows.push(<div class={{'row': true, 'row-hover': (this.hoveredCell.row === row)}}>
         <div class='fixed-columns columns-container'>
           {fixedCols}
         </div>
@@ -288,12 +301,13 @@ export class Table {
                          value={this.pageSize}
                          onGoat:change={(e) => {
                            this.pageSize = e.detail.value;
-                           this.goatPage.emit({ page: this.page, pageSize: this.pageSize });
-                         }} />
+                           this.goatPage.emit({page: this.page, pageSize: this.pageSize});
+                         }}/>
           </goat-form-control>
         </div>
         <div class='pagination-item-count'>
-          <goat-text inline>{this.pageSize * (this.page - 1)} - {this.pageSize * (this.page) < this.getTotalItems() ? this.pageSize * (this.page) : this.getTotalItems()} of {this.getTotalItems()} items
+          <goat-text
+            inline>{this.pageSize * (this.page - 1)} - {this.pageSize * (this.page) < this.getTotalItems() ? this.pageSize * (this.page) : this.getTotalItems()} of {this.getTotalItems()} items
           </goat-text>
         </div>
         <div class='pagination-right'>
@@ -306,16 +320,16 @@ export class Table {
                            disabled={this.page === 1}
                            onClick={() => {
                              this.page = this.page - 1;
-                             this.goatPage.emit({ page: this.page, pageSize: this.pageSize });
-                           }} />
+                             this.goatPage.emit({page: this.page, pageSize: this.pageSize});
+                           }}/>
               <goat-button icon='arrow--right'
                            variant='ghost'
                            class="arrows"
                            disabled={this.pageSize * (this.page) >= this.getTotalItems()}
                            onClick={() => {
                              this.page = this.page + 1;
-                             this.goatPage.emit({ page: this.page, pageSize: this.pageSize });
-                           }} />
+                             this.goatPage.emit({page: this.page, pageSize: this.pageSize});
+                           }}/>
             </div>
           </div>
         </div>
@@ -324,8 +338,11 @@ export class Table {
 
   render() {
     return <Host>
-      <div class={{ 'table': true, 'sortable': this.sortable, 'paginate': this.paginate }}>
-        <div class='table-scroll-container'>
+      <div class={{'table': true, 'sortable': this.sortable, 'paginate': this.paginate, 'horizontal-scrolled': this.isHorizontallyScrolled}}>
+        <div class='table-scroll-container' onScroll={(event)=>{
+          // @ts-ignore
+          this.isHorizontallyScrolled = !!event.target.scrollLeft;
+        }}>
           {this.renderHeader()}
           {(this.data.length) ? this.renderBody() : this.renderEmptyState()}
         </div>
