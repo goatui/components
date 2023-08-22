@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-08-15T07:37:34",
+  "timestamp": "2023-08-22T07:57:27",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.0.1",
@@ -1119,10 +1119,10 @@
         },
         {
           "name": "variant",
-          "type": "\"default\" | \"ghost\" | \"link\" | \"outline\"",
+          "type": "\"default\" | \"ghost\" | \"light\" | \"link\" | \"outline\"",
           "complexType": {
-            "original": "'default' | 'outline' | 'ghost' | 'link'",
-            "resolved": "\"default\" | \"ghost\" | \"link\" | \"outline\"",
+            "original": "'default' | 'outline' | 'ghost' | 'light' | 'link'",
+            "resolved": "\"default\" | \"ghost\" | \"light\" | \"link\" | \"outline\"",
             "references": {}
           },
           "mutable": false,
@@ -1138,6 +1138,10 @@
             },
             {
               "value": "ghost",
+              "type": "string"
+            },
+            {
+              "value": "light",
               "type": "string"
             },
             {
@@ -9679,7 +9683,7 @@
           },
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "Grid columns configuration.\r\n[\r\n{\r\n  \"name\":\"name\",\r\n  \"label\":\"Name\",\r\n  \"width\":300,\r\n  \"fixed\":true\r\n },\r\n{\r\n  \"name\":\"age\",\r\n  \"label\":\"Age\"\r\n}\r\n]",
+          "docs": "Grid columns configuration.\r\n[\r\n{\r\n  \"name\":\"name\",\r\n  \"label\":\"Name\",\r\n  \"width\":300,\r\n  \"fixed\":true,\r\n  \"template\": function(row, column) { return row[column.name];}\r\n },\r\n{\r\n  \"name\":\"age\",\r\n  \"label\":\"Age\"\r\n}\r\n]",
           "docsTags": [],
           "default": "[]",
           "values": [
@@ -10234,6 +10238,65 @@
         ]
       },
       "props": [
+        {
+          "name": "color",
+          "type": "\"blue\" | \"error\" | \"gray\" | \"green\" | \"info\" | \"primary\" | \"red\" | \"success\" | \"warning\" | \"yellow\"",
+          "complexType": {
+            "original": "'gray' | 'blue' | 'green' | 'red' | 'yellow' | 'primary' | 'success' | 'info' | 'warning' | 'error'",
+            "resolved": "\"blue\" | \"error\" | \"gray\" | \"green\" | \"info\" | \"primary\" | \"red\" | \"success\" | \"warning\" | \"yellow\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "'gray'",
+          "values": [
+            {
+              "value": "blue",
+              "type": "string"
+            },
+            {
+              "value": "error",
+              "type": "string"
+            },
+            {
+              "value": "gray",
+              "type": "string"
+            },
+            {
+              "value": "green",
+              "type": "string"
+            },
+            {
+              "value": "info",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "red",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            },
+            {
+              "value": "yellow",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
         {
           "name": "filter",
           "type": "boolean",
@@ -12907,10 +12970,10 @@
             },
             {
               "name": "variant",
-              "type": "\"default\" | \"ghost\" | \"link\" | \"outline\"",
+              "type": "\"default\" | \"ghost\" | \"light\" | \"link\" | \"outline\"",
               "complexType": {
-                "original": "'default' | 'outline' | 'ghost' | 'link'",
-                "resolved": "\"default\" | \"ghost\" | \"link\" | \"outline\"",
+                "original": "'default' | 'outline' | 'ghost' | 'light' | 'link'",
+                "resolved": "\"default\" | \"ghost\" | \"light\" | \"link\" | \"outline\"",
                 "references": {}
               },
               "mutable": false,
@@ -12926,6 +12989,10 @@
                 },
                 {
                   "value": "ghost",
+                  "type": "string"
+                },
+                {
+                  "value": "light",
                   "type": "string"
                 },
                 {
@@ -20375,7 +20442,7 @@
               },
               "mutable": false,
               "reflectToAttr": false,
-              "docs": "Grid columns configuration.\r\n[\r\n{\r\n  \"name\":\"name\",\r\n  \"label\":\"Name\",\r\n  \"width\":300,\r\n  \"fixed\":true\r\n },\r\n{\r\n  \"name\":\"age\",\r\n  \"label\":\"Age\"\r\n}\r\n]",
+              "docs": "Grid columns configuration.\r\n[\r\n{\r\n  \"name\":\"name\",\r\n  \"label\":\"Name\",\r\n  \"width\":300,\r\n  \"fixed\":true,\r\n  \"template\": function(row, column) { return row[column.name];}\r\n },\r\n{\r\n  \"name\":\"age\",\r\n  \"label\":\"Age\"\r\n}\r\n]",
               "docsTags": [],
               "default": "[]",
               "values": [
@@ -20795,6 +20862,65 @@
             ]
           },
           "props": [
+            {
+              "name": "color",
+              "type": "\"blue\" | \"error\" | \"gray\" | \"green\" | \"info\" | \"primary\" | \"red\" | \"success\" | \"warning\" | \"yellow\"",
+              "complexType": {
+                "original": "'gray' | 'blue' | 'green' | 'red' | 'yellow' | 'primary' | 'success' | 'info' | 'warning' | 'error'",
+                "resolved": "\"blue\" | \"error\" | \"gray\" | \"green\" | \"info\" | \"primary\" | \"red\" | \"success\" | \"warning\" | \"yellow\"",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "color",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "'gray'",
+              "values": [
+                {
+                  "value": "blue",
+                  "type": "string"
+                },
+                {
+                  "value": "error",
+                  "type": "string"
+                },
+                {
+                  "value": "gray",
+                  "type": "string"
+                },
+                {
+                  "value": "green",
+                  "type": "string"
+                },
+                {
+                  "value": "info",
+                  "type": "string"
+                },
+                {
+                  "value": "primary",
+                  "type": "string"
+                },
+                {
+                  "value": "red",
+                  "type": "string"
+                },
+                {
+                  "value": "success",
+                  "type": "string"
+                },
+                {
+                  "value": "warning",
+                  "type": "string"
+                },
+                {
+                  "value": "yellow",
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
             {
               "name": "filter",
               "type": "boolean",

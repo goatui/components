@@ -27,6 +27,8 @@ $tag-hover-color: var(--tag-color, v(--tag-hover-gray));
   .tag-content {
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
     padding: 0 .5rem;
   }
 
@@ -72,7 +74,7 @@ $tag-hover-color: var(--tag-color, v(--tag-hover-gray));
 }
 
 @each $color in ['gray', 'blue', 'green', 'red', 'yellow', 'primary', 'success', 'info', 'warning', 'error'] {
-  :host(.color-#{$color}) .tag {
+  .tag.color-#{$color}{
     --tag-background-color: #{v(--tag-background-#{$color})};
     --tag-color: #{v(--tag-color-#{$color})};
     --tag-hover-color: #{v(--tag-hover-#{$color})};

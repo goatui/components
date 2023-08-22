@@ -1,6 +1,5 @@
 import { Component, ComponentInterface, Element, getAssetPath, h, Host, Listen, Prop, State } from '@stencil/core';
-import * as DOMPurify from 'dompurify';
-
+import {loadDompurify} from "../../../3d-party/dompurify";
 
 /**
  * @name Empty State
@@ -40,7 +39,9 @@ export class EmptyState implements ComponentInterface {
   }
 
   async componentWillLoad() {
-
+    if (!window['DOMPurify']) {
+      await loadDompurify();
+    }
   }
 
   componentDidLoad() {
@@ -57,7 +58,7 @@ export class EmptyState implements ComponentInterface {
 
           <div class='content'>
             {this.headline && <div class='title'>{this.headline}</div>}
-            {this.description && <div class='description' innerHTML={DOMPurify.sanitize(this.description)}/>}
+            {this.description && <div class='description' innerHTML={window['DOMPurify'].sanitize(this.description)}/>}
             <div class='actions'>
               {this.action &&
                 <goat-button
