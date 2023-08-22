@@ -47,7 +47,6 @@ sass:
 # Build settings
 plugins:
   - jekyll-sitemap
-  - jekyll-assets
   - jekyll-spark
 
 defaults:
@@ -60,24 +59,6 @@ defaults:
     values:
       sitemap: false
 
-
-assets:
-  compression: true
-  assets:
-    - "*.png"
-    - "*.css"
-  sources:
-    - _assets/css
-    - _assets/js
-    - _assets/img
-  digest: true
-  defaults:
-    js: { integrity: false } # true on JEKYLL_ENV=production
-    css: { integrity: false } # true on JEKYLL_ENV=production
-    img: { integrity: false } # true on JEKYLL_ENV=production
-  plugins:
-    css: { autoprefixer: {} }
-    img: { optim: {} }
 
 # Exclude from processing.
 # The following items will not be processed, by default.
