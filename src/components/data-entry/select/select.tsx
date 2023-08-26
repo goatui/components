@@ -44,6 +44,8 @@ export class Select implements ComponentInterface, InputComponentInterface {
    */
   @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' = 'md';
 
+  @Prop({ reflect: true }) inline: boolean = false;
+
   /**
    * Search type
    * Possible values are `"none"`, `"initial"`, `"contains"`, `"managed"`. Defaults to `"none"`.

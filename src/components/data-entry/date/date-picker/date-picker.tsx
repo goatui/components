@@ -61,6 +61,8 @@ export class DatePicker implements ComponentInterface {
 
   @Prop({ reflect: true, mutable: true }) configAria: any = {};
 
+  @Prop({ reflect: true }) inline: boolean = false;
+
   /**
    * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
    */

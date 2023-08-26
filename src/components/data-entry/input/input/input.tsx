@@ -99,6 +99,8 @@ export class Input implements ComponentInterface, InputComponentInterface {
    */
   @Event({ eventName: 'goat:blur' }) goatBlur: EventEmitter;
 
+  @Prop({ reflect: true }) inline: boolean = false;
+
   /**
    * Emitted when the input has focus.
    */

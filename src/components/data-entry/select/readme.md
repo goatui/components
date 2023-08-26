@@ -14,6 +14,7 @@
 | `debounce`         | `debounce`           | Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.       | `number`                                         | `300`                                           |
 | `disabled`         | `disabled`           | If true, the user cannot interact with the button. Defaults to `false`.                                        | `boolean`                                        | `false`                                         |
 | `hideDropdownIcon` | `hide-dropdown-icon` |                                                                                                                | `boolean`                                        | `false`                                         |
+| `inline`           | `inline`             |                                                                                                                | `boolean`                                        | `false`                                         |
 | `isOpen`           | `is-open`            |                                                                                                                | `boolean`                                        | `false`                                         |
 | `items`            | `items`              | [{   label: 'Shivaji Varma',   value: 'shivaji-varma',   icon: 'person' }]                                     | `any`                                            | `[]`                                            |
 | `multiple`         | `multiple`           |                                                                                                                | `boolean`                                        | `false`                                         |
@@ -78,6 +79,7 @@ Type: `Promise<void>`
 ### Used by
 
  - [goat-calendar](../../calendar/calendar)
+ - [goat-condition-builder](../../condition-builder/condition-builder)
  - [goat-table](../../data-display/table)
 
 ### Depends on
@@ -107,6 +109,7 @@ graph TD;
   goat-empty-state --> goat-svg
   goat-empty-state --> goat-button
   goat-calendar --> goat-select
+  goat-condition-builder --> goat-select
   goat-table --> goat-select
   style goat-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
