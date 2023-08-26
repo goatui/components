@@ -3,6 +3,7 @@
 
 $input-background-color: var(--input-background-color, #{v(--field-01)});
 
+
 :host {
   display: block;
   width: 100%;
@@ -10,6 +11,12 @@ $input-background-color: var(--input-background-color, #{v(--field-01)});
   --input-border-radius: #{v(--border-radius)};
   --input-border-style: solid;
   color: v(--text-primary);
+}
+
+:host([inline]) {
+  display: inline-block;
+  width: auto;
+  margin-bottom: 0;
 }
 
 .input-container {

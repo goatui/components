@@ -11,6 +11,7 @@
 | ------------- | ------------- | -------------------------------------------------------------------------------------- | ---------------------- | -------------------------- |
 | `configAria`  | `config-aria` |                                                                                        | `any`                  | `{}`                       |
 | `disabled`    | `disabled`    | If true, the user cannot interact with the button. Defaults to `false`.                | `boolean`              | `false`                    |
+| `inline`      | `inline`      |                                                                                        | `boolean`              | `false`                    |
 | `name`        | `name`        | The input field name.                                                                  | `string`               | ``goat-input-${this.gid}`` |
 | `placeholder` | `placeholder` | The input field placeholder.                                                           | `string`               | `undefined`                |
 | `readonly`    | `readonly`    | If true, the user read the value cannot modify it. Defaults to `false`.                | `boolean`              | `false`                    |

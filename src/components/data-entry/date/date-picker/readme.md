@@ -12,6 +12,7 @@
 | `configAria`  | `config-aria` |                                                                                                          | `any`                  | `{}`                       |
 | `debounce`    | `debounce`    | Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke. | `number`               | `300`                      |
 | `disabled`    | `disabled`    | If true, the user cannot interact with the button. Defaults to `false`.                                  | `boolean`              | `false`                    |
+| `inline`      | `inline`      |                                                                                                          | `boolean`              | `false`                    |
 | `name`        | `name`        | The input field name.                                                                                    | `string`               | ``goat-input-${this.gid}`` |
 | `placeholder` | `placeholder` | The input field placeholder.                                                                             | `string`               | `undefined`                |
 | `readonly`    | `readonly`    | If true, the user read the value cannot modify it. Defaults to `false`.                                  | `boolean`              | `false`                    |

@@ -77,6 +77,8 @@ export class TimePicker {
   private tabindex?: string | number;
   @State() hasFocus = false;
 
+  @Prop({ reflect: true }) inline: boolean = false;
+
   private hasValue(): boolean {
     return this.getValue().length > 0;
   }

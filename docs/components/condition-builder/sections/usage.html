@@ -1,0 +1,10 @@
+{% GoatHighlighterCard language:"html" %}
+<goat-condition-builder></goat-condition-builder>
+
+<script>
+  const conditionBuilder = document.querySelector('goat-condition-builder');
+  conditionBuilder.addEventListener('condition-builder:change', (event) => {
+    console.log(event.detail);
+  });
+</script>
+{% endGoatHighlighterCard %}

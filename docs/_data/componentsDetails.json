@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-08-22T07:57:27",
+  "timestamp": "2023-08-26T03:22:44",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.0.1",
@@ -3156,6 +3156,112 @@
       }
     },
     {
+      "filePath": "src/components/condition-builder/condition-builder/condition-builder.tsx",
+      "fileName": "condition-builder.tsx",
+      "tag": "goat-condition-builder",
+      "readme": "# goat-icon\r\n\r\n\r\n\r",
+      "overview": "",
+      "usage": {},
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "name",
+          "text": "ConditionBuilder"
+        },
+        {
+          "name": "description",
+          "text": "A condition builder is a component that allows users to build a condition using a set of rules."
+        },
+        {
+          "name": "category",
+          "text": "Data Display"
+        },
+        {
+          "name": "tag",
+          "text": "content"
+        }
+      ],
+      "encapsulation": "shadow",
+      "dependents": [],
+      "dependencies": [
+        "goat-select",
+        "goat-input",
+        "goat-text",
+        "goat-tag",
+        "goat-divider"
+      ],
+      "dependencyGraph": {
+        "goat-condition-builder": [
+          "goat-select",
+          "goat-input",
+          "goat-text",
+          "goat-tag",
+          "goat-divider"
+        ],
+        "goat-select": [
+          "goat-icon",
+          "goat-tag",
+          "goat-button",
+          "goat-spinner",
+          "goat-menu",
+          "goat-text",
+          "goat-menu-item"
+        ],
+        "goat-tag": [
+          "goat-icon"
+        ],
+        "goat-button": [
+          "goat-icon",
+          "goat-spinner"
+        ],
+        "goat-menu": [
+          "goat-empty-state"
+        ],
+        "goat-empty-state": [
+          "goat-svg",
+          "goat-button"
+        ],
+        "goat-input": [
+          "goat-button"
+        ]
+      },
+      "props": [
+        {
+          "name": "content",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "content",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "listeners": [],
+      "metadata": {
+        "name": "ConditionBuilder",
+        "description": "A condition builder is a component that allows users to build a condition using a set of rules.",
+        "category": "Data Display",
+        "tag": "content"
+      }
+    },
+    {
       "filePath": "src/components/layout/container/container.tsx",
       "fileName": "container.tsx",
       "tag": "goat-container",
@@ -3297,6 +3403,28 @@
           "attr": "disabled",
           "reflectToAttr": true,
           "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "inline",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "inline",
+          "reflectToAttr": true,
+          "docs": "",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -3594,10 +3722,14 @@
       ],
       "encapsulation": "shadow",
       "dependents": [
+        "goat-condition-builder",
         "goat-header-brand"
       ],
       "dependencies": [],
       "dependencyGraph": {
+        "goat-condition-builder": [
+          "goat-divider"
+        ],
         "goat-header-brand": [
           "goat-divider"
         ]
@@ -5546,7 +5678,9 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [],
+      "dependents": [
+        "goat-condition-builder"
+      ],
       "dependencies": [
         "goat-button"
       ],
@@ -5557,6 +5691,9 @@
         "goat-button": [
           "goat-icon",
           "goat-spinner"
+        ],
+        "goat-condition-builder": [
+          "goat-input"
         ]
       },
       "props": [
@@ -5685,6 +5822,28 @@
           },
           "mutable": false,
           "attr": "hide-actions",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "inline",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "inline",
           "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
@@ -7673,6 +7832,7 @@
       "encapsulation": "shadow",
       "dependents": [
         "goat-calendar",
+        "goat-condition-builder",
         "goat-table"
       ],
       "dependencies": [
@@ -7709,6 +7869,9 @@
           "goat-button"
         ],
         "goat-calendar": [
+          "goat-select"
+        ],
+        "goat-condition-builder": [
           "goat-select"
         ],
         "goat-table": [
@@ -7815,6 +7978,28 @@
           "mutable": false,
           "attr": "hide-dropdown-icon",
           "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "inline",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "inline",
+          "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
           "default": "false",
@@ -10220,6 +10405,7 @@
       ],
       "encapsulation": "shadow",
       "dependents": [
+        "goat-condition-builder",
         "goat-flow-designer",
         "goat-select"
       ],
@@ -10229,6 +10415,9 @@
       "dependencyGraph": {
         "goat-tag": [
           "goat-icon"
+        ],
+        "goat-condition-builder": [
+          "goat-tag"
         ],
         "goat-flow-designer": [
           "goat-tag"
@@ -10463,12 +10652,16 @@
       "encapsulation": "shadow",
       "dependents": [
         "goat-breadcrumb-item",
+        "goat-condition-builder",
         "goat-select",
         "goat-table"
       ],
       "dependencies": [],
       "dependencyGraph": {
         "goat-breadcrumb-item": [
+          "goat-text"
+        ],
+        "goat-condition-builder": [
           "goat-text"
         ],
         "goat-select": [
@@ -11253,6 +11446,28 @@
           "attr": "disabled",
           "reflectToAttr": true,
           "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "inline",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "inline",
+          "reflectToAttr": true,
+          "docs": "",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -13346,12 +13561,16 @@
           "encapsulation": "shadow",
           "dependents": [
             "goat-breadcrumb-item",
+            "goat-condition-builder",
             "goat-select",
             "goat-table"
           ],
           "dependencies": [],
           "dependencyGraph": {
             "goat-breadcrumb-item": [
+              "goat-text"
+            ],
+            "goat-condition-builder": [
               "goat-text"
             ],
             "goat-select": [
@@ -13663,10 +13882,14 @@
           ],
           "encapsulation": "shadow",
           "dependents": [
+            "goat-condition-builder",
             "goat-header-brand"
           ],
           "dependencies": [],
           "dependencyGraph": {
+            "goat-condition-builder": [
+              "goat-divider"
+            ],
             "goat-header-brand": [
               "goat-divider"
             ]
@@ -15544,6 +15767,28 @@
               "required": false
             },
             {
+              "name": "inline",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "inline",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
               "name": "name",
               "type": "string",
               "complexType": {
@@ -16040,7 +16285,9 @@
             }
           ],
           "encapsulation": "shadow",
-          "dependents": [],
+          "dependents": [
+            "goat-condition-builder"
+          ],
           "dependencies": [
             "goat-button"
           ],
@@ -16051,6 +16298,9 @@
             "goat-button": [
               "goat-icon",
               "goat-spinner"
+            ],
+            "goat-condition-builder": [
+              "goat-input"
             ]
           },
           "props": [
@@ -16179,6 +16429,28 @@
               },
               "mutable": false,
               "attr": "hide-actions",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "inline",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "inline",
               "reflectToAttr": true,
               "docs": "",
               "docsTags": [],
@@ -17087,6 +17359,7 @@
           "encapsulation": "shadow",
           "dependents": [
             "goat-calendar",
+            "goat-condition-builder",
             "goat-table"
           ],
           "dependencies": [
@@ -17123,6 +17396,9 @@
               "goat-button"
             ],
             "goat-calendar": [
+              "goat-select"
+            ],
+            "goat-condition-builder": [
               "goat-select"
             ],
             "goat-table": [
@@ -17229,6 +17505,28 @@
               "mutable": false,
               "attr": "hide-dropdown-icon",
               "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "inline",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "inline",
+              "reflectToAttr": true,
               "docs": "",
               "docsTags": [],
               "default": "false",
@@ -18594,6 +18892,28 @@
               "attr": "disabled",
               "reflectToAttr": true,
               "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "inline",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "inline",
+              "reflectToAttr": true,
+              "docs": "",
               "docsTags": [],
               "default": "false",
               "values": [
@@ -20016,6 +20336,112 @@
           }
         },
         {
+          "filePath": "src/components/condition-builder/condition-builder/condition-builder.tsx",
+          "fileName": "condition-builder.tsx",
+          "tag": "goat-condition-builder",
+          "readme": "# goat-icon\r\n\r\n\r\n\r",
+          "overview": "",
+          "usage": {},
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "name",
+              "text": "ConditionBuilder"
+            },
+            {
+              "name": "description",
+              "text": "A condition builder is a component that allows users to build a condition using a set of rules."
+            },
+            {
+              "name": "category",
+              "text": "Data Display"
+            },
+            {
+              "name": "tag",
+              "text": "content"
+            }
+          ],
+          "encapsulation": "shadow",
+          "dependents": [],
+          "dependencies": [
+            "goat-select",
+            "goat-input",
+            "goat-text",
+            "goat-tag",
+            "goat-divider"
+          ],
+          "dependencyGraph": {
+            "goat-condition-builder": [
+              "goat-select",
+              "goat-input",
+              "goat-text",
+              "goat-tag",
+              "goat-divider"
+            ],
+            "goat-select": [
+              "goat-icon",
+              "goat-tag",
+              "goat-button",
+              "goat-spinner",
+              "goat-menu",
+              "goat-text",
+              "goat-menu-item"
+            ],
+            "goat-tag": [
+              "goat-icon"
+            ],
+            "goat-button": [
+              "goat-icon",
+              "goat-spinner"
+            ],
+            "goat-menu": [
+              "goat-empty-state"
+            ],
+            "goat-empty-state": [
+              "goat-svg",
+              "goat-button"
+            ],
+            "goat-input": [
+              "goat-button"
+            ]
+          },
+          "props": [
+            {
+              "name": "content",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "content",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
+          "methods": [],
+          "events": [],
+          "styles": [],
+          "slots": [],
+          "parts": [],
+          "listeners": [],
+          "metadata": {
+            "name": "ConditionBuilder",
+            "description": "A condition builder is a component that allows users to build a condition using a set of rules.",
+            "category": "Data Display",
+            "tag": "content"
+          }
+        },
+        {
           "filePath": "src/components/data-display/empty-state/empty-state.tsx",
           "fileName": "empty-state.tsx",
           "tag": "goat-empty-state",
@@ -20844,6 +21270,7 @@
           ],
           "encapsulation": "shadow",
           "dependents": [
+            "goat-condition-builder",
             "goat-flow-designer",
             "goat-select"
           ],
@@ -20853,6 +21280,9 @@
           "dependencyGraph": {
             "goat-tag": [
               "goat-icon"
+            ],
+            "goat-condition-builder": [
+              "goat-tag"
             ],
             "goat-flow-designer": [
               "goat-tag"

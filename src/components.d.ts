@@ -320,6 +320,15 @@ export namespace Components {
         "lineNumbers": boolean;
         "value": string;
     }
+    /**
+     * @name ConditionBuilder
+     * @description A condition builder is a component that allows users to build a condition using a set of rules.
+     * @category Data Display
+     * @tag content
+     */
+    interface GoatConditionBuilder {
+        "content": string;
+    }
     interface GoatContainer {
         "vertical": boolean;
     }
@@ -340,6 +349,7 @@ export namespace Components {
          */
         "disabled": boolean;
         "getComponentId": () => Promise<string>;
+        "inline": boolean;
         /**
           * The input field name.
          */
@@ -581,6 +591,7 @@ export namespace Components {
         "disabled": boolean;
         "getComponentId": () => Promise<string>;
         "hideActions": boolean;
+        "inline": boolean;
         /**
           * The input field name.
          */
@@ -813,6 +824,7 @@ export namespace Components {
         "disabled": boolean;
         "getComponentId": () => Promise<string>;
         "hideDropdownIcon": boolean;
+        "inline": boolean;
         "isOpen": boolean;
         /**
           * [{   label: 'Shivaji Varma',   value: 'shivaji-varma',   icon: 'person' }]
@@ -1150,6 +1162,7 @@ export namespace Components {
          */
         "disabled": boolean;
         "getComponentId": () => Promise<string>;
+        "inline": boolean;
         /**
           * The input field name.
          */
@@ -1573,6 +1586,18 @@ declare global {
     var HTMLGoatCodeHighlighterElement: {
         prototype: HTMLGoatCodeHighlighterElement;
         new (): HTMLGoatCodeHighlighterElement;
+    };
+    /**
+     * @name ConditionBuilder
+     * @description A condition builder is a component that allows users to build a condition using a set of rules.
+     * @category Data Display
+     * @tag content
+     */
+    interface HTMLGoatConditionBuilderElement extends Components.GoatConditionBuilder, HTMLStencilElement {
+    }
+    var HTMLGoatConditionBuilderElement: {
+        prototype: HTMLGoatConditionBuilderElement;
+        new (): HTMLGoatConditionBuilderElement;
     };
     interface HTMLGoatContainerElement extends Components.GoatContainer, HTMLStencilElement {
     }
@@ -2051,6 +2076,7 @@ declare global {
         "goat-checkbox": HTMLGoatCheckboxElement;
         "goat-code-editor": HTMLGoatCodeEditorElement;
         "goat-code-highlighter": HTMLGoatCodeHighlighterElement;
+        "goat-condition-builder": HTMLGoatConditionBuilderElement;
         "goat-container": HTMLGoatContainerElement;
         "goat-date-picker": HTMLGoatDatePickerElement;
         "goat-divider": HTMLGoatDividerElement;
@@ -2411,6 +2437,15 @@ declare namespace LocalJSX {
         "lineNumbers"?: boolean;
         "value"?: string;
     }
+    /**
+     * @name ConditionBuilder
+     * @description A condition builder is a component that allows users to build a condition using a set of rules.
+     * @category Data Display
+     * @tag content
+     */
+    interface GoatConditionBuilder {
+        "content"?: string;
+    }
     interface GoatContainer {
         "vertical"?: boolean;
     }
@@ -2430,6 +2465,7 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
+        "inline"?: boolean;
         /**
           * The input field name.
          */
@@ -2672,6 +2708,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         "hideActions"?: boolean;
+        "inline"?: boolean;
         /**
           * The input field name.
          */
@@ -2910,6 +2947,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         "hideDropdownIcon"?: boolean;
+        "inline"?: boolean;
         "isOpen"?: boolean;
         /**
           * [{   label: 'Shivaji Varma',   value: 'shivaji-varma',   icon: 'person' }]
@@ -3254,6 +3292,7 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
+        "inline"?: boolean;
         /**
           * The input field name.
          */
@@ -3411,6 +3450,7 @@ declare namespace LocalJSX {
         "goat-checkbox": GoatCheckbox;
         "goat-code-editor": GoatCodeEditor;
         "goat-code-highlighter": GoatCodeHighlighter;
+        "goat-condition-builder": GoatConditionBuilder;
         "goat-container": GoatContainer;
         "goat-date-picker": GoatDatePicker;
         "goat-divider": GoatDivider;
@@ -3561,6 +3601,13 @@ declare module "@stencil/core" {
              * @imgDark /assets/img/code-highlighter-dark.png
              */
             "goat-code-highlighter": LocalJSX.GoatCodeHighlighter & JSXBase.HTMLAttributes<HTMLGoatCodeHighlighterElement>;
+            /**
+             * @name ConditionBuilder
+             * @description A condition builder is a component that allows users to build a condition using a set of rules.
+             * @category Data Display
+             * @tag content
+             */
+            "goat-condition-builder": LocalJSX.GoatConditionBuilder & JSXBase.HTMLAttributes<HTMLGoatConditionBuilderElement>;
             "goat-container": LocalJSX.GoatContainer & JSXBase.HTMLAttributes<HTMLGoatContainerElement>;
             /**
              * @name Date Picker

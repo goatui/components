@@ -15,6 +15,7 @@
 | `debounce`     | `debounce`     | Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.               | `number`                                         | `300`                      |
 | `disabled`     | `disabled`     | If true, the user cannot interact with the button. Defaults to `false`.                                                | `boolean`                                        | `false`                    |
 | `hideActions`  | `hide-actions` |                                                                                                                        | `boolean`                                        | `false`                    |
+| `inline`       | `inline`       |                                                                                                                        | `boolean`                                        | `false`                    |
 | `name`         | `name`         | The input field name.                                                                                                  | `string`                                         | ``goat-input-${this.gid}`` |
 | `placeholder`  | `placeholder`  | The input field placeholder.                                                                                           | `string`                                         | `undefined`                |
 | `readonly`     | `readonly`     | If true, the user read the value cannot modify it. Defaults to `false`.                                                | `boolean`                                        | `false`                    |
@@ -72,6 +73,10 @@ Type: `Promise<void>`
 
 ## Dependencies
 
+### Used by
+
+ - [goat-condition-builder](../../../condition-builder/condition-builder)
+
 ### Depends on
 
 - [goat-button](../../../general/button)
@@ -82,6 +87,7 @@ graph TD;
   goat-input --> goat-button
   goat-button --> goat-icon
   goat-button --> goat-spinner
+  goat-condition-builder --> goat-input
   style goat-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
