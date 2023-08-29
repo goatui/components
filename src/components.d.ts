@@ -510,7 +510,8 @@ export namespace Components {
      * @description A browser based html editor.
      * @category Up coming
      * @tags input, form
-     * @img /assets/img/code-editor.png
+     * @img /assets/img/html-editor.png
+     * @imgDark /assets/img/html-editor-dark.png
      */
     interface GoatHtmlEditor {
         /**
@@ -1712,7 +1713,8 @@ declare global {
      * @description A browser based html editor.
      * @category Up coming
      * @tags input, form
-     * @img /assets/img/code-editor.png
+     * @img /assets/img/html-editor.png
+     * @imgDark /assets/img/html-editor-dark.png
      */
     interface HTMLGoatHtmlEditorElement extends Components.GoatHtmlEditor, HTMLStencilElement {
     }
@@ -2633,7 +2635,8 @@ declare namespace LocalJSX {
      * @description A browser based html editor.
      * @category Up coming
      * @tags input, form
-     * @img /assets/img/code-editor.png
+     * @img /assets/img/html-editor.png
+     * @imgDark /assets/img/html-editor-dark.png
      */
     interface GoatHtmlEditor {
         /**
@@ -3671,7 +3674,8 @@ declare module "@stencil/core" {
              * @description A browser based html editor.
              * @category Up coming
              * @tags input, form
-             * @img /assets/img/code-editor.png
+             * @img /assets/img/html-editor.png
+             * @imgDark /assets/img/html-editor-dark.png
              */
             "goat-html-editor": LocalJSX.GoatHtmlEditor & JSXBase.HTMLAttributes<HTMLGoatHtmlEditorElement>;
             /**

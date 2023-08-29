@@ -1,4 +1,5 @@
 import icons from "./icons";
+import {ICON_BASE_URL} from "./constants";
 
 export async function fetchIcon(name: string) {
   if (!name) return '';
@@ -12,7 +13,7 @@ export async function fetchIcon(name: string) {
 
   if (!icon) return '';
 
-  const request = new Request(`https://cdn.jsdelivr.net/npm/@carbon/icons@11.23.0/svg/32${icon.folder ? icon.folder : ''}/${icon.name}.svg`);
+  const request = new Request(`${ICON_BASE_URL}/svg/${icon.path}`);
   let response = await cache.match(request);
   if (response) {
     const result = await response.text();

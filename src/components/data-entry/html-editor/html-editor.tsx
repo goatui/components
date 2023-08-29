@@ -1,5 +1,5 @@
-import { Component, ComponentInterface, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
-import { debounceEvent, getComponentIndex } from '../../../utils/utils';
+import {Component, ComponentInterface, Event, EventEmitter, h, Host, Method, Prop, State, Watch} from '@stencil/core';
+import {debounceEvent, getComponentIndex} from '../../../utils/utils';
 import {
   $createParagraphNode,
   $createTextNode,
@@ -11,8 +11,8 @@ import {
   SELECTION_CHANGE_COMMAND,
   UNDO_COMMAND,
 } from 'lexical';
-import { registerRichText } from '@lexical/rich-text';
-import { createEmptyHistoryState, registerHistory } from '@lexical/history';
+import {registerRichText} from '@lexical/rich-text';
+import {createEmptyHistoryState, registerHistory} from '@lexical/history';
 import {
   $convertToMarkdownString,
   TRANSFORMERS,
@@ -24,7 +24,8 @@ import {
  * @description A browser based html editor.
  * @category Up coming
  * @tags input, form
- * @img /assets/img/code-editor.png
+ * @img /assets/img/html-editor.png
+ * @imgDark /assets/img/html-editor-dark.png
  */
 @Component({
   tag: 'goat-html-editor',
@@ -42,19 +43,19 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
   /**
    * The input field value.
    */
-  @Prop({ mutable: true }) value: string;
+  @Prop({mutable: true}) value: string;
 
   /**
    * If true, required icon is show. Defaults to `false`.
    */
-  @Prop({ reflect: true }) required: boolean = false;
+  @Prop({reflect: true}) required: boolean = false;
 
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
-  @Prop({ reflect: true }) disabled: boolean = false;
+  @Prop({reflect: true}) disabled: boolean = false;
 
-  @Prop({ reflect: true }) readonly: boolean = false;
+  @Prop({reflect: true}) readonly: boolean = false;
 
   @Prop() theme: 'vs-light' | 'vs-dark' = 'vs-light';
 
@@ -63,7 +64,7 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
   /**
    * Emitted when the value has changed..
    */
-  @Event({ eventName: 'goat:change' }) goatChange: EventEmitter;
+  @Event({eventName: 'goat:change'}) goatChange: EventEmitter;
 
   /**
    * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
@@ -88,7 +89,7 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
 
   @Watch('readonly')
   readonlyWatcher(newValue: string) {
-    this.editorInstance.updateOptions({ readOnly: newValue || this.disabled });
+    this.editorInstance.updateOptions({readOnly: newValue || this.disabled});
   }
 
   @Watch('theme')
@@ -183,7 +184,6 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
       paragraphNode.append(textNode);
 
 
-
       // Finally, append the paragraph to the root
       root.append(paragraphNode);
 
@@ -224,39 +224,63 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
         >
           <div class="toolbar">
             <goat-button-group>
-              <goat-button  icon="arrow-counterclockwise"
-                            variant="outline"
-                            onGoat:click={() => {
-                              this.editorInstance.dispatchCommand(REDO_COMMAND);
-                            }}
+              <goat-button icon="redo"
+                           color="secondary"
+                           size={'sm'}
+                           onGoat:click={() => {
+                             this.editorInstance.dispatchCommand(REDO_COMMAND);
+                           }}
               ></goat-button>
-              <goat-button  icon="arrow-clockwise"
-                            variant="outline"
-                            onGoat:click={() => {
-                              this.editorInstance.dispatchCommand(UNDO_COMMAND);
-                            }}
+              <goat-button icon="undo"
+                           variant="outline"
+                           color="secondary"
+                           size={'sm'}
+                           onGoat:click={() => {
+                             this.editorInstance.dispatchCommand(UNDO_COMMAND);
+                           }}
               ></goat-button>
-              <goat-button  icon="text-left"
-                            variant="outline"
-                            onGoat:click={() => {
-                              this.editorInstance.dispatchCommand(FORMAT_ELEMENT_COMMAND, "left");
-                            }}
+            </goat-button-group>
+
+            <goat-button-group>
+              <goat-button icon="text--align--left"
+                           variant="outline"
+                           color="secondary"
+                           size={'sm'}
+                           onGoat:click={() => {
+                             this.editorInstance.dispatchCommand(FORMAT_ELEMENT_COMMAND, "left");
+                           }}
               ></goat-button>
-              <goat-button icon="text-center" variant="outline"
+
+              <goat-button icon="text--align--center"
+                           variant="outline"
+                           color="secondary"
+                           size={'sm'}
                            onGoat:click={() => {
                              this.editorInstance.dispatchCommand(FORMAT_ELEMENT_COMMAND, "center");
                            }}></goat-button>
-              <goat-button icon="text-right" variant="outline"
-                           onGoat:click={() => {
-                this.editorInstance.dispatchCommand(FORMAT_ELEMENT_COMMAND, "right");
-              }}></goat-button>
 
-              <goat-button icon="type-bold" variant="outline"
+              <goat-button icon="text--align--right"
+                           variant="outline"
+                           color="secondary"
+                           size={'sm'}
+                           onGoat:click={() => {
+                             this.editorInstance.dispatchCommand(FORMAT_ELEMENT_COMMAND, "right");
+                           }}></goat-button>
+            </goat-button-group>
+
+            <goat-button-group>
+              <goat-button icon="text--bold"
+                           variant="outline"
+                           color="secondary"
+                           size={'sm'}
                            onGoat:click={() => {
                              this.editorInstance.dispatchCommand(FORMAT_TEXT_COMMAND, "bold");
                            }}></goat-button>
 
-              <goat-button icon="type-italic" variant="outline"
+              <goat-button icon="text--italic"
+                           variant="outline"
+                           color="secondary"
+                           size={'sm'}
                            onGoat:click={() => {
                              this.editorInstance.dispatchCommand(FORMAT_TEXT_COMMAND, "italic");
                            }}></goat-button>
@@ -265,7 +289,7 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
           <div class="editor" contenteditable ref={el => (this.editorElement = el)}></div>
           {!this.editorInstance && (
             <div class="code-editor-loader">
-              <goat-spinner class="rainbow" />
+              <goat-spinner class="rainbow"/>
               Loading editor...
             </div>
           )}

@@ -451,6 +451,25 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
   --button-text-color: var(--color-black);
 }
 
+:host([color="inverse"]) {
+  --button-color: #{v(--color-black)};
+  --button-color-hover: #{v(--color-black)};
+  --button-color-active: #{v(--color-black)};
+  --button-color-support: #{v(--color-black)};
+  --button-color-light-hover: #{v(--color-grey-20)};
+  --button-color-light-active: #{v(--color-grey-30)};
+}
+
+:host-context([data-theme="dark"]):host([color="inverse"]) {
+  --button-color: #{v(--color-white)};
+  --button-color-hover: #{v(--color-white)};
+  --button-color-active: #{v(--color-white)};
+  --button-color-support: #{v(--color-white)};
+  --button-color-light-hover: #{v(--color-grey-20)};
+  --button-color-light-active: #{v(--color-grey-30)};
+  --button-text-color: var(--color-black);
+}
+
 
 :host-context([data-theme="dark"]):host([color="secondary"]) .button {
   --button-color: #{v(--color-white)};
