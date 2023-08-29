@@ -14,4 +14,9 @@
     outline: none;
     border: 1px solid v(--border-strong-01);
   }
+  .toolbar {
+    display: flex;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
 }

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-08-26T03:22:44",
+  "timestamp": "2023-08-29T17:08:08",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.0.1",
@@ -5117,7 +5117,11 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/code-editor.png"
+          "text": "/assets/img/html-editor.png"
+        },
+        {
+          "name": "imgDark",
+          "text": "/assets/img/html-editor-dark.png"
         }
       ],
       "encapsulation": "none",
@@ -5421,7 +5425,8 @@
           "input",
           " form"
         ],
-        "img": "/assets/img/code-editor.png"
+        "img": "/assets/img/html-editor.png",
+        "imgDark": "/assets/img/html-editor-dark.png"
       }
     },
     {
@@ -23813,7 +23818,11 @@
             },
             {
               "name": "img",
-              "text": "/assets/img/code-editor.png"
+              "text": "/assets/img/html-editor.png"
+            },
+            {
+              "name": "imgDark",
+              "text": "/assets/img/html-editor-dark.png"
             }
           ],
           "encapsulation": "none",
@@ -24117,7 +24126,8 @@
               "input",
               " form"
             ],
-            "img": "/assets/img/code-editor.png"
+            "img": "/assets/img/html-editor.png",
+            "imgDark": "/assets/img/html-editor-dark.png"
           }
         },
         {
