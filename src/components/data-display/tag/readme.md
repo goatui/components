@@ -28,6 +28,9 @@
 
 ### Used by
 
+ - [goat-cb-compound](../../condition-builder/cb-compound)
+ - [goat-cb-expression](../../condition-builder/cb-expression)
+ - [goat-cb-predicate](../../condition-builder/cb-predicate)
  - [goat-condition-builder](../../condition-builder/condition-builder)
  - [goat-flow-designer](../../flow-designer/flow-designer)
  - [goat-select](../../data-entry/select)
@@ -40,6 +43,9 @@
 ```mermaid
 graph TD;
   goat-tag --> goat-icon
+  goat-cb-compound --> goat-tag
+  goat-cb-expression --> goat-tag
+  goat-cb-predicate --> goat-tag
   goat-condition-builder --> goat-tag
   goat-flow-designer --> goat-tag
   goat-select --> goat-tag

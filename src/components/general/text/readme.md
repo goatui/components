@@ -23,6 +23,7 @@
 ### Used by
 
  - [goat-breadcrumb-item](../../navigation/breadcrumb/breadcrumb-item)
+ - [goat-cb-expression](../../condition-builder/cb-expression)
  - [goat-condition-builder](../../condition-builder/condition-builder)
  - [goat-select](../../data-entry/select)
  - [goat-table](../../data-display/table)
@@ -31,6 +32,7 @@
 ```mermaid
 graph TD;
   goat-breadcrumb-item --> goat-text
+  goat-cb-expression --> goat-text
   goat-condition-builder --> goat-text
   goat-select --> goat-text
   goat-table --> goat-text

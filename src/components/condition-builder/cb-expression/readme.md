@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type     | Default     |
-| --------- | --------- | ----------- | -------- | ----------- |
-| `content` | `content` |             | `string` | `undefined` |
+| Property    | Attribute | Description | Type     | Default |
+| ----------- | --------- | ----------- | -------- | ------- |
+| `field`     | `field`   |             | `string` | `''`    |
+| `operators` | --        |             | `any[]`  | `[]`    |
 
 
 ## Dependencies
@@ -25,11 +26,11 @@
 ### Graph
 ```mermaid
 graph TD;
-  goat-condition-builder --> goat-select
-  goat-condition-builder --> goat-input
-  goat-condition-builder --> goat-text
-  goat-condition-builder --> goat-cb-divider
-  goat-condition-builder --> goat-tag
+  goat-cb-expression --> goat-select
+  goat-cb-expression --> goat-input
+  goat-cb-expression --> goat-text
+  goat-cb-expression --> goat-cb-divider
+  goat-cb-expression --> goat-tag
   goat-select --> goat-icon
   goat-select --> goat-tag
   goat-select --> goat-button
@@ -44,7 +45,7 @@ graph TD;
   goat-empty-state --> goat-svg
   goat-empty-state --> goat-button
   goat-input --> goat-button
-  style goat-condition-builder fill:#f9f,stroke:#333,stroke-width:4px
+  style goat-cb-expression fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

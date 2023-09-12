@@ -1,10 +1,39 @@
 {% GoatHighlighterCard language:"html" %}
-<goat-condition-builder></goat-condition-builder>
+<goat-condition-builder>
+
+  <goat-cb-predicate position="first">
+    <goat-cb-compound>
+
+      <goat-cb-expression field="Zipcode" id="age"></goat-cb-expression>
+
+    </goat-cb-compound>
+  </goat-cb-predicate>
+
+  <goat-cb-predicate>
+    <goat-cb-expression field="State"></goat-cb-expression>
+  </goat-cb-predicate>
+
+  <goat-cb-predicate position="last">
+    <goat-cb-expression field="City"></goat-cb-expression>
+  </goat-cb-predicate>
+
+</goat-condition-builder>
 
 <script>
   const conditionBuilder = document.querySelector('goat-condition-builder');
   conditionBuilder.addEventListener('condition-builder:change', (event) => {
     console.log(event.detail);
   });
+
+  document.querySelector('#age').operators = [{
+    label: 'Less than',
+    value: 'new',
+    icon: 'file-earmark'
+  },
+    {
+      label: 'More than',
+      value: 'save',
+      icon: 'person-circle'
+    }];
 </script>
 {% endGoatHighlighterCard %}

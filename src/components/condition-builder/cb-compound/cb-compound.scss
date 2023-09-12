@@ -1,0 +1,16 @@
+@import "../../../globalStyles/commons";
+
+
+.compound {
+  display: flex;
+  align-items: stretch;
+
+  .compound-type {
+    padding: 1rem 0;
+    padding-inline-end: v(--spacing-05);
+  }
+
+  .compound-body {
+    flex: 1;
+  }
+}

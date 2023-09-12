@@ -79,6 +79,7 @@ Type: `Promise<void>`
 ### Used by
 
  - [goat-calendar](../../calendar/calendar)
+ - [goat-cb-expression](../../condition-builder/cb-expression)
  - [goat-condition-builder](../../condition-builder/condition-builder)
  - [goat-table](../../data-display/table)
 
@@ -109,6 +110,7 @@ graph TD;
   goat-empty-state --> goat-svg
   goat-empty-state --> goat-button
   goat-calendar --> goat-select
+  goat-cb-expression --> goat-select
   goat-condition-builder --> goat-select
   goat-table --> goat-select
   style goat-select fill:#f9f,stroke:#333,stroke-width:4px
