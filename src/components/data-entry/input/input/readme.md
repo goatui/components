@@ -75,7 +75,6 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [goat-cb-expression](../../../condition-builder/cb-expression)
  - [goat-condition-builder](../../../condition-builder/condition-builder)
 
 ### Depends on
@@ -88,7 +87,6 @@ graph TD;
   goat-input --> goat-button
   goat-button --> goat-icon
   goat-button --> goat-spinner
-  goat-cb-expression --> goat-input
   goat-condition-builder --> goat-input
   style goat-input fill:#f9f,stroke:#333,stroke-width:4px
 ```

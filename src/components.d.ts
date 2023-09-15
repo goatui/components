@@ -218,7 +218,10 @@ export namespace Components {
     interface GoatCard {
         "shadowLevel": 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | undefined;
     }
-    interface GoatCbCompound {
+    interface GoatCbCompoundExpression {
+        "conditionOperator": 'and' | 'or';
+        "fieldLabel": string;
+        "fieldName": string;
     }
     interface GoatCbDivider {
         "connectEnd": boolean;
@@ -226,11 +229,12 @@ export namespace Components {
         "vertical": boolean;
     }
     interface GoatCbExpression {
-        "field": string;
+        "operatorValue": string;
         "operators": any[];
     }
     interface GoatCbPredicate {
-        "position": 'first' | 'last' | 'middle';
+        "conditionOperator": 'and' | 'or';
+        "vertical": boolean;
     }
     /**
      * @name Checkbox
@@ -347,6 +351,16 @@ export namespace Components {
     }
     interface GoatContainer {
         "vertical": boolean;
+    }
+    /**
+     * @name Current Time
+     * @description The current time component displays the current time in a 12-hour format.
+     * @category General
+     * @tags controls
+     * @example <goat-current-time></goat-current-time>
+     */
+    interface GoatCurrentTime {
+        "timezone": string;
     }
     /**
      * @name Date Picker
@@ -1563,11 +1577,11 @@ declare global {
         prototype: HTMLGoatCardElement;
         new (): HTMLGoatCardElement;
     };
-    interface HTMLGoatCbCompoundElement extends Components.GoatCbCompound, HTMLStencilElement {
+    interface HTMLGoatCbCompoundExpressionElement extends Components.GoatCbCompoundExpression, HTMLStencilElement {
     }
-    var HTMLGoatCbCompoundElement: {
-        prototype: HTMLGoatCbCompoundElement;
-        new (): HTMLGoatCbCompoundElement;
+    var HTMLGoatCbCompoundExpressionElement: {
+        prototype: HTMLGoatCbCompoundExpressionElement;
+        new (): HTMLGoatCbCompoundExpressionElement;
     };
     interface HTMLGoatCbDividerElement extends Components.GoatCbDivider, HTMLStencilElement {
     }
@@ -1647,6 +1661,19 @@ declare global {
     var HTMLGoatContainerElement: {
         prototype: HTMLGoatContainerElement;
         new (): HTMLGoatContainerElement;
+    };
+    /**
+     * @name Current Time
+     * @description The current time component displays the current time in a 12-hour format.
+     * @category General
+     * @tags controls
+     * @example <goat-current-time></goat-current-time>
+     */
+    interface HTMLGoatCurrentTimeElement extends Components.GoatCurrentTime, HTMLStencilElement {
+    }
+    var HTMLGoatCurrentTimeElement: {
+        prototype: HTMLGoatCurrentTimeElement;
+        new (): HTMLGoatCurrentTimeElement;
     };
     /**
      * @name Date Picker
@@ -2117,7 +2144,7 @@ declare global {
         "goat-calendar-month-view-background": HTMLGoatCalendarMonthViewBackgroundElement;
         "goat-canvas": HTMLGoatCanvasElement;
         "goat-card": HTMLGoatCardElement;
-        "goat-cb-compound": HTMLGoatCbCompoundElement;
+        "goat-cb-compound-expression": HTMLGoatCbCompoundExpressionElement;
         "goat-cb-divider": HTMLGoatCbDividerElement;
         "goat-cb-expression": HTMLGoatCbExpressionElement;
         "goat-cb-predicate": HTMLGoatCbPredicateElement;
@@ -2126,6 +2153,7 @@ declare global {
         "goat-code-highlighter": HTMLGoatCodeHighlighterElement;
         "goat-condition-builder": HTMLGoatConditionBuilderElement;
         "goat-container": HTMLGoatContainerElement;
+        "goat-current-time": HTMLGoatCurrentTimeElement;
         "goat-date-picker": HTMLGoatDatePickerElement;
         "goat-divider": HTMLGoatDividerElement;
         "goat-dropdown": HTMLGoatDropdownElement;
@@ -2385,7 +2413,10 @@ declare namespace LocalJSX {
     interface GoatCard {
         "shadowLevel"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | undefined;
     }
-    interface GoatCbCompound {
+    interface GoatCbCompoundExpression {
+        "conditionOperator"?: 'and' | 'or';
+        "fieldLabel"?: string;
+        "fieldName"?: string;
     }
     interface GoatCbDivider {
         "connectEnd"?: boolean;
@@ -2393,11 +2424,12 @@ declare namespace LocalJSX {
         "vertical"?: boolean;
     }
     interface GoatCbExpression {
-        "field"?: string;
+        "operatorValue"?: string;
         "operators"?: any[];
     }
     interface GoatCbPredicate {
-        "position"?: 'first' | 'last' | 'middle';
+        "conditionOperator"?: 'and' | 'or';
+        "vertical"?: boolean;
     }
     /**
      * @name Checkbox
@@ -2512,6 +2544,16 @@ declare namespace LocalJSX {
     }
     interface GoatContainer {
         "vertical"?: boolean;
+    }
+    /**
+     * @name Current Time
+     * @description The current time component displays the current time in a 12-hour format.
+     * @category General
+     * @tags controls
+     * @example <goat-current-time></goat-current-time>
+     */
+    interface GoatCurrentTime {
+        "timezone"?: string;
     }
     /**
      * @name Date Picker
@@ -3512,7 +3554,7 @@ declare namespace LocalJSX {
         "goat-calendar-month-view-background": GoatCalendarMonthViewBackground;
         "goat-canvas": GoatCanvas;
         "goat-card": GoatCard;
-        "goat-cb-compound": GoatCbCompound;
+        "goat-cb-compound-expression": GoatCbCompoundExpression;
         "goat-cb-divider": GoatCbDivider;
         "goat-cb-expression": GoatCbExpression;
         "goat-cb-predicate": GoatCbPredicate;
@@ -3521,6 +3563,7 @@ declare namespace LocalJSX {
         "goat-code-highlighter": GoatCodeHighlighter;
         "goat-condition-builder": GoatConditionBuilder;
         "goat-container": GoatContainer;
+        "goat-current-time": GoatCurrentTime;
         "goat-date-picker": GoatDatePicker;
         "goat-divider": GoatDivider;
         "goat-dropdown": GoatDropdown;
@@ -3644,7 +3687,7 @@ declare module "@stencil/core" {
              */
             "goat-canvas": LocalJSX.GoatCanvas & JSXBase.HTMLAttributes<HTMLGoatCanvasElement>;
             "goat-card": LocalJSX.GoatCard & JSXBase.HTMLAttributes<HTMLGoatCardElement>;
-            "goat-cb-compound": LocalJSX.GoatCbCompound & JSXBase.HTMLAttributes<HTMLGoatCbCompoundElement>;
+            "goat-cb-compound-expression": LocalJSX.GoatCbCompoundExpression & JSXBase.HTMLAttributes<HTMLGoatCbCompoundExpressionElement>;
             "goat-cb-divider": LocalJSX.GoatCbDivider & JSXBase.HTMLAttributes<HTMLGoatCbDividerElement>;
             "goat-cb-expression": LocalJSX.GoatCbExpression & JSXBase.HTMLAttributes<HTMLGoatCbExpressionElement>;
             "goat-cb-predicate": LocalJSX.GoatCbPredicate & JSXBase.HTMLAttributes<HTMLGoatCbPredicateElement>;
@@ -3684,6 +3727,14 @@ declare module "@stencil/core" {
              */
             "goat-condition-builder": LocalJSX.GoatConditionBuilder & JSXBase.HTMLAttributes<HTMLGoatConditionBuilderElement>;
             "goat-container": LocalJSX.GoatContainer & JSXBase.HTMLAttributes<HTMLGoatContainerElement>;
+            /**
+             * @name Current Time
+             * @description The current time component displays the current time in a 12-hour format.
+             * @category General
+             * @tags controls
+             * @example <goat-current-time></goat-current-time>
+             */
+            "goat-current-time": LocalJSX.GoatCurrentTime & JSXBase.HTMLAttributes<HTMLGoatCurrentTimeElement>;
             /**
              * @name Date Picker
              * @category Form Inputs

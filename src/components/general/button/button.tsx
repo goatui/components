@@ -185,21 +185,23 @@ export class Button implements ComponentInterface {
   };
 
   componentWillLoad() {
-    // If the goat-button has a tabindex attribute we get the value
-    // and pass it down to the native input, then remove it from the
-    // goat-button to avoid causing tabbing twice on the same element
-    if (this.elm.hasAttribute('tabindex')) {
-      const tabindex = this.elm.getAttribute('tabindex');
-      this.tabindex = tabindex !== null ? tabindex : undefined;
-      this.elm.removeAttribute('tabindex');
-    }
-    this.elm.getAttributeNames().forEach((name: string) => {
-      if (name.includes('aria-')) {
-        this.configAria[name] = this.elm.getAttribute(name);
-        this.elm.removeAttribute(name);
+    if (this.elm) {
+      // If the goat-button has a tabindex attribute we get the value
+      // and pass it down to the native input, then remove it from the
+      // goat-button to avoid causing tabbing twice on the same element
+      if (this.elm.hasAttribute('tabindex')) {
+        const tabindex = this.elm.getAttribute('tabindex');
+        this.tabindex = tabindex !== null ? tabindex : undefined;
+        this.elm.removeAttribute('tabindex');
       }
-    });
-    this.slotHasContent = this.elm.hasChildNodes();
+      this.elm.getAttributeNames().forEach((name: string) => {
+        if (name.includes('aria-')) {
+          this.configAria[name] = this.elm.getAttribute(name);
+          this.elm.removeAttribute(name);
+        }
+      });
+      this.slotHasContent = this.elm.hasChildNodes();
+    }
   }
 
   private renderDisabledReason() {

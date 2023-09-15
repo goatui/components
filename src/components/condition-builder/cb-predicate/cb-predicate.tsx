@@ -1,4 +1,4 @@
-import {Component, h, Host, Prop} from '@stencil/core';
+import {Component, Element, h, Host, Prop} from '@stencil/core';
 
 
 @Component({
@@ -8,31 +8,73 @@ import {Component, h, Host, Prop} from '@stencil/core';
 })
 export class CbPredicate {
 
-  @Prop() position: 'first' | 'last' | 'middle' = 'middle';
+  @Prop() conditionOperator: 'and' | 'or';
 
-  render() {
+  @Prop() vertical: boolean = false;
+
+  renderHorizontal() {
     return (
       <Host>
-
         <div class="predicate">
 
-          <slot/>
+          <div class="predicate-body">
+            <slot/>
+          </div>
+
+          {(() => {
+            if (this.conditionOperator) {
+              return (
+                <goat-cb-divider vertical={true} class="predicate-condition-operator">
+                  <goat-tag color={'warning'}>{this.conditionOperator}</goat-tag>
+                </goat-cb-divider>
+              )
+            }
+          })()}
 
         </div>
-
-        {(() => {
-          if (this.position !== 'last') {
-            return (
-              <goat-cb-divider vertical={true} class="predicate-divider">
-                <goat-tag color={'warning'}>{"or"}</goat-tag>
-              </goat-cb-divider>
-            )
-          }
-        })()}
-
-
       </Host>
     );
   }
 
+  @Element() elm!: HTMLElement;
+
+  componentDidRender() {
+    const elm: HTMLElement = this.elm.shadowRoot.querySelector('.slot-end');
+    const conditionOperatorElm: HTMLElement = this.elm.shadowRoot.querySelector('.predicate-condition-operator');
+    setTimeout(() => {
+      if (elm)
+        elm.style.paddingInlineStart = conditionOperatorElm.getBoundingClientRect().width + 'px';
+    }, 0);
+  }
+
+  renderVertical() {
+    return (<Host>
+      <div class="predicate vertical">
+        {(() => {
+          if (this.conditionOperator) {
+            return (
+              <div class='predicate-condition-operator'>
+                <goat-cb-divider connect-start={true} connect-end={true}>
+                  <goat-tag color={'success'}>{this.conditionOperator}</goat-tag>
+                </goat-cb-divider>
+              </div>)
+          }
+        })()}
+
+        <div class="predicate-body">
+          <slot/>
+        </div>
+      </div>
+      <div class='slot-end'>
+        <slot name={'end'}/>
+      </div>
+    </Host>);
+  }
+
+  render() {
+    if (this.vertical)
+      return this.renderVertical();
+    else
+      return this.renderHorizontal();
+  }
 }

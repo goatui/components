@@ -1,21 +1,57 @@
+<style>
+  #simple-condition-builder {
+    width: 35rem;
+  }
+</style>
+
 {% GoatHighlighterCard language:"html" %}
-<goat-condition-builder>
+<goat-condition-builder id="simple-condition-builder">
 
-  <goat-cb-predicate position="first">
-    <goat-cb-compound>
+  <goat-cb-predicate condition-operator="or">
+    <goat-cb-predicate vertical="true" condition-operator="and">
+      <goat-cb-compound-expression field-label="Age" condition-operator="or">
+        <goat-cb-expression id="age">
+          <goat-input inline="true" placeholder="Select Value"></goat-input>
+        </goat-cb-expression>
+        <goat-cb-expression id="age">
+          <goat-input inline="true" placeholder="Select Value"></goat-input>
+        </goat-cb-expression>
+        <goat-button size="sm" icon="add" slot="end">Add expression</goat-button>
+      </goat-cb-compound-expression>
+      <goat-cb-compound-expression field-label="State">
+        <goat-cb-expression id="age">
+          <goat-input inline="true" placeholder="Select Value"></goat-input>
+        </goat-cb-expression>
+      </goat-cb-compound-expression>
 
-      <goat-cb-expression field="Zipcode" id="age"></goat-cb-expression>
 
-    </goat-cb-compound>
+      <goat-button slot="end" size="sm" icon="add">Add predicate</goat-button>
+    </goat-cb-predicate>
+
+
+  </goat-cb-predicate>
+
+  <goat-cb-predicate condition-operator="or">
+    <goat-cb-predicate vertical="true">
+      <goat-cb-compound-expression field-label="State">
+        <goat-cb-expression id="age">
+          <goat-input inline="true" placeholder="Select Value"></goat-input>
+        </goat-cb-expression>
+      </goat-cb-compound-expression>
+      <goat-button slot="end" size="sm" icon="add">Add predicate</goat-button>
+    </goat-cb-predicate>
   </goat-cb-predicate>
 
   <goat-cb-predicate>
-    <goat-cb-expression field="State"></goat-cb-expression>
+    <goat-cb-compound-expression field-label="City">
+      <goat-cb-expression id="age">
+        <goat-input inline="true" placeholder="Select Value"></goat-input>
+      </goat-cb-expression>
+    </goat-cb-compound-expression>
+    <goat-button slot="end" size="sm" icon="add">Add predicate</goat-button>
   </goat-cb-predicate>
 
-  <goat-cb-predicate position="last">
-    <goat-cb-expression field="City"></goat-cb-expression>
-  </goat-cb-predicate>
+  <goat-button size="sm" icon="add">Add rule</goat-button>
 
 </goat-condition-builder>
 

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-09-12T12:20:37",
+  "timestamp": "2023-09-14T15:16:23",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.0.1",
@@ -2256,9 +2256,9 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/condition-builder/cb-compound/cb-compound.tsx",
-      "fileName": "cb-compound.tsx",
-      "tag": "goat-cb-compound",
+      "filePath": "src/components/condition-builder/cb-compound-expression/cb-compound-expression.tsx",
+      "fileName": "cb-compound-expression.tsx",
+      "tag": "goat-cb-compound-expression",
       "readme": "# goat-icon\r\n\r\n\r\n\r",
       "overview": "",
       "usage": {},
@@ -2267,11 +2267,13 @@
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
+        "goat-text",
         "goat-cb-divider",
         "goat-tag"
       ],
       "dependencyGraph": {
-        "goat-cb-compound": [
+        "goat-cb-compound-expression": [
+          "goat-text",
           "goat-cb-divider",
           "goat-tag"
         ],
@@ -2279,7 +2281,78 @@
           "goat-icon"
         ]
       },
-      "props": [],
+      "props": [
+        {
+          "name": "conditionOperator",
+          "type": "\"and\" | \"or\"",
+          "complexType": {
+            "original": "'and' | 'or'",
+            "resolved": "\"and\" | \"or\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "condition-operator",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "and",
+              "type": "string"
+            },
+            {
+              "value": "or",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "fieldLabel",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "field-label",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "''",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "fieldName",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "field-name",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "''",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
       "methods": [],
       "events": [],
       "styles": [],
@@ -2299,17 +2372,13 @@
       "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [
-        "goat-cb-compound",
-        "goat-cb-expression",
+        "goat-cb-compound-expression",
         "goat-cb-predicate",
         "goat-condition-builder"
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "goat-cb-compound": [
-          "goat-cb-divider"
-        ],
-        "goat-cb-expression": [
+        "goat-cb-compound-expression": [
           "goat-cb-divider"
         ],
         "goat-cb-predicate": [
@@ -2407,19 +2476,11 @@
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
-        "goat-select",
-        "goat-input",
-        "goat-text",
-        "goat-cb-divider",
-        "goat-tag"
+        "goat-select"
       ],
       "dependencyGraph": {
         "goat-cb-expression": [
-          "goat-select",
-          "goat-input",
-          "goat-text",
-          "goat-cb-divider",
-          "goat-tag"
+          "goat-select"
         ],
         "goat-select": [
           "goat-icon",
@@ -2443,14 +2504,11 @@
         "goat-empty-state": [
           "goat-svg",
           "goat-button"
-        ],
-        "goat-input": [
-          "goat-button"
         ]
       },
       "props": [
         {
-          "name": "field",
+          "name": "operatorValue",
           "type": "string",
           "complexType": {
             "original": "string",
@@ -2458,7 +2516,7 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "field",
+          "attr": "operator-value",
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
@@ -2527,31 +2585,48 @@
       },
       "props": [
         {
-          "name": "position",
-          "type": "\"first\" | \"last\" | \"middle\"",
+          "name": "conditionOperator",
+          "type": "\"and\" | \"or\"",
           "complexType": {
-            "original": "'first' | 'last' | 'middle'",
-            "resolved": "\"first\" | \"last\" | \"middle\"",
+            "original": "'and' | 'or'",
+            "resolved": "\"and\" | \"or\"",
             "references": {}
           },
           "mutable": false,
-          "attr": "position",
+          "attr": "condition-operator",
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "'middle'",
           "values": [
             {
-              "value": "first",
+              "value": "and",
               "type": "string"
             },
             {
-              "value": "last",
+              "value": "or",
               "type": "string"
-            },
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "vertical",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "vertical",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
             {
-              "value": "middle",
-              "type": "string"
+              "type": "boolean"
             }
           ],
           "optional": false,
@@ -3625,6 +3700,56 @@
       "parts": [],
       "listeners": [],
       "metadata": {}
+    },
+    {
+      "filePath": "src/components/general/current-time/current-time.tsx",
+      "fileName": "current-time.tsx",
+      "tag": "goat-current-time",
+      "overview": "",
+      "usage": {},
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "name",
+          "text": "Current Time"
+        },
+        {
+          "name": "description",
+          "text": "The current time component displays the current time in a 12-hour format."
+        },
+        {
+          "name": "category",
+          "text": "General"
+        },
+        {
+          "name": "tags",
+          "text": "controls"
+        },
+        {
+          "name": "example",
+          "text": "<goat-current-time></goat-current-time>"
+        }
+      ],
+      "encapsulation": "shadow",
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "listeners": [],
+      "metadata": {
+        "name": "Current Time",
+        "description": "The current time component displays the current time in a 12-hour format.",
+        "category": "General",
+        "tags": [
+          "controls"
+        ],
+        "example": "<goat-current-time></goat-current-time>"
+      }
     },
     {
       "filePath": "src/components/data-entry/date/date-picker/date-picker.tsx",
@@ -6000,7 +6125,6 @@
       ],
       "encapsulation": "shadow",
       "dependents": [
-        "goat-cb-expression",
         "goat-condition-builder"
       ],
       "dependencies": [
@@ -6013,9 +6137,6 @@
         "goat-button": [
           "goat-icon",
           "goat-spinner"
-        ],
-        "goat-cb-expression": [
-          "goat-input"
         ],
         "goat-condition-builder": [
           "goat-input"
@@ -10734,8 +10855,7 @@
       ],
       "encapsulation": "shadow",
       "dependents": [
-        "goat-cb-compound",
-        "goat-cb-expression",
+        "goat-cb-compound-expression",
         "goat-cb-predicate",
         "goat-condition-builder",
         "goat-flow-designer",
@@ -10748,10 +10868,7 @@
         "goat-tag": [
           "goat-icon"
         ],
-        "goat-cb-compound": [
-          "goat-tag"
-        ],
-        "goat-cb-expression": [
+        "goat-cb-compound-expression": [
           "goat-tag"
         ],
         "goat-cb-predicate": [
@@ -10993,7 +11110,7 @@
       "encapsulation": "shadow",
       "dependents": [
         "goat-breadcrumb-item",
-        "goat-cb-expression",
+        "goat-cb-compound-expression",
         "goat-condition-builder",
         "goat-select",
         "goat-table"
@@ -11003,7 +11120,7 @@
         "goat-breadcrumb-item": [
           "goat-text"
         ],
-        "goat-cb-expression": [
+        "goat-cb-compound-expression": [
           "goat-text"
         ],
         "goat-condition-builder": [
@@ -13741,6 +13858,56 @@
           }
         },
         {
+          "filePath": "src/components/general/current-time/current-time.tsx",
+          "fileName": "current-time.tsx",
+          "tag": "goat-current-time",
+          "overview": "",
+          "usage": {},
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "name",
+              "text": "Current Time"
+            },
+            {
+              "name": "description",
+              "text": "The current time component displays the current time in a 12-hour format."
+            },
+            {
+              "name": "category",
+              "text": "General"
+            },
+            {
+              "name": "tags",
+              "text": "controls"
+            },
+            {
+              "name": "example",
+              "text": "<goat-current-time></goat-current-time>"
+            }
+          ],
+          "encapsulation": "shadow",
+          "dependents": [],
+          "dependencies": [],
+          "dependencyGraph": {},
+          "props": [],
+          "methods": [],
+          "events": [],
+          "styles": [],
+          "slots": [],
+          "parts": [],
+          "listeners": [],
+          "metadata": {
+            "name": "Current Time",
+            "description": "The current time component displays the current time in a 12-hour format.",
+            "category": "General",
+            "tags": [
+              "controls"
+            ],
+            "example": "<goat-current-time></goat-current-time>"
+          }
+        },
+        {
           "filePath": "src/components/general/icon/icon.tsx",
           "fileName": "icon.tsx",
           "tag": "goat-icon",
@@ -13906,7 +14073,7 @@
           "encapsulation": "shadow",
           "dependents": [
             "goat-breadcrumb-item",
-            "goat-cb-expression",
+            "goat-cb-compound-expression",
             "goat-condition-builder",
             "goat-select",
             "goat-table"
@@ -13916,7 +14083,7 @@
             "goat-breadcrumb-item": [
               "goat-text"
             ],
-            "goat-cb-expression": [
+            "goat-cb-compound-expression": [
               "goat-text"
             ],
             "goat-condition-builder": [
@@ -16631,7 +16798,6 @@
           ],
           "encapsulation": "shadow",
           "dependents": [
-            "goat-cb-expression",
             "goat-condition-builder"
           ],
           "dependencies": [
@@ -16644,9 +16810,6 @@
             "goat-button": [
               "goat-icon",
               "goat-spinner"
-            ],
-            "goat-cb-expression": [
-              "goat-input"
             ],
             "goat-condition-builder": [
               "goat-input"
@@ -21632,8 +21795,7 @@
           ],
           "encapsulation": "shadow",
           "dependents": [
-            "goat-cb-compound",
-            "goat-cb-expression",
+            "goat-cb-compound-expression",
             "goat-cb-predicate",
             "goat-condition-builder",
             "goat-flow-designer",
@@ -21646,10 +21808,7 @@
             "goat-tag": [
               "goat-icon"
             ],
-            "goat-cb-compound": [
-              "goat-tag"
-            ],
-            "goat-cb-expression": [
+            "goat-cb-compound-expression": [
               "goat-tag"
             ],
             "goat-cb-predicate": [
@@ -23573,9 +23732,9 @@
           "metadata": {}
         },
         {
-          "filePath": "src/components/condition-builder/cb-compound/cb-compound.tsx",
-          "fileName": "cb-compound.tsx",
-          "tag": "goat-cb-compound",
+          "filePath": "src/components/condition-builder/cb-compound-expression/cb-compound-expression.tsx",
+          "fileName": "cb-compound-expression.tsx",
+          "tag": "goat-cb-compound-expression",
           "readme": "# goat-icon\r\n\r\n\r\n\r",
           "overview": "",
           "usage": {},
@@ -23584,11 +23743,13 @@
           "encapsulation": "shadow",
           "dependents": [],
           "dependencies": [
+            "goat-text",
             "goat-cb-divider",
             "goat-tag"
           ],
           "dependencyGraph": {
-            "goat-cb-compound": [
+            "goat-cb-compound-expression": [
+              "goat-text",
               "goat-cb-divider",
               "goat-tag"
             ],
@@ -23596,7 +23757,78 @@
               "goat-icon"
             ]
           },
-          "props": [],
+          "props": [
+            {
+              "name": "conditionOperator",
+              "type": "\"and\" | \"or\"",
+              "complexType": {
+                "original": "'and' | 'or'",
+                "resolved": "\"and\" | \"or\"",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "condition-operator",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "value": "and",
+                  "type": "string"
+                },
+                {
+                  "value": "or",
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "fieldLabel",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "field-label",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "''",
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "fieldName",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "field-name",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "''",
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
           "methods": [],
           "events": [],
           "styles": [],
@@ -23616,17 +23848,13 @@
           "docsTags": [],
           "encapsulation": "shadow",
           "dependents": [
-            "goat-cb-compound",
-            "goat-cb-expression",
+            "goat-cb-compound-expression",
             "goat-cb-predicate",
             "goat-condition-builder"
           ],
           "dependencies": [],
           "dependencyGraph": {
-            "goat-cb-compound": [
-              "goat-cb-divider"
-            ],
-            "goat-cb-expression": [
+            "goat-cb-compound-expression": [
               "goat-cb-divider"
             ],
             "goat-cb-predicate": [
@@ -23724,19 +23952,11 @@
           "encapsulation": "shadow",
           "dependents": [],
           "dependencies": [
-            "goat-select",
-            "goat-input",
-            "goat-text",
-            "goat-cb-divider",
-            "goat-tag"
+            "goat-select"
           ],
           "dependencyGraph": {
             "goat-cb-expression": [
-              "goat-select",
-              "goat-input",
-              "goat-text",
-              "goat-cb-divider",
-              "goat-tag"
+              "goat-select"
             ],
             "goat-select": [
               "goat-icon",
@@ -23760,14 +23980,11 @@
             "goat-empty-state": [
               "goat-svg",
               "goat-button"
-            ],
-            "goat-input": [
-              "goat-button"
             ]
           },
           "props": [
             {
-              "name": "field",
+              "name": "operatorValue",
               "type": "string",
               "complexType": {
                 "original": "string",
@@ -23775,7 +23992,7 @@
                 "references": {}
               },
               "mutable": false,
-              "attr": "field",
+              "attr": "operator-value",
               "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
@@ -23844,31 +24061,48 @@
           },
           "props": [
             {
-              "name": "position",
-              "type": "\"first\" | \"last\" | \"middle\"",
+              "name": "conditionOperator",
+              "type": "\"and\" | \"or\"",
               "complexType": {
-                "original": "'first' | 'last' | 'middle'",
-                "resolved": "\"first\" | \"last\" | \"middle\"",
+                "original": "'and' | 'or'",
+                "resolved": "\"and\" | \"or\"",
                 "references": {}
               },
               "mutable": false,
-              "attr": "position",
+              "attr": "condition-operator",
               "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
-              "default": "'middle'",
               "values": [
                 {
-                  "value": "first",
+                  "value": "and",
                   "type": "string"
                 },
                 {
-                  "value": "last",
+                  "value": "or",
                   "type": "string"
-                },
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "vertical",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "vertical",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
                 {
-                  "value": "middle",
-                  "type": "string"
+                  "type": "boolean"
                 }
               ],
               "optional": false,

@@ -1,9 +1,29 @@
 @import "../../../globalStyles/commons";
 
 
-.predicate {
-  padding-top: 1rem;
+.predicate:not(.vertical) {
+
+  .predicate-body {
+    padding-top: 1rem;
+  }
+
+  .predicate-condition-operator {
+    padding: 1rem 2rem 0 2rem;
+  }
 }
-.predicate-divider {
-  padding: 1rem 2rem 0 2rem;
+
+
+.predicate.vertical {
+  display: flex;
+  align-items: stretch;
+
+  .predicate-condition-operator {
+    padding: 2rem 0 1rem 0;
+    padding-inline-end: v(--spacing-05);
+  }
+
+  .predicate-body {
+    flex: 1;
+  }
 }
+
