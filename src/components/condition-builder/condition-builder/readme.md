@@ -19,8 +19,8 @@
 - [goat-select](../../data-entry/select)
 - [goat-input](../../data-entry/input/input)
 - [goat-text](../../general/text)
+- [goat-cb-divider](../cb-divider)
 - [goat-tag](../../data-display/tag)
-- [goat-divider](../../layout/divider)
 
 ### Graph
 ```mermaid
@@ -28,8 +28,8 @@ graph TD;
   goat-condition-builder --> goat-select
   goat-condition-builder --> goat-input
   goat-condition-builder --> goat-text
+  goat-condition-builder --> goat-cb-divider
   goat-condition-builder --> goat-tag
-  goat-condition-builder --> goat-divider
   goat-select --> goat-icon
   goat-select --> goat-tag
   goat-select --> goat-button

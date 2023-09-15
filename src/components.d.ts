@@ -218,6 +218,24 @@ export namespace Components {
     interface GoatCard {
         "shadowLevel": 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | undefined;
     }
+    interface GoatCbCompoundExpression {
+        "conditionOperator": 'and' | 'or';
+        "fieldLabel": string;
+        "fieldName": string;
+    }
+    interface GoatCbDivider {
+        "connectEnd": boolean;
+        "connectStart": boolean;
+        "vertical": boolean;
+    }
+    interface GoatCbExpression {
+        "operatorValue": string;
+        "operators": any[];
+    }
+    interface GoatCbPredicate {
+        "conditionOperator": 'and' | 'or';
+        "vertical": boolean;
+    }
     /**
      * @name Checkbox
      * @description Captures boolean input with an optional indeterminate mode.
@@ -321,16 +339,28 @@ export namespace Components {
         "value": string;
     }
     /**
-     * @name ConditionBuilder
+     * @name Condition Builder
      * @description A condition builder is a component that allows users to build a condition using a set of rules.
+     * @category Up coming
      * @category Data Display
      * @tag content
+     * @img /assets/img/condition-builder.png
      */
     interface GoatConditionBuilder {
         "content": string;
     }
     interface GoatContainer {
         "vertical": boolean;
+    }
+    /**
+     * @name Current Time
+     * @description The current time component displays the current time in a 12-hour format.
+     * @category General
+     * @tags controls
+     * @example <goat-current-time></goat-current-time>
+     */
+    interface GoatCurrentTime {
+        "timezone": string;
     }
     /**
      * @name Date Picker
@@ -1547,6 +1577,30 @@ declare global {
         prototype: HTMLGoatCardElement;
         new (): HTMLGoatCardElement;
     };
+    interface HTMLGoatCbCompoundExpressionElement extends Components.GoatCbCompoundExpression, HTMLStencilElement {
+    }
+    var HTMLGoatCbCompoundExpressionElement: {
+        prototype: HTMLGoatCbCompoundExpressionElement;
+        new (): HTMLGoatCbCompoundExpressionElement;
+    };
+    interface HTMLGoatCbDividerElement extends Components.GoatCbDivider, HTMLStencilElement {
+    }
+    var HTMLGoatCbDividerElement: {
+        prototype: HTMLGoatCbDividerElement;
+        new (): HTMLGoatCbDividerElement;
+    };
+    interface HTMLGoatCbExpressionElement extends Components.GoatCbExpression, HTMLStencilElement {
+    }
+    var HTMLGoatCbExpressionElement: {
+        prototype: HTMLGoatCbExpressionElement;
+        new (): HTMLGoatCbExpressionElement;
+    };
+    interface HTMLGoatCbPredicateElement extends Components.GoatCbPredicate, HTMLStencilElement {
+    }
+    var HTMLGoatCbPredicateElement: {
+        prototype: HTMLGoatCbPredicateElement;
+        new (): HTMLGoatCbPredicateElement;
+    };
     /**
      * @name Checkbox
      * @description Captures boolean input with an optional indeterminate mode.
@@ -1589,10 +1643,12 @@ declare global {
         new (): HTMLGoatCodeHighlighterElement;
     };
     /**
-     * @name ConditionBuilder
+     * @name Condition Builder
      * @description A condition builder is a component that allows users to build a condition using a set of rules.
+     * @category Up coming
      * @category Data Display
      * @tag content
+     * @img /assets/img/condition-builder.png
      */
     interface HTMLGoatConditionBuilderElement extends Components.GoatConditionBuilder, HTMLStencilElement {
     }
@@ -1605,6 +1661,19 @@ declare global {
     var HTMLGoatContainerElement: {
         prototype: HTMLGoatContainerElement;
         new (): HTMLGoatContainerElement;
+    };
+    /**
+     * @name Current Time
+     * @description The current time component displays the current time in a 12-hour format.
+     * @category General
+     * @tags controls
+     * @example <goat-current-time></goat-current-time>
+     */
+    interface HTMLGoatCurrentTimeElement extends Components.GoatCurrentTime, HTMLStencilElement {
+    }
+    var HTMLGoatCurrentTimeElement: {
+        prototype: HTMLGoatCurrentTimeElement;
+        new (): HTMLGoatCurrentTimeElement;
     };
     /**
      * @name Date Picker
@@ -2075,11 +2144,16 @@ declare global {
         "goat-calendar-month-view-background": HTMLGoatCalendarMonthViewBackgroundElement;
         "goat-canvas": HTMLGoatCanvasElement;
         "goat-card": HTMLGoatCardElement;
+        "goat-cb-compound-expression": HTMLGoatCbCompoundExpressionElement;
+        "goat-cb-divider": HTMLGoatCbDividerElement;
+        "goat-cb-expression": HTMLGoatCbExpressionElement;
+        "goat-cb-predicate": HTMLGoatCbPredicateElement;
         "goat-checkbox": HTMLGoatCheckboxElement;
         "goat-code-editor": HTMLGoatCodeEditorElement;
         "goat-code-highlighter": HTMLGoatCodeHighlighterElement;
         "goat-condition-builder": HTMLGoatConditionBuilderElement;
         "goat-container": HTMLGoatContainerElement;
+        "goat-current-time": HTMLGoatCurrentTimeElement;
         "goat-date-picker": HTMLGoatDatePickerElement;
         "goat-divider": HTMLGoatDividerElement;
         "goat-dropdown": HTMLGoatDropdownElement;
@@ -2339,6 +2413,24 @@ declare namespace LocalJSX {
     interface GoatCard {
         "shadowLevel"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | undefined;
     }
+    interface GoatCbCompoundExpression {
+        "conditionOperator"?: 'and' | 'or';
+        "fieldLabel"?: string;
+        "fieldName"?: string;
+    }
+    interface GoatCbDivider {
+        "connectEnd"?: boolean;
+        "connectStart"?: boolean;
+        "vertical"?: boolean;
+    }
+    interface GoatCbExpression {
+        "operatorValue"?: string;
+        "operators"?: any[];
+    }
+    interface GoatCbPredicate {
+        "conditionOperator"?: 'and' | 'or';
+        "vertical"?: boolean;
+    }
     /**
      * @name Checkbox
      * @description Captures boolean input with an optional indeterminate mode.
@@ -2440,16 +2532,28 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     /**
-     * @name ConditionBuilder
+     * @name Condition Builder
      * @description A condition builder is a component that allows users to build a condition using a set of rules.
+     * @category Up coming
      * @category Data Display
      * @tag content
+     * @img /assets/img/condition-builder.png
      */
     interface GoatConditionBuilder {
         "content"?: string;
     }
     interface GoatContainer {
         "vertical"?: boolean;
+    }
+    /**
+     * @name Current Time
+     * @description The current time component displays the current time in a 12-hour format.
+     * @category General
+     * @tags controls
+     * @example <goat-current-time></goat-current-time>
+     */
+    interface GoatCurrentTime {
+        "timezone"?: string;
     }
     /**
      * @name Date Picker
@@ -3450,11 +3554,16 @@ declare namespace LocalJSX {
         "goat-calendar-month-view-background": GoatCalendarMonthViewBackground;
         "goat-canvas": GoatCanvas;
         "goat-card": GoatCard;
+        "goat-cb-compound-expression": GoatCbCompoundExpression;
+        "goat-cb-divider": GoatCbDivider;
+        "goat-cb-expression": GoatCbExpression;
+        "goat-cb-predicate": GoatCbPredicate;
         "goat-checkbox": GoatCheckbox;
         "goat-code-editor": GoatCodeEditor;
         "goat-code-highlighter": GoatCodeHighlighter;
         "goat-condition-builder": GoatConditionBuilder;
         "goat-container": GoatContainer;
+        "goat-current-time": GoatCurrentTime;
         "goat-date-picker": GoatDatePicker;
         "goat-divider": GoatDivider;
         "goat-dropdown": GoatDropdown;
@@ -3578,6 +3687,10 @@ declare module "@stencil/core" {
              */
             "goat-canvas": LocalJSX.GoatCanvas & JSXBase.HTMLAttributes<HTMLGoatCanvasElement>;
             "goat-card": LocalJSX.GoatCard & JSXBase.HTMLAttributes<HTMLGoatCardElement>;
+            "goat-cb-compound-expression": LocalJSX.GoatCbCompoundExpression & JSXBase.HTMLAttributes<HTMLGoatCbCompoundExpressionElement>;
+            "goat-cb-divider": LocalJSX.GoatCbDivider & JSXBase.HTMLAttributes<HTMLGoatCbDividerElement>;
+            "goat-cb-expression": LocalJSX.GoatCbExpression & JSXBase.HTMLAttributes<HTMLGoatCbExpressionElement>;
+            "goat-cb-predicate": LocalJSX.GoatCbPredicate & JSXBase.HTMLAttributes<HTMLGoatCbPredicateElement>;
             /**
              * @name Checkbox
              * @description Captures boolean input with an optional indeterminate mode.
@@ -3605,13 +3718,23 @@ declare module "@stencil/core" {
              */
             "goat-code-highlighter": LocalJSX.GoatCodeHighlighter & JSXBase.HTMLAttributes<HTMLGoatCodeHighlighterElement>;
             /**
-             * @name ConditionBuilder
+             * @name Condition Builder
              * @description A condition builder is a component that allows users to build a condition using a set of rules.
+             * @category Up coming
              * @category Data Display
              * @tag content
+             * @img /assets/img/condition-builder.png
              */
             "goat-condition-builder": LocalJSX.GoatConditionBuilder & JSXBase.HTMLAttributes<HTMLGoatConditionBuilderElement>;
             "goat-container": LocalJSX.GoatContainer & JSXBase.HTMLAttributes<HTMLGoatContainerElement>;
+            /**
+             * @name Current Time
+             * @description The current time component displays the current time in a 12-hour format.
+             * @category General
+             * @tags controls
+             * @example <goat-current-time></goat-current-time>
+             */
+            "goat-current-time": LocalJSX.GoatCurrentTime & JSXBase.HTMLAttributes<HTMLGoatCurrentTimeElement>;
             /**
              * @name Date Picker
              * @category Form Inputs

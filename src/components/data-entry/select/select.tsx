@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Listen, Method, Prop, State, Watch } from '@stencil/core';
-import { debounceEvent, getComponentIndex, isMobile, isOutOfViewport } from '../../../utils/utils';
+import { debounceEvent, getComponentIndex, isOutOfViewport } from '../../../utils/utils';
 import { Components } from '../../../components';
 import GoatMenu = Components.GoatMenu;
 
@@ -343,8 +343,9 @@ export class Select implements ComponentInterface, InputComponentInterface {
 
   @Listen('scroll', { target: 'window' })
   fixPosition() {
+    const isMobile = false;//isMobile();
     if (this.isOpen && this.dropdownContentHeight && this.dropdownContentWidth) {
-      if (isMobile()) {
+      if (isMobile) {
         this.position = 'center';
         return;
       } else if (this.position === 'center') {

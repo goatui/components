@@ -8,82 +8,20 @@
 
 .condition-builder {
 
-  .condition-builder__compound {
+  .condition-builder__predicates {
     display: flex;
-    align-items: stretch;
-
-    .compound-type {
-      display: flex;
-      margin: 0;
-      padding: 1rem 0;
-
-
-      height: 100%;
-      padding-inline-end: v(--spacing-05);
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      .line:first-child {
-        height: 100%;
-        width: 1rem;
-        margin-left: 1rem;
-        border-inline-start: 1px solid var(--compound-type-line-color);
-        border-top: 1px solid var(--compound-type-line-color);
-        border-radius: 5px 0 0 0;
-      }
-
-      .line:last-child {
-        height: 100%;
-        width: 1rem;
-        margin-left: 1rem;
-        border-inline-start: 1px solid var(--compound-type-line-color);
-        border-bottom: 1px solid var(--compound-type-line-color);
-        border-radius: 0 0 0 5px;
-      }
-
-      .content {
-        padding: v(--spacing-02) 0;
-      }
-
-
-    }
-
-    .compound-body {
-      flex: 1;
-    }
-  }
-
-  .condition-builder__compound_conditions {
-    display: flex;
+    flex-direction: column;
     gap: 1rem;
-    padding: 1rem 0;
-
-    .field-name-container {
-      display: flex;
-      flex-direction: column;
-      padding-top: 1rem;
-
-      .compound-type-wrapper {
-        flex: 1;
-
-        .compound-type {
-          padding: 0;
-        }
-
-        .line:first-child {
-          border-top: none;
-          border-radius: 0;
-        }
-      }
+    padding-bottom: 1rem;
+    .predicate-divider {
+      padding: 0 2rem;
     }
   }
 
-  .condition-builder__condition {
-    display: flex;
-    gap: .5rem;
-    align-items: center;
-    padding: .5rem 0;
-  }
+
+
+
+
+
 }
 
