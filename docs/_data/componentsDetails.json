@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-09-14T15:16:23",
+  "timestamp": "2023-09-15T02:56:25",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.0.1",
@@ -3705,6 +3705,7 @@
       "filePath": "src/components/general/current-time/current-time.tsx",
       "fileName": "current-time.tsx",
       "tag": "goat-current-time",
+      "readme": "# goat-current-time\n\n\n",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -3734,7 +3735,29 @@
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
-      "props": [],
+      "props": [
+        {
+          "name": "timezone",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "timezone",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
       "methods": [],
       "events": [],
       "styles": [],
@@ -13861,6 +13884,7 @@
           "filePath": "src/components/general/current-time/current-time.tsx",
           "fileName": "current-time.tsx",
           "tag": "goat-current-time",
+          "readme": "# goat-current-time\n\n\n",
           "overview": "",
           "usage": {},
           "docs": "",
@@ -13890,7 +13914,29 @@
           "dependents": [],
           "dependencies": [],
           "dependencyGraph": {},
-          "props": [],
+          "props": [
+            {
+              "name": "timezone",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "timezone",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
           "methods": [],
           "events": [],
           "styles": [],
