@@ -5,12 +5,13 @@
   height: 100%;
   min-height: 20em;
   --table-border-color: #{v(--border-strong-01)};
+  --table-border: 1px solid var(--table-border-color);
   --table-col-content-padding: #{v(--spacing-02)} #{v(--spacing-03)};
 }
 
 .table {
   height: 100%;
-  border: 1px solid var(--table-border-color);
+  border: var(--table-border);
   @include font-style(text-md);
   display: flex;
   flex-direction: column;
