@@ -111,6 +111,7 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
 
 .button.size-full, .button.size-full {
   height: 100%;
+
   .button-content {
     height: 100%;
   }
@@ -360,7 +361,7 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
 
   &:hover {
     .button-background {
-      background: v(--color-secondary-20);
+      background: var(--button-ghost-color, v(--color-secondary-10));
     }
   }
 
@@ -390,6 +391,14 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
 
     &.has-focus:not(.active) .native-button {
       border-color: var(--button-color-focus, v(--color-neutral)) !important;
+    }
+  }
+}
+
+:host-context([data-theme="dark"]) .button.variant-ghost {
+  &:hover {
+    .button-background {
+      background: var(--button-ghost-color-dark, v(--color-secondary-90));
     }
   }
 }

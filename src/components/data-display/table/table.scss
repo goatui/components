@@ -11,7 +11,11 @@
 
 .table {
   height: 100%;
-  border: var(--table-border);
+  border-inline-start: var(--table-border-inline-start, var(--table-border));
+  border-inline-end: var(--table-border-inline-end, var(--table-border));
+  border-top: var(--table-border-top, var(--table-border));
+  border-bottom: var(--table-border-bottom, var(--table-border));
+
   @include font-style(text-md);
   display: flex;
   flex-direction: column;
