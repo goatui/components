@@ -118,10 +118,10 @@ sections:
 
     const $dropDown = document.getElementById('comp-select');
     $dropDown.items = [];
-    fetch('/assets/goatui-dev/build/assets/icons.json').then(res => res.json()).then(data => {
+    fetch('/assets/icons.json').then(res => res.json()).then(data => {
       $dropDown.items = data.map(item => {
         return {
-          label: item.friendly_name,
+          label: item.label,
           value: item.name,
           icon: item.name,
         };
