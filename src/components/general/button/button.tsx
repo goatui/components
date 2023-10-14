@@ -18,7 +18,6 @@ import { getComponentIndex } from '../../../utils/utils';
 export class Button implements ComponentInterface {
   gid: string = getComponentIndex();
 
-
   /**
    * Button size.
    * Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"full"`. Defaults to `"md"`.
@@ -194,12 +193,13 @@ export class Button implements ComponentInterface {
         this.tabindex = tabindex !== null ? tabindex : undefined;
         this.elm.removeAttribute('tabindex');
       }
-      this.elm.getAttributeNames().forEach((name: string) => {
-        if (name.includes('aria-')) {
-          this.configAria[name] = this.elm.getAttribute(name);
-          this.elm.removeAttribute(name);
-        }
-      });
+      if (this.elm.getAttributeNames)
+        this.elm.getAttributeNames().forEach((name: string) => {
+          if (name.includes('aria-')) {
+            this.configAria[name] = this.elm.getAttribute(name);
+            this.elm.removeAttribute(name);
+          }
+        });
       this.slotHasContent = this.elm.hasChildNodes();
     }
   }

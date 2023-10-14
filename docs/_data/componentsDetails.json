@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-10-08T08:47:55",
+  "timestamp": "2023-10-14T16:12:35",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.4.0",
@@ -10341,7 +10341,7 @@
           },
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "Grid columns configuration.\r\n[\r\n{\r\n  \"name\":\"name\",\r\n  \"label\":\"Name\",\r\n  \"width\":300,\r\n  \"fixed\":true,\r\n  \"template\": function(row, column) { return row[column.name];}\r\n },\r\n{\r\n  \"name\":\"age\",\r\n  \"label\":\"Age\"\r\n}\r\n]",
+          "docs": "Grid columns configuration.\n[\n{\n  \"name\":\"name\",\n  \"label\":\"Name\",\n  \"width\":300,\n  \"fixed\":true,\n  \"template\": function(row, column) { return row[column.name];}\n },\n{\n  \"name\":\"age\",\n  \"label\":\"Age\"\n}\n]",
           "docsTags": [],
           "default": "[]",
           "values": [
@@ -10362,7 +10362,7 @@
           },
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "Grid data to display on table\r\n[{\r\n 'id': '5e7118ddce4b3d577956457f',\r\n 'age': 21,\r\n 'name': 'John',\r\n 'company': 'India',\r\n 'email': 'john@example.com',\r\n 'phone': '+1 (839) 560-3581',\r\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\r\n }]",
+          "docs": "Grid data to display on table\n[{\n 'id': '5e7118ddce4b3d577956457f',\n 'age': 21,\n 'name': 'John',\n 'company': 'India',\n 'email': 'john@example.com',\n 'phone': '+1 (839) 560-3581',\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\n }]",
           "docsTags": [],
           "default": "[]",
           "values": [
@@ -10386,7 +10386,7 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "{\r\n    'title': 'No items',\r\n    'description': 'There are no items to display',\r\n  }",
+          "default": "{\n    title: 'No items',\n    description: 'There are no items to display',\n  }",
           "values": [
             {
               "type": "any"
@@ -21439,7 +21439,7 @@
               },
               "mutable": false,
               "reflectToAttr": false,
-              "docs": "Grid columns configuration.\r\n[\r\n{\r\n  \"name\":\"name\",\r\n  \"label\":\"Name\",\r\n  \"width\":300,\r\n  \"fixed\":true,\r\n  \"template\": function(row, column) { return row[column.name];}\r\n },\r\n{\r\n  \"name\":\"age\",\r\n  \"label\":\"Age\"\r\n}\r\n]",
+              "docs": "Grid columns configuration.\n[\n{\n  \"name\":\"name\",\n  \"label\":\"Name\",\n  \"width\":300,\n  \"fixed\":true,\n  \"template\": function(row, column) { return row[column.name];}\n },\n{\n  \"name\":\"age\",\n  \"label\":\"Age\"\n}\n]",
               "docsTags": [],
               "default": "[]",
               "values": [
@@ -21460,7 +21460,7 @@
               },
               "mutable": false,
               "reflectToAttr": false,
-              "docs": "Grid data to display on table\r\n[{\r\n 'id': '5e7118ddce4b3d577956457f',\r\n 'age': 21,\r\n 'name': 'John',\r\n 'company': 'India',\r\n 'email': 'john@example.com',\r\n 'phone': '+1 (839) 560-3581',\r\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\r\n }]",
+              "docs": "Grid data to display on table\n[{\n 'id': '5e7118ddce4b3d577956457f',\n 'age': 21,\n 'name': 'John',\n 'company': 'India',\n 'email': 'john@example.com',\n 'phone': '+1 (839) 560-3581',\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\n }]",
               "docsTags": [],
               "default": "[]",
               "values": [
@@ -21484,7 +21484,7 @@
               "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
-              "default": "{\r\n    'title': 'No items',\r\n    'description': 'There are no items to display',\r\n  }",
+              "default": "{\n    title: 'No items',\n    description: 'There are no items to display',\n  }",
               "values": [
                 {
                   "type": "any"
