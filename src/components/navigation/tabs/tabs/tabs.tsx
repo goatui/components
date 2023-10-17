@@ -18,8 +18,6 @@ import { Component, ComponentInterface, Element, h, Host, Listen } from '@stenci
   shadow: true,
 })
 export class Tabs implements ComponentInterface {
-
-
   @Element() elm!: HTMLElement;
 
   @Listen('goat:tab-click')
@@ -61,19 +59,20 @@ export class Tabs implements ComponentInterface {
       this.getTabPanels().forEach((tab, index) => {
         tab.setAttribute('value', 'tab-' + index);
       });
-      if (tabs.length)
-        this.selectTab('tab-0');
+      if (tabs.length) this.selectTab('tab-0');
     } else {
       const selectedTab = this.elm.querySelector('goat-tab[selected]');
-      if (selectedTab)
-        this.selectTab(selectedTab['target']);
+      if (selectedTab) this.selectTab(selectedTab['target']);
     }
   }
 
   render() {
-    return (<Host>
-      <slot />
-    </Host>);
+    return (
+      <Host>
+        <div class="tabs">
+          <slot />
+        </div>
+      </Host>
+    );
   }
-
 }
