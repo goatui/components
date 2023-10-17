@@ -721,6 +721,14 @@ export namespace Components {
         "value"?: string | number | null;
     }
     /**
+     * @name Modal
+     * @description Modals are used to display content in a layer above the app.
+     * @tags controls
+     */
+    interface GoatModal {
+        "show": boolean;
+    }
+    /**
      * @name Notification
      * @description Notifications are messages that communicate information to the user.
      * @category Feedback
@@ -1854,6 +1862,17 @@ declare global {
         new (): HTMLGoatMenuItemElement;
     };
     /**
+     * @name Modal
+     * @description Modals are used to display content in a layer above the app.
+     * @tags controls
+     */
+    interface HTMLGoatModalElement extends Components.GoatModal, HTMLStencilElement {
+    }
+    var HTMLGoatModalElement: {
+        prototype: HTMLGoatModalElement;
+        new (): HTMLGoatModalElement;
+    };
+    /**
      * @name Notification
      * @description Notifications are messages that communicate information to the user.
      * @category Feedback
@@ -2170,6 +2189,7 @@ declare global {
         "goat-link": HTMLGoatLinkElement;
         "goat-menu": HTMLGoatMenuElement;
         "goat-menu-item": HTMLGoatMenuItemElement;
+        "goat-modal": HTMLGoatModalElement;
         "goat-notification": HTMLGoatNotificationElement;
         "goat-notification-manager": HTMLGoatNotificationManagerElement;
         "goat-number": HTMLGoatNumberElement;
@@ -2913,6 +2933,14 @@ declare namespace LocalJSX {
         "value"?: string | number | null;
     }
     /**
+     * @name Modal
+     * @description Modals are used to display content in a layer above the app.
+     * @tags controls
+     */
+    interface GoatModal {
+        "show"?: boolean;
+    }
+    /**
      * @name Notification
      * @description Notifications are messages that communicate information to the user.
      * @category Feedback
@@ -3580,6 +3608,7 @@ declare namespace LocalJSX {
         "goat-link": GoatLink;
         "goat-menu": GoatMenu;
         "goat-menu-item": GoatMenuItem;
+        "goat-modal": GoatModal;
         "goat-notification": GoatNotification;
         "goat-notification-manager": GoatNotificationManager;
         "goat-number": GoatNumber;
@@ -3833,6 +3862,12 @@ declare module "@stencil/core" {
              */
             "goat-menu": LocalJSX.GoatMenu & JSXBase.HTMLAttributes<HTMLGoatMenuElement>;
             "goat-menu-item": LocalJSX.GoatMenuItem & JSXBase.HTMLAttributes<HTMLGoatMenuItemElement>;
+            /**
+             * @name Modal
+             * @description Modals are used to display content in a layer above the app.
+             * @tags controls
+             */
+            "goat-modal": LocalJSX.GoatModal & JSXBase.HTMLAttributes<HTMLGoatModalElement>;
             /**
              * @name Notification
              * @description Notifications are messages that communicate information to the user.

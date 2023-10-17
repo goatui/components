@@ -1,2 +1,6 @@
 @import "../../../../globalStyles/commons";
 
+:host {
+  display: block;
+  height: 100%;
+}

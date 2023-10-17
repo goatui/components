@@ -80,6 +80,7 @@ Type: `Promise<void>`
  - [goat-header-action](../../navigation/header/header-action)
  - [goat-html-editor](../../data-entry/html-editor)
  - [goat-input](../../data-entry/input/input)
+ - [goat-modal](../../modal/modal)
  - [goat-notification](../../feedback/notification)
  - [goat-number](../../data-entry/input/number)
  - [goat-select](../../data-entry/select)
@@ -104,6 +105,7 @@ graph TD;
   goat-header-action --> goat-button
   goat-html-editor --> goat-button
   goat-input --> goat-button
+  goat-modal --> goat-button
   goat-notification --> goat-button
   goat-number --> goat-button
   goat-select --> goat-button
