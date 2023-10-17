@@ -69,9 +69,7 @@ export class Tabs implements ComponentInterface {
   render() {
     return (
       <Host>
-        <div class="tabs">
-          <slot />
-        </div>
+        <slot />
       </Host>
     );
   }
