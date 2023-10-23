@@ -137,9 +137,9 @@ export namespace Components {
          */
         "showLoader": boolean;
         /**
-          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"full"`. Defaults to `"md"`.
+          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"2xl"`, `"full"`. Defaults to `"md"`.
          */
-        "size": 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'full';
+        "size": 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
         /**
           * Sets or retrieves the window or frame at which to target content.
          */
@@ -2348,9 +2348,9 @@ declare namespace LocalJSX {
          */
         "showLoader"?: boolean;
         /**
-          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"full"`. Defaults to `"md"`.
+          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"2xl"`, `"full"`. Defaults to `"md"`.
          */
-        "size"?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'full';
+        "size"?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
         /**
           * Sets or retrieves the window or frame at which to target content.
          */

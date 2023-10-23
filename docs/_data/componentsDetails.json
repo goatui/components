@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-10-20T16:52:13",
+  "timestamp": "2023-10-23T17:33:31",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.4.0",
@@ -1027,19 +1027,23 @@
         },
         {
           "name": "size",
-          "type": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\" | \"xxl\"",
+          "type": "\"2xl\" | \"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
           "complexType": {
-            "original": "'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'full'",
-            "resolved": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\" | \"xxl\"",
+            "original": "'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full'",
+            "resolved": "\"2xl\" | \"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
             "references": {}
           },
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
-          "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"full\"`. Defaults to `\"md\"`.",
+          "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
             {
               "value": "full",
               "type": "string"
@@ -1058,10 +1062,6 @@
             },
             {
               "value": "xl",
-              "type": "string"
-            },
-            {
-              "value": "xxl",
               "type": "string"
             }
           ],
@@ -13669,19 +13669,23 @@
             },
             {
               "name": "size",
-              "type": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\" | \"xxl\"",
+              "type": "\"2xl\" | \"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
               "complexType": {
-                "original": "'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'full'",
-                "resolved": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\" | \"xxl\"",
+                "original": "'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full'",
+                "resolved": "\"2xl\" | \"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
                 "references": {}
               },
               "mutable": false,
               "attr": "size",
               "reflectToAttr": true,
-              "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"full\"`. Defaults to `\"md\"`.",
+              "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
+                {
+                  "value": "2xl",
+                  "type": "string"
+                },
                 {
                   "value": "full",
                   "type": "string"
@@ -13700,10 +13704,6 @@
                 },
                 {
                   "value": "xl",
-                  "type": "string"
-                },
-                {
-                  "value": "xxl",
                   "type": "string"
                 }
               ],

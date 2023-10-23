@@ -19,8 +19,7 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
 
 :host {
   display: inline-block;
-  --button-height: #{removeBorder(2.5)};
-  --button-padding: 0 #{v(--spacing-05)};
+  --button-height: 2.5rem;
   --button-color: #{v(--color-primary)};
   --button-border-radius: var(--global-button-border-radius, #{v(--border-radius)});
 }
@@ -52,13 +51,16 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
   .button-content {
     @include font-style(body-compact-01);
     display: flex;
+    box-sizing: border-box;
     align-items: center;
     flex-direction: row;
     height: 100%;
     border-radius: var(--button-border-radius);
     border: #{$inner-border-width}rem solid transparent;
-    padding: var(--button-padding);
+    padding: 0 calc(var(--button-padding, 1rem) - #{$inner-border-width}rem);
   }
+
+
 
   .button-background {
     display: block;
@@ -98,14 +100,24 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
   */
 .button.size-sm, .button.size-small {
   .button-content {
-    height: removeBorder(2);
+    min-height: 2rem;
+  }
+  &:not(.has-content).has-icon {
+    .button-content {
+      padding: 0 calc(var(--button-padding, 0.5rem) - #{$inner-border-width}rem);
+    }
   }
 }
 
 
 .button.size-md, .button.size-medium {
   .button-content {
-    height: var(--button-height);
+    min-height: var(--button-height);
+  }
+  &:not(.has-content).has-icon {
+    .button-content {
+      padding: 0 calc(var(--button-padding, 0.75rem) - #{$inner-border-width}rem);
+    }
   }
 }
 
@@ -119,19 +131,21 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
 
 .button.size-lg, .button.size-large {
   .button-content {
-    height: removeBorder(3);
+    min-height: 3rem;
   }
 }
 
 .button.size-xl {
   .button-content {
-    height: removeBorder(4);
+    min-height: 4rem;
+    padding-bottom: 1rem;
   }
 }
 
-.button.size-xxl {
+.button.size-2xl {
   .button-content {
-    height: removeBorder(5);
+    min-height: 5rem;
+    padding-bottom: 2rem;
   }
 }
 
