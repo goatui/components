@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-10-14T16:28:45",
+  "timestamp": "2023-10-23T17:36:57",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.4.0",
@@ -682,6 +682,7 @@
         "goat-header-action",
         "goat-html-editor",
         "goat-input",
+        "goat-modal",
         "goat-notification",
         "goat-number",
         "goat-select",
@@ -719,6 +720,9 @@
           "goat-button"
         ],
         "goat-input": [
+          "goat-button"
+        ],
+        "goat-modal": [
           "goat-button"
         ],
         "goat-notification": [
@@ -1023,19 +1027,23 @@
         },
         {
           "name": "size",
-          "type": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\" | \"xxl\"",
+          "type": "\"2xl\" | \"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
           "complexType": {
-            "original": "'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'full'",
-            "resolved": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\" | \"xxl\"",
+            "original": "'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full'",
+            "resolved": "\"2xl\" | \"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
             "references": {}
           },
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
-          "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"full\"`. Defaults to `\"md\"`.",
+          "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
+            {
+              "value": "2xl",
+              "type": "string"
+            },
             {
               "value": "full",
               "type": "string"
@@ -1054,10 +1062,6 @@
             },
             {
               "value": "xl",
-              "type": "string"
-            },
-            {
-              "value": "xxl",
               "type": "string"
             }
           ],
@@ -7181,6 +7185,89 @@
       "metadata": {}
     },
     {
+      "filePath": "src/components/modal/modal/modal.tsx",
+      "fileName": "modal.tsx",
+      "tag": "goat-modal",
+      "readme": "# p4-modal\n\n\n",
+      "overview": "",
+      "usage": {},
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "name",
+          "text": "Modal"
+        },
+        {
+          "name": "description",
+          "text": "Modals are used to display content in a layer above the app."
+        },
+        {
+          "name": "tags",
+          "text": "controls"
+        }
+      ],
+      "encapsulation": "shadow",
+      "dependents": [],
+      "dependencies": [
+        "goat-text",
+        "goat-button"
+      ],
+      "dependencyGraph": {
+        "goat-modal": [
+          "goat-text",
+          "goat-button"
+        ],
+        "goat-button": [
+          "goat-icon",
+          "goat-spinner"
+        ]
+      },
+      "props": [
+        {
+          "name": "show",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "listeners": [
+        {
+          "event": "os:prompt",
+          "target": "window",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "metadata": {
+        "name": "Modal",
+        "description": "Modals are used to display content in a layer above the app.",
+        "tags": [
+          "controls"
+        ]
+      }
+    },
+    {
       "filePath": "src/components/feedback/notification/notification.tsx",
       "fileName": "notification.tsx",
       "tag": "goat-notification",
@@ -10738,7 +10825,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
+          "text": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
         }
       ],
       "encapsulation": "shadow",
@@ -10765,7 +10852,7 @@
         "tags": [
           "navigation"
         ],
-        "example": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
+        "example": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
       }
     },
     {
@@ -11135,6 +11222,7 @@
         "goat-breadcrumb-item",
         "goat-cb-compound-expression",
         "goat-condition-builder",
+        "goat-modal",
         "goat-select",
         "goat-table"
       ],
@@ -11147,6 +11235,9 @@
           "goat-text"
         ],
         "goat-condition-builder": [
+          "goat-text"
+        ],
+        "goat-modal": [
           "goat-text"
         ],
         "goat-select": [
@@ -13233,6 +13324,7 @@
             "goat-header-action",
             "goat-html-editor",
             "goat-input",
+            "goat-modal",
             "goat-notification",
             "goat-number",
             "goat-select",
@@ -13270,6 +13362,9 @@
               "goat-button"
             ],
             "goat-input": [
+              "goat-button"
+            ],
+            "goat-modal": [
               "goat-button"
             ],
             "goat-notification": [
@@ -13574,19 +13669,23 @@
             },
             {
               "name": "size",
-              "type": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\" | \"xxl\"",
+              "type": "\"2xl\" | \"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
               "complexType": {
-                "original": "'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'full'",
-                "resolved": "\"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\" | \"xxl\"",
+                "original": "'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full'",
+                "resolved": "\"2xl\" | \"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
                 "references": {}
               },
               "mutable": false,
               "attr": "size",
               "reflectToAttr": true,
-              "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"full\"`. Defaults to `\"md\"`.",
+              "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
+                {
+                  "value": "2xl",
+                  "type": "string"
+                },
                 {
                   "value": "full",
                   "type": "string"
@@ -13605,10 +13704,6 @@
                 },
                 {
                   "value": "xl",
-                  "type": "string"
-                },
-                {
-                  "value": "xxl",
                   "type": "string"
                 }
               ],
@@ -14121,6 +14216,7 @@
             "goat-breadcrumb-item",
             "goat-cb-compound-expression",
             "goat-condition-builder",
+            "goat-modal",
             "goat-select",
             "goat-table"
           ],
@@ -14133,6 +14229,9 @@
               "goat-text"
             ],
             "goat-condition-builder": [
+              "goat-text"
+            ],
+            "goat-modal": [
               "goat-text"
             ],
             "goat-select": [
@@ -15223,7 +15322,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
+              "text": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
             }
           ],
           "encapsulation": "shadow",
@@ -15250,7 +15349,7 @@
             "tags": [
               "navigation"
             ],
-            "example": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
+            "example": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
           }
         },
         {
@@ -25349,6 +25448,89 @@
             }
           ],
           "metadata": {}
+        },
+        {
+          "filePath": "src/components/modal/modal/modal.tsx",
+          "fileName": "modal.tsx",
+          "tag": "goat-modal",
+          "readme": "# p4-modal\n\n\n",
+          "overview": "",
+          "usage": {},
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "name",
+              "text": "Modal"
+            },
+            {
+              "name": "description",
+              "text": "Modals are used to display content in a layer above the app."
+            },
+            {
+              "name": "tags",
+              "text": "controls"
+            }
+          ],
+          "encapsulation": "shadow",
+          "dependents": [],
+          "dependencies": [
+            "goat-text",
+            "goat-button"
+          ],
+          "dependencyGraph": {
+            "goat-modal": [
+              "goat-text",
+              "goat-button"
+            ],
+            "goat-button": [
+              "goat-icon",
+              "goat-spinner"
+            ]
+          },
+          "props": [
+            {
+              "name": "show",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "show",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
+          "methods": [],
+          "events": [],
+          "styles": [],
+          "slots": [],
+          "parts": [],
+          "listeners": [
+            {
+              "event": "os:prompt",
+              "target": "window",
+              "capture": false,
+              "passive": false
+            }
+          ],
+          "metadata": {
+            "name": "Modal",
+            "description": "Modals are used to display content in a layer above the app.",
+            "tags": [
+              "controls"
+            ]
+          }
         },
         {
           "filePath": "src/components/app-shell/sidenav/sidenav.tsx",

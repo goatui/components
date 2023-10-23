@@ -125,6 +125,11 @@ export default [
     "path": "32/add--filled.svg"
   },
   {
+    "name": "add--large",
+    "label": "Add large",
+    "path": "32/add--large.svg"
+  },
+  {
     "name": "add-comment",
     "label": "Add comment",
     "path": "32/add-comment.svg"
@@ -945,6 +950,11 @@ export default [
     "path": "32/bus.svg"
   },
   {
+    "name": "business-processes",
+    "label": "Business processes",
+    "path": "32/business-processes.svg"
+  },
+  {
     "name": "button--centered",
     "label": "Button centered",
     "path": "32/button--centered.svg"
@@ -1083,6 +1093,11 @@ export default [
     "name": "carbon-for-ibm-product",
     "label": "Carbon for IBM product",
     "path": "32/carbon-for-ibm-product.svg"
+  },
+  {
+    "name": "carbon-for-mobile",
+    "label": "Carbon for mobile",
+    "path": "32/carbon-for-mobile.svg"
   },
   {
     "name": "caret--down",
@@ -1398,6 +1413,11 @@ export default [
     "name": "chart--custom",
     "label": "Chart custom",
     "path": "32/chart--custom.svg"
+  },
+  {
+    "name": "chart--dual-y-axis",
+    "label": "Chart dual y axis",
+    "path": "32/chart--dual-y-axis.svg"
   },
   {
     "name": "chart--error-bar",
@@ -1873,6 +1893,11 @@ export default [
     "name": "close--filled",
     "label": "Close filled",
     "path": "32/close--filled.svg"
+  },
+  {
+    "name": "close--large",
+    "label": "Close large",
+    "path": "32/close--large.svg"
   },
   {
     "name": "close--outline",
@@ -2560,6 +2585,11 @@ export default [
     "path": "32/data--structured.svg"
   },
   {
+    "name": "data--unreal",
+    "label": "Data unreal",
+    "path": "32/data--unreal.svg"
+  },
+  {
     "name": "data--unstructured",
     "label": "Data unstructured",
     "path": "32/data--unstructured.svg"
@@ -2703,6 +2733,11 @@ export default [
     "name": "database--enterprise-db2",
     "label": "IBM Cloud® Databases for EnterpriseDB",
     "path": "32/database--enterprise-db2.svg"
+  },
+  {
+    "name": "database--enterprisedb",
+    "label": "Database Enterprisedb",
+    "path": "32/database--enterprisedb.svg"
   },
   {
     "name": "database--etcd",
@@ -3171,12 +3206,12 @@ export default [
   },
   {
     "name": "document--multiple-01",
-    "label": "document--multiple-01",
+    "label": "Document multiple 01",
     "path": "32/document--multiple-01.svg"
   },
   {
     "name": "document--multiple-02",
-    "label": "document--multiple-02",
+    "label": "Document multiple 02",
     "path": "32/document--multiple-02.svg"
   },
   {
@@ -4130,6 +4165,11 @@ export default [
     "path": "32/gift.svg"
   },
   {
+    "name": "global-loan-and-trial",
+    "label": "Global loan and trial",
+    "path": "32/global-loan-and-trial.svg"
+  },
+  {
     "name": "globe",
     "label": "Globe",
     "path": "32/globe.svg"
@@ -4415,9 +4455,24 @@ export default [
     "path": "32/hybrid-networking--alt.svg"
   },
   {
+    "name": "ibm--ai-on-z",
+    "label": "AI on Z",
+    "path": "32/ibm--ai-on-z.svg"
+  },
+  {
+    "name": "ibm--aiops-insights",
+    "label": "IBM® AIOps Insights",
+    "path": "32/ibm--aiops-insights.svg"
+  },
+  {
     "name": "ibm--bluepay",
-    "label": "ibm--bluepay",
+    "label": "Unassigned",
     "path": "32/ibm--bluepay.svg"
+  },
+  {
+    "name": "ibm--cloudant",
+    "label": "IBM® Cloudant®",
+    "path": "32/ibm--cloudant.svg"
   },
   {
     "name": "ibm--content-services",
@@ -4445,6 +4500,31 @@ export default [
     "path": "32/ibm--db2--alt.svg"
   },
   {
+    "name": "ibm--db2-warehouse",
+    "label": "IBM® Db2® Warehouse",
+    "path": "32/ibm--db2-warehouse.svg"
+  },
+  {
+    "name": "ibm--event-automation",
+    "label": "IBM® Event Automation",
+    "path": "32/ibm--event-automation.svg"
+  },
+  {
+    "name": "ibm--event-endpoint-mgmt",
+    "label": "IBM® Event Endpoint Management",
+    "path": "32/ibm--event-endpoint-mgmt.svg"
+  },
+  {
+    "name": "ibm--event-processing",
+    "label": "IBM® Event Processing",
+    "path": "32/ibm--event-processing.svg"
+  },
+  {
+    "name": "ibm--event-streams",
+    "label": "IBM® Event Streams",
+    "path": "32/ibm--event-streams.svg"
+  },
+  {
     "name": "ibm--match-360",
     "label": "IBM® Match 360",
     "path": "32/ibm--match-360.svg"
@@ -4461,7 +4541,7 @@ export default [
   },
   {
     "name": "ibm--openshift-container-platform-on-vpc-for-regulated-industries",
-    "label": "ibm--openshift-container-platform-on-vpc-for-regulated-industries",
+    "label": "RedHat® OpenShift® Container Platform on VPC landing zone",
     "path": "32/ibm--openshift-container-platform-on-vpc-for-regulated-industries.svg"
   },
   {
@@ -4470,28 +4550,38 @@ export default [
     "path": "32/ibm--power-vs.svg"
   },
   {
+    "name": "ibm--power-vs-private-cloud",
+    "label": "IBM® Power® Virtual Server Private Cloud",
+    "path": "32/ibm--power-vs-private-cloud.svg"
+  },
+  {
     "name": "ibm--power-with-vpc",
-    "label": "ibm--power-with-vpc",
+    "label": "IBM® Power® with VPC",
     "path": "32/ibm--power-with-vpc.svg"
   },
   {
     "name": "ibm--private-path-services",
-    "label": "ibm--private-path-services",
+    "label": "IBM Cloud® Private Path Services",
     "path": "32/ibm--private-path-services.svg"
   },
   {
     "name": "ibm--process-mining",
-    "label": "ibm--process-mining",
+    "label": "IBM® Process Mining",
     "path": "32/ibm--process-mining.svg"
   },
   {
+    "name": "ibm--saas-console",
+    "label": "IBM® SaaS Console",
+    "path": "32/ibm--saas-console.svg"
+  },
+  {
     "name": "ibm--sap-on-power",
-    "label": "ibm--sap-on-power",
+    "label": "SAP HANA on IBM® Power® Systems",
     "path": "32/ibm--sap-on-power.svg"
   },
   {
     "name": "ibm--secure-infrastructure-on-vpc-for-regulated-industries",
-    "label": "ibm--secure-infrastructure-on-vpc-for-regulated-industries",
+    "label": "IBM® VPC landing zone",
     "path": "32/ibm--secure-infrastructure-on-vpc-for-regulated-industries.svg"
   },
   {
@@ -4501,7 +4591,7 @@ export default [
   },
   {
     "name": "ibm--tenet",
-    "label": "ibm--tenet",
+    "label": "Unassigned",
     "path": "32/ibm--tenet.svg"
   },
   {
@@ -4510,9 +4600,24 @@ export default [
     "path": "32/ibm--toolchain.svg"
   },
   {
+    "name": "ibm--turbonomic",
+    "label": "IBM® Turbonomic®",
+    "path": "32/ibm--turbonomic.svg"
+  },
+  {
+    "name": "ibm--vpn-for-vpc",
+    "label": "IBM® VPN for VPC",
+    "path": "32/ibm--vpn-for-vpc.svg"
+  },
+  {
     "name": "ibm--vsi-on-vpc-for-regulated-industries",
-    "label": "ibm--vsi-on-vpc-for-regulated-industries",
+    "label": "IBM® VSI on VPC landing zone",
     "path": "32/ibm--vsi-on-vpc-for-regulated-industries.svg"
+  },
+  {
+    "name": "ibm--wazi-deploy",
+    "label": "IBM® Wazi Deploy",
+    "path": "32/ibm--wazi-deploy.svg"
   },
   {
     "name": "ibm-cloud",
@@ -4523,6 +4628,16 @@ export default [
     "name": "ibm-cloud--app-id",
     "label": "IBM Cloud® App ID",
     "path": "32/ibm-cloud--app-id.svg"
+  },
+  {
+    "name": "ibm-cloud--bare-metal-server",
+    "label": "IBM Cloud® Bare Metal Server",
+    "path": "32/ibm-cloud--bare-metal-server.svg"
+  },
+  {
+    "name": "ibm-cloud--bare-metal-servers-vpc",
+    "label": "IBM Cloud® Bare Metal Server VPC",
+    "path": "32/ibm-cloud--bare-metal-servers-vpc.svg"
   },
   {
     "name": "ibm-cloud--citrix-daas",
@@ -4590,6 +4705,11 @@ export default [
     "path": "32/ibm-cloud--for-education.svg"
   },
   {
+    "name": "ibm-cloud--hpc",
+    "label": "IBM Cloud® HPC",
+    "path": "32/ibm-cloud--hpc.svg"
+  },
+  {
     "name": "ibm-cloud--HSM",
     "label": "IBM Cloud® HSM",
     "path": "32/ibm-cloud--HSM.svg"
@@ -4651,12 +4771,12 @@ export default [
   },
   {
     "name": "ibm-cloud--projects",
-    "label": "ibm-cloud--projects",
+    "label": "IBM Cloud™ projects",
     "path": "32/ibm-cloud--projects.svg"
   },
   {
     "name": "ibm-cloud--resiliency",
-    "label": "ibm-cloud--resiliency",
+    "label": "IBM Cloud® Resiliency Consulting and Enablement",
     "path": "32/ibm-cloud--resiliency.svg"
   },
   {
@@ -4671,7 +4791,7 @@ export default [
   },
   {
     "name": "ibm-cloud--security-compliance-center-workload-protection",
-    "label": "ibm-cloud--security-compliance-center-workload-protection",
+    "label": "IBM Cloud® Security and Compliance Center Workload Protection",
     "path": "32/ibm-cloud--security-compliance-center-workload-protection.svg"
   },
   {
@@ -4688,6 +4808,21 @@ export default [
     "name": "ibm-cloud--transit-gateway",
     "label": "IBM Cloud® Transit Gateway",
     "path": "32/ibm-cloud--transit-gateway.svg"
+  },
+  {
+    "name": "ibm-cloud--virtual-server-classic",
+    "label": "IBM Cloud® Virtual Server Classic",
+    "path": "32/ibm-cloud--virtual-server-classic.svg"
+  },
+  {
+    "name": "ibm-cloud--virtual-server-vpc",
+    "label": "IBM Cloud® Virtual Server VPC",
+    "path": "32/ibm-cloud--virtual-server-vpc.svg"
+  },
+  {
+    "name": "ibm-cloud--vpc",
+    "label": "IBM Cloud® Virtual Private Cloud",
+    "path": "32/ibm-cloud--vpc.svg"
   },
   {
     "name": "ibm-cloud--vpc-endpoints",
@@ -4835,13 +4970,33 @@ export default [
     "path": "32/ibm-watson--tone-analyzer.svg"
   },
   {
+    "name": "ibm-watsonx--assistant",
+    "label": "IBM® watsonx™ Assistant",
+    "path": "32/ibm-watsonx--assistant.svg"
+  },
+  {
+    "name": "ibm-watsonx--code-assistant",
+    "label": "IBM® watsonx™ Code Assistant",
+    "path": "32/ibm-watsonx--code-assistant.svg"
+  },
+  {
+    "name": "ibm-watsonx--code-assistant-for-z",
+    "label": "IBM® watsonx™ Code Assistant for Z",
+    "path": "32/ibm-watsonx--code-assistant-for-z.svg"
+  },
+  {
+    "name": "ibm-watsonx--orchestrate",
+    "label": "IBM® watsonx™ Orchestrate",
+    "path": "32/ibm-watsonx--orchestrate.svg"
+  },
+  {
     "name": "ibm-z--cloud-mod-stack",
     "label": "IBM Z® Cloud Modernization Stack",
     "path": "32/ibm-z--cloud-mod-stack.svg"
   },
   {
     "name": "ibm-z--environments-dev-sec-ops",
-    "label": "ibm-z--environments-dev-sec-ops",
+    "label": "IBM Z® Environments for DevSecOps Development",
     "path": "32/ibm-z--environments-dev-sec-ops.svg"
   },
   {
@@ -4850,13 +5005,18 @@ export default [
     "path": "32/ibm-z-cloud--provisioning.svg"
   },
   {
+    "name": "ibm-z-os",
+    "label": "IBM® z/OS®",
+    "path": "32/ibm-z-os.svg"
+  },
+  {
     "name": "ibm-z-os--ai-control-interface",
-    "label": "ibm-z-os--ai-control-interface",
+    "label": "AI Control Interface for IBM® z/OS®",
     "path": "32/ibm-z-os--ai-control-interface.svg"
   },
   {
     "name": "ibm-z-os--containers",
-    "label": "ibm-z-os--containers",
+    "label": "IBM® z/OS® containers",
     "path": "32/ibm-z-os--containers.svg"
   },
   {
@@ -5700,6 +5860,11 @@ export default [
     "path": "32/logo--github.svg"
   },
   {
+    "name": "logo--gitlab",
+    "label": "Logo GitLab",
+    "path": "32/logo--gitlab.svg"
+  },
+  {
     "name": "logo--glassdoor",
     "label": "Logo Glassdoor",
     "path": "32/logo--glassdoor.svg"
@@ -6158,6 +6323,11 @@ export default [
     "name": "model--reference",
     "label": "Model reference",
     "path": "32/model--reference.svg"
+  },
+  {
+    "name": "model--tuned",
+    "label": "Model tuned",
+    "path": "32/model--tuned.svg"
   },
   {
     "name": "model-builder",
@@ -7275,6 +7445,11 @@ export default [
     "path": "32/promote.svg"
   },
   {
+    "name": "prompt-session",
+    "label": "Prompt session",
+    "path": "32/prompt-session.svg"
+  },
+  {
     "name": "property-relationship",
     "label": "Property relationship",
     "path": "32/property-relationship.svg"
@@ -7446,7 +7621,7 @@ export default [
   },
   {
     "name": "reference-architecture",
-    "label": "reference-architecture",
+    "label": "Reference architecture",
     "path": "32/reference-architecture.svg"
   },
   {
@@ -8100,6 +8275,11 @@ export default [
     "path": "32/settings--check.svg"
   },
   {
+    "name": "settings--edit",
+    "label": "Settings edit",
+    "path": "32/settings--edit.svg"
+  },
+  {
     "name": "settings--services",
     "label": "Settings services",
     "path": "32/settings--services.svg"
@@ -8745,6 +8925,11 @@ export default [
     "path": "32/subtract--alt.svg"
   },
   {
+    "name": "subtract--large",
+    "label": "Subtract large",
+    "path": "32/subtract--large.svg"
+  },
+  {
     "name": "summary--KPI",
     "label": "Summary KPI",
     "path": "32/summary--KPI.svg"
@@ -8771,8 +8956,13 @@ export default [
   },
   {
     "name": "support-vector-machine",
-    "label": "support-vector-machine",
+    "label": "Support vector machine",
     "path": "32/support-vector-machine.svg"
+  },
+  {
+    "name": "sustainability",
+    "label": "Sustainability",
+    "path": "32/sustainability.svg"
   },
   {
     "name": "SVG",
@@ -9160,6 +9350,11 @@ export default [
     "path": "32/text--line-spacing.svg"
   },
   {
+    "name": "text--long-paragraph",
+    "label": "Text long paragraph",
+    "path": "32/text--long-paragraph.svg"
+  },
+  {
     "name": "text--new-line",
     "label": "Text new line",
     "path": "32/text--new-line.svg"
@@ -9173,6 +9368,11 @@ export default [
     "name": "text--selection",
     "label": "Text selection",
     "path": "32/text--selection.svg"
+  },
+  {
+    "name": "text--short-paragraph",
+    "label": "Text short paragraph",
+    "path": "32/text--short-paragraph.svg"
   },
   {
     "name": "text--small-caps",
@@ -9566,7 +9766,7 @@ export default [
   },
   {
     "name": "tsq",
-    "label": "tsq",
+    "label": "TSQ",
     "path": "32/tsq.svg"
   },
   {
@@ -9578,6 +9778,11 @@ export default [
     "name": "TSV",
     "label": "TSV",
     "path": "32/TSV.svg"
+  },
+  {
+    "name": "tuning",
+    "label": "Tuning",
+    "path": "32/tuning.svg"
   },
   {
     "name": "two-factor-authentication",
@@ -9863,6 +10068,16 @@ export default [
     "name": "vegetation--asset",
     "label": "Vegetation asset",
     "path": "32/vegetation--asset.svg"
+  },
+  {
+    "name": "vegetation--encroachment",
+    "label": "Vegetation encroachment",
+    "path": "32/vegetation--encroachment.svg"
+  },
+  {
+    "name": "vegetation--height",
+    "label": "Vegetation height",
+    "path": "32/vegetation--height.svg"
   },
   {
     "name": "vehicle--api",
@@ -10190,6 +10405,26 @@ export default [
     "path": "32/watson--machine-learning.svg"
   },
   {
+    "name": "watsonx",
+    "label": "IBM® watsonx™",
+    "path": "32/watsonx.svg"
+  },
+  {
+    "name": "watsonx-ai",
+    "label": "IBM® watsonx.ai™",
+    "path": "32/watsonx-ai.svg"
+  },
+  {
+    "name": "watsonx-data",
+    "label": "IBM® watsonx.data™",
+    "path": "32/watsonx-data.svg"
+  },
+  {
+    "name": "watsonx-governance",
+    "label": "IBM® watsonx.governance™",
+    "path": "32/watsonx-governance.svg"
+  },
+  {
     "name": "wave-direction",
     "label": "Wave direction",
     "path": "32/wave-direction.svg"
@@ -10241,7 +10476,7 @@ export default [
   },
   {
     "name": "white-paper",
-    "label": "white-paper",
+    "label": "White paper",
     "path": "32/white-paper.svg"
   },
   {
@@ -10441,12 +10676,12 @@ export default [
   },
   {
     "name": "z--lpar",
-    "label": "z--lpar",
+    "label": "IBM Z® LPAR",
     "path": "32/z--lpar.svg"
   },
   {
     "name": "z--systems",
-    "label": "IBM® zSystems",
+    "label": "IBM Z®",
     "path": "32/z--systems.svg"
   },
   {
@@ -10511,7 +10746,7 @@ export default [
   },
   {
     "name": "zos--sysplex",
-    "label": "zos--sysplex",
+    "label": "IBM® z/OS® sysplex",
     "path": "32/zos--sysplex.svg"
   }
 ]

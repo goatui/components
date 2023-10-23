@@ -30,7 +30,7 @@ sections:
     margin-bottom: 1rem;
   }
 </style>
-<goat-tabs>
+<goat-tabs class='page-tabs'>
   <goat-tabs-list>
     <goat-tab selected="true">Details</goat-tab>
     <goat-tab>Playground</goat-tab>
@@ -149,7 +149,7 @@ sections:
         const playground = new Playground(document.getElementById('playground-controller'));
         playground.init();
         playground.populateDropdown(document.getElementById('comp-variant'), 'variant', ['default', 'outline', 'ghost'], 'default');
-        playground.populateDropdown(document.getElementById('comp-size'), 'size', ['sm', 'md', 'lg', 'xl', 'xxl'], 'md');
+        playground.populateDropdown(document.getElementById('comp-size'), 'size', ['sm', 'md', 'lg', 'xl', '2xl'], 'md');
         playground.populateDropdown(document.getElementById('comp-kind'), 'kind', ['default', 'simple', 'block'], 'default');
         playground.populateDropdown(document.getElementById('comp-color'), 'color', ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'], 'primary');
       //  playground.populateDropdown(document.getElementById('comp-icon-position'), 'iconPosition', ['left', 'right'], 'left');

@@ -230,7 +230,7 @@
     "path": "32/accessibility--color--filled.svg",
     "aliases": [
       "wheelchair",
-      "wheelchair acessible",
+      "wheelchair Accessible",
       "convenience",
       "accessible",
       "accessiblity color filled",
@@ -376,6 +376,16 @@
       "include",
       "plus sign",
       "plus sign filled"
+    ]
+  },
+  {
+    "name": "add--large",
+    "label": "Add large",
+    "path": "32/add--large.svg",
+    "aliases": [
+      "navigation",
+      "add",
+      "large"
     ]
   },
   {
@@ -2502,6 +2512,18 @@
     ]
   },
   {
+    "name": "business-processes",
+    "label": "Business processes",
+    "path": "32/business-processes.svg",
+    "aliases": [
+      "briefcase",
+      "business",
+      "process",
+      "performance",
+      "operations"
+    ]
+  },
+  {
     "name": "button--centered",
     "label": "Button centered",
     "path": "32/button--centered.svg",
@@ -2926,6 +2948,23 @@
       "IBM product design system",
       "design",
       "hexagon"
+    ]
+  },
+  {
+    "name": "carbon-for-mobile",
+    "label": "Carbon for mobile",
+    "path": "32/carbon-for-mobile.svg",
+    "aliases": [
+      "carbon",
+      "IBM",
+      "IBM Carbon",
+      "design system",
+      "IBM design system",
+      "design",
+      "hexagon",
+      "mobile",
+      "iOS",
+      "Android"
     ]
   },
   {
@@ -3697,6 +3736,17 @@
       "chart",
       "pencil",
       "graph",
+      "data"
+    ]
+  },
+  {
+    "name": "chart--dual-y-axis",
+    "label": "Chart dual y axis",
+    "path": "32/chart--dual-y-axis.svg",
+    "aliases": [
+      "Y axis",
+      "dual",
+      "chart",
       "data"
     ]
   },
@@ -4879,10 +4929,21 @@
     "path": "32/close--filled.svg",
     "aliases": [
       "X",
+      "close",
+      "filled",
       "dismiss",
       "deny",
       "denied",
       "ex"
+    ]
+  },
+  {
+    "name": "close--large",
+    "label": "Close large",
+    "path": "32/close--large.svg",
+    "aliases": [
+      "close",
+      "large"
     ]
   },
   {
@@ -4891,10 +4952,12 @@
     "path": "32/close--outline.svg",
     "aliases": [
       "X",
+      "close",
       "dismiss",
       "deny",
       "denied",
-      "ex"
+      "ex",
+      "outline"
     ]
   },
   {
@@ -5075,8 +5138,7 @@
     "aliases": [
       "cloud app",
       "cloud",
-      "IBM",
-      "IBM Cloud"
+      "IBM"
     ]
   },
   {
@@ -6517,6 +6579,16 @@
     ]
   },
   {
+    "name": "data--unreal",
+    "label": "Data unreal",
+    "path": "32/data--unreal.svg",
+    "aliases": [
+      "data",
+      "unreal",
+      "false"
+    ]
+  },
+  {
     "name": "data--unstructured",
     "label": "Data unstructured",
     "path": "32/data--unstructured.svg",
@@ -6861,6 +6933,19 @@
     ]
   },
   {
+    "name": "database--enterprisedb",
+    "label": "Database Enterprisedb",
+    "path": "32/database--enterprisedb.svg",
+    "aliases": [
+      "enterprise",
+      "database",
+      "db",
+      "app",
+      "catalog",
+      "catalogue"
+    ]
+  },
+  {
     "name": "database--etcd",
     "label": "IBM Cloud® Databases for etcd",
     "path": "32/database--etcd.svg",
@@ -6995,7 +7080,13 @@
     "name": "delete",
     "label": "Delete",
     "path": "32/delete.svg",
-    "aliases": []
+    "aliases": [
+      "delete",
+      "remove",
+      "undo",
+      "operations",
+      "go back"
+    ]
   },
   {
     "name": "delivery",
@@ -7878,15 +7969,27 @@
   },
   {
     "name": "document--multiple-01",
-    "label": "document--multiple-01",
+    "label": "Document multiple 01",
     "path": "32/document--multiple-01.svg",
-    "aliases": []
+    "aliases": [
+      "file",
+      "doc",
+      "paper",
+      "document",
+      "multiple"
+    ]
   },
   {
     "name": "document--multiple-02",
-    "label": "document--multiple-02",
+    "label": "Document multiple 02",
     "path": "32/document--multiple-02.svg",
-    "aliases": []
+    "aliases": [
+      "file",
+      "doc",
+      "paper",
+      "document",
+      "multiple"
+    ]
   },
   {
     "name": "document--pdf",
@@ -10217,6 +10320,17 @@
     ]
   },
   {
+    "name": "global-loan-and-trial",
+    "label": "Global loan and trial",
+    "path": "32/global-loan-and-trial.svg",
+    "aliases": [
+      "data",
+      "global",
+      "loan",
+      "trial"
+    ]
+  },
+  {
     "name": "globe",
     "label": "Globe",
     "path": "32/globe.svg",
@@ -10917,10 +11031,64 @@
     ]
   },
   {
+    "name": "ibm--ai-on-z",
+    "label": "AI on Z",
+    "path": "32/ibm--ai-on-z.svg",
+    "aliases": [
+      "infrastructure",
+      "optimization",
+      "optimize",
+      "zSystem",
+      "Z",
+      "open source",
+      "data",
+      "z16",
+      "library",
+      "compiler",
+      "mainframe",
+      "AI",
+      "analyze",
+      "data",
+      "resolve",
+      "incidents"
+    ]
+  },
+  {
+    "name": "ibm--aiops-insights",
+    "label": "IBM® AIOps Insights",
+    "path": "32/ibm--aiops-insights.svg",
+    "aliases": [
+      "data",
+      "AI",
+      "insights",
+      "operations",
+      "uptime",
+      "remediation",
+      "efficiency",
+      "incident management",
+      "event management"
+    ]
+  },
+  {
     "name": "ibm--bluepay",
-    "label": "ibm--bluepay",
+    "label": "Unassigned",
     "path": "32/ibm--bluepay.svg",
-    "aliases": []
+    "aliases": [
+      "IBM Bluepay"
+    ]
+  },
+  {
+    "name": "ibm--cloudant",
+    "label": "IBM® Cloudant®",
+    "path": "32/ibm--cloudant.svg",
+    "aliases": [
+      "JSON",
+      "document database",
+      "Apache CouchDB",
+      "serverless",
+      "scaling",
+      "storage"
+    ]
   },
   {
     "name": "ibm--content-services",
@@ -10977,6 +11145,91 @@
     ]
   },
   {
+    "name": "ibm--db2-warehouse",
+    "label": "IBM® Db2® Warehouse",
+    "path": "32/ibm--db2-warehouse.svg",
+    "aliases": [
+      "DB2",
+      "database",
+      "warehouse",
+      "cloud object storage",
+      "workloads",
+      "analytics",
+      "cloud native",
+      "open",
+      "data",
+      "ai"
+    ]
+  },
+  {
+    "name": "ibm--event-automation",
+    "label": "IBM® Event Automation",
+    "path": "32/ibm--event-automation.svg",
+    "aliases": [
+      "automation",
+      "trends",
+      "composable",
+      "streams",
+      "endpoint management",
+      "event processing",
+      "authoring",
+      "control",
+      "governance",
+      "Kafka",
+      "Apache",
+      "enterprise"
+    ]
+  },
+  {
+    "name": "ibm--event-endpoint-mgmt",
+    "label": "IBM® Event Endpoint Management",
+    "path": "32/ibm--event-endpoint-mgmt.svg",
+    "aliases": [
+      "automation",
+      "catalog",
+      "composable",
+      "sources",
+      "endpoint management",
+      "event processing",
+      "authoring",
+      "control",
+      "governance",
+      "Kafka",
+      "Apache",
+      "enterprise"
+    ]
+  },
+  {
+    "name": "ibm--event-processing",
+    "label": "IBM® Event Processing",
+    "path": "32/ibm--event-processing.svg",
+    "aliases": [
+      "automation",
+      "event processing",
+      "authoring",
+      "detection",
+      "Kafka",
+      "Apache",
+      "enterprise"
+    ]
+  },
+  {
+    "name": "ibm--event-streams",
+    "label": "IBM® Event Streams",
+    "path": "32/ibm--event-streams.svg",
+    "aliases": [
+      "automation",
+      "streams",
+      "event streams",
+      "monitor",
+      "workloads",
+      "Kafka",
+      "Apache",
+      "enterprise",
+      "metrics"
+    ]
+  },
+  {
     "name": "ibm--match-360",
     "label": "IBM® Match 360",
     "path": "32/ibm--match-360.svg",
@@ -11009,9 +11262,21 @@
   },
   {
     "name": "ibm--openshift-container-platform-on-vpc-for-regulated-industries",
-    "label": "ibm--openshift-container-platform-on-vpc-for-regulated-industries",
+    "label": "RedHat® OpenShift® Container Platform on VPC landing zone",
     "path": "32/ibm--openshift-container-platform-on-vpc-for-regulated-industries.svg",
-    "aliases": []
+    "aliases": [
+      "VSI",
+      "VPC",
+      "infrastructure",
+      "regulated",
+      "industry",
+      "compliance",
+      "virtual server",
+      "workload",
+      "cloud",
+      "financial services",
+      "secure"
+    ]
   },
   {
     "name": "ibm--power-vs",
@@ -11029,34 +11294,107 @@
     ]
   },
   {
+    "name": "ibm--power-vs-private-cloud",
+    "label": "IBM® Power® Virtual Server Private Cloud",
+    "path": "32/ibm--power-vs-private-cloud.svg",
+    "aliases": [
+      "virtual server",
+      "workloads",
+      "infrastructure",
+      "cloud",
+      "private",
+      "Power",
+      "Power solution",
+      "solution"
+    ]
+  },
+  {
     "name": "ibm--power-with-vpc",
-    "label": "ibm--power-with-vpc",
+    "label": "IBM® Power® with VPC",
     "path": "32/ibm--power-with-vpc.svg",
-    "aliases": []
+    "aliases": [
+      "VPC",
+      "private",
+      "virtual",
+      "cloud",
+      "server",
+      "power",
+      "connectivity",
+      "infrastructure"
+    ]
   },
   {
     "name": "ibm--private-path-services",
-    "label": "ibm--private-path-services",
+    "label": "IBM Cloud® Private Path Services",
     "path": "32/ibm--private-path-services.svg",
-    "aliases": []
+    "aliases": [
+      "cloud",
+      "private",
+      "container",
+      "platform",
+      "infrastructure",
+      "service",
+      "IaaS",
+      "connectivity",
+      "access",
+      "control",
+      "host",
+      "network",
+      "secure"
+    ]
   },
   {
     "name": "ibm--process-mining",
-    "label": "ibm--process-mining",
+    "label": "IBM® Process Mining",
     "path": "32/ibm--process-mining.svg",
-    "aliases": []
+    "aliases": [
+      "operation",
+      "process improvement",
+      "business systems",
+      "ERP",
+      "CRM",
+      "Continuous process improvement",
+      "efficient"
+    ]
+  },
+  {
+    "name": "ibm--saas-console",
+    "label": "IBM® SaaS Console",
+    "path": "32/ibm--saas-console.svg",
+    "aliases": [
+      "saas",
+      "software as a service",
+      "console"
+    ]
   },
   {
     "name": "ibm--sap-on-power",
-    "label": "ibm--sap-on-power",
+    "label": "SAP HANA on IBM® Power® Systems",
     "path": "32/ibm--sap-on-power.svg",
-    "aliases": []
+    "aliases": [
+      "power",
+      "SAP",
+      "HANA",
+      "resiliency",
+      "workloads",
+      "reliability",
+      "virtualization"
+    ]
   },
   {
     "name": "ibm--secure-infrastructure-on-vpc-for-regulated-industries",
-    "label": "ibm--secure-infrastructure-on-vpc-for-regulated-industries",
+    "label": "IBM® VPC landing zone",
     "path": "32/ibm--secure-infrastructure-on-vpc-for-regulated-industries.svg",
-    "aliases": []
+    "aliases": [
+      "VPC",
+      "infrastructure",
+      "regulated",
+      "enterprise",
+      "virtual server",
+      "workload",
+      "cloud",
+      "secure"
+    ]
   },
   {
     "name": "ibm--telehealth",
@@ -11077,9 +11415,11 @@
   },
   {
     "name": "ibm--tenet",
-    "label": "ibm--tenet",
+    "label": "Unassigned",
     "path": "32/ibm--tenet.svg",
-    "aliases": []
+    "aliases": [
+      "IBM Tenet"
+    ]
   },
   {
     "name": "ibm--toolchain",
@@ -11094,10 +11434,57 @@
     ]
   },
   {
+    "name": "ibm--turbonomic",
+    "label": "IBM® Turbonomic®",
+    "path": "32/ibm--turbonomic.svg",
+    "aliases": [
+      "automation",
+      "AI",
+      "insights",
+      "visualization",
+      "dashboard"
+    ]
+  },
+  {
+    "name": "ibm--vpn-for-vpc",
+    "label": "IBM® VPN for VPC",
+    "path": "32/ibm--vpn-for-vpc.svg",
+    "aliases": [
+      "private",
+      "network",
+      "cloud",
+      "virtual"
+    ]
+  },
+  {
     "name": "ibm--vsi-on-vpc-for-regulated-industries",
-    "label": "ibm--vsi-on-vpc-for-regulated-industries",
+    "label": "IBM® VSI on VPC landing zone",
     "path": "32/ibm--vsi-on-vpc-for-regulated-industries.svg",
-    "aliases": []
+    "aliases": [
+      "VSI",
+      "VPC",
+      "infrastructure",
+      "regulated",
+      "enterprise",
+      "virtual server",
+      "workload",
+      "cloud",
+      "secure"
+    ]
+  },
+  {
+    "name": "ibm--wazi-deploy",
+    "label": "IBM® Wazi Deploy",
+    "path": "32/ibm--wazi-deploy.svg",
+    "aliases": [
+      "open source",
+      "z/OS",
+      "deploy",
+      "enterprise",
+      "hybrid cloud",
+      "CICD",
+      "CLI"
+    ]
   },
   {
     "name": "ibm-cloud",
@@ -11112,8 +11499,7 @@
       "online",
       "internet",
       "brand",
-      "smart rays",
-      "IBM Cloud"
+      "smart rays"
     ]
   },
   {
@@ -11125,6 +11511,29 @@
       "authentication",
       "ID",
       "service"
+    ]
+  },
+  {
+    "name": "ibm-cloud--bare-metal-server",
+    "label": "IBM Cloud® Bare Metal Server",
+    "path": "32/ibm-cloud--bare-metal-server.svg",
+    "aliases": [
+      "single tenant",
+      "dedicated",
+      "server",
+      "network"
+    ]
+  },
+  {
+    "name": "ibm-cloud--bare-metal-servers-vpc",
+    "label": "IBM Cloud® Bare Metal Server VPC",
+    "path": "32/ibm-cloud--bare-metal-servers-vpc.svg",
+    "aliases": [
+      "single tenant",
+      "dedicated",
+      "server",
+      "network",
+      "virtual private cloud"
     ]
   },
   {
@@ -11140,7 +11549,6 @@
       "VPC infrastructure",
       "virtual public cloud",
       "public cloud environment",
-      "IBM Cloud",
       "squares"
     ]
   },
@@ -11165,7 +11573,7 @@
       "product",
       "cloud",
       "hybrid",
-      "IBM Cloud®",
+      "cloud",
       "dedicated",
       "host",
       "cloud"
@@ -11182,7 +11590,6 @@
       "data transfer",
       "solution",
       "private cloud",
-      "IBM Cloud",
       "multicloud",
       "visual connectivity",
       "provisioning",
@@ -11203,7 +11610,6 @@
       "data transfer",
       "solution",
       "throughput",
-      "IBM Cloud",
       "single tenant",
       "dedicated port",
       "dedicated",
@@ -11224,7 +11630,6 @@
       "data transfer",
       "solution",
       "infrastructure",
-      "IBM Cloud",
       "networking",
       "dedicated workloads",
       "workloads",
@@ -11244,7 +11649,6 @@
       "data transfer",
       "solution",
       "infrastructure",
-      "IBM Cloud",
       "networking",
       "multitenant",
       "connections",
@@ -11268,7 +11672,6 @@
       "data transfer",
       "solution",
       "private cloud",
-      "IBM Cloud",
       "multicloud",
       "visual connectivity",
       "provisioning",
@@ -11289,7 +11692,6 @@
       "data transfer",
       "solution",
       "throughput",
-      "IBM Cloud",
       "single tenant",
       "dedicated port",
       "dedicated",
@@ -11310,7 +11712,6 @@
       "data transfer",
       "solution",
       "infrastructure",
-      "IBM Cloud",
       "networking",
       "dedicated workloads",
       "workloads",
@@ -11331,7 +11732,6 @@
       "solution",
       "routing",
       "alert routing",
-      "IBM Cloud",
       "automatic actions",
       "webhooks",
       "communication channels",
@@ -11353,7 +11753,6 @@
       "solution",
       "endpoint management",
       "workloads",
-      "IBM Cloud",
       "user experiences",
       "analytics",
       "real-time analytics",
@@ -11373,6 +11772,20 @@
       "computing environment",
       "academic",
       "infrastructure"
+    ]
+  },
+  {
+    "name": "ibm-cloud--hpc",
+    "label": "IBM Cloud® HPC",
+    "path": "32/ibm-cloud--hpc.svg",
+    "aliases": [
+      "high performance computing",
+      "cloud",
+      "large scale",
+      "compute intensive",
+      "workloads",
+      "on premises",
+      "cloud"
     ]
   },
   {
@@ -11403,7 +11816,6 @@
       "solution",
       "single tenant",
       "protection",
-      "IBM Cloud",
       "data encryption",
       "security",
       "key orchestration",
@@ -11426,7 +11838,6 @@
       "database as a service",
       "database management",
       "provisioning",
-      "IBM Cloud",
       "database maintenance",
       "security",
       "database monitoring",
@@ -11452,7 +11863,6 @@
       "data protection",
       "containerized workloads",
       "open container",
-      "IBM Cloud",
       "database maintenance",
       "security",
       "database monitoring",
@@ -11475,7 +11885,6 @@
       "services",
       "cloud",
       "hybrid",
-      "IBM Cloud®",
       "internet",
       "cloud"
     ]
@@ -11498,7 +11907,6 @@
     "path": "32/ibm-cloud--key-protect.svg",
     "aliases": [
       "cloud",
-      "IBM Cloud",
       "key protection",
       "data security",
       "data compliance",
@@ -11519,7 +11927,7 @@
       "services",
       "cloud",
       "hybrid",
-      "IBM Cloud®",
+      "cloud",
       "Kubernetes"
     ]
   },
@@ -11530,7 +11938,6 @@
     "aliases": [
       "cloud",
       "cloud logging",
-      "IBM Cloud",
       "data logging",
       "store",
       "search",
@@ -11550,7 +11957,6 @@
     "path": "32/ibm-cloud--mass-data-migration.svg",
     "aliases": [
       "data transfer",
-      "IBM Cloud",
       "data migration",
       "data",
       "migration",
@@ -11564,7 +11970,7 @@
     "path": "32/ibm-cloud--pal.svg",
     "aliases": [
       "cloud",
-      "IBM Cloud",
+      "cloud",
       "pattern library",
       "asset library"
     ]
@@ -11585,15 +11991,30 @@
   },
   {
     "name": "ibm-cloud--projects",
-    "label": "ibm-cloud--projects",
+    "label": "IBM Cloud™ projects",
     "path": "32/ibm-cloud--projects.svg",
-    "aliases": []
+    "aliases": [
+      "configuration",
+      "infrastructure as code",
+      "IaC",
+      "deployments",
+      "configure",
+      "deploy",
+      "DevOps",
+      "resources"
+    ]
   },
   {
     "name": "ibm-cloud--resiliency",
-    "label": "ibm-cloud--resiliency",
+    "label": "IBM Cloud® Resiliency Consulting and Enablement",
     "path": "32/ibm-cloud--resiliency.svg",
-    "aliases": []
+    "aliases": [
+      "enterprise",
+      "availability",
+      "continuity",
+      "framework",
+      "cloud"
+    ]
   },
   {
     "name": "ibm-cloud--secrets-manager",
@@ -11601,7 +12022,7 @@
     "path": "32/ibm-cloud--secrets-manager.svg",
     "aliases": [
       "secrets manager",
-      "IBM Cloud",
+      "cloud",
       "single tenant",
       "secrets",
       "access control",
@@ -11617,7 +12038,7 @@
     "label": "IBM Cloud® Security and Compliance Center",
     "path": "32/ibm-cloud--security-compliance-center.svg",
     "aliases": [
-      "IBM Cloud®",
+      "cloud",
       "security",
       "compliance",
       "center",
@@ -11626,9 +12047,21 @@
   },
   {
     "name": "ibm-cloud--security-compliance-center-workload-protection",
-    "label": "ibm-cloud--security-compliance-center-workload-protection",
+    "label": "IBM Cloud® Security and Compliance Center Workload Protection",
     "path": "32/ibm-cloud--security-compliance-center-workload-protection.svg",
-    "aliases": []
+    "aliases": [
+      "cloud",
+      "security",
+      "threat detection",
+      "container",
+      "configuration",
+      "permission",
+      "compliance",
+      "posture",
+      "infrastructure",
+      "alert",
+      "insights"
+    ]
   },
   {
     "name": "ibm-cloud--subnets",
@@ -11638,7 +12071,7 @@
       "subnets",
       "cloud",
       "hybrid",
-      "IBM Cloud®",
+      "cloud",
       "internet",
       "cloud"
     ]
@@ -11649,7 +12082,7 @@
     "path": "32/ibm-cloud--sysdig-secure.svg",
     "aliases": [
       "cloud",
-      "IBM Cloud",
+      "cloud",
       "scanning",
       "image scanning",
       "automated scanning",
@@ -11673,9 +12106,47 @@
     "label": "IBM Cloud® Transit Gateway",
     "path": "32/ibm-cloud--transit-gateway.svg",
     "aliases": [
-      "IBM Cloud®",
+      "cloud",
       "transit",
       "gateway"
+    ]
+  },
+  {
+    "name": "ibm-cloud--virtual-server-classic",
+    "label": "IBM Cloud® Virtual Server Classic",
+    "path": "32/ibm-cloud--virtual-server-classic.svg",
+    "aliases": [
+      "cloud",
+      "server",
+      "public",
+      "multitenant",
+      "Intel Xeon",
+      "dedicated",
+      "workloads",
+      "IaaS"
+    ]
+  },
+  {
+    "name": "ibm-cloud--virtual-server-vpc",
+    "label": "IBM Cloud® Virtual Server VPC",
+    "path": "32/ibm-cloud--virtual-server-vpc.svg",
+    "aliases": [
+      "cloud",
+      "server",
+      "single tenant",
+      "multitenant",
+      "virtual machines",
+      "network",
+      "Intel Xeon"
+    ]
+  },
+  {
+    "name": "ibm-cloud--vpc",
+    "label": "IBM Cloud® Virtual Private Cloud",
+    "path": "32/ibm-cloud--vpc.svg",
+    "aliases": [
+      "cloud",
+      "virtual private cloud"
     ]
   },
   {
@@ -11688,7 +12159,7 @@
       "endpoints",
       "cloud",
       "hybrid",
-      "IBM Cloud®",
+      "cloud",
       "internet",
       "cloud"
     ]
@@ -11701,7 +12172,6 @@
       "enterprise",
       "app",
       "applications",
-      "IBM Cloud Pak®",
       "cloud",
       "hybrid",
       "internet"
@@ -11715,7 +12185,6 @@
       "enterprise",
       "app",
       "automation",
-      "IBM Cloud Pak®",
       "cloud",
       "hybrid"
     ]
@@ -11729,7 +12198,7 @@
       "app catalog",
       "catalogue",
       "data",
-      "IBM Cloud Pak®"
+      "cloud"
     ]
   },
   {
@@ -11741,7 +12210,7 @@
       "app catalog",
       "catalogue",
       "integration",
-      "IBM Cloud Pak®"
+      "cloud"
     ]
   },
   {
@@ -11750,7 +12219,7 @@
     "path": "32/ibm-cloud-pak--MANTA-automated-data-lineage.svg",
     "aliases": [
       "data",
-      "IBM Cloud Pak® for Data",
+      "cloud",
       "data lineage",
       "automation",
       "MANTA",
@@ -11766,7 +12235,7 @@
       "app catalog",
       "catalogue",
       "applications",
-      "IBM Cloud Pak®"
+      "cloud"
     ]
   },
   {
@@ -11775,8 +12244,7 @@
     "path": "32/ibm-cloud-pak--netezza.svg",
     "aliases": [
       "cloud",
-      "IBM Cloud",
-      "IBM Cloud Pak"
+      "Netezza"
     ]
   },
   {
@@ -11784,7 +12252,7 @@
     "label": "IBM Cloud Pak® Network Automation",
     "path": "32/ibm-cloud-pak--network-automation.svg",
     "aliases": [
-      "IBM Cloud Pak®",
+      "cloud",
       "network",
       "automation"
     ]
@@ -11798,7 +12266,7 @@
       "app catalog",
       "catalogue",
       "security",
-      "IBM Cloud Pak®"
+      "cloud"
     ]
   },
   {
@@ -11810,7 +12278,7 @@
       "app catalog",
       "catalogue",
       "system",
-      "IBM Cloud Pak®"
+      "cloud"
     ]
   },
   {
@@ -11818,7 +12286,7 @@
     "label": "IBM Cloud Pak® Watson AIOps",
     "path": "32/ibm-cloud-pak--watson-aiops.svg",
     "aliases": [
-      "IBM Cloud Pak®",
+      "cloud",
       "Watson",
       "AIOps",
       "app"
@@ -11994,7 +12462,7 @@
       "natural language classifier",
       "natural language",
       "NL",
-      "IBM Cloud",
+      "cloud",
       "text interpretation",
       "text classification",
       "machine learning",
@@ -12178,6 +12646,77 @@
     ]
   },
   {
+    "name": "ibm-watsonx--assistant",
+    "label": "IBM® watsonx™ Assistant",
+    "path": "32/ibm-watsonx--assistant.svg",
+    "aliases": [
+      "AI",
+      "chatbot",
+      "virtual agent",
+      "conversational AI",
+      "LLM",
+      "large language model"
+    ]
+  },
+  {
+    "name": "ibm-watsonx--code-assistant",
+    "label": "IBM® watsonx™ Code Assistant",
+    "path": "32/ibm-watsonx--code-assistant.svg",
+    "aliases": [
+      "AI",
+      "developer",
+      "code",
+      "code generation",
+      "generative AI",
+      "application modernization",
+      "foundation models",
+      "automation",
+      "productivity",
+      "AI code recommendation",
+      "enterprise",
+      "application"
+    ]
+  },
+  {
+    "name": "ibm-watsonx--code-assistant-for-z",
+    "label": "IBM® watsonx™ Code Assistant for Z",
+    "path": "32/ibm-watsonx--code-assistant-for-z.svg",
+    "aliases": [
+      "AI",
+      "developer",
+      "code",
+      "code generation",
+      "generative AI",
+      "application modernization",
+      "automation",
+      "productivity",
+      "modernization",
+      "code recommendation",
+      "application",
+      "Z",
+      "mainframe",
+      "COBOL",
+      "Java",
+      "zSystems"
+    ]
+  },
+  {
+    "name": "ibm-watsonx--orchestrate",
+    "label": "IBM® watsonx™ Orchestrate",
+    "path": "32/ibm-watsonx--orchestrate.svg",
+    "aliases": [
+      "efficiency",
+      "productivity",
+      "automation",
+      "digital worker",
+      "integration",
+      "efficiency",
+      "complex",
+      "natural language processing",
+      "AI"
+    ]
+  },
+  {
     "name": "ibm-z--cloud-mod-stack",
     "label": "IBM Z® Cloud Modernization Stack",
     "path": "32/ibm-z--cloud-mod-stack.svg",
@@ -12191,9 +12730,21 @@
   },
   {
     "name": "ibm-z--environments-dev-sec-ops",
-    "label": "ibm-z--environments-dev-sec-ops",
+    "label": "IBM Z® Environments for DevSecOps Development",
     "path": "32/ibm-z--environments-dev-sec-ops.svg",
-    "aliases": []
+    "aliases": [
+      "hexagon",
+      "dial",
+      "component",
+      "extraction",
+      "orchestration",
+      "instance",
+      "cloud",
+      "development",
+      "integration",
+      "deployment",
+      "security"
+    ]
   },
   {
     "name": "ibm-z-cloud--provisioning",
@@ -12208,16 +12759,53 @@
     ]
   },
   {
+    "name": "ibm-z-os",
+    "label": "IBM® z/OS®",
+    "path": "32/ibm-z-os.svg",
+    "aliases": [
+      "Z",
+      "operating system",
+      "mainframe",
+      "enterprise",
+      "secure",
+      "scalable"
+    ]
+  },
+  {
     "name": "ibm-z-os--ai-control-interface",
-    "label": "ibm-z-os--ai-control-interface",
+    "label": "AI Control Interface for IBM® z/OS®",
     "path": "32/ibm-z-os--ai-control-interface.svg",
-    "aliases": []
+    "aliases": [
+      "z/OSMF",
+      "systems",
+      "system management",
+      "monitoring",
+      "data management",
+      "enterprise",
+      "performance",
+      "browser interface",
+      "mainframe",
+      "automation",
+      "AI",
+      "control",
+      "interface"
+    ]
   },
   {
     "name": "ibm-z-os--containers",
-    "label": "ibm-z-os--containers",
+    "label": "IBM® z/OS® containers",
     "path": "32/ibm-z-os--containers.svg",
-    "aliases": []
+    "aliases": [
+      "z/OS",
+      "systems",
+      "build",
+      "deploy",
+      "applications",
+      "enterprise",
+      "hybrid cloud",
+      "orchestrate",
+      "Kubernetes"
+    ]
   },
   {
     "name": "ibm-z-os--package-manager",
@@ -14389,6 +14977,25 @@
     ]
   },
   {
+    "name": "logo--gitlab",
+    "label": "Logo GitLab",
+    "path": "32/logo--gitlab.svg",
+    "aliases": [
+      "GitLab",
+      "brand",
+      "emblem",
+      "logotype",
+      "symbol",
+      "id",
+      "avatar",
+      "tag",
+      "identification",
+      "DevOps",
+      "logo",
+      "developer"
+    ]
+  },
+  {
     "name": "logo--glassdoor",
     "label": "Logo Glassdoor",
     "path": "32/logo--glassdoor.svg",
@@ -15652,6 +16259,17 @@
       "fabricate",
       "manufacture",
       "construct"
+    ]
+  },
+  {
+    "name": "model--tuned",
+    "label": "Model tuned",
+    "path": "32/model--tuned.svg",
+    "aliases": [
+      "tuning",
+      "foundation model",
+      "AI",
+      "adjust"
     ]
   },
   {
@@ -18283,6 +18901,18 @@
     ]
   },
   {
+    "name": "prompt-session",
+    "label": "Prompt session",
+    "path": "32/prompt-session.svg",
+    "aliases": [
+      "session",
+      "AI",
+      "prompt",
+      "timing",
+      "clock"
+    ]
+  },
+  {
     "name": "property-relationship",
     "label": "Property relationship",
     "path": "32/property-relationship.svg",
@@ -18622,9 +19252,12 @@
   },
   {
     "name": "reference-architecture",
-    "label": "reference-architecture",
+    "label": "Reference architecture",
     "path": "32/reference-architecture.svg",
-    "aliases": []
+    "aliases": [
+      "reference",
+      "architecture"
+    ]
   },
   {
     "name": "reflect--horizontal",
@@ -18929,7 +19562,11 @@
     "name": "return",
     "label": "Return",
     "path": "32/return.svg",
-    "aliases": []
+    "aliases": [
+      "go back",
+      "return",
+      "control"
+    ]
   },
   {
     "name": "review",
@@ -20164,6 +20801,22 @@
       "settings",
       "controls",
       "check"
+    ]
+  },
+  {
+    "name": "settings--edit",
+    "label": "Settings edit",
+    "path": "32/settings--edit.svg",
+    "aliases": [
+      "preferences",
+      "options",
+      "alternatives",
+      "gear",
+      "controls",
+      "edit",
+      "settings",
+      "modify",
+      "change"
     ]
   },
   {
@@ -21749,6 +22402,24 @@
     ]
   },
   {
+    "name": "subtract--large",
+    "label": "Subtract large",
+    "path": "32/subtract--large.svg",
+    "aliases": [
+      "remove",
+      "subtract",
+      "large",
+      "minus",
+      "deduct",
+      "withold",
+      "decrease",
+      "diminish",
+      "discount",
+      "take",
+      "delete"
+    ]
+  },
+  {
     "name": "summary--KPI",
     "label": "Summary KPI",
     "path": "32/summary--KPI.svg",
@@ -21794,9 +22465,26 @@
   },
   {
     "name": "support-vector-machine",
-    "label": "support-vector-machine",
+    "label": "Support vector machine",
     "path": "32/support-vector-machine.svg",
-    "aliases": []
+    "aliases": [
+      "data",
+      "vector"
+    ]
+  },
+  {
+    "name": "sustainability",
+    "label": "Sustainability",
+    "path": "32/sustainability.svg",
+    "aliases": [
+      "ecosystem",
+      "environment",
+      "climate",
+      "recycle",
+      "growth",
+      "leaves",
+      "repeatable"
+    ]
   },
   {
     "name": "SVG",
@@ -22716,6 +23404,17 @@
     ]
   },
   {
+    "name": "text--long-paragraph",
+    "label": "Text long paragraph",
+    "path": "32/text--long-paragraph.svg",
+    "aliases": [
+      "document",
+      "text",
+      "long form",
+      "copy"
+    ]
+  },
+  {
     "name": "text--new-line",
     "label": "Text new line",
     "path": "32/text--new-line.svg",
@@ -22746,6 +23445,17 @@
       "typography",
       "alphabet",
       "editor"
+    ]
+  },
+  {
+    "name": "text--short-paragraph",
+    "label": "Text short paragraph",
+    "path": "32/text--short-paragraph.svg",
+    "aliases": [
+      "document",
+      "short form",
+      "text",
+      "copy"
     ]
   },
   {
@@ -23597,9 +24307,11 @@
   },
   {
     "name": "tsq",
-    "label": "tsq",
+    "label": "TSQ",
     "path": "32/tsq.svg",
-    "aliases": []
+    "aliases": [
+      "tsq"
+    ]
   },
   {
     "name": "tsunami",
@@ -23622,6 +24334,20 @@
       "data",
       "database",
       "spreadsheet"
+    ]
+  },
+  {
+    "name": "tuning",
+    "label": "Tuning",
+    "path": "32/tuning.svg",
+    "aliases": [
+      "tuning",
+      "optimization",
+      "optimise",
+      "tune",
+      "foundation model",
+      "AI",
+      "adjust"
     ]
   },
   {
@@ -24215,7 +24941,10 @@
     "name": "user--sponsor",
     "label": "user--sponsor",
     "path": "32/user--sponsor.svg",
-    "aliases": []
+    "aliases": [
+      "sponsor",
+      "asterisk"
+    ]
   },
   {
     "name": "user--x-ray",
@@ -24306,7 +25035,35 @@
       "vegetation",
       "asset",
       "tree",
-      "resource"
+      "resource",
+      "landscape",
+      "environment"
+    ]
+  },
+  {
+    "name": "vegetation--encroachment",
+    "label": "Vegetation encroachment",
+    "path": "32/vegetation--encroachment.svg",
+    "aliases": [
+      "tree",
+      "overgrowth",
+      "vegetation",
+      "encroachment",
+      "obstacle",
+      "landscape",
+      "environment"
+    ]
+  },
+  {
+    "name": "vegetation--height",
+    "label": "Vegetation height",
+    "path": "32/vegetation--height.svg",
+    "aliases": [
+      "vegetation",
+      "tree",
+      "height",
+      "landscape",
+      "environment"
     ]
   },
   {
@@ -24373,19 +25130,29 @@
     "name": "version--major",
     "label": "version--major",
     "path": "32/version--major.svg",
-    "aliases": []
+    "aliases": [
+      "major",
+      "version"
+    ]
   },
   {
     "name": "version--minor",
     "label": "version--minor",
     "path": "32/version--minor.svg",
-    "aliases": []
+    "aliases": [
+      "version",
+      "minor"
+    ]
   },
   {
     "name": "version--patch",
     "label": "version--patch",
     "path": "32/version--patch.svg",
-    "aliases": []
+    "aliases": [
+      "version",
+      "patch",
+      "fix"
+    ]
   },
   {
     "name": "vertical-view",
@@ -25010,7 +25777,76 @@
     "label": "IBM Watson® Machine Learning",
     "path": "32/watson--machine-learning.svg",
     "aliases": [
-      "ai"
+      "ai",
+      "machine learing",
+      "ML"
+    ]
+  },
+  {
+    "name": "watsonx",
+    "label": "IBM® watsonx™",
+    "path": "32/watsonx.svg",
+    "aliases": [
+      "data",
+      "AI",
+      "platform",
+      "generative AI",
+      "foundation models",
+      "machine learning",
+      "enterprise"
+    ]
+  },
+  {
+    "name": "watsonx-ai",
+    "label": "IBM® watsonx.ai™",
+    "path": "32/watsonx-ai.svg",
+    "aliases": [
+      "data",
+      "AI",
+      "studio",
+      "generative AI",
+      "foundation models",
+      "machine learning",
+      "enterprise",
+      "ML",
+      "insights"
+    ]
+  },
+  {
+    "name": "watsonx-data",
+    "label": "IBM® watsonx.data™",
+    "path": "32/watsonx-data.svg",
+    "aliases": [
+      "data",
+      "AI",
+      "open",
+      "data store",
+      "data architecture",
+      "lakehouse",
+      "generative AI",
+      "workloads",
+      "analytics",
+      "insight",
+      "containers",
+      "scalable",
+      "enterprise"
+    ]
+  },
+  {
+    "name": "watsonx-governance",
+    "label": "IBM® watsonx.governance™",
+    "path": "32/watsonx-governance.svg",
+    "aliases": [
+      "data",
+      "AI",
+      "ethical AI",
+      "risk mitigation",
+      "secure",
+      "control",
+      "automation",
+      "regulation",
+      "generative AI",
+      "enterprise"
     ]
   },
   {
@@ -25119,9 +25955,14 @@
   },
   {
     "name": "white-paper",
-    "label": "white-paper",
+    "label": "White paper",
     "path": "32/white-paper.svg",
-    "aliases": []
+    "aliases": [
+      "document",
+      "report",
+      "long form",
+      "paper"
+    ]
   },
   {
     "name": "wifi",
@@ -25525,13 +26366,17 @@
   },
   {
     "name": "z--lpar",
-    "label": "z--lpar",
+    "label": "IBM Z® LPAR",
     "path": "32/z--lpar.svg",
-    "aliases": []
+    "aliases": [
+      "logical partition",
+      "Z",
+      "mainframe"
+    ]
   },
   {
     "name": "z--systems",
-    "label": "IBM® zSystems",
+    "label": "IBM Z®",
     "path": "32/z--systems.svg",
     "aliases": [
       "mainframe",
@@ -25680,8 +26525,16 @@
   },
   {
     "name": "zos--sysplex",
-    "label": "zos--sysplex",
+    "label": "IBM® z/OS® sysplex",
     "path": "32/zos--sysplex.svg",
-    "aliases": []
+    "aliases": [
+      "z/OS",
+      "systems",
+      "independent",
+      "cluster",
+      "workload management",
+      "cross-system coupling facility",
+      "XCF"
+    ]
   }
 ]

@@ -20,7 +20,7 @@
 | `kind`           | `kind`            | Button kind. Possible values are `"default"`, `"simple"`, `"block"`. Defaults to `"default"`. `"default"` is a long button. `"simple"` is a text-only button. `"block"` is a full-width button.          | `"block" \| "default" \| "simple"`                                                                               | `'default'` |
 | `selected`       | `selected`        | Button selection state.                                                                                                                                                                                  | `boolean`                                                                                                        | `false`     |
 | `showLoader`     | `show-loader`     | Show loader.                                                                                                                                                                                             | `boolean`                                                                                                        | `false`     |
-| `size`           | `size`            | Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"full"`. Defaults to `"md"`.                                                                                                  | `"full" \| "lg" \| "md" \| "sm" \| "xl" \| "xxl"`                                                                | `'md'`      |
+| `size`           | `size`            | Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"2xl"`, `"full"`. Defaults to `"md"`.                                                                                                  | `"2xl" \| "full" \| "lg" \| "md" \| "sm" \| "xl"`                                                                | `'md'`      |
 | `target`         | `target`          | Sets or retrieves the window or frame at which to target content.                                                                                                                                        | `string`                                                                                                         | `'_self'`   |
 | `type`           | `type`            |                                                                                                                                                                                                          | `"button" \| "reset" \| "submit"`                                                                                | `'button'`  |
 | `variant`        | `variant`         | Button variants. Possible values are `"default"`, `"outline"`, `"ghost"`. Defaults to `"default"`. `"default"` is a filled button. `"outline"` is an outlined button. `"ghost"` is a transparent button. | `"default" \| "ghost" \| "light" \| "link" \| "outline"`                                                         | `'default'` |
@@ -80,6 +80,7 @@ Type: `Promise<void>`
  - [goat-header-action](../../navigation/header/header-action)
  - [goat-html-editor](../../data-entry/html-editor)
  - [goat-input](../../data-entry/input/input)
+ - [goat-modal](../../modal/modal)
  - [goat-notification](../../feedback/notification)
  - [goat-number](../../data-entry/input/number)
  - [goat-select](../../data-entry/select)
@@ -104,6 +105,7 @@ graph TD;
   goat-header-action --> goat-button
   goat-html-editor --> goat-button
   goat-input --> goat-button
+  goat-modal --> goat-button
   goat-notification --> goat-button
   goat-number --> goat-button
   goat-select --> goat-button

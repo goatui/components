@@ -137,9 +137,9 @@ export namespace Components {
          */
         "showLoader": boolean;
         /**
-          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"full"`. Defaults to `"md"`.
+          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"2xl"`, `"full"`. Defaults to `"md"`.
          */
-        "size": 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'full';
+        "size": 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
         /**
           * Sets or retrieves the window or frame at which to target content.
          */
@@ -719,6 +719,14 @@ export namespace Components {
           * The menu item value.
          */
         "value"?: string | number | null;
+    }
+    /**
+     * @name Modal
+     * @description Modals are used to display content in a layer above the app.
+     * @tags controls
+     */
+    interface GoatModal {
+        "show": boolean;
     }
     /**
      * @name Notification
@@ -1854,6 +1862,17 @@ declare global {
         new (): HTMLGoatMenuItemElement;
     };
     /**
+     * @name Modal
+     * @description Modals are used to display content in a layer above the app.
+     * @tags controls
+     */
+    interface HTMLGoatModalElement extends Components.GoatModal, HTMLStencilElement {
+    }
+    var HTMLGoatModalElement: {
+        prototype: HTMLGoatModalElement;
+        new (): HTMLGoatModalElement;
+    };
+    /**
      * @name Notification
      * @description Notifications are messages that communicate information to the user.
      * @category Feedback
@@ -2170,6 +2189,7 @@ declare global {
         "goat-link": HTMLGoatLinkElement;
         "goat-menu": HTMLGoatMenuElement;
         "goat-menu-item": HTMLGoatMenuItemElement;
+        "goat-modal": HTMLGoatModalElement;
         "goat-notification": HTMLGoatNotificationElement;
         "goat-notification-manager": HTMLGoatNotificationManagerElement;
         "goat-number": HTMLGoatNumberElement;
@@ -2328,9 +2348,9 @@ declare namespace LocalJSX {
          */
         "showLoader"?: boolean;
         /**
-          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"full"`. Defaults to `"md"`.
+          * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"2xl"`, `"full"`. Defaults to `"md"`.
          */
-        "size"?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'full';
+        "size"?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
         /**
           * Sets or retrieves the window or frame at which to target content.
          */
@@ -2911,6 +2931,14 @@ declare namespace LocalJSX {
           * The menu item value.
          */
         "value"?: string | number | null;
+    }
+    /**
+     * @name Modal
+     * @description Modals are used to display content in a layer above the app.
+     * @tags controls
+     */
+    interface GoatModal {
+        "show"?: boolean;
     }
     /**
      * @name Notification
@@ -3580,6 +3608,7 @@ declare namespace LocalJSX {
         "goat-link": GoatLink;
         "goat-menu": GoatMenu;
         "goat-menu-item": GoatMenuItem;
+        "goat-modal": GoatModal;
         "goat-notification": GoatNotification;
         "goat-notification-manager": GoatNotificationManager;
         "goat-number": GoatNumber;
@@ -3833,6 +3862,12 @@ declare module "@stencil/core" {
              */
             "goat-menu": LocalJSX.GoatMenu & JSXBase.HTMLAttributes<HTMLGoatMenuElement>;
             "goat-menu-item": LocalJSX.GoatMenuItem & JSXBase.HTMLAttributes<HTMLGoatMenuItemElement>;
+            /**
+             * @name Modal
+             * @description Modals are used to display content in a layer above the app.
+             * @tags controls
+             */
+            "goat-modal": LocalJSX.GoatModal & JSXBase.HTMLAttributes<HTMLGoatModalElement>;
             /**
              * @name Notification
              * @description Notifications are messages that communicate information to the user.
