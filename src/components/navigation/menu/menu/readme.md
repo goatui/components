@@ -7,12 +7,13 @@
 
 ## Properties
 
-| Property     | Attribute     | Description | Type               | Default                                                                                  |
-| ------------ | ------------- | ----------- | ------------------ | ---------------------------------------------------------------------------------------- |
-| `empty`      | `empty`       |             | `boolean`          | `false`                                                                                  |
-| `emptyState` | `empty-state` |             | `any`              | ``{     "headline": "No items",     "description": "There are no items to display"   }`` |
-| `showLoader` | `show-loader` |             | `boolean`          | `false`                                                                                  |
-| `value`      | `value`       |             | `number \| string` | `undefined`                                                                              |
+| Property     | Attribute     | Description                                                                          | Type                   | Default                                                                                  |
+| ------------ | ------------- | ------------------------------------------------------------------------------------ | ---------------------- | ---------------------------------------------------------------------------------------- |
+| `empty`      | `empty`       |                                                                                      | `boolean`              | `false`                                                                                  |
+| `emptyState` | `empty-state` |                                                                                      | `any`                  | ``{     "headline": "No items",     "description": "There are no items to display"   }`` |
+| `showLoader` | `show-loader` |                                                                                      | `boolean`              | `false`                                                                                  |
+| `size`       | `size`        | The menu item size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`. | `"lg" \| "md" \| "sm"` | `'md'`                                                                                   |
+| `value`      | `value`       |                                                                                      | `number \| string`     | `undefined`                                                                              |
 
 
 ## Methods
