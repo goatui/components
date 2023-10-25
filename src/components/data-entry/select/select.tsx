@@ -253,7 +253,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
     }
   };
 
-  private toggleList = (evt) => {
+  private toggleList = evt => {
     evt.stopPropagation();
     evt.preventDefault();
     if (this.isOpen) this.closeList();
@@ -343,7 +343,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
 
   @Listen('scroll', { target: 'window' })
   fixPosition() {
-    const isMobile = false;//isMobile();
+    const isMobile = false; //isMobile();
     if (this.isOpen && this.dropdownContentHeight && this.dropdownContentWidth) {
       if (isMobile) {
         this.position = 'center';
@@ -413,7 +413,15 @@ export class Select implements ComponentInterface, InputComponentInterface {
   render() {
     return (
       <Host has-value={this.hasValue()} has-focus={this.hasFocus} is-open={this.isOpen} position={this.position}>
-        <div class={{ 'dropdown': true, 'select': true, [this.position]: true, 'is-open': this.isOpen,  [`search-${this.search}`]: true, }}>
+        <div
+          class={{
+            'dropdown': true,
+            'select': true,
+            [this.position]: true,
+            'is-open': this.isOpen,
+            [`search-${this.search}`]: true,
+          }}
+        >
           <div
             class={{
               'input-container': true,
@@ -467,7 +475,9 @@ export class Select implements ComponentInterface, InputComponentInterface {
               }
             })()}
 
-            {this.clearable && !this.multiple && this.hasValue() && <goat-button class="clear input-action" size={'full'} color={'secondary'} kind={'simple'} variant="ghost" icon="close" onClick={this.clearInput} />}
+            {this.clearable && !this.multiple && this.hasValue() && (
+              <goat-button class="clear input-action" size={'full'} color={'secondary'} kind={'simple'} variant="ghost" icon="close" onClick={this.clearInput} />
+            )}
 
             <div class="slot-container end">
               <slot name="end" />
@@ -494,7 +504,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
   private renderDropdownList() {
     if (this.search === 'managed' && !this.items.length) {
       return (
-        <goat-menu class="menu" ref={el => (this.menuElm = el)}>
+        <goat-menu class="menu" ref={el => (this.menuElm = el)} size={this.size}>
           <div class="start-search">
             <goat-icon name="search" size={this.size} />
             <goat-text class="text-secondary">Start typing to perform search</goat-text>
@@ -506,7 +516,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
     if (this.items) {
       const filteredItems = this.filterItems();
       return (
-        <goat-menu class="menu" empty={filteredItems.length == 0} ref={el => (this.menuElm = el)}>
+        <goat-menu class="menu" empty={filteredItems.length == 0} ref={el => (this.menuElm = el)} size={this.size}>
           {(() => {
             return filteredItems.map(item => {
               return (

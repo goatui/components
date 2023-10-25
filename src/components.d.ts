@@ -696,6 +696,10 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         "showLoader": boolean;
+        /**
+          * The menu item size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size": 'sm' | 'md' | 'lg';
         "value"?: string | number;
     }
     interface GoatMenuItem {
@@ -2912,6 +2916,10 @@ declare namespace LocalJSX {
         "empty"?: boolean;
         "emptyState"?: any;
         "showLoader"?: boolean;
+        /**
+          * The menu item size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size"?: 'sm' | 'md' | 'lg';
         "value"?: string | number;
     }
     interface GoatMenuItem {
