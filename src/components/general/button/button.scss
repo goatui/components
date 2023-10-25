@@ -61,7 +61,6 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
   }
 
 
-
   .button-background {
     display: block;
     position: absolute;
@@ -100,8 +99,9 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
   */
 .button.size-sm, .button.size-small {
   .button-content {
-    min-height: 2rem;
+    min-height: calc(2rem - #{2*$inner-border-width}rem);
   }
+
   &:not(.has-content).has-icon {
     .button-content {
       padding: 0 calc(var(--button-padding, 0.5rem) - #{$inner-border-width}rem);
@@ -112,8 +112,9 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
 
 .button.size-md, .button.size-medium {
   .button-content {
-    min-height: var(--button-height);
+    min-height: calc(var(--button-height) - #{2*$inner-border-width}rem);
   }
+
   &:not(.has-content).has-icon {
     .button-content {
       padding: 0 calc(var(--button-padding, 0.75rem) - #{$inner-border-width}rem);
@@ -131,20 +132,20 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
 
 .button.size-lg, .button.size-large {
   .button-content {
-    min-height: 3rem;
+    min-height: calc(3rem - #{2*$inner-border-width}rem);
   }
 }
 
 .button.size-xl {
   .button-content {
-    min-height: 4rem;
+    min-height: calc(4rem - #{2*$inner-border-width}rem);
     padding-bottom: 1rem;
   }
 }
 
 .button.size-2xl {
   .button-content {
-    min-height: 5rem;
+    min-height: calc(5rem - #{2*$inner-border-width}rem);
     padding-bottom: 2rem;
   }
 }
