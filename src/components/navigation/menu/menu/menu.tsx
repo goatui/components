@@ -13,17 +13,21 @@ import { Component, ComponentInterface, Element, h, Listen, Method, Prop, State,
   shadow: true,
 })
 export class Menu implements ComponentInterface {
-
-
   @Element() elm!: HTMLElement;
 
   @Prop() showLoader: boolean = false;
 
   @Prop({ mutable: true }) value?: string | number;
 
+  /**
+   * The menu item size.
+   * Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+   */
+  @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' = 'md';
+
   @Prop({ mutable: true }) empty: boolean = false;
 
-  @Prop({ mutable: true }) emptyState: any =  `{
+  @Prop({ mutable: true }) emptyState: any = `{
     "headline": "No items",
     "description": "There are no items to display"
   }`;
@@ -49,8 +53,7 @@ export class Menu implements ComponentInterface {
       if (elm.tagName === 'GOAT-MENU-ITEM') {
         menuItem = elm;
       }
-      if (elm !== this.elm)
-        continue;
+      if (elm !== this.elm) continue;
       if (evt.key === 'ArrowDown') {
         evt.preventDefault();
         this.focusNextItem(menuItem);
@@ -105,22 +108,20 @@ export class Menu implements ComponentInterface {
     } while (previousItem !== currentItem);
   }
 
-
   componentDidLoad() {
     this.parseEmptyState();
   }
 
-
   render() {
-    return <div class='menu'>
-      <slot />
-      {this.renderEmptyState()}
-    </div>;
+    return (
+      <div class="menu">
+        <slot />
+        {this.renderEmptyState()}
+      </div>
+    );
   }
 
   private renderEmptyState() {
-    if (this.empty)
-      return <goat-empty-state class='empty-menu' {...this.internalEmptyState} />;
+    if (this.empty) return <goat-empty-state class="empty-menu" {...this.internalEmptyState} />;
   }
-
 }

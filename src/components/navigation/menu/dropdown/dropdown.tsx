@@ -14,7 +14,6 @@ import { isEventTriggerByElement, isMobile, isOutOfViewport } from '../../../../
   shadow: true,
 })
 export class Dropdown implements ComponentInterface {
-
   /**
    * The button size.
    * Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
@@ -34,10 +33,9 @@ export class Dropdown implements ComponentInterface {
 
   @Listen('click', { target: 'window' })
   windowClick(evt) {
-    const path = (evt.path || evt.composedPath());
+    const path = evt.path || evt.composedPath();
     for (const elm of path) {
-      if (elm == this.elm)
-        return;
+      if (elm == this.elm) return;
     }
     this.isOpen = false;
   }
@@ -89,7 +87,7 @@ export class Dropdown implements ComponentInterface {
         this.setFocus(this.elm);
       }, 100);
     }
-  };
+  }
 
   private openList = () => {
     if (!this.disabled && !this.isOpen) {
@@ -104,14 +102,12 @@ export class Dropdown implements ComponentInterface {
   };
 
   componentWillLoad() {
-    if (this.positions)
-      this.position = this.positions.split(',')[0];
+    if (this.positions) this.position = this.positions.split(',')[0];
   }
 
   @Listen('scroll', { target: 'window' })
   fixPosition() {
     if (this.isOpen && this.dropdownContentHeight && this.dropdownContentWidth) {
-
       if (isMobile()) {
         this.position = 'center';
         return;
@@ -149,13 +145,11 @@ export class Dropdown implements ComponentInterface {
         }
       }
     }
-  };
+  }
 
   private toggleList = () => {
-    if (this.isOpen)
-      this.closeList();
-    else
-      this.openList();
+    if (this.isOpen) this.closeList();
+    else this.openList();
   };
 
   private blurHandler = () => {
@@ -166,7 +160,7 @@ export class Dropdown implements ComponentInterface {
     this.hasFocus = true;
   };
 
-  private keyDownHandler = (evt) => {
+  private keyDownHandler = evt => {
     const $menuElm = this.getMenuElement();
     if (evt.key === 'Enter') {
       evt.preventDefault();
@@ -190,42 +184,49 @@ export class Dropdown implements ComponentInterface {
 
   renderItems() {
     if (this.items)
-      return <goat-menu class='items'>
-        {this.items.map((item) => {
-          return <goat-menu-item value={item.value} tabindex={this.isOpen ? '0' : '-1'}>
-            {item.icon && <goat-icon name={item.icon} slot='start' size='sm' />}
-            {item.label}
-            {item.hint && <span slot='end'>{item.hint}</span>}
-          </goat-menu-item>;
-        })}
-      </goat-menu>;
+      return (
+        <goat-menu class="items" size={this.size}>
+          {this.items.map(item => {
+            return (
+              <goat-menu-item value={item.value} tabindex={this.isOpen ? '0' : '-1'}>
+                {item.icon && <goat-icon name={item.icon} slot="start" size="sm" />}
+                {item.label}
+                {item.hint && <span slot="end">{item.hint}</span>}
+              </goat-menu-item>
+            );
+          })}
+        </goat-menu>
+      );
   }
 
   render() {
-    return (<Host has-focus={this.hasFocus} is-open={this.isOpen}>
-      <div class={{
-        'dropdown': true,
-        [this.position]: true,
-        'is-open': this.isOpen,
-      }}>
-        <button class='dropdown-button'
-                onKeyDown={this.keyDownHandler}
-                tabindex='-1'
-                onBlur={this.blurHandler}
-                onFocus={this.focusHandler}
-                disabled={this.disabled}
-                onClick={() => {
-                  this.toggleList();
-                }}>
-          <div class='slot-container'>
-            <slot />
-          </div>
-        </button>
-        <div class='dropdown-content'>
-          {this.items ? this.renderItems():  <slot name='dropdown-content' />}
+    return (
+      <Host has-focus={this.hasFocus} is-open={this.isOpen}>
+        <div
+          class={{
+            'dropdown': true,
+            [this.position]: true,
+            'is-open': this.isOpen,
+          }}
+        >
+          <button
+            class="dropdown-button"
+            onKeyDown={this.keyDownHandler}
+            tabindex="-1"
+            onBlur={this.blurHandler}
+            onFocus={this.focusHandler}
+            disabled={this.disabled}
+            onClick={() => {
+              this.toggleList();
+            }}
+          >
+            <div class="slot-container">
+              <slot />
+            </div>
+          </button>
+          <div class="dropdown-content">{this.items ? this.renderItems() : <slot name="dropdown-content" />}</div>
         </div>
-      </div>
-    </Host>);
+      </Host>
+    );
   }
-
 }

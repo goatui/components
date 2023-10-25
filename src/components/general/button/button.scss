@@ -505,13 +505,13 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
   &.variant-ghost {
     &:hover {
       .native-button {
-        color: v(--color-black);
+        color: v(--color-white);
       }
     }
 
     &.active, &.selected {
       .native-button {
-        color: v(--color-black);
+        color: v(--color-white);
       }
     }
   }

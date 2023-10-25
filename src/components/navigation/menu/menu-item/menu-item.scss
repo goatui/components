@@ -2,16 +2,17 @@
 
 :host {
   display: block;
-  --menu-item-padding: #{v(--spacing-02)} #{v(--spacing-04)};
+  --menu-item-padding: #{v(--spacing-04)};
 }
 
 
 .menu-item {
   border: 1px solid transparent;
+  min-height: 2.5rem;
 
   cursor: pointer;
   @include font-style(text-md);
-  padding: var(--menu-item-padding);
+  padding: 0 var(--menu-item-padding);
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -37,12 +38,29 @@
 
 }
 
+:host-context([size="sm"]) {
+  .menu-item {
+    min-height: 2rem;
+  }
+}
 
+:host-context([size="md"]) {
+  .menu-item {
+    min-height: 2.5rem;
+  }
+}
+
+:host-context([size="lg"]) {
+  .menu-item {
+    min-height: 3rem;
+  }
+}
 
 .menu-item {
   &:hover, &.has-focus:not(.active) {
     background: v(--layer-hover-01);
     color: v(--text-primary);
+
     .slot-end {
       color: v(--icon-01);
     }
