@@ -85,7 +85,7 @@
       border-width: 0 0 0 3px;
 
       .close-button {
-        --button-padding: 0 .5rem;
+        --button-padding: .5rem;
         .icon {
           --icon-color: #{v(--text-inverse)};
         }
