@@ -7,7 +7,7 @@ const site = lume({
   location: new URL("https://my-site.com/blog/"),
   src: "./src",
   server: {
-    port: 8000,
+    port: 7000,
     open: true,
     page404: "./404/",
   },
