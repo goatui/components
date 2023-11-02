@@ -1,0 +1,6 @@
+{
+
+  "scripts": {
+    "serve": "deno task serve"
+  }
+}

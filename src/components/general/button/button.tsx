@@ -56,7 +56,7 @@ export class Button implements ComponentInterface {
 
   @Prop() disabledReason: string = '';
 
-  @Prop({ reflect: true }) color: 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light' = 'primary';
+  @Prop({ reflect: true }) color: 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light' | 'inverse' = 'primary';
 
   /**
    * Icon which will displayed on button.

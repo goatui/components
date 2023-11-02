@@ -1,5 +1,11 @@
 import { Component, h, Host, Prop } from '@stencil/core';
 
+enum SpinnerSize {
+  SM = 0.75,
+  MD = 1,
+  LG = 5.5,
+}
+
 /**
  * @name Spinner
  * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
@@ -13,46 +19,65 @@ import { Component, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class Spinner {
-
   /**
    * The Icon size.
-   * Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
+   * Possible values are: `"sm"`, `"md"`, `"lg"` and size in pixel. Defaults to `"md"`.
    */
-  @Prop() size: 'sm' | 'md' | 'lg' | 'xl' | string = 'md';
+  @Prop() size: 'sm' | 'md' | 'lg' | string = 'md';
+
+  @Prop() description: string = 'Loading';
 
   private getSize() {
     let size;
-    if (!this.size) size = '1rem';
-    else if (this.size === 'xs') size = '0.5rem';
-    else if (this.size === 'sm') size = '0.75rem';
-    else if (this.size === 'md') size = '1rem';
-    else if (this.size === 'lg') size = '1.5rem';
-    else if (this.size === 'xl') size = '1.75rem';
-    else if (!this.size.endsWith('px') && !this.size.endsWith('rem')) size = '1rem';
+    if (!this.size || this.size === 'md') size = SpinnerSize.MD;
+    else if (this.size === 'sm') size = SpinnerSize.SM;
+    else if (this.size === 'lg') size = SpinnerSize.LG;
+    else if (this.size.endsWith('px')) size = parseInt(this.size.replace('px', '')) / 16;
+    else if (this.size.endsWith('rem')) size = parseInt(this.size.replace('rem', ''));
     else size = this.size;
     return size;
   }
 
   render() {
+    let radius: number = 57.3 * this.getSize();
+    let strokeWidth = 5;
+    if (this.getSize() >= 5.5) strokeWidth = 10;
+    strokeWidth = strokeWidth / ((this.getSize() * 16) / 100);
+
+    let strokeDashoffset = 50 * this.getSize();
+    if (this.getSize() <= 1) {
+      strokeDashoffset = 180 * this.getSize();
+    }
+
     return (
       <Host>
-        <div class='spinner'>
-          <svg version='1.1' class='loader icon-svg' x='0px' y='0px'
-               width={this.getSize()} height={this.getSize()} viewBox='0 0 50 50' fill='currentColor'>
-            <path
-              d='M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z'>
-              <animateTransform attributeType='xml'
-                                attributeName='transform'
-                                type='rotate'
-                                from='0 25 25'
-                                to='360 25 25'
-                                dur='0.6s'
-                                repeatCount='indefinite' />
-            </path>
+        <div style={{ width: this.getSize() + 'rem', height: this.getSize() + 'rem' }}>
+          <svg viewBox={`0 0 ${2 * (radius + strokeWidth + 5 * this.getSize())} ${2 * (radius + strokeWidth + 5 * this.getSize())}`} class="spinner__svg">
+            <title>{this.description}</title>
+            <circle
+              cx="50%"
+              cy="50%"
+              class="spinner__background"
+              r={radius}
+              style={{
+                strokeWidth: `${strokeWidth * this.getSize()}`,
+              }}
+            ></circle>
+
+            <circle
+              cx="50%"
+              cy="50%"
+              class="spinner__stroke"
+              r={radius}
+              style={{
+                strokeWidth: `${strokeWidth * this.getSize()}`,
+                strokeDasharray: `${360 * this.getSize()}`,
+                strokeDashoffset: `${strokeDashoffset}`,
+              }}
+            ></circle>
           </svg>
         </div>
       </Host>
     );
   }
-
 }

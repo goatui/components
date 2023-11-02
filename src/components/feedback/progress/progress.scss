@@ -72,19 +72,19 @@
 
   &.status-success {
     .progress-bar {
-      background: var(--support-success);
+      background: v(--support-success);
     }
     .progress-icon {
-      --icon-color: var(--support-success);
+      --icon-color: v(--support-success);
     }
   }
 
   &.status-error {
     .progress-bar {
-      background: var(--support-error);
+      background: v(--support-error);
     }
     .progress-icon {
-      --icon-color: var(--support-error);
+      --icon-color: v(--support-error);
     }
   }
 

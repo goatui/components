@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                                                               | Type     | Default |
-| -------- | --------- | --------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| `size`   | `size`    | The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`. | `string` | `'md'`  |
+| Property      | Attribute     | Description                                                                                       | Type     | Default     |
+| ------------- | ------------- | ------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| `description` | `description` |                                                                                                   | `string` | `'Loading'` |
+| `size`        | `size`        | The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"` and size in pixel. Defaults to `"md"`. | `string` | `'md'`      |
 
 
 ## Dependencies

@@ -495,7 +495,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
 
   private getModeIcon() {
     if (this.showLoader) {
-      return <goat-spinner class="input-action rainbow loader" />;
+      return <goat-spinner class="input-action loader" />;
     }
     if (!this.disabled && !this.readonly && !this.hideDropdownIcon)
       return <goat-icon tabindex={-1} class="chevron-down color-secondary" size={this.size} name="chevron--down" onClick={this.toggleList}></goat-icon>;

@@ -1,16 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Event,
-  EventEmitter,
-  h,
-  Host,
-  Method,
-  Prop,
-  State,
-  Watch,
-} from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
 import { debounceEvent, getComponentIndex } from '../../../utils/utils';
 
 /**
@@ -22,11 +10,10 @@ import { debounceEvent, getComponentIndex } from '../../../utils/utils';
  */
 @Component({
   tag: 'goat-textarea',
-  styleUrl: 'textarea.scss',
+  styleUrl: './textarea.scss',
   shadow: true,
 })
 export class Textarea implements ComponentInterface, InputComponentInterface {
-
   gid: string = getComponentIndex();
 
   /**
@@ -39,6 +26,20 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
    */
   @Prop() placeholder: string;
 
+  @Prop() label: string;
+
+  @Prop() helperText: string;
+
+  @Prop() invalid: boolean = false;
+
+  @Prop() invalidText: string;
+
+  @Prop() warn: boolean = false;
+
+  @Prop() warnText: string;
+
+  @Prop({ reflect: true }) inline: boolean = false;
+
   /**
    * The input field value.
    */
@@ -47,13 +48,12 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
-  @Prop({reflect: true}) disabled: boolean = false;
+  @Prop({ reflect: true }) disabled: boolean = false;
 
   /**
    * If true, the user read the value cannot modify it. Defaults to `false`.
    */
-  @Prop({ reflect: true }) readonly : boolean = false;
-
+  @Prop({ reflect: true }) readonly: boolean = false;
 
   /**
    * The input state.
@@ -61,12 +61,10 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
    */
   @Prop({ reflect: true }) state: 'success' | 'error' | 'warning' | 'default' = 'default';
 
-
   /**
    * If true, required icon is show. Defaults to `false`.
    */
   @Prop() required: boolean = false;
-
 
   /**
    * Set the amount of time, in milliseconds, to wait to trigger the `goat:change` event after each keystroke.
@@ -78,9 +76,7 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
    */
   @Prop() clearable = false;
 
-
-  @Prop( {reflect: true, mutable: true}) configAria: any = {};
-
+  @Prop({ reflect: true, mutable: true }) configAria: any = {};
 
   /**
    * Emitted when a keyboard input occurred.
@@ -141,13 +137,11 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
     this.goatChange = debounceEvent(this.goatChange, this.debounce);
   }
 
-
   @Element() elm!: HTMLElement;
   private nativeElement?: HTMLTextAreaElement;
   private tabindex?: string | number;
   @State() hasFocus = false;
   @State() endSlotHasContent = false;
-
 
   private inputHandler = (ev: Event) => {
     const input = ev.target as HTMLInputElement | null;
@@ -167,7 +161,6 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
     this.hasFocus = true;
     this.goatFocus.emit(ev);
   };
-
 
   private getValue(): string {
     return (this.value || '').toString();
@@ -210,43 +203,62 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
     this.debounceChanged();
   }
 
+  renderHelper() {
+    if (this.invalid) return <div class="helper invalid">{this.invalidText}</div>;
+    else if (this.warn) return <div class="helper warn">{this.warnText}</div>;
+    else if (this.helperText) return <div class="helper text">{this.helperText}</div>;
+  }
+
   render() {
     return (
       <Host has-focus={this.hasFocus} has-value={this.hasValue()}>
-        <div class={{
-          'input-container': true,
-          'textarea': true,
-          'disabled': this.disabled,
-          'readonly': this.readonly,
-          'has-focus': this.hasFocus,
-          'end-slot-has-content': this.endSlotHasContent,
-        }}>
-             <textarea
-               rows={4}
-               ref={input => this.nativeElement = input}
-               required={this.required}
-               class='input input-native'
-               name={this.name}
-               placeholder={this.placeholder}
-               readonly={this.readonly}
-               value={this.value}
-               tabindex={this.tabindex}
-               onKeyDown={this.keyDownHandler}
-               onInput={this.inputHandler}
-               onBlur={this.blurHandler}
-               onFocus={this.focusHandler}
-               disabled={this.disabled}
-               {...this.configAria}/>
+        <div class={{ 'form-control': true, 'inline': this.inline }}>
+          {this.label && (
+            <label class="label">
+              {this.required && <span class="required">*</span>}
+              {this.label}
+            </label>
+          )}
 
-          {this.clearable && this.hasValue() &&
-            <goat-icon class='clear inherit input-action' name='close' onClick={this.clearInput} />}
+          <div class="field">
+            <div
+              class={{
+                'input-container': true,
+                'textarea': true,
+                'disabled': this.disabled,
+                'readonly': this.readonly,
+                'has-focus': this.hasFocus,
+                'end-slot-has-content': this.endSlotHasContent,
+              }}
+            >
+              <textarea
+                rows={4}
+                ref={input => (this.nativeElement = input)}
+                required={this.required}
+                class="input input-native"
+                name={this.name}
+                placeholder={this.placeholder}
+                readonly={this.readonly}
+                value={this.value}
+                tabindex={this.tabindex}
+                onKeyDown={this.keyDownHandler}
+                onInput={this.inputHandler}
+                onBlur={this.blurHandler}
+                onFocus={this.focusHandler}
+                disabled={this.disabled}
+                {...this.configAria}
+              />
 
-          <div class='slot-container end'>
-            <slot name='end' />
+              {this.clearable && this.hasValue() && <goat-icon class="clear inherit input-action" name="close" onClick={this.clearInput} />}
+
+              <div class="slot-container end">
+                <slot name="end" />
+              </div>
+            </div>
           </div>
+          {this.renderHelper()}
         </div>
       </Host>
     );
   }
-
 }

@@ -1,15 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Event,
-  EventEmitter,
-  h,
-  Host,
-  Method,
-  Prop,
-  State, Watch,
-} from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
 import { debounceEvent, getComponentIndex } from '../../../../utils/utils';
 
 /**
@@ -24,7 +13,6 @@ import { debounceEvent, getComponentIndex } from '../../../../utils/utils';
   shadow: true,
 })
 export class DatePicker implements ComponentInterface {
-
   gid: string = getComponentIndex();
 
   /**
@@ -42,7 +30,6 @@ export class DatePicker implements ComponentInterface {
    * Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
    */
   @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' = 'md';
-
 
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
@@ -67,7 +54,6 @@ export class DatePicker implements ComponentInterface {
    * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
    */
   @Prop() debounce = 300;
-
 
   /**
    * Emitted when a keyboard input occurred.
@@ -101,7 +87,6 @@ export class DatePicker implements ComponentInterface {
   private getValue(): string {
     return (this.value || '').toString();
   }
-
 
   @Watch('debounce')
   protected debounceChanged() {
@@ -140,7 +125,6 @@ export class DatePicker implements ComponentInterface {
   connectedCallback() {
     this.debounceChanged();
   }
-
 
   componentWillLoad() {
     // If the ion-input has a tabindex attribute we get the value
@@ -192,36 +176,44 @@ export class DatePicker implements ComponentInterface {
     this.inputHandler(evt);
   };
 
-
   render() {
     return (
-      <Host has-focus={this.hasFocus}
-            has-value={this.hasValue()}>
-        <div class={{
-          'input-container': true,
-          'disabled': this.disabled,
-          'has-focus': this.hasFocus,
-        }}>
-          <input type='date'
-                 ref={input => (this.nativeElement = input)}
-                 tabindex={this.tabindex}
-                 class='input input-native'
-                 disabled={this.disabled}
-                 readonly={this.readonly}
-                 onKeyDown={this.keyDownHandler}
-                 onInput={this.inputHandler}
-                 onBlur={this.blurHandler}
-                 onFocus={this.focusHandler}/>
+      <Host has-focus={this.hasFocus} has-value={this.hasValue()}>
+        <div
+          class={{
+            'input-container': true,
+            'disabled': this.disabled,
+            'has-focus': this.hasFocus,
+          }}
+        >
+          <input
+            type="date"
+            ref={input => (this.nativeElement = input)}
+            tabindex={this.tabindex}
+            class="input input-native"
+            disabled={this.disabled}
+            readonly={this.readonly}
+            onKeyDown={this.keyDownHandler}
+            onInput={this.inputHandler}
+            onBlur={this.blurHandler}
+            onFocus={this.focusHandler}
+          />
 
-
-          <goat-button class="input-action" kind={'simple'} color={'secondary'} icon={'calendar' } variant="ghost" size="full" onGoat:click={() => {
-            setTimeout(() => {
-              this.nativeElement.showPicker();
-            });
-          }}></goat-button>
+          <goat-button
+            class="input-action"
+            kind={'simple'}
+            color={'secondary'}
+            icon={'calendar'}
+            variant="ghost"
+            size="full"
+            onGoat:click={() => {
+              setTimeout(() => {
+                this.nativeElement.showPicker();
+              });
+            }}
+          ></goat-button>
         </div>
       </Host>
     );
   }
-
 }

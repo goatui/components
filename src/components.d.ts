@@ -93,7 +93,7 @@ export namespace Components {
      * </goat-button>
      */
     interface GoatButton {
-        "color": 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light';
+        "color": 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light' | 'inverse';
         "configAria": any;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
@@ -235,6 +235,15 @@ export namespace Components {
     interface GoatCbPredicate {
         "conditionOperator": 'and' | 'or';
         "vertical": boolean;
+    }
+    /**
+     * @name ChartDoughnut
+     * @description Use tags to label, categorize, or organize items using keywords that describe them.
+     * @category Up coming
+     * @tag controls
+     * @example <goat-chart-doughnut class="color-red"></goat-chart-doughnut>
+     */
+    interface GoatChartDoughnut {
     }
     /**
      * @name Checkbox
@@ -621,8 +630,12 @@ export namespace Components {
          */
         "disabled": boolean;
         "getComponentId": () => Promise<string>;
+        "helperText": string;
         "hideActions": boolean;
         "inline": boolean;
+        "invalid": boolean;
+        "invalidText": string;
+        "label": string;
         /**
           * The input field name.
          */
@@ -663,6 +676,8 @@ export namespace Components {
           * The input field value.
          */
         "value"?: string | number | null;
+        "warn": boolean;
+        "warnText": string;
     }
     /**
      * @name Link
@@ -727,6 +742,7 @@ export namespace Components {
     /**
      * @name Modal
      * @description Modals are used to display content in a layer above the app.
+     * @category Up coming
      * @tags controls
      */
     interface GoatModal {
@@ -1011,10 +1027,11 @@ export namespace Components {
      * @example <goat-spinner class="rainbow" size="2rem"></goat-spinner>
      */
     interface GoatSpinner {
+        "description": string;
         /**
-          * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
+          * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"` and size in pixel. Defaults to `"md"`.
          */
-        "size": 'sm' | 'md' | 'lg' | 'xl' | string;
+        "size": 'sm' | 'md' | 'lg' | string;
     }
     /**
      * @name SVG
@@ -1158,6 +1175,11 @@ export namespace Components {
          */
         "disabled": boolean;
         "getComponentId": () => Promise<string>;
+        "helperText": string;
+        "inline": boolean;
+        "invalid": boolean;
+        "invalidText": string;
+        "label": string;
         /**
           * The input field name.
          */
@@ -1190,6 +1212,8 @@ export namespace Components {
           * The input field value.
          */
         "value": string;
+        "warn": boolean;
+        "warnText": string;
     }
     /**
      * @name Time Picker
@@ -1614,6 +1638,19 @@ declare global {
         new (): HTMLGoatCbPredicateElement;
     };
     /**
+     * @name ChartDoughnut
+     * @description Use tags to label, categorize, or organize items using keywords that describe them.
+     * @category Up coming
+     * @tag controls
+     * @example <goat-chart-doughnut class="color-red"></goat-chart-doughnut>
+     */
+    interface HTMLGoatChartDoughnutElement extends Components.GoatChartDoughnut, HTMLStencilElement {
+    }
+    var HTMLGoatChartDoughnutElement: {
+        prototype: HTMLGoatChartDoughnutElement;
+        new (): HTMLGoatChartDoughnutElement;
+    };
+    /**
      * @name Checkbox
      * @description Captures boolean input with an optional indeterminate mode.
      * @category Form Inputs
@@ -1868,6 +1905,7 @@ declare global {
     /**
      * @name Modal
      * @description Modals are used to display content in a layer above the app.
+     * @category Up coming
      * @tags controls
      */
     interface HTMLGoatModalElement extends Components.GoatModal, HTMLStencilElement {
@@ -2171,6 +2209,7 @@ declare global {
         "goat-cb-divider": HTMLGoatCbDividerElement;
         "goat-cb-expression": HTMLGoatCbExpressionElement;
         "goat-cb-predicate": HTMLGoatCbPredicateElement;
+        "goat-chart-doughnut": HTMLGoatChartDoughnutElement;
         "goat-checkbox": HTMLGoatCheckboxElement;
         "goat-code-editor": HTMLGoatCodeEditorElement;
         "goat-code-highlighter": HTMLGoatCodeHighlighterElement;
@@ -2312,7 +2351,7 @@ declare namespace LocalJSX {
      * </goat-button>
      */
     interface GoatButton {
-        "color"?: 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light';
+        "color"?: 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light' | 'inverse';
         "configAria"?: any;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
@@ -2454,6 +2493,15 @@ declare namespace LocalJSX {
     interface GoatCbPredicate {
         "conditionOperator"?: 'and' | 'or';
         "vertical"?: boolean;
+    }
+    /**
+     * @name ChartDoughnut
+     * @description Use tags to label, categorize, or organize items using keywords that describe them.
+     * @category Up coming
+     * @tag controls
+     * @example <goat-chart-doughnut class="color-red"></goat-chart-doughnut>
+     */
+    interface GoatChartDoughnut {
     }
     /**
      * @name Checkbox
@@ -2838,8 +2886,12 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
+        "helperText"?: string;
         "hideActions"?: boolean;
         "inline"?: boolean;
+        "invalid"?: boolean;
+        "invalidText"?: string;
+        "label"?: string;
         /**
           * The input field name.
          */
@@ -2888,6 +2940,8 @@ declare namespace LocalJSX {
           * The input field value.
          */
         "value"?: string | number | null;
+        "warn"?: boolean;
+        "warnText"?: string;
     }
     /**
      * @name Link
@@ -2943,6 +2997,7 @@ declare namespace LocalJSX {
     /**
      * @name Modal
      * @description Modals are used to display content in a layer above the app.
+     * @category Up coming
      * @tags controls
      */
     interface GoatModal {
@@ -3223,10 +3278,11 @@ declare namespace LocalJSX {
      * @example <goat-spinner class="rainbow" size="2rem"></goat-spinner>
      */
     interface GoatSpinner {
+        "description"?: string;
         /**
-          * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"`, `"xl"` and size in pixel. Defaults to `"md"`.
+          * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"` and size in pixel. Defaults to `"md"`.
          */
-        "size"?: 'sm' | 'md' | 'lg' | 'xl' | string;
+        "size"?: 'sm' | 'md' | 'lg' | string;
     }
     /**
      * @name SVG
@@ -3377,6 +3433,11 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
+        "helperText"?: string;
+        "inline"?: boolean;
+        "invalid"?: boolean;
+        "invalidText"?: string;
+        "label"?: string;
         /**
           * The input field name.
          */
@@ -3421,6 +3482,8 @@ declare namespace LocalJSX {
           * The input field value.
          */
         "value"?: string;
+        "warn"?: boolean;
+        "warnText"?: string;
     }
     /**
      * @name Time Picker
@@ -3594,6 +3657,7 @@ declare namespace LocalJSX {
         "goat-cb-divider": GoatCbDivider;
         "goat-cb-expression": GoatCbExpression;
         "goat-cb-predicate": GoatCbPredicate;
+        "goat-chart-doughnut": GoatChartDoughnut;
         "goat-checkbox": GoatCheckbox;
         "goat-code-editor": GoatCodeEditor;
         "goat-code-highlighter": GoatCodeHighlighter;
@@ -3728,6 +3792,14 @@ declare module "@stencil/core" {
             "goat-cb-divider": LocalJSX.GoatCbDivider & JSXBase.HTMLAttributes<HTMLGoatCbDividerElement>;
             "goat-cb-expression": LocalJSX.GoatCbExpression & JSXBase.HTMLAttributes<HTMLGoatCbExpressionElement>;
             "goat-cb-predicate": LocalJSX.GoatCbPredicate & JSXBase.HTMLAttributes<HTMLGoatCbPredicateElement>;
+            /**
+             * @name ChartDoughnut
+             * @description Use tags to label, categorize, or organize items using keywords that describe them.
+             * @category Up coming
+             * @tag controls
+             * @example <goat-chart-doughnut class="color-red"></goat-chart-doughnut>
+             */
+            "goat-chart-doughnut": LocalJSX.GoatChartDoughnut & JSXBase.HTMLAttributes<HTMLGoatChartDoughnutElement>;
             /**
              * @name Checkbox
              * @description Captures boolean input with an optional indeterminate mode.
@@ -3873,6 +3945,7 @@ declare module "@stencil/core" {
             /**
              * @name Modal
              * @description Modals are used to display content in a layer above the app.
+             * @category Up coming
              * @tags controls
              */
             "goat-modal": LocalJSX.GoatModal & JSXBase.HTMLAttributes<HTMLGoatModalElement>;
