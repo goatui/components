@@ -1,12 +1,4 @@
-import ReactHtmlParser from 'npm:html-react-parser';
-
-export const title = 'Accordion';
-
-export const description = 'An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.';
-export const layout = 'component.jsx';
-
-
-const detailsTab = ( {comp}) => (
+export default ({comp}) => (
   <comp.HighlighterCard>
     <goat-accordion>
       <goat-accordion-item heading="Title 1" disabled="false">
@@ -37,17 +29,3 @@ const detailsTab = ( {comp}) => (
   </comp.HighlighterCard>
 
 )
-
-
-export default ({title, description, site_data, comp}) => (
-
-  <goat-tabs class='page-tabs'>
-    <goat-tabs-list>
-      <goat-tab selected="true">Details</goat-tab>
-      <goat-tab>Playground</goat-tab>
-    </goat-tabs-list>
-    <goat-tab-panel>
-      {detailsTab({title, description, site_data, comp})}
-    </goat-tab-panel>
-  </goat-tabs>
-);

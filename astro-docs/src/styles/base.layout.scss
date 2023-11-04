@@ -1,0 +1,168 @@
+@charset "utf-8";
+@import "mixin";
+@import "device-utils";
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans+Condensed:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Serif:ital@0;1&display=swap');
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-brand-primary: var(--color-purple);
+  --color-brand-primary-10: var(--color-purple-10);
+  --color-brand-primary-20: var(--color-purple-20);
+  --color-brand-primary-30: var(--color-purple-30);
+  --color-brand-primary-40: var(--color-purple-40);
+  --color-brand-primary-50: var(--color-purple-50);
+  --color-brand-primary-60: var(--color-purple-60);
+  --color-brand-primary-70: var(--color-purple-70);
+  --color-brand-primary-80: var(--color-purple-80);
+  --color-brand-primary-90: var(--color-purple-90);
+  --color-brand-primary-100: var(--color-purple-100);
+
+  --color-brand-secondary: #b1fc3f;
+  --color-brand-secondary-10: #e0feb2;
+  --color-brand-secondary-20: #d4fd95;
+  --color-brand-secondary-30: #c8fd79;
+  --color-brand-secondary-40: #bdfc5c;
+  --color-brand-secondary-50: #b1fc3f;
+  --color-brand-secondary-60: #96d636;
+  --color-brand-secondary-70: #7cb02c;
+  --color-brand-secondary-80: #618b23;
+  --color-brand-secondary-90: #476519;
+  --color-brand-secondary-100: #2c3f10;
+
+  --header-background: var(--color-brand-secondary-50);
+  --font-family-base: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+goat-button[color="brand-primary"] {
+  --button-text-color: var(--field-01);
+}
+
+html[data-theme='dark'] {
+  --color-brand-primary: #b1fc3f;
+  --color-brand-primary-10: #d0fd8c;
+  --color-brand-primary-20: #c8fd79;
+  --color-brand-primary-30: #c1fd65;
+  --color-brand-primary-40: #b9fc52;
+  --color-brand-primary-50: #b1fc3f;
+  --color-brand-primary-60: #9fe339;
+  --color-brand-primary-70: #8eca32;
+  --color-brand-primary-80: #7cb02c;
+  --color-brand-primary-90: #6a9726;
+  --color-brand-primary-100: #597e20;
+
+  --color-brand-secondary: var(--color-purple);
+  --color-brand-secondary-10: var(--color-purple-10);
+  --color-brand-secondary-20: var(--color-purple-20);
+  --color-brand-secondary-30: var(--color-purple-30);
+  --color-brand-secondary-40: var(--color-purple-40);
+  --color-brand-secondary-50: var(--color-purple-50);
+  --color-brand-secondary-60: var(--color-purple-60);
+  --color-brand-secondary-70: var(--color-purple-70);
+  --color-brand-secondary-80: var(--color-purple-80);
+  --color-brand-secondary-90: var(--color-purple-90);
+  --color-brand-secondary-100: var(--color-purple-100);
+
+  --header-background-dark: var(--color-purple);
+}
+
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-base);
+}
+
+html {
+  background-color: var(--background);
+  scroll-behavior: smooth;
+  visibility: hidden;
+  font-size: 16px;
+}
+
+html:not(.hydrated)::after {
+  content: 'loading...';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: visible;
+}
+
+html.hydrated {
+  visibility: visible;
+}
+
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+figure {
+  margin: 0;
+}
+
+
+
+
+#site-search{
+  margin: 0 1rem;
+  width: auto;
+}
+
+#site-search[is-open] {
+  width: 25rem;
+}
+
+
+[type='heading']::before {
+  content: '';
+  display: block;
+  height: var(--header-height);
+  margin-top: calc(-1 * var(--header-height));
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.sections-wrapper {
+  padding: var(--spacing-12) 0;
+}
+
+.sections-wrapper .section {
+  padding-bottom: var(--spacing-09);
+}
+
+.sections-wrapper .section:last-child {
+  padding-bottom: 0;
+}

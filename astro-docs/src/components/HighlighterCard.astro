@@ -1,0 +1,18 @@
+---
+interface Props {
+  cssClasses?: string;
+  lang: any;
+}
+
+const {lang, cssClasses} = Astro.props;
+---
+<goat-card class={cssClasses}>
+  <goat-card-content class="demo-area">
+    <slot></slot>
+  </goat-card-content>
+  <goat-card-content class="no-padding code-area">
+    <goat-code-highlighter language={lang} class='demo-html'>
+      <pre><code><slot></slot></code></pre>
+    </goat-code-highlighter>
+  </goat-card-content>
+</goat-card>

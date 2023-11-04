@@ -2,7 +2,7 @@
 export const layout = 'default.jsx';
 
 export const layoutCssFiles = ['/styles/component.layout.css'];
-export default ({title, children, site_data, root}) => (  <>
+export default ({title, children, site_data, componentsDetails}) => (  <>
 <div class='sidenav m-hide'>
 
   <div class='sidenav-components'>
@@ -10,7 +10,7 @@ export default ({title, children, site_data, root}) => (  <>
     <goat-tree-view value={title} selected-node={title}>
       <goat-tree-node label="Overview" href='/components'></goat-tree-node>
       {
-        site_data.componentsDetails.categories.map((category) => {
+        componentsDetails.categories.map((category) => {
           if (!category.hide) {
             return <goat-tree-node label={category.name}>
               {

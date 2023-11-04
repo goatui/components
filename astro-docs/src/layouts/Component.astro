@@ -1,0 +1,72 @@
+---
+interface Props {
+  title?: string;
+}
+
+const {title} = Astro.props;
+
+import Layout from './Default.astro';
+import componentsDetails from '../_data/componentsDetails.json';
+import '../styles/component.layout.scss';
+---
+
+<Layout>
+
+  <div class='sidenav m-hide'>
+
+    <div class='sidenav-components'>
+
+      <goat-tree-view value={title} selected-node={title}>
+        <goat-tree-node label="Overview" href='/components'></goat-tree-node>
+
+        {
+          componentsDetails.categories.map((category) => {
+            if (!category.hide) {
+              return <goat-tree-node label={category.name}>
+                {
+                  category.components.map((component) => {
+                    if (component.metadata.name) {
+                      return <goat-tree-node label={component.metadata.name} href={`/components/${component.tag.replace('goat-', '')}`}></goat-tree-node>
+                    }
+                  })
+                }
+              </goat-tree-node>
+            }
+          })
+        }
+
+      </goat-tree-view>
+
+    </div>
+
+  </div>
+  <div class='main-content'>
+    <div class='page-container'>
+
+      <goat-breadcrumb>
+        <goat-breadcrumb-item href="/">Home</goat-breadcrumb-item>
+        { title != "Overview" ? <goat-breadcrumb-item href="/components">Components</goat-breadcrumb-item> : '' }
+        <goat-breadcrumb-item active>{title}</goat-breadcrumb-item>
+      </goat-breadcrumb>
+
+      <goat-text type='heading' heading-size='6'>{title}</goat-text>
+
+
+      <slot/>
+
+      <div class='comments-section'>
+        <div id='disqus_thread'></div>
+        <script is:inline type="text/javascript" async="true" src="//goatui.disqus.com/embed.js"></script>
+        <noscript>Please enable JavaScript to view the <a href='https://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
+      </div>
+    </div>
+
+    <div class='footer container'>
+      <goat-divider></goat-divider>
+      <goat-text type='legal' expressive>
+        &copy; 2021 <goat-link href='https://shivajivarma.com'>Shivaji Varma</goat-link>. All Rights Reserved.
+      </goat-text>
+    </div>
+  </div>
+
+</Layout>

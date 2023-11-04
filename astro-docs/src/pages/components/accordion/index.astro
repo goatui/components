@@ -1,0 +1,55 @@
+---
+import Layout from '../../../layouts/Component.astro';
+import ComponentSectionNav from "../../../components/ComponentSectionNav.astro";
+import UsageSection from "./_sections/Usage.astro";
+import MultipleSection from "./_sections/Multiple.astro";
+
+const description = "An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.";
+
+const sections = [
+  {
+    "title": "Usage",
+    "Component": UsageSection
+  },
+  {
+    "title": "Multiple",
+    "Component": MultipleSection
+  }
+];
+---
+<Layout title="Accordion"
+        description={description}>
+
+
+  <goat-tabs class='page-tabs'>
+    <goat-tabs-list>
+      <goat-tab selected="true">Details</goat-tab>
+      <goat-tab>Playground</goat-tab>
+    </goat-tabs-list>
+    <goat-tab-panel>
+      <div class="component-details-tab">
+
+        <div class="component-content">
+          <div class="component-description">
+            <goat-text type="body" expressive>{description}</goat-text>
+          </div>
+
+          {
+            sections.map((section) => (
+              <div id={`section-${section.title.toLowerCase().replace(" ", "-").replace("/", "-")}`}
+                   class="component-section">
+                <goat-text type="heading" heading-size="4">{section.title}</goat-text>
+
+                <section.Component></section.Component>
+              </div>))
+          }
+
+        </div>
+
+        <ComponentSectionNav sections={sections}/>
+      </div>
+
+
+    </goat-tab-panel>
+  </goat-tabs>
+</Layout>

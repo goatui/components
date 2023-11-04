@@ -1,11 +1,13 @@
+import usage from "./usage.jsx";
+
 const sections = [
   {
     "title": "Usage",
-    "source": "sections/usage.html"
+    "render": usage
   },
   {
     "title": "Multiple",
-    "source": "sections/multiple.html"
+    "render": () => (<div class="component-section"></div>)
   }
 ];
 
@@ -22,7 +24,7 @@ export default ({title, description, site_data, comp}) => (
           <div id={`section-${section.title.toLowerCase().replace(" ", "-").replace("/", "-")}`}
                class="component-section">
             <goat-text type="heading" heading-size="4">{section.title}</goat-text>
-            {/* {% include_relative {{section.source}} %}*/}
+            {section.render({comp})}
           </div>))
       }
 

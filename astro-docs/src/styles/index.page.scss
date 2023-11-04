@@ -1,0 +1,170 @@
+/* width */
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+:root {
+  --header-height: 4rem;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  height: 100vh;
+  min-height: 410px;
+  padding-top: var(--header-height);
+  background: var(--header-background);
+}
+
+.banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.banner * {
+  animation: reveal 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) 0.25s backwards;
+  --text-color: var(--text-primary);
+}
+
+html[data-theme='dark'] .banner {
+  background: var(--header-background-dark);
+}
+
+
+.banner-logo {
+  width: 15rem;
+  height: 15rem;
+}
+
+.banner-logo path,
+.banner-logo circle {
+  stroke: var(--color-brand-primary);
+}
+
+
+.container .section {
+  padding: 0 var(--spacing-13);
+  padding-bottom: var(--spacing-09);
+}
+
+.container .code-highlighter {
+  padding: 0 var(--spacing-13);
+  padding-bottom: var(--spacing-09);
+}
+
+goat-text[type='code'] {
+  background: var(--layer-03);
+}
+
+.made-in-india {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 1.2rem;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  --button-color: var(--text-primary);
+}
+
+.made-in-india .country-flag {
+  padding: 0 var(--spacing-04);
+}
+
+.banner-logo .head {
+  transform-origin: center;
+}
+
+
+@media (min-width: 1024px) {
+  .made-in-india {
+    position: fixed;
+    font-size: 1rem;
+    transform-origin: bottom left;
+    transform: rotate(-90deg);
+    bottom: 2rem;
+    left: 2rem;
+    text-align: left;
+  }
+
+  .social-icons {
+    position: fixed;
+    bottom: 2rem;
+    right: 0.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .made-in-india:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 15px;
+    height: 1px;
+    width: 25px;
+    background: var(--text-primary);
+  }
+
+  .social-icons:after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 25px;
+    width: 1px;
+    background: var(--text-primary);
+  }
+
+}
+
+
+@media only screen and (max-width: 1024px) {
+  .container .section {
+    padding: var(--spacing-09) var(--spacing-07);
+  }
+
+  .social-icons {
+    justify-content: center;
+    padding-bottom: 1rem;
+  }
+  .made-in-india {
+    justify-content: center;
+    font-size: var(--font-size-body-02);
+    padding-bottom: 1rem;
+  }
+
+  .container .code-highlighter {
+    padding: 0;
+  }
+}
