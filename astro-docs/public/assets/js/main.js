@@ -1,6 +1,7 @@
 (function () {
   'use strict';
 
+  // @ts-ignore
   window.myConsole = {
     log: function (message, title) {
       window.dispatchEvent(

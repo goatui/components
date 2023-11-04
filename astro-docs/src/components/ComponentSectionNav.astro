@@ -8,7 +8,7 @@ const {sections} = Astro.props;
 <div class="section-nav">
 
   <goat-menu class="js-scroll-nav">
-    {sections.map((section) => (
+    {sections.map((section: any) => (
       <goat-menu-item>
         <goat-link class="link no-style"
                    href={`#section-${section.title.toLowerCase().replaceAll(" ", "-").replaceAll("/", "-")}`}>{section.title}</goat-link>
