@@ -8,6 +8,7 @@ const {title, root} = Astro.props;
 
 import Layout from './Base.astro';
 import site from '../_data/site.json';
+import componentsDetails from '../_data/componentsDetails.json';
 
 const getTitle = (root?: boolean) => {
   return (!root) ? title : '';
@@ -34,12 +35,15 @@ const getTitle = (root?: boolean) => {
                          placeholder="Type '/' for search">
               <goat-icon slot='start' name='search' size='1rem'></goat-icon>
             </goat-select>
-            <script is:inline>
+            <script is:inline  define:vars={{componentsDetails}}>
               document.addEventListener('DOMContentLoaded', function () {
                 const search = document.querySelector('#site-search');
 
                 // prettier-ignore
-                search.items = JSON.parse(`[{% for page in site.pages %}{"label": "{{page.title}}", "value": "{{page.url}}"}{% if forloop.last == false %},{% endif %}{% endfor %}]`);
+                search.items = componentsDetails.components.map(component => ({
+                  label: component.metadata.name,
+                  value: component.tag.replace('goat-', '')
+                }));
                 search.items = search.items.filter(item => !!item.label);
                 search.addEventListener('goat:change', function (e) {
                   window.location.href = e.detail.value;

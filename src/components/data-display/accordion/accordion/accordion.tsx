@@ -14,13 +14,14 @@ import { Component, Element, h, Host, Listen, Prop } from '@stencil/core';
   shadow: true,
 })
 export class Accordion {
-
   /**
    * The According size.
-   * Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
    */
   @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' = 'md';
 
+  /**
+   * Accordion item dropdown alignment.
+   */
   @Prop({ reflect: true }) align: 'start' | 'end' = 'end';
 
   @Prop() multiple: boolean = false;
@@ -41,7 +42,7 @@ export class Accordion {
 
   render() {
     return (
-      <Host role='list'>
+      <Host role="list">
         <slot />
       </Host>
     );

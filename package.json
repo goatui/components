@@ -38,7 +38,7 @@
     "release:patch": "npm version patch && npm run release-to-docs && git add . && git commit -m \"Release to docs\"",
     "release-to-docs": "stencil docs && node releaseToDocs.js",
     "start": "concurrently --kill-others \"npm run start:watch\" \"npm run start:docs-server\"",
-    "start:docs-server": "cd docs && serve.cmd",
+    "start:docs-server": "cd astro-docs && npm run start",
     "start:lume": "cd lume-docs && serve.cmd",
     "start:watch": "stencil build --dev --watch --serve --cors",
     "test": "stencil test --spec --e2e",

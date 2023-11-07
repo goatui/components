@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type     | Default     |
-| --------- | --------- | ----------- | -------- | ----------- |
-| `content` | `content` |             | `string` | `undefined` |
+| Property  | Attribute | Description | Type                                                             | Default     |
+| --------- | --------- | ----------- | ---------------------------------------------------------------- | ----------- |
+| `color`   | `color`   |             | `"danger" \| "primary" \| "secondary" \| "success" \| "warning"` | `'danger'`  |
+| `content` | `content` |             | `string`                                                         | `undefined` |
 
 
 ----------------------------------------------

@@ -60,7 +60,7 @@ pre[class*='language-'] {
   margin: 0;
 }
 
-.component-details-tab {
+.component-overview-tab {
   display: flex;
   gap: 1rem;
 
@@ -161,6 +161,19 @@ pre[class*='language-'] {
   }
 }
 
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table-auto-height {
+  min-height: auto;
+}
+
+.api-section {
+  margin-bottom: var(--spacing-09);
+}
 
 .demo-canvas .demo-area {
   display: flex;

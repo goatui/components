@@ -15,10 +15,13 @@ export namespace Components {
      * @imgDark /assets/img/accordion-dark.png
      */
     interface GoatAccordion {
+        /**
+          * Accordion item dropdown alignment.
+         */
         "align": 'start' | 'end';
         "multiple": boolean;
         /**
-          * The According size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+          * The According size.
          */
         "size": 'sm' | 'md' | 'lg';
     }
@@ -60,6 +63,7 @@ export namespace Components {
      * @example <goat-badge content="5" class='color-error'> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
      */
     interface GoatBadge {
+        "color": 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
         "content": string;
     }
     /**
@@ -2269,10 +2273,13 @@ declare namespace LocalJSX {
      * @imgDark /assets/img/accordion-dark.png
      */
     interface GoatAccordion {
+        /**
+          * Accordion item dropdown alignment.
+         */
         "align"?: 'start' | 'end';
         "multiple"?: boolean;
         /**
-          * The According size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+          * The According size.
          */
         "size"?: 'sm' | 'md' | 'lg';
     }
@@ -2318,6 +2325,7 @@ declare namespace LocalJSX {
      * @example <goat-badge content="5" class='color-error'> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
      */
     interface GoatBadge {
+        "color"?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
         "content"?: string;
     }
     /**

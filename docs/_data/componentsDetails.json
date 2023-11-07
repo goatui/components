@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-11-01T03:56:16",
+  "timestamp": "2023-11-06T14:39:22",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.4.0",
@@ -105,7 +105,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
-          "docs": "The According size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+          "docs": "The According size.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -440,6 +440,45 @@
       "dependencyGraph": {},
       "props": [
         {
+          "name": "color",
+          "type": "\"danger\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+          "complexType": {
+            "original": "'primary' | 'secondary' | 'success' | 'danger' | 'warning'",
+            "resolved": "\"danger\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "color",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "'danger'",
+          "values": [
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "content",
           "type": "string",
           "complexType": {
@@ -669,7 +708,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-button>\nButton CTA\n</goat-button>"
+          "text": "<goat-button>\r\nButton CTA\r\n</goat-button>"
         }
       ],
       "encapsulation": "shadow",
@@ -895,7 +934,7 @@
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
-          "docs": "Icon which will displayed on button.\nPossible values are icon names.",
+          "docs": "Icon which will displayed on button.\r\nPossible values are icon names.",
           "docsTags": [],
           "values": [
             {
@@ -965,7 +1004,7 @@
           "mutable": false,
           "attr": "kind",
           "reflectToAttr": false,
-          "docs": "Button kind.\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\n`\"default\"` is a long button.\n`\"simple\"` is a text-only button.\n`\"block\"` is a full-width button.",
+          "docs": "Button kind.\r\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\r\n`\"default\"` is a long button.\r\n`\"simple\"` is a text-only button.\r\n`\"block\"` is a full-width button.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -1040,7 +1079,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
-          "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
+          "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -1136,7 +1175,7 @@
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "Button variants.\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\n`\"default\"` is a filled button.\n`\"outline\"` is an outlined button.\n`\"ghost\"` is a transparent button.",
+          "docs": "Button variants.\r\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\r\n`\"default\"` is a filled button.\r\n`\"outline\"` is an outlined button.\r\n`\"ghost\"` is a transparent button.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -1185,7 +1224,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\n`button.blur()`.",
+          "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.blur()`.",
           "docsTags": []
         },
         {
@@ -1207,7 +1246,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\n`button.focus()`.",
+          "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.focus()`.",
           "docsTags": []
         },
         {
@@ -1273,7 +1312,7 @@
         "tags": [
           "controls"
         ],
-        "example": "<goat-button>\nButton CTA\n</goat-button>"
+        "example": "<goat-button>\r\nButton CTA\r\n</goat-button>"
       }
     },
     {
@@ -3385,7 +3424,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -3407,7 +3446,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -4036,7 +4075,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
-          "docs": "The input field size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+          "docs": "The input field size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -4124,7 +4163,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -4146,7 +4185,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -5892,7 +5931,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -5914,7 +5953,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -6565,7 +6604,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
-          "docs": "The input field size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+          "docs": "The input field size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -6596,7 +6635,7 @@
           "mutable": false,
           "attr": "state",
           "reflectToAttr": true,
-          "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+          "docs": "The input state.\r\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -6631,7 +6670,7 @@
           "mutable": false,
           "attr": "type",
           "reflectToAttr": false,
-          "docs": "The type of control to display.\nPossible values are: `\"text\"`, `\"password\"`, `\"email\"`, `\"tel\"`. Defaults to `\"text\"`.",
+          "docs": "The type of control to display.\r\nPossible values are: `\"text\"`, `\"password\"`, `\"email\"`, `\"tel\"`. Defaults to `\"text\"`.",
           "docsTags": [],
           "default": "'text'",
           "values": [
@@ -6766,7 +6805,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -6788,7 +6827,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -8821,7 +8860,7 @@
           "mutable": false,
           "attr": "items",
           "reflectToAttr": false,
-          "docs": "[{\n  label: 'Shivaji Varma',\n  value: 'shivaji-varma',\n  icon: 'person'\n}]",
+          "docs": "[{\r\n  label: 'Shivaji Varma',\r\n  value: 'shivaji-varma',\r\n  icon: 'person'\r\n}]",
           "docsTags": [],
           "default": "[]",
           "values": [
@@ -8974,7 +9013,7 @@
           "mutable": false,
           "attr": "search",
           "reflectToAttr": false,
-          "docs": "Search type\nPossible values are `\"none\"`, `\"initial\"`, `\"contains\"`, `\"managed\"`. Defaults to `\"none\"`.",
+          "docs": "Search type\r\nPossible values are `\"none\"`, `\"initial\"`, `\"contains\"`, `\"managed\"`. Defaults to `\"none\"`.",
           "docsTags": [],
           "default": "'none'",
           "values": [
@@ -9031,7 +9070,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
-          "docs": "The select input size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+          "docs": "The select input size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -9062,7 +9101,7 @@
           "mutable": false,
           "attr": "state",
           "reflectToAttr": true,
-          "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+          "docs": "The input state.\r\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -9154,7 +9193,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -9176,7 +9215,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\r\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -10022,7 +10061,7 @@
       "filePath": "src/components/feedback/spinner/spinner.tsx",
       "fileName": "spinner.tsx",
       "tag": "goat-spinner",
-      "readme": "# goat-spinner\n\n\n",
+      "readme": "# goat-spinner\r\n\r\n\r\n\r",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -10112,7 +10151,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "The Icon size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"` and size in pixel. Defaults to `\"md\"`.",
+          "docs": "The Icon size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"` and size in pixel. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -12088,7 +12127,7 @@
           "mutable": false,
           "attr": "state",
           "reflectToAttr": true,
-          "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+          "docs": "The input state.\r\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -12219,7 +12258,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `textarea` in `goat-textarea`. Use this method instead of the global\n`textarea.blur()`.",
+          "docs": "Sets blur on the native `textarea` in `goat-textarea`. Use this method instead of the global\r\n`textarea.blur()`.",
           "docsTags": []
         },
         {
@@ -12241,7 +12280,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `textarea` in `goat-textarea`. Use this method instead of the global\n`textarea.focus()`.",
+          "docs": "Sets focus on the native `textarea` in `goat-textarea`. Use this method instead of the global\r\n`textarea.focus()`.",
           "docsTags": []
         }
       ],
@@ -13700,7 +13739,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-button>\nButton CTA\n</goat-button>"
+              "text": "<goat-button>\r\nButton CTA\r\n</goat-button>"
             }
           ],
           "encapsulation": "shadow",
@@ -13926,7 +13965,7 @@
               "mutable": false,
               "attr": "icon",
               "reflectToAttr": false,
-              "docs": "Icon which will displayed on button.\nPossible values are icon names.",
+              "docs": "Icon which will displayed on button.\r\nPossible values are icon names.",
               "docsTags": [],
               "values": [
                 {
@@ -13996,7 +14035,7 @@
               "mutable": false,
               "attr": "kind",
               "reflectToAttr": false,
-              "docs": "Button kind.\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\n`\"default\"` is a long button.\n`\"simple\"` is a text-only button.\n`\"block\"` is a full-width button.",
+              "docs": "Button kind.\r\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\r\n`\"default\"` is a long button.\r\n`\"simple\"` is a text-only button.\r\n`\"block\"` is a full-width button.",
               "docsTags": [],
               "default": "'default'",
               "values": [
@@ -14071,7 +14110,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": true,
-              "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
+              "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -14167,7 +14206,7 @@
               "mutable": false,
               "attr": "variant",
               "reflectToAttr": false,
-              "docs": "Button variants.\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\n`\"default\"` is a filled button.\n`\"outline\"` is an outlined button.\n`\"ghost\"` is a transparent button.",
+              "docs": "Button variants.\r\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\r\n`\"default\"` is a filled button.\r\n`\"outline\"` is an outlined button.\r\n`\"ghost\"` is a transparent button.",
               "docsTags": [],
               "default": "'default'",
               "values": [
@@ -14216,7 +14255,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\n`button.blur()`.",
+              "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.blur()`.",
               "docsTags": []
             },
             {
@@ -14238,7 +14277,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\n`button.focus()`.",
+              "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.focus()`.",
               "docsTags": []
             },
             {
@@ -14304,7 +14343,7 @@
             "tags": [
               "controls"
             ],
-            "example": "<goat-button>\nButton CTA\n</goat-button>"
+            "example": "<goat-button>\r\nButton CTA\r\n</goat-button>"
           }
         },
         {
@@ -16682,7 +16721,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
               "docsTags": []
             },
             {
@@ -16704,7 +16743,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
               "docsTags": []
             }
           ],
@@ -16945,7 +16984,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": true,
-              "docs": "The input field size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+              "docs": "The input field size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -17033,7 +17072,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
               "docsTags": []
             },
             {
@@ -17055,7 +17094,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
               "docsTags": []
             }
           ],
@@ -17727,7 +17766,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": true,
-              "docs": "The input field size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+              "docs": "The input field size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -17758,7 +17797,7 @@
               "mutable": false,
               "attr": "state",
               "reflectToAttr": true,
-              "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+              "docs": "The input state.\r\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
               "docsTags": [],
               "default": "'default'",
               "values": [
@@ -17793,7 +17832,7 @@
               "mutable": false,
               "attr": "type",
               "reflectToAttr": false,
-              "docs": "The type of control to display.\nPossible values are: `\"text\"`, `\"password\"`, `\"email\"`, `\"tel\"`. Defaults to `\"text\"`.",
+              "docs": "The type of control to display.\r\nPossible values are: `\"text\"`, `\"password\"`, `\"email\"`, `\"tel\"`. Defaults to `\"text\"`.",
               "docsTags": [],
               "default": "'text'",
               "values": [
@@ -17928,7 +17967,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
               "docsTags": []
             },
             {
@@ -17950,7 +17989,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
               "docsTags": []
             }
           ],
@@ -18784,7 +18823,7 @@
               "mutable": false,
               "attr": "items",
               "reflectToAttr": false,
-              "docs": "[{\n  label: 'Shivaji Varma',\n  value: 'shivaji-varma',\n  icon: 'person'\n}]",
+              "docs": "[{\r\n  label: 'Shivaji Varma',\r\n  value: 'shivaji-varma',\r\n  icon: 'person'\r\n}]",
               "docsTags": [],
               "default": "[]",
               "values": [
@@ -18937,7 +18976,7 @@
               "mutable": false,
               "attr": "search",
               "reflectToAttr": false,
-              "docs": "Search type\nPossible values are `\"none\"`, `\"initial\"`, `\"contains\"`, `\"managed\"`. Defaults to `\"none\"`.",
+              "docs": "Search type\r\nPossible values are `\"none\"`, `\"initial\"`, `\"contains\"`, `\"managed\"`. Defaults to `\"none\"`.",
               "docsTags": [],
               "default": "'none'",
               "values": [
@@ -18994,7 +19033,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": true,
-              "docs": "The select input size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+              "docs": "The select input size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -19025,7 +19064,7 @@
               "mutable": false,
               "attr": "state",
               "reflectToAttr": true,
-              "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+              "docs": "The input state.\r\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
               "docsTags": [],
               "default": "'default'",
               "values": [
@@ -19117,7 +19156,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
               "docsTags": []
             },
             {
@@ -19139,7 +19178,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\n`input.focus()`.",
+              "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\r\n`input.focus()`.",
               "docsTags": []
             }
           ],
@@ -19932,7 +19971,7 @@
               "mutable": false,
               "attr": "state",
               "reflectToAttr": true,
-              "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+              "docs": "The input state.\r\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
               "docsTags": [],
               "default": "'default'",
               "values": [
@@ -20063,7 +20102,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `textarea` in `goat-textarea`. Use this method instead of the global\n`textarea.blur()`.",
+              "docs": "Sets blur on the native `textarea` in `goat-textarea`. Use this method instead of the global\r\n`textarea.blur()`.",
               "docsTags": []
             },
             {
@@ -20085,7 +20124,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `textarea` in `goat-textarea`. Use this method instead of the global\n`textarea.focus()`.",
+              "docs": "Sets focus on the native `textarea` in `goat-textarea`. Use this method instead of the global\r\n`textarea.focus()`.",
               "docsTags": []
             }
           ],
@@ -21033,7 +21072,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": true,
-              "docs": "The According size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+              "docs": "The According size.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -21230,6 +21269,45 @@
           "dependencies": [],
           "dependencyGraph": {},
           "props": [
+            {
+              "name": "color",
+              "type": "\"danger\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+              "complexType": {
+                "original": "'primary' | 'secondary' | 'success' | 'danger' | 'warning'",
+                "resolved": "\"danger\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "color",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "'danger'",
+              "values": [
+                {
+                  "value": "danger",
+                  "type": "string"
+                },
+                {
+                  "value": "primary",
+                  "type": "string"
+                },
+                {
+                  "value": "secondary",
+                  "type": "string"
+                },
+                {
+                  "value": "success",
+                  "type": "string"
+                },
+                {
+                  "value": "warning",
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
             {
               "name": "content",
               "type": "string",
@@ -23458,7 +23536,7 @@
           "filePath": "src/components/feedback/spinner/spinner.tsx",
           "fileName": "spinner.tsx",
           "tag": "goat-spinner",
-          "readme": "# goat-spinner\n\n\n",
+          "readme": "# goat-spinner\r\n\r\n\r\n\r",
           "overview": "",
           "usage": {},
           "docs": "",
@@ -23548,7 +23626,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": false,
-              "docs": "The Icon size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"` and size in pixel. Defaults to `\"md\"`.",
+              "docs": "The Icon size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"` and size in pixel. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -25904,7 +25982,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
               "docsTags": []
             },
             {
@@ -25926,7 +26004,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
               "docsTags": []
             }
           ],

@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property   | Attribute  | Description                                                                          | Type                   | Default |
-| ---------- | ---------- | ------------------------------------------------------------------------------------ | ---------------------- | ------- |
-| `align`    | `align`    |                                                                                      | `"end" \| "start"`     | `'end'` |
-| `multiple` | `multiple` |                                                                                      | `boolean`              | `false` |
-| `size`     | `size`     | The According size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`. | `"lg" \| "md" \| "sm"` | `'md'`  |
+| Property   | Attribute  | Description                        | Type                   | Default |
+| ---------- | ---------- | ---------------------------------- | ---------------------- | ------- |
+| `align`    | `align`    | Accordion item dropdown alignment. | `"end" \| "start"`     | `'end'` |
+| `multiple` | `multiple` |                                    | `boolean`              | `false` |
+| `size`     | `size`     | The According size.                | `"lg" \| "md" \| "sm"` | `'md'`  |
 
 
 ----------------------------------------------

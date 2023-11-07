@@ -1,6 +1,5 @@
 import { Component, h, Host, Prop } from '@stencil/core';
 
-
 /**
  * @name Badge
  * @description Renders a specified badge.
@@ -14,22 +13,25 @@ import { Component, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class Badge {
-
   @Prop() content: string;
 
+  @Prop({ reflect: true }) color: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' = 'danger';
 
   render() {
     return (
       <Host>
-        <div class='badge'>
-          <div class={{
-            'badge-content': true,
-            'has-content': this.content !== ''
-          }}>{this.content}</div>
+        <div class={{ badge: true, [`color-${this.color}`]: true }}>
+          <div
+            class={{
+              'badge-content': true,
+              'has-content': this.content !== '',
+            }}
+          >
+            {this.content}
+          </div>
           <slot />
         </div>
       </Host>
     );
   }
-
 }

@@ -39,11 +39,8 @@
 }
 
 
-
 @each $state in [success, warning, error] {
-  :host(.color-#{$state}) {
-    .badge-content {
-      background-color: v(--color-#{$state});
-    }
+  .badge.color-#{$state} {
+    background-color: v(--color-#{$state});
   }
 }

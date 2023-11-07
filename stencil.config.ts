@@ -6,7 +6,7 @@ import * as fs from 'fs';
 export const config: Config = {
   namespace: 'goatui',
   outputTargets: [
-   /* reactOutputTarget({
+    /* reactOutputTarget({
       componentCorePackage: 'goatui',
       proxiesFile: 'dist/generated/goatui-react/src/components.ts'
     }),*/
@@ -16,7 +16,7 @@ export const config: Config = {
     },
     {
       type: 'dist-custom-elements',
-      externalRuntime: false
+      externalRuntime: false,
     },
     {
       type: 'docs-readme',
@@ -70,25 +70,25 @@ export const config: Config = {
           cat.components.push(component);
         });
 
-        const order = ['General', 'Layout', 'Navigation', 'Form Inputs', 'Data Display',  'Feedback', 'Up coming'];
+        const order = ['General', 'Layout', 'Navigation', 'Form Inputs', 'Data Display', 'Feedback', 'Up coming'];
 
         // @ts-ignore
         docs.categories.sort((a, b) => {
           return order.indexOf(a.name) - order.indexOf(b.name);
         });
 
-        fs.writeFileSync(__dirname + '/docs/_data/componentsDetails.json', JSON.stringify(docs, null, 2));
+        fs.writeFileSync(__dirname + '/astro-docs/src/_data/componentsDetails.json', JSON.stringify(docs, null, 2));
       },
     },
     {
       type: 'www',
-      dir: 'docs/assets/goatui-dev/',
+      dir: 'astro-docs/public/assets/goatui-dev/',
       serviceWorker: null, // disable service workers
       copy: [{ src: 'assets', dest: 'build/assets' }],
     },
   ],
   plugins: [sass()],
   testing: {
-    browserHeadless: "new",
+    browserHeadless: 'new',
   },
 };
