@@ -1,9 +1,9 @@
 ---
 interface Props {
-  comp: any;
+  componentDetails: any;
 }
 
-const {comp} = Astro.props;
+const { componentDetails } = Astro.props;
 ---
 <div class='api-section'>
   <goat-text type='heading' heading-size='4'>Properties</goat-text>
@@ -15,7 +15,7 @@ const {comp} = Astro.props;
   <goat-table id='comp-events' class='table-auto-height' paginate='false'></goat-table>
 </div>
 
-<script is:inline define:vars={{ comp }}>
+<script is:inline define:vars={{ componentDetails }}>
   const $compProperties = document.getElementById('comp-properties');
   // Columns
   $compProperties.columns = [{
@@ -39,11 +39,11 @@ const {comp} = Astro.props;
     'label': 'Default',
   }];
   // Data
-  $compProperties.data = comp.props;
+  $compProperties.data = componentDetails.props;
 
-  const $cmopEvents = document.getElementById('comp-events');
+  const $compEvents = document.getElementById('comp-events');
   // Columns
-  $cmopEvents.columns = [{
+  $compEvents.columns = [{
     'name': 'event',
     'label': 'Event',
     'width': 10,
@@ -57,5 +57,5 @@ const {comp} = Astro.props;
     'label': 'Type',
   }];
   // Data
-  $cmopEvents.data = comp.events;
+  $compEvents.data = componentDetails.events;
 </script>

@@ -1,1 +1,0 @@
-deno task serve

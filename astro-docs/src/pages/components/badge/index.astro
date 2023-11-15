@@ -1,10 +1,12 @@
 ---
 import Layout from '../../../layouts/Component.astro';
-import ComponentSectionNav from "../../../components/ComponentSectionNav.astro";
-import UsageSection from "./_sections/Usage.astro";
-import MultipleSection from "./_sections/Sizes.astro";
+import getComponentDetails from '../../../_data/getComponentDetails.ts';
+import ApiPanel from '../../../components/ApiPanel.astro';
+const componentDetails = getComponentDetails('goat-badge');
 
-const description = "An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.";
+import UsageSection from "./_sections/Usage.astro";
+import ExampleSection from "./_sections/Examples.astro";
+import OverviewPanel from '../../../components/OverviewPanel.astro';
 
 const sections = [
   {
@@ -12,43 +14,26 @@ const sections = [
     "Component": UsageSection
   },
   {
-    "title": "Sizes",
-    "Component": MultipleSection
+    "title": "Examples",
+    "Component": ExampleSection
   }
 ];
 ---
-<Layout title="Accordion">
-
-
+<Layout title={componentDetails.metadata.name} description={componentDetails.metadata.description}>
   <goat-tabs class='page-tabs'>
     <goat-tabs-list>
-      <goat-tab selected="true">Details</goat-tab>
+      <goat-tab selected='true'>Overview</goat-tab>
       <goat-tab>Playground</goat-tab>
+      <goat-tab>API</goat-tab>
     </goat-tabs-list>
     <goat-tab-panel>
-      <div class="component-overview-tab">
-
-        <div class="component-content">
-          <div class="component-description">
-            <goat-text type="body" expressive>{description}</goat-text>
-          </div>
-
-          {
-            sections.map((section) => (
-              <div id={`section-${section.title.toLowerCase().replace(" ", "-").replace("/", "-")}`}
-                   class="component-section">
-                <goat-text type="heading" heading-size="4">{section.title}</goat-text>
-
-                <section.Component></section.Component>
-              </div>))
-          }
-
-        </div>
-
-        <ComponentSectionNav sections={sections}/>
-      </div>
-
-
+      <OverviewPanel componentDetails={componentDetails} sections={sections} />
+    </goat-tab-panel>
+    <goat-tab-panel>
+      <goat-notification type='warning'>Work in progress</goat-notification>
+    </goat-tab-panel>
+    <goat-tab-panel>
+      <ApiPanel componentDetails={componentDetails} />
     </goat-tab-panel>
   </goat-tabs>
 </Layout>

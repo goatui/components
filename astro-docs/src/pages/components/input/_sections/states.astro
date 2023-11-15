@@ -1,0 +1,35 @@
+---
+import HighlighterCard from '../../../../components/HighlighterCard.astro';
+---
+<goat-text type='heading' heading-size='3' class='hydrated'>Disabled</goat-text>
+<goat-text type='body' expressive>Make input look inactive by adding the disabled <code>boolean</code> attribute to any
+  <code>&lt;button&gt;</code> element.
+</goat-text>
+
+<HighlighterCard lang={'html'}>
+  <goat-input disabled>
+    <goat-icon slot='start' class='inherit' name='mailbox'></goat-icon>
+    <span slot='end'>@example.com</span>
+  </goat-input>
+</HighlighterCard>
+
+<br />
+
+<goat-text type='heading' heading-size='3' class='hydrated'>Readonly</goat-text>
+<goat-text type='body' expressive>Make input look inactive by adding the disabled <code>boolean</code> attribute to any
+  <code>&lt;button&gt;</code> element.
+</goat-text>
+
+<HighlighterCard lang={'html'}>
+  <goat-input readonly=''>
+    <goat-icon slot='start' class='inherit' name='mailbox'></goat-icon>
+    <span slot='end'>@example.com</span>
+  </goat-input>
+</HighlighterCard>
+
+<goat-text type='heading' heading-size='3' class='hydrated'>Status</goat-text>
+<HighlighterCard lang={'html'}>
+  <goat-input class='input-state-error' value='Error state'></goat-input>
+  <goat-input class='input-state-success' value='Success state'></goat-input>
+  <goat-input class='input-state-warning' value='Warning state'></goat-input>
+</HighlighterCard>

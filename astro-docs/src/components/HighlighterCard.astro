@@ -4,15 +4,23 @@ interface Props {
   lang: any;
 }
 
-const {lang, cssClasses} = Astro.props;
+const { lang, cssClasses } = Astro.props;
+
+let html = '';
+if (Astro.slots.has('default')) {
+  html = await Astro.slots.render('default');
+  html = html.replaceAll('<script>', '&lt;script&gt;').replaceAll('</script>', '&lt;/script&gt;');
+}
 ---
 <goat-card class={cssClasses}>
-  <goat-card-content class="demo-area">
-    <slot></slot>
+  <goat-card-content class='demo-area'>
+    <div class='demo-area-inner'>
+      <slot></slot>
+    </div>
   </goat-card-content>
-  <goat-card-content class="no-padding code-area">
+  <goat-card-content class='no-padding code-area'>
     <goat-code-highlighter language={lang} class='demo-html'>
-      <pre><code><slot></slot></code></pre>
+      <pre><code><Fragment set:html={html} /></code></pre>
     </goat-code-highlighter>
   </goat-card-content>
 </goat-card>

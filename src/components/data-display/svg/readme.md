@@ -18,7 +18,7 @@
 ### Used by
 
  - [goat-empty-state](../empty-state)
- - [goat-header-brand](../../navigation/header/header-brand)
+ - [goat-header-brand](../../header/header-brand)
 
 ### Graph
 ```mermaid

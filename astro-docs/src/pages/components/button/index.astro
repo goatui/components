@@ -1,0 +1,61 @@
+---
+import Layout from '../../../layouts/Component.astro';
+import getComponentDetails from '../../../_data/getComponentDetails.ts';
+import ApiPanel from '../../../components/ApiPanel.astro';
+const componentDetails = getComponentDetails('goat-button');
+
+import UsageSection from './_sections/Usage.astro';
+import KindSection from './_sections/Kind.astro';
+import SizesSection from './_sections/Sizes.astro';
+import StatesSection from './_sections/States.astro';
+import VariantsSection from './_sections/Variants.astro';
+import ColorsSection from './_sections/Colors.astro';
+import EventsSection from './_sections/Events.astro';
+import IconSection from './_sections/Icon.astro';
+import OverviewPanel from '../../../components/OverviewPanel.astro';
+
+const sections = [
+  {
+    'title': 'Usage',
+    'Component': UsageSection,
+  },{
+    'title': 'Kind',
+    'Component': KindSection,
+  },{
+    'title': 'Variants',
+    'Component': VariantsSection,
+  },{
+    'title': 'Colors',
+    'Component': ColorsSection,
+  },{
+    'title': 'Sizes',
+    'Component': SizesSection,
+  },{
+    'title': 'Icon',
+    'Component': IconSection,
+  },{
+    'title': 'States',
+    'Component': StatesSection,
+  },{
+    'title': 'Events',
+    'Component': EventsSection,
+  }];
+---
+<Layout title={componentDetails.metadata.name} description={componentDetails.metadata.description}>
+  <goat-tabs class='page-tabs'>
+    <goat-tabs-list>
+      <goat-tab selected='true'>Overview</goat-tab>
+      <goat-tab>Playground</goat-tab>
+      <goat-tab>API</goat-tab>
+    </goat-tabs-list>
+    <goat-tab-panel>
+      <OverviewPanel componentDetails={componentDetails} sections={sections} />
+    </goat-tab-panel>
+    <goat-tab-panel>
+      <goat-notification type='warning'>Work in progress</goat-notification>
+    </goat-tab-panel>
+    <goat-tab-panel>
+      <ApiPanel componentDetails={componentDetails} />
+    </goat-tab-panel>
+  </goat-tabs>
+</Layout>

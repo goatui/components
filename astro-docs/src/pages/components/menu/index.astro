@@ -1,0 +1,50 @@
+---
+import Layout from '../../../layouts/Component.astro';
+import getComponentDetails from '../../../_data/getComponentDetails.ts';
+import ApiPanel from '../../../components/ApiPanel.astro';
+import OverviewPanel from '../../../components/OverviewPanel.astro';
+const componentDetails = getComponentDetails('goat-menu');
+
+import UsageSection from './_sections/usage.astro';
+import IconMenuSection from './_sections/icon-menu.astro';
+import EventsSection from './_sections/events.astro';
+
+const sections = [
+  {
+    'title': 'Usage',
+    'Component': UsageSection,
+  }, {
+    'title': 'Icon Menu',
+    'Component': IconMenuSection,
+  }, {
+    'title': 'Events',
+    'Component': EventsSection,
+  }];
+---
+<Layout title={componentDetails.metadata.name} description={componentDetails.metadata.description}>
+  <goat-tabs class='page-tabs'>
+    <goat-tabs-list>
+      <goat-tab selected='true'>Overview</goat-tab>
+      <goat-tab>Playground</goat-tab>
+      <goat-tab>API</goat-tab>
+    </goat-tabs-list>
+    <goat-tab-panel>
+      <OverviewPanel componentDetails={componentDetails} sections={sections} />
+    </goat-tab-panel>
+    <goat-tab-panel>
+      <goat-notification type='warning'>Work in progress</goat-notification>
+    </goat-tab-panel>
+    <goat-tab-panel>
+      <ApiPanel componentDetails={componentDetails} />
+    </goat-tab-panel>
+  </goat-tabs>
+</Layout>
+
+<script is:inline>
+  const $lists = document.querySelectorAll('.menu');
+  $lists.forEach($list => {
+    $list.addEventListener('goat:menu-item-click', function (evt) {
+      myConsole.log(JSON.stringify(evt.detail.value, null, 4));
+    });
+  });
+</script>

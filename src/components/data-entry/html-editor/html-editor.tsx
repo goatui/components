@@ -8,7 +8,7 @@ import Text from '@tiptap/extension-text';
 
 /**
  * @name HTML Editor
- * @description A browser based html editor.
+ * @description HTML Editor component is a WYSIWYG editor that allows users to edit HTML content.
  * @category Up coming
  * @tags input, form
  * @img /assets/img/html-editor.png

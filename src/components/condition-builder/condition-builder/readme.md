@@ -18,7 +18,7 @@
 
 - [goat-select](../../data-entry/select)
 - [goat-input](../../data-entry/input/input)
-- [goat-text](../../general/text)
+- [goat-text](../../text)
 - [goat-cb-divider](../cb-divider)
 - [goat-tag](../../data-display/tag)
 

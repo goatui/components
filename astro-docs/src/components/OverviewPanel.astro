@@ -1,0 +1,27 @@
+---
+import ComponentSectionNav from './ComponentSectionNav.astro';
+interface Props {
+  componentDetails: any;
+  sections: any;
+}
+
+const { componentDetails, sections } = Astro.props;
+---
+<div class='component-overview-tab'>
+
+  <div class='component-content'>
+    <div class='component-description'>
+      <goat-text type='body' expressive set:html={componentDetails.metadata.overview ? componentDetails.metadata.overview : componentDetails.metadata.description}></goat-text>
+    </div>
+    {
+      sections.map((section) => (
+        <div id={`section-${section.title.toLowerCase().replace(' ', '-').replace('/', '-')}`}
+             class='component-section'>
+          <goat-text type='heading' heading-size='4'>{section.title}</goat-text>
+
+          <section.Component/>
+        </div>))
+    }
+  </div>
+  <ComponentSectionNav sections={sections} />
+</div>

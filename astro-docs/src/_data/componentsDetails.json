@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-11-06T15:06:27",
+  "timestamp": "2023-11-14T17:56:52",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.4.0",
@@ -7,7 +7,7 @@
   },
   "components": [
     {
-      "filePath": "src/components/data-display/accordion/accordion/accordion.tsx",
+      "filePath": "src/components/accordion/accordion/accordion.tsx",
       "fileName": "accordion.tsx",
       "tag": "goat-accordion",
       "readme": "# goat-avatar\r\n\r\n\r\n\r",
@@ -22,6 +22,10 @@
         {
           "name": "description",
           "text": "An accordion is a vertically stacked list of headers that reveal or hide associated sections of content."
+        },
+        {
+          "name": "overview",
+          "text": " <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>\n <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>"
         },
         {
           "name": "category",
@@ -141,6 +145,7 @@
       "metadata": {
         "name": "Accordion",
         "description": "An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.",
+        "overview": " <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>\n <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>",
         "category": "Data Display",
         "tags": [
           "display"
@@ -150,7 +155,7 @@
       }
     },
     {
-      "filePath": "src/components/data-display/accordion/accordion-item/accordion-item.tsx",
+      "filePath": "src/components/accordion/accordion-item/accordion-item.tsx",
       "fileName": "accordion-item.tsx",
       "tag": "goat-accordion-item",
       "readme": "# goat-menu-item\n\n\n",
@@ -287,7 +292,7 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/data-display/avatar/avatar.tsx",
+      "filePath": "src/components/avatar/avatar.tsx",
       "fileName": "avatar.tsx",
       "tag": "goat-avatar",
       "readme": "# goat-avatar\r\n\r\n\r\n\r",
@@ -301,7 +306,7 @@
         },
         {
           "name": "description",
-          "text": "Avatars in their simplest form display content within a circular container."
+          "text": "The Avatar component is used to represent user, and displays the profile picture, initials or fallback icon."
         },
         {
           "name": "category",
@@ -396,7 +401,7 @@
       "listeners": [],
       "metadata": {
         "name": "Avatar",
-        "description": "Avatars in their simplest form display content within a circular container.",
+        "description": "The Avatar component is used to represent user, and displays the profile picture, initials or fallback icon.",
         "category": "Data Display",
         "tags": [
           "display"
@@ -405,7 +410,7 @@
       }
     },
     {
-      "filePath": "src/components/data-display/badge/badge.tsx",
+      "filePath": "src/components/badge/badge.tsx",
       "fileName": "badge.tsx",
       "tag": "goat-badge",
       "readme": "# goat-icon\r\n\r\n\r\n\r",
@@ -419,7 +424,7 @@
         },
         {
           "name": "description",
-          "text": "Renders a specified badge."
+          "text": "The badge component is used to display a small amount of information to the user."
         },
         {
           "name": "category",
@@ -431,7 +436,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-badge content=\"5\" class='color-error'> <goat-icon name=\"notification\" size=\"lg\"></goat-icon></goat-badge>"
+          "text": "<goat-badge content=\"5\"> <goat-icon name=\"notification\" size=\"lg\"></goat-icon></goat-badge>"
         }
       ],
       "encapsulation": "shadow",
@@ -441,10 +446,10 @@
       "props": [
         {
           "name": "color",
-          "type": "\"danger\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+          "type": "\"error\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
           "complexType": {
-            "original": "'primary' | 'secondary' | 'success' | 'danger' | 'warning'",
-            "resolved": "\"danger\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+            "original": "'primary' | 'secondary' | 'success' | 'error' | 'warning'",
+            "resolved": "\"error\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
             "references": {}
           },
           "mutable": false,
@@ -452,10 +457,10 @@
           "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
-          "default": "'danger'",
+          "default": "'error'",
           "values": [
             {
-              "value": "danger",
+              "value": "error",
               "type": "string"
             },
             {
@@ -508,14 +513,14 @@
       "listeners": [],
       "metadata": {
         "name": "Badge",
-        "description": "Renders a specified badge.",
+        "description": "The badge component is used to display a small amount of information to the user.",
         "category": "Data Display",
         "tag": "content",
-        "example": "<goat-badge content=\"5\" class='color-error'> <goat-icon name=\"notification\" size=\"lg\"></goat-icon></goat-badge>"
+        "example": "<goat-badge content=\"5\"> <goat-icon name=\"notification\" size=\"lg\"></goat-icon></goat-badge>"
       }
     },
     {
-      "filePath": "src/components/navigation/breadcrumb/breadcrumb.tsx",
+      "filePath": "src/components/breadcrumb/breadcrumb.tsx",
       "fileName": "breadcrumb.tsx",
       "tag": "goat-breadcrumb",
       "readme": "# goat-heading\r\n\r\n\r\n\r",
@@ -529,7 +534,7 @@
         },
         {
           "name": "description",
-          "text": "Typography are used for rendering headlines, paragraphs and captions."
+          "text": "A breadcrumb is a secondary navigation scheme that reveals the user's location in a website or web application."
         },
         {
           "name": "category",
@@ -557,7 +562,7 @@
       "listeners": [],
       "metadata": {
         "name": "Breadcrumb",
-        "description": "Typography are used for rendering headlines, paragraphs and captions.",
+        "description": "A breadcrumb is a secondary navigation scheme that reveals the user's location in a website or web application.",
         "category": "Navigation",
         "tags": [
           "navigation"
@@ -566,7 +571,7 @@
       }
     },
     {
-      "filePath": "src/components/navigation/breadcrumb/breadcrumb-item/breadcrumb-item.tsx",
+      "filePath": "src/components/breadcrumb/breadcrumb-item/breadcrumb-item.tsx",
       "fileName": "breadcrumb-item.tsx",
       "tag": "goat-breadcrumb-item",
       "readme": "# goat-tab\r\n\r\n\r\n\r",
@@ -682,7 +687,7 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/general/button/button.tsx",
+      "filePath": "src/components/button/button.tsx",
       "fileName": "button.tsx",
       "tag": "goat-button",
       "readme": "# goat-button\r\n\r\n\r\n\r",
@@ -708,7 +713,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-button>\r\nButton CTA\r\n</goat-button>"
+          "text": "<goat-button>\nButton CTA\n</goat-button>"
         }
       ],
       "encapsulation": "shadow",
@@ -934,7 +939,7 @@
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
-          "docs": "Icon which will displayed on button.\r\nPossible values are icon names.",
+          "docs": "Icon which will displayed on button.\nPossible values are icon names.",
           "docsTags": [],
           "values": [
             {
@@ -1004,7 +1009,7 @@
           "mutable": false,
           "attr": "kind",
           "reflectToAttr": false,
-          "docs": "Button kind.\r\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\r\n`\"default\"` is a long button.\r\n`\"simple\"` is a text-only button.\r\n`\"block\"` is a full-width button.",
+          "docs": "Button kind.\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\n`\"default\"` is a long button.\n`\"simple\"` is a text-only button.\n`\"block\"` is a full-width button.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -1079,7 +1084,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
-          "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
+          "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -1175,7 +1180,7 @@
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "Button variants.\r\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\r\n`\"default\"` is a filled button.\r\n`\"outline\"` is an outlined button.\r\n`\"ghost\"` is a transparent button.",
+          "docs": "Button variants.\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\n`\"default\"` is a filled button.\n`\"outline\"` is an outlined button.\n`\"ghost\"` is a transparent button.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -1224,7 +1229,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.blur()`.",
+          "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\n`button.blur()`.",
           "docsTags": []
         },
         {
@@ -1246,7 +1251,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.focus()`.",
+          "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\n`button.focus()`.",
           "docsTags": []
         },
         {
@@ -1312,11 +1317,11 @@
         "tags": [
           "controls"
         ],
-        "example": "<goat-button>\r\nButton CTA\r\n</goat-button>"
+        "example": "<goat-button>\nButton CTA\n</goat-button>"
       }
     },
     {
-      "filePath": "src/components/general/button-group/button-group.tsx",
+      "filePath": "src/components/button-group/button-group.tsx",
       "fileName": "button-group.tsx",
       "tag": "goat-button-group",
       "readme": "# goat-button-group\r\n\r\n\r\n\r",
@@ -2703,7 +2708,7 @@
         },
         {
           "name": "description",
-          "text": "Use tags to label, categorize, or organize items using keywords that describe them."
+          "text": "A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information."
         },
         {
           "name": "category",
@@ -2731,7 +2736,7 @@
       "listeners": [],
       "metadata": {
         "name": "ChartDoughnut",
-        "description": "Use tags to label, categorize, or organize items using keywords that describe them.",
+        "description": "A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.",
         "category": "Up coming",
         "tag": "controls",
         "example": "<goat-chart-doughnut class=\"color-red\"></goat-chart-doughnut>"
@@ -3424,7 +3429,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -3446,7 +3451,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -3798,7 +3803,7 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/general/current-time/current-time.tsx",
+      "filePath": "src/components/current-time/current-time.tsx",
       "fileName": "current-time.tsx",
       "tag": "goat-current-time",
       "readme": "# goat-current-time\n\n\n",
@@ -3812,7 +3817,7 @@
         },
         {
           "name": "description",
-          "text": "The current time component displays the current time in a 12-hour format."
+          "text": "Displays the current time in a given timezone."
         },
         {
           "name": "category",
@@ -3862,7 +3867,7 @@
       "listeners": [],
       "metadata": {
         "name": "Current Time",
-        "description": "The current time component displays the current time in a 12-hour format.",
+        "description": "Displays the current time in a given timezone.",
         "category": "General",
         "tags": [
           "controls"
@@ -3978,6 +3983,27 @@
           "required": false
         },
         {
+          "name": "helperText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "helper-text",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "inline",
           "type": "boolean",
           "complexType": {
@@ -3994,6 +4020,70 @@
           "values": [
             {
               "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "invalid",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "invalidText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "invalid-text",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
             }
           ],
           "optional": false,
@@ -4065,6 +4155,28 @@
           "required": false
         },
         {
+          "name": "required",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "required",
+          "reflectToAttr": true,
+          "docs": "If true, required icon is show. Defaults to `false`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "size",
           "type": "\"lg\" | \"md\" | \"sm\"",
           "complexType": {
@@ -4075,7 +4187,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
-          "docs": "The input field size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+          "docs": "The input field size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -4118,6 +4230,49 @@
             }
           ],
           "optional": true,
+          "required": false
+        },
+        {
+          "name": "warn",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "warn",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "warnText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "warn-text",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
           "required": false
         }
       ],
@@ -4163,7 +4318,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -4185,7 +4340,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -4332,7 +4487,7 @@
       }
     },
     {
-      "filePath": "src/components/navigation/menu/dropdown/dropdown.tsx",
+      "filePath": "src/components/menu/dropdown/dropdown.tsx",
       "fileName": "dropdown.tsx",
       "tag": "goat-dropdown",
       "readme": "# goat-dropdown\n\n\n",
@@ -4485,7 +4640,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "The button size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+          "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -4847,7 +5002,7 @@
         },
         {
           "name": "description",
-          "text": "An interactive button with a range of presentation options."
+          "text": "Flow Designer is a component that allows users to create and edit flows."
         },
         {
           "name": "img",
@@ -4962,219 +5117,12 @@
       "metadata": {
         "name": "Flow Designer",
         "category": "Up coming",
-        "description": "An interactive button with a range of presentation options.",
+        "description": "Flow Designer is a component that allows users to create and edit flows.",
         "img": "/assets/img/flow-designer.png"
       }
     },
     {
-      "filePath": "src/components/data-entry/form-control/form-control.tsx",
-      "fileName": "form-control.tsx",
-      "tag": "goat-form-control",
-      "readme": "# goat-field-group\n\n\n",
-      "overview": "",
-      "usage": {},
-      "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Form Control"
-        },
-        {
-          "name": "description",
-          "text": "The Form Control component adds a label and caption for its child control."
-        },
-        {
-          "name": "category",
-          "text": "Form Inputs"
-        },
-        {
-          "name": "tags",
-          "text": "form"
-        },
-        {
-          "name": "example",
-          "text": "<goat-form-control label='Full Name' required>\r\n<goat-input type='text'></goat-input>\r\n</goat-form-control>"
-        }
-      ],
-      "encapsulation": "shadow",
-      "dependents": [
-        "goat-table"
-      ],
-      "dependencies": [],
-      "dependencyGraph": {
-        "goat-table": [
-          "goat-form-control"
-        ]
-      },
-      "props": [
-        {
-          "name": "caption",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "caption",
-          "reflectToAttr": false,
-          "docs": "The caption for the form control.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "error",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "error",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "inline",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "inline",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "label",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "label",
-          "reflectToAttr": false,
-          "docs": "The label for the form control.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "required",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "required",
-          "reflectToAttr": false,
-          "docs": "Whether the form control is required.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "success",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "success",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "warning",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "warning",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        }
-      ],
-      "methods": [],
-      "events": [],
-      "styles": [],
-      "slots": [],
-      "parts": [],
-      "listeners": [],
-      "metadata": {
-        "name": "Form Control",
-        "description": "The Form Control component adds a label and caption for its child control.",
-        "category": "Form Inputs",
-        "tags": [
-          "form"
-        ],
-        "example": "<goat-form-control label='Full Name' required>\r\n<goat-input type='text'></goat-input>\r\n</goat-form-control>"
-      }
-    },
-    {
-      "filePath": "src/components/navigation/header/header/header.tsx",
+      "filePath": "src/components/header/header/header.tsx",
       "fileName": "header.tsx",
       "tag": "goat-header",
       "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
@@ -5188,7 +5136,7 @@
         },
         {
           "name": "description",
-          "text": "Headers are compositions that extend standard navbar functionalities."
+          "text": "Header component is used to display a header with a brand, navigation, and actions."
         },
         {
           "name": "category",
@@ -5239,14 +5187,14 @@
       "listeners": [],
       "metadata": {
         "name": "Header",
-        "description": "Headers are compositions that extend standard navbar functionalities.",
+        "description": "Header component is used to display a header with a brand, navigation, and actions.",
         "category": "Navigation",
         "img": "/assets/img/header.png",
         "imgDark": "/assets/img/header-dark.png"
       }
     },
     {
-      "filePath": "src/components/navigation/header/header-action/header-action.tsx",
+      "filePath": "src/components/header/header-action/header-action.tsx",
       "fileName": "header-action.tsx",
       "tag": "goat-header-action",
       "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
@@ -5508,7 +5456,7 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/navigation/header/header-brand/header-brand.tsx",
+      "filePath": "src/components/header/header-brand/header-brand.tsx",
       "fileName": "header-brand.tsx",
       "tag": "goat-header-brand",
       "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
@@ -5665,7 +5613,7 @@
         },
         {
           "name": "description",
-          "text": "A browser based html editor."
+          "text": "HTML Editor component is a WYSIWYG editor that allows users to edit HTML content."
         },
         {
           "name": "category",
@@ -5931,7 +5879,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -5953,7 +5901,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -5979,7 +5927,7 @@
       "listeners": [],
       "metadata": {
         "name": "HTML Editor",
-        "description": "A browser based html editor.",
+        "description": "HTML Editor component is a WYSIWYG editor that allows users to edit HTML content.",
         "category": "Up coming",
         "tags": [
           "input",
@@ -5990,7 +5938,7 @@
       }
     },
     {
-      "filePath": "src/components/general/icon/icon.tsx",
+      "filePath": "src/components/icon/icon.tsx",
       "fileName": "icon.tsx",
       "tag": "goat-icon",
       "readme": "# goat-icon\r\n\r\n\r\n\r",
@@ -6004,6 +5952,10 @@
         },
         {
           "name": "description",
+          "text": "Icons are visual symbols used to represent ideas, objects, or actions."
+        },
+        {
+          "name": "overview",
           "text": "Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information."
         },
         {
@@ -6121,13 +6073,14 @@
       "listeners": [],
       "metadata": {
         "name": "Icon",
-        "description": "Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.",
+        "description": "Icons are visual symbols used to represent ideas, objects, or actions.",
+        "overview": "Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.",
         "category": "General",
         "example": "<goat-icon name=\"home\" size=\"2rem\"></goat-icon>"
       }
     },
     {
-      "filePath": "src/components/general/image/image.tsx",
+      "filePath": "src/components/image/image.tsx",
       "fileName": "image.tsx",
       "tag": "goat-image",
       "readme": "# goat-icon\r\n\r\n\r\n\r",
@@ -6905,7 +6858,7 @@
       }
     },
     {
-      "filePath": "src/components/navigation/link/link.tsx",
+      "filePath": "src/components/link/link.tsx",
       "fileName": "link.tsx",
       "tag": "goat-link",
       "readme": "# goat-button\r\n\r\n\r\n\r",
@@ -7038,7 +6991,7 @@
       }
     },
     {
-      "filePath": "src/components/navigation/menu/menu/menu.tsx",
+      "filePath": "src/components/menu/menu/menu.tsx",
       "fileName": "menu.tsx",
       "tag": "goat-menu",
       "readme": "# goat-menu\r\n\r\n\r\n\r",
@@ -7118,22 +7071,44 @@
           "required": false
         },
         {
-          "name": "emptyState",
-          "type": "any",
+          "name": "emptyStateDescription",
+          "type": "string",
           "complexType": {
-            "original": "any",
-            "resolved": "any",
+            "original": "string",
+            "resolved": "string",
             "references": {}
           },
           "mutable": true,
-          "attr": "empty-state",
+          "attr": "empty-state-description",
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "`{\r\n    \"headline\": \"No items\",\r\n    \"description\": \"There are no items to display\"\r\n  }`",
+          "default": "'There are no items to display'",
           "values": [
             {
-              "type": "any"
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "emptyStateHeadline",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "empty-state-headline",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'No items'",
+          "values": [
+            {
+              "type": "string"
             }
           ],
           "optional": false,
@@ -7172,7 +7147,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
-          "docs": "The menu item size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+          "docs": "The menu item size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -7237,7 +7212,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on first menu item. Use this method instead of the global\r\n`element.focus()`.",
+          "docs": "Sets focus on first menu item. Use this method instead of the global\n`element.focus()`.",
           "docsTags": []
         }
       ],
@@ -7262,7 +7237,7 @@
       }
     },
     {
-      "filePath": "src/components/navigation/menu/menu-item/menu-item.tsx",
+      "filePath": "src/components/menu/menu-item/menu-item.tsx",
       "fileName": "menu-item.tsx",
       "tag": "goat-menu-item",
       "readme": "# goat-menu-item\r\n\r\n\r\n\r",
@@ -7374,7 +7349,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -7396,7 +7371,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -7524,7 +7499,7 @@
       }
     },
     {
-      "filePath": "src/components/feedback/notification/notification.tsx",
+      "filePath": "src/components/notification/notification.tsx",
       "fileName": "notification.tsx",
       "tag": "goat-notification",
       "readme": "# goat-alert\r\n\r\n\r\n\r",
@@ -7550,7 +7525,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-notification state=\"success\">\r\n     <div slot='title'>Successful saved the record</div>\r\n   </goat-notification>"
+          "text": "<goat-notification state=\"success\">\n     <div slot='title'>Successful saved the record</div>\n   </goat-notification>"
         }
       ],
       "encapsulation": "shadow",
@@ -7664,7 +7639,7 @@
           "required": false
         },
         {
-          "name": "lowContrast",
+          "name": "highContrast",
           "type": "boolean",
           "complexType": {
             "original": "boolean",
@@ -7672,7 +7647,7 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "low-contrast",
+          "attr": "high-contrast",
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
@@ -7749,11 +7724,11 @@
         "tags": [
           "notification"
         ],
-        "example": "<goat-notification state=\"success\">\r\n     <div slot='title'>Successful saved the record</div>\r\n   </goat-notification>"
+        "example": "<goat-notification state=\"success\">\n     <div slot='title'>Successful saved the record</div>\n   </goat-notification>"
       }
     },
     {
-      "filePath": "src/components/feedback/notification-manager/notification-manager.tsx",
+      "filePath": "src/components/notification-manager/notification-manager.tsx",
       "fileName": "notification-manager.tsx",
       "tag": "goat-notification-manager",
       "readme": "# goat-alert\n\n\n",
@@ -8403,7 +8378,7 @@
       }
     },
     {
-      "filePath": "src/components/feedback/progress/progress.tsx",
+      "filePath": "src/components/progress/progress.tsx",
       "fileName": "progress.tsx",
       "tag": "goat-progress",
       "readme": "# goat-spinner\n\n\n",
@@ -9700,7 +9675,7 @@
         },
         {
           "name": "description",
-          "text": "Allows the user to select one or more options using a dropdown."
+          "text": "Sliders allow users to make selections from a range of values."
         },
         {
           "name": "category",
@@ -9978,7 +9953,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -10000,7 +9975,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\r\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -10047,7 +10022,7 @@
       ],
       "metadata": {
         "name": "Slider",
-        "description": "Allows the user to select one or more options using a dropdown.",
+        "description": "Sliders allow users to make selections from a range of values.",
         "category": "Form Inputs",
         "tags": [
           "input",
@@ -10058,7 +10033,7 @@
       }
     },
     {
-      "filePath": "src/components/feedback/spinner/spinner.tsx",
+      "filePath": "src/components/spinner/spinner.tsx",
       "fileName": "spinner.tsx",
       "tag": "goat-spinner",
       "readme": "# goat-spinner\r\n\r\n\r\n\r",
@@ -10281,7 +10256,7 @@
       }
     },
     {
-      "filePath": "src/components/navigation/tabs/tab/tab.tsx",
+      "filePath": "src/components/tabs/tab/tab.tsx",
       "fileName": "tab.tsx",
       "tag": "goat-tab",
       "readme": "# goat-tab\r\n\r\n\r\n\r",
@@ -10357,7 +10332,7 @@
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
-          "docs": "Icon which will displayed on button.\r\nPossible values are bootstrap icon names.",
+          "docs": "Icon which will displayed on button.\nPossible values are bootstrap icon names.",
           "docsTags": [],
           "values": [
             {
@@ -10557,7 +10532,7 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/navigation/tabs/tab-panel/tab-panel.tsx",
+      "filePath": "src/components/tabs/tab-panel/tab-panel.tsx",
       "fileName": "tab-panel.tsx",
       "tag": "goat-tab-panel",
       "readme": "# goat-tab\r\n\r\n\r\n\r",
@@ -10657,7 +10632,6 @@
       "dependencies": [
         "goat-checkbox",
         "goat-button",
-        "goat-form-control",
         "goat-select",
         "goat-text",
         "goat-empty-state"
@@ -10666,7 +10640,6 @@
         "goat-table": [
           "goat-checkbox",
           "goat-button",
-          "goat-form-control",
           "goat-select",
           "goat-text",
           "goat-empty-state"
@@ -11077,7 +11050,7 @@
       }
     },
     {
-      "filePath": "src/components/navigation/tabs/tabs/tabs.tsx",
+      "filePath": "src/components/tabs/tabs/tabs.tsx",
       "fileName": "tabs.tsx",
       "tag": "goat-tabs",
       "readme": "# goat-tabs\r\n\r\n\r\n\r",
@@ -11091,7 +11064,7 @@
         },
         {
           "name": "description",
-          "text": "An interactive button with a range of presentation options."
+          "text": "The tabs component is used to display multiple panels of content in a container."
         },
         {
           "name": "category",
@@ -11103,7 +11076,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
+          "text": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
         }
       ],
       "encapsulation": "shadow",
@@ -11125,16 +11098,16 @@
       ],
       "metadata": {
         "name": "Tabs",
-        "description": "An interactive button with a range of presentation options.",
+        "description": "The tabs component is used to display multiple panels of content in a container.",
         "category": "Navigation",
         "tags": [
           "navigation"
         ],
-        "example": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
+        "example": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
       }
     },
     {
-      "filePath": "src/components/navigation/tabs/tabs-list/tabs-list.tsx",
+      "filePath": "src/components/tabs/tabs-list/tabs-list.tsx",
       "fileName": "tabs-list.tsx",
       "tag": "goat-tabs-list",
       "readme": "# goat-tabs\r\n\r\n\r\n\r",
@@ -11470,7 +11443,7 @@
       }
     },
     {
-      "filePath": "src/components/general/text/text.tsx",
+      "filePath": "src/components/text/text.tsx",
       "fileName": "text.tsx",
       "tag": "goat-text",
       "readme": "# goat-heading\r\n\r\n\r\n\r",
@@ -12558,7 +12531,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
-          "docs": "The input field size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+          "docs": "The input field size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -12646,7 +12619,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -12668,7 +12641,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -12746,7 +12719,7 @@
       }
     },
     {
-      "filePath": "src/components/feedback/toast/toast.tsx",
+      "filePath": "src/components/toast/toast.tsx",
       "fileName": "toast.tsx",
       "tag": "goat-toast",
       "readme": "# goat-alert\n\n\n",
@@ -13237,7 +13210,7 @@
       }
     },
     {
-      "filePath": "src/components/navigation/tree-view/tree-node/tree-node.tsx",
+      "filePath": "src/components/tree-view/tree-node/tree-node.tsx",
       "fileName": "tree-node.tsx",
       "tag": "goat-tree-node",
       "readme": "# goat-menu\r\n\r\n\r\n\r",
@@ -13373,7 +13346,7 @@
             "resolved": "string",
             "references": {}
           },
-          "mutable": false,
+          "mutable": true,
           "attr": "selected-node",
           "reflectToAttr": true,
           "docs": "Menu item selection state.",
@@ -13431,7 +13404,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -13453,7 +13426,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -13493,7 +13466,7 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/navigation/tree-view/tree-view/tree-view.tsx",
+      "filePath": "src/components/tree-view/tree-view/tree-view.tsx",
       "fileName": "tree-view.tsx",
       "tag": "goat-tree-view",
       "readme": "# goat-menu\r\n\r\n\r\n\r",
@@ -13713,7 +13686,7 @@
       "hide": false,
       "components": [
         {
-          "filePath": "src/components/general/button/button.tsx",
+          "filePath": "src/components/button/button.tsx",
           "fileName": "button.tsx",
           "tag": "goat-button",
           "readme": "# goat-button\r\n\r\n\r\n\r",
@@ -13739,7 +13712,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-button>\r\nButton CTA\r\n</goat-button>"
+              "text": "<goat-button>\nButton CTA\n</goat-button>"
             }
           ],
           "encapsulation": "shadow",
@@ -13965,7 +13938,7 @@
               "mutable": false,
               "attr": "icon",
               "reflectToAttr": false,
-              "docs": "Icon which will displayed on button.\r\nPossible values are icon names.",
+              "docs": "Icon which will displayed on button.\nPossible values are icon names.",
               "docsTags": [],
               "values": [
                 {
@@ -14035,7 +14008,7 @@
               "mutable": false,
               "attr": "kind",
               "reflectToAttr": false,
-              "docs": "Button kind.\r\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\r\n`\"default\"` is a long button.\r\n`\"simple\"` is a text-only button.\r\n`\"block\"` is a full-width button.",
+              "docs": "Button kind.\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\n`\"default\"` is a long button.\n`\"simple\"` is a text-only button.\n`\"block\"` is a full-width button.",
               "docsTags": [],
               "default": "'default'",
               "values": [
@@ -14110,7 +14083,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": true,
-              "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
+              "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -14206,7 +14179,7 @@
               "mutable": false,
               "attr": "variant",
               "reflectToAttr": false,
-              "docs": "Button variants.\r\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\r\n`\"default\"` is a filled button.\r\n`\"outline\"` is an outlined button.\r\n`\"ghost\"` is a transparent button.",
+              "docs": "Button variants.\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\n`\"default\"` is a filled button.\n`\"outline\"` is an outlined button.\n`\"ghost\"` is a transparent button.",
               "docsTags": [],
               "default": "'default'",
               "values": [
@@ -14255,7 +14228,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.blur()`.",
+              "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\n`button.blur()`.",
               "docsTags": []
             },
             {
@@ -14277,7 +14250,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.focus()`.",
+              "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\n`button.focus()`.",
               "docsTags": []
             },
             {
@@ -14343,11 +14316,11 @@
             "tags": [
               "controls"
             ],
-            "example": "<goat-button>\r\nButton CTA\r\n</goat-button>"
+            "example": "<goat-button>\nButton CTA\n</goat-button>"
           }
         },
         {
-          "filePath": "src/components/general/button-group/button-group.tsx",
+          "filePath": "src/components/button-group/button-group.tsx",
           "fileName": "button-group.tsx",
           "tag": "goat-button-group",
           "readme": "# goat-button-group\r\n\r\n\r\n\r",
@@ -14408,7 +14381,7 @@
           }
         },
         {
-          "filePath": "src/components/general/current-time/current-time.tsx",
+          "filePath": "src/components/current-time/current-time.tsx",
           "fileName": "current-time.tsx",
           "tag": "goat-current-time",
           "readme": "# goat-current-time\n\n\n",
@@ -14422,7 +14395,7 @@
             },
             {
               "name": "description",
-              "text": "The current time component displays the current time in a 12-hour format."
+              "text": "Displays the current time in a given timezone."
             },
             {
               "name": "category",
@@ -14472,7 +14445,7 @@
           "listeners": [],
           "metadata": {
             "name": "Current Time",
-            "description": "The current time component displays the current time in a 12-hour format.",
+            "description": "Displays the current time in a given timezone.",
             "category": "General",
             "tags": [
               "controls"
@@ -14481,7 +14454,7 @@
           }
         },
         {
-          "filePath": "src/components/general/icon/icon.tsx",
+          "filePath": "src/components/icon/icon.tsx",
           "fileName": "icon.tsx",
           "tag": "goat-icon",
           "readme": "# goat-icon\r\n\r\n\r\n\r",
@@ -14495,6 +14468,10 @@
             },
             {
               "name": "description",
+              "text": "Icons are visual symbols used to represent ideas, objects, or actions."
+            },
+            {
+              "name": "overview",
               "text": "Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information."
             },
             {
@@ -14612,13 +14589,14 @@
           "listeners": [],
           "metadata": {
             "name": "Icon",
-            "description": "Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.",
+            "description": "Icons are visual symbols used to represent ideas, objects, or actions.",
+            "overview": "Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.",
             "category": "General",
             "example": "<goat-icon name=\"home\" size=\"2rem\"></goat-icon>"
           }
         },
         {
-          "filePath": "src/components/general/text/text.tsx",
+          "filePath": "src/components/text/text.tsx",
           "fileName": "text.tsx",
           "tag": "goat-text",
           "readme": "# goat-heading\r\n\r\n\r\n\r",
@@ -15027,7 +15005,7 @@
       "hide": false,
       "components": [
         {
-          "filePath": "src/components/navigation/breadcrumb/breadcrumb.tsx",
+          "filePath": "src/components/breadcrumb/breadcrumb.tsx",
           "fileName": "breadcrumb.tsx",
           "tag": "goat-breadcrumb",
           "readme": "# goat-heading\r\n\r\n\r\n\r",
@@ -15041,7 +15019,7 @@
             },
             {
               "name": "description",
-              "text": "Typography are used for rendering headlines, paragraphs and captions."
+              "text": "A breadcrumb is a secondary navigation scheme that reveals the user's location in a website or web application."
             },
             {
               "name": "category",
@@ -15069,7 +15047,7 @@
           "listeners": [],
           "metadata": {
             "name": "Breadcrumb",
-            "description": "Typography are used for rendering headlines, paragraphs and captions.",
+            "description": "A breadcrumb is a secondary navigation scheme that reveals the user's location in a website or web application.",
             "category": "Navigation",
             "tags": [
               "navigation"
@@ -15078,7 +15056,7 @@
           }
         },
         {
-          "filePath": "src/components/navigation/menu/dropdown/dropdown.tsx",
+          "filePath": "src/components/menu/dropdown/dropdown.tsx",
           "fileName": "dropdown.tsx",
           "tag": "goat-dropdown",
           "readme": "# goat-dropdown\n\n\n",
@@ -15231,7 +15209,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": false,
-              "docs": "The button size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+              "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -15330,7 +15308,7 @@
           }
         },
         {
-          "filePath": "src/components/navigation/header/header/header.tsx",
+          "filePath": "src/components/header/header/header.tsx",
           "fileName": "header.tsx",
           "tag": "goat-header",
           "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
@@ -15344,7 +15322,7 @@
             },
             {
               "name": "description",
-              "text": "Headers are compositions that extend standard navbar functionalities."
+              "text": "Header component is used to display a header with a brand, navigation, and actions."
             },
             {
               "name": "category",
@@ -15395,14 +15373,14 @@
           "listeners": [],
           "metadata": {
             "name": "Header",
-            "description": "Headers are compositions that extend standard navbar functionalities.",
+            "description": "Header component is used to display a header with a brand, navigation, and actions.",
             "category": "Navigation",
             "img": "/assets/img/header.png",
             "imgDark": "/assets/img/header-dark.png"
           }
         },
         {
-          "filePath": "src/components/navigation/link/link.tsx",
+          "filePath": "src/components/link/link.tsx",
           "fileName": "link.tsx",
           "tag": "goat-link",
           "readme": "# goat-button\r\n\r\n\r\n\r",
@@ -15535,7 +15513,7 @@
           }
         },
         {
-          "filePath": "src/components/navigation/menu/menu/menu.tsx",
+          "filePath": "src/components/menu/menu/menu.tsx",
           "fileName": "menu.tsx",
           "tag": "goat-menu",
           "readme": "# goat-menu\r\n\r\n\r\n\r",
@@ -15615,22 +15593,44 @@
               "required": false
             },
             {
-              "name": "emptyState",
-              "type": "any",
+              "name": "emptyStateDescription",
+              "type": "string",
               "complexType": {
-                "original": "any",
-                "resolved": "any",
+                "original": "string",
+                "resolved": "string",
                 "references": {}
               },
               "mutable": true,
-              "attr": "empty-state",
+              "attr": "empty-state-description",
               "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
-              "default": "`{\r\n    \"headline\": \"No items\",\r\n    \"description\": \"There are no items to display\"\r\n  }`",
+              "default": "'There are no items to display'",
               "values": [
                 {
-                  "type": "any"
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "emptyStateHeadline",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": true,
+              "attr": "empty-state-headline",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "'No items'",
+              "values": [
+                {
+                  "type": "string"
                 }
               ],
               "optional": false,
@@ -15669,7 +15669,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": true,
-              "docs": "The menu item size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+              "docs": "The menu item size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -15734,7 +15734,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on first menu item. Use this method instead of the global\r\n`element.focus()`.",
+              "docs": "Sets focus on first menu item. Use this method instead of the global\n`element.focus()`.",
               "docsTags": []
             }
           ],
@@ -15759,7 +15759,7 @@
           }
         },
         {
-          "filePath": "src/components/navigation/tabs/tabs/tabs.tsx",
+          "filePath": "src/components/tabs/tabs/tabs.tsx",
           "fileName": "tabs.tsx",
           "tag": "goat-tabs",
           "readme": "# goat-tabs\r\n\r\n\r\n\r",
@@ -15773,7 +15773,7 @@
             },
             {
               "name": "description",
-              "text": "An interactive button with a range of presentation options."
+              "text": "The tabs component is used to display multiple panels of content in a container."
             },
             {
               "name": "category",
@@ -15785,7 +15785,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
+              "text": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
             }
           ],
           "encapsulation": "shadow",
@@ -15807,16 +15807,16 @@
           ],
           "metadata": {
             "name": "Tabs",
-            "description": "An interactive button with a range of presentation options.",
+            "description": "The tabs component is used to display multiple panels of content in a container.",
             "category": "Navigation",
             "tags": [
               "navigation"
             ],
-            "example": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
+            "example": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
           }
         },
         {
-          "filePath": "src/components/navigation/tree-view/tree-view/tree-view.tsx",
+          "filePath": "src/components/tree-view/tree-view/tree-view.tsx",
           "fileName": "tree-view.tsx",
           "tag": "goat-tree-view",
           "readme": "# goat-menu\r\n\r\n\r\n\r",
@@ -16721,7 +16721,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
               "docsTags": []
             },
             {
@@ -16743,7 +16743,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
+              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
               "docsTags": []
             }
           ],
@@ -16887,6 +16887,27 @@
               "required": false
             },
             {
+              "name": "helperText",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "helper-text",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
               "name": "inline",
               "type": "boolean",
               "complexType": {
@@ -16903,6 +16924,70 @@
               "values": [
                 {
                   "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "invalid",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "invalid",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "invalidText",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "invalid-text",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "label",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
                 }
               ],
               "optional": false,
@@ -16974,6 +17059,28 @@
               "required": false
             },
             {
+              "name": "required",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "required",
+              "reflectToAttr": true,
+              "docs": "If true, required icon is show. Defaults to `false`.",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
               "name": "size",
               "type": "\"lg\" | \"md\" | \"sm\"",
               "complexType": {
@@ -16984,7 +17091,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": true,
-              "docs": "The input field size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+              "docs": "The input field size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -17027,6 +17134,49 @@
                 }
               ],
               "optional": true,
+              "required": false
+            },
+            {
+              "name": "warn",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "warn",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "warnText",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "warn-text",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
               "required": false
             }
           ],
@@ -17072,7 +17222,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
               "docsTags": []
             },
             {
@@ -17094,7 +17244,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
+              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
               "docsTags": []
             }
           ],
@@ -17165,213 +17315,6 @@
             "category": "Form Inputs",
             "description": "Captures date input.",
             "example": "<goat-date-picker value='true'></goat-date-picker>"
-          }
-        },
-        {
-          "filePath": "src/components/data-entry/form-control/form-control.tsx",
-          "fileName": "form-control.tsx",
-          "tag": "goat-form-control",
-          "readme": "# goat-field-group\n\n\n",
-          "overview": "",
-          "usage": {},
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "name",
-              "text": "Form Control"
-            },
-            {
-              "name": "description",
-              "text": "The Form Control component adds a label and caption for its child control."
-            },
-            {
-              "name": "category",
-              "text": "Form Inputs"
-            },
-            {
-              "name": "tags",
-              "text": "form"
-            },
-            {
-              "name": "example",
-              "text": "<goat-form-control label='Full Name' required>\r\n<goat-input type='text'></goat-input>\r\n</goat-form-control>"
-            }
-          ],
-          "encapsulation": "shadow",
-          "dependents": [
-            "goat-table"
-          ],
-          "dependencies": [],
-          "dependencyGraph": {
-            "goat-table": [
-              "goat-form-control"
-            ]
-          },
-          "props": [
-            {
-              "name": "caption",
-              "type": "string",
-              "complexType": {
-                "original": "string",
-                "resolved": "string",
-                "references": {}
-              },
-              "mutable": false,
-              "attr": "caption",
-              "reflectToAttr": false,
-              "docs": "The caption for the form control.",
-              "docsTags": [],
-              "values": [
-                {
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "error",
-              "type": "string",
-              "complexType": {
-                "original": "string",
-                "resolved": "string",
-                "references": {}
-              },
-              "mutable": false,
-              "attr": "error",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "values": [
-                {
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "inline",
-              "type": "boolean",
-              "complexType": {
-                "original": "boolean",
-                "resolved": "boolean",
-                "references": {}
-              },
-              "mutable": false,
-              "attr": "inline",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "default": "false",
-              "values": [
-                {
-                  "type": "boolean"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "label",
-              "type": "string",
-              "complexType": {
-                "original": "string",
-                "resolved": "string",
-                "references": {}
-              },
-              "mutable": false,
-              "attr": "label",
-              "reflectToAttr": false,
-              "docs": "The label for the form control.",
-              "docsTags": [],
-              "values": [
-                {
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "required",
-              "type": "boolean",
-              "complexType": {
-                "original": "boolean",
-                "resolved": "boolean",
-                "references": {}
-              },
-              "mutable": false,
-              "attr": "required",
-              "reflectToAttr": false,
-              "docs": "Whether the form control is required.",
-              "docsTags": [],
-              "default": "false",
-              "values": [
-                {
-                  "type": "boolean"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "success",
-              "type": "string",
-              "complexType": {
-                "original": "string",
-                "resolved": "string",
-                "references": {}
-              },
-              "mutable": false,
-              "attr": "success",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "values": [
-                {
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "warning",
-              "type": "string",
-              "complexType": {
-                "original": "string",
-                "resolved": "string",
-                "references": {}
-              },
-              "mutable": false,
-              "attr": "warning",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "values": [
-                {
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            }
-          ],
-          "methods": [],
-          "events": [],
-          "styles": [],
-          "slots": [],
-          "parts": [],
-          "listeners": [],
-          "metadata": {
-            "name": "Form Control",
-            "description": "The Form Control component adds a label and caption for its child control.",
-            "category": "Form Inputs",
-            "tags": [
-              "form"
-            ],
-            "example": "<goat-form-control label='Full Name' required>\r\n<goat-input type='text'></goat-input>\r\n</goat-form-control>"
           }
         },
         {
@@ -19280,7 +19223,7 @@
             },
             {
               "name": "description",
-              "text": "Allows the user to select one or more options using a dropdown."
+              "text": "Sliders allow users to make selections from a range of values."
             },
             {
               "name": "category",
@@ -19558,7 +19501,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
               "docsTags": []
             },
             {
@@ -19580,7 +19523,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\r\n`input.focus()`.",
+              "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\n`input.focus()`.",
               "docsTags": []
             }
           ],
@@ -19627,7 +19570,7 @@
           ],
           "metadata": {
             "name": "Slider",
-            "description": "Allows the user to select one or more options using a dropdown.",
+            "description": "Sliders allow users to make selections from a range of values.",
             "category": "Form Inputs",
             "tags": [
               "input",
@@ -20402,7 +20345,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": true,
-              "docs": "The input field size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+              "docs": "The input field size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -20490,7 +20433,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
               "docsTags": []
             },
             {
@@ -20512,7 +20455,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
+              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
               "docsTags": []
             }
           ],
@@ -20974,7 +20917,7 @@
       "hide": false,
       "components": [
         {
-          "filePath": "src/components/data-display/accordion/accordion/accordion.tsx",
+          "filePath": "src/components/accordion/accordion/accordion.tsx",
           "fileName": "accordion.tsx",
           "tag": "goat-accordion",
           "readme": "# goat-avatar\r\n\r\n\r\n\r",
@@ -20989,6 +20932,10 @@
             {
               "name": "description",
               "text": "An accordion is a vertically stacked list of headers that reveal or hide associated sections of content."
+            },
+            {
+              "name": "overview",
+              "text": " <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>\n <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>"
             },
             {
               "name": "category",
@@ -21108,6 +21055,7 @@
           "metadata": {
             "name": "Accordion",
             "description": "An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.",
+            "overview": " <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>\n <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>",
             "category": "Data Display",
             "tags": [
               "display"
@@ -21117,7 +21065,7 @@
           }
         },
         {
-          "filePath": "src/components/data-display/avatar/avatar.tsx",
+          "filePath": "src/components/avatar/avatar.tsx",
           "fileName": "avatar.tsx",
           "tag": "goat-avatar",
           "readme": "# goat-avatar\r\n\r\n\r\n\r",
@@ -21131,7 +21079,7 @@
             },
             {
               "name": "description",
-              "text": "Avatars in their simplest form display content within a circular container."
+              "text": "The Avatar component is used to represent user, and displays the profile picture, initials or fallback icon."
             },
             {
               "name": "category",
@@ -21226,7 +21174,7 @@
           "listeners": [],
           "metadata": {
             "name": "Avatar",
-            "description": "Avatars in their simplest form display content within a circular container.",
+            "description": "The Avatar component is used to represent user, and displays the profile picture, initials or fallback icon.",
             "category": "Data Display",
             "tags": [
               "display"
@@ -21235,7 +21183,7 @@
           }
         },
         {
-          "filePath": "src/components/data-display/badge/badge.tsx",
+          "filePath": "src/components/badge/badge.tsx",
           "fileName": "badge.tsx",
           "tag": "goat-badge",
           "readme": "# goat-icon\r\n\r\n\r\n\r",
@@ -21249,7 +21197,7 @@
             },
             {
               "name": "description",
-              "text": "Renders a specified badge."
+              "text": "The badge component is used to display a small amount of information to the user."
             },
             {
               "name": "category",
@@ -21261,7 +21209,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-badge content=\"5\" class='color-error'> <goat-icon name=\"notification\" size=\"lg\"></goat-icon></goat-badge>"
+              "text": "<goat-badge content=\"5\"> <goat-icon name=\"notification\" size=\"lg\"></goat-icon></goat-badge>"
             }
           ],
           "encapsulation": "shadow",
@@ -21271,10 +21219,10 @@
           "props": [
             {
               "name": "color",
-              "type": "\"danger\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+              "type": "\"error\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
               "complexType": {
-                "original": "'primary' | 'secondary' | 'success' | 'danger' | 'warning'",
-                "resolved": "\"danger\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+                "original": "'primary' | 'secondary' | 'success' | 'error' | 'warning'",
+                "resolved": "\"error\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
                 "references": {}
               },
               "mutable": false,
@@ -21282,10 +21230,10 @@
               "reflectToAttr": true,
               "docs": "",
               "docsTags": [],
-              "default": "'danger'",
+              "default": "'error'",
               "values": [
                 {
-                  "value": "danger",
+                  "value": "error",
                   "type": "string"
                 },
                 {
@@ -21338,10 +21286,10 @@
           "listeners": [],
           "metadata": {
             "name": "Badge",
-            "description": "Renders a specified badge.",
+            "description": "The badge component is used to display a small amount of information to the user.",
             "category": "Data Display",
             "tag": "content",
-            "example": "<goat-badge content=\"5\" class='color-error'> <goat-icon name=\"notification\" size=\"lg\"></goat-icon></goat-badge>"
+            "example": "<goat-badge content=\"5\"> <goat-icon name=\"notification\" size=\"lg\"></goat-icon></goat-badge>"
           }
         },
         {
@@ -22269,7 +22217,6 @@
           "dependencies": [
             "goat-checkbox",
             "goat-button",
-            "goat-form-control",
             "goat-select",
             "goat-text",
             "goat-empty-state"
@@ -22278,7 +22225,6 @@
             "goat-table": [
               "goat-checkbox",
               "goat-button",
-              "goat-form-control",
               "goat-select",
               "goat-text",
               "goat-empty-state"
@@ -22953,7 +22899,7 @@
       "hide": false,
       "components": [
         {
-          "filePath": "src/components/feedback/notification/notification.tsx",
+          "filePath": "src/components/notification/notification.tsx",
           "fileName": "notification.tsx",
           "tag": "goat-notification",
           "readme": "# goat-alert\r\n\r\n\r\n\r",
@@ -22979,7 +22925,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-notification state=\"success\">\r\n     <div slot='title'>Successful saved the record</div>\r\n   </goat-notification>"
+              "text": "<goat-notification state=\"success\">\n     <div slot='title'>Successful saved the record</div>\n   </goat-notification>"
             }
           ],
           "encapsulation": "shadow",
@@ -23093,7 +23039,7 @@
               "required": false
             },
             {
-              "name": "lowContrast",
+              "name": "highContrast",
               "type": "boolean",
               "complexType": {
                 "original": "boolean",
@@ -23101,7 +23047,7 @@
                 "references": {}
               },
               "mutable": false,
-              "attr": "low-contrast",
+              "attr": "high-contrast",
               "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
@@ -23178,11 +23124,11 @@
             "tags": [
               "notification"
             ],
-            "example": "<goat-notification state=\"success\">\r\n     <div slot='title'>Successful saved the record</div>\r\n   </goat-notification>"
+            "example": "<goat-notification state=\"success\">\n     <div slot='title'>Successful saved the record</div>\n   </goat-notification>"
           }
         },
         {
-          "filePath": "src/components/feedback/notification-manager/notification-manager.tsx",
+          "filePath": "src/components/notification-manager/notification-manager.tsx",
           "fileName": "notification-manager.tsx",
           "tag": "goat-notification-manager",
           "readme": "# goat-alert\n\n\n",
@@ -23328,7 +23274,7 @@
           }
         },
         {
-          "filePath": "src/components/feedback/progress/progress.tsx",
+          "filePath": "src/components/progress/progress.tsx",
           "fileName": "progress.tsx",
           "tag": "goat-progress",
           "readme": "# goat-spinner\n\n\n",
@@ -23533,7 +23479,7 @@
           }
         },
         {
-          "filePath": "src/components/feedback/spinner/spinner.tsx",
+          "filePath": "src/components/spinner/spinner.tsx",
           "fileName": "spinner.tsx",
           "tag": "goat-spinner",
           "readme": "# goat-spinner\r\n\r\n\r\n\r",
@@ -23658,7 +23604,7 @@
           }
         },
         {
-          "filePath": "src/components/feedback/toast/toast.tsx",
+          "filePath": "src/components/toast/toast.tsx",
           "fileName": "toast.tsx",
           "tag": "goat-toast",
           "readme": "# goat-alert\n\n\n",
@@ -23777,7 +23723,7 @@
       "hide": false,
       "components": [
         {
-          "filePath": "src/components/data-display/accordion/accordion-item/accordion-item.tsx",
+          "filePath": "src/components/accordion/accordion-item/accordion-item.tsx",
           "fileName": "accordion-item.tsx",
           "tag": "goat-accordion-item",
           "readme": "# goat-menu-item\n\n\n",
@@ -23914,7 +23860,7 @@
           "metadata": {}
         },
         {
-          "filePath": "src/components/navigation/breadcrumb/breadcrumb-item/breadcrumb-item.tsx",
+          "filePath": "src/components/breadcrumb/breadcrumb-item/breadcrumb-item.tsx",
           "fileName": "breadcrumb-item.tsx",
           "tag": "goat-breadcrumb-item",
           "readme": "# goat-tab\r\n\r\n\r\n\r",
@@ -25079,7 +25025,7 @@
             },
             {
               "name": "description",
-              "text": "Use tags to label, categorize, or organize items using keywords that describe them."
+              "text": "A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information."
             },
             {
               "name": "category",
@@ -25107,7 +25053,7 @@
           "listeners": [],
           "metadata": {
             "name": "ChartDoughnut",
-            "description": "Use tags to label, categorize, or organize items using keywords that describe them.",
+            "description": "A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.",
             "category": "Up coming",
             "tag": "controls",
             "example": "<goat-chart-doughnut class=\"color-red\"></goat-chart-doughnut>"
@@ -25177,7 +25123,7 @@
             },
             {
               "name": "description",
-              "text": "An interactive button with a range of presentation options."
+              "text": "Flow Designer is a component that allows users to create and edit flows."
             },
             {
               "name": "img",
@@ -25292,12 +25238,12 @@
           "metadata": {
             "name": "Flow Designer",
             "category": "Up coming",
-            "description": "An interactive button with a range of presentation options.",
+            "description": "Flow Designer is a component that allows users to create and edit flows.",
             "img": "/assets/img/flow-designer.png"
           }
         },
         {
-          "filePath": "src/components/navigation/header/header-action/header-action.tsx",
+          "filePath": "src/components/header/header-action/header-action.tsx",
           "fileName": "header-action.tsx",
           "tag": "goat-header-action",
           "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
@@ -25559,7 +25505,7 @@
           "metadata": {}
         },
         {
-          "filePath": "src/components/navigation/header/header-brand/header-brand.tsx",
+          "filePath": "src/components/header/header-brand/header-brand.tsx",
           "fileName": "header-brand.tsx",
           "tag": "goat-header-brand",
           "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
@@ -25716,7 +25662,7 @@
             },
             {
               "name": "description",
-              "text": "A browser based html editor."
+              "text": "HTML Editor component is a WYSIWYG editor that allows users to edit HTML content."
             },
             {
               "name": "category",
@@ -25982,7 +25928,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
               "docsTags": []
             },
             {
@@ -26004,7 +25950,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
+              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
               "docsTags": []
             }
           ],
@@ -26030,7 +25976,7 @@
           "listeners": [],
           "metadata": {
             "name": "HTML Editor",
-            "description": "A browser based html editor.",
+            "description": "HTML Editor component is a WYSIWYG editor that allows users to edit HTML content.",
             "category": "Up coming",
             "tags": [
               "input",
@@ -26041,7 +25987,7 @@
           }
         },
         {
-          "filePath": "src/components/general/image/image.tsx",
+          "filePath": "src/components/image/image.tsx",
           "fileName": "image.tsx",
           "tag": "goat-image",
           "readme": "# goat-icon\r\n\r\n\r\n\r",
@@ -26127,7 +26073,7 @@
           "metadata": {}
         },
         {
-          "filePath": "src/components/navigation/menu/menu-item/menu-item.tsx",
+          "filePath": "src/components/menu/menu-item/menu-item.tsx",
           "fileName": "menu-item.tsx",
           "tag": "goat-menu-item",
           "readme": "# goat-menu-item\r\n\r\n\r\n\r",
@@ -26239,7 +26185,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
               "docsTags": []
             },
             {
@@ -26261,7 +26207,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
+              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
               "docsTags": []
             }
           ],
@@ -26772,7 +26718,7 @@
           "metadata": {}
         },
         {
-          "filePath": "src/components/navigation/tabs/tab/tab.tsx",
+          "filePath": "src/components/tabs/tab/tab.tsx",
           "fileName": "tab.tsx",
           "tag": "goat-tab",
           "readme": "# goat-tab\r\n\r\n\r\n\r",
@@ -26848,7 +26794,7 @@
               "mutable": false,
               "attr": "icon",
               "reflectToAttr": false,
-              "docs": "Icon which will displayed on button.\r\nPossible values are bootstrap icon names.",
+              "docs": "Icon which will displayed on button.\nPossible values are bootstrap icon names.",
               "docsTags": [],
               "values": [
                 {
@@ -27048,7 +26994,7 @@
           "metadata": {}
         },
         {
-          "filePath": "src/components/navigation/tabs/tab-panel/tab-panel.tsx",
+          "filePath": "src/components/tabs/tab-panel/tab-panel.tsx",
           "fileName": "tab-panel.tsx",
           "tag": "goat-tab-panel",
           "readme": "# goat-tab\r\n\r\n\r\n\r",
@@ -27114,7 +27060,7 @@
           "metadata": {}
         },
         {
-          "filePath": "src/components/navigation/tabs/tabs-list/tabs-list.tsx",
+          "filePath": "src/components/tabs/tabs-list/tabs-list.tsx",
           "fileName": "tabs-list.tsx",
           "tag": "goat-tabs-list",
           "readme": "# goat-tabs\r\n\r\n\r\n\r",
@@ -27192,7 +27138,7 @@
           "metadata": {}
         },
         {
-          "filePath": "src/components/navigation/tree-view/tree-node/tree-node.tsx",
+          "filePath": "src/components/tree-view/tree-node/tree-node.tsx",
           "fileName": "tree-node.tsx",
           "tag": "goat-tree-node",
           "readme": "# goat-menu\r\n\r\n\r\n\r",
@@ -27328,7 +27274,7 @@
                 "resolved": "string",
                 "references": {}
               },
-              "mutable": false,
+              "mutable": true,
               "attr": "selected-node",
               "reflectToAttr": true,
               "docs": "Menu item selection state.",
@@ -27386,7 +27332,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
               "docsTags": []
             },
             {
@@ -27408,7 +27354,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
+              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
               "docsTags": []
             }
           ],

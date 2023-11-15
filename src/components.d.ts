@@ -9,6 +9,8 @@ export namespace Components {
     /**
      * @name Accordion
      * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
+     * @overview  <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>
+     *  <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>
      * @category Data Display
      * @tags display
      * @img /assets/img/accordion.png
@@ -42,7 +44,7 @@ export namespace Components {
     }
     /**
      * @name Avatar
-     * @description Avatars in their simplest form display content within a circular container.
+     * @description The Avatar component is used to represent user, and displays the profile picture, initials or fallback icon.
      * @category Data Display
      * @tags display
      * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.png"></goat-avatar>
@@ -57,18 +59,18 @@ export namespace Components {
     }
     /**
      * @name Badge
-     * @description Renders a specified badge.
+     * @description The badge component is used to display a small amount of information to the user.
      * @category Data Display
      * @tag content
-     * @example <goat-badge content="5" class='color-error'> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
+     * @example <goat-badge content="5"> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
      */
     interface GoatBadge {
-        "color": 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
+        "color": 'primary' | 'secondary' | 'success' | 'error' | 'warning';
         "content": string;
     }
     /**
      * @name Breadcrumb
-     * @description Typography are used for rendering headlines, paragraphs and captions.
+     * @description A breadcrumb is a secondary navigation scheme that reveals the user's location in a website or web application.
      * @category Navigation
      * @tags navigation
      * @example <goat-breadcrumb><goat-breadcrumb-item href="#">Home</goat-breadcrumb-item><goat-breadcrumb-item href="#" active>Page</goat-breadcrumb-item></goat-breadcrumb>
@@ -242,7 +244,7 @@ export namespace Components {
     }
     /**
      * @name ChartDoughnut
-     * @description Use tags to label, categorize, or organize items using keywords that describe them.
+     * @description A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.
      * @category Up coming
      * @tag controls
      * @example <goat-chart-doughnut class="color-red"></goat-chart-doughnut>
@@ -367,7 +369,7 @@ export namespace Components {
     }
     /**
      * @name Current Time
-     * @description The current time component displays the current time in a 12-hour format.
+     * @description Displays the current time in a given timezone.
      * @category General
      * @tags controls
      * @example <goat-current-time></goat-current-time>
@@ -392,7 +394,11 @@ export namespace Components {
          */
         "disabled": boolean;
         "getComponentId": () => Promise<string>;
+        "helperText": string;
         "inline": boolean;
+        "invalid": boolean;
+        "invalidText": string;
+        "label": string;
         /**
           * The input field name.
          */
@@ -405,6 +411,10 @@ export namespace Components {
           * If true, the user read the value cannot modify it. Defaults to `false`.
          */
         "readonly": boolean;
+        /**
+          * If true, required icon is show. Defaults to `false`.
+         */
+        "required": boolean;
         /**
           * Sets blur on the native `input` in `goat-input`. Use this method instead of the global `input.blur()`.
          */
@@ -421,6 +431,8 @@ export namespace Components {
           * The input field value.
          */
         "value"?: string | number | null;
+        "warn": boolean;
+        "warnText": string;
     }
     /**
      * @name Divider
@@ -471,7 +483,7 @@ export namespace Components {
     /**
      * @name Flow Designer
      * @category Up coming
-     * @description An interactive button with a range of presentation options.
+     * @description Flow Designer is a component that allows users to create and edit flows.
      * @img /assets/img/flow-designer.png
      */
     interface GoatFlowDesigner {
@@ -480,35 +492,8 @@ export namespace Components {
         "disabled": boolean;
     }
     /**
-     * @name Form Control
-     * @description The Form Control component adds a label and caption for its child control.
-     * @category Form Inputs
-     * @tags form
-     * @example <goat-form-control label='Full Name' required>
-     * <goat-input type='text'></goat-input>
-     * </goat-form-control>
-     */
-    interface GoatFormControl {
-        /**
-          * The caption for the form control.
-         */
-        "caption": string;
-        "error": string;
-        "inline": boolean;
-        /**
-          * The label for the form control.
-         */
-        "label": string;
-        /**
-          * Whether the form control is required.
-         */
-        "required": boolean;
-        "success": string;
-        "warning": string;
-    }
-    /**
      * @name Header
-     * @description Headers are compositions that extend standard navbar functionalities.
+     * @description Header component is used to display a header with a brand, navigation, and actions.
      * @category Navigation
      * @img /assets/img/header.png
      * @imgDark /assets/img/header-dark.png
@@ -550,7 +535,7 @@ export namespace Components {
     }
     /**
      * @name HTML Editor
-     * @description A browser based html editor.
+     * @description HTML Editor component is a WYSIWYG editor that allows users to edit HTML content.
      * @category Up coming
      * @tags input, form
      * @img /assets/img/html-editor.png
@@ -592,7 +577,8 @@ export namespace Components {
     }
     /**
      * @name Icon
-     * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
+     * @description Icons are visual symbols used to represent ideas, objects, or actions.
+     * @overview Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
      * @category General
      * @example <goat-icon name="home" size="2rem"></goat-icon>
      */
@@ -709,7 +695,8 @@ export namespace Components {
      */
     interface GoatMenu {
         "empty": boolean;
-        "emptyState": any;
+        "emptyStateDescription": string;
+        "emptyStateHeadline": string;
         /**
           * Sets focus on first menu item. Use this method instead of the global `element.focus()`.
          */
@@ -766,7 +753,7 @@ export namespace Components {
         "actionName": string;
         "actionable": boolean;
         "dismissible": boolean;
-        "lowContrast": boolean;
+        "highContrast": boolean;
         "state": 'success' | 'error' | 'info' | 'warning';
     }
     /**
@@ -979,7 +966,7 @@ export namespace Components {
     }
     /**
      * @name Slider
-     * @description Allows the user to select one or more options using a dropdown.
+     * @description Sliders allow users to make selections from a range of values.
      * @category Form Inputs
      * @tags input, form
      * @img /assets/img/slider.png
@@ -1109,7 +1096,7 @@ export namespace Components {
     }
     /**
      * @name Tabs
-     * @description An interactive button with a range of presentation options.
+     * @description The tabs component is used to display multiple panels of content in a container.
      * @category Navigation
      * @tags navigation
      * @example <goat-tabs>
@@ -1468,6 +1455,8 @@ declare global {
     /**
      * @name Accordion
      * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
+     * @overview  <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>
+     *  <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>
      * @category Data Display
      * @tags display
      * @img /assets/img/accordion.png
@@ -1487,7 +1476,7 @@ declare global {
     };
     /**
      * @name Avatar
-     * @description Avatars in their simplest form display content within a circular container.
+     * @description The Avatar component is used to represent user, and displays the profile picture, initials or fallback icon.
      * @category Data Display
      * @tags display
      * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.png"></goat-avatar>
@@ -1500,10 +1489,10 @@ declare global {
     };
     /**
      * @name Badge
-     * @description Renders a specified badge.
+     * @description The badge component is used to display a small amount of information to the user.
      * @category Data Display
      * @tag content
-     * @example <goat-badge content="5" class='color-error'> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
+     * @example <goat-badge content="5"> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
      */
     interface HTMLGoatBadgeElement extends Components.GoatBadge, HTMLStencilElement {
     }
@@ -1513,7 +1502,7 @@ declare global {
     };
     /**
      * @name Breadcrumb
-     * @description Typography are used for rendering headlines, paragraphs and captions.
+     * @description A breadcrumb is a secondary navigation scheme that reveals the user's location in a website or web application.
      * @category Navigation
      * @tags navigation
      * @example <goat-breadcrumb><goat-breadcrumb-item href="#">Home</goat-breadcrumb-item><goat-breadcrumb-item href="#" active>Page</goat-breadcrumb-item></goat-breadcrumb>
@@ -1643,7 +1632,7 @@ declare global {
     };
     /**
      * @name ChartDoughnut
-     * @description Use tags to label, categorize, or organize items using keywords that describe them.
+     * @description A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.
      * @category Up coming
      * @tag controls
      * @example <goat-chart-doughnut class="color-red"></goat-chart-doughnut>
@@ -1717,7 +1706,7 @@ declare global {
     };
     /**
      * @name Current Time
-     * @description The current time component displays the current time in a 12-hour format.
+     * @description Displays the current time in a given timezone.
      * @category General
      * @tags controls
      * @example <goat-current-time></goat-current-time>
@@ -1781,7 +1770,7 @@ declare global {
     /**
      * @name Flow Designer
      * @category Up coming
-     * @description An interactive button with a range of presentation options.
+     * @description Flow Designer is a component that allows users to create and edit flows.
      * @img /assets/img/flow-designer.png
      */
     interface HTMLGoatFlowDesignerElement extends Components.GoatFlowDesigner, HTMLStencilElement {
@@ -1791,23 +1780,8 @@ declare global {
         new (): HTMLGoatFlowDesignerElement;
     };
     /**
-     * @name Form Control
-     * @description The Form Control component adds a label and caption for its child control.
-     * @category Form Inputs
-     * @tags form
-     * @example <goat-form-control label='Full Name' required>
-     * <goat-input type='text'></goat-input>
-     * </goat-form-control>
-     */
-    interface HTMLGoatFormControlElement extends Components.GoatFormControl, HTMLStencilElement {
-    }
-    var HTMLGoatFormControlElement: {
-        prototype: HTMLGoatFormControlElement;
-        new (): HTMLGoatFormControlElement;
-    };
-    /**
      * @name Header
-     * @description Headers are compositions that extend standard navbar functionalities.
+     * @description Header component is used to display a header with a brand, navigation, and actions.
      * @category Navigation
      * @img /assets/img/header.png
      * @imgDark /assets/img/header-dark.png
@@ -1832,7 +1806,7 @@ declare global {
     };
     /**
      * @name HTML Editor
-     * @description A browser based html editor.
+     * @description HTML Editor component is a WYSIWYG editor that allows users to edit HTML content.
      * @category Up coming
      * @tags input, form
      * @img /assets/img/html-editor.png
@@ -1846,7 +1820,8 @@ declare global {
     };
     /**
      * @name Icon
-     * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
+     * @description Icons are visual symbols used to represent ideas, objects, or actions.
+     * @overview Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
      * @category General
      * @example <goat-icon name="home" size="2rem"></goat-icon>
      */
@@ -2012,7 +1987,7 @@ declare global {
     };
     /**
      * @name Slider
-     * @description Allows the user to select one or more options using a dropdown.
+     * @description Sliders allow users to make selections from a range of values.
      * @category Form Inputs
      * @tags input, form
      * @img /assets/img/slider.png
@@ -2076,7 +2051,7 @@ declare global {
     };
     /**
      * @name Tabs
-     * @description An interactive button with a range of presentation options.
+     * @description The tabs component is used to display multiple panels of content in a container.
      * @category Navigation
      * @tags navigation
      * @example <goat-tabs>
@@ -2225,7 +2200,6 @@ declare global {
         "goat-dropdown": HTMLGoatDropdownElement;
         "goat-empty-state": HTMLGoatEmptyStateElement;
         "goat-flow-designer": HTMLGoatFlowDesignerElement;
-        "goat-form-control": HTMLGoatFormControlElement;
         "goat-header": HTMLGoatHeaderElement;
         "goat-header-action": HTMLGoatHeaderActionElement;
         "goat-header-brand": HTMLGoatHeaderBrandElement;
@@ -2267,6 +2241,8 @@ declare namespace LocalJSX {
     /**
      * @name Accordion
      * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
+     * @overview  <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>
+     *  <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>
      * @category Data Display
      * @tags display
      * @img /assets/img/accordion.png
@@ -2304,7 +2280,7 @@ declare namespace LocalJSX {
     }
     /**
      * @name Avatar
-     * @description Avatars in their simplest form display content within a circular container.
+     * @description The Avatar component is used to represent user, and displays the profile picture, initials or fallback icon.
      * @category Data Display
      * @tags display
      * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.png"></goat-avatar>
@@ -2319,18 +2295,18 @@ declare namespace LocalJSX {
     }
     /**
      * @name Badge
-     * @description Renders a specified badge.
+     * @description The badge component is used to display a small amount of information to the user.
      * @category Data Display
      * @tag content
-     * @example <goat-badge content="5" class='color-error'> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
+     * @example <goat-badge content="5"> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
      */
     interface GoatBadge {
-        "color"?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
+        "color"?: 'primary' | 'secondary' | 'success' | 'error' | 'warning';
         "content"?: string;
     }
     /**
      * @name Breadcrumb
-     * @description Typography are used for rendering headlines, paragraphs and captions.
+     * @description A breadcrumb is a secondary navigation scheme that reveals the user's location in a website or web application.
      * @category Navigation
      * @tags navigation
      * @example <goat-breadcrumb><goat-breadcrumb-item href="#">Home</goat-breadcrumb-item><goat-breadcrumb-item href="#" active>Page</goat-breadcrumb-item></goat-breadcrumb>
@@ -2504,7 +2480,7 @@ declare namespace LocalJSX {
     }
     /**
      * @name ChartDoughnut
-     * @description Use tags to label, categorize, or organize items using keywords that describe them.
+     * @description A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.
      * @category Up coming
      * @tag controls
      * @example <goat-chart-doughnut class="color-red"></goat-chart-doughnut>
@@ -2627,7 +2603,7 @@ declare namespace LocalJSX {
     }
     /**
      * @name Current Time
-     * @description The current time component displays the current time in a 12-hour format.
+     * @description Displays the current time in a given timezone.
      * @category General
      * @tags controls
      * @example <goat-current-time></goat-current-time>
@@ -2651,7 +2627,11 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
+        "helperText"?: string;
         "inline"?: boolean;
+        "invalid"?: boolean;
+        "invalidText"?: string;
+        "label"?: string;
         /**
           * The input field name.
          */
@@ -2681,6 +2661,10 @@ declare namespace LocalJSX {
          */
         "readonly"?: boolean;
         /**
+          * If true, required icon is show. Defaults to `false`.
+         */
+        "required"?: boolean;
+        /**
           * The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
         "size"?: 'sm' | 'md' | 'lg';
@@ -2688,6 +2672,8 @@ declare namespace LocalJSX {
           * The input field value.
          */
         "value"?: string | number | null;
+        "warn"?: boolean;
+        "warnText"?: string;
     }
     /**
      * @name Divider
@@ -2737,7 +2723,7 @@ declare namespace LocalJSX {
     /**
      * @name Flow Designer
      * @category Up coming
-     * @description An interactive button with a range of presentation options.
+     * @description Flow Designer is a component that allows users to create and edit flows.
      * @img /assets/img/flow-designer.png
      */
     interface GoatFlowDesigner {
@@ -2746,35 +2732,8 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
     }
     /**
-     * @name Form Control
-     * @description The Form Control component adds a label and caption for its child control.
-     * @category Form Inputs
-     * @tags form
-     * @example <goat-form-control label='Full Name' required>
-     * <goat-input type='text'></goat-input>
-     * </goat-form-control>
-     */
-    interface GoatFormControl {
-        /**
-          * The caption for the form control.
-         */
-        "caption"?: string;
-        "error"?: string;
-        "inline"?: boolean;
-        /**
-          * The label for the form control.
-         */
-        "label"?: string;
-        /**
-          * Whether the form control is required.
-         */
-        "required"?: boolean;
-        "success"?: string;
-        "warning"?: string;
-    }
-    /**
      * @name Header
-     * @description Headers are compositions that extend standard navbar functionalities.
+     * @description Header component is used to display a header with a brand, navigation, and actions.
      * @category Navigation
      * @img /assets/img/header.png
      * @imgDark /assets/img/header-dark.png
@@ -2816,7 +2775,7 @@ declare namespace LocalJSX {
     }
     /**
      * @name HTML Editor
-     * @description A browser based html editor.
+     * @description HTML Editor component is a WYSIWYG editor that allows users to edit HTML content.
      * @category Up coming
      * @tags input, form
      * @img /assets/img/html-editor.png
@@ -2853,7 +2812,8 @@ declare namespace LocalJSX {
     }
     /**
      * @name Icon
-     * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
+     * @description Icons are visual symbols used to represent ideas, objects, or actions.
+     * @overview Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
      * @category General
      * @example <goat-icon name="home" size="2rem"></goat-icon>
      */
@@ -2976,7 +2936,8 @@ declare namespace LocalJSX {
      */
     interface GoatMenu {
         "empty"?: boolean;
-        "emptyState"?: any;
+        "emptyStateDescription"?: string;
+        "emptyStateHeadline"?: string;
         "showLoader"?: boolean;
         /**
           * The menu item size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
@@ -3025,7 +2986,7 @@ declare namespace LocalJSX {
         "actionName"?: string;
         "actionable"?: boolean;
         "dismissible"?: boolean;
-        "lowContrast"?: boolean;
+        "highContrast"?: boolean;
         "onGoat:dismiss"?: (event: GoatNotificationCustomEvent<any>) => void;
         "state"?: 'success' | 'error' | 'info' | 'warning';
     }
@@ -3238,7 +3199,7 @@ declare namespace LocalJSX {
     }
     /**
      * @name Slider
-     * @description Allows the user to select one or more options using a dropdown.
+     * @description Sliders allow users to make selections from a range of values.
      * @category Form Inputs
      * @tags input, form
      * @img /assets/img/slider.png
@@ -3370,7 +3331,7 @@ declare namespace LocalJSX {
     }
     /**
      * @name Tabs
-     * @description An interactive button with a range of presentation options.
+     * @description The tabs component is used to display multiple panels of content in a container.
      * @category Navigation
      * @tags navigation
      * @example <goat-tabs>
@@ -3677,7 +3638,6 @@ declare namespace LocalJSX {
         "goat-dropdown": GoatDropdown;
         "goat-empty-state": GoatEmptyState;
         "goat-flow-designer": GoatFlowDesigner;
-        "goat-form-control": GoatFormControl;
         "goat-header": GoatHeader;
         "goat-header-action": GoatHeaderAction;
         "goat-header-brand": GoatHeaderBrand;
@@ -3722,6 +3682,8 @@ declare module "@stencil/core" {
             /**
              * @name Accordion
              * @description An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.
+             * @overview  <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>
+             *  <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>
              * @category Data Display
              * @tags display
              * @img /assets/img/accordion.png
@@ -3731,7 +3693,7 @@ declare module "@stencil/core" {
             "goat-accordion-item": LocalJSX.GoatAccordionItem & JSXBase.HTMLAttributes<HTMLGoatAccordionItemElement>;
             /**
              * @name Avatar
-             * @description Avatars in their simplest form display content within a circular container.
+             * @description The Avatar component is used to represent user, and displays the profile picture, initials or fallback icon.
              * @category Data Display
              * @tags display
              * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.png"></goat-avatar>
@@ -3739,15 +3701,15 @@ declare module "@stencil/core" {
             "goat-avatar": LocalJSX.GoatAvatar & JSXBase.HTMLAttributes<HTMLGoatAvatarElement>;
             /**
              * @name Badge
-             * @description Renders a specified badge.
+             * @description The badge component is used to display a small amount of information to the user.
              * @category Data Display
              * @tag content
-             * @example <goat-badge content="5" class='color-error'> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
+             * @example <goat-badge content="5"> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
              */
             "goat-badge": LocalJSX.GoatBadge & JSXBase.HTMLAttributes<HTMLGoatBadgeElement>;
             /**
              * @name Breadcrumb
-             * @description Typography are used for rendering headlines, paragraphs and captions.
+             * @description A breadcrumb is a secondary navigation scheme that reveals the user's location in a website or web application.
              * @category Navigation
              * @tags navigation
              * @example <goat-breadcrumb><goat-breadcrumb-item href="#">Home</goat-breadcrumb-item><goat-breadcrumb-item href="#" active>Page</goat-breadcrumb-item></goat-breadcrumb>
@@ -3802,7 +3764,7 @@ declare module "@stencil/core" {
             "goat-cb-predicate": LocalJSX.GoatCbPredicate & JSXBase.HTMLAttributes<HTMLGoatCbPredicateElement>;
             /**
              * @name ChartDoughnut
-             * @description Use tags to label, categorize, or organize items using keywords that describe them.
+             * @description A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.
              * @category Up coming
              * @tag controls
              * @example <goat-chart-doughnut class="color-red"></goat-chart-doughnut>
@@ -3846,7 +3808,7 @@ declare module "@stencil/core" {
             "goat-container": LocalJSX.GoatContainer & JSXBase.HTMLAttributes<HTMLGoatContainerElement>;
             /**
              * @name Current Time
-             * @description The current time component displays the current time in a 12-hour format.
+             * @description Displays the current time in a given timezone.
              * @category General
              * @tags controls
              * @example <goat-current-time></goat-current-time>
@@ -3885,23 +3847,13 @@ declare module "@stencil/core" {
             /**
              * @name Flow Designer
              * @category Up coming
-             * @description An interactive button with a range of presentation options.
+             * @description Flow Designer is a component that allows users to create and edit flows.
              * @img /assets/img/flow-designer.png
              */
             "goat-flow-designer": LocalJSX.GoatFlowDesigner & JSXBase.HTMLAttributes<HTMLGoatFlowDesignerElement>;
             /**
-             * @name Form Control
-             * @description The Form Control component adds a label and caption for its child control.
-             * @category Form Inputs
-             * @tags form
-             * @example <goat-form-control label='Full Name' required>
-             * <goat-input type='text'></goat-input>
-             * </goat-form-control>
-             */
-            "goat-form-control": LocalJSX.GoatFormControl & JSXBase.HTMLAttributes<HTMLGoatFormControlElement>;
-            /**
              * @name Header
-             * @description Headers are compositions that extend standard navbar functionalities.
+             * @description Header component is used to display a header with a brand, navigation, and actions.
              * @category Navigation
              * @img /assets/img/header.png
              * @imgDark /assets/img/header-dark.png
@@ -3911,7 +3863,7 @@ declare module "@stencil/core" {
             "goat-header-brand": LocalJSX.GoatHeaderBrand & JSXBase.HTMLAttributes<HTMLGoatHeaderBrandElement>;
             /**
              * @name HTML Editor
-             * @description A browser based html editor.
+             * @description HTML Editor component is a WYSIWYG editor that allows users to edit HTML content.
              * @category Up coming
              * @tags input, form
              * @img /assets/img/html-editor.png
@@ -3920,7 +3872,8 @@ declare module "@stencil/core" {
             "goat-html-editor": LocalJSX.GoatHtmlEditor & JSXBase.HTMLAttributes<HTMLGoatHtmlEditorElement>;
             /**
              * @name Icon
-             * @description Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
+             * @description Icons are visual symbols used to represent ideas, objects, or actions.
+             * @overview Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.
              * @category General
              * @example <goat-icon name="home" size="2rem"></goat-icon>
              */
@@ -4011,7 +3964,7 @@ declare module "@stencil/core" {
             "goat-sidenav-menu-item": LocalJSX.GoatSidenavMenuItem & JSXBase.HTMLAttributes<HTMLGoatSidenavMenuItemElement>;
             /**
              * @name Slider
-             * @description Allows the user to select one or more options using a dropdown.
+             * @description Sliders allow users to make selections from a range of values.
              * @category Form Inputs
              * @tags input, form
              * @img /assets/img/slider.png
@@ -4045,7 +3998,7 @@ declare module "@stencil/core" {
             "goat-table": LocalJSX.GoatTable & JSXBase.HTMLAttributes<HTMLGoatTableElement>;
             /**
              * @name Tabs
-             * @description An interactive button with a range of presentation options.
+             * @description The tabs component is used to display multiple panels of content in a container.
              * @category Navigation
              * @tags navigation
              * @example <goat-tabs>

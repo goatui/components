@@ -1,7 +1,0 @@
-{
-
-  "scripts": {
-    "serve": "deno task serve",
-    "build": "deno task build"
-  }
-}

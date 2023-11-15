@@ -141,11 +141,9 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
   getTheme() {
     let theme: string;
     if (!this.isDarkMode) {
-      if (this.disabled || this.readonly) theme = 'hc-black';
-      else theme = 'vs';
+      theme = 'vs';
     } else {
-      if (this.disabled || this.readonly) theme = 'hc-light';
-      else theme = 'vs-dark';
+      theme = 'vs-dark';
     }
     return theme;
   }

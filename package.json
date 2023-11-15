@@ -31,6 +31,7 @@
   ],
   "scripts": {
     "build": "stencil build --docs --prod",
+    "build:docs": "stencil docs",
     "build:full": "npm run build:theme && npm run build",
     "build:theme": "sass ./src/globalStyles/theme/theme.scss ./src/assets/styles/theme.css",
     "generate": "stencil generate",

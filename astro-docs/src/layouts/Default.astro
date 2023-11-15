@@ -1,10 +1,11 @@
 ---
 interface Props {
   title?: string;
+  description?: string;
   root?: boolean;
 }
 
-const {title, root} = Astro.props;
+const {title, root, description} = Astro.props;
 
 import Layout from './Base.astro';
 import site from '../_data/site.json';
@@ -15,7 +16,7 @@ const getTitle = (root?: boolean) => {
 }
 ---
 
-<Layout>
+<Layout title={title} description={description}>
 
   <nav class='top-nav'>
     <goat-header class={`brand actions-separated ${!root ? 'border' : ''}`}>
@@ -46,12 +47,12 @@ const getTitle = (root?: boolean) => {
                 }));
                 search.items = search.items.filter(item => !!item.label);
                 search.addEventListener('goat:change', function (e) {
-                  window.location.href = e.detail.value;
+                  window.location.href = "/components/" + e.detail.value;
                 });
 
                 search.addEventListener('goat:search-enter', function (e) {
                   if (e.detail.currentItems.length > 0)
-                    window.location.href = e.detail.currentItems[0].value;
+                    window.location.href = "/components/" + e.detail.currentItems[0].value;
                 });
 
                 document.addEventListener('keydown', function (e) {

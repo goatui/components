@@ -1,0 +1,26 @@
+---
+import HighlighterCard from '../../../../components/HighlighterCard.astro';
+---
+<style>
+  .demo-canvas .demo-area {
+    height: 30rem;
+  }
+</style>
+<HighlighterCard lang={'html'} cssClasses='demo-canvas'>
+<goat-tabs>
+  <goat-tabs-list>
+    <goat-tab>First tab</goat-tab>
+    <goat-tab selected="true">Second tab</goat-tab>
+    <goat-tab disabled>Disabled tab</goat-tab>
+    <goat-tab>Last tab</goat-tab>
+  </goat-tabs-list>
+
+  <goat-tab-panel>
+    <goat-text type="heading"> First tab content </goat-text>
+  </goat-tab-panel>
+
+  <goat-tab-panel>
+    <goat-text type="heading"> Second tab content </goat-text>
+  </goat-tab-panel>
+</goat-tabs>
+</HighlighterCard>

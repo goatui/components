@@ -78,7 +78,7 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [goat-icon](../../general/icon)
+- [goat-icon](../../icon)
 
 ### Graph
 ```mermaid

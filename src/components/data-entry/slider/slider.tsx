@@ -3,7 +3,7 @@ import { debounceEvent, getComponentIndex, DRAG_EVENT_TYPES, DRAG_STOP_EVENT_TYP
 
 /**
  * @name Slider
- * @description Allows the user to select one or more options using a dropdown.
+ * @description Sliders allow users to make selections from a range of values.
  * @category Form Inputs
  * @tags input, form
  * @img /assets/img/slider.png

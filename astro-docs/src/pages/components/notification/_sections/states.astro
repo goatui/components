@@ -1,0 +1,34 @@
+---
+import HighlighterCard from '../../../../components/HighlighterCard.astro';
+import NotificationContent from './notification-content.astro';
+---
+<HighlighterCard lang={'html'}>
+  <goat-notification>
+    <NotificationContent />
+  </goat-notification>
+  <goat-notification state='success'>
+    <NotificationContent />
+  </goat-notification>
+  <goat-notification state='warning'>
+    <NotificationContent />
+  </goat-notification>
+  <goat-notification state='error'>
+    <NotificationContent />
+  </goat-notification>
+</HighlighterCard>
+
+<goat-text type='heading' heading-size='3' class='hydrated'>Low contrast</goat-text>
+<HighlighterCard lang={'html'}>
+  <goat-notification high-contrast dismissible>
+    <NotificationContent />
+  </goat-notification>
+  <goat-notification high-contrast state='success'>
+    <NotificationContent />
+  </goat-notification>
+  <goat-notification high-contrast state='warning'>
+    <NotificationContent />
+  </goat-notification>
+  <goat-notification high-contrast state='error'>
+    <NotificationContent />
+  </goat-notification>
+</HighlighterCard>

@@ -9,8 +9,7 @@ document.getElementById('component-search').addEventListener('goat:input', funct
 });
 if (window.location.href.indexOf('?filter=') !== -1) {
   const filter = new URLSearchParams(window.location.search).get('filter');
-  if (filter)
-    document.querySelector('.filters').classList.remove('hidden');
+  if (filter) document.querySelector('.filters').classList.remove('hidden');
   document.querySelectorAll('.card-wrapper').forEach(elm => {
     elm.classList.add('hidden-force');
     if (elm.querySelector(`goat-tag[tag="${filter}"]`)) {
@@ -19,11 +18,14 @@ if (window.location.href.indexOf('?filter=') !== -1) {
   });
 }
 
-
 const cardHeaders = document.querySelectorAll('.card-header');
 
 cardHeaders.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
-    window.location.href=`/components/${event.target.getAttribute('data-tag').replace("goat-", "")}#`
+    if (event.ctrlKey || event.metaKey) {
+      window.open(`/components/${event.target.getAttribute('data-tag').replace('goat-', '')}#`, '_blank');
+      return;
+    }
+    window.location.href = `/components/${event.target.getAttribute('data-tag').replace('goat-', '')}#`;
   });
 });

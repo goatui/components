@@ -85,13 +85,13 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [goat-icon](../../general/icon)
+- [goat-icon](../../icon)
 - [goat-tag](../../data-display/tag)
-- [goat-button](../../general/button)
-- [goat-spinner](../../feedback/spinner)
-- [goat-menu](../../navigation/menu/menu)
-- [goat-text](../../general/text)
-- [goat-menu-item](../../navigation/menu/menu-item)
+- [goat-button](../../button)
+- [goat-spinner](../../spinner)
+- [goat-menu](../../menu/menu)
+- [goat-text](../../text)
+- [goat-menu-item](../../menu/menu-item)
 
 ### Graph
 ```mermaid

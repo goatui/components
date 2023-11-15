@@ -3,7 +3,7 @@ import loadGoogleCharts from '../../../3d-party/google-charts';
 
 /**
  * @name ChartDoughnut
- * @description Use tags to label, categorize, or organize items using keywords that describe them.
+ * @description A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.
  * @category Up coming
  * @tag controls
  * @example <goat-chart-doughnut class="color-red"></goat-chart-doughnut>

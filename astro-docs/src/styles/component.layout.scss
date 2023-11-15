@@ -44,6 +44,21 @@ $sideBarWidth: 15rem;
 
 .page-container {
   padding: var(--spacing-07) var(--spacing-05);
+
+  .comp-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-05);
+    margin-bottom: var(--spacing-05);
+
+    .comp-title {
+      margin: 0;
+    }
+  }
+}
+
+.footer .footer-content {
+  padding: var(--spacing-05) var(--spacing-07);
 }
 
 @include for-tablet-landscape-up {
@@ -67,6 +82,7 @@ pre[class*='language-'] {
   .component-content {
     flex: 1;
     width: calc(100% - 360px);
+
     .component-description {
       margin-bottom: var(--spacing-09);
     }
@@ -74,6 +90,7 @@ pre[class*='language-'] {
 
   .section-nav {
     width: 23rem;
+
     .link {
       width: 100%;
     }
@@ -180,6 +197,19 @@ pre[class*='language-'] {
   padding: var(--spacing-09);
   align-items: center;
   justify-content: center;
+}
+
+.demo-input .demo-area-inner {
+  max-width: 20rem;
+  margin: auto;
+}
+
+
+.demo-components .demo-area {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 

@@ -270,7 +270,6 @@ export class Select implements ComponentInterface, InputComponentInterface {
       });
     } else if (evt.key === 'ArrowDown') {
       if (this.isOpen) {
-        console.log('inside select');
         evt.preventDefault();
         this.menuElm.setFocus();
       }
@@ -399,7 +398,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
             const item = this.getItemByValue(value);
             if (item) {
               return (
-                <goat-tag filter class="multi-select-value" value={item.value}>
+                <goat-tag filter={!this.disabled && !this.readonly} class="multi-select-value" value={item.value}>
                   {item.label}
                 </goat-tag>
               );

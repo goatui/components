@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Default.astro';
-import BannerLogo from '../components/pages/index/BannerLogo.astro';
+import BannerLogo from '../components/BannerLogo.astro';
 import site from '../_data/site.json';
 import '../styles/index.page.scss';
 ---
@@ -90,17 +90,17 @@ import '../styles/index.page.scss';
       </goat-container>
       <goat-container class='container-code'>
         <goat-code-highlighter language="html" id="get-started-code" class="code-highlighter"/>
-        <script is:inline>
+        <script is:inline define:vars={{site}}>
           document.getElementById('get-started-code').value = `<!DOCTYPE html>
 <html>
 <head>
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width'>
-  <title>{site.title}</title>
+  <title>${site.title}</title>
 
-  <!-- include your custom theme variable values, view variable names at {site.themeCss} -->
+  <!-- include your custom theme variable values, view variable names at ${site.themeCss} -->
   <!--link rel="stylesheet" href="/custom-theme.css"></link-->
-   &lt;script type='module' src='{site.script}'>&lt;/script>
+   &lt;script type='module' src='${site.script}'>&lt;/script>
 
       <style>
     @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans+Condensed:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Serif:ital@0;1&display=swap');

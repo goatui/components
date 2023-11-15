@@ -25,6 +25,23 @@ export class DatePicker implements ComponentInterface {
    */
   @Prop() placeholder: string;
 
+  @Prop() label: string;
+
+  @Prop() helperText: string;
+
+  @Prop() invalid: boolean = false;
+
+  @Prop() invalidText: string;
+
+  @Prop() warn: boolean = false;
+
+  @Prop() warnText: string;
+
+  /**
+   * If true, required icon is show. Defaults to `false`.
+   */
+  @Prop({ reflect: true }) required: boolean = false;
+
   /**
    * The input field size.
    * Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
@@ -176,42 +193,62 @@ export class DatePicker implements ComponentInterface {
     this.inputHandler(evt);
   };
 
+  renderHelper() {
+    if (this.invalid) return <div class="helper invalid">{this.invalidText}</div>;
+    else if (this.warn) return <div class="helper warn">{this.warnText}</div>;
+    else if (this.helperText) return <div class="helper text">{this.helperText}</div>;
+  }
+
   render() {
     return (
       <Host has-focus={this.hasFocus} has-value={this.hasValue()}>
-        <div
-          class={{
-            'input-container': true,
-            'disabled': this.disabled,
-            'has-focus': this.hasFocus,
-          }}
-        >
-          <input
-            type="date"
-            ref={input => (this.nativeElement = input)}
-            tabindex={this.tabindex}
-            class="input input-native"
-            disabled={this.disabled}
-            readonly={this.readonly}
-            onKeyDown={this.keyDownHandler}
-            onInput={this.inputHandler}
-            onBlur={this.blurHandler}
-            onFocus={this.focusHandler}
-          />
+        <div class={{ 'form-control': true, 'inline': this.inline }}>
+          {this.label && (
+            <label class="label">
+              {this.required && <span class="required">*</span>}
+              {this.label}
+            </label>
+          )}
 
-          <goat-button
-            class="input-action"
-            kind={'simple'}
-            color={'secondary'}
-            icon={'calendar'}
-            variant="ghost"
-            size="full"
-            onGoat:click={() => {
-              setTimeout(() => {
-                this.nativeElement.showPicker();
-              });
-            }}
-          ></goat-button>
+          <div class="field">
+            <div
+              class={{
+                'input-container': true,
+                'disabled': this.disabled,
+                'has-focus': this.hasFocus,
+              }}
+            >
+              <input
+                type="date"
+                ref={input => (this.nativeElement = input)}
+                tabindex={this.tabindex}
+                class="input input-native"
+                disabled={this.disabled}
+                required={this.required}
+                readonly={this.readonly}
+                onKeyDown={this.keyDownHandler}
+                onInput={this.inputHandler}
+                onBlur={this.blurHandler}
+                onFocus={this.focusHandler}
+              />
+
+              <goat-button
+                class="input-action"
+                kind={'simple'}
+                color={'secondary'}
+                icon={'calendar'}
+                variant="ghost"
+                disabled={this.disabled}
+                size="full"
+                onGoat:click={() => {
+                  setTimeout(() => {
+                    this.nativeElement.showPicker();
+                  });
+                }}
+              ></goat-button>
+            </div>
+            {this.renderHelper()}
+          </div>
         </div>
       </Host>
     );

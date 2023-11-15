@@ -19,8 +19,8 @@
 
 ### Depends on
 
-- [goat-button](../../general/button)
-- [goat-spinner](../../feedback/spinner)
+- [goat-button](../../button)
+- [goat-spinner](../../spinner)
 
 ### Graph
 ```mermaid

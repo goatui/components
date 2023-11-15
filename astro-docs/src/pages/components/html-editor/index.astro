@@ -1,0 +1,48 @@
+---
+import Layout from '../../../layouts/Component.astro';
+import getComponentDetails from '../../../_data/getComponentDetails.ts';
+import ApiPanel from '../../../components/ApiPanel.astro';
+import OverviewPanel from '../../../components/OverviewPanel.astro';
+const componentDetails = getComponentDetails('goat-html-editor');
+
+import UsageSection from './_sections/usage.astro';
+import ThemeSection from './_sections/theme.astro';
+import DisabledSection from './_sections/disabled.astro';
+
+const sections = [
+  {
+    'title': 'Usage',
+    'Component': UsageSection,
+  }, {
+    'title': 'Theme',
+    'Component': ThemeSection,
+  }, {
+    'title': 'Disabled State',
+    'Component': DisabledSection,
+  }];
+---
+<style is:inline>
+  goat-checkbox {
+    margin: 0 0.5rem 1rem 0;
+  }
+</style>
+
+<Layout title={componentDetails.metadata.name} description={componentDetails.metadata.description}>
+  <goat-tabs class='page-tabs'>
+    <goat-tabs-list>
+      <goat-tab selected='true'>Overview</goat-tab>
+      <goat-tab>Playground</goat-tab>
+      <goat-tab>API</goat-tab>
+    </goat-tabs-list>
+    <goat-tab-panel>
+      <OverviewPanel componentDetails={componentDetails} sections={sections} />
+    </goat-tab-panel>
+    <goat-tab-panel>
+      <goat-notification type='warning'>Work in progress</goat-notification>
+    </goat-tab-panel>
+    <goat-tab-panel>
+      <ApiPanel componentDetails={componentDetails} />
+    </goat-tab-panel>
+  </goat-tabs>
+</Layout>
+
