@@ -22,7 +22,9 @@ function releaseToDocs(cb) {
     result.prod = {
       script: `https://cdn.jsdelivr.net/npm/@goatui/components@${packageJson.version}/dist/goatui/goatui.esm.js`,
       themeCss: `https://cdn.jsdelivr.net/npm/@goatui/components@${packageJson.version}/dist/goatui/assets/styles/theme.css`,
+      version: packageJson.version,
     };
+    result.dev.version = packageJson.version;
     fs.writeFile('astro-docs/src/_data/site.json', JSON.stringify(result, null, 2), 'utf8', function (err) {
       if (err) return console.log(err);
       cb('site.json config updated');
