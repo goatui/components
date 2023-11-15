@@ -3,9 +3,17 @@ import Layout from '../layouts/Component.astro';
 import ComponentCard from '../components/ComponentCard.astro';
 import componentsDetails from '../_data/componentsDetails.json';
 import '../styles/components.page.scss';
+
+const comp = {
+  metadata: {
+    name: 'Overview',
+    description: 'The overview page is the first page you see when you visit the components section of the website. It shows all the components that are available to use in the Goat UI library. It also shows the components that are coming soon.',
+  },
+};
 ---
 
-<Layout title="Overview">
+
+<Layout componentDetails={comp}>
   <goat-input id='component-search' placeholder='Search'>
     <goat-icon slot='start' size='1rem' name='search'></goat-icon>
   </goat-input>
@@ -20,7 +28,7 @@ import '../styles/components.page.scss';
     {
       componentsDetails.components.map((component) => {
         if (component.metadata.name && component.metadata.category != 'Up coming') {
-          return <ComponentCard component={component}></ComponentCard>
+          return <ComponentCard component={component}></ComponentCard>;
         }
       })
     }

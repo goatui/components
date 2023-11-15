@@ -18,7 +18,7 @@ const sections = [
     'Component': TimezoneSection,
   }];
 ---
-<Layout title={componentDetails.metadata.name} description={componentDetails.metadata.description}>
+<Layout componentDetails={componentDetails}>
   <goat-tabs class='page-tabs'>
     <goat-tabs-list>
       <goat-tab selected='true'>Overview</goat-tab>

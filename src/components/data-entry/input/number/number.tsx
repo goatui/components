@@ -3,7 +3,7 @@ import { debounceEvent, getComponentIndex } from '../../../../utils/utils';
 
 /**
  * @name Number
- * @description Enables native inputs to be used within a Form field.
+ * @description Number input lets users enter a numeric value and incrementally increase or decrease the value with a two-segment control.
  * @category Form Inputs
  * @tags input, form
  * @example <goat-number value="100"></goat-input>
