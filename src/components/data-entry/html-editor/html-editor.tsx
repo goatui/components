@@ -1,27 +1,14 @@
-import {Component, ComponentInterface, Event, EventEmitter, h, Host, Method, Prop, State, Watch} from '@stencil/core';
-import {debounceEvent, getComponentIndex} from '../../../utils/utils';
-import {
-  $createParagraphNode,
-  $createTextNode,
-  $getRoot,
-  $getSelection,
-  CAN_UNDO_COMMAND,
-  createEditor,
-  FORMAT_ELEMENT_COMMAND, FORMAT_TEXT_COMMAND, REDO_COMMAND,
-  SELECTION_CHANGE_COMMAND,
-  UNDO_COMMAND,
-} from 'lexical';
-import {registerRichText} from '@lexical/rich-text';
-import {createEmptyHistoryState, registerHistory} from '@lexical/history';
-import {
-  $convertToMarkdownString,
-  TRANSFORMERS,
-} from '@lexical/markdown';
-
+import { Component, ComponentInterface, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
+import { debounceEvent, getComponentIndex } from '../../../utils/utils';
+import { Editor } from '@tiptap/core';
+import StarterKit from '@tiptap/starter-kit';
+import Document from '@tiptap/extension-document';
+import Paragraph from '@tiptap/extension-paragraph';
+import Text from '@tiptap/extension-text';
 
 /**
  * @name HTML Editor
- * @description A browser based html editor.
+ * @description HTML Editor component is a WYSIWYG editor that allows users to edit HTML content.
  * @category Up coming
  * @tags input, form
  * @img /assets/img/html-editor.png
@@ -43,19 +30,19 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
   /**
    * The input field value.
    */
-  @Prop({mutable: true}) value: string;
+  @Prop({ mutable: true }) value: string;
 
   /**
    * If true, required icon is show. Defaults to `false`.
    */
-  @Prop({reflect: true}) required: boolean = false;
+  @Prop({ reflect: true }) required: boolean = false;
 
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
-  @Prop({reflect: true}) disabled: boolean = false;
+  @Prop({ reflect: true }) disabled: boolean = false;
 
-  @Prop({reflect: true}) readonly: boolean = false;
+  @Prop({ reflect: true }) readonly: boolean = false;
 
   @Prop() theme: 'vs-light' | 'vs-dark' = 'vs-light';
 
@@ -64,7 +51,7 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
   /**
    * Emitted when the value has changed..
    */
-  @Event({eventName: 'goat:change'}) goatChange: EventEmitter;
+  @Event({ eventName: 'goat:change' }) goatChange: EventEmitter;
 
   /**
    * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
@@ -89,7 +76,7 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
 
   @Watch('readonly')
   readonlyWatcher(newValue: string) {
-    this.editorInstance.updateOptions({readOnly: newValue || this.disabled});
+    this.editorInstance.updateOptions({ readOnly: newValue || this.disabled });
   }
 
   @Watch('theme')
@@ -154,59 +141,11 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
 
     // This sample still does not showcase all CKEditor 5 features (!)
     // Visit https://ckeditor.com/docs/ckeditor5/latest/features/index.html to browse all the features.
-    this.editorInstance = createEditor({
-      editable: true,
+    this.editorInstance = new Editor({
+      element: this.editorElement,
+      extensions: [StarterKit, Document, Paragraph, Text],
+      content: '<p>Hello World!</p>',
     });
-
-    registerRichText(this.editorInstance);
-    registerHistory(this.editorInstance, createEmptyHistoryState(), 0);
-
-
-    //@ts-ignore
-    window.myEditor = this.editorInstance;
-    this.editorInstance.setRootElement(this.editorElement);
-
-    this.editorInstance.update(() => {
-
-      // Get the RootNode from the EditorState
-      const root = $getRoot();
-
-      // Get the selection from the EditorState
-      // const selection = $getSelection();
-
-      // Create a new ParagraphNode
-      const paragraphNode = $createParagraphNode();
-
-      // Create a new TextNode
-      const textNode = $createTextNode('Hello world').toggleFormat('italic');
-
-      // Append the text node to the paragraph
-      paragraphNode.append(textNode);
-
-
-      // Finally, append the paragraph to the root
-      root.append(paragraphNode);
-
-
-      const markdown = $convertToMarkdownString(TRANSFORMERS, root);
-      console.log(markdown);
-    });
-    this.editorInstance.registerCommand(
-      SELECTION_CHANGE_COMMAND,
-      () => {
-        console.log($getSelection());
-        return true;
-      },
-      1,
-    );
-    this.editorInstance.registerCommand(
-      CAN_UNDO_COMMAND,
-      payload => {
-        console.log(payload);
-        return false;
-      },
-      1,
-    );
   }
 
   render() {
@@ -224,72 +163,83 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
         >
           <div class="toolbar">
             <goat-button-group>
-              <goat-button icon="redo"
-                           color="secondary"
-                           size={'sm'}
-                           onGoat:click={() => {
-                             this.editorInstance.dispatchCommand(REDO_COMMAND);
-                           }}
+              <goat-button
+                icon="undo"
+                variant="outline"
+                color="secondary"
+                size={'sm'}
+                onGoat:click={() => {
+                  this.editorInstance.commands.undo();
+                }}
               ></goat-button>
-              <goat-button icon="undo"
-                           variant="outline"
-                           color="secondary"
-                           size={'sm'}
-                           onGoat:click={() => {
-                             this.editorInstance.dispatchCommand(UNDO_COMMAND);
-                           }}
+              <goat-button
+                icon="redo"
+                color="secondary"
+                size={'sm'}
+                onGoat:click={() => {
+                  this.editorInstance.commands.redo();
+                }}
               ></goat-button>
             </goat-button-group>
 
             <goat-button-group>
-              <goat-button icon="text--align--left"
-                           variant="outline"
-                           color="secondary"
-                           size={'sm'}
-                           onGoat:click={() => {
-                             this.editorInstance.dispatchCommand(FORMAT_ELEMENT_COMMAND, "left");
-                           }}
+              <goat-button
+                icon="text--align--left"
+                variant="outline"
+                color="secondary"
+                size={'sm'}
+                onGoat:click={() => {
+                  // this.editorInstance.dispatchCommand(FORMAT_ELEMENT_COMMAND, 'left');
+                }}
               ></goat-button>
 
-              <goat-button icon="text--align--center"
-                           variant="outline"
-                           color="secondary"
-                           size={'sm'}
-                           onGoat:click={() => {
-                             this.editorInstance.dispatchCommand(FORMAT_ELEMENT_COMMAND, "center");
-                           }}></goat-button>
+              <goat-button
+                icon="text--align--center"
+                variant="outline"
+                color="secondary"
+                size={'sm'}
+                onGoat:click={() => {
+                  // this.editorInstance.dispatchCommand(FORMAT_ELEMENT_COMMAND, 'center');
+                }}
+              ></goat-button>
 
-              <goat-button icon="text--align--right"
-                           variant="outline"
-                           color="secondary"
-                           size={'sm'}
-                           onGoat:click={() => {
-                             this.editorInstance.dispatchCommand(FORMAT_ELEMENT_COMMAND, "right");
-                           }}></goat-button>
+              <goat-button
+                icon="text--align--right"
+                variant="outline"
+                color="secondary"
+                size={'sm'}
+                onGoat:click={() => {
+                  //.editorInstance.dispatchCommand(FORMAT_ELEMENT_COMMAND, 'right');
+                }}
+              ></goat-button>
             </goat-button-group>
 
             <goat-button-group>
-              <goat-button icon="text--bold"
-                           variant="outline"
-                           color="secondary"
-                           size={'sm'}
-                           onGoat:click={() => {
-                             this.editorInstance.dispatchCommand(FORMAT_TEXT_COMMAND, "bold");
-                           }}></goat-button>
+              <goat-button
+                icon="text--bold"
+                variant="outline"
+                color="secondary"
+                size={'sm'}
+                onGoat:click={() => {
+                  this.editorInstance.commands.toggleBold();
+                }}
+              ></goat-button>
 
-              <goat-button icon="text--italic"
-                           variant="outline"
-                           color="secondary"
-                           size={'sm'}
-                           onGoat:click={() => {
-                             this.editorInstance.dispatchCommand(FORMAT_TEXT_COMMAND, "italic");
-                           }}></goat-button>
+              <goat-button
+                icon="text--italic"
+                variant="outline"
+                color="secondary"
+                size={'sm'}
+                onGoat:click={() => {
+                  this.editorInstance.commands.toggleItalic();
+                }}
+              ></goat-button>
             </goat-button-group>
           </div>
-          <div class="editor" contenteditable ref={el => (this.editorElement = el)}></div>
+          <div class="editor" ref={el => (this.editorElement = el)}></div>
           {!this.editorInstance && (
             <div class="code-editor-loader">
-              <goat-spinner class="rainbow"/>
+              <goat-spinner />
               Loading editor...
             </div>
           )}

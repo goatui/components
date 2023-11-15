@@ -14,7 +14,6 @@ import { getComponentIndex } from '../../../../utils/utils';
   shadow: true,
 })
 export class TimePicker {
-
   gid: string = getComponentIndex();
 
   /**
@@ -33,7 +32,6 @@ export class TimePicker {
    */
   @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' = 'md';
 
-
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
@@ -50,7 +48,6 @@ export class TimePicker {
   @Prop({ mutable: true }) value?: string | number | null = '';
 
   @Prop({ reflect: true, mutable: true }) configAria: any = {};
-
 
   /**
    * Emitted when a keyboard input occurred.
@@ -87,7 +84,6 @@ export class TimePicker {
     return (this.value || '').toString();
   }
 
-
   @Method()
   async getComponentId() {
     return this.gid;
@@ -116,7 +112,6 @@ export class TimePicker {
       this.hasFocus = false;
     }
   }
-
 
   componentWillLoad() {
     // If the ion-input has a tabindex attribute we get the value
@@ -170,32 +165,43 @@ export class TimePicker {
 
   render() {
     return (
-      <Host has-focus={this.hasFocus}
-            has-value={this.hasValue()}>
-        <div class={{
-          'input-container': true,
-          'disabled': this.disabled,
-          'has-focus': this.hasFocus,
-        }}>
-          <input type='time'
-                 ref={input => (this.nativeElement = input)}
-                 tabindex={this.tabindex}
-                 class='input input-native'
-                 disabled={this.disabled}
-                 readOnly={this.readonly}
-                 onKeyDown={this.keyDownHandler}
-                 onInput={this.inputHandler}
-                 onBlur={this.blurHandler}
-                 onFocus={this.focusHandler} />
+      <Host has-focus={this.hasFocus} has-value={this.hasValue()}>
+        <div
+          class={{
+            'input-container': true,
+            'disabled': this.disabled,
+            'has-focus': this.hasFocus,
+          }}
+        >
+          <input
+            type="time"
+            ref={input => (this.nativeElement = input)}
+            tabindex={this.tabindex}
+            class="input input-native"
+            disabled={this.disabled}
+            readOnly={this.readonly}
+            onKeyDown={this.keyDownHandler}
+            onInput={this.inputHandler}
+            onBlur={this.blurHandler}
+            onFocus={this.focusHandler}
+          />
 
-          <goat-button class="input-action" kind={'simple'} color={'secondary'} icon={'time' } variant="ghost" size="full" onGoat:click={() => {
-            setTimeout(() => {
-              this.nativeElement.showPicker();
-            });
-          }}></goat-button>
+          <goat-button
+            class="input-action"
+            kind={'simple'}
+            color={'secondary'}
+            icon={'time'}
+            variant="ghost"
+            disabled={this.disabled}
+            size="full"
+            onGoat:click={() => {
+              setTimeout(() => {
+                this.nativeElement.showPicker();
+              });
+            }}
+          ></goat-button>
         </div>
       </Host>
     );
   }
-
 }

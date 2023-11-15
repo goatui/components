@@ -162,10 +162,10 @@ export class CodeHighlighter implements ComponentInterface {
   @Element() elm!: HTMLElement;
 
   async componentWillLoad() {
-    this.codeString = "";
+    this.codeString = '';
     if (this.value) {
       this.codeString = this.value;
-    } else if(this.elm.querySelector('code')) {
+    } else if (this.elm.querySelector('code')) {
       this.codeString = this.elm.querySelector('code').innerHTML;
     }
     this.codeString = this.decode(this.codeString);
@@ -252,7 +252,7 @@ export class CodeHighlighter implements ComponentInterface {
         )}
         {this.compiledCode === null && (
           <div class="code-loader">
-            <goat-spinner class="rainbow" />
+            <goat-spinner />
             Loading code...
           </div>
         )}

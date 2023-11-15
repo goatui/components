@@ -19,6 +19,56 @@ $input-background-color: var(--input-background-color, #{v(--field-01)});
   margin-bottom: 0;
 }
 
+.form-control {
+  display: flex;
+  flex-direction: column;
+
+  .label {
+    @include font-style(text-sm);
+    font-weight: v(--font-weight-medium);
+    margin-bottom: 0.375rem;
+
+    color: v(--text-secondary);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    .required {
+      color: v(--danger-02);
+      padding-right: v(--spacing-01);
+    }
+  }
+
+
+  .helper {
+    margin-block-start: v(--spacing-02);
+    @include font-style(helper-text-01);
+
+    &.text {
+      color: v(--text-helper);
+    }
+
+    &.invalid {
+      color: v(--support-error-inverse);
+    }
+
+    &.warn {
+      color: v(--support-warning-inverse);
+    }
+  }
+
+  &.inline {
+    flex-direction: row;
+    align-items: center;
+
+    .label {
+      margin-bottom: 0;
+      margin-inline-end: v(--spacing-04);
+    }
+  }
+
+}
+
 .input-container {
   position: relative;
   display: flex;
@@ -40,7 +90,7 @@ $input-background-color: var(--input-background-color, #{v(--field-01)});
     width: 100%;
     cursor: inherit;
     color: v(--text-primary);
-    padding: 0 1rem;
+    padding: 0 v(--spacing-05);
 
     /*
      * Font styles
@@ -133,18 +183,25 @@ $input-background-color: var(--input-background-color, #{v(--field-01)});
   border-color: transparent;
 }
 
-@each $state in [success, warning, error] {
-  :host-context(.input-state-#{$state}) {
-    .input-container {
-      border-color: v(--support-#{$state});
+:host([warn]) {
+  .input-container {
+    border-color: v(--support-warning);
 
-      &.has-focus {
-        @include focus-ring(v(--support-#{$state}));
-      }
+    &.has-focus {
+      @include focus-ring(v(--support-warning));
     }
   }
 }
 
+:host([invalid]) {
+  .input-container {
+    border-color: v(--support-error);
+
+    &.has-focus {
+      @include focus-ring(v(--support-error));
+    }
+  }
+}
 
 :host(.no-border) {
   .input-container {

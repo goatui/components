@@ -18,7 +18,7 @@
 
 ### Depends on
 
-- [goat-text](../../general/text)
+- [goat-text](../../text)
 - [goat-cb-divider](../cb-divider)
 - [goat-tag](../../data-display/tag)
 

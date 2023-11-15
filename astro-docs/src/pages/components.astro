@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Component.astro';
+import ComponentCard from '../components/ComponentCard.astro';
+import componentsDetails from '../_data/componentsDetails.json';
+import '../styles/components.page.scss';
+---
+
+<Layout title="Overview">
+  <goat-input id='component-search' placeholder='Search'>
+    <goat-icon slot='start' size='1rem' name='search'></goat-icon>
+  </goat-input>
+
+  <div class='filters hidden'>
+    <goat-link href='/components'>
+      Remove filter
+    </goat-link>
+  </div>
+
+  <div class='cards'>
+    {
+      componentsDetails.components.map((component) => {
+        if (component.metadata.name && component.metadata.category != 'Up coming') {
+          return <ComponentCard component={component}></ComponentCard>
+        }
+      })
+    }
+  </div>
+
+  <goat-text class='up-coming-title' type='heading' heading-size='4'>Upcoming</goat-text>
+
+  <div class='cards up-coming'>
+    {
+      componentsDetails.components.map((component) => {
+        if (component.metadata.name && component.metadata.category == 'Up coming') {
+          return <ComponentCard component={component}/>;
+        }
+      })
+    }
+  </div>
+
+  <script is:inline src='/assets/js/components.page.js'></script>
+</Layout>

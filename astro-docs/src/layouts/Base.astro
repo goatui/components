@@ -1,0 +1,71 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  root?: boolean;
+}
+
+const { title, root, description } = Astro.props;
+import site from '../_data/site.json';
+import '../styles/base.layout.scss';
+
+const isProd = import.meta.env.PROD;
+let envProps;
+
+if (isProd) {
+  envProps = site['prod'];
+} else {
+  envProps = site['dev'];
+}
+---
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <!-- Title -->
+  {title ? (<title>{title}  &middot; {site.title}</title>) : <title>{site.title} &middot; {site.tagline}</title>}
+
+  <!-- Required Meta Tags Always Come First -->
+  <meta charset='utf-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no' />
+
+  <!-- Author Meta Tags -->
+  <meta name='author' content={site.author} />
+  <meta name='copyright' content=`(c) ${new Date().getFullYear()} ${site.author}` } />
+
+  <!--  Meta tags -->
+  <meta name='keywords'
+        content='{% if page.keywords == null %}Web component, {{ page.title }}{% endif %}{% for keyword in page.keywords %}{{ keyword }}, {% endfor %}' />
+  <meta name='description' content={description ? description : site.description} />
+
+  <!-- Favicon -->
+  <link rel='shortcut icon' href='/assets/img/favicon.svg' />
+
+  <!- Styles -->
+  <link rel='stylesheet' href={envProps.themeCss} />
+
+  <!-- GoatUI scripts -->
+  <script type='module' src={envProps.script}></script>
+</head>
+<body>
+
+<slot />
+
+<goat-notification-manager position='bottom-right'></goat-notification-manager>
+
+<!-- Scripts -->
+<script src='/assets/js/main.js' is:inline></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async is:inline src='https://www.googletagmanager.com/gtag/js?id=G-YVVYZC1HFF'></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'G-YVVYZC1HFF');
+</script>
+</body>
+</html>

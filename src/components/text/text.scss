@@ -1,0 +1,77 @@
+@import "../../globalStyles/commons";
+
+:host {
+  display: block;
+  margin-bottom: v(--spacing-03);
+}
+
+
+.text {
+  &.inline {
+    display: inline-block;
+  }
+}
+
+.native-element {
+  margin: 0;
+}
+
+:host([inline]) {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+
+:host([type="heading"]) {
+  margin-bottom: v(--spacing-05);
+
+  .text {
+    @for $i from 1 through 7 {
+      &.heading-size-#{$i} {
+        .native-element {
+          @include font-style(heading-0#{$i});
+        }
+      }
+    }
+  }
+}
+
+$types: "body", "body-compact", "code", "helper", "legal", "label";
+
+@each $type in $types {
+  :host([type="#{$type}"]) {
+    .native-element {
+      @include font-style(#{$type}-01);
+    }
+
+    .expressive .native-element {
+      @include font-style(#{$type}-02);
+    }
+  }
+}
+
+
+:host {
+  color: var(--text-color, v(--text-primary));
+
+  &:host([color="secondary"]) {
+    color: v(--text-secondary);
+  }
+
+  &:host([color="tertiary"]), &:host([color="helper"]) {
+    color: v(--text-helper);
+  }
+
+  &:host([color="error"]) {
+    color: v(--text-error);
+  }
+
+  &:host([color="inverse"]) {
+    color: v(--text-inverse);
+  }
+}
+
+
+:host(.inherit) {
+  color: inherit;
+}

@@ -1,0 +1,17 @@
+---
+import HighlighterCard from '../../../../components/HighlighterCard.astro';
+import Highlighter from '../../../../components/Highlighter.astro';
+---
+<HighlighterCard lang='html'>
+  <goat-button id='click-me-btn'>Click me</goat-button>
+  <goat-button disabled id='disabled-btn'>Disabled Button</goat-button>
+
+  <script is:inline>
+    document.querySelector('#click-me-btn').addEventListener('goat:click', (event) => {
+      myConsole.log('Button clicked', 'goat:click');
+    });
+    document.querySelector('#disabled-btn').addEventListener('goat:click', (event) => {
+      myConsole.log('Button clicked', 'goat:click'); // this will not be fired
+    });
+  </script>
+</HighlighterCard>

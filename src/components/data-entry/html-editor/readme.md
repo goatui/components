@@ -65,9 +65,9 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [goat-button-group](../../general/button-group)
-- [goat-button](../../general/button)
-- [goat-spinner](../../feedback/spinner)
+- [goat-button-group](../../button-group)
+- [goat-button](../../button)
+- [goat-spinner](../../spinner)
 
 ### Graph
 ```mermaid

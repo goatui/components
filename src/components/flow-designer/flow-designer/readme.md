@@ -19,10 +19,10 @@
 ### Depends on
 
 - [goat-canvas](../canvas)
-- [goat-icon](../../general/icon)
+- [goat-icon](../../icon)
 - [goat-tag](../../data-display/tag)
-- [goat-button-group](../../general/button-group)
-- [goat-button](../../general/button)
+- [goat-button-group](../../button-group)
+- [goat-button](../../button)
 
 ### Graph
 ```mermaid

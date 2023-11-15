@@ -1,0 +1,45 @@
+---
+import Layout from '../../../layouts/Component.astro';
+import getComponentDetails from '../../../_data/getComponentDetails.ts';
+import ApiPanel from '../../../components/ApiPanel.astro';
+import OverviewPanel from '../../../components/OverviewPanel.astro';
+const componentDetails = getComponentDetails('goat-select');
+
+import UsageSection from './_sections/usage.astro';
+import SizesSection from './_sections/search.astro';
+import ManagedSearchSection from './_sections/managed.astro';
+import MultiSelectSection from './_sections/multi-select.astro';
+
+const sections = [{
+  'title': 'Usage',
+  'Component': UsageSection,
+}, {
+  'title': 'Search',
+  'Component': SizesSection,
+}, {
+  'title': 'Managed search',
+  'Component': ManagedSearchSection,
+}, {
+  'title': 'Multi Select',
+  'Component': MultiSelectSection,
+}];
+---
+
+<Layout title={componentDetails.metadata.name} description={componentDetails.metadata.description}>
+  <goat-tabs class='page-tabs'>
+    <goat-tabs-list>
+      <goat-tab selected='true'>Overview</goat-tab>
+      <goat-tab>Playground</goat-tab>
+      <goat-tab>API</goat-tab>
+    </goat-tabs-list>
+    <goat-tab-panel>
+      <OverviewPanel componentDetails={componentDetails} sections={sections} />
+    </goat-tab-panel>
+    <goat-tab-panel>
+      <goat-notification type='warning'>Work in progress</goat-notification>
+    </goat-tab-panel>
+    <goat-tab-panel>
+      <ApiPanel componentDetails={componentDetails} />
+    </goat-tab-panel>
+  </goat-tabs>
+</Layout>

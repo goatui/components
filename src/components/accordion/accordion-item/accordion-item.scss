@@ -1,0 +1,111 @@
+@import "../../../globalStyles/commons";
+
+:host {
+  display: block;
+}
+
+.accordion-item {
+
+  .accordion-heading {
+    cursor: pointer;
+    width: 100%;
+    border-radius: 0;
+    color: v(--text-primary);
+    background: transparent;
+    border: 0;
+    padding: 0 v(--spacing-05);
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    @include font-style(body);
+
+    .accordion-title {
+      width: 100%;
+      text-align: left;
+
+    }
+
+    svg {
+      flex: 0 0 1rem;
+    }
+
+    &:hover {
+      background: v(--layer-hover-01);
+    }
+
+    &.has-focus {
+      @include focus-ring;
+    }
+  }
+
+  .item-section {
+    height: 0;
+    opacity: 0;
+    text-align: start;
+    pointer-events: none;
+    transition: all 0.1s linear;
+  }
+  .accordion-icon {
+    transition: transform 0.1s linear;
+  }
+
+  &.open {
+    .item-section {
+      height: 100%;
+      opacity: 1;
+      padding: v(--spacing-03) v(--spacing-10) v(--spacing-06) v(--spacing-05);
+    }
+
+    .accordion-icon {
+      transform: rotate(180deg);
+    }
+  }
+
+  &.disabled {
+    .accordion-heading {
+      cursor: not-allowed;
+      color: v(--text-disabled);
+      .accordion-icon {
+        color: v(--text-disabled);
+      }
+    }
+  }
+
+}
+
+/*
+ * Sizes
+ */
+.accordion-item {
+  .accordion-heading {
+    height: 2.5rem;
+  }
+}
+
+:host-context([size="sm"]) {
+  .accordion-item {
+    .accordion-heading {
+      height: 2rem;
+    }
+  }
+}
+
+:host-context([size="lg"]) {
+  .accordion-item {
+    .accordion-heading {
+      height: 3rem;
+    }
+  }
+}
+
+
+:host-context(goat-accordion[align="start"]) {
+  .accordion-item {
+    .accordion-heading {
+      flex-direction: row;
+    }
+  }
+}

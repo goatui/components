@@ -1,16 +1,4 @@
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Event,
-  EventEmitter,
-  h,
-  Host,
-  Method,
-  Prop,
-  State,
-  Watch,
-} from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
 import { debounceEvent, getComponentIndex } from '../../../utils/utils';
 import { isDarkMode, observeThemeChange } from '../../../utils/utils';
 import loadMonaco from '../../../3d-party/monaco';
@@ -153,11 +141,9 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
   getTheme() {
     let theme: string;
     if (!this.isDarkMode) {
-      if (this.disabled || this.readonly) theme = 'hc-black';
-      else theme = 'vs';
+      theme = 'vs';
     } else {
-      if (this.disabled || this.readonly) theme = 'hc-light';
-      else theme = 'vs-dark';
+      theme = 'vs-dark';
     }
     return theme;
   }
@@ -213,7 +199,7 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
           <div class="editor" ref={el => (this.editorElement = el)} />
           {!this.editorMonacoInstance && (
             <div class="code-editor-loader">
-              <goat-spinner class="rainbow" />
+              <goat-spinner />
               Loading editor...
             </div>
           )}

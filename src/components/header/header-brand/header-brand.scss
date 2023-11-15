@@ -1,0 +1,73 @@
+@import "../../../globalStyles/commons";
+
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-inline-start: 1rem;
+
+  .brand-link {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: v(--spacing-03);
+    height: 100%;
+    padding: 0 v(--spacing-02);
+    font-weight: v(--font-weight-bold);
+  }
+
+
+  .logo {
+    height: 2rem;
+  }
+
+}
+
+.subtitle-divider {
+  height: 1.5rem;
+  --divider-color: #{v(--border-subtle-01)};
+}
+
+.subtitle {
+  padding: 0 v(--spacing-02);
+}
+
+
+/*
+ * Colors
+ */
+.header-brand {
+  color: v(--text-primary);
+
+  .brand-link {
+    --button-text-color: #{v(--text-primary)};
+    --button-color: transparent;
+    --button-color-hover: #{v(--color-brand-primary-20)};
+    --button-color-active: #{v(--color-brand-primary-30)};
+    --button-color-focus: #{v(--color-brand-primary)};
+  }
+
+  .subtitle {
+    color: v(--color-neutral-50);
+  }
+}
+
+:host-context(.brand) .header-brand {
+  color: v(--color-brand-primary);
+
+  .subtitle {
+    color: v(--color-neutral-50);
+  }
+}
+

@@ -30,7 +30,22 @@
     overflow: hidden;
   }
 
+  &.disabled .monaco-editor {
+    --vscode-editor-background: #FFFEF5;
+    --vscode-editorGutter-background: #FFFEF5;
+  }
+
 }
+
+:host-context([data-theme="dark"]) {
+  .code-editor-component {
+    &.disabled .monaco-editor {
+      --vscode-editor-background: #3A1802;
+      --vscode-editorGutter-background: #3A1802;
+    }
+  }
+}
+
 
 :host(.no-border) {
   .code-editor-component {

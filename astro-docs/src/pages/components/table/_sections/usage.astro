@@ -1,0 +1,159 @@
+---
+import Highlighter from '../../../../components/Highlighter.astro';
+
+import dataSource from '../data-source.json';
+---
+<goat-card>
+  <goat-card-content style='height: 30rem'>
+    <goat-table id='table' key-field='_id' selection-type='checkbox' sortable></goat-table>
+    <script is:inline define:vars={{ dataSource }}>
+      const $table = document.getElementById('table');
+      // Columns
+      $table.columns = [
+        {
+          'name': 'name',
+          'label': 'Name',
+          'width': 16,
+          'fixed': true,
+        },
+        {
+          'name': 'age',
+          'label': 'Age',
+          'width': 7,
+        },
+        {
+          'name': 'eyeColor',
+          'label': 'Eye Color',
+          'template': function(row, column) {
+            return `<goat-tag style='padding: 10px; max-width: 100%;' color='${row[column.name]}'>${row[column.name]}</goat-tag>`;
+          },
+        },
+        {
+          'name': 'company',
+          'label': 'Company',
+        },
+        {
+          'name': 'email',
+          'label': 'Email',
+          'width': 25,
+        },
+        {
+          'name': 'address',
+          'label': 'Address',
+          'width': 20,
+        },
+        {
+          'name': 'actions',
+          'label': 'Actions',
+          'template': function(row, column) {
+            return `<goat-dropdown id='dropdown'>
+      <goat-button color='secondary' variant='ghost' icon='overflow-menu--vertical'></goat-button>
+      <goat-menu slot='dropdown-content' class='menu' style='width: 200px'>
+        <goat-menu-item value='cut'>
+          <goat-icon name='scissors' slot='start'></goat-icon>
+          Cut
+          <span slot='end'>⌘X</span>
+        </goat-menu-item>
+        <goat-menu-item value='copy'>
+          <goat-icon name='files' slot='start'></goat-icon>
+          Copy
+          <span slot='end'>⌘C</span>
+        </goat-menu-item>
+        <goat-menu-item value='paste'>
+          <goat-icon name='clipboard' slot='start'></goat-icon>
+          Paste
+          <span slot='end'>⌘X</span>
+        </goat-menu-item>
+        <goat-divider></goat-divider>
+        <goat-menu-item value='delete'>
+          <goat-icon name='trash' slot='start'></goat-icon>
+          Delete
+          <span slot='end'>←</span>
+        </goat-menu-item>
+      </goat-menu>
+    </goat-dropdown>`;
+          },
+        },
+      ];
+      // Data
+      $table.data = dataSource;
+
+      // Events
+      $table.addEventListener('goat:table-cell-click', function(evt) {
+        document.getElementById('record').innerText = JSON.stringify(evt.detail.record, null, 3);
+        document.getElementById('column').innerText = evt.detail.column.label;
+      });
+      $table.addEventListener('goat:table-select-change', function(evt) {
+        document.getElementById('selected-rows').innerText = JSON.stringify(evt.detail.value, null, 4);
+      });
+    </script>
+  </goat-card-content>
+  <goat-card-content>
+    <div class='result'>
+      <goat-heading level='5'>Cell Click Result :</goat-heading>
+      <div>
+        <b>Cell Data :</b>
+        <pre id='record'></pre>
+      </div>
+      <div><b>Column :</b> <span id='column'></span></div>
+      <br />
+      <div><b>Selected Rows :</b> <span id='selected-rows'></span></div>
+      <br />
+      <div>Check console for full event detail.</div>
+    </div>
+  </goat-card-content>
+  <goat-card-content class='no-padding'>
+    <Highlighter lang='html'>
+      <goat-table id='table' key-field='_id' selection-type='checkbox' sortable></goat-table>
+      {`<script type='javascript'>
+      const $table = document.getElementById('table');
+      // Columns
+      $table.columns = [
+        {
+          'name': 'name',
+          'label': 'Name',
+          'width': 16,
+          'fixed': true,
+        },
+        {
+          'name': 'age',
+          'label': 'Age',
+          'width': 7,
+        },
+        {
+          'name': 'eyeColor',
+          'label': 'Eye Color',
+          'template': function(row, column) {
+            return \`<goat-tag style='padding: 10px; max-width: 100%;' color='$\{row[column.name]}'>$\{row[column.name]}</goat-tag>\`;
+          },
+        },
+        {
+          'name': 'company',
+          'label': 'Company',
+        },
+        {
+          'name': 'email',
+          'label': 'Email',
+          'width': 25,
+        },
+        {
+          'name': 'address',
+          'label': 'Address',
+          'width': 20,
+        },
+      ];
+      // Data
+      $table.data = ${JSON.stringify(dataSource, null, 2)};
+
+      // Events
+      $table.addEventListener('goat:table-cell-click', function(evt) {
+        document.getElementById('record').innerText = JSON.stringify(evt.detail.record, null, 3);
+        document.getElementById('column').innerText = evt.detail.column.label;
+      });
+      $table.addEventListener('goat:table-select-change', function(evt) {
+        document.getElementById('selected-rows').innerText = JSON.stringify(evt.detail.value, null, 4);
+      });
+    </script>`}
+    </Highlighter>
+  </goat-card-content>
+</goat-card>

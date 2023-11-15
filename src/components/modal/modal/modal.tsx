@@ -3,6 +3,7 @@ import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core'
 /**
  * @name Modal
  * @description  Modals are used to display content in a layer above the app.
+ * @category Up coming
  * @tags controls
  */
 @Component({

@@ -1,0 +1,22 @@
+---
+import HighlighterCard from '../../../../components/HighlighterCard.astro';
+---
+
+<HighlighterCard lang={'html'}>
+  <goat-flow-designer id='workflow-editor'></goat-flow-designer>
+
+  <script is:inline>
+    const workflowEditor = document.querySelector('#workflow-editor');
+    workflowEditor.data = [
+      {
+        'name': 'new-github-issue',
+        'title': 'New issue in github',
+        type: 'activity',
+      }, {
+        'name': 'new-github-issue',
+        'title': 'New issue in github',
+        type: 'activity',
+      },
+    ];
+  </script>
+</HighlighterCard>

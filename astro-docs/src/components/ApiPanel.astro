@@ -1,0 +1,61 @@
+---
+interface Props {
+  componentDetails: any;
+}
+
+const { componentDetails } = Astro.props;
+---
+<div class='api-section'>
+  <goat-text type='heading' heading-size='4'>Properties</goat-text>
+  <goat-table id='comp-properties' class='table-auto-height' paginate='false'></goat-table>
+</div>
+
+<div class='api-section'>
+  <goat-text type='heading' heading-size='4'>Events</goat-text>
+  <goat-table id='comp-events' class='table-auto-height' paginate='false'></goat-table>
+</div>
+
+<script is:inline define:vars={{ componentDetails }}>
+  const $compProperties = document.getElementById('comp-properties');
+  // Columns
+  $compProperties.columns = [{
+    'name': 'name',
+    'label': 'Property',
+    'width': 10,
+    'fixed': true,
+  }, {
+    'name': 'attr',
+    'label': 'Attribute',
+    'width': 10,
+  }, {
+    'name': 'docs',
+    'label': 'Description',
+    'width': 25,
+  }, {
+    'name': 'type',
+    'label': 'Type',
+  }, {
+    'name': 'default',
+    'label': 'Default',
+  }];
+  // Data
+  $compProperties.data = componentDetails.props;
+
+  const $compEvents = document.getElementById('comp-events');
+  // Columns
+  $compEvents.columns = [{
+    'name': 'event',
+    'label': 'Event',
+    'width': 10,
+    'fixed': true,
+  }, {
+    'name': 'docs',
+    'label': 'Description',
+    'width': 25,
+  }, {
+    'name': 'detail',
+    'label': 'Type',
+  }];
+  // Data
+  $compEvents.data = componentDetails.events;
+</script>

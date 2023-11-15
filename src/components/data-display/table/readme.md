@@ -40,10 +40,9 @@
 ### Depends on
 
 - [goat-checkbox](../../data-entry/checkbox)
-- [goat-button](../../general/button)
-- [goat-form-control](../../data-entry/form-control)
+- [goat-button](../../button)
 - [goat-select](../../data-entry/select)
-- [goat-text](../../general/text)
+- [goat-text](../../text)
 - [goat-empty-state](../empty-state)
 
 ### Graph
@@ -51,7 +50,6 @@
 graph TD;
   goat-table --> goat-checkbox
   goat-table --> goat-button
-  goat-table --> goat-form-control
   goat-table --> goat-select
   goat-table --> goat-text
   goat-table --> goat-empty-state

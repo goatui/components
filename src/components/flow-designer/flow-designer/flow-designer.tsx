@@ -4,7 +4,7 @@ import { loadScript } from '../../../utils/utils';
 /**
  * @name Flow Designer
  * @category Up coming
- * @description An interactive button with a range of presentation options.
+ * @description Flow Designer is a component that allows users to create and edit flows.
  * @img /assets/img/flow-designer.png
  */
 @Component({
@@ -71,7 +71,6 @@ export class FlowDesigner {
     const shapes = [];
     let currentPosition = { x: 5, y: 2 };
     const activities = this.data.map(activity => {
-
       shapes.push({
         type: 'connector',
         start: { x: currentPosition.x + 3, y: currentPosition.y + 7 },
@@ -84,8 +83,8 @@ export class FlowDesigner {
         <div
           class="activity"
           style={{
-            top: this.zoom * ((currentPosition.y * this.gap) + 1) + 'px',
-            left: this.zoom * ((currentPosition.x * this.gap) + 1) + 'px',
+            top: this.zoom * (currentPosition.y * this.gap + 1) + 'px',
+            left: this.zoom * (currentPosition.x * this.gap + 1) + 'px',
             width: 23 * this.gap * this.zoom + 'px',
             height: 7 * this.gap * this.zoom + 'px',
           }}

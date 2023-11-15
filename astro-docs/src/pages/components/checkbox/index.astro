@@ -1,0 +1,60 @@
+---
+import Layout from '../../../layouts/Component.astro';
+import getComponentDetails from '../../../_data/getComponentDetails.ts';
+import ApiPanel from '../../../components/ApiPanel.astro';
+const componentDetails = getComponentDetails('goat-checkbox');
+
+import UsageSection from './_sections/Usage.astro';
+import IntermediateSection from './_sections/Intermediate.astro';
+import SizesSection from './_sections/Sizes.astro';
+import ReadonlySection from './_sections/Readonly.astro';
+import DisabledSection from './_sections/Disabled.astro';
+import EventsSection from './_sections/Events.astro';
+import OverviewPanel from '../../../components/OverviewPanel.astro';
+
+const sections = [
+  {
+    'title': 'Usage',
+    'Component': UsageSection,
+  }, {
+    'title': 'Intermediate',
+    'Component': IntermediateSection,
+  }, {
+    'title': 'Sizes',
+    'Component': SizesSection,
+  }, {
+    'title': 'Readonly',
+    'Component': ReadonlySection,
+  }, {
+    'title': 'Disabled',
+    'Component': DisabledSection,
+  }, {
+    'title': 'Events',
+    'Component': EventsSection,
+  }];
+---
+
+<style is:inline>
+  goat-checkbox {
+    margin: 0 0.5rem 1rem 0;
+  }
+</style>
+
+<Layout title={componentDetails.metadata.name} description={componentDetails.metadata.description}>
+  <goat-tabs class='page-tabs'>
+    <goat-tabs-list>
+      <goat-tab selected='true'>Overview</goat-tab>
+      <goat-tab>Playground</goat-tab>
+      <goat-tab>API</goat-tab>
+    </goat-tabs-list>
+    <goat-tab-panel>
+      <OverviewPanel componentDetails={componentDetails} sections={sections} />
+    </goat-tab-panel>
+    <goat-tab-panel>
+      <goat-notification type='warning'>Work in progress</goat-notification>
+    </goat-tab-panel>
+    <goat-tab-panel>
+      <ApiPanel componentDetails={componentDetails} />
+    </goat-tab-panel>
+  </goat-tabs>
+</Layout>

@@ -1,0 +1,48 @@
+---
+import HighlighterCard from '../../../../components/HighlighterCard.astro';
+---
+<goat-text type='body'> Here are several predefined button styles, each serving its own semantic purpose.</goat-text>
+
+<HighlighterCard lang={'html'}>
+  <goat-button-group>
+    <goat-button icon='home' variant='outline' color='secondary'></goat-button>
+    <goat-button icon='alarm' variant='outline' color='secondary'></goat-button>
+    <goat-button icon='box' variant='outline' color='secondary'></goat-button>
+  </goat-button-group>
+
+  <br />
+
+  <goat-button-group>
+    <goat-button variant='outline' color='secondary'>Save</goat-button>
+
+    <goat-dropdown id='dropdown' item-variant='icon' positions='bottom-left,top-left'
+                   style='padding-inline-end: var(--spacing-05)'>
+      <goat-button icon='chevron--down' class='last-child' variant='outline' color='secondary'
+                   style='--button-padding:.5rem'></goat-button>
+      <goat-menu slot='dropdown-content' class='menu' style='width: 200px'>
+        <goat-menu-item value='cut'>
+          <goat-icon name='cut' slot='start'></goat-icon>
+          Cut
+          <span slot='end'>⌘X</span>
+        </goat-menu-item>
+        <goat-menu-item value='copy'>
+          <goat-icon name='copy' slot='start'></goat-icon>
+          Copy
+          <span slot='end'>⌘C</span>
+        </goat-menu-item>
+        <goat-menu-item value='paste'>
+          <goat-icon name='paste' slot='start'></goat-icon>
+          Paste
+          <span slot='end'>⌘X</span>
+        </goat-menu-item>
+        <goat-divider></goat-divider>
+        <goat-menu-item value='delete'>
+          <goat-icon name='trash-can' slot='start'></goat-icon>
+          Delete
+          <span slot='end'>←</span>
+        </goat-menu-item>
+      </goat-menu>
+    </goat-dropdown>
+
+  </goat-button-group>
+</HighlighterCard>

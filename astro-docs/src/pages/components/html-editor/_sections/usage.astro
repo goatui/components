@@ -1,0 +1,49 @@
+---
+import Highlighter from '../../../../components/Highlighter.astro';
+---
+
+<goat-card>
+  <goat-card-content>
+    <goat-checkbox id="disableEditor">Disable editor</goat-checkbox>
+    <goat-checkbox id="darkTheme">Dark Theme</goat-checkbox>
+
+    <goat-html-editor id="business-rule-editor" style="height: 300px"></goat-html-editor>
+    <script is:inline>
+      document.getElementById('business-rule-editor').value = value =
+        "/**\n"+
+        "* Sample Code\n"+
+        "*/\n"+
+        "function myBusinessRuleFunction(){\n"+
+        "   const a = 1;\n"+
+        "   const b = 2;\n"+
+        "   let c = a + b;\n"+
+        "   console.log(c);\n"+
+        "}";
+
+      document.querySelector('#disableEditor').addEventListener('goat:change', function (evt) {
+        document.getElementById('business-rule-editor').disabled = evt.target.value;
+      });
+      document.querySelector('#darkTheme').addEventListener('goat:change', function (evt) {
+        document.getElementById('business-rule-editor').theme = evt.target.value ? 'vs-dark' : 'vs-light';
+      });
+    </script>
+  </goat-card-content>
+  <goat-card-content class='no-padding'>
+    <Highlighter lang={'html'}>
+    <goat-code-editor id="business-rule-editor" style="height: 300px"></goat-code-editor>
+    </Highlighter>
+  </goat-card-content>
+  <goat-card-content class='no-padding'>
+    <Highlighter lang={'javascript'} is:raw> document.getElementById('business-rule-editor').value =
+    "/**\\n"+
+    "* Sample Code\\n"+
+    "*/\\n"+
+    "function myBusinessRuleFunction(){\\n"+
+    "   const a = 1;\\n"+
+    "   const b = 2;\\n"+
+    "   let c = a + b;\\n"+
+    "   console.log(c);\\n"+
+    "}";
+        </Highlighter>
+  </goat-card-content>
+</goat-card>

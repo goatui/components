@@ -29,7 +29,7 @@
 
 ### Depends on
 
-- [goat-button](../../general/button)
+- [goat-button](../../button)
 - [goat-select](../../data-entry/select)
 - [goat-calendar-column-view](column-view)
 - [goat-calendar-month-view](month-view)

@@ -16,8 +16,8 @@
 
 ### Depends on
 
-- [goat-text](../../general/text)
-- [goat-button](../../general/button)
+- [goat-text](../../text)
+- [goat-button](../../button)
 
 ### Graph
 ```mermaid
