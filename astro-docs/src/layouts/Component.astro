@@ -1,4 +1,5 @@
 ---
+import site from '../_data/site.json';
 interface Props {
   title?: string;
   description?: string;
@@ -72,11 +73,12 @@ import '../styles/component.layout.scss';
       <goat-divider></goat-divider>
       <div class='footer-content'>
         <goat-text type='legal' expressive>
-          &copy; 2021 <goat-link href='https://shivajivarma.com'>Shivaji Varma</goat-link>. All Rights Reserved.
+          &copy; {new Date().getFullYear()} <goat-link href={site.author_url}>{site.author}</goat-link>. All Rights Reserved.
         </goat-text>
       </div>
 
     </div>
   </div>
+
 
 </Layout>
