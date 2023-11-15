@@ -109,8 +109,8 @@ if (isProd) {
             <goat-code-highlighter language='html' id='get-started-code' class='code-highlighter' />
             <script is:inline define:vars={{ site, envProps }}>
               document.getElementById('get-started-code').value = `<!DOCTYPE html>
-                <html>
-                <head>
+                 &lt;html>
+                 &lt;head>
                   <meta charset='utf-8'>
                   <meta name='viewport' content='width=device-width'>
                   <title>${site.title}</title>
@@ -125,14 +125,14 @@ if (isProd) {
                       --font-family-base: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
                     }
                   </style>
-                </head>
+                 &lt;/head>
 
-                <body>
+                 &lt;body>
 
                   <goat-button size='lg' color='primary'>Click me</goat-button>
 
-                </body>
-                </html>`;
+                 &lt;/body>
+                 &lt;/html>`;
             </script>
           </goat-tab-panel>
 
@@ -140,8 +140,8 @@ if (isProd) {
             <goat-code-highlighter language='html' id='load-single-component-code' class='code-highlighter' />
             <script is:inline define:vars={{ site, envProps }}>
               document.getElementById('load-single-component-code').value = `<!DOCTYPE html>
-                <html>
-                <head>
+                 &lt;html>
+                 &lt;head>
                   <meta charset='utf-8'>
                   <meta name='viewport' content='width=device-width'>
                   <title>${site.title}</title>
@@ -159,14 +159,14 @@ if (isProd) {
                       --font-family-base: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
                     }
                   </style>
-                </head>
+                 &lt;/head>
 
                 <body>
 
                   <my-button size='lg' color='primary'>Click me</my-button>
 
-                </body>
-                </html>`;
+                 &lt;/body>
+                 &lt;/html>`;
             </script>
           </goat-tab-panel>
         </goat-tabs>
