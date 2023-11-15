@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Title -->
+    <title>GOAT UI &middot; A light weight web component library</title>
+
+    <meta name="author" content="" />
+    <meta name="copyright" content="(c) 2023 " />
+
+    <link rel="canonical" href="https://goatui.com/" />
+
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/img/favicon.svg" />
+
+    <!--  Meta tags -->
+    <meta name="keywords" content="web components, button, input, grid, ui library, calendar, table, accordion, select, search, notifications, modal, card, breadcrumb, tree view, tabs, pagination, tooltip, popover, dropdown, menu, slider, toggle, switch, progress bar, spinner, loader, toast, alert, badge, tag, avatar, chip, divider, list, icon, text, heading, paragraph, label, link, image, checkbox, radio, form, form group, form field, " />
+    <meta name="description" content="GOAT UI contains design system and most used web components built using Stencil. So you don't need to include any additional framework dependencies, You can simple import required component js, and right away start using it." />
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@goatui/components@1.6.0/dist/goatui/assets/styles/theme.css" />
+
+    <link rel="stylesheet" href="/assets/css/main.css" />
+
+    
+    <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/index.css" />
+    
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@goatui/components@1.6.0/dist/goatui/goatui.esm.js"></script>
+  </head>
+
+  <body itemscope itemtype="http://schema.org/WebPage">
+    <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const themeSwitcher = document.querySelector('.theme-switcher');
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      themeSwitcher.icon = theme === 'dark' ? 'asleep--filled' : 'sun';
+      localStorage.setItem('theme', theme);
+    }
+
+    const theme = localStorage.getItem('theme') || 'light';
+    setTheme(theme);
+
+    themeSwitcher.addEventListener('click', function() {
+      const theme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
+      setTheme(theme);
+    });
+
+    const dirSwitcher = document.querySelector('#dir-switcher');
+
+    function setDir(dir) {
+      document.documentElement.setAttribute('dir', dir);
+      themeSwitcher.innetText = dir;
+      localStorage.setItem('dir', dir);
+    }
+
+    const dir = localStorage.getItem('dir') || 'ltr';
+    setDir(dir);
+
+    dirSwitcher.addEventListener('click', function() {
+      const dir = localStorage.getItem('dir') === 'ltr' ? 'rtl' : 'ltr';
+      setDir(dir);
+    });
+  });
+</script>
+
+<nav class='top-nav'>
+  <goat-header class='brand actions-separated '>
+    <div slot='left'>
+      <goat-header-brand logo='/assets/img/logo.svg' href='/#' name='GOAT UI' sub-title='' ></goat-header-brand>
+    </div>
+
+    <div slot='right'>
+
+      
+
+      <goat-header-action
+        id='theme-switcher'
+        icon="sun"
+        class="theme-switcher"
+        aria-title='Theme switcher'></goat-header-action>
+
+      <goat-header-action id='dir-switcher' class='hide-tablet-landscape-below'>LTR</goat-header-action>
+
+      <goat-header-action
+        href='/blog#'>
+        Blog
+      </goat-header-action>
+
+      <goat-header-action
+        class='hide-tablet-portrait-below'
+        href='https://opencollective.com/goat-ui-components#support'>
+        Become a backer
+      </goat-header-action>
+
+      
+      <goat-header-action
+        icon='logo--github'
+        href='https://github.com/goatui/components'
+        target='_blank'
+      ></goat-header-action>
+      
+    </div>
+  </goat-header>
+</nav>
+
+<main><div class="banner">
+  <div class="banner-content">
+    <svg
+  class="banner-logo"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:cc="http://creativecommons.org/ns#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:svg="http://www.w3.org/2000/svg"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+  version="1.1"
+  x="0px"
+  y="0px"
+  viewBox="0 0 98.959908 91.039795"
+  enable-background="new 0 0 100 100"
+  xml:space="preserve"
+  id="svg2"
+  inkscape:version="0.91 r13725"
+  sodipodi:docname="noun_853142_cc.svg"
+  width="98.959908"
+  height="91.039795"
+>
+      <path
+        class="head"
+        stroke-miterlimit="10"
+        d="m 27.167958,58.106694 c 0,0 -0.5,2.377 4.333,5.113 4.833,2.736 6.833,2.736 6.833,2.736 0,0 -2.75,-3 -2.417,-4.417 0.333,-1.417 5.417,4.083 10.333,2.417 0,0 -1.655,-1.591 -2.953,-5.004 -1.089,-2.725 -2.157,-3.589 -3.006,-4.288 0,0 6.708,-7.125 4.958,-17.125 0,0 -0.75,-4.75 -3.5,-7.75 0,0 6.167,8.167 16.5,3.417 0,0 -1.167,-3.75 -5.833,-6.917 -4.666,-3.167 -8.25,-1.333 -12.583,-1.417 -4.333,-0.083 -5.25,-3.667 -5.25,-3.667 0,0 -3,2.75 -6.333,1.667 -3.333,-1.083 -3.25,-3.25 -8.167,-1.667 -4.917,1.583 -9.083,7.5 -9.083,7.5 0,0 8.333,5.333 12.833,-2.583 0,0 -4,10.5 -5.667,14 -1.667,3.5 -7.5,20.5 14,17.667"
+        id="path4"
+        inkscape:connector-curvature="0"
+        style="fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10"
+      />
+  <path
+    class="head"
+    stroke-miterlimit="10"
+    d="m 24.350958,20.869694 c 0,0 6.901,-7.705 11.401,-8.893 4.5,-1.188 6.334,-1.185 8.438,-0.625 l -2.691,2.683 -7.956,7.932 c 0,0 8.96,-10.616 18.147,-7.991 l -8.535,10.687"
+    id="path6"
+    inkscape:connector-curvature="0"
+    style="fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10"
+  />
+  <circle
+    class="head"
+    stroke-miterlimit="10"
+    cx="23.251957"
+    cy="36.289692"
+    r="0.75"
+    id="circle8"
+    style="fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10"
+  />
+  <circle
+    class="head"
+    stroke-miterlimit="10"
+    cx="38.417957"
+    cy="37.789692"
+    r="0.75"
+    id="circle10"
+    style="fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10"
+  />
+  <path
+    class="head"
+    stroke-miterlimit="10"
+    d="m 21.167958,49.539694 c 0,0 3.292,0.75 3.625,3.208"
+    id="path12"
+    inkscape:connector-curvature="0"
+    style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10"
+  />
+  <path
+    class="head"
+    stroke-miterlimit="10"
+    d="m 28.202958,53.596694 c 0,0 1.625,-2.417 4.917,-1.875"
+    id="path14"
+    inkscape:connector-curvature="0"
+    style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10"
+  />
+
+  <path
+    class="head"
+    stroke-miterlimit="10"
+    d="m 27.972958,16.587694 c 0,0 3.216,2.827 7.466,2.452"
+    id="path26"
+    inkscape:connector-curvature="0"
+    style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10"
+  />
+  <path
+    class="head"
+    stroke-miterlimit="10"
+    d="m 32.902958,12.960694 c 0,0 1.211,3.19 6.842,2.822"
+    id="path28"
+    inkscape:connector-curvature="0"
+    style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10"
+  />
+  <path
+    class="head"
+    stroke-miterlimit="10"
+    d="m 38.019958,18.164694 c 0,0 2.262,4.237 8.059,2.837"
+    id="path30"
+    inkscape:connector-curvature="0"
+    style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10"
+  />
+  <path
+    class="head"
+    stroke-miterlimit="10"
+    d="m 43.109958,14.792694 c 0,0 0.857,2.958 5.749,2.728"
+    id="path32"
+    inkscape:connector-curvature="0"
+    style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10"
+  />
+
+  <path
+    stroke-miterlimit="10"
+    d="m 45.483958,39.374694 c 0,0 2.851,6.582 12.101,6.415 9.25,-0.167 22.167,4 23.417,11.167 1.25,7.167 -1.062,22.25 -4.146,23.083 l -6.167,0 -0.438,-11.5 c 0,0 -2.083,1.583 -7.583,1.583 -5.5,0 -8.5,-3.667 -8.5,-3.667"
+    id="path16"
+    inkscape:connector-curvature="0"
+    style="fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10"
+  />
+  <path
+    stroke-miterlimit="10"
+    d="m 42.625958,64.085694 c 0,0 6.209,15.537 9.875,15.954 l 6.584,0 0,-10.47"
+    id="path18"
+    inkscape:connector-curvature="0"
+    style="fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10"
+  />
+  <path
+    stroke-miterlimit="10"
+    d="m 38.334958,65.956694 c 0,0 4.583,14.083 8.667,14.083 4.084,0 5.5,0 5.5,0"
+    id="path20"
+    inkscape:connector-curvature="0"
+    style="fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10"
+  />
+  <polyline
+    stroke-miterlimit="10"
+    points="  65.749,75.742 67.749,85.75 72.167,85.75 "
+    id="polyline22"
+    style="fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10"
+    transform="translate(-0.91504193,-5.7103064)"
+  />
+  <path
+    stroke-miterlimit="10"
+    d="m 79.388958,53.521694 c 0,0 4.946,3.81 8.571,0.268 0,0 -1.308,7.958 -6.613,8.083"
+    id="path24"
+    inkscape:connector-curvature="0"
+    style="fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10"
+  />
+    </svg>
+
+    <goat-text type="heading" heading-size="7" class="title">GOAT UI</goat-text>
+    <goat-text type="heading" heading-size="3">A light weight web component library</goat-text>
+    <goat-text type="heading" heading-size="3">Hooray! we are now v1.0 🎉</goat-text>
+    <div style='display: flex; gap: 1rem'>
+      <goat-button href="#getting-started" size="lg" color="dark" icon="arrow--right">Get Started</goat-button>
+      <goat-button href="/components.html" size="lg" color="brand-primary" kind='simple'>Browse Components</goat-button>
+    </div>
+
+  </div>
+</div>
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+  integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script>
+  anime({
+    targets: '.banner-logo path',
+    strokeDashoffset: [anime.setDashoffset, 0],
+    easing: 'easeInOutSine',
+    duration: 1500,
+    delay: function (el, i) {
+      return i * 250;
+    },
+    direction: 'alternate',
+    loop: false,
+  });
+  document.body.addEventListener('mousemove', evt => {
+    document.querySelectorAll('.banner-logo .head').forEach(headPath => {
+      headPath.style.transform = `rotate(${15 - (evt.clientY / document.body.clientHeight) * 60}deg)`;
+      if ((evt.clientX / document.body.clientWidth) * 100 > 50) {
+        document.querySelector('.banner-logo').style.transform = ' rotateY(180deg)';
+      } else {
+        document.querySelector('.banner-logo').style.transform = ' rotateY(0deg)';
+      }
+    });
+  });
+</script>
+
+<div class="sections-wrapper">
+  <goat-container class="section">
+    <goat-text type="heading" heading-size="5">Introduction</goat-text>
+    <goat-text expressive
+      >GOAT UI contains most used web components built using Stencil. So you don't need to include any additional framework dependencies, You can simply import required
+      component js, and right away start using it.
+    </goat-text>
+    <goat-text expressive>Can easily be consumed by any other framework, like Vue, React, Angular, etc.</goat-text>
+  </goat-container>
+
+  <goat-container class="section">
+    <goat-text type="heading" heading-size="5">About</goat-text>
+    <goat-text expressive
+      >GOAT UI components are beautiful Open Source web components under MIT license. They are maintained by
+      <goat-link href="https://shivajivarma.com">Shivaji Varma</goat-link>
+      . Do not miss any updates and announcements, stay tuned on our social pages. You can contribute to the project by creating pull requests or issues.
+    </goat-text>
+  </goat-container>
+
+  <div class='section'>
+    <goat-container>
+      <goat-text type="heading" heading-size="5" id='getting-started'>Getting Started</goat-text>
+      <ul style="padding-inline-start: 1.5rem">
+        <li>
+          <goat-text expressive="">
+            Put a script tag similar to this
+            <goat-text expressive type="code" inline style="overflow: auto; width: -webkit-fill-available"
+            >&lt;script type="module" src="https://cdn.jsdelivr.net/npm/@goatui/components@1.6.0/dist/goatui/goatui.esm.js"&gt;&lt;/script&gt;
+            </goat-text>
+            in the head of your index.html
+          </goat-text>
+        </li>
+        <li>
+          <goat-text expressive>Then you can use the element anywhere in your template, JSX, html etc</goat-text>
+        </li>
+      </ul>
+    </goat-container>
+    <goat-container class='container-code'>
+      <goat-code-highlighter language="html" id="get-started-code" class="code-highlighter"/>
+      <script>
+        document.getElementById('get-started-code').value = `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width'>
+  <title>GOAT UI</title>
+
+  <!-- include your custom theme variable values, view variable names at https://cdn.jsdelivr.net/npm/@goatui/components@1.6.0/dist/goatui/assets/styles/theme.css -->
+  <!--link rel="stylesheet" href="/custom-theme.css"></link-->
+   &lt;script type='module' src='https://cdn.jsdelivr.net/npm/@goatui/components@1.6.0/dist/goatui/goatui.esm.js'>&lt;/script>
+
+      <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans+Condensed:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Serif:ital@0;1&display=swap');
+    :root {
+      --font-family-base: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <goat-button size='lg' color='primary'>Click me</goat-button>
+
+</body>
+</html>`;
+      </script>
+    </goat-container>
+
+  </div>
+
+  <div class='sections'>
+    <goat-container>
+      <goat-button href="/components.html" size="lg" kind='block' icon="arrow--right">Browse Components</goat-button>
+    </goat-container>
+  </div>
+</div>
+
+
+
+<div class="social-icons">
+  <goat-button
+    icon="logo--github"
+    icon-size="lg"
+    variant="ghost"
+    color="secondary"
+    target="_blank"
+    aria-label="Github"
+    href="https://www.github.com/goatui"
+  ></goat-button>
+  <goat-button
+    icon-size="lg"
+    icon="logo--twitter"
+    color="secondary"
+    variant="ghost"
+    target="_blank"
+    aria-label="Twitter"
+    href="https://www.twitter.com/goatui"
+  ></goat-button>
+</div>
+
+<div class="made-in-india">
+  <span>&copy; 2023 <goat-link class="no-decoration" href="https://shivajivarma.com">Shivaji Varma</goat-link>.</span>
+  <goat-svg class="country-flag" size="1.5rem" src="https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/in.svg"></goat-svg>
+  Made in India.
+</div>
+</main>
+
+
+    <goat-notification-manager position="bottom-right"></goat-notification-manager>
+
+    <!-- JS Implementing Plugins -->
+    <script src="/assets/js/main.js"></script>
+    <script>
+      myConsole = {
+        log: function (message, title) {
+          window.dispatchEvent(
+            new CustomEvent('goat:notification', {
+              detail: {
+                title: title ? title : undefined,
+                subtitle: `<pre>${message}</pre>`,
+                state: 'success',
+              },
+            }),
+          );
+        },
+        warn: function (message, title) {
+          window.dispatchEvent(
+            new CustomEvent('goat:notification', {
+              detail: {
+                title: title ? title : undefined,
+                subtitle: `<pre>${message}</pre>`,
+                state: 'warning',
+              },
+            }),
+          );
+        },
+      };
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YVVYZC1HFF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-YVVYZC1HFF');
+    </script>
+
+  </body>
+</html>

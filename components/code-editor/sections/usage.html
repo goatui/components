@@ -1,0 +1,39 @@
+<goat-card>
+  <goat-card-content>
+    <goat-checkbox id="disableEditor">Disable editor</goat-checkbox>
+
+    <goat-code-editor id="business-rule-editor" style="display:block; height: 300px"></goat-code-editor>
+    <script>
+      document.getElementById('business-rule-editor').value = `/**
+* Sample Code
+*/
+function myBusinessRuleFunction(){
+  const a = 1;
+  const b = 2;
+  let c = a + b;
+  console.log(c);
+}`;
+
+      document.querySelector('#disableEditor').addEventListener('goat:change', function (evt) {
+        document.getElementById('business-rule-editor').disabled = evt.target.value;
+      });
+    </script>
+  </goat-card-content>
+  <goat-card-content class='no-padding'>
+    {% GoatHighlighter language:"html" %}
+    <goat-code-editor id="business-rule-editor" style="height: 300px"></goat-code-editor>
+    {% endGoatHighlighter %}
+  </goat-card-content>
+  <goat-card-content class='no-padding'>
+    {% GoatHighlighter language:"javascript" %} document.getElementById('business-rule-editor').value = `/**
+* Sample Code
+*/
+function myBusinessRuleFunction(){
+  const a = 1;
+  const b = 2;
+  let c = a + b;
+  console.log(c);
+}`;
+    {% endGoatHighlighter %}
+  </goat-card-content>
+</goat-card>

@@ -1,0 +1,11 @@
+<goat-card>
+  <!-- prettier-ignore -->
+  <goat-card-content class='no-padding'>
+    {% GoatHighlighter language:"javascript" %}
+    const $list = document.querySelector('.menu');
+    $list.addEventListener('goat:menu-item-click', function(evt) {
+    console.log(JSON.stringify(evt.detail.value, null, 4));
+    });
+    {% endGoatHighlighter %}
+  </goat-card-content>
+</goat-card>

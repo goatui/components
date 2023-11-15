@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Title -->
+    <title>GOAT UI &middot; A light weight web component library</title>
+
+    <meta name="author" content="" />
+    <meta name="copyright" content="(c) 2023 " />
+
+    <link rel="canonical" href="https://goatui.com/blog/" />
+
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/img/favicon.svg" />
+
+    <!--  Meta tags -->
+    <meta name="keywords" content="Web component, " />
+    <meta name="description" content="News and announcements for all things GOATUI, including new releases" />
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@goatui/components@1.6.0/dist/goatui/assets/styles/theme.css" />
+
+    <link rel="stylesheet" href="/assets/css/main.css" />
+
+    
+    <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/blog.css" />
+    
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@goatui/components@1.6.0/dist/goatui/goatui.esm.js"></script>
+  </head>
+
+  <body itemscope itemtype="http://schema.org/WebPage">
+    <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const themeSwitcher = document.querySelector('.theme-switcher');
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      themeSwitcher.icon = theme === 'dark' ? 'asleep--filled' : 'sun';
+      localStorage.setItem('theme', theme);
+    }
+
+    const theme = localStorage.getItem('theme') || 'light';
+    setTheme(theme);
+
+    themeSwitcher.addEventListener('click', function() {
+      const theme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
+      setTheme(theme);
+    });
+
+    const dirSwitcher = document.querySelector('#dir-switcher');
+
+    function setDir(dir) {
+      document.documentElement.setAttribute('dir', dir);
+      themeSwitcher.innetText = dir;
+      localStorage.setItem('dir', dir);
+    }
+
+    const dir = localStorage.getItem('dir') || 'ltr';
+    setDir(dir);
+
+    dirSwitcher.addEventListener('click', function() {
+      const dir = localStorage.getItem('dir') === 'ltr' ? 'rtl' : 'ltr';
+      setDir(dir);
+    });
+  });
+</script>
+
+<nav class='top-nav'>
+  <goat-header class='brand actions-separated border'>
+    <div slot='left'>
+      <goat-header-brand logo='/assets/img/logo.svg' href='/#' name='GOAT UI' sub-title='' ></goat-header-brand>
+    </div>
+
+    <div slot='right'>
+
+      
+      <goat-select id='site-search'
+                   class='hide-mobile'
+                   search='contains'
+                   hide-dropdown-icon
+                   placeholder="Type '/' for search">
+        <goat-icon slot='start' name='search' size='1rem'></goat-icon>
+      </goat-select>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const search = document.querySelector('#site-search');
+
+          // prettier-ignore
+          search.items = JSON.parse(`[{"label": "", "value": "/404.html"},{"label": "", "value": "/assets/css/blog.css"},{"label": "", "value": "/assets/css/component.css"},{"label": "Overview", "value": "/components.html"},{"label": "", "value": "/blog/"},{"label": "Menu", "value": "/components/menu/"},{"label": "Toast", "value": "/components/toast/"},{"label": "Chart Doughnut", "value": "/components/chart-doughnut/"},{"label": "Header", "value": "/components/header/"},{"label": "Calendar", "value": "/components/calendar/"},{"label": "Progress", "value": "/components/progress/"},{"label": "Link", "value": "/components/link/"},{"label": "Spinner", "value": "/components/spinner/"},{"label": "HTML Editor", "value": "/components/html-editor/"},{"label": "Divider", "value": "/components/divider/"},{"label": "Current Time", "value": "/components/current-time/"},{"label": "Tabs", "value": "/components/tabs/"},{"label": "Code Editor", "value": "/components/code-editor/"},{"label": "Empty State", "value": "/components/empty-state/"},{"label": "Side Navigation", "value": "/components/sidenav/"},{"label": "Tree View", "value": "/components/tree-view/"},{"label": "SVG", "value": "/components/svg/"},{"label": "Condition builder", "value": "/components/condition-builder/"},{"label": "Textarea", "value": "/components/textarea/"},{"label": "Dropdown", "value": "/components/dropdown/"},{"label": "Button", "value": "/components/button/"},{"label": "Date Picker", "value": "/components/date-picker/"},{"label": "Form Control", "value": "/components/form-control/"},{"label": "Button Group", "value": "/components/button-group/"},{"label": "Breadcrumb", "value": "/components/breadcrumb/"},{"label": "Toggle", "value": "/components/toggle/"},{"label": "Flow Designer", "value": "/components/flow-designer/"},{"label": "Table", "value": "/components/table/"},{"label": "Code Highlighter", "value": "/components/code-highlighter/"},{"label": "Notification", "value": "/components/notification/"},{"label": "Notification Manager", "value": "/components/notification-manager/"},{"label": "Slider", "value": "/components/slider/"},{"label": "Modal", "value": "/components/modal/"},{"label": "Accordion", "value": "/components/accordion/"},{"label": "Avatar", "value": "/components/avatar/"},{"label": "Number", "value": "/components/number/"},{"label": "Icon", "value": "/components/icon/"},{"label": "Tag", "value": "/components/tag/"},{"label": "Text", "value": "/components/text/"},{"label": "Badge", "value": "/components/badge/"},{"label": "Input", "value": "/components/input/"},{"label": "Checkbox", "value": "/components/checkbox/"},{"label": "Select", "value": "/components/select/"},{"label": "Time Picker", "value": "/components/time-picker/"},{"label": "Canvas", "value": "/components/canvas/"},{"label": "", "value": "/"},{"label": "", "value": "/assets/css/main.css"},{"label": "", "value": "/assets/css/post.css"},{"label": "", "value": "/scratch.html"},{"label": "", "value": "/sitemap.xml"},{"label": "", "value": "/robots.txt"},{"label": "", "value": "/assets/css/blog.css.map"},{"label": "", "value": "/assets/css/component.css.map"}]`);
+          search.items = search.items.filter(item => !!item.label);
+          search.addEventListener('goat:change', function(e) {
+            window.location.href = e.detail.value;
+          });
+
+          search.addEventListener('goat:search-enter', function(e) {
+            if (e.detail.currentItems.length > 0)
+              window.location.href = e.detail.currentItems[0].value;
+          });
+
+          document.addEventListener('keydown', function(e) {
+            if (e.key === '/') {
+              e.preventDefault();
+              search.isOpen = true;
+              setTimeout(() => {
+                search.setFocus();
+              }, 300);
+            }
+          });
+        });
+      </script>
+      
+
+      <goat-header-action
+        id='theme-switcher'
+        icon="sun"
+        class="theme-switcher"
+        aria-title='Theme switcher'></goat-header-action>
+
+      <goat-header-action id='dir-switcher' class='hide-tablet-landscape-below'>LTR</goat-header-action>
+
+      <goat-header-action
+        href='/blog#'>
+        Blog
+      </goat-header-action>
+
+      <goat-header-action
+        class='hide-tablet-portrait-below'
+        href='https://opencollective.com/goat-ui-components#support'>
+        Become a backer
+      </goat-header-action>
+
+      
+      <goat-header-action
+        class='show-desktop'
+        href='https://github.com/goatui/components/issues'
+        target='_blank'
+      >Report Issue
+      </goat-header-action>
+
+      <goat-header-action
+        icon='logo--github'
+        class='hide-desktop'
+        href='https://github.com/goatui/components/issues'
+        target='_blank'
+      ></goat-header-action>
+      
+    </div>
+  </goat-header>
+</nav>
+
+<main><div class='main-content'>
+  <div class="blog-posts">
+    <goat-text type="heading" heading-size="7">Blog</goat-text>
+    <goat-text expressive>
+      News and announcements for all things GOATUI, including new releases</goat-text>
+
+    <goat-divider></goat-divider>
+
+    <div class=post-list>
+      
+      <div class="item">
+        <goat-text type="heading" heading-size="4">
+          <goat-link href="/blog/2023/08/04/goatui-first-release.html" title="GOATUI 1.0">GOATUI 1.0</goat-link>
+        </goat-text>
+        <goat-text expressive>Hi all! 👋 We are goatui, a collective of open source and web component enthusiasts. We consider it our goal to empower everyone with a powerful and battle-tested setup for creating and sharing open source customizable web components.</goat-text>
+        <goat-text color="secondary">
+          Posted on August 4, 2023
+        </goat-text>
+      </div>
+
+      
+      <div class="item">
+        <goat-text type="heading" heading-size="4">
+          <goat-link href="/blog/2023/08/03/whats-up-nerds.html" title="What's up nerds?">What's up nerds?</goat-link>
+        </goat-text>
+        <goat-text expressive>Welcome one and all to the new, official GOATUI blog. From now on, I will be posting info on new releases, documentation changes, great examples of folks using GOATUI, and more. Stay tuned for our first post on the next two updates for the project.</goat-text>
+        <goat-text color="secondary">
+          Posted on August 3, 2023
+        </goat-text>
+      </div>
+
+      
+    </div>
+  </div>
+
+</div>
+</main>
+
+
+    <goat-notification-manager position="bottom-right"></goat-notification-manager>
+
+    <!-- JS Implementing Plugins -->
+    <script src="/assets/js/main.js"></script>
+    <script>
+      myConsole = {
+        log: function (message, title) {
+          window.dispatchEvent(
+            new CustomEvent('goat:notification', {
+              detail: {
+                title: title ? title : undefined,
+                subtitle: `<pre>${message}</pre>`,
+                state: 'success',
+              },
+            }),
+          );
+        },
+        warn: function (message, title) {
+          window.dispatchEvent(
+            new CustomEvent('goat:notification', {
+              detail: {
+                title: title ? title : undefined,
+                subtitle: `<pre>${message}</pre>`,
+                state: 'warning',
+              },
+            }),
+          );
+        },
+      };
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YVVYZC1HFF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-YVVYZC1HFF');
+    </script>
+
+  </body>
+</html>

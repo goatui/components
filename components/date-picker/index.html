@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Title -->
+    <title>Date Picker &middot; GOAT UI</title>
+
+    <meta name="author" content="" />
+    <meta name="copyright" content="(c) 2023 " />
+
+    <link rel="canonical" href="https://goatui.com/components/date-picker/" />
+
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/img/favicon.svg" />
+
+    <!--  Meta tags -->
+    <meta name="keywords" content="Web component, Date Picker" />
+    <meta name="description" content="GOAT UI contains design system and most used web components built using Stencil. So you don't need to include any additional framework dependencies, You can simple import required component js, and right away start using it." />
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@goatui/components@1.6.0/dist/goatui/assets/styles/theme.css" />
+
+    <link rel="stylesheet" href="/assets/css/main.css" />
+
+    
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@goatui/components@1.6.0/dist/goatui/goatui.esm.js"></script>
+  </head>
+
+  <body itemscope itemtype="http://schema.org/WebPage">
+    <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const themeSwitcher = document.querySelector('.theme-switcher');
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      themeSwitcher.icon = theme === 'dark' ? 'asleep--filled' : 'sun';
+      localStorage.setItem('theme', theme);
+    }
+
+    const theme = localStorage.getItem('theme') || 'light';
+    setTheme(theme);
+
+    themeSwitcher.addEventListener('click', function() {
+      const theme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
+      setTheme(theme);
+    });
+
+    const dirSwitcher = document.querySelector('#dir-switcher');
+
+    function setDir(dir) {
+      document.documentElement.setAttribute('dir', dir);
+      themeSwitcher.innetText = dir;
+      localStorage.setItem('dir', dir);
+    }
+
+    const dir = localStorage.getItem('dir') || 'ltr';
+    setDir(dir);
+
+    dirSwitcher.addEventListener('click', function() {
+      const dir = localStorage.getItem('dir') === 'ltr' ? 'rtl' : 'ltr';
+      setDir(dir);
+    });
+  });
+</script>
+
+<nav class='top-nav'>
+  <goat-header class='brand actions-separated border'>
+    <div slot='left'>
+      <goat-header-brand logo='/assets/img/logo.svg' href='/#' name='GOAT UI' sub-title='Date Picker' ></goat-header-brand>
+    </div>
+
+    <div slot='right'>
+
+      
+      <goat-select id='site-search'
+                   class='hide-mobile'
+                   search='contains'
+                   hide-dropdown-icon
+                   placeholder="Type '/' for search">
+        <goat-icon slot='start' name='search' size='1rem'></goat-icon>
+      </goat-select>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const search = document.querySelector('#site-search');
+
+          // prettier-ignore
+          search.items = JSON.parse(`[{"label": "", "value": "/404.html"},{"label": "", "value": "/assets/css/blog.css"},{"label": "", "value": "/assets/css/component.css"},{"label": "Overview", "value": "/components.html"},{"label": "", "value": "/blog/"},{"label": "Menu", "value": "/components/menu/"},{"label": "Toast", "value": "/components/toast/"},{"label": "Chart Doughnut", "value": "/components/chart-doughnut/"},{"label": "Header", "value": "/components/header/"},{"label": "Calendar", "value": "/components/calendar/"},{"label": "Progress", "value": "/components/progress/"},{"label": "Link", "value": "/components/link/"},{"label": "Spinner", "value": "/components/spinner/"},{"label": "HTML Editor", "value": "/components/html-editor/"},{"label": "Divider", "value": "/components/divider/"},{"label": "Current Time", "value": "/components/current-time/"},{"label": "Tabs", "value": "/components/tabs/"},{"label": "Code Editor", "value": "/components/code-editor/"},{"label": "Empty State", "value": "/components/empty-state/"},{"label": "Side Navigation", "value": "/components/sidenav/"},{"label": "Tree View", "value": "/components/tree-view/"},{"label": "SVG", "value": "/components/svg/"},{"label": "Condition builder", "value": "/components/condition-builder/"},{"label": "Textarea", "value": "/components/textarea/"},{"label": "Dropdown", "value": "/components/dropdown/"},{"label": "Button", "value": "/components/button/"},{"label": "Date Picker", "value": "/components/date-picker/"},{"label": "Form Control", "value": "/components/form-control/"},{"label": "Button Group", "value": "/components/button-group/"},{"label": "Breadcrumb", "value": "/components/breadcrumb/"},{"label": "Toggle", "value": "/components/toggle/"},{"label": "Flow Designer", "value": "/components/flow-designer/"},{"label": "Table", "value": "/components/table/"},{"label": "Code Highlighter", "value": "/components/code-highlighter/"},{"label": "Notification", "value": "/components/notification/"},{"label": "Notification Manager", "value": "/components/notification-manager/"},{"label": "Slider", "value": "/components/slider/"},{"label": "Modal", "value": "/components/modal/"},{"label": "Accordion", "value": "/components/accordion/"},{"label": "Avatar", "value": "/components/avatar/"},{"label": "Number", "value": "/components/number/"},{"label": "Icon", "value": "/components/icon/"},{"label": "Tag", "value": "/components/tag/"},{"label": "Text", "value": "/components/text/"},{"label": "Badge", "value": "/components/badge/"},{"label": "Input", "value": "/components/input/"},{"label": "Checkbox", "value": "/components/checkbox/"},{"label": "Select", "value": "/components/select/"},{"label": "Time Picker", "value": "/components/time-picker/"},{"label": "Canvas", "value": "/components/canvas/"},{"label": "", "value": "/"},{"label": "", "value": "/assets/css/main.css"},{"label": "", "value": "/assets/css/post.css"},{"label": "", "value": "/scratch.html"},{"label": "", "value": "/sitemap.xml"},{"label": "", "value": "/robots.txt"},{"label": "", "value": "/assets/css/blog.css.map"},{"label": "", "value": "/assets/css/component.css.map"}]`);
+          search.items = search.items.filter(item => !!item.label);
+          search.addEventListener('goat:change', function(e) {
+            window.location.href = e.detail.value;
+          });
+
+          search.addEventListener('goat:search-enter', function(e) {
+            if (e.detail.currentItems.length > 0)
+              window.location.href = e.detail.currentItems[0].value;
+          });
+
+          document.addEventListener('keydown', function(e) {
+            if (e.key === '/') {
+              e.preventDefault();
+              search.isOpen = true;
+              setTimeout(() => {
+                search.setFocus();
+              }, 300);
+            }
+          });
+        });
+      </script>
+      
+
+      <goat-header-action
+        id='theme-switcher'
+        icon="sun"
+        class="theme-switcher"
+        aria-title='Theme switcher'></goat-header-action>
+
+      <goat-header-action id='dir-switcher' class='hide-tablet-landscape-below'>LTR</goat-header-action>
+
+      <goat-header-action
+        href='/blog#'>
+        Blog
+      </goat-header-action>
+
+      <goat-header-action
+        class='hide-tablet-portrait-below'
+        href='https://opencollective.com/goat-ui-components#support'>
+        Become a backer
+      </goat-header-action>
+
+      
+      <goat-header-action
+        class='show-desktop'
+        href='https://github.com/goatui/components/issues'
+        target='_blank'
+      >Report Issue
+      </goat-header-action>
+
+      <goat-header-action
+        icon='logo--github'
+        class='hide-desktop'
+        href='https://github.com/goatui/components/issues'
+        target='_blank'
+      ></goat-header-action>
+      
+    </div>
+  </goat-header>
+</nav>
+
+<main><link rel='stylesheet' href='/assets/css/component.css'/>
+<div class='sidenav m-hide'>
+
+  <div class='sidenav-components'>
+
+    <goat-tree-view value='Date Picker' selected-node='Date Picker'>
+      <goat-tree-node label="Overview" href='/components'></goat-tree-node>
+
+      
+      
+      <goat-tree-node label="General">
+
+        
+        
+        <goat-tree-node label="Button" href='/components/button'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Button Group" href='/components/button-group'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Current Time" href='/components/current-time'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Icon" href='/components/icon'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Text" href='/components/text'></goat-tree-node>
+        
+        
+
+      </goat-tree-node>
+      
+      
+      
+      <goat-tree-node label="Layout">
+
+        
+        
+        <goat-tree-node label="Divider" href='/components/divider'></goat-tree-node>
+        
+        
+
+      </goat-tree-node>
+      
+      
+      
+      <goat-tree-node label="Navigation">
+
+        
+        
+        <goat-tree-node label="Breadcrumb" href='/components/breadcrumb'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Dropdown" href='/components/dropdown'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Header" href='/components/header'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Link" href='/components/link'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Menu" href='/components/menu'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Tabs" href='/components/tabs'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="TreeView" href='/components/tree-view'></goat-tree-node>
+        
+        
+
+      </goat-tree-node>
+      
+      
+      
+      <goat-tree-node label="Form Inputs">
+
+        
+        
+        <goat-tree-node label="Checkbox" href='/components/checkbox'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Code Editor" href='/components/code-editor'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Date Picker" href='/components/date-picker'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Form Control" href='/components/form-control'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Input" href='/components/input'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Number" href='/components/number'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Select" href='/components/select'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Slider" href='/components/slider'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Textarea" href='/components/textarea'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Time Picker" href='/components/time-picker'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Toggle" href='/components/toggle'></goat-tree-node>
+        
+        
+
+      </goat-tree-node>
+      
+      
+      
+      <goat-tree-node label="Data Display">
+
+        
+        
+        <goat-tree-node label="Accordion" href='/components/accordion'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Avatar" href='/components/avatar'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Badge" href='/components/badge'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Calendar" href='/components/calendar'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Code Highlighter" href='/components/code-highlighter'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Condition Builder" href='/components/condition-builder'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Empty State" href='/components/empty-state'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="SVG" href='/components/svg'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Table" href='/components/table'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Tag" href='/components/tag'></goat-tree-node>
+        
+        
+
+      </goat-tree-node>
+      
+      
+      
+      <goat-tree-node label="Feedback">
+
+        
+        
+        <goat-tree-node label="Notification" href='/components/notification'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Notification Manager" href='/components/notification-manager'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Progress" href='/components/progress'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Spinner" href='/components/spinner'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Toast" href='/components/toast'></goat-tree-node>
+        
+        
+
+      </goat-tree-node>
+      
+      
+      
+      <goat-tree-node label="Up coming">
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <goat-tree-node label="Canvas" href='/components/canvas'></goat-tree-node>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <goat-tree-node label="ChartDoughnut" href='/components/chart-doughnut'></goat-tree-node>
+        
+        
+        
+        
+        
+        <goat-tree-node label="Flow Designer" href='/components/flow-designer'></goat-tree-node>
+        
+        
+        
+        
+        
+        
+        
+        <goat-tree-node label="HTML Editor" href='/components/html-editor'></goat-tree-node>
+        
+        
+        
+        
+        
+        
+        
+        <goat-tree-node label="Modal" href='/components/modal'></goat-tree-node>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+      </goat-tree-node>
+      
+      
+
+    </goat-tree-view>
+
+  </div>
+
+</div>
+<div class='main-content'>
+  <div class='page-container'>
+
+    <goat-breadcrumb>
+      <goat-breadcrumb-item href="/">Home</goat-breadcrumb-item>
+      
+      <goat-breadcrumb-item href="/components">Overview</goat-breadcrumb-item>
+      
+      <goat-breadcrumb-item active>Date Picker</goat-breadcrumb-item>
+    </goat-breadcrumb>
+
+    <goat-text type='heading' heading-size='6'>Date Picker</goat-text>
+
+
+    <div class="usage-tab">
+  <!-- Content -->
+  <div class="component-content">
+    <div class="component-description">
+      <goat-text type="body"></goat-text>
+    </div>
+
+    
+    <div id='section-usage' class="component-section">
+      <goat-text type="heading" heading-size="4">Usage</goat-text>
+
+      <goat-text type="body">Here are different types of inputs.</goat-text>
+
+<goat-card class=""><goat-card-content class="demo-area"><goat-form-control label="Date"><goat-date-picker></goat-date-picker></goat-form-control></goat-card-content><goat-card-content class="no-padding code-area"><goat-code-highlighter language='html' class='demo-html'><pre><code>
+<goat-form-control label="Date">
+  <goat-date-picker></goat-date-picker>
+</goat-form-control>
+</code></pre></goat-code-highlighter></goat-card-content></goat-card>
+
+    </div>
+    
+    <div id='section-sizes' class="component-section">
+      <goat-text type="heading" heading-size="4">Sizes</goat-text>
+
+      <goat-text type="body">Fancy larger or smaller input? Add size attribute for additional sizes.</goat-text>
+
+<goat-card class=""><goat-card-content class="demo-area"><goat-date-picker size="lg"></goat-date-picker><goat-date-picker size="md"></goat-date-picker><goat-date-picker size="sm"></goat-date-picker></goat-card-content><goat-card-content class="no-padding code-area"><goat-code-highlighter language='html' class='demo-html'><pre><code>
+<goat-date-picker size="lg"></goat-date-picker>
+<goat-date-picker size="md"></goat-date-picker>
+<goat-date-picker size="sm"></goat-date-picker>
+</code></pre></goat-code-highlighter></goat-card-content></goat-card>
+
+    </div>
+    
+    <div id='section-disabled' class="component-section">
+      <goat-text type="heading" heading-size="4">Disabled</goat-text>
+
+      <goat-text type="body"
+  >Make input look inactive by adding the disabled <code class="highlighter-rouge" data-lang="html">boolean</code> attribute to any
+  <code class="highlighter-rouge" data-lang="html">&lt;input&gt;</code> element.</goat-text
+>
+
+<goat-card class=""><goat-card-content class="demo-area"><goat-date-picker disabled></goat-date-picker></goat-card-content><goat-card-content class="no-padding code-area"><goat-code-highlighter language='html' class='demo-html'><pre><code>
+<goat-date-picker disabled></goat-date-picker>
+</code></pre></goat-code-highlighter></goat-card-content></goat-card>
+
+<goat-text type="heading" heading-size="3">Read only</goat-text>
+<goat-card class=""><goat-card-content class="demo-area"><goat-date-picker readonly></goat-date-picker></goat-card-content><goat-card-content class="no-padding code-area"><goat-code-highlighter language='html' class='demo-html'><pre><code>
+<goat-date-picker readonly></goat-date-picker>
+</code></pre></goat-code-highlighter></goat-card-content></goat-card>
+
+    </div>
+    
+    <div id='section-events' class="component-section">
+      <goat-text type="heading" heading-size="4">Events</goat-text>
+
+      <goat-text type="body">On input change a <b>CustomEvent</b> <code class="highlighter-rouge" data-lang="html">goat:change</code> is triggered by the element.</goat-text>
+
+<goat-card>
+  <goat-card-content>
+    <goat-date-picker id="date-field" placeholder="Type here"></goat-date-picker>
+
+    <script>
+      document.querySelector('#date-field').addEventListener('goat:input', function (event) {
+        myConsole.log('goat:input :: ' + event.target.value);
+      });
+      document.querySelector('#date-field').addEventListener('goat:change', function (event) {
+        myConsole.warn('goat:change :: ' + event.target.value);
+      });
+    </script>
+  </goat-card-content>
+  <goat-card-content class='no-padding'>
+    <goat-code-highlighter language='javascript' format='' class='demo-html'><pre><code>
+document.querySelector('#date-field').addEventListener('goat:input', function (event) {
+  myConsole.log('goat:input :: ' + event.target.value);
+});
+document.querySelector('#date-field').addEventListener('goat:change', function (event) {
+  myConsole.warn('goat:change :: ' + event.target.value);
+});
+   </code></pre></goat-code-highlighter>
+  </goat-card-content>
+</goat-card>
+
+    </div>
+    
+  </div>
+  <!-- End Content -->
+
+  <!-- Content Nav -->
+<div class="section-nav">
+
+  <goat-menu style="width: 100%" class="js-scroll-nav">
+    
+    <goat-menu-item>
+      <goat-link class="link no-style" href='#section-usage'>Usage</goat-link>
+    </goat-menu-item>
+    
+    <goat-menu-item>
+      <goat-link class="link no-style" href='#section-sizes'>Sizes</goat-link>
+    </goat-menu-item>
+    
+    <goat-menu-item>
+      <goat-link class="link no-style" href='#section-disabled'>Disabled</goat-link>
+    </goat-menu-item>
+    
+    <goat-menu-item>
+      <goat-link class="link no-style" href='#section-events'>Events</goat-link>
+    </goat-menu-item>
+    
+  </goat-menu>
+
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3120721550776061"
+          crossorigin="anonymous"></script>
+  <!-- Vertical -->
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-3120721550776061"
+       data-ad-slot="1398164690"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+
+</div>
+<!-- End Content Nav -->
+
+</div>
+
+
+
+    <div class='comments-section'>
+      <div id='disqus_thread'></div>
+      <script type="text/javascript" async="true" src="//goatui.disqus.com/embed.js"></script>
+      <noscript>Please enable JavaScript to view the <a href='https://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+
+  <div class='footer container'>
+    <goat-divider></goat-divider>
+    <goat-text type='legal' expressive>
+      &copy; 2021 <goat-link href='https://shivajivarma.com'>Shivaji Varma</goat-link>. All Rights Reserved.
+    </goat-text>
+  </div>
+</div>
+
+
+</main>
+
+
+    <goat-notification-manager position="bottom-right"></goat-notification-manager>
+
+    <!-- JS Implementing Plugins -->
+    <script src="/assets/js/main.js"></script>
+    <script>
+      myConsole = {
+        log: function (message, title) {
+          window.dispatchEvent(
+            new CustomEvent('goat:notification', {
+              detail: {
+                title: title ? title : undefined,
+                subtitle: `<pre>${message}</pre>`,
+                state: 'success',
+              },
+            }),
+          );
+        },
+        warn: function (message, title) {
+          window.dispatchEvent(
+            new CustomEvent('goat:notification', {
+              detail: {
+                title: title ? title : undefined,
+                subtitle: `<pre>${message}</pre>`,
+                state: 'warning',
+              },
+            }),
+          );
+        },
+      };
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YVVYZC1HFF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-YVVYZC1HFF');
+    </script>
+
+  </body>
+</html>

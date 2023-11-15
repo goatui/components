@@ -1,0 +1,21 @@
+{% GoatHighlighterCard language:"html" %}
+<goat-text type="text">Primary</goat-text>
+<goat-text type="text" color="secondary">Secondary</goat-text>
+<goat-text type="text" color="tertiary">Tertiary / Helper</goat-text>
+<goat-text type="text" color="error">Error</goat-text>
+<goat-text type="text" color="inverse">Inverse</goat-text>
+
+<style>
+  .custom {
+    --text-color: var(--color-green-50);
+  }
+</style>
+
+<div class="custom">
+  <goat-text type="text">Primary</goat-text>
+</div>
+
+<div style="color: brown">
+  <goat-text type="text" class="inherit">Primary</goat-text>
+</div>
+{% endGoatHighlighterCard %}

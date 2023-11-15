@@ -1,0 +1,1900 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Title -->
+    <title>Overview &middot; GOAT UI</title>
+
+    <meta name="author" content="" />
+    <meta name="copyright" content="(c) 2023 " />
+
+    <link rel="canonical" href="https://goatui.com/components.html" />
+
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/assets/img/favicon.svg" />
+
+    <!--  Meta tags -->
+    <meta name="keywords" content="web components, button, input, grid, ui library, calendar, table, accordion, select, search, notifications, modal, card, breadcrumb, tree view, tabs, pagination, tooltip, popover, dropdown, menu, slider, toggle, switch, progress bar, spinner, loader, toast, alert, badge, tag, avatar, chip, divider, list, icon, text, heading, paragraph, label, link, image, checkbox, radio, form, form group, form field, " />
+    <meta name="description" content="GOAT UI contains design system and most used web components built using Stencil. So you don't need to include any additional framework dependencies, You can simple import required component js, and right away start using it." />
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@goatui/components@1.6.0/dist/goatui/assets/styles/theme.css" />
+
+    <link rel="stylesheet" href="/assets/css/main.css" />
+
+    
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@goatui/components@1.6.0/dist/goatui/goatui.esm.js"></script>
+  </head>
+
+  <body itemscope itemtype="http://schema.org/WebPage">
+    <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const themeSwitcher = document.querySelector('.theme-switcher');
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      themeSwitcher.icon = theme === 'dark' ? 'asleep--filled' : 'sun';
+      localStorage.setItem('theme', theme);
+    }
+
+    const theme = localStorage.getItem('theme') || 'light';
+    setTheme(theme);
+
+    themeSwitcher.addEventListener('click', function() {
+      const theme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
+      setTheme(theme);
+    });
+
+    const dirSwitcher = document.querySelector('#dir-switcher');
+
+    function setDir(dir) {
+      document.documentElement.setAttribute('dir', dir);
+      themeSwitcher.innetText = dir;
+      localStorage.setItem('dir', dir);
+    }
+
+    const dir = localStorage.getItem('dir') || 'ltr';
+    setDir(dir);
+
+    dirSwitcher.addEventListener('click', function() {
+      const dir = localStorage.getItem('dir') === 'ltr' ? 'rtl' : 'ltr';
+      setDir(dir);
+    });
+  });
+</script>
+
+<nav class='top-nav'>
+  <goat-header class='brand actions-separated border'>
+    <div slot='left'>
+      <goat-header-brand logo='/assets/img/logo.svg' href='/#' name='GOAT UI' sub-title='Overview' ></goat-header-brand>
+    </div>
+
+    <div slot='right'>
+
+      
+      <goat-select id='site-search'
+                   class='hide-mobile'
+                   search='contains'
+                   hide-dropdown-icon
+                   placeholder="Type '/' for search">
+        <goat-icon slot='start' name='search' size='1rem'></goat-icon>
+      </goat-select>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const search = document.querySelector('#site-search');
+
+          // prettier-ignore
+          search.items = JSON.parse(`[{"label": "", "value": "/404.html"},{"label": "", "value": "/assets/css/blog.css"},{"label": "", "value": "/assets/css/component.css"},{"label": "Overview", "value": "/components.html"},{"label": "", "value": "/blog/"},{"label": "Menu", "value": "/components/menu/"},{"label": "Toast", "value": "/components/toast/"},{"label": "Chart Doughnut", "value": "/components/chart-doughnut/"},{"label": "Header", "value": "/components/header/"},{"label": "Calendar", "value": "/components/calendar/"},{"label": "Progress", "value": "/components/progress/"},{"label": "Link", "value": "/components/link/"},{"label": "Spinner", "value": "/components/spinner/"},{"label": "HTML Editor", "value": "/components/html-editor/"},{"label": "Divider", "value": "/components/divider/"},{"label": "Current Time", "value": "/components/current-time/"},{"label": "Tabs", "value": "/components/tabs/"},{"label": "Code Editor", "value": "/components/code-editor/"},{"label": "Empty State", "value": "/components/empty-state/"},{"label": "Side Navigation", "value": "/components/sidenav/"},{"label": "Tree View", "value": "/components/tree-view/"},{"label": "SVG", "value": "/components/svg/"},{"label": "Condition builder", "value": "/components/condition-builder/"},{"label": "Textarea", "value": "/components/textarea/"},{"label": "Dropdown", "value": "/components/dropdown/"},{"label": "Button", "value": "/components/button/"},{"label": "Date Picker", "value": "/components/date-picker/"},{"label": "Form Control", "value": "/components/form-control/"},{"label": "Button Group", "value": "/components/button-group/"},{"label": "Breadcrumb", "value": "/components/breadcrumb/"},{"label": "Toggle", "value": "/components/toggle/"},{"label": "Flow Designer", "value": "/components/flow-designer/"},{"label": "Table", "value": "/components/table/"},{"label": "Code Highlighter", "value": "/components/code-highlighter/"},{"label": "Notification", "value": "/components/notification/"},{"label": "Notification Manager", "value": "/components/notification-manager/"},{"label": "Slider", "value": "/components/slider/"},{"label": "Modal", "value": "/components/modal/"},{"label": "Accordion", "value": "/components/accordion/"},{"label": "Avatar", "value": "/components/avatar/"},{"label": "Number", "value": "/components/number/"},{"label": "Icon", "value": "/components/icon/"},{"label": "Tag", "value": "/components/tag/"},{"label": "Text", "value": "/components/text/"},{"label": "Badge", "value": "/components/badge/"},{"label": "Input", "value": "/components/input/"},{"label": "Checkbox", "value": "/components/checkbox/"},{"label": "Select", "value": "/components/select/"},{"label": "Time Picker", "value": "/components/time-picker/"},{"label": "Canvas", "value": "/components/canvas/"},{"label": "", "value": "/"},{"label": "", "value": "/assets/css/main.css"},{"label": "", "value": "/assets/css/post.css"},{"label": "", "value": "/scratch.html"},{"label": "", "value": "/sitemap.xml"},{"label": "", "value": "/robots.txt"},{"label": "", "value": "/assets/css/blog.css.map"},{"label": "", "value": "/assets/css/component.css.map"}]`);
+          search.items = search.items.filter(item => !!item.label);
+          search.addEventListener('goat:change', function(e) {
+            window.location.href = e.detail.value;
+          });
+
+          search.addEventListener('goat:search-enter', function(e) {
+            if (e.detail.currentItems.length > 0)
+              window.location.href = e.detail.currentItems[0].value;
+          });
+
+          document.addEventListener('keydown', function(e) {
+            if (e.key === '/') {
+              e.preventDefault();
+              search.isOpen = true;
+              setTimeout(() => {
+                search.setFocus();
+              }, 300);
+            }
+          });
+        });
+      </script>
+      
+
+      <goat-header-action
+        id='theme-switcher'
+        icon="sun"
+        class="theme-switcher"
+        aria-title='Theme switcher'></goat-header-action>
+
+      <goat-header-action id='dir-switcher' class='hide-tablet-landscape-below'>LTR</goat-header-action>
+
+      <goat-header-action
+        href='/blog#'>
+        Blog
+      </goat-header-action>
+
+      <goat-header-action
+        class='hide-tablet-portrait-below'
+        href='https://opencollective.com/goat-ui-components#support'>
+        Become a backer
+      </goat-header-action>
+
+      
+      <goat-header-action
+        class='show-desktop'
+        href='https://github.com/goatui/components/issues'
+        target='_blank'
+      >Report Issue
+      </goat-header-action>
+
+      <goat-header-action
+        icon='logo--github'
+        class='hide-desktop'
+        href='https://github.com/goatui/components/issues'
+        target='_blank'
+      ></goat-header-action>
+      
+    </div>
+  </goat-header>
+</nav>
+
+<main><link rel='stylesheet' href='/assets/css/component.css'/>
+<div class='sidenav m-hide'>
+
+  <div class='sidenav-components'>
+
+    <goat-tree-view value='Overview' selected-node='Overview'>
+      <goat-tree-node label="Overview" href='/components'></goat-tree-node>
+
+      
+      
+      <goat-tree-node label="General">
+
+        
+        
+        <goat-tree-node label="Button" href='/components/button'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Button Group" href='/components/button-group'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Current Time" href='/components/current-time'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Icon" href='/components/icon'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Text" href='/components/text'></goat-tree-node>
+        
+        
+
+      </goat-tree-node>
+      
+      
+      
+      <goat-tree-node label="Layout">
+
+        
+        
+        <goat-tree-node label="Divider" href='/components/divider'></goat-tree-node>
+        
+        
+
+      </goat-tree-node>
+      
+      
+      
+      <goat-tree-node label="Navigation">
+
+        
+        
+        <goat-tree-node label="Breadcrumb" href='/components/breadcrumb'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Dropdown" href='/components/dropdown'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Header" href='/components/header'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Link" href='/components/link'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Menu" href='/components/menu'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Tabs" href='/components/tabs'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="TreeView" href='/components/tree-view'></goat-tree-node>
+        
+        
+
+      </goat-tree-node>
+      
+      
+      
+      <goat-tree-node label="Form Inputs">
+
+        
+        
+        <goat-tree-node label="Checkbox" href='/components/checkbox'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Code Editor" href='/components/code-editor'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Date Picker" href='/components/date-picker'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Form Control" href='/components/form-control'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Input" href='/components/input'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Number" href='/components/number'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Select" href='/components/select'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Slider" href='/components/slider'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Textarea" href='/components/textarea'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Time Picker" href='/components/time-picker'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Toggle" href='/components/toggle'></goat-tree-node>
+        
+        
+
+      </goat-tree-node>
+      
+      
+      
+      <goat-tree-node label="Data Display">
+
+        
+        
+        <goat-tree-node label="Accordion" href='/components/accordion'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Avatar" href='/components/avatar'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Badge" href='/components/badge'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Calendar" href='/components/calendar'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Code Highlighter" href='/components/code-highlighter'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Condition Builder" href='/components/condition-builder'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Empty State" href='/components/empty-state'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="SVG" href='/components/svg'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Table" href='/components/table'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Tag" href='/components/tag'></goat-tree-node>
+        
+        
+
+      </goat-tree-node>
+      
+      
+      
+      <goat-tree-node label="Feedback">
+
+        
+        
+        <goat-tree-node label="Notification" href='/components/notification'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Notification Manager" href='/components/notification-manager'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Progress" href='/components/progress'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Spinner" href='/components/spinner'></goat-tree-node>
+        
+        
+        
+        <goat-tree-node label="Toast" href='/components/toast'></goat-tree-node>
+        
+        
+
+      </goat-tree-node>
+      
+      
+      
+      <goat-tree-node label="Up coming">
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <goat-tree-node label="Canvas" href='/components/canvas'></goat-tree-node>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <goat-tree-node label="ChartDoughnut" href='/components/chart-doughnut'></goat-tree-node>
+        
+        
+        
+        
+        
+        <goat-tree-node label="Flow Designer" href='/components/flow-designer'></goat-tree-node>
+        
+        
+        
+        
+        
+        
+        
+        <goat-tree-node label="HTML Editor" href='/components/html-editor'></goat-tree-node>
+        
+        
+        
+        
+        
+        
+        
+        <goat-tree-node label="Modal" href='/components/modal'></goat-tree-node>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+      </goat-tree-node>
+      
+      
+
+    </goat-tree-view>
+
+  </div>
+
+</div>
+<div class='main-content'>
+  <div class='page-container'>
+
+    <goat-breadcrumb>
+      <goat-breadcrumb-item href="/">Home</goat-breadcrumb-item>
+      
+      <goat-breadcrumb-item active>Overview</goat-breadcrumb-item>
+    </goat-breadcrumb>
+
+    <goat-text type='heading' heading-size='6'>Overview</goat-text>
+
+
+    <style>
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    gap: var(--spacing-08);
+    align-items: stretch;
+    margin-top: var(--spacing-09);
+  }
+
+  .card {
+    height: 100%;
+  }
+
+  .card-wrapper {
+    position: relative;
+    --link-decoration: none;
+    --link-decoration-hover: none;
+  }
+  .card-wrapper goat-card {
+    padding: 0;
+  }
+  .card-wrapper:hover {
+    border-radius: var(--border-radius);
+    transition: linear .2s;
+    box-shadow: 6px 6px 0 var(--active-ui);
+  }
+
+  .up-coming-title {
+    margin-top: var(--spacing-09);
+  }
+  .up-coming {
+    margin-top: var(--spacing-02);
+  }
+
+  @media (max-width: 671px) {
+    .card-wrapper {
+      width: 100%;
+    }
+    .cards {
+      gap: var(--spacing-08);
+    }
+  }
+
+  .card-wrapper .header {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 14rem;
+  }
+
+  .card-wrapper .header:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    pointer-events: unset;
+  }
+
+  .card-wrapper .body {
+    height: 100%;
+    background: var(--layer-01);
+  }
+
+  .text {
+    --text-color: var(--text-primary);
+  }
+
+
+  .hidden {
+    display: none;
+  }
+
+  .hidden-force {
+    display: none;
+  }
+
+  goat-card > goat-card-content:first-child {
+    background: var(--background);
+  }
+</style>
+
+<goat-input id="component-search" placeholder="Search">
+  <goat-icon slot="start" size='1rem' name="search"></goat-icon>
+</goat-input>
+
+<div class='filters hidden'>
+  <goat-link href="/components">
+    Remove filter
+  </goat-link>
+</div>
+
+
+
+
+<script>
+  document.getElementById('component-search').addEventListener('goat:input', function (e) {
+    console.log(e.target.value);
+    document.querySelectorAll('.cards .card-wrapper').forEach(elm => {
+      elm.classList.remove('hidden');
+      if (elm.innerText.toLowerCase().indexOf(e.target.value.toLowerCase()) === -1) {
+        elm.classList.add('hidden');
+      }
+    });
+  });
+</script>
+
+<div class="cards">
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/accordion#";})()'>
+        
+        <goat-image src="/assets/img/accordion.png" dark-src="/assets/img/accordion-dark.png" style="max-width: 100%; max-height: 100%" />
+        
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Accordion
+          <goat-link href="/components?filter=Data Display">
+            <goat-tag class="color-blue" tag="Data Display">Data Display</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/avatar#";})()'>
+         <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.png"></goat-avatar> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Avatar
+          <goat-link href="/components?filter=Data Display">
+            <goat-tag class="color-blue" tag="Data Display">Data Display</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Avatars in their simplest form display content within a circular container.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/badge#";})()'>
+         <goat-badge content="5" class='color-error'> <goat-icon name="notification" size="lg"></goat-icon></goat-badge> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Badge
+          <goat-link href="/components?filter=Data Display">
+            <goat-tag class="color-blue" tag="Data Display">Data Display</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Renders a specified badge.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/breadcrumb#";})()'>
+         <goat-breadcrumb><goat-breadcrumb-item href="#">Home</goat-breadcrumb-item><goat-breadcrumb-item href="#" active>Page</goat-breadcrumb-item></goat-breadcrumb> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Breadcrumb
+          <goat-link href="/components?filter=Navigation">
+            <goat-tag class="color-blue" tag="Navigation">Navigation</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Typography are used for rendering headlines, paragraphs and captions.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/button#";})()'>
+         <goat-button>
+Button CTA
+</goat-button> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Button
+          <goat-link href="/components?filter=General">
+            <goat-tag class="color-blue" tag="General">General</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">An interactive button with a range of presentation options.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/button-group#";})()'>
+         <goat-button-group>
+<goat-button block icon="home"></goat-button>
+<goat-button block icon="alarm"></goat-button>
+</goat-button-group> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Button Group
+          <goat-link href="/components?filter=General">
+            <goat-tag class="color-blue" tag="General">General</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Group a series of buttons together on a single line with the button group, and super-power.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/calendar#";})()'>
+        
+        <goat-image src="/assets/img/calendar.png" dark-src="/assets/img/calendar-dark.png" style="max-width: 100%; max-height: 100%" />
+        
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Calendar
+          <goat-link href="/components?filter=Data Display">
+            <goat-tag class="color-blue" tag="Data Display">Data Display</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">The calendar component is used to display information in a daily, weekly, monthly, or category view.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/checkbox#";})()'>
+         <goat-checkbox value='true'>Want ice cream?</goat-checkbox> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Checkbox
+          <goat-link href="/components?filter=Form Inputs">
+            <goat-tag class="color-blue" tag="Form Inputs">Form Inputs</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Captures boolean input with an optional indeterminate mode.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/code-editor#";})()'>
+        
+        <goat-image src="/assets/img/code-editor.png" dark-src="/assets/img/code-editor-dark.png" style="max-width: 100%; max-height: 100%" />
+        
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Code Editor
+          <goat-link href="/components?filter=Form Inputs">
+            <goat-tag class="color-blue" tag="Form Inputs">Form Inputs</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">A browser based code editor.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/code-highlighter#";})()'>
+        
+        <goat-image src="/assets/img/code-highlighter.png" dark-src="/assets/img/code-highlighter-dark.png" style="max-width: 100%; max-height: 100%" />
+        
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Code Highlighter
+          <goat-link href="/components?filter=Data Display">
+            <goat-tag class="color-blue" tag="Data Display">Data Display</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">A browser based code highlighter.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/condition-builder#";})()'>
+        
+        <goat-image src="/assets/img/condition-builder.png" dark-src="" style="max-width: 100%; max-height: 100%" />
+        
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Condition Builder
+          <goat-link href="/components?filter=Data Display">
+            <goat-tag class="color-blue" tag="Data Display">Data Display</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">A condition builder is a component that allows users to build a condition using a set of rules.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/current-time#";})()'>
+         <goat-current-time></goat-current-time> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Current Time
+          <goat-link href="/components?filter=General">
+            <goat-tag class="color-blue" tag="General">General</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">The current time component displays the current time in a 12-hour format.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/date-picker#";})()'>
+         <goat-date-picker value='true'></goat-date-picker> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Date Picker
+          <goat-link href="/components?filter=Form Inputs">
+            <goat-tag class="color-blue" tag="Form Inputs">Form Inputs</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Captures date input.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/divider#";})()'>
+         <goat-divider style="width: 12rem;">or</goat-divider> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Divider
+          <goat-link href="/components?filter=Layout">
+            <goat-tag class="color-blue" tag="Layout">Layout</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">A divider can be used to segment content vertically or horizontally.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/dropdown#";})()'>
+        
+        <goat-image src="/assets/img/dropdown.png" dark-src="/assets/img/dropdown-dark.png" style="max-width: 100%; max-height: 100%" />
+        
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Dropdown
+          <goat-link href="/components?filter=Navigation">
+            <goat-tag class="color-blue" tag="Navigation">Navigation</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Enables native inputs to be used within a Form field.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/empty-state#";})()'>
+         <goat-empty-state class="content-center" headline="Empty list" description="Nothing to display">
+</goat-empty-state> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Empty State
+          <goat-link href="/components?filter=Data Display">
+            <goat-tag class="color-blue" tag="Data Display">Data Display</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">A message that displays when there is no information to display.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/form-control#";})()'>
+         <goat-form-control label='Full Name' required>
+<goat-input type='text'></goat-input>
+</goat-form-control> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Form Control
+          <goat-link href="/components?filter=Form Inputs">
+            <goat-tag class="color-blue" tag="Form Inputs">Form Inputs</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">The Form Control component adds a label and caption for its child control.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/header#";})()'>
+        
+        <goat-image src="/assets/img/header.png" dark-src="/assets/img/header-dark.png" style="max-width: 100%; max-height: 100%" />
+        
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Header
+          <goat-link href="/components?filter=Navigation">
+            <goat-tag class="color-blue" tag="Navigation">Navigation</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Headers are compositions that extend standard navbar functionalities.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/icon#";})()'>
+         <goat-icon name="home" size="2rem"></goat-icon> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Icon
+          <goat-link href="/components?filter=General">
+            <goat-tag class="color-blue" tag="General">General</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/input#";})()'>
+         <goat-input placeholder="Enter your name"></goat-input> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Input
+          <goat-link href="/components?filter=Form Inputs">
+            <goat-tag class="color-blue" tag="Form Inputs">Form Inputs</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Enables native inputs to be used within a Form field.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/link#";})()'>
+         <goat-link href="#">Link</goat-link> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Link
+          <goat-link href="/components?filter=Navigation">
+            <goat-tag class="color-blue" tag="Navigation">Navigation</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Links allow users to click their way from page to page.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/menu#";})()'>
+        
+        <goat-image src="/assets/img/menu.png" dark-src="/assets/img/menu-dark.png" style="max-width: 100%; max-height: 100%" />
+        
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Menu
+          <goat-link href="/components?filter=Navigation">
+            <goat-tag class="color-blue" tag="Navigation">Navigation</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Menus display a list of choices on temporary surfaces.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/notification#";})()'>
+         <goat-notification state="success">
+     <div slot='title'>Successful saved the record</div>
+   </goat-notification> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Notification
+          <goat-link href="/components?filter=Feedback">
+            <goat-tag class="color-blue" tag="Feedback">Feedback</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Notifications are messages that communicate information to the user.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/notification-manager#";})()'>
+        
+        <goat-image src="/assets/img/notification-manager.png" dark-src="/assets/img/notification-manager-dark.png" style="max-width: 100%; max-height: 100%" />
+        
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Notification Manager
+          <goat-link href="/components?filter=Feedback">
+            <goat-tag class="color-blue" tag="Feedback">Feedback</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Manages alert, toasts and notifications.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/number#";})()'>
+         <goat-number value="100"></goat-input> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Number
+          <goat-link href="/components?filter=Form Inputs">
+            <goat-tag class="color-blue" tag="Form Inputs">Form Inputs</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Enables native inputs to be used within a Form field.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/progress#";})()'>
+         <goat-progress value="40" label="Progress" width="100%" helper-text="Optional helper text goes here..."></goat-progress> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Progress
+          <goat-link href="/components?filter=Feedback">
+            <goat-tag class="color-blue" tag="Feedback">Feedback</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Progress indicators express an unspecified wait time or display the length of a process.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/select#";})()'>
+        
+        <goat-image src="/assets/img/select.png" dark-src="/assets/img/select-dark.png" style="max-width: 100%; max-height: 100%" />
+        
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Select
+          <goat-link href="/components?filter=Form Inputs">
+            <goat-tag class="color-blue" tag="Form Inputs">Form Inputs</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Allows the user to select one or more options using a dropdown.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/slider#";})()'>
+        
+        <goat-image src="/assets/img/slider.png" dark-src="/assets/img/slider-dark.png" style="max-width: 100%; max-height: 100%" />
+        
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Slider
+          <goat-link href="/components?filter=Form Inputs">
+            <goat-tag class="color-blue" tag="Form Inputs">Form Inputs</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Allows the user to select one or more options using a dropdown.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/spinner#";})()'>
+         <goat-spinner class="rainbow" size="2rem"></goat-spinner> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Spinner
+          <goat-link href="/components?filter=Feedback">
+            <goat-tag class="color-blue" tag="Feedback">Feedback</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Spinners provide a visual cue that an action is processing awaiting a course of change or a result.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/svg#";})()'>
+         <goat-svg src="https://icons.getbootstrap.com/assets/icons/bug.svg" size="2rem"></goat-svg> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>SVG
+          <goat-link href="/components?filter=Data Display">
+            <goat-tag class="color-blue" tag="Data Display">Data Display</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Render SVG content from an external source.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/table#";})()'>
+        
+        <goat-image src="/assets/img/table.png" dark-src="/assets/img/table-dark.png" style="max-width: 100%; max-height: 100%" />
+        
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Table
+          <goat-link href="/components?filter=Data Display">
+            <goat-tag class="color-blue" tag="Data Display">Data Display</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">A configurable component for displaying tabular data.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/tabs#";})()'>
+         <goat-tabs>
+<goat-tabs-list>
+<goat-tab selected >Tab 1</goat-tab>
+<goat-tab>Tab 2</goat-tab>
+</goat-tabs-list>
+</goat-tabs> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Tabs
+          <goat-link href="/components?filter=Navigation">
+            <goat-tag class="color-blue" tag="Navigation">Navigation</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">An interactive button with a range of presentation options.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/tag#";})()'>
+         <goat-tag class="color-red">Important</goat-tag> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Tag
+          <goat-link href="/components?filter=Data Display">
+            <goat-tag class="color-blue" tag="Data Display">Data Display</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Use tags to label, categorize, or organize items using keywords that describe them.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/text#";})()'>
+         <goat-text type="heading" level="1">Heading</goat-typography> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Text
+          <goat-link href="/components?filter=General">
+            <goat-tag class="color-blue" tag="General">General</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Typography are used for rendering headlines, paragraphs and captions.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/textarea#";})()'>
+         <goat-textarea placeholder="Enter some description over here"></goat-textarea> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Textarea
+          <goat-link href="/components?filter=Form Inputs">
+            <goat-tag class="color-blue" tag="Form Inputs">Form Inputs</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Enables native inputs to be used within a Form field.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/time-picker#";})()'>
+         <goat-time-picker value='true'></goat-time-picker> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Time Picker
+          <goat-link href="/components?filter=Form Inputs">
+            <goat-tag class="color-blue" tag="Form Inputs">Form Inputs</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Captures time input.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/toast#";})()'>
+         <goat-toast state="success" message="Successful saved the record"></goat-toast> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Toast
+          <goat-link href="/components?filter=Feedback">
+            <goat-tag class="color-blue" tag="Feedback">Feedback</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Toasts are lightweight notifications.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/toggle#";})()'>
+         <goat-toggle value='true'>Want ice cream?</goat-toggle> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Toggle
+          <goat-link href="/components?filter=Form Inputs">
+            <goat-tag class="color-blue" tag="Form Inputs">Form Inputs</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">Captures boolean input with an optional indeterminate mode.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/tree-view#";})()'>
+        
+        <goat-image src="/assets/img/tree-view.png" dark-src="/assets/img/tree-view-dark.png" style="max-width: 100%; max-height: 100%" />
+        
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>TreeView
+          <goat-link href="/components?filter=Navigation">
+            <goat-tag class="color-blue" tag="Navigation">Navigation</goat-tag>
+          </goat-link>
+        </goat-text>
+        <goat-text class="text">A tree view is a hierarchical structure that provides nested levels of navigation.</goat-text>
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+</div>
+
+<goat-text class="up-coming-title" type="heading" heading-size="4">Upcoming</goat-text>
+
+<div class="cards up-coming">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/canvas#";})()'>
+        
+        <goat-image src="/assets/img/canvas.png" dark-src="" style="max-width: 100%; max-height: 100%" />
+        
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Canvas</goat-text>
+
+         
+        <goat-link href="/components?filter=other"> <goat-tag class="color-blue" tag="other">other</goat-tag></goat-link>
+        
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/chart-doughnut#";})()'>
+         <goat-chart-doughnut class="color-red"></goat-chart-doughnut> 
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>ChartDoughnut</goat-text>
+
+         
+        <goat-link href="/components?filter=other"> <goat-tag class="color-blue" tag="other">other</goat-tag></goat-link>
+        
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/flow-designer#";})()'>
+        
+        <goat-image src="/assets/img/flow-designer.png" dark-src="" style="max-width: 100%; max-height: 100%" />
+        
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Flow Designer</goat-text>
+
+         
+        <goat-link href="/components?filter=other"> <goat-tag class="color-blue" tag="other">other</goat-tag></goat-link>
+        
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/html-editor#";})()'>
+        
+        <goat-image src="/assets/img/html-editor.png" dark-src="/assets/img/html-editor-dark.png" style="max-width: 100%; max-height: 100%" />
+        
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>HTML Editor</goat-text>
+
+        
+        <goat-link href="/components?filter=input"> <goat-tag class="color-blue" tag="input">input</goat-tag></goat-link>
+        
+        <goat-link href="/components?filter= form"> <goat-tag class="color-blue" tag=" form"> form</goat-tag></goat-link>
+         
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  <div class="card-wrapper">
+    <goat-card shadow-level="md" class="card">
+      <goat-card-content class="header" onclick='(function(){window.location.href="/components/modal#";})()'>
+        
+        <goat-image src="" dark-src="" style="max-width: 100%; max-height: 100%" />
+        
+      </goat-card-content>
+
+      <goat-card-content class="body">
+        <goat-text class="text" type="heading" heading-size='3'>Modal</goat-text>
+
+        
+        <goat-link href="/components?filter=controls"> <goat-tag class="color-blue" tag="controls">controls</goat-tag></goat-link>
+         
+      </goat-card-content>
+    </goat-card>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  <script>
+    if (window.location.href.indexOf('?filter=') !== -1) {
+      const filter = new URLSearchParams(window.location.search).get('filter');
+      if (filter)
+        document.querySelector('.filters').classList.remove('hidden');
+      document.querySelectorAll('.card-wrapper').forEach(elm => {
+        elm.classList.add('hidden-force');
+        if (elm.querySelector(`goat-tag[tag="${filter}"]`)) {
+          elm.classList.remove('hidden-force');
+        }
+      });
+    }
+  </script>
+</div>
+
+
+    <div class='comments-section'>
+      <div id='disqus_thread'></div>
+      <script type="text/javascript" async="true" src="//goatui.disqus.com/embed.js"></script>
+      <noscript>Please enable JavaScript to view the <a href='https://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
+    </div>
+  </div>
+
+  <div class='footer container'>
+    <goat-divider></goat-divider>
+    <goat-text type='legal' expressive>
+      &copy; 2021 <goat-link href='https://shivajivarma.com'>Shivaji Varma</goat-link>. All Rights Reserved.
+    </goat-text>
+  </div>
+</div>
+
+
+</main>
+
+
+    <goat-notification-manager position="bottom-right"></goat-notification-manager>
+
+    <!-- JS Implementing Plugins -->
+    <script src="/assets/js/main.js"></script>
+    <script>
+      myConsole = {
+        log: function (message, title) {
+          window.dispatchEvent(
+            new CustomEvent('goat:notification', {
+              detail: {
+                title: title ? title : undefined,
+                subtitle: `<pre>${message}</pre>`,
+                state: 'success',
+              },
+            }),
+          );
+        },
+        warn: function (message, title) {
+          window.dispatchEvent(
+            new CustomEvent('goat:notification', {
+              detail: {
+                title: title ? title : undefined,
+                subtitle: `<pre>${message}</pre>`,
+                state: 'warning',
+              },
+            }),
+          );
+        },
+      };
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YVVYZC1HFF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-YVVYZC1HFF');
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<goat-text type="body" expressive>Here are several predefined button styles, each serving its own semantic purpose. </goat-text>
+
+{% GoatHighlighterCard language:"html" %}
+
+<div class="component-container">
+  <goat-button color="primary">Primary</goat-button>
+  <goat-button color="secondary">Secondary</goat-button>
+  <goat-button color="success">Success</goat-button>
+  <goat-button color="warning">Warning</goat-button>
+  <goat-button color="danger">Danger</goat-button>
+</div>
+
+<div class="component-container" style='background: var(--color-blue);  padding: 1rem;'>
+  <goat-button color="dark">Dark</goat-button>
+  <goat-button color="light">Light</goat-button>
+  <goat-button color="inverse">Inverse</goat-button>
+</div>
+
+
+
+{% endGoatHighlighterCard %}
+
+<br />
+<goat-text type="heading" heading-size="3">Custom branding</goat-text>
+{% GoatHighlighterCard language:"html" %}
+<div class="component-container">
+
+<style>
+  .custom {
+    --button-color: var(--color-brand-primary);
+    --button-color-hover: var(--color-brand-primary-70);
+    --button-color-active: var(--color-brand-primary-80);
+    --button-color-support: var(--color-brand-secondary);
+  }
+</style>
+<goat-button class="custom" icon="home">Custom</goat-button>
+<goat-button class="custom" variant="outline">Custom</goat-button>
+<goat-button class="custom" variant="ghost">Custom</goat-button>
+
+<goat-button color="brand-primary" icon="home">Custom</goat-button>
+<goat-button color="brand-secondary" icon="home">Custom</goat-button>
+
+</div>
+{% endGoatHighlighterCard %}
