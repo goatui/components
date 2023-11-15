@@ -2,23 +2,22 @@
 import Layout from '../../../layouts/Component.astro';
 import getComponentDetails from '../../../_data/getComponentDetails.ts';
 import ApiPanel from '../../../components/ApiPanel.astro';
-const componentDetails = getComponentDetails('goat-badge');
-
-import UsageSection from "./_sections/Usage.astro";
-import ExampleSection from "./_sections/Examples.astro";
 import OverviewPanel from '../../../components/OverviewPanel.astro';
+const componentDetails = getComponentDetails('goat-modal');
+
+import UsageSection from './_sections/usage.astro';
 
 const sections = [
   {
-    "title": "Usage",
-    "Component": UsageSection
-  },
-  {
-    "title": "Examples",
-    "Component": ExampleSection
-  }
-];
+    'title': 'Usage',
+    'Component': UsageSection,
+  }];
 ---
+<style is:inline>
+  goat-tag {
+    margin-inline-end: .5rem;
+  }
+</style>
 <Layout componentDetails={componentDetails}>
   <goat-tabs class='page-tabs'>
     <goat-tabs-list>

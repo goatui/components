@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-11-15T06:09:38",
+  "timestamp": "2023-11-15T17:35:41",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.4.0",
@@ -7888,7 +7888,7 @@
         },
         {
           "name": "description",
-          "text": "Enables native inputs to be used within a Form field."
+          "text": "Number input lets users enter a numeric value and incrementally increase or decrease the value with a two-segment control."
         },
         {
           "name": "category",
@@ -8368,7 +8368,7 @@
       "listeners": [],
       "metadata": {
         "name": "Number",
-        "description": "Enables native inputs to be used within a Form field.",
+        "description": "Number input lets users enter a numeric value and incrementally increase or decrease the value with a two-segment control.",
         "category": "Form Inputs",
         "tags": [
           "input",
@@ -18024,7 +18024,7 @@
             },
             {
               "name": "description",
-              "text": "Enables native inputs to be used within a Form field."
+              "text": "Number input lets users enter a numeric value and incrementally increase or decrease the value with a two-segment control."
             },
             {
               "name": "category",
@@ -18504,7 +18504,7 @@
           "listeners": [],
           "metadata": {
             "name": "Number",
-            "description": "Enables native inputs to be used within a Form field.",
+            "description": "Number input lets users enter a numeric value and incrementally increase or decrease the value with a two-segment control.",
             "category": "Form Inputs",
             "tags": [
               "input",

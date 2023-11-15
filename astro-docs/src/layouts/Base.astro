@@ -3,9 +3,10 @@ interface Props {
   title?: string;
   description?: string;
   root?: boolean;
+  keywords?: any;
 }
 
-const { title, root, description } = Astro.props;
+const { title, root, description, keywords } = Astro.props;
 import site from '../_data/site.json';
 import '../styles/base.layout.scss';
 
@@ -16,6 +17,14 @@ if (isProd) {
   envProps = site['prod'];
 } else {
   envProps = site['dev'];
+}
+
+function getKeywords() {
+  if (keywords) {
+    return Astro.props.title + ', ' + keywords;
+  } else {
+    return 'Web component, ' + Astro.props.title;
+  }
 }
 ---
 
@@ -29,13 +38,14 @@ if (isProd) {
   <meta charset='utf-8' />
   <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no' />
 
+  <link rel='canonical' href={Astro.url + ''} />
+
   <!-- Author Meta Tags -->
   <meta name='author' content={site.author} />
-  <meta name='copyright' content=`(c) ${new Date().getFullYear()} ${site.author}` } />
+  <meta name='copyright' content={`(c) ${new Date().getFullYear()} ${site.author}`} />
 
   <!--  Meta tags -->
-  <meta name='keywords'
-        content='{% if page.keywords == null %}Web component, {{ page.title }}{% endif %}{% for keyword in page.keywords %}{{ keyword }}, {% endfor %}' />
+  <meta name='keywords' content={getKeywords()} />
   <meta name='description' content={description ? description : site.description} />
 
   <!-- Favicon -->

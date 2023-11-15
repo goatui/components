@@ -1,15 +1,18 @@
 ---
+import site from '../_data/site.json';
 interface Props {
-  title?: string;
-  description?: string;
-  wip?: boolean;
+  componentDetails: any;
 }
 
-const {title, description, wip} = Astro.props;
+const {componentDetails} = Astro.props;
 
 import Layout from './Default.astro';
 import componentsDetails from '../_data/componentsDetails.json';
 import '../styles/component.layout.scss';
+
+const title = componentDetails.metadata.name;
+const description = componentDetails.metadata.description;
+
 ---
 
 <Layout title={title} description={description}>
@@ -55,7 +58,7 @@ import '../styles/component.layout.scss';
         <goat-text class='comp-title' type='heading' heading-size='6'>{title}</goat-text>
 
 
-        { wip ? <goat-breadcrumb-item href="/components">Components</goat-breadcrumb-item> : '' }
+        { componentDetails.metadata.category == 'Up coming' ? <goat-tag color='red'>Work in progress</goat-tag>  : '' }
       </div>
 
 
@@ -72,11 +75,12 @@ import '../styles/component.layout.scss';
       <goat-divider></goat-divider>
       <div class='footer-content'>
         <goat-text type='legal' expressive>
-          &copy; 2021 <goat-link href='https://shivajivarma.com'>Shivaji Varma</goat-link>. All Rights Reserved.
+          &copy; {new Date().getFullYear()} <goat-link href={site.author_url}>{site.author}</goat-link>. All Rights Reserved.
         </goat-text>
       </div>
 
     </div>
   </div>
+
 
 </Layout>

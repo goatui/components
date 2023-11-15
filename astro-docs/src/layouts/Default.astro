@@ -3,9 +3,10 @@ interface Props {
   title?: string;
   description?: string;
   root?: boolean;
+  keywords?: string;
 }
 
-const {title, root, description} = Astro.props;
+const { title, root, description, keywords } = Astro.props;
 
 import Layout from './Base.astro';
 import site from '../_data/site.json';
@@ -13,10 +14,10 @@ import componentsDetails from '../_data/componentsDetails.json';
 
 const getTitle = (root?: boolean) => {
   return (!root) ? title : '';
-}
+};
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title || site.title} description={description} keywords={keywords}>
 
   <nav class='top-nav'>
     <goat-header class={`brand actions-separated ${!root ? 'border' : ''}`}>
@@ -36,26 +37,26 @@ const getTitle = (root?: boolean) => {
                          placeholder="Type '/' for search">
               <goat-icon slot='start' name='search' size='1rem'></goat-icon>
             </goat-select>
-            <script is:inline  define:vars={{componentsDetails}}>
-              document.addEventListener('DOMContentLoaded', function () {
+            <script is:inline  define:vars={{ componentsDetails }}>
+              document.addEventListener('DOMContentLoaded', function() {
                 const search = document.querySelector('#site-search');
 
                 // prettier-ignore
                 search.items = componentsDetails.components.map(component => ({
                   label: component.metadata.name,
-                  value: component.tag.replace('goat-', '')
+                  value: component.tag.replace('goat-', ''),
                 }));
                 search.items = search.items.filter(item => !!item.label);
-                search.addEventListener('goat:change', function (e) {
-                  window.location.href = "/components/" + e.detail.value;
+                search.addEventListener('goat:change', function(e) {
+                  window.location.href = '/components/' + e.detail.value;
                 });
 
-                search.addEventListener('goat:search-enter', function (e) {
+                search.addEventListener('goat:search-enter', function(e) {
                   if (e.detail.currentItems.length > 0)
-                    window.location.href = "/components/" + e.detail.currentItems[0].value;
+                    window.location.href = '/components/' + e.detail.currentItems[0].value;
                 });
 
-                document.addEventListener('keydown', function (e) {
+                document.addEventListener('keydown', function(e) {
                   if (e.key === '/') {
                     e.preventDefault();
                     search.isOpen = true;
@@ -70,8 +71,8 @@ const getTitle = (root?: boolean) => {
 
         <goat-header-action
           id='theme-switcher'
-          icon="sun"
-          class="theme-switcher"
+          icon='sun'
+          class='theme-switcher'
           aria-title='Theme switcher'></goat-header-action>
 
         <goat-header-action id='dir-switcher' class='hide-tablet-landscape-below'>LTR</goat-header-action>
@@ -116,7 +117,7 @@ const getTitle = (root?: boolean) => {
   </nav>
 
   <main>
-    <slot/>
+    <slot />
   </main>
 
 </Layout>

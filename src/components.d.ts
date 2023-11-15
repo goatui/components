@@ -770,7 +770,7 @@ export namespace Components {
     }
     /**
      * @name Number
-     * @description Enables native inputs to be used within a Form field.
+     * @description Number input lets users enter a numeric value and incrementally increase or decrease the value with a two-segment control.
      * @category Form Inputs
      * @tags input, form
      * @example <goat-number value="100"></goat-input>
@@ -1924,7 +1924,7 @@ declare global {
     };
     /**
      * @name Number
-     * @description Enables native inputs to be used within a Form field.
+     * @description Number input lets users enter a numeric value and incrementally increase or decrease the value with a two-segment control.
      * @category Form Inputs
      * @tags input, form
      * @example <goat-number value="100"></goat-input>
@@ -3004,7 +3004,7 @@ declare namespace LocalJSX {
     }
     /**
      * @name Number
-     * @description Enables native inputs to be used within a Form field.
+     * @description Number input lets users enter a numeric value and incrementally increase or decrease the value with a two-segment control.
      * @category Form Inputs
      * @tags input, form
      * @example <goat-number value="100"></goat-input>
@@ -3931,7 +3931,7 @@ declare module "@stencil/core" {
             "goat-notification-manager": LocalJSX.GoatNotificationManager & JSXBase.HTMLAttributes<HTMLGoatNotificationManagerElement>;
             /**
              * @name Number
-             * @description Enables native inputs to be used within a Form field.
+             * @description Number input lets users enter a numeric value and incrementally increase or decrease the value with a two-segment control.
              * @category Form Inputs
              * @tags input, form
              * @example <goat-number value="100"></goat-input>
