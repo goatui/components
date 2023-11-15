@@ -8,6 +8,15 @@ interface Props {
 const { title, root, description } = Astro.props;
 import site from '../_data/site.json';
 import '../styles/base.layout.scss';
+
+const isProd = import.meta.env.PROD;
+let envProps;
+
+if (isProd) {
+  envProps = site['prod'];
+} else {
+  envProps = site['dev'];
+}
 ---
 
 <!DOCTYPE html>
@@ -33,16 +42,16 @@ import '../styles/base.layout.scss';
   <link rel='shortcut icon' href='/assets/img/favicon.svg' />
 
   <!- Styles -->
-  <link rel='stylesheet' href={site.themeCss} />
+  <link rel='stylesheet' href={envProps.themeCss} />
 
   <!-- GoatUI scripts -->
-  <script type='module' src={site.script}></script>
+  <script type='module' src={envProps.script}></script>
 </head>
 <body>
 
 <slot />
 
-<goat-notification-manager position="bottom-right"></goat-notification-manager>
+<goat-notification-manager position='bottom-right'></goat-notification-manager>
 
 <!-- Scripts -->
 <script src='/assets/js/main.js' is:inline></script>
