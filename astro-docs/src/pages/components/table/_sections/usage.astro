@@ -124,7 +124,7 @@ import dataSource from '../data-source.json';
           'name': 'eyeColor',
           'label': 'Eye Color',
           'template': function(row, column) {
-            return "<goat-tag style='padding: 10px; max-width: 100%;' color='"+{row[column.name]}+"'>$\{row[column.name]}</goat-tag>";
+            return "<goat-tag style='padding: 10px; max-width: 100%;' color='"+row[column.name]+"'>"+row[column.name]+</goat-tag>";
           },
         },
         {
@@ -143,7 +143,7 @@ import dataSource from '../data-source.json';
         },
       ];
       // Data
-      $table.data = ${JSON.stringify(dataSource, null, 2)};
+      $table.data = ${JSON.stringify(dataSource.slice(0, 3), null, 2)};
 
       // Events
       $table.addEventListener('goat:table-cell-click', function(evt) {

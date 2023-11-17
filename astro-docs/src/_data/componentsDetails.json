@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-11-15T17:35:41",
+  "timestamp": "2023-11-17T06:16:07",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.4.0",
@@ -4761,7 +4761,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\r\n</goat-empty-state>"
+          "text": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\n</goat-empty-state>"
         }
       ],
       "encapsulation": "shadow",
@@ -4980,7 +4980,7 @@
         "name": "Empty State",
         "description": "A message that displays when there is no information to display.",
         "category": "Data Display",
-        "example": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\r\n</goat-empty-state>"
+        "example": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\n</goat-empty-state>"
       }
     },
     {
@@ -8759,6 +8759,27 @@
           "required": false
         },
         {
+          "name": "helperText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "helper-text",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "hideDropdownIcon",
           "type": "boolean",
           "complexType": {
@@ -8803,6 +8824,49 @@
           "required": false
         },
         {
+          "name": "invalid",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "invalid",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "invalidText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "invalid-text",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "isOpen",
           "type": "boolean",
           "complexType": {
@@ -8841,6 +8905,27 @@
           "values": [
             {
               "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
             }
           ],
           "optional": false,
@@ -9123,6 +9208,49 @@
             }
           ],
           "optional": true,
+          "required": false
+        },
+        {
+          "name": "warn",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "warn",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "warnText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "warn-text",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
           "required": false
         }
       ],
@@ -10116,6 +10244,28 @@
           "required": false
         },
         {
+          "name": "hideBackground",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-background",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "size",
           "type": "string",
           "complexType": {
@@ -10126,7 +10276,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "The Icon size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"` and size in pixel. Defaults to `\"md\"`.",
+          "docs": "The Icon size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"` and size in pixel. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -10679,7 +10829,7 @@
           },
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "Grid columns configuration.\r\n[\r\n{\r\n  \"name\":\"name\",\r\n  \"label\":\"Name\",\r\n  \"width\":300,\r\n  \"fixed\":true,\r\n  \"template\": function(row, column) { return row[column.name];}\r\n },\r\n{\r\n  \"name\":\"age\",\r\n  \"label\":\"Age\"\r\n}\r\n]",
+          "docs": "Grid columns configuration.\n[\n{\n  \"name\":\"name\",\n  \"label\":\"Name\",\n  \"width\":300,\n  \"fixed\":true,\n  \"template\": function(row, column) { return row[column.name];}\n },\n{\n  \"name\":\"age\",\n  \"label\":\"Age\"\n}\n]",
           "docsTags": [],
           "default": "[]",
           "values": [
@@ -10700,7 +10850,7 @@
           },
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "Grid data to display on table\r\n[{\r\n 'id': '5e7118ddce4b3d577956457f',\r\n 'age': 21,\r\n 'name': 'John',\r\n 'company': 'India',\r\n 'email': 'john@example.com',\r\n 'phone': '+1 (839) 560-3581',\r\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\r\n }]",
+          "docs": "Grid data to display on table\n[{\n 'id': '5e7118ddce4b3d577956457f',\n 'age': 21,\n 'name': 'John',\n 'company': 'India',\n 'email': 'john@example.com',\n 'phone': '+1 (839) 560-3581',\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\n }]",
           "docsTags": [],
           "default": "[]",
           "values": [
@@ -10712,22 +10862,44 @@
           "required": false
         },
         {
-          "name": "emptyState",
-          "type": "any",
+          "name": "emptyStateDescription",
+          "type": "string",
           "complexType": {
-            "original": "any",
-            "resolved": "any",
+            "original": "string",
+            "resolved": "string",
             "references": {}
           },
           "mutable": true,
-          "attr": "empty-state",
+          "attr": "empty-state-description",
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "{\r\n    title: 'No items',\r\n    description: 'There are no items to display',\r\n  }",
+          "default": "'There are no items to display'",
           "values": [
             {
-              "type": "any"
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "emptyStateHeadline",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "empty-state-headline",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'No items'",
+          "values": [
+            {
+              "type": "string"
             }
           ],
           "optional": false,
@@ -18690,6 +18862,27 @@
               "required": false
             },
             {
+              "name": "helperText",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "helper-text",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
               "name": "hideDropdownIcon",
               "type": "boolean",
               "complexType": {
@@ -18734,6 +18927,49 @@
               "required": false
             },
             {
+              "name": "invalid",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "invalid",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "invalidText",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "invalid-text",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
               "name": "isOpen",
               "type": "boolean",
               "complexType": {
@@ -18772,6 +19008,27 @@
               "values": [
                 {
                   "type": "any"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "label",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "label",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
                 }
               ],
               "optional": false,
@@ -19054,6 +19311,49 @@
                 }
               ],
               "optional": true,
+              "required": false
+            },
+            {
+              "name": "warn",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "warn",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "warnText",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "warn-text",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
               "required": false
             }
           ],
@@ -21862,7 +22162,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\r\n</goat-empty-state>"
+              "text": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\n</goat-empty-state>"
             }
           ],
           "encapsulation": "shadow",
@@ -22081,7 +22381,7 @@
             "name": "Empty State",
             "description": "A message that displays when there is no information to display.",
             "category": "Data Display",
-            "example": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\r\n</goat-empty-state>"
+            "example": "<goat-empty-state class=\"content-center\" headline=\"Empty list\" description=\"Nothing to display\">\n</goat-empty-state>"
           }
         },
         {
@@ -22264,7 +22564,7 @@
               },
               "mutable": false,
               "reflectToAttr": false,
-              "docs": "Grid columns configuration.\r\n[\r\n{\r\n  \"name\":\"name\",\r\n  \"label\":\"Name\",\r\n  \"width\":300,\r\n  \"fixed\":true,\r\n  \"template\": function(row, column) { return row[column.name];}\r\n },\r\n{\r\n  \"name\":\"age\",\r\n  \"label\":\"Age\"\r\n}\r\n]",
+              "docs": "Grid columns configuration.\n[\n{\n  \"name\":\"name\",\n  \"label\":\"Name\",\n  \"width\":300,\n  \"fixed\":true,\n  \"template\": function(row, column) { return row[column.name];}\n },\n{\n  \"name\":\"age\",\n  \"label\":\"Age\"\n}\n]",
               "docsTags": [],
               "default": "[]",
               "values": [
@@ -22285,7 +22585,7 @@
               },
               "mutable": false,
               "reflectToAttr": false,
-              "docs": "Grid data to display on table\r\n[{\r\n 'id': '5e7118ddce4b3d577956457f',\r\n 'age': 21,\r\n 'name': 'John',\r\n 'company': 'India',\r\n 'email': 'john@example.com',\r\n 'phone': '+1 (839) 560-3581',\r\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\r\n }]",
+              "docs": "Grid data to display on table\n[{\n 'id': '5e7118ddce4b3d577956457f',\n 'age': 21,\n 'name': 'John',\n 'company': 'India',\n 'email': 'john@example.com',\n 'phone': '+1 (839) 560-3581',\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\n }]",
               "docsTags": [],
               "default": "[]",
               "values": [
@@ -22297,22 +22597,44 @@
               "required": false
             },
             {
-              "name": "emptyState",
-              "type": "any",
+              "name": "emptyStateDescription",
+              "type": "string",
               "complexType": {
-                "original": "any",
-                "resolved": "any",
+                "original": "string",
+                "resolved": "string",
                 "references": {}
               },
               "mutable": true,
-              "attr": "empty-state",
+              "attr": "empty-state-description",
               "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
-              "default": "{\r\n    title: 'No items',\r\n    description: 'There are no items to display',\r\n  }",
+              "default": "'There are no items to display'",
               "values": [
                 {
-                  "type": "any"
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "emptyStateHeadline",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": true,
+              "attr": "empty-state-headline",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "'No items'",
+              "values": [
+                {
+                  "type": "string"
                 }
               ],
               "optional": false,
@@ -23562,6 +23884,28 @@
               "required": false
             },
             {
+              "name": "hideBackground",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "hide-background",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
               "name": "size",
               "type": "string",
               "complexType": {
@@ -23572,7 +23916,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": false,
-              "docs": "The Icon size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"` and size in pixel. Defaults to `\"md\"`.",
+              "docs": "The Icon size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"` and size in pixel. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
