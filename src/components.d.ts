@@ -873,13 +873,17 @@ export namespace Components {
          */
         "disabled": boolean;
         "getComponentId": () => Promise<string>;
+        "helperText": string;
         "hideDropdownIcon": boolean;
         "inline": boolean;
+        "invalid": boolean;
+        "invalidText": string;
         "isOpen": boolean;
         /**
           * [{   label: 'Shivaji Varma',   value: 'shivaji-varma',   icon: 'person' }]
          */
         "items": any;
+        "label": string;
         "multiple": boolean;
         /**
           * The input field name.
@@ -923,6 +927,8 @@ export namespace Components {
           * The input field value.
          */
         "value"?: string | number;
+        "warn": boolean;
+        "warnText": string;
     }
     /**
      * @name1 Side Navigation
@@ -1019,6 +1025,7 @@ export namespace Components {
      */
     interface GoatSpinner {
         "description": string;
+        "hideBackground": boolean;
         /**
           * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"` and size in pixel. Defaults to `"md"`.
          */
@@ -1081,7 +1088,8 @@ export namespace Components {
           * Grid data to display on table [{  'id': '5e7118ddce4b3d577956457f',  'age': 21,  'name': 'John',  'company': 'India',  'email': 'john@example.com',  'phone': '+1 (839) 560-3581',  'address': '326 Irving Street, Grimsley, Texas, 4048'  }]
          */
         "data": any[];
-        "emptyState": any;
+        "emptyStateDescription": string;
+        "emptyStateHeadline": string;
         "keyField": string;
         "managed": boolean;
         "page": number;
@@ -3113,13 +3121,17 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
+        "helperText"?: string;
         "hideDropdownIcon"?: boolean;
         "inline"?: boolean;
+        "invalid"?: boolean;
+        "invalidText"?: string;
         "isOpen"?: boolean;
         /**
           * [{   label: 'Shivaji Varma',   value: 'shivaji-varma',   icon: 'person' }]
          */
         "items"?: any;
+        "label"?: string;
         "multiple"?: boolean;
         /**
           * The input field name.
@@ -3164,6 +3176,8 @@ declare namespace LocalJSX {
           * The input field value.
          */
         "value"?: string | number;
+        "warn"?: boolean;
+        "warnText"?: string;
     }
     /**
      * @name1 Side Navigation
@@ -3248,6 +3262,7 @@ declare namespace LocalJSX {
      */
     interface GoatSpinner {
         "description"?: string;
+        "hideBackground"?: boolean;
         /**
           * The Icon size. Possible values are: `"sm"`, `"md"`, `"lg"` and size in pixel. Defaults to `"md"`.
          */
@@ -3312,7 +3327,8 @@ declare namespace LocalJSX {
           * Grid data to display on table [{  'id': '5e7118ddce4b3d577956457f',  'age': 21,  'name': 'John',  'company': 'India',  'email': 'john@example.com',  'phone': '+1 (839) 560-3581',  'address': '326 Irving Street, Grimsley, Texas, 4048'  }]
          */
         "data"?: any[];
-        "emptyState"?: any;
+        "emptyStateDescription"?: string;
+        "emptyStateHeadline"?: string;
         "keyField"?: string;
         "managed"?: boolean;
         "onGoat:page"?: (event: GoatTableCustomEvent<any>) => void;

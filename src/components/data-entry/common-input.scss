@@ -9,7 +9,7 @@ $input-background-color: var(--input-background-color, #{v(--field-01)});
   width: 100%;
   margin-bottom: v(--spacing-03);
   --input-border-radius: #{v(--border-radius)};
-  --input-border-style: solid;
+  --input-border: 1px solid #{v(--border-strong-01)};
   color: v(--text-primary);
 }
 
@@ -76,7 +76,9 @@ $input-background-color: var(--input-background-color, #{v(--field-01)});
   justify-content: center;
 
   background-color: $input-background-color;
-  border: 1px var(--input-border-style) v(--border-strong-01);
+  border: var(--input-border);
+  border-inline-start: var(--input-border-inline-start, var(--input-border));
+  border-inline-end: var(--input-border-inline-end, var(--input-border));
   border-radius: var(--input-border-radius);
   overflow: hidden;
   cursor: text;
@@ -225,6 +227,7 @@ $input-background-color: var(--input-background-color, #{v(--field-01)});
     --button-border-radius: 0;
   }
 }
+
 :host([size="sm"]) .input-container {
   height: var(--input-height, 2rem);
 }

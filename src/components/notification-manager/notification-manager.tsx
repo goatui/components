@@ -1,5 +1,6 @@
 import { Component, ComponentInterface, Element, h, Host, Listen, Prop, State } from '@stencil/core';
 import { isDarkMode, observeThemeChange } from '../../utils/utils';
+import * as DOMPurify from 'dompurify';
 
 const getNotificationIndex = (() => {
   let counter = 1;
@@ -89,8 +90,8 @@ export class NotificationManager implements ComponentInterface {
         case 'notification':
           return (
             <goat-notification id={`${notification.id}`} state={notification.state}>
-              <div innerHTML={notification.title} slot="title" />
-              <div innerHTML={notification.subtitle} slot="subtitle" />
+              <div innerHTML={DOMPurify.sanitize(notification.title)} slot="title" />
+              <div innerHTML={DOMPurify.sanitize(notification.subtitle)} slot="subtitle" />
             </goat-notification>
           );
         default:

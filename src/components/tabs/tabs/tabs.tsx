@@ -1,4 +1,5 @@
 import { Component, ComponentInterface, Element, h, Host, Listen } from '@stencil/core';
+import { getComponentIndex } from '../../../utils/utils';
 
 /**
  * @name Tabs
@@ -18,10 +19,12 @@ import { Component, ComponentInterface, Element, h, Host, Listen } from '@stenci
   shadow: true,
 })
 export class Tabs implements ComponentInterface {
+  gid: string = getComponentIndex();
   @Element() elm!: HTMLElement;
 
   @Listen('goat:tab-click')
   tabClick(evt) {
+    evt.stopPropagation();
     if (evt.detail.target) {
       this.selectTab(evt.detail.target);
     }
@@ -30,36 +33,38 @@ export class Tabs implements ComponentInterface {
   selectTab(target) {
     const tabs = this.getTabs();
     for (let i = 0; i < tabs.length; i++) {
-      tabs[i].selected = target === tabs[i].target;
+      const tab: any = tabs[i];
+      tab.selected = target === tab.target;
     }
     const tabPanels = this.getTabPanels();
     for (let i = 0; i < tabPanels.length; i++) {
-      tabPanels[i].active = target === tabPanels[i].value;
+      const tabPanel: any = tabPanels[i];
+      tabPanel.active = target === tabPanel.value;
     }
   }
 
   getTabs() {
-    return this.elm.querySelectorAll('goat-tab');
+    return this.elm.querySelectorAll(':scope > goat-tabs-list goat-tab');
   }
 
   getTabPanels() {
-    return this.elm.querySelectorAll('goat-tab-panel');
+    return this.elm.querySelectorAll(':scope > goat-tab-panel');
   }
 
   tabsHaveTarget() {
-    return this.elm.querySelector('goat-tab[target]');
+    return this.elm.querySelector(':scope > goat-tabs-list goat-tab[target]');
   }
 
   componentDidLoad() {
     if (!this.tabsHaveTarget()) {
       const tabs = this.getTabs();
       tabs.forEach((tab, index) => {
-        tab.setAttribute('target', 'tab-' + index);
+        tab.setAttribute('target', `tab-${this.gid}-${index}`);
       });
       this.getTabPanels().forEach((tab, index) => {
-        tab.setAttribute('value', 'tab-' + index);
+        tab.setAttribute('value', `tab-${this.gid}-${index}`);
       });
-      if (tabs.length) this.selectTab('tab-0');
+      if (tabs.length) this.selectTab(`tab-${this.gid}-0`);
     } else {
       const selectedTab = this.elm.querySelector('goat-tab[selected]');
       if (selectedTab) this.selectTab(selectedTab['target']);

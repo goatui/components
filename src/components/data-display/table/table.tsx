@@ -89,10 +89,9 @@ export class Table {
 
   @Prop({ mutable: true }) totalItems;
 
-  @Prop({ mutable: true }) emptyState: any = {
-    title: 'No items',
-    description: 'There are no items to display',
-  };
+  @Prop({ mutable: true }) emptyStateHeadline: string = 'No items';
+
+  @Prop({ mutable: true }) emptyStateDescription: string = 'There are no items to display';
 
   @State() private hoveredCell: any = {};
   @State() private isSelectAll: boolean = false;
@@ -294,18 +293,18 @@ export class Table {
       return (
         <div class="pagination">
           <div class="page-sizes-select">
-            <goat-form-control label="Items per page:" inline class="form-control">
-              <goat-select
-                class="select"
-                items={SUPPORTED_PAGE_SIZES}
-                positions="top-right"
-                value={this.pageSize}
-                onGoat:change={e => {
-                  this.pageSize = e.detail.value;
-                  this.goatPage.emit({ page: this.page, pageSize: this.pageSize });
-                }}
-              />
-            </goat-form-control>
+            <goat-select
+              label="Items per page:"
+              inline
+              class="select"
+              items={SUPPORTED_PAGE_SIZES}
+              positions="top-right"
+              value={this.pageSize}
+              onGoat:change={e => {
+                this.pageSize = e.detail.value;
+                this.goatPage.emit({ page: this.page, pageSize: this.pageSize });
+              }}
+            />
           </div>
           <div class="pagination-item-count">
             <goat-text inline>
@@ -373,7 +372,7 @@ export class Table {
   private renderEmptyState() {
     return (
       <div class="empty-table">
-        <goat-empty-state class="content-center" {...this.emptyState} />
+        <goat-empty-state class="content-center" headline={this.emptyStateHeadline} description={this.emptyStateDescription} />
       </div>
     );
   }

@@ -29,6 +29,18 @@ export class Select implements ComponentInterface, InputComponentInterface {
    */
   @Prop() placeholder: string;
 
+  @Prop() label: string;
+
+  @Prop() helperText: string;
+
+  @Prop() invalid: boolean = false;
+
+  @Prop() invalidText: string;
+
+  @Prop() warn: boolean = false;
+
+  @Prop() warnText: string;
+
   /**
    * The input field value.
    */
@@ -412,80 +424,91 @@ export class Select implements ComponentInterface, InputComponentInterface {
   render() {
     return (
       <Host has-value={this.hasValue()} has-focus={this.hasFocus} is-open={this.isOpen} position={this.position}>
-        <div
-          class={{
-            'dropdown': true,
-            'select': true,
-            [this.position]: true,
-            'is-open': this.isOpen,
-            [`search-${this.search}`]: true,
-          }}
-        >
-          <div
-            class={{
-              'input-container': true,
-              'has-focus': this.hasFocus,
-              'disabled': this.disabled,
-              'readonly': this.readonly,
-              'has-value': this.hasValue(),
-              'start-slot-has-content': this.startSlotHasContent,
-              'end-slot-has-content': this.endSlotHasContent,
-            }}
-          >
-            <div class="slot-container start">
-              <slot name="start" />
+        <div class={{ 'form-control': true, 'inline': this.inline }}>
+          {this.label && (
+            <label class="label">
+              {this.required && <span class="required">*</span>}
+              {this.label}
+            </label>
+          )}
+
+          <div class="field">
+            <div
+              class={{
+                'dropdown': true,
+                'select': true,
+                [this.position]: true,
+                'is-open': this.isOpen,
+                [`search-${this.search}`]: true,
+              }}
+            >
+              <div
+                class={{
+                  'input-container': true,
+                  'has-focus': this.hasFocus,
+                  'disabled': this.disabled,
+                  'readonly': this.readonly,
+                  'has-value': this.hasValue(),
+                  'start-slot-has-content': this.startSlotHasContent,
+                  'end-slot-has-content': this.endSlotHasContent,
+                }}
+              >
+                <div class="slot-container start">
+                  <slot name="start" />
+                </div>
+
+                {this.renderMultiSelectValues()}
+
+                {(() => {
+                  if (this.search !== 'none' && this.isOpen) {
+                    return (
+                      <input
+                        class="input input-native"
+                        ref={input => (this.nativeElement = input)}
+                        type="text"
+                        name={this.name}
+                        value={this.searchString}
+                        placeholder={this.placeholder}
+                        onBlur={this.blurHandler}
+                        onFocus={this.focusHandler}
+                        onInput={this.onInput}
+                        onKeyDown={this.keyDownHandler}
+                        {...this.configAria}
+                      />
+                    );
+                  } else {
+                    return (
+                      <div
+                        class="input display-value"
+                        tabindex="0"
+                        ref={input => (this.displayElement = input)}
+                        aria-disabled={this.disabled ? 'true' : null}
+                        onFocus={this.focusHandler}
+                        onBlur={this.blurHandler}
+                        onKeyDown={this.keyDownHandler}
+                        onClick={this.toggleList}
+                        {...this.configAria}
+                      >
+                        {this.getDisplayValue()}
+                      </div>
+                    );
+                  }
+                })()}
+
+                {this.clearable && !this.multiple && this.hasValue() && (
+                  <goat-button class="clear input-action" size={'full'} color={'secondary'} kind={'simple'} variant="ghost" icon="close" onClick={this.clearInput} />
+                )}
+
+                <div class="slot-container end">
+                  <slot name="end" />
+                </div>
+
+                {this.getModeIcon()}
+              </div>
+              <div class="dropdown-content" ref={elm => (this.dropdownContentElm = elm)}>
+                {this.isOpen && this.renderDropdownList()}
+              </div>
             </div>
-
-            {this.renderMultiSelectValues()}
-
-            {(() => {
-              if (this.search !== 'none' && this.isOpen) {
-                return (
-                  <input
-                    class="input input-native"
-                    ref={input => (this.nativeElement = input)}
-                    type="text"
-                    name={this.name}
-                    value={this.searchString}
-                    placeholder={this.placeholder}
-                    onBlur={this.blurHandler}
-                    onFocus={this.focusHandler}
-                    onInput={this.onInput}
-                    onKeyDown={this.keyDownHandler}
-                    {...this.configAria}
-                  />
-                );
-              } else {
-                return (
-                  <div
-                    class="input display-value"
-                    tabindex="0"
-                    ref={input => (this.displayElement = input)}
-                    aria-disabled={this.disabled ? 'true' : null}
-                    onFocus={this.focusHandler}
-                    onBlur={this.blurHandler}
-                    onKeyDown={this.keyDownHandler}
-                    onClick={this.toggleList}
-                    {...this.configAria}
-                  >
-                    {this.getDisplayValue()}
-                  </div>
-                );
-              }
-            })()}
-
-            {this.clearable && !this.multiple && this.hasValue() && (
-              <goat-button class="clear input-action" size={'full'} color={'secondary'} kind={'simple'} variant="ghost" icon="close" onClick={this.clearInput} />
-            )}
-
-            <div class="slot-container end">
-              <slot name="end" />
-            </div>
-
-            {this.getModeIcon()}
-          </div>
-          <div class="dropdown-content" ref={elm => (this.dropdownContentElm = elm)}>
-            {this.isOpen && this.renderDropdownList()}
           </div>
         </div>
       </Host>

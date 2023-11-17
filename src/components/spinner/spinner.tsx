@@ -25,6 +25,8 @@ export class Spinner {
    */
   @Prop() size: 'sm' | 'md' | 'lg' | string = 'md';
 
+  @Prop() hideBackground: boolean = false;
+
   @Prop() description: string = 'Loading';
 
   private getSize() {
@@ -54,15 +56,17 @@ export class Spinner {
         <div style={{ width: this.getSize() + 'rem', height: this.getSize() + 'rem' }}>
           <svg viewBox={`0 0 ${2 * (radius + strokeWidth + 5 * this.getSize())} ${2 * (radius + strokeWidth + 5 * this.getSize())}`} class="spinner__svg">
             <title>{this.description}</title>
-            <circle
-              cx="50%"
-              cy="50%"
-              class="spinner__background"
-              r={radius}
-              style={{
-                strokeWidth: `${strokeWidth * this.getSize()}`,
-              }}
-            ></circle>
+            {!this.hideBackground && (
+              <circle
+                cx="50%"
+                cy="50%"
+                class="spinner__background"
+                r={radius}
+                style={{
+                  strokeWidth: `${strokeWidth * this.getSize()}`,
+                }}
+              ></circle>
+            )}
 
             <circle
               cx="50%"

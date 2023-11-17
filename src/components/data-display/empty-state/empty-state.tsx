@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, Element, getAssetPath, h, Host, Listen, Prop, State } from '@stencil/core';
-import {loadDompurify} from "../../../3d-party/dompurify";
+import * as DOMPurify from 'dompurify';
 
 /**
  * @name Empty State
@@ -14,7 +14,6 @@ import {loadDompurify} from "../../../3d-party/dompurify";
   shadow: true,
 })
 export class EmptyState implements ComponentInterface {
-
   @Element() elm!: HTMLElement;
 
   @Prop({ reflect: true }) illustration: 'no-document' = 'no-document';
@@ -38,11 +37,7 @@ export class EmptyState implements ComponentInterface {
     this.vertical = this.elm.clientWidth < 768;
   }
 
-  async componentWillLoad() {
-    if (!window['DOMPurify']) {
-      await loadDompurify();
-    }
-  }
+  async componentWillLoad() {}
 
   componentDidLoad() {
     this.resizeHandler();
@@ -52,28 +47,23 @@ export class EmptyState implements ComponentInterface {
     return (
       <Host>
         <div class={{ 'empty-state': true, 'vertical': this.vertical }}>
-          <div class='illustration'>
+          <div class="illustration">
             <goat-svg src={getAssetPath(`./assets/images/empty-state/${this.illustration}.svg`)} />
           </div>
 
-          <div class='content'>
-            {this.headline && <div class='title'>{this.headline}</div>}
-            {this.description && <div class='description' innerHTML={window['DOMPurify'].sanitize(this.description)}/>}
-            <div class='actions'>
-              {this.action &&
-                <goat-button
-                  href={this.actionUrl}
-                  icon={'arrow--right'}
-                  disabled={this.actionDisabled}
-                  variant={this.actionVariant}>
+          <div class="content">
+            {this.headline && <div class="title">{this.headline}</div>}
+            {this.description && <div class="description" innerHTML={DOMPurify.sanitize(this.description)} />}
+            <div class="actions">
+              {this.action && (
+                <goat-button href={this.actionUrl} icon={'arrow--right'} disabled={this.actionDisabled} variant={this.actionVariant}>
                   {this.action}
-                </goat-button>}
+                </goat-button>
+              )}
             </div>
           </div>
         </div>
       </Host>
     );
   }
-
-
 }
