@@ -26,7 +26,7 @@
  - [goat-select](../data-entry/select)
  - [goat-tab](../tabs/tab)
  - [goat-tag](../data-display/tag)
- - [goat-textarea](../data-entry/textarea)
+ - [goat-textarea](../data-entry/input/textarea)
  - [goat-toast](../toast)
  - [goat-tree-node](../tree-view/tree-node)
 

@@ -17,6 +17,14 @@ export class Modal {
   @Prop() show: boolean = false;
 
   @State() promptDetails: any = {
+    title: 'Confirm',
+    message: 'Can we save it?',
+    action: {
+      label: 'Ok',
+      type: 'error',
+      callback: () => {},
+    },
+  } /*{
     title: '',
     message: '',
     action: {
@@ -24,7 +32,7 @@ export class Modal {
       type: '',
       callback: () => {},
     },
-  };
+  }*/;
 
   @Listen('os:prompt', { target: 'window' })
   handler(evt) {

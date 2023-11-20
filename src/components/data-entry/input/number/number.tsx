@@ -26,6 +26,22 @@ export class Number implements ComponentInterface, InputComponentInterface {
    */
   @Prop() placeholder: string;
 
+  @Prop() label: string;
+
+  @Prop() helperText: string;
+
+  @Prop() invalid: boolean = false;
+
+  @Prop() invalidText: string;
+
+  @Prop() warn: boolean = false;
+
+  @Prop() warnText: string;
+
+  @Prop({ reflect: true }) inline: boolean = false;
+
+  @Prop() skeleton: boolean = false;
+
   /**
    * The input field value.
    */
@@ -224,74 +240,101 @@ export class Number implements ComponentInterface, InputComponentInterface {
     }
   }
 
+  getLabel() {
+    if (this.skeleton) return <div class="label skeleton" />;
+    else {
+      return (
+        <label class="label">
+          {this.required && <span class="required">*</span>}
+          {this.label}
+        </label>
+      );
+    }
+  }
+
+  renderHelper() {
+    if (this.invalid) return <div class="helper invalid">{this.invalidText}</div>;
+    else if (this.warn) return <div class="helper warn">{this.warnText}</div>;
+    else if (this.helperText || this.helperText === '') return <div class="helper text">{this.helperText}</div>;
+  }
+
+  renderInput() {
+    return (
+      <div
+        class={{
+          'input-container': true,
+          'disabled': this.disabled,
+          'has-focus': this.hasFocus,
+          'start-slot-has-content': this.startSlotHasContent,
+          'end-slot-has-content': this.endSlotHasContent,
+        }}
+      >
+        <div class="slot-container start">
+          <slot name="start" />
+        </div>
+
+        <input
+          class="input input-native"
+          name={this.name}
+          ref={input => (this.nativeElement = input)}
+          type="number"
+          placeholder={this.placeholder}
+          autoComplete={this.autocomplete}
+          value={this.value}
+          tabIndex={this.tabindex}
+          readOnly={this.readonly}
+          required={this.required}
+          onKeyDown={this.keyDownHandler}
+          onInput={this.inputHandler}
+          onBlur={this.blurHandler}
+          onFocus={this.focusHandler}
+          disabled={this.disabled}
+          {...this.configAria}
+        />
+
+        {this.clearable && this.hasValue() && <goat-button class="clear input-action color-secondary" variant="ghost" icon="close" onClick={this.clearInput} />}
+
+        {!this.readonly && !this.disabled && !this.hideActions && (
+          <goat-button
+            class="input-action"
+            color={'secondary'}
+            kind={'simple'}
+            icon="subtract"
+            variant="ghost"
+            size="full"
+            onGoat:click={evt => {
+              this.decrease(evt);
+            }}
+          ></goat-button>
+        )}
+
+        {!this.readonly && !this.disabled && !this.hideActions && (
+          <goat-button
+            class="input-action"
+            color={'secondary'}
+            kind={'simple'}
+            icon="add"
+            variant="ghost"
+            size="full"
+            onGoat:click={evt => {
+              this.increment(evt);
+            }}
+          ></goat-button>
+        )}
+
+        <div class="slot-container end">
+          <slot name="end" />
+        </div>
+      </div>
+    );
+  }
   render() {
     return (
-      <Host has-focus={this.hasFocus} has-value={this.hasValue()}>
-        <div
-          class={{
-            'input-container': true,
-            'disabled': this.disabled,
-            'has-focus': this.hasFocus,
-            'start-slot-has-content': this.startSlotHasContent,
-            'end-slot-has-content': this.endSlotHasContent,
-          }}
-        >
-          <div class="slot-container start">
-            <slot name="start" />
-          </div>
-
-          <input
-            class="input input-native"
-            name={this.name}
-            ref={input => (this.nativeElement = input)}
-            type="number"
-            placeholder={this.placeholder}
-            autocomplete={this.autocomplete}
-            value={this.value}
-            tabindex={this.tabindex}
-            readonly={this.readonly}
-            required={this.required}
-            onKeyDown={this.keyDownHandler}
-            onInput={this.inputHandler}
-            onBlur={this.blurHandler}
-            onFocus={this.focusHandler}
-            disabled={this.disabled}
-            {...this.configAria}
-          />
-
-          {this.clearable && this.hasValue() && <goat-button class="clear input-action color-secondary" variant="ghost" icon="close" onClick={this.clearInput} />}
-
-          {!this.readonly && !this.disabled && !this.hideActions && (
-            <goat-button
-              class="input-action"
-              color={'secondary'}
-              kind={'simple'}
-              icon="subtract"
-              variant="ghost"
-              size="full"
-              onGoat:click={evt => {
-                this.decrease(evt);
-              }}
-            ></goat-button>
-          )}
-
-          {!this.readonly && !this.disabled && !this.hideActions && (
-            <goat-button
-              class="input-action"
-              color={'secondary'}
-              kind={'simple'}
-              icon="add"
-              variant="ghost"
-              size="full"
-              onGoat:click={evt => {
-                this.increment(evt);
-              }}
-            ></goat-button>
-          )}
-
-          <div class="slot-container end">
-            <slot name="end" />
-          </div>
+      <Host has-focus={this.hasFocus} has-value={this.hasValue()} invalid={this.invalid} warn={this.warn}>
+        <div class={{ 'form-control': true, 'inline': this.inline }}>
+          {this.label && this.getLabel()}
+          <div class="field">{this.skeleton ? <div class="input-container-skeleton" /> : this.renderInput()}</div>
+          {this.renderHelper()}
         </div>
       </Host>
     );

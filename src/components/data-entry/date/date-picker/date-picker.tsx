@@ -196,7 +196,7 @@ export class DatePicker implements ComponentInterface {
   renderHelper() {
     if (this.invalid) return <div class="helper invalid">{this.invalidText}</div>;
     else if (this.warn) return <div class="helper warn">{this.warnText}</div>;
-    else if (this.helperText) return <div class="helper text">{this.helperText}</div>;
+    else if (this.helperText || this.helperText === '') return <div class="helper text">{this.helperText}</div>;
   }
 
   render() {

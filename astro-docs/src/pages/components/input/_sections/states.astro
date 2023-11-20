@@ -1,7 +1,7 @@
 ---
 import HighlighterCard from '../../../../components/HighlighterCard.astro';
 ---
-<goat-text type='heading' heading-size='3' class='hydrated'>Disabled</goat-text>
+<goat-text type='heading' heading-size='3'>Disabled</goat-text>
 <goat-text type='body' expressive>Make input look inactive by adding the disabled <code>boolean</code> attribute to any
   <code>&lt;button&gt;</code> element.
 </goat-text>
@@ -15,7 +15,7 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
 
 <br />
 
-<goat-text type='heading' heading-size='3' class='hydrated'>Readonly</goat-text>
+<goat-text type='heading' heading-size='3'>Readonly</goat-text>
 <goat-text type='body' expressive>Make input look inactive by adding the disabled <code>boolean</code> attribute to any
   <code>&lt;button&gt;</code> element.
 </goat-text>
@@ -27,9 +27,9 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
   </goat-input>
 </HighlighterCard>
 
-<goat-text type='heading' heading-size='3' class='hydrated'>Status</goat-text>
+<goat-text type='heading' heading-size='3'>Status</goat-text>
 <HighlighterCard lang={'html'}>
-  <goat-input class='input-state-error' value='Error state'></goat-input>
-  <goat-input class='input-state-success' value='Success state'></goat-input>
-  <goat-input class='input-state-warning' value='Warning state'></goat-input>
+  <goat-input label='City' invalid invalid-text='Please provide a valid city' value='America'></goat-input>
+  <goat-input label='City' warn warn-text='Please provide a valid city' value='America'></goat-input>
+  <goat-input label='City' success value='America'></goat-input>
 </HighlighterCard>

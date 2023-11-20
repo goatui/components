@@ -492,6 +492,29 @@ export namespace Components {
         "disabled": boolean;
     }
     /**
+     * @name Form Control
+     * @description The Form Control component adds a label and caption for its child control.
+     * @category Form Inputs
+     * @tags form
+     * @example <goat-form-control label='Full Name' required>
+     * <goat-input type='text'></goat-input>
+     * </goat-form-control>
+     */
+    interface GoatFormControl {
+        "helperText": string;
+        "inline": boolean;
+        "invalid": boolean;
+        "invalidText": string;
+        "label": string;
+        /**
+          * Whether the form control is required.
+         */
+        "required": boolean;
+        "skeleton": boolean;
+        "warn": boolean;
+        "warnText": string;
+    }
+    /**
      * @name Header
      * @description Header component is used to display a header with a brand, navigation, and actions.
      * @category Navigation
@@ -654,10 +677,7 @@ export namespace Components {
           * The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
         "size": 'sm' | 'md' | 'lg';
-        /**
-          * The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
-         */
-        "state": 'success' | 'error' | 'warning' | 'default';
+        "skeleton": boolean;
         /**
           * The type of control to display. Possible values are: `"text"`, `"password"`, `"email"`, `"tel"`. Defaults to `"text"`.
          */
@@ -665,7 +685,7 @@ export namespace Components {
         /**
           * The input field value.
          */
-        "value"?: string | number | null;
+        "value": string;
         "warn": boolean;
         "warnText": string;
     }
@@ -794,7 +814,12 @@ export namespace Components {
          */
         "disabled": boolean;
         "getComponentId": () => Promise<string>;
+        "helperText": string;
         "hideActions": boolean;
+        "inline": boolean;
+        "invalid": boolean;
+        "invalidText": string;
+        "label": string;
         /**
           * The input field name.
          */
@@ -823,6 +848,7 @@ export namespace Components {
           * The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
         "size": 'sm' | 'md' | 'lg';
+        "skeleton": boolean;
         /**
           * The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
          */
@@ -831,6 +857,8 @@ export namespace Components {
           * The input field value.
          */
         "value"?: number | null;
+        "warn": boolean;
+        "warnText": string;
     }
     /**
      * @name Progress
@@ -1203,6 +1231,7 @@ export namespace Components {
           * Sets focus on the native `textarea` in `goat-textarea`. Use this method instead of the global `textarea.focus()`.
          */
         "setFocus": () => Promise<void>;
+        "skeleton": boolean;
         /**
           * The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
          */
@@ -1788,6 +1817,21 @@ declare global {
         new (): HTMLGoatFlowDesignerElement;
     };
     /**
+     * @name Form Control
+     * @description The Form Control component adds a label and caption for its child control.
+     * @category Form Inputs
+     * @tags form
+     * @example <goat-form-control label='Full Name' required>
+     * <goat-input type='text'></goat-input>
+     * </goat-form-control>
+     */
+    interface HTMLGoatFormControlElement extends Components.GoatFormControl, HTMLStencilElement {
+    }
+    var HTMLGoatFormControlElement: {
+        prototype: HTMLGoatFormControlElement;
+        new (): HTMLGoatFormControlElement;
+    };
+    /**
      * @name Header
      * @description Header component is used to display a header with a brand, navigation, and actions.
      * @category Navigation
@@ -2208,6 +2252,7 @@ declare global {
         "goat-dropdown": HTMLGoatDropdownElement;
         "goat-empty-state": HTMLGoatEmptyStateElement;
         "goat-flow-designer": HTMLGoatFlowDesignerElement;
+        "goat-form-control": HTMLGoatFormControlElement;
         "goat-header": HTMLGoatHeaderElement;
         "goat-header-action": HTMLGoatHeaderActionElement;
         "goat-header-brand": HTMLGoatHeaderBrandElement;
@@ -2740,6 +2785,29 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
     }
     /**
+     * @name Form Control
+     * @description The Form Control component adds a label and caption for its child control.
+     * @category Form Inputs
+     * @tags form
+     * @example <goat-form-control label='Full Name' required>
+     * <goat-input type='text'></goat-input>
+     * </goat-form-control>
+     */
+    interface GoatFormControl {
+        "helperText"?: string;
+        "inline"?: boolean;
+        "invalid"?: boolean;
+        "invalidText"?: string;
+        "label"?: string;
+        /**
+          * Whether the form control is required.
+         */
+        "required"?: boolean;
+        "skeleton"?: boolean;
+        "warn"?: boolean;
+        "warnText"?: string;
+    }
+    /**
      * @name Header
      * @description Header component is used to display a header with a brand, navigation, and actions.
      * @category Navigation
@@ -2904,10 +2972,7 @@ declare namespace LocalJSX {
           * The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
         "size"?: 'sm' | 'md' | 'lg';
-        /**
-          * The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
-         */
-        "state"?: 'success' | 'error' | 'warning' | 'default';
+        "skeleton"?: boolean;
         /**
           * The type of control to display. Possible values are: `"text"`, `"password"`, `"email"`, `"tel"`. Defaults to `"text"`.
          */
@@ -2915,7 +2980,7 @@ declare namespace LocalJSX {
         /**
           * The input field value.
          */
-        "value"?: string | number | null;
+        "value"?: string;
         "warn"?: boolean;
         "warnText"?: string;
     }
@@ -3035,7 +3100,12 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
+        "helperText"?: string;
         "hideActions"?: boolean;
+        "inline"?: boolean;
+        "invalid"?: boolean;
+        "invalidText"?: string;
+        "label"?: string;
         /**
           * The input field name.
          */
@@ -3072,6 +3142,7 @@ declare namespace LocalJSX {
           * The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
         "size"?: 'sm' | 'md' | 'lg';
+        "skeleton"?: boolean;
         /**
           * The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
          */
@@ -3080,6 +3151,8 @@ declare namespace LocalJSX {
           * The input field value.
          */
         "value"?: number | null;
+        "warn"?: boolean;
+        "warnText"?: string;
     }
     /**
      * @name Progress
@@ -3459,6 +3532,7 @@ declare namespace LocalJSX {
           * If true, required icon is show. Defaults to `false`.
          */
         "required"?: boolean;
+        "skeleton"?: boolean;
         /**
           * The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
          */
@@ -3654,6 +3728,7 @@ declare namespace LocalJSX {
         "goat-dropdown": GoatDropdown;
         "goat-empty-state": GoatEmptyState;
         "goat-flow-designer": GoatFlowDesigner;
+        "goat-form-control": GoatFormControl;
         "goat-header": GoatHeader;
         "goat-header-action": GoatHeaderAction;
         "goat-header-brand": GoatHeaderBrand;
@@ -3867,6 +3942,16 @@ declare module "@stencil/core" {
              * @img /assets/img/flow-designer.png
              */
             "goat-flow-designer": LocalJSX.GoatFlowDesigner & JSXBase.HTMLAttributes<HTMLGoatFlowDesignerElement>;
+            /**
+             * @name Form Control
+             * @description The Form Control component adds a label and caption for its child control.
+             * @category Form Inputs
+             * @tags form
+             * @example <goat-form-control label='Full Name' required>
+             * <goat-input type='text'></goat-input>
+             * </goat-form-control>
+             */
+            "goat-form-control": LocalJSX.GoatFormControl & JSXBase.HTMLAttributes<HTMLGoatFormControlElement>;
             /**
              * @name Header
              * @description Header component is used to display a header with a brand, navigation, and actions.

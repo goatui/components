@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
-import { debounceEvent, getComponentIndex } from '../../../utils/utils';
+import { debounceEvent, getComponentIndex } from '../../../../utils/utils';
 
 /**
  * @name Textarea
@@ -39,6 +39,8 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
   @Prop() warnText: string;
 
   @Prop({ reflect: true }) inline: boolean = false;
+
+  @Prop() skeleton: boolean = false;
 
   /**
    * The input field value.
@@ -206,56 +208,66 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
   renderHelper() {
     if (this.invalid) return <div class="helper invalid">{this.invalidText}</div>;
     else if (this.warn) return <div class="helper warn">{this.warnText}</div>;
-    else if (this.helperText) return <div class="helper text">{this.helperText}</div>;
+    else if (this.helperText || this.helperText === '') return <div class="helper text">{this.helperText}</div>;
+  }
+
+  getLabel() {
+    if (this.skeleton) return <div class="label skeleton" />;
+    else {
+      return (
+        <label class="label">
+          {this.required && <span class="required">*</span>}
+          {this.label}
+        </label>
+      );
+    }
+  }
+
+  renderInput() {
+    return (
+      <div
+        class={{
+          'input-container': true,
+          'textarea': true,
+          'disabled': this.disabled,
+          'readonly': this.readonly,
+          'has-focus': this.hasFocus,
+          'end-slot-has-content': this.endSlotHasContent,
+        }}
+      >
+        <textarea
+          rows={4}
+          ref={input => (this.nativeElement = input)}
+          required={this.required}
+          class="input input-native"
+          name={this.name}
+          placeholder={this.placeholder}
+          readonly={this.readonly}
+          value={this.value}
+          tabindex={this.tabindex}
+          onKeyDown={this.keyDownHandler}
+          onInput={this.inputHandler}
+          onBlur={this.blurHandler}
+          onFocus={this.focusHandler}
+          disabled={this.disabled}
+          {...this.configAria}
+        />
+
+        {this.clearable && this.hasValue() && <goat-icon class="clear inherit input-action" name="close" onClick={this.clearInput} />}
+
+        <div class="slot-container end">
+          <slot name="end" />
+        </div>
+      </div>
+    );
   }
 
   render() {
     return (
-      <Host has-focus={this.hasFocus} has-value={this.hasValue()}>
+      <Host has-focus={this.hasFocus} has-value={this.hasValue()} invalid={this.invalid} warn={this.warn}>
         <div class={{ 'form-control': true, 'inline': this.inline }}>
-          {this.label && (
-            <label class="label">
-              {this.required && <span class="required">*</span>}
-              {this.label}
-            </label>
-          )}
-
-          <div class="field">
-            <div
-              class={{
-                'input-container': true,
-                'textarea': true,
-                'disabled': this.disabled,
-                'readonly': this.readonly,
-                'has-focus': this.hasFocus,
-                'end-slot-has-content': this.endSlotHasContent,
-              }}
-            >
-              <textarea
-                rows={4}
-                ref={input => (this.nativeElement = input)}
-                required={this.required}
-                class="input input-native"
-                name={this.name}
-                placeholder={this.placeholder}
-                readonly={this.readonly}
-                value={this.value}
-                tabindex={this.tabindex}
-                onKeyDown={this.keyDownHandler}
-                onInput={this.inputHandler}
-                onBlur={this.blurHandler}
-                onFocus={this.focusHandler}
-                disabled={this.disabled}
-                {...this.configAria}
-              />
-
-              {this.clearable && this.hasValue() && <goat-icon class="clear inherit input-action" name="close" onClick={this.clearInput} />}
-
-              <div class="slot-container end">
-                <slot name="end" />
-              </div>
-            </div>
-          </div>
+          {this.label && this.getLabel()}
+          <div class="field">{this.skeleton ? <div class="input-container-skeleton" /> : this.renderInput()}</div>
           {this.renderHelper()}
         </div>
       </Host>

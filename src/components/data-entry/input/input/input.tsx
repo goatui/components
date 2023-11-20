@@ -38,22 +38,20 @@ export class Input implements ComponentInterface, InputComponentInterface {
 
   @Prop() warnText: string;
 
+  @Prop({ reflect: true }) inline: boolean = false;
+
+  @Prop() skeleton: boolean = false;
+
   /**
    * The input field value.
    */
-  @Prop({ mutable: true }) value?: string | number | null = '';
+  @Prop({ mutable: true }) value: string;
 
   /**
    * The input field size.
    * Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
    */
   @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' = 'md';
-
-  /**
-   * The input state.
-   * Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
-   */
-  @Prop({ reflect: true }) state: 'success' | 'error' | 'warning' | 'default' = 'default';
 
   /**
    * The type of control to display.
@@ -109,8 +107,6 @@ export class Input implements ComponentInterface, InputComponentInterface {
    * Emitted when the input loses focus.
    */
   @Event({ eventName: 'goat:blur' }) goatBlur: EventEmitter;
-
-  @Prop({ reflect: true }) inline: boolean = false;
 
   /**
    * Emitted when the input has focus.
@@ -227,77 +223,85 @@ export class Input implements ComponentInterface, InputComponentInterface {
   renderHelper() {
     if (this.invalid) return <div class="helper invalid">{this.invalidText}</div>;
     else if (this.warn) return <div class="helper warn">{this.warnText}</div>;
-    else if (this.helperText) return <div class="helper text">{this.helperText}</div>;
+    else if (this.helperText || this.helperText === '') return <div class="helper text">{this.helperText}</div>;
   }
 
-  render() {
+  getLabel() {
+    if (this.skeleton) return <div class="label skeleton" />;
+    else {
+      return (
+        <label class="label">
+          {this.required && <span class="required">*</span>}
+          {this.label}
+        </label>
+      );
+    }
+  }
+
+  renderInput() {
     const type = this.type === 'password' && this.passwordVisible ? 'text' : this.type;
 
     return (
+      <div
+        class={{
+          'input-container': true,
+          'disabled': this.disabled,
+          'has-focus': this.hasFocus,
+          'start-slot-has-content': this.startSlotHasContent,
+          'end-slot-has-content': this.endSlotHasContent,
+        }}
+      >
+        <div class="slot-container start">
+          <slot name="start" />
+        </div>
+
+        <input
+          class="input input-native"
+          name={this.name}
+          ref={input => (this.nativeElement = input)}
+          type={type}
+          placeholder={this.placeholder}
+          autoComplete={this.autocomplete}
+          value={this.value}
+          tabIndex={this.tabindex}
+          readOnly={this.readonly}
+          required={this.required}
+          onKeyDown={this.keyDownHandler}
+          onInput={this.inputHandler}
+          onBlur={this.blurHandler}
+          onFocus={this.focusHandler}
+          disabled={this.disabled}
+          {...this.configAria}
+        />
+
+        {this.clearable && this.hasValue() && <goat-button class="clear input-action" size={'full'} color={'secondary'} variant="ghost" icon="close" onClick={this.clearInput} />}
+
+        {this.type === 'password' && !this.hideActions && (
+          <goat-button
+            color={'secondary'}
+            kind={'simple'}
+            icon={this.passwordVisible ? 'view--off' : 'view'}
+            variant="ghost"
+            size="full"
+            onGoat:click={() => {
+              this.passwordVisible = !this.passwordVisible;
+            }}
+          ></goat-button>
+        )}
+
+        <div class="slot-container end">
+          <slot name="end" />
+        </div>
+      </div>
+    );
+  }
+
+  render() {
+    return (
       <Host has-focus={this.hasFocus} has-value={this.hasValue()} invalid={this.invalid} warn={this.warn}>
         <div class={{ 'form-control': true, 'inline': this.inline }}>
-          {this.label && (
-            <label class="label">
-              {this.required && <span class="required">*</span>}
-              {this.label}
-            </label>
-          )}
-
-          <div class="field">
-            <div
-              class={{
-                'input-container': true,
-                'disabled': this.disabled,
-                'has-focus': this.hasFocus,
-                'start-slot-has-content': this.startSlotHasContent,
-                'end-slot-has-content': this.endSlotHasContent,
-              }}
-            >
-              <div class="slot-container start">
-                <slot name="start" />
-              </div>
-
-              <input
-                class="input input-native"
-                name={this.name}
-                ref={input => (this.nativeElement = input)}
-                type={type}
-                placeholder={this.placeholder}
-                autoComplete={this.autocomplete}
-                value={this.value}
-                tabIndex={this.tabindex}
-                readOnly={this.readonly}
-                required={this.required}
-                onKeyDown={this.keyDownHandler}
-                onInput={this.inputHandler}
-                onBlur={this.blurHandler}
-                onFocus={this.focusHandler}
-                disabled={this.disabled}
-                {...this.configAria}
-              />
-
-              {this.clearable && this.hasValue() && (
-                <goat-button class="clear input-action" size={'full'} color={'secondary'} variant="ghost" icon="close" onClick={this.clearInput} />
-              )}
-
-              {this.type === 'password' && !this.hideActions && (
-                <goat-button
-                  color={'secondary'}
-                  kind={'simple'}
-                  icon={this.passwordVisible ? 'view--off' : 'view'}
-                  variant="ghost"
-                  size="full"
-                  onGoat:click={() => {
-                    this.passwordVisible = !this.passwordVisible;
-                  }}
-                ></goat-button>
-              )}
-
-              <div class="slot-container end">
-                <slot name="end" />
-              </div>
-            </div>
-          </div>
+          {this.label && this.getLabel()}
+          <div class="field">{this.skeleton ? <div class="input-container-skeleton" /> : this.renderInput()}</div>
           {this.renderHelper()}
         </div>
       </Host>
