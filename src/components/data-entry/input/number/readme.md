@@ -14,14 +14,22 @@
 | `configAria`   | `config-aria`  |                                                                                                                | `any`                                            | `{}`                       |
 | `debounce`     | `debounce`     | Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.       | `number`                                         | `300`                      |
 | `disabled`     | `disabled`     | If true, the user cannot interact with the button. Defaults to `false`.                                        | `boolean`                                        | `false`                    |
+| `helperText`   | `helper-text`  |                                                                                                                | `string`                                         | `undefined`                |
 | `hideActions`  | `hide-actions` |                                                                                                                | `boolean`                                        | `false`                    |
+| `inline`       | `inline`       |                                                                                                                | `boolean`                                        | `false`                    |
+| `invalid`      | `invalid`      |                                                                                                                | `boolean`                                        | `false`                    |
+| `invalidText`  | `invalid-text` |                                                                                                                | `string`                                         | `undefined`                |
+| `label`        | `label`        |                                                                                                                | `string`                                         | `undefined`                |
 | `name`         | `name`         | The input field name.                                                                                          | `string`                                         | ``goat-input-${this.gid}`` |
 | `placeholder`  | `placeholder`  | The input field placeholder.                                                                                   | `string`                                         | `undefined`                |
 | `readonly`     | `readonly`     | If true, the user read the value cannot modify it. Defaults to `false`.                                        | `boolean`                                        | `false`                    |
 | `required`     | `required`     | If true, required icon is show. Defaults to `false`.                                                           | `boolean`                                        | `false`                    |
 | `size`         | `size`         | The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.                         | `"lg" \| "md" \| "sm"`                           | `'md'`                     |
+| `skeleton`     | `skeleton`     |                                                                                                                | `boolean`                                        | `false`                    |
 | `state`        | `state`        | The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`. | `"default" \| "error" \| "success" \| "warning"` | `'default'`                |
 | `value`        | `value`        | The input field value.                                                                                         | `number`                                         | `null`                     |
+| `warn`         | `warn`         |                                                                                                                | `boolean`                                        | `false`                    |
+| `warnText`     | `warn-text`    |                                                                                                                | `string`                                         | `undefined`                |
 
 
 ## Events

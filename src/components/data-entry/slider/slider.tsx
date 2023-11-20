@@ -123,6 +123,37 @@ export class Slider implements ComponentInterface, InputComponentInterface {
     this.computePercentageValue();
   }
 
+  onWheel = event => {
+    // Do nothing if component is disabled
+    if (this.disabled || this.readonly) {
+      return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    let delta = 0;
+    if (event.wheelDelta) {
+      delta = event.wheelDelta / 120;
+    } else if (event.detail) {
+      delta = -event.detail / 3;
+    }
+
+    this.value = parseInt(String(this.value)) + delta;
+
+    if (this.value > this.max) {
+      this.value = this.max;
+    } else if (this.value < this.min) {
+      this.value = this.min;
+    }
+
+    this.computePercentageValue();
+
+    this.goatInput.emit({
+      value: this.value,
+    });
+  };
+
   onDragStart = event => {
     // Do nothing if component is disabled
     if (this.disabled || this.readonly) {
@@ -223,7 +254,13 @@ export class Slider implements ComponentInterface, InputComponentInterface {
             <div class="slider-range-label">
               <span>{this.min}</span>
             </div>
-            <div class={{ 'slider': true, 'has-focus': this.hasFocus }} ref={elm => (this.slideElement = elm)} onMouseDown={this.onDragStart} onTouchStart={this.onDragStart}>
+            <div
+              class={{ 'slider': true, 'has-focus': this.hasFocus }}
+              ref={elm => (this.slideElement = elm)}
+              onMouseDown={this.onDragStart}
+              onTouchStart={this.onDragStart}
+              onWheel={this.onWheel}
+            >
               <div class="slider__thumb" onBlur={this.blurHandler} onFocus={this.focusHandler} tabIndex={0} style={{ left: `${this.percentageValue}%` }}></div>
               <div class="slider__track"></div>
               <div class="slider__track--filled" style={{ width: `${this.percentageValue}%` }}></div>

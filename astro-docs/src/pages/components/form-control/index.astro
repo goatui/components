@@ -3,35 +3,16 @@ import Layout from '../../../layouts/Component.astro';
 import getComponentDetails from '../../../_data/getComponentDetails.ts';
 import ApiPanel from '../../../components/ApiPanel.astro';
 import OverviewPanel from '../../../components/OverviewPanel.astro';
-const componentDetails = getComponentDetails('goat-header');
+const componentDetails = getComponentDetails('goat-form-control');
 
 import UsageSection from './_sections/usage.astro';
-import AppHeaderSection from './_sections/app-header.astro';
 
 const sections = [
   {
     'title': 'Usage',
     'Component': UsageSection,
-  }, {
-    'title': 'Application Header',
-    'Component': AppHeaderSection,
   }];
 ---
-<style is:inline>
-  .component-container goat-header {
-    width: 100%;
-    --header-height: 3rem;
-    --header-background: var(--background);
-    --header-background-dark: var(--background);
-  }
-
-  .avatar-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-</style>
 <Layout componentDetails={componentDetails}>
   <goat-tabs class='page-tabs'>
     <goat-tabs-list>

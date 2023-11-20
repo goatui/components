@@ -31,13 +31,27 @@ export class Dropdown implements ComponentInterface {
 
   @Prop() items: any[] = null;
 
+  targetElm: HTMLElement;
+
   @Listen('click', { target: 'window' })
   windowClick(evt) {
     const path = evt.path || evt.composedPath();
     for (const elm of path) {
       if (elm == this.elm) return;
     }
-    this.isOpen = false;
+    if (evt.target.hasAttribute('dropdown-target') && evt.target.getAttribute('dropdown-target') === this.elm.getAttribute('id')) {
+      this.targetElm = evt.target;
+      const rect = evt.target.getBoundingClientRect();
+      this.elm.style.position = 'absolute';
+      this.elm.style.top = rect.top + 'px';
+      this.elm.style.left = rect.left + 'px';
+      this.elm.style.width = rect.width + 'px';
+      this.elm.style.height = rect.height + 'px';
+      this.elm.style.pointerEvents = 'none';
+      this.toggleList();
+    } else {
+      this.isOpen = false;
+    }
   }
 
   @Method()
@@ -93,7 +107,7 @@ export class Dropdown implements ComponentInterface {
     if (!this.disabled && !this.isOpen) {
       this.isOpen = true;
       setTimeout(() => {
-        const dropdownContent = this.elm.querySelector('[slot="dropdown-content"]');
+        const dropdownContent = this.elm.querySelector('[slot="dropdown-content"]') || this.elm.shadowRoot.querySelector('.dropdown-content');
         this.dropdownContentHeight = dropdownContent.getBoundingClientRect().height;
         this.dropdownContentWidth = dropdownContent.getBoundingClientRect().width;
         this.fixPosition();
@@ -115,7 +129,7 @@ export class Dropdown implements ComponentInterface {
 
       const positions = this.positions.split(',');
       for (let i = 0; i < positions.length; i++) {
-        const dropdownButtonRect: any = this.elm.getBoundingClientRect();
+        const dropdownButtonRect: any = this.targetElm ? this.targetElm.getBoundingClientRect() : this.elm.getBoundingClientRect();
         const dropdownContentRect: any = {};
         if (positions[i] === 'bottom-right') {
           dropdownContentRect.top = dropdownButtonRect.top + dropdownButtonRect.height;
