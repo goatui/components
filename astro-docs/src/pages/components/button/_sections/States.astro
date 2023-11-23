@@ -17,7 +17,15 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
 <goat-text type='body' expressive>Show loader animation, by setting show-loader attribute.</goat-text>
 
 <HighlighterCard lang={'html'}>
-  <goat-button show-loader>Loading</goat-button>
+  <div class='component-container'>
+    <goat-button show-loader></goat-button>
+  </div>
+  <div class='component-container'>
+    <goat-button show-loader>Loading</goat-button>
+  </div>
+  <div class='component-container'>
+    <goat-button show-loader kind='block'>Loading</goat-button>
+  </div>
 </HighlighterCard>
 
 <br />

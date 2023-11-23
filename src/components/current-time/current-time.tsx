@@ -3,8 +3,7 @@ import { Component, ComponentInterface, h, Host, Prop, State } from '@stencil/co
 /**
  * @name Current Time
  * @description Displays the current time in a given timezone.
- * @category General
- * @tags controls
+ * @category Others
  * @example <goat-current-time></goat-current-time>
  */
 

@@ -14,9 +14,12 @@ const comp = {
 
 
 <Layout componentDetails={comp}>
-  <goat-input id='component-search' placeholder='Search'>
-    <goat-icon slot='start' size='1rem' name='search'></goat-icon>
-  </goat-input>
+  <div id='search-container'>
+    <goat-input id='component-search' placeholder='Search'>
+      <goat-icon slot='start' size='1rem' name='search'></goat-icon>
+    </goat-input>
+  </div>
+
 
   <div class='filters hidden'>
     <goat-link href='/components'>

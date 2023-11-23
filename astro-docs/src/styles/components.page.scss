@@ -87,3 +87,16 @@
 goat-card > goat-card-content:first-child {
   background: var(--background);
 }
+
+#search-container {
+  position: sticky;
+  top: 100px;
+  z-index: 1000;
+  &.scrolled {
+    padding: 1rem;
+    transition: transform 3s ease-in-out;
+    #component-search {
+      box-shadow: var(--shadow-xl);
+    }
+  }
+}

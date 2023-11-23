@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-11-20T04:13:26",
+  "timestamp": "2023-11-23T02:23:28",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.4.0",
@@ -2719,6 +2719,10 @@
           "text": "controls"
         },
         {
+          "name": "img",
+          "text": "/assets/img/chart-doughnut.png"
+        },
+        {
           "name": "example",
           "text": "<goat-chart-doughnut class=\"color-red\"></goat-chart-doughnut>"
         }
@@ -2727,7 +2731,96 @@
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
-      "props": [],
+      "props": [
+        {
+          "name": "data",
+          "type": "any",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "data",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "[]",
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "height",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "margin",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "margin",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "10",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "width",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
       "methods": [],
       "events": [],
       "styles": [],
@@ -2739,6 +2832,7 @@
         "description": "A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.",
         "category": "Up coming",
         "tag": "controls",
+        "img": "/assets/img/chart-doughnut.png",
         "example": "<goat-chart-doughnut class=\"color-red\"></goat-chart-doughnut>"
       }
     },
@@ -26226,6 +26320,10 @@
               "text": "controls"
             },
             {
+              "name": "img",
+              "text": "/assets/img/chart-doughnut.png"
+            },
+            {
               "name": "example",
               "text": "<goat-chart-doughnut class=\"color-red\"></goat-chart-doughnut>"
             }
@@ -26234,7 +26332,96 @@
           "dependents": [],
           "dependencies": [],
           "dependencyGraph": {},
-          "props": [],
+          "props": [
+            {
+              "name": "data",
+              "type": "any",
+              "complexType": {
+                "original": "any",
+                "resolved": "any",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "data",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "[]",
+              "values": [
+                {
+                  "type": "any"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "height",
+              "type": "number",
+              "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "height",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "0",
+              "values": [
+                {
+                  "type": "number"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "margin",
+              "type": "number",
+              "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "margin",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "10",
+              "values": [
+                {
+                  "type": "number"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "width",
+              "type": "number",
+              "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "width",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "0",
+              "values": [
+                {
+                  "type": "number"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
           "methods": [],
           "events": [],
           "styles": [],
@@ -26246,6 +26433,7 @@
             "description": "A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.",
             "category": "Up coming",
             "tag": "controls",
+            "img": "/assets/img/chart-doughnut.png",
             "example": "<goat-chart-doughnut class=\"color-red\"></goat-chart-doughnut>"
           }
         },
