@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-11-23T02:23:28",
+  "timestamp": "2023-11-23T12:16:53",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.4.0",
@@ -3915,11 +3915,7 @@
         },
         {
           "name": "category",
-          "text": "General"
-        },
-        {
-          "name": "tags",
-          "text": "controls"
+          "text": "Others"
         },
         {
           "name": "example",
@@ -3962,10 +3958,7 @@
       "metadata": {
         "name": "Current Time",
         "description": "Displays the current time in a given timezone.",
-        "category": "General",
-        "tags": [
-          "controls"
-        ],
+        "category": "Others",
         "example": "<goat-current-time></goat-current-time>"
       }
     },
@@ -14371,6 +14364,78 @@
   "typeLibrary": {},
   "categories": [
     {
+      "name": "Others",
+      "hide": false,
+      "components": [
+        {
+          "filePath": "src/components/current-time/current-time.tsx",
+          "fileName": "current-time.tsx",
+          "tag": "goat-current-time",
+          "readme": "# goat-current-time\n\n\n",
+          "overview": "",
+          "usage": {},
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "name",
+              "text": "Current Time"
+            },
+            {
+              "name": "description",
+              "text": "Displays the current time in a given timezone."
+            },
+            {
+              "name": "category",
+              "text": "Others"
+            },
+            {
+              "name": "example",
+              "text": "<goat-current-time></goat-current-time>"
+            }
+          ],
+          "encapsulation": "shadow",
+          "dependents": [],
+          "dependencies": [],
+          "dependencyGraph": {},
+          "props": [
+            {
+              "name": "timezone",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "timezone",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
+          "methods": [],
+          "events": [],
+          "styles": [],
+          "slots": [],
+          "parts": [],
+          "listeners": [],
+          "metadata": {
+            "name": "Current Time",
+            "description": "Displays the current time in a given timezone.",
+            "category": "Others",
+            "example": "<goat-current-time></goat-current-time>"
+          }
+        }
+      ]
+    },
+    {
       "name": "General",
       "hide": false,
       "components": [
@@ -15067,79 +15132,6 @@
               "controls"
             ],
             "example": "<goat-button-group>\n<goat-button block icon=\"home\"></goat-button>\n<goat-button block icon=\"alarm\"></goat-button>\n</goat-button-group>"
-          }
-        },
-        {
-          "filePath": "src/components/current-time/current-time.tsx",
-          "fileName": "current-time.tsx",
-          "tag": "goat-current-time",
-          "readme": "# goat-current-time\n\n\n",
-          "overview": "",
-          "usage": {},
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "name",
-              "text": "Current Time"
-            },
-            {
-              "name": "description",
-              "text": "Displays the current time in a given timezone."
-            },
-            {
-              "name": "category",
-              "text": "General"
-            },
-            {
-              "name": "tags",
-              "text": "controls"
-            },
-            {
-              "name": "example",
-              "text": "<goat-current-time></goat-current-time>"
-            }
-          ],
-          "encapsulation": "shadow",
-          "dependents": [],
-          "dependencies": [],
-          "dependencyGraph": {},
-          "props": [
-            {
-              "name": "timezone",
-              "type": "string",
-              "complexType": {
-                "original": "string",
-                "resolved": "string",
-                "references": {}
-              },
-              "mutable": false,
-              "attr": "timezone",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "values": [
-                {
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            }
-          ],
-          "methods": [],
-          "events": [],
-          "styles": [],
-          "slots": [],
-          "parts": [],
-          "listeners": [],
-          "metadata": {
-            "name": "Current Time",
-            "description": "Displays the current time in a given timezone.",
-            "category": "General",
-            "tags": [
-              "controls"
-            ],
-            "example": "<goat-current-time></goat-current-time>"
           }
         },
         {
