@@ -1,5 +1,8 @@
 document.getElementById('component-search').addEventListener('goat:input', function (e) {
-  console.log(e.target.value);
+  window.scrollTo({
+    top: 0,
+    behavior: 'instant',
+  });
   document.querySelectorAll('.cards .card-wrapper').forEach(elm => {
     elm.classList.remove('hidden');
     if (elm.innerText.toLowerCase().indexOf(e.target.value.toLowerCase()) === -1) {
@@ -17,6 +20,16 @@ if (window.location.href.indexOf('?filter=') !== -1) {
     }
   });
 }
+
+document.addEventListener('scroll', function () {
+  const scrollPosition = window.scrollY;
+  const header = document.querySelector('#search-container');
+  if (scrollPosition > 0) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
 
 const cardHeaders = document.querySelectorAll('.card-header');
 

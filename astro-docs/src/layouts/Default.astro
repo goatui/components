@@ -92,14 +92,14 @@ const getTitle = (root?: boolean) => {
           (
             <goat-header-action
               icon='logo--github'
-              href='https://github.com/{{site.github_username}}/{{site.github_project}}'
+              href={`https://github.com/${site.github_username}/${site.github_project}`}
               target='_blank'
             ></goat-header-action>)
           :
           (
             <goat-header-action
               class='show-desktop'
-              href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues'
+              href={`https://github.com/${site.github_username}/${site.github_project}/issues`}
               target='_blank'
             >Report Issue
             </goat-header-action>
@@ -107,7 +107,7 @@ const getTitle = (root?: boolean) => {
             <goat-header-action
               icon='logo--github'
               class='hide-desktop'
-              href='https://github.com/{{site.github_username}}/{{site.github_project}}/issues'
+              href={`https://github.com/${site.github_username}/${site.github_project}/issues`}
               target='_blank'
             ></goat-header-action>)
         }

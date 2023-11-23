@@ -247,9 +247,14 @@ export namespace Components {
      * @description A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.
      * @category Up coming
      * @tag controls
+     * @img /assets/img/chart-doughnut.png
      * @example <goat-chart-doughnut class="color-red"></goat-chart-doughnut>
      */
     interface GoatChartDoughnut {
+        "data": any;
+        "height": number;
+        "margin": number;
+        "width": number;
     }
     /**
      * @name Checkbox
@@ -370,8 +375,7 @@ export namespace Components {
     /**
      * @name Current Time
      * @description Displays the current time in a given timezone.
-     * @category General
-     * @tags controls
+     * @category Others
      * @example <goat-current-time></goat-current-time>
      */
     interface GoatCurrentTime {
@@ -1672,6 +1676,7 @@ declare global {
      * @description A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.
      * @category Up coming
      * @tag controls
+     * @img /assets/img/chart-doughnut.png
      * @example <goat-chart-doughnut class="color-red"></goat-chart-doughnut>
      */
     interface HTMLGoatChartDoughnutElement extends Components.GoatChartDoughnut, HTMLStencilElement {
@@ -1744,8 +1749,7 @@ declare global {
     /**
      * @name Current Time
      * @description Displays the current time in a given timezone.
-     * @category General
-     * @tags controls
+     * @category Others
      * @example <goat-current-time></goat-current-time>
      */
     interface HTMLGoatCurrentTimeElement extends Components.GoatCurrentTime, HTMLStencilElement {
@@ -2536,9 +2540,14 @@ declare namespace LocalJSX {
      * @description A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.
      * @category Up coming
      * @tag controls
+     * @img /assets/img/chart-doughnut.png
      * @example <goat-chart-doughnut class="color-red"></goat-chart-doughnut>
      */
     interface GoatChartDoughnut {
+        "data"?: any;
+        "height"?: number;
+        "margin"?: number;
+        "width"?: number;
     }
     /**
      * @name Checkbox
@@ -2657,8 +2666,7 @@ declare namespace LocalJSX {
     /**
      * @name Current Time
      * @description Displays the current time in a given timezone.
-     * @category General
-     * @tags controls
+     * @category Others
      * @example <goat-current-time></goat-current-time>
      */
     interface GoatCurrentTime {
@@ -3858,6 +3866,7 @@ declare module "@stencil/core" {
              * @description A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.
              * @category Up coming
              * @tag controls
+             * @img /assets/img/chart-doughnut.png
              * @example <goat-chart-doughnut class="color-red"></goat-chart-doughnut>
              */
             "goat-chart-doughnut": LocalJSX.GoatChartDoughnut & JSXBase.HTMLAttributes<HTMLGoatChartDoughnutElement>;
@@ -3900,8 +3909,7 @@ declare module "@stencil/core" {
             /**
              * @name Current Time
              * @description Displays the current time in a given timezone.
-             * @category General
-             * @tags controls
+             * @category Others
              * @example <goat-current-time></goat-current-time>
              */
             "goat-current-time": LocalJSX.GoatCurrentTime & JSXBase.HTMLAttributes<HTMLGoatCurrentTimeElement>;

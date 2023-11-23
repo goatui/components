@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-11-20T04:13:26",
+  "timestamp": "2023-11-23T12:20:19",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.4.0",
@@ -2719,6 +2719,10 @@
           "text": "controls"
         },
         {
+          "name": "img",
+          "text": "/assets/img/chart-doughnut.png"
+        },
+        {
           "name": "example",
           "text": "<goat-chart-doughnut class=\"color-red\"></goat-chart-doughnut>"
         }
@@ -2727,7 +2731,96 @@
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
-      "props": [],
+      "props": [
+        {
+          "name": "data",
+          "type": "any",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "data",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "[]",
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "height",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "margin",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "margin",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "10",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "width",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
       "methods": [],
       "events": [],
       "styles": [],
@@ -2739,6 +2832,7 @@
         "description": "A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.",
         "category": "Up coming",
         "tag": "controls",
+        "img": "/assets/img/chart-doughnut.png",
         "example": "<goat-chart-doughnut class=\"color-red\"></goat-chart-doughnut>"
       }
     },
@@ -3821,11 +3915,7 @@
         },
         {
           "name": "category",
-          "text": "General"
-        },
-        {
-          "name": "tags",
-          "text": "controls"
+          "text": "Others"
         },
         {
           "name": "example",
@@ -3868,10 +3958,7 @@
       "metadata": {
         "name": "Current Time",
         "description": "Displays the current time in a given timezone.",
-        "category": "General",
-        "tags": [
-          "controls"
-        ],
+        "category": "Others",
         "example": "<goat-current-time></goat-current-time>"
       }
     },
@@ -14277,6 +14364,78 @@
   "typeLibrary": {},
   "categories": [
     {
+      "name": "Others",
+      "hide": false,
+      "components": [
+        {
+          "filePath": "src/components/current-time/current-time.tsx",
+          "fileName": "current-time.tsx",
+          "tag": "goat-current-time",
+          "readme": "# goat-current-time\n\n\n",
+          "overview": "",
+          "usage": {},
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "name",
+              "text": "Current Time"
+            },
+            {
+              "name": "description",
+              "text": "Displays the current time in a given timezone."
+            },
+            {
+              "name": "category",
+              "text": "Others"
+            },
+            {
+              "name": "example",
+              "text": "<goat-current-time></goat-current-time>"
+            }
+          ],
+          "encapsulation": "shadow",
+          "dependents": [],
+          "dependencies": [],
+          "dependencyGraph": {},
+          "props": [
+            {
+              "name": "timezone",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "timezone",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
+          "methods": [],
+          "events": [],
+          "styles": [],
+          "slots": [],
+          "parts": [],
+          "listeners": [],
+          "metadata": {
+            "name": "Current Time",
+            "description": "Displays the current time in a given timezone.",
+            "category": "Others",
+            "example": "<goat-current-time></goat-current-time>"
+          }
+        }
+      ]
+    },
+    {
       "name": "General",
       "hide": false,
       "components": [
@@ -14973,79 +15132,6 @@
               "controls"
             ],
             "example": "<goat-button-group>\n<goat-button block icon=\"home\"></goat-button>\n<goat-button block icon=\"alarm\"></goat-button>\n</goat-button-group>"
-          }
-        },
-        {
-          "filePath": "src/components/current-time/current-time.tsx",
-          "fileName": "current-time.tsx",
-          "tag": "goat-current-time",
-          "readme": "# goat-current-time\n\n\n",
-          "overview": "",
-          "usage": {},
-          "docs": "",
-          "docsTags": [
-            {
-              "name": "name",
-              "text": "Current Time"
-            },
-            {
-              "name": "description",
-              "text": "Displays the current time in a given timezone."
-            },
-            {
-              "name": "category",
-              "text": "General"
-            },
-            {
-              "name": "tags",
-              "text": "controls"
-            },
-            {
-              "name": "example",
-              "text": "<goat-current-time></goat-current-time>"
-            }
-          ],
-          "encapsulation": "shadow",
-          "dependents": [],
-          "dependencies": [],
-          "dependencyGraph": {},
-          "props": [
-            {
-              "name": "timezone",
-              "type": "string",
-              "complexType": {
-                "original": "string",
-                "resolved": "string",
-                "references": {}
-              },
-              "mutable": false,
-              "attr": "timezone",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "values": [
-                {
-                  "type": "string"
-                }
-              ],
-              "optional": false,
-              "required": false
-            }
-          ],
-          "methods": [],
-          "events": [],
-          "styles": [],
-          "slots": [],
-          "parts": [],
-          "listeners": [],
-          "metadata": {
-            "name": "Current Time",
-            "description": "Displays the current time in a given timezone.",
-            "category": "General",
-            "tags": [
-              "controls"
-            ],
-            "example": "<goat-current-time></goat-current-time>"
           }
         },
         {
@@ -26226,6 +26312,10 @@
               "text": "controls"
             },
             {
+              "name": "img",
+              "text": "/assets/img/chart-doughnut.png"
+            },
+            {
               "name": "example",
               "text": "<goat-chart-doughnut class=\"color-red\"></goat-chart-doughnut>"
             }
@@ -26234,7 +26324,96 @@
           "dependents": [],
           "dependencies": [],
           "dependencyGraph": {},
-          "props": [],
+          "props": [
+            {
+              "name": "data",
+              "type": "any",
+              "complexType": {
+                "original": "any",
+                "resolved": "any",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "data",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "[]",
+              "values": [
+                {
+                  "type": "any"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "height",
+              "type": "number",
+              "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "height",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "0",
+              "values": [
+                {
+                  "type": "number"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "margin",
+              "type": "number",
+              "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "margin",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "10",
+              "values": [
+                {
+                  "type": "number"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "width",
+              "type": "number",
+              "complexType": {
+                "original": "number",
+                "resolved": "number",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "width",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "0",
+              "values": [
+                {
+                  "type": "number"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
           "methods": [],
           "events": [],
           "styles": [],
@@ -26246,6 +26425,7 @@
             "description": "A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.",
             "category": "Up coming",
             "tag": "controls",
+            "img": "/assets/img/chart-doughnut.png",
             "example": "<goat-chart-doughnut class=\"color-red\"></goat-chart-doughnut>"
           }
         },

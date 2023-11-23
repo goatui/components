@@ -1,5 +1,5 @@
 import { loadScript } from '../../utils/utils';
 
 export default async function loadGoogleCharts() {
-  await loadScript(`https://www.gstatic.com/charts/loader.js`);
+  await loadScript(`https://d3js.org/d3.v6.js`);
 }

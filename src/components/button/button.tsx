@@ -258,15 +258,13 @@ export class Button implements ComponentInterface {
             {...this.configAria}
           >
             <div class="button-content">
-              {this.showLoader && <goat-spinner class="spinner inherit" size={this.getIconSize()} />}
+              {this.showLoader && <goat-spinner hideBackground={true} class="spinner loader inherit" size={this.getIconSize()} />}
 
               {!this.showLoader && this.icon && this.iconAlign == 'start' && this.renderIcon(this.icon)}
 
-              {!this.showLoader && (
-                <div class="slot-container">
-                  <slot />
-                </div>
-              )}
+              <div class="slot-container">
+                <slot />
+              </div>
 
               {!this.showLoader && this.icon && this.iconAlign == 'end' && this.renderIcon(this.icon)}
             </div>

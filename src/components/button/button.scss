@@ -92,6 +92,17 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
       padding-right: 0;
     }
   }
+
+
+  &.has-content.show-loader {
+    .button-content {
+      gap: 1rem;
+    }
+
+    .slot-container {
+      padding-right: 0;
+    }
+  }
 }
 
 /**
@@ -171,17 +182,14 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
 
   .button-content {
     justify-content: center;
-    gap: 1rem;
-  }
-
-  .spinner {
-    margin: auto;
+    gap: 1rem !important;
   }
 
   &.has-content {
     .slot-container {
       padding-right: 0;
       justify-content: center;
+      flex: none;
     }
   }
 }
