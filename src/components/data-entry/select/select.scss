@@ -132,6 +132,9 @@
 
   &.multiple {
     padding: .5rem 0;
+    .input-native {
+      min-width: 6rem;
+    }
   }
 
 }
