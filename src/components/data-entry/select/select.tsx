@@ -437,6 +437,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
               class={{
                 'dropdown': true,
                 'select': true,
+                'multiple': this.multiple,
                 [this.position]: true,
                 'is-open': this.isOpen,
                 [`search-${this.search}`]: true,
