@@ -129,4 +129,30 @@
     color: v(--text-secondary);
   }
 
+
+  &.multiple {
+    padding: .5rem 0;
+  }
+
+}
+
+:host([size="sm"]) .multiple :is(.input-container, .input-container-skeleton) {
+  height: auto;
+  min-height: var(--input-height, 2rem);
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+
+:host([size="md"]) .multiple :is(.input-container, .input-container-skeleton) {
+  height: auto;
+  min-height: var(--input-height, 2.5rem);
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+
+:host([size="lg"]) .multiple :is(.input-container, .input-container-skeleton) {
+  height: auto;
+  min-height: var(--input-height, 3rem);
+  padding-top: .5rem;
+  padding-bottom: .5rem;
 }

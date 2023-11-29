@@ -2,6 +2,8 @@
 
 :host {
   display: block;
+  --accordion-heading-background: transparent;
+  --accordion-title-align: start;
 }
 
 .accordion-item {
@@ -11,9 +13,9 @@
     width: 100%;
     border-radius: 0;
     color: v(--text-primary);
-    background: transparent;
     border: 0;
     padding: 0 v(--spacing-05);
+    background: var(--accordion-heading-background);
 
     display: flex;
     flex-direction: row-reverse;
@@ -24,8 +26,7 @@
 
     .accordion-title {
       width: 100%;
-      text-align: left;
-
+      text-align: var(--accordion-title-align);
     }
 
     svg {
@@ -47,6 +48,7 @@
     text-align: start;
     pointer-events: none;
     transition: all 0.1s linear;
+    background: var(--accordion-item-background);
   }
   .accordion-icon {
     transition: transform 0.1s linear;
