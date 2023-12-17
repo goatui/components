@@ -1,4 +1,5 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Host, Prop, State, Watch } from '@stencil/core';
+import { isLightOrDark, observeThemeChange } from '../../../utils/utils';
 
 /**
  * @name Header
@@ -15,21 +16,47 @@ import { Component, h, Prop } from '@stencil/core';
 export class Header {
   @Prop() float: boolean = false;
 
+  @Prop({ reflect: true }) color: 'light' | 'dark' | 'brand-primary' | 'brand-secondary' = 'light';
+
+  @Watch('color')
+  colorChanged() {
+    this.computeColorLightOrDark();
+  }
+
+  computeColorLightOrDark() {
+    this.colorType = 'unknown';
+    if (this.color == 'brand-primary' || this.color == 'brand-secondary') {
+      const color = getComputedStyle(document.documentElement).getPropertyValue(`--color-${this.color}`);
+      this.colorType = isLightOrDark(color);
+    }
+  }
+
+  componentWillLoad() {
+    this.colorChanged();
+    observeThemeChange(() => {
+      this.colorChanged();
+    });
+  }
+
+  @State() colorType: string = 'unknown';
+
   render() {
     return (
-      <div class="header-container">
-        <header class={{ header: true, float: this.float }}>
-          <div class="left-section section">
-            <slot name="left" />
-          </div>
-          <div class="center-section section">
-            <slot name="center" />
-          </div>
-          <div class="right-section section">
-            <slot name="right" />
-          </div>
-        </header>
-      </div>
+      <Host color-is={this.colorType}>
+        <div class="header-container">
+          <header class={{ header: true, float: this.float }}>
+            <div class="left-section section">
+              <slot name="left" />
+            </div>
+            <div class="center-section section">
+              <slot name="center" />
+            </div>
+            <div class="right-section section">
+              <slot name="right" />
+            </div>
+          </header>
+        </div>
+      </Host>
     );
   }
 }

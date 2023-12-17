@@ -20,9 +20,9 @@ if (isProd) {
   <div class='banner'>
     <div class='banner-content'>
       <BannerLogo />
-      <goat-text type='heading' heading-size='7' class='title'>{site.title}</goat-text>
-      <goat-text type='heading' heading-size='3'>{site.tagline}</goat-text>
-      <goat-text type='heading' heading-size='3'>Hooray! we are now v1.0 🎉</goat-text>
+      <goat-text class=' title' type='heading' heading-size='7'>{site.title}</goat-text>
+      <goat-text class='' type='heading' heading-size='3'>{site.tagline}</goat-text>
+      <goat-text class='' type='heading' heading-size='3'>Hooray! we are now v1.0 🎉</goat-text>
       <div style='display: flex; gap: 1rem'>
         <goat-button href='#getting-started' size='lg' color='dark' icon='arrow--right'>Get Started</goat-button>
         <goat-button href='/components' size='lg' color='brand-primary' kind='simple'>Browse Components</goat-button>
@@ -187,7 +187,8 @@ if (isProd) {
       icon='logo--github'
       icon-size='lg'
       variant='ghost'
-      color='inverse'
+      color='dark'
+      dark-mode-color='light'
       target='_blank'
       aria-label='Github'
       href='https://www.github.com/{site.github_username}'
@@ -195,7 +196,8 @@ if (isProd) {
     <goat-button
       icon-size='lg'
       icon='logo--twitter'
-      color='inverse'
+      color='dark'
+      dark-mode-color='light'
       variant='ghost'
       target='_blank'
       aria-label='Twitter'

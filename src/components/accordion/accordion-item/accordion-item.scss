@@ -46,6 +46,7 @@
   .item-section {
     height: 0;
     opacity: 0;
+    pointer-events: none;
     text-align: start;
     transition: all 0.1s linear;
     background: var(--accordion-item-background);

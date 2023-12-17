@@ -13,33 +13,34 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
     <goat-button color='danger'>Danger</goat-button>
   </div>
 
-  <div class='component-container' style='background: var(--color-blue);  padding: 1rem;'>
+  <div class='component-container' style='background: var(--color-primary-20);  padding: 1rem;'>
     <goat-button color='dark'>Dark</goat-button>
     <goat-button color='light'>Light</goat-button>
-    <goat-button color='inverse'>Inverse</goat-button>
+    <goat-button color='dark' dark-mode-color='light'>Dark Inverse</goat-button>
+    <goat-button color='light' dark-mode-color='dark'>Light Inverse</goat-button>
   </div>
 </HighlighterCard>
 
 <br />
 
 <goat-text type='heading' heading-size='3'>Custom branding</goat-text>
+<goat-text type='body' expressive>Custom branding is possible by overriding the CSS variables. The following example shows how to change the color of the button to the primary brand color.</goat-text>
+<goat-text type='body' expressive>Button text color will be adjusted to white or black based on it brightness of branding.</goat-text>
+
+
 <HighlighterCard lang={'html'}>
+
   <div class='component-container'>
+    <goat-button variant='default' color='brand-primary' icon='arrow--right'>Default</goat-button>
+    <goat-button variant='light' color='brand-primary' icon='arrow--right'>Light</goat-button>
+    <goat-button variant='outline' color='brand-primary' icon='arrow--right'>Outline</goat-button>
+    <goat-button variant='ghost' color='brand-primary' icon='arrow--right'>Ghost</goat-button>
+  </div>
 
-    <style is:inline>
-      .custom {
-        --button-color: var(--color-brand-primary);
-        --button-color-hover: var(--color-brand-primary-70);
-        --button-color-active: var(--color-brand-primary-80);
-        --button-color-support: var(--color-brand-secondary);
-      }
-    </style>
-    <goat-button class='custom' icon='home'>Custom</goat-button>
-    <goat-button class='custom' variant='outline'>Custom</goat-button>
-    <goat-button class='custom' variant='ghost'>Custom</goat-button>
-
-    <goat-button color='brand-primary' icon='home'>Custom</goat-button>
-    <goat-button color='brand-secondary' icon='home'>Custom</goat-button>
-
+  <div class='component-container'>
+    <goat-button variant='default' color='brand-secondary' icon='arrow--right'>Default</goat-button>
+    <goat-button variant='light' color='brand-secondary' icon='arrow--right'>Light</goat-button>
+    <goat-button variant='outline' color='brand-secondary' icon='arrow--right'>Outline</goat-button>
+    <goat-button variant='ghost' color='brand-secondary' icon='arrow--right'>Ghost</goat-button>
   </div>
 </HighlighterCard>

@@ -1,5 +1,5 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Listen, Method, Prop, State } from '@stencil/core';
-import { getComponentIndex } from '../../utils/utils';
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Listen, Method, Prop, State, Watch } from '@stencil/core';
+import { getComponentIndex, isDarkMode, isLightOrDark, observeThemeChange } from '../../utils/utils';
 
 /**
  * @name Button
@@ -58,6 +58,8 @@ export class Button implements ComponentInterface {
 
   @Prop({ reflect: true }) color: 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light' | 'inverse' = 'primary';
 
+  @Prop({ reflect: true }) darkModeColor: 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light' | 'inverse';
+
   /**
    * Icon which will displayed on button.
    * Possible values are icon names.
@@ -98,11 +100,20 @@ export class Button implements ComponentInterface {
 
   @State() hasFocus = false;
   @State() isActive = false;
+  @State() hover = false;
   @State() slotHasContent = false;
+  @State() computedColor: string;
 
   @Element() elm!: HTMLElement;
   private tabindex?: string | number;
   private nativeElement?: HTMLButtonElement;
+
+  @Watch('color')
+  @Watch('darkModeColor')
+  colorChanged() {
+    this.computedColor = this.getComputedColor();
+    this.computeColorLightOrDark();
+  }
 
   @Listen('mouseup', { target: 'window' })
   windowMouseUp() {
@@ -202,6 +213,19 @@ export class Button implements ComponentInterface {
         });
       this.slotHasContent = this.elm.hasChildNodes();
     }
+    this.colorChanged();
+    observeThemeChange(() => {
+      this.colorChanged();
+    });
+  }
+
+  getComputedColor() {
+    if (isDarkMode()) {
+      if (this.darkModeColor) {
+        return this.darkModeColor;
+      }
+    }
+    return this.color;
   }
 
   private renderDisabledReason() {
@@ -218,18 +242,29 @@ export class Button implements ComponentInterface {
     else return 'button';
   }
 
+  computeColorLightOrDark() {
+    this.colorType = 'unknown';
+    if (this.color == 'brand-primary' || this.color == 'brand-secondary') {
+      const color = getComputedStyle(document.documentElement).getPropertyValue(`--color-${this.color}`);
+      this.colorType = isLightOrDark(color);
+    }
+  }
+
+  @State() colorType: string = 'unknown';
+
   render() {
     const NativeElementTag = this.getNativeElementTagName();
 
     return (
-      <Host has-focus={this.hasFocus} kind={this.kind} active={this.isActive}>
+      <Host has-focus={this.hasFocus} kind={this.kind} active={this.isActive} computed-color={this.computedColor}>
         <div
           class={{
             'button': true,
             [`size-${this.size || 'md'}`]: true,
             [`type-${this.kind}`]: true,
             [`variant-${this.variant}`]: true,
-            [`color-${this.color}`]: true,
+            [`color-${this.computedColor}`]: true,
+            'hover': this.hover,
             'disabled': this.disabled,
             'selected': this.selected,
             'has-focus': this.hasFocus,
@@ -237,6 +272,7 @@ export class Button implements ComponentInterface {
             'has-content': this.slotHasContent,
             'has-icon': !!this.icon,
             'show-loader': this.showLoader,
+            [`color-is-${this.colorType}`]: true,
           }}
         >
           <div class="button-background" />
@@ -249,6 +285,12 @@ export class Button implements ComponentInterface {
             ref={(input: HTMLButtonElement) => (this.nativeElement = input)}
             onBlur={this.blurHandler}
             onFocus={this.focusHandler}
+            onMouseOver={() => {
+              this.hover = true;
+            }}
+            onMouseOut={() => {
+              this.hover = false;
+            }}
             onClick={this.clickHandler}
             onMouseDown={this.mouseDownHandler}
             onKeyDown={this.keyDownHandler}

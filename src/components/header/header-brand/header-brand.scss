@@ -1,6 +1,5 @@
 @import "../../../globalStyles/commons";
 
-
 :host {
   display: block;
   height: 100%;
@@ -36,38 +35,43 @@
 
 .subtitle-divider {
   height: 1.5rem;
-  --divider-color: #{v(--border-subtle-01)};
 }
 
 .subtitle {
   padding: 0 v(--spacing-02);
 }
 
-
 /*
  * Colors
  */
 .header-brand {
-  color: v(--text-primary);
-
-  .brand-link {
-    --button-text-color: #{v(--text-primary)};
-    --button-color: transparent;
-    --button-color-hover: #{v(--color-brand-primary-20)};
-    --button-color-active: #{v(--color-brand-primary-30)};
-    --button-color-focus: #{v(--color-brand-primary)};
-  }
+  color: v(--color-gray-100);
 
   .subtitle {
-    color: v(--color-neutral-50);
+    color: v(--color-gray-100);
   }
 }
 
-:host-context(.brand) .header-brand {
-  color: v(--color-brand-primary);
+:host-context([color-is="dark"]) .header-brand {
+  color: v(--color-white);
 
+
+  .subtitle-divider {
+    --divider-color: #{v(--color-white)};
+  }
   .subtitle {
-    color: v(--color-neutral-50);
+    color: v(--color-white);
   }
 }
 
+:host-context([color-is="light"]) .header-brand {
+  color: v(--color-black);
+
+  .subtitle-divider {
+    --divider-color: #{v(--color-black)};
+  }
+
+  .subtitle {
+    color: v(--color-gray-80);
+  }
+}
