@@ -10,9 +10,11 @@
 <script src="https://cdn.jsdelivr.net/npm/values.js"></script>
 
 <script type="module">
-  const color = new Values('#b1fc3f');
+  const input = '#fdf0d5';
+  const variable = "--color-brand-primary";
+  const color = new Values(input);
 
-  var output = "";
+  var output = variable + ": " + input + ";\n";
   for(var i =1; i<=10; i=i+1) {
     var newColor;
     if (i < 5) {
@@ -23,7 +25,7 @@
     else if (i > 5)
       newColor = color.shade((i * 20) - (5 * 20));
 
-    output = output + "--color-brand-secondary-" + (i * 10) + ": #" + newColor.hex + ";\n";
+    output = output + variable + "-" + (i * 10) + ": #" + newColor.hex + ";\n";
   }
   console.log(output);
 </script>

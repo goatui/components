@@ -18,10 +18,6 @@ export class HeaderAction {
    */
   @Prop() icon: string;
 
-  @Prop() color: 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' = 'brand-secondary';
-
-  @Prop() variant: 'default' | 'outline' | 'ghost' | 'link' = 'default';
-
   /**
    * Sets or retrieves the window or frame at which to target content.
    */
@@ -43,7 +39,18 @@ export class HeaderAction {
 
   @State() slotHasContent = false;
 
+  @State() color: any;
+
   componentWillLoad() {
+    const headerColor = this.elm.closest('goat-header').getAttribute('color');
+
+    if (headerColor === 'light') {
+      this.color = 'light';
+    } else if (headerColor === 'dark') {
+      this.color = 'light';
+    } else {
+      this.color = headerColor;
+    }
     this.slotHasContent = this.elm.hasChildNodes();
   }
 
@@ -52,7 +59,7 @@ export class HeaderAction {
       <goat-button
         class="header-action"
         color={this.color}
-        variant={this.variant}
+        variant={'default'}
         kind={'simple'}
         icon={this.icon}
         iconSize={'1.25rem'}

@@ -20,7 +20,7 @@ const getTitle = (root?: boolean) => {
 <Layout title={title || site.title} description={description} keywords={keywords}>
 
   <nav class='top-nav'>
-    <goat-header class={`brand actions-separated ${!root ? 'border' : ''}`}>
+    <goat-header color="brand-secondary" class={`actions-separated ${!root ? 'border' : ''}`}>
       <div slot='left'>
         <goat-header-brand logo='/assets/img/logo.svg' href='/#' name={site.title}
                            sub-title={getTitle(root)}></goat-header-brand>

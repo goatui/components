@@ -33,11 +33,12 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  color: var(--color-black);
 
   height: 100vh;
   min-height: 410px;
   padding-top: var(--header-height);
-  background: var(--header-background);
+  background: var(--color-brand-secondary);
 }
 
 .banner-content {
@@ -51,11 +52,6 @@
   animation: reveal 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) 0.25s backwards;
   --text-color: var(--text-primary);
 }
-
-html[data-theme='dark'] .banner {
-  background: var(--header-background-dark);
-}
-
 
 .banner-logo {
   width: 15rem;

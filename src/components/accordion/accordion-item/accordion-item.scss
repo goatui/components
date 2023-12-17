@@ -4,6 +4,7 @@
   display: block;
   --accordion-heading-background: transparent;
   --accordion-title-align: start;
+  --accordion-heading-background-hover: v(--layer-hover-01);
 }
 
 .accordion-item {
@@ -34,7 +35,7 @@
     }
 
     &:hover {
-      background: v(--layer-hover-01);
+      background: var(--accordion-heading-background-hover);
     }
 
     &.has-focus {
@@ -45,8 +46,8 @@
   .item-section {
     height: 0;
     opacity: 0;
-    text-align: start;
     pointer-events: none;
+    text-align: start;
     transition: all 0.1s linear;
     background: var(--accordion-item-background);
   }

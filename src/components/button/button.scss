@@ -430,7 +430,7 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
   * Color Variants
   */
 @each $color in [primary, secondary, success, info, warning, error, brand-primary, brand-secondary] {
-  :host([color="#{$color}"]) {
+  :host([computed-color="#{$color}"]) {
     --button-color: #{v(--color-#{$color})};
     --button-color-light: #{v(--color-#{$color}-10)};
     --button-color-hover: #{v(--color-#{$color}-70)};
@@ -441,7 +441,7 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
   }
 }
 
-:host([color="danger"]) {
+:host([computed-color="danger"]) {
   --button-color: #{v(--color-error)};
   --button-color-light: #{v(--color-error-10)};
   --button-color-hover: #{v(--color-error-70)};
@@ -451,73 +451,59 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
   --button-color-light-active: #{v(--color-error-30)};
 }
 
-:host([color="brand-secondary"]) {
-  --button-text-color: var(--color-dark);
+:host([computed-color="brand-primary"]) .button.color-is-light, :host([computed-color="brand-secondary"]) .button.color-is-light {
+  --button-text-color: var(--color-black);
+
+  &:hover, &.active, &.selected {
+    --button-text-color: var(--color-white);
+  }
 }
 
-:host([color="custom"]) {
-  --button-color: var(--global-custom-button-color);
-  --button-color-hover: var(--global-custom-button-color-hover);
-  --button-color-active: var(--global-custom-button-color-active);
-  --button-color-support: var(--global-custom-button-color-support);
-  --button-color-light-hover: var(--global-custom-button-color-light-hover);
-  --button-color-light-active: var(--global-custom-button-color-light-active);
-}
 
-:host([color="dark"]) {
+:host([computed-color="dark"]) {
   --button-color: #{v(--color-black)};
-  --button-color-hover: #{v(--color-black)};
-  --button-color-active: #{v(--color-black)};
+  --button-color-light: #{v(--color-secondary-10)};
+  --button-color-hover: #{v(--color-secondary-70)};
+  --button-color-active: #{v(--color-secondary-80)};
   --button-color-support: #{v(--color-black)};
-  --button-color-light-hover: #{v(--color-grey-20)};
-  --button-color-light-active: #{v(--color-grey-30)};
+  --button-color-light-hover: #{v(--color-secondary-20)};
+  --button-color-light-active: #{v(--color-secondary-30)};
 }
 
-:host([color="light"]) {
+:host([computed-color="light"]) {
   --button-color: #{v(--color-white)};
-  --button-color-hover: #{v(--color-white)};
-  --button-color-active: #{v(--color-white)};
+  --button-color-light: #{v(--color-secondary-90)};
+  --button-color-hover: #{v(--color-secondary-10)};
+  --button-color-active: #{v(--color-secondary-70)};
   --button-color-support: #{v(--color-white)};
   --button-color-light-hover: #{v(--color-grey-20)};
   --button-color-light-active: #{v(--color-grey-30)};
   --button-text-color: var(--color-black);
+
+  .button {
+    &.active, &.selected {
+      --button-text-color: var(--color-white);
+    }
+  }
+
 }
 
-:host([color="inverse"]) {
-  --button-color: #{v(--color-black)};
-  --button-color-hover: #{v(--color-black)};
-  --button-color-active: #{v(--color-black)};
-  --button-color-support: #{v(--color-black)};
-  --button-color-light-hover: #{v(--color-grey-20)};
-  --button-color-light-active: #{v(--color-grey-30)};
-}
-
-:host-context([data-theme="dark"]):host([color="inverse"]) {
+:host-context([data-theme="dark"]):host([computed-color="secondary"]) .button {
   --button-color: #{v(--color-white)};
-  --button-color-hover: #{v(--color-white)};
-  --button-color-active: #{v(--color-white)};
+  --button-color-hover: #{v(--color-secondary-10)};
+  --button-color-active: #{v(--color-secondary-70)};
   --button-color-support: #{v(--color-white)};
   --button-color-light-hover: #{v(--color-grey-20)};
   --button-color-light-active: #{v(--color-grey-30)};
   --button-text-color: var(--color-black);
-}
 
 
-:host-context([data-theme="dark"]):host([color="secondary"]) .button {
-  --button-color: #{v(--color-white)};
-  --button-text-color: #{v(--color-black)};
-  --button-color-hover: #{v(--color-white)};
-  --button-color-active: #{v(--color-white)};
-  --button-color-support: #{v(--color-white)};
+  &.active, &.selected {
+    --button-text-color: var(--color-white);
+  }
 
   &.variant-ghost {
-    &:hover {
-      .native-button {
-        color: v(--color-white);
-      }
-    }
-
-    &.active, &.selected {
+    &:hover, &.active, &.selected {
       .native-button {
         color: v(--color-white);
       }

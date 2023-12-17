@@ -1,5 +1,6 @@
 ---
 import HighlighterCard from '../../../../components/HighlighterCard.astro';
+import HeaderContent from './header-content.astro';
 ---
 
 <HighlighterCard lang={'html'}>
@@ -13,10 +14,23 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
   </div>
 
   <div class='component-container'>
+    <goat-header>
+      <div slot='left'>
+        <goat-header-action icon='menu' href='#'></goat-header-action>
+        <goat-header-brand logo='/assets/img/logo.svg' href='#' name='Goat' sub-title='Subtitle'></goat-header-brand>
+      </div>
+      <HeaderContent />
+    </goat-header>
+  </div>
+
+  <div class='component-container'>
     <goat-header float>
-      <div slot='left'>Left Section</div>
-      <div slot='center'>Center Section</div>
-      <div slot='right'>Right Section</div>
+      <div slot='left'>
+        <goat-header-action icon='menu' href='#'></goat-header-action>
+        <goat-header-brand logo='/assets/img/logo.svg' href='#' name='Goat' sub-title='Subtitle'></goat-header-brand>
+      </div>
+
+      <HeaderContent />
     </goat-header>
   </div>
 </HighlighterCard>

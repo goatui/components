@@ -101,6 +101,7 @@ export namespace Components {
     interface GoatButton {
         "color": 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light' | 'inverse';
         "configAria": any;
+        "darkModeColor": 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light' | 'inverse';
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -526,11 +527,11 @@ export namespace Components {
      * @imgDark /assets/img/header-dark.png
      */
     interface GoatHeader {
+        "color": 'light' | 'dark' | 'brand-primary' | 'brand-secondary';
         "float": boolean;
     }
     interface GoatHeaderAction {
         "badge": string;
-        "color": 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary';
         /**
           * Hyperlink to navigate to on click.
          */
@@ -551,7 +552,6 @@ export namespace Components {
           * Sets or retrieves the window or frame at which to target content.
          */
         "target": string;
-        "variant": 'default' | 'outline' | 'ghost' | 'link';
     }
     interface GoatHeaderBrand {
         "color": string;
@@ -2394,6 +2394,7 @@ declare namespace LocalJSX {
     interface GoatButton {
         "color"?: 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light' | 'inverse';
         "configAria"?: any;
+        "darkModeColor"?: 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light' | 'inverse';
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -2823,11 +2824,11 @@ declare namespace LocalJSX {
      * @imgDark /assets/img/header-dark.png
      */
     interface GoatHeader {
+        "color"?: 'light' | 'dark' | 'brand-primary' | 'brand-secondary';
         "float"?: boolean;
     }
     interface GoatHeaderAction {
         "badge"?: string;
-        "color"?: 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary';
         /**
           * Hyperlink to navigate to on click.
          */
@@ -2848,7 +2849,6 @@ declare namespace LocalJSX {
           * Sets or retrieves the window or frame at which to target content.
          */
         "target"?: string;
-        "variant"?: 'default' | 'outline' | 'ghost' | 'link';
     }
     interface GoatHeaderBrand {
         "color"?: string;
