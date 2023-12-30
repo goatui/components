@@ -10,6 +10,7 @@
 | Property      | Attribute      | Description | Type      | Default               |
 | ------------- | -------------- | ----------- | --------- | --------------------- |
 | `format`      | `format`       |             | `boolean` | `true`                |
+| `hideCopy`    | `hide-copy`    |             | `boolean` | `false`               |
 | `language`    | `language`     |             | `string`  | `Language.javascript` |
 | `lineNumbers` | `line-numbers` |             | `boolean` | `false`               |
 | `value`       | `value`        |             | `string`  | `''`                  |

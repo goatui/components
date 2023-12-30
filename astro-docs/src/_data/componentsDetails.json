@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-12-17T07:42:48",
+  "timestamp": "2023-12-30T12:13:08",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.4.0",
@@ -3700,6 +3700,28 @@
           "docs": "",
           "docsTags": [],
           "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "hideCopy",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-copy",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
           "values": [
             {
               "type": "boolean"
@@ -22966,6 +22988,28 @@
               "docs": "",
               "docsTags": [],
               "default": "true",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "hideCopy",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "hide-copy",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
               "values": [
                 {
                   "type": "boolean"
