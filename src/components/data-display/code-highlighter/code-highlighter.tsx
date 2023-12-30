@@ -151,6 +151,14 @@ export class CodeHighlighter implements ComponentInterface {
   private codeString: string = '';
   private parsedCodeString: string = '';
 
+  @Watch('value')
+  valueWatcher() {
+    if (this.value) {
+      this.codeString = this.value;
+    }
+    this.renderPrism();
+  }
+
   @Watch('language')
   languageWatcher() {
     this.renderPrism();
