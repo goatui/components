@@ -58,6 +58,7 @@
   &.open {
     .item-section {
       height: 100%;
+      pointer-events: auto;
       opacity: 1;
       padding: v(--spacing-03) v(--spacing-10) v(--spacing-06) v(--spacing-05);
     }

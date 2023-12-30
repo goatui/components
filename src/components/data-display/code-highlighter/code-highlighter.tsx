@@ -144,6 +144,8 @@ export class CodeHighlighter implements ComponentInterface {
 
   @Prop() format: boolean = true;
 
+  @Prop() hideCopy: boolean = false;
+
   @State() compiledCode: string = null;
 
   private codeString: string = '';
@@ -236,18 +238,20 @@ export class CodeHighlighter implements ComponentInterface {
                 <pre dir="ltr" class="highlighter line-numbers" innerHTML={this.compiledCode} />
               </div>
             </div>
-            <goat-button
-              class="copy-btn icon-only"
-              size="sm"
-              color="secondary"
-              variant="ghost"
-              aria-label="Copy code"
-              title="Copy code"
-              icon="copy"
-              onGoat:click={() => {
-                this.handleCopyClick();
-              }}
-            ></goat-button>
+            {!this.hideCopy && (
+              <goat-button
+                class="copy-btn icon-only"
+                size="sm"
+                color="secondary"
+                variant="ghost"
+                aria-label="Copy code"
+                title="Copy code"
+                icon="copy"
+                onGoat:click={() => {
+                  this.handleCopyClick();
+                }}
+              ></goat-button>
+            )}
           </div>
         )}
         {this.compiledCode === null && (
