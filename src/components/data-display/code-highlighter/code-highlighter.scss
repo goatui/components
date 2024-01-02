@@ -19,6 +19,7 @@
 
 .code-highlighter {
   position: relative;
+  padding-inline-end: 3rem;
   height: 100%;
   background-color: var(--code-highlighter-background, v(--color-purple-10));
   color: v(--text-primary);
@@ -44,6 +45,7 @@
 
   .copy-btn {
     position: absolute;
+    background-color: var(--code-highlighter-background, v(--color-purple-10));
     top: 0.675rem;
     right: v(--spacing-03);
   }
@@ -56,4 +58,7 @@
 
 :host-context([data-theme="dark"]) .code-highlighter {
   background-color: var(--code-highlighter-background-dark, v(--color-purple-100));
+  .copy-btn {
+    background-color: var(--code-highlighter-background-dark, v(--color-purple-100));
+  }
 }

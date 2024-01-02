@@ -560,7 +560,17 @@ export class Select implements ComponentInterface, InputComponentInterface {
               return (
                 <goat-menu-item value={item.value}>
                   <div class={'slot-container-start'} slot="start">
-                    {this.multiple && <goat-checkbox class={'item-checkbox'} value={this.containsValue(item.value)}></goat-checkbox>}
+                    {this.multiple && (
+                      <goat-checkbox
+                        class={'item-checkbox'}
+                        value={this.containsValue(item.value)}
+                        on-click={evt => {
+                          evt.preventDefault();
+                          evt.stopPropagation();
+                          this.selectHandler(item.value);
+                        }}
+                      ></goat-checkbox>
+                    )}
                     {item.icon && <goat-icon name={item.icon} size={this.size} />}
                   </div>
                   {item.label || item.value}

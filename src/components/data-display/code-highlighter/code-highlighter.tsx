@@ -151,6 +151,8 @@ export class CodeHighlighter implements ComponentInterface {
 
   @State() compiledCode: string = null;
 
+  @State() copyState: 'idle' | 'copied' = 'idle';
+
   private codeString: string = '';
   private parsedCodeString: string = '';
 
@@ -237,38 +239,30 @@ export class CodeHighlighter implements ComponentInterface {
   async handleCopyClick() {
     const textToCopy = this.parsedCodeString;
     // Navigator clipboard api needs a secure context (https)
-    if (navigator.clipboard && window.isSecureContext) {
-      await navigator.clipboard.writeText(textToCopy);
-    } else {
-      // Use the 'out of viewport hidden text area' trick
-      const textArea = document.createElement('textarea');
-      textArea.value = textToCopy;
+    // Use the 'out of viewport hidden text area' trick
+    const textArea = document.createElement('textarea');
+    textArea.value = textToCopy;
 
-      // Move textarea out of the viewport so it's not visible
-      textArea.style.position = 'absolute';
-      textArea.style.left = '-999999px';
+    // Move textarea out of the viewport so it's not visible
+    textArea.style.position = 'absolute';
+    textArea.style.left = '-999999px';
 
-      document.body.prepend(textArea);
-      textArea.select();
+    document.body.prepend(textArea);
+    textArea.select();
 
-      try {
-        document.execCommand('copy');
-      } catch (error) {
-        console.error(error);
-      } finally {
-        textArea.remove();
-      }
+    try {
+      document.execCommand('copy');
+    } catch (error) {
+      console.error(error);
+    } finally {
+      textArea.remove();
     }
 
-    window.dispatchEvent(
-      new CustomEvent('goat:toast', {
-        detail: {
-          target: 'code-highlighter-' + this.gid,
-          message: 'Copied to clipboard',
-          state: 'success',
-        },
-      }),
-    );
+    this.copyState = 'copied';
+
+    setTimeout(() => {
+      this.copyState = 'idle';
+    }, 3000);
   }
 
   render() {
@@ -282,15 +276,22 @@ export class CodeHighlighter implements ComponentInterface {
                 <pre dir="ltr" class="highlighter line-numbers" innerHTML={this.compiledCode} />
               </div>
             </div>
-            {!this.hideCopy && (
+            {!this.hideCopy && this.copyState === 'copied' && (
+              <div>
+                <goat-button class="copy-btn icon-only test" size="sm" color={'success'} variant={'default'} aria-label="Copied code" title="Copied code" icon={'checkmark'}>
+                  Copied
+                </goat-button>
+              </div>
+            )}
+            {!this.hideCopy && this.copyState === 'idle' && (
               <goat-button
                 class="copy-btn icon-only"
                 size="sm"
-                color="secondary"
-                variant="ghost"
+                color={'secondary'}
+                variant={'ghost'}
                 aria-label="Copy code"
                 title="Copy code"
-                icon="copy"
+                icon={'copy'}
                 onGoat:click={() => {
                   this.handleCopyClick();
                 }}
