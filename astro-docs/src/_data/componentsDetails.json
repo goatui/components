@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-12-31T04:59:10",
+  "timestamp": "2024-01-02T05:41:11",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.4.0",
@@ -3672,13 +3672,26 @@
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
+        "goat-notification-manager",
         "goat-button",
         "goat-spinner"
       ],
       "dependencyGraph": {
         "goat-code-highlighter": [
+          "goat-notification-manager",
           "goat-button",
           "goat-spinner"
+        ],
+        "goat-notification-manager": [
+          "goat-toast",
+          "goat-notification"
+        ],
+        "goat-toast": [
+          "goat-icon"
+        ],
+        "goat-notification": [
+          "goat-button",
+          "goat-icon"
         ],
         "goat-button": [
           "goat-icon",
@@ -8111,7 +8124,9 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [],
+      "dependents": [
+        "goat-code-highlighter"
+      ],
       "dependencies": [
         "goat-toast",
         "goat-notification"
@@ -8131,6 +8146,9 @@
         "goat-button": [
           "goat-icon",
           "goat-spinner"
+        ],
+        "goat-code-highlighter": [
+          "goat-notification-manager"
         ]
       },
       "props": [
@@ -22960,13 +22978,26 @@
           "encapsulation": "shadow",
           "dependents": [],
           "dependencies": [
+            "goat-notification-manager",
             "goat-button",
             "goat-spinner"
           ],
           "dependencyGraph": {
             "goat-code-highlighter": [
+              "goat-notification-manager",
               "goat-button",
               "goat-spinner"
+            ],
+            "goat-notification-manager": [
+              "goat-toast",
+              "goat-notification"
+            ],
+            "goat-toast": [
+              "goat-icon"
+            ],
+            "goat-notification": [
+              "goat-button",
+              "goat-icon"
             ],
             "goat-button": [
               "goat-icon",
@@ -24560,7 +24591,9 @@
             }
           ],
           "encapsulation": "shadow",
-          "dependents": [],
+          "dependents": [
+            "goat-code-highlighter"
+          ],
           "dependencies": [
             "goat-toast",
             "goat-notification"
@@ -24580,6 +24613,9 @@
             "goat-button": [
               "goat-icon",
               "goat-spinner"
+            ],
+            "goat-code-highlighter": [
+              "goat-notification-manager"
             ]
           },
           "props": [

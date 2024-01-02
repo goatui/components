@@ -15,6 +15,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [goat-code-highlighter](../data-display/code-highlighter)
+
 ### Depends on
 
 - [goat-toast](../toast)
@@ -30,6 +34,7 @@ graph TD;
   goat-notification --> goat-icon
   goat-button --> goat-icon
   goat-button --> goat-spinner
+  goat-code-highlighter --> goat-notification-manager
   style goat-notification-manager fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
