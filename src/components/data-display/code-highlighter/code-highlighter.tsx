@@ -1,6 +1,7 @@
 import { Component, ComponentInterface, Element, h, Host, Prop, State, Watch } from '@stencil/core';
 import { loadPrism } from '../../../3d-party/prism';
 import * as beautify from 'js-beautify/js';
+import { getComponentIndex } from '../../../utils/utils';
 
 enum Language {
   markup = 'markup',
@@ -136,6 +137,8 @@ enum Language {
   shadow: true,
 })
 export class CodeHighlighter implements ComponentInterface {
+  gid: string = getComponentIndex();
+
   @Prop() language: string = Language.javascript;
 
   @Prop() lineNumbers: boolean = false;
@@ -231,9 +234,41 @@ export class CodeHighlighter implements ComponentInterface {
     this.compiledCode = formatted + lineNumbersWrapper;
   }
 
-  handleCopyClick() {
-    window.navigator.clipboard.writeText(this.parsedCodeString);
-    alert('copied');
+  async handleCopyClick() {
+    const textToCopy = this.parsedCodeString;
+    // Navigator clipboard api needs a secure context (https)
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(textToCopy);
+    } else {
+      // Use the 'out of viewport hidden text area' trick
+      const textArea = document.createElement('textarea');
+      textArea.value = textToCopy;
+
+      // Move textarea out of the viewport so it's not visible
+      textArea.style.position = 'absolute';
+      textArea.style.left = '-999999px';
+
+      document.body.prepend(textArea);
+      textArea.select();
+
+      try {
+        document.execCommand('copy');
+      } catch (error) {
+        console.error(error);
+      } finally {
+        textArea.remove();
+      }
+    }
+
+    window.dispatchEvent(
+      new CustomEvent('goat:toast', {
+        detail: {
+          target: 'code-highlighter-' + this.gid,
+          message: 'Copied to clipboard',
+          state: 'success',
+        },
+      }),
+    );
   }
 
   render() {
@@ -242,6 +277,7 @@ export class CodeHighlighter implements ComponentInterface {
         {this.compiledCode !== null && (
           <div class="code-highlighter">
             <div class="scroll-wrapper">
+              <goat-notification-manager position="top-right" name={'code-highlighter-' + this.gid}></goat-notification-manager>
               <div class={{ 'line-numbers-wrapper': true, 'line-numbers': this.lineNumbers }}>
                 <pre dir="ltr" class="highlighter line-numbers" innerHTML={this.compiledCode} />
               </div>
