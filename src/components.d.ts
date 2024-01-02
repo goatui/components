@@ -250,7 +250,6 @@ export namespace Components {
      * @tag controls
      * @img /assets/img/chart-doughnut.png
      * @imgDark /assets/img/chart-doughnut-dark.png
-     * @example <goat-chart-doughnut class="color-red"></goat-chart-doughnut>
      */
     interface GoatChartDoughnut {
         "data": any;
@@ -1679,7 +1678,6 @@ declare global {
      * @tag controls
      * @img /assets/img/chart-doughnut.png
      * @imgDark /assets/img/chart-doughnut-dark.png
-     * @example <goat-chart-doughnut class="color-red"></goat-chart-doughnut>
      */
     interface HTMLGoatChartDoughnutElement extends Components.GoatChartDoughnut, HTMLStencilElement {
     }
@@ -2544,7 +2542,6 @@ declare namespace LocalJSX {
      * @tag controls
      * @img /assets/img/chart-doughnut.png
      * @imgDark /assets/img/chart-doughnut-dark.png
-     * @example <goat-chart-doughnut class="color-red"></goat-chart-doughnut>
      */
     interface GoatChartDoughnut {
         "data"?: any;
@@ -3870,7 +3867,6 @@ declare module "@stencil/core" {
              * @tag controls
              * @img /assets/img/chart-doughnut.png
              * @imgDark /assets/img/chart-doughnut-dark.png
-             * @example <goat-chart-doughnut class="color-red"></goat-chart-doughnut>
              */
             "goat-chart-doughnut": LocalJSX.GoatChartDoughnut & JSXBase.HTMLAttributes<HTMLGoatChartDoughnutElement>;
             /**

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-01-02T10:11:17",
+  "timestamp": "2024-01-02T10:12:51",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.4.0",
@@ -2781,10 +2781,6 @@
         {
           "name": "imgDark",
           "text": "/assets/img/chart-doughnut-dark.png"
-        },
-        {
-          "name": "example",
-          "text": "<goat-chart-doughnut class=\"color-red\"></goat-chart-doughnut>"
         }
       ],
       "encapsulation": "shadow",
@@ -2893,8 +2889,7 @@
         "category": "Up coming",
         "tag": "controls",
         "img": "/assets/img/chart-doughnut.png",
-        "imgDark": "/assets/img/chart-doughnut-dark.png",
-        "example": "<goat-chart-doughnut class=\"color-red\"></goat-chart-doughnut>"
+        "imgDark": "/assets/img/chart-doughnut-dark.png"
       }
     },
     {
@@ -26403,10 +26398,6 @@
             {
               "name": "imgDark",
               "text": "/assets/img/chart-doughnut-dark.png"
-            },
-            {
-              "name": "example",
-              "text": "<goat-chart-doughnut class=\"color-red\"></goat-chart-doughnut>"
             }
           ],
           "encapsulation": "shadow",
@@ -26515,8 +26506,7 @@
             "category": "Up coming",
             "tag": "controls",
             "img": "/assets/img/chart-doughnut.png",
-            "imgDark": "/assets/img/chart-doughnut-dark.png",
-            "example": "<goat-chart-doughnut class=\"color-red\"></goat-chart-doughnut>"
+            "imgDark": "/assets/img/chart-doughnut-dark.png"
           }
         },
         {

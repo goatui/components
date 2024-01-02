@@ -9,7 +9,6 @@ import { debounce } from '../../../utils/utils';
  * @tag controls
  * @img /assets/img/chart-doughnut.png
  * @imgDark /assets/img/chart-doughnut-dark.png
- * @example <goat-chart-doughnut class="color-red"></goat-chart-doughnut>
  */
 @Component({
   tag: 'goat-chart-doughnut',
