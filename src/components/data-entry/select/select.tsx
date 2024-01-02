@@ -195,6 +195,11 @@ export class Select implements ComponentInterface, InputComponentInterface {
     else return [];
   }
 
+  private containsValue(value: string) {
+    const values = this.getValues();
+    return values.includes(value);
+  }
+
   private addItem(selectItemValue) {
     let value = this.getValues();
     if (!value.includes(selectItemValue)) {
@@ -214,11 +219,21 @@ export class Select implements ComponentInterface, InputComponentInterface {
     }
   }
 
-  private selectHandler = selectItemValue => {
-    if (!this.disabled && !this.readonly) {
+  private toggleItem(selectItemValue) {
+    let value = this.getValues();
+    if (value.includes(selectItemValue)) {
+      this.removeItem(selectItemValue);
+    } else {
       this.addItem(selectItemValue);
     }
-    this.closeList();
+  }
+
+  private selectHandler = selectItemValue => {
+    if (!this.disabled && !this.readonly) {
+      if (this.multiple) this.toggleItem(selectItemValue);
+      else this.addItem(selectItemValue);
+    }
+    if (!this.multiple) this.closeList();
   };
 
   private clearInput = () => {
@@ -544,7 +559,10 @@ export class Select implements ComponentInterface, InputComponentInterface {
             return filteredItems.map(item => {
               return (
                 <goat-menu-item value={item.value}>
-                  {item.icon && <goat-icon name={item.icon} slot="start" size="sm" />}
+                  <div class={'slot-container-start'} slot="start">
+                    {this.multiple && <goat-checkbox class={'item-checkbox'} value={this.containsValue(item.value)}></goat-checkbox>}
+                    {item.icon && <goat-icon name={item.icon} size={this.size} />}
+                  </div>
                   {item.label || item.value}
                 </goat-menu-item>
               );

@@ -8,18 +8,18 @@ import Highlighter from '../../../../components/Highlighter.astro';
     <script is:inline>
       let $dropDown = document.getElementById('select');
       $dropDown.items = [
-        { label: 'New', value: 'new', icon: 'file-earmark' },
-        { label: 'Save', value: 'save', icon: 'person-circle' },
-        { label: 'Save As', value: 'save-as', icon: 'person-fill' },
+        { label: 'New', value: 'new', icon: 'add' },
+        { label: 'Save', value: 'save', icon: 'save' },
+        { label: 'Save As', value: 'save-as', icon: 'save--series' },
         {
           label: 'Nadine Brooks',
           value: 'nadine',
-          icon: 'person-check-fill',
+          icon: 'pin',
         },
         {
           label: 'Laura Ballard',
           value: 'laura',
-          icon: 'file-earmark-person',
+          icon: 'calculator',
         },
       ];
       $dropDown.addEventListener('goat:change', function (evt) {
@@ -52,18 +52,18 @@ import Highlighter from '../../../../components/Highlighter.astro';
     <Highlighter lang={'javascript'} is:raw>
 const $dropDown = document.getElementById('select');
 $dropDown.items = [
-  { label: 'New', value: 'new', icon: 'file-earmark' },
-  { label: 'Save', value: 'save', icon: 'person-circle' },
-  { label: 'Save As', value: 'save-as', icon: 'person-fill' },
+  { label: 'New', value: 'new', icon: 'add' },
+  { label: 'Save', value: 'save', icon: 'save' },
+  { label: 'Save As', value: 'save-as', icon: 'save--series' },
   {
     label: 'Nadine Brooks',
     value: 'nadine',
-    icon: 'person-check-fill',
+    icon: 'pin',
   },
   {
     label: 'Laura Ballard',
     value: 'laura',
-    icon: 'file-earmark-person',
+    icon: 'calculator',
   },
 ];
 $dropDown.addEventListener('goat:change', function (evt) {

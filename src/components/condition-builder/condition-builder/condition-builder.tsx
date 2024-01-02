@@ -1,10 +1,9 @@
-import {Component, h, Host, Prop} from '@stencil/core';
+import { Component, h, Host, Prop } from '@stencil/core';
 
 /**
  * @name Condition Builder
  * @description A condition builder is a component that allows users to build a condition using a set of rules.
  * @category Up coming
- * @category Data Display
  * @tag content
  * @img /assets/img/condition-builder.png
  */
@@ -14,51 +13,52 @@ import {Component, h, Host, Prop} from '@stencil/core';
   shadow: true,
 })
 export class ConditionBuilder {
-
   @Prop() content: string;
-
 
   renderHeader() {
     return (
       <div class="condition-builder__header">
-        <slot name="header"/>
+        <slot name="header" />
       </div>
-    )
+    );
   }
 
   renderCondition() {
     return (
       <div class="condition-builder__condition">
+        <goat-select
+          inline
+          placeholder="Select Operator"
+          items={[
+            {
+              label: 'Less than',
+              value: 'new',
+              icon: 'file-earmark',
+            },
+            {
+              label: 'More than',
+              value: 'save',
+              icon: 'person-circle',
+            },
+            {
+              label: 'Save As',
+              value: 'save-as',
+              icon: 'person-fill',
+            },
+            {
+              label: 'Nadine Brooks',
+              value: 'nadine',
+              icon: 'person-check-fill',
+            },
+            {
+              label: 'Laura Ballard',
+              value: 'laura',
+              icon: 'file-earmark-person',
+            },
+          ]}
+        />
 
-        <goat-select inline
-                     placeholder="Select Operator"
-                     items={[{
-                       label: 'Less than',
-                       value: 'new',
-                       icon: 'file-earmark'
-                     },
-                       {
-                         label: 'More than',
-                         value: 'save',
-                         icon: 'person-circle'
-                       },
-                       {
-                         label: 'Save As',
-                         value: 'save-as',
-                         icon: 'person-fill'
-                       },
-                       {
-                         label: 'Nadine Brooks',
-                         value: 'nadine',
-                         icon: 'person-check-fill',
-                       },
-                       {
-                         label: 'Laura Ballard',
-                         value: 'laura',
-                         icon: 'file-earmark-person',
-                       }]}/>
-
-        <goat-input inline placeholder="Select Value"/>
+        <goat-input inline placeholder="Select Value" />
       </div>
     );
   }
@@ -66,15 +66,14 @@ export class ConditionBuilder {
   renderConditions() {
     return (
       <div class="condition-builder__compound_conditions">
-        <div class='field-name-container'>
+        <div class="field-name-container">
           <goat-text inline>Field name</goat-text>
-          <div class='field-compound-type'>
+          <div class="field-compound-type">
             <goat-cb-divider connect-end={true}>
-              <goat-tag color={'warning'}>{"or"}</goat-tag>
+              <goat-tag color={'warning'}>{'or'}</goat-tag>
             </goat-cb-divider>
           </div>
         </div>
-
 
         <div class="conditions">
           {this.renderCondition()}
@@ -87,10 +86,9 @@ export class ConditionBuilder {
   renderCompound() {
     return (
       <div class="condition-builder__compound">
-
-        <div class='compound-type'>
+        <div class="compound-type">
           <goat-cb-divider connect-start={true} connect-end={true}>
-            <goat-tag color={'success'}>{"and"}</goat-tag>
+            <goat-tag color={'success'}>{'and'}</goat-tag>
           </goat-cb-divider>
         </div>
 
@@ -105,27 +103,22 @@ export class ConditionBuilder {
   renderPredicates() {
     return (
       <div class="condition-builder__predicates">
-        <div class={`condition-builder__predicate`}>
-          {this.renderCompound()}
-        </div>
+        <div class={`condition-builder__predicate`}>{this.renderCompound()}</div>
         <goat-cb-divider vertical={true} class="predicate-divider">
-          <goat-tag color={'warning'}>{"or"}</goat-tag>
+          <goat-tag color={'warning'}>{'or'}</goat-tag>
         </goat-cb-divider>
-        <div class={`condition-builder__predicate`}>
-          {this.renderCompound()}
-        </div>
+        <div class={`condition-builder__predicate`}>{this.renderCompound()}</div>
       </div>
-    )
+    );
   }
 
   render() {
     return (
       <Host>
-        <div class='condition-builder'>
-          <slot/>
+        <div class="condition-builder">
+          <slot />
         </div>
       </Host>
     );
   }
-
 }

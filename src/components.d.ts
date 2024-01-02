@@ -249,6 +249,7 @@ export namespace Components {
      * @category Up coming
      * @tag controls
      * @img /assets/img/chart-doughnut.png
+     * @imgDark /assets/img/chart-doughnut-dark.png
      * @example <goat-chart-doughnut class="color-red"></goat-chart-doughnut>
      */
     interface GoatChartDoughnut {
@@ -364,7 +365,6 @@ export namespace Components {
      * @name Condition Builder
      * @description A condition builder is a component that allows users to build a condition using a set of rules.
      * @category Up coming
-     * @category Data Display
      * @tag content
      * @img /assets/img/condition-builder.png
      */
@@ -1678,6 +1678,7 @@ declare global {
      * @category Up coming
      * @tag controls
      * @img /assets/img/chart-doughnut.png
+     * @imgDark /assets/img/chart-doughnut-dark.png
      * @example <goat-chart-doughnut class="color-red"></goat-chart-doughnut>
      */
     interface HTMLGoatChartDoughnutElement extends Components.GoatChartDoughnut, HTMLStencilElement {
@@ -1731,7 +1732,6 @@ declare global {
      * @name Condition Builder
      * @description A condition builder is a component that allows users to build a condition using a set of rules.
      * @category Up coming
-     * @category Data Display
      * @tag content
      * @img /assets/img/condition-builder.png
      */
@@ -2543,6 +2543,7 @@ declare namespace LocalJSX {
      * @category Up coming
      * @tag controls
      * @img /assets/img/chart-doughnut.png
+     * @imgDark /assets/img/chart-doughnut-dark.png
      * @example <goat-chart-doughnut class="color-red"></goat-chart-doughnut>
      */
     interface GoatChartDoughnut {
@@ -2656,7 +2657,6 @@ declare namespace LocalJSX {
      * @name Condition Builder
      * @description A condition builder is a component that allows users to build a condition using a set of rules.
      * @category Up coming
-     * @category Data Display
      * @tag content
      * @img /assets/img/condition-builder.png
      */
@@ -3869,6 +3869,7 @@ declare module "@stencil/core" {
              * @category Up coming
              * @tag controls
              * @img /assets/img/chart-doughnut.png
+             * @imgDark /assets/img/chart-doughnut-dark.png
              * @example <goat-chart-doughnut class="color-red"></goat-chart-doughnut>
              */
             "goat-chart-doughnut": LocalJSX.GoatChartDoughnut & JSXBase.HTMLAttributes<HTMLGoatChartDoughnutElement>;
@@ -3902,7 +3903,6 @@ declare module "@stencil/core" {
              * @name Condition Builder
              * @description A condition builder is a component that allows users to build a condition using a set of rules.
              * @category Up coming
-             * @category Data Display
              * @tag content
              * @img /assets/img/condition-builder.png
              */

@@ -8,6 +8,7 @@ import { debounce } from '../../../utils/utils';
  * @category Up coming
  * @tag controls
  * @img /assets/img/chart-doughnut.png
+ * @imgDark /assets/img/chart-doughnut-dark.png
  * @example <goat-chart-doughnut class="color-red"></goat-chart-doughnut>
  */
 @Component({

@@ -98,6 +98,7 @@ Type: `Promise<void>`
 - [goat-menu](../../menu/menu)
 - [goat-text](../../text)
 - [goat-menu-item](../../menu/menu-item)
+- [goat-checkbox](../checkbox)
 
 ### Graph
 ```mermaid
@@ -109,6 +110,7 @@ graph TD;
   goat-select --> goat-menu
   goat-select --> goat-text
   goat-select --> goat-menu-item
+  goat-select --> goat-checkbox
   goat-tag --> goat-icon
   goat-button --> goat-icon
   goat-button --> goat-spinner

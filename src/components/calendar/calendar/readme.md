@@ -50,6 +50,7 @@ graph TD;
   goat-select --> goat-menu
   goat-select --> goat-text
   goat-select --> goat-menu-item
+  goat-select --> goat-checkbox
   goat-tag --> goat-icon
   goat-menu --> goat-empty-state
   goat-empty-state --> goat-svg
