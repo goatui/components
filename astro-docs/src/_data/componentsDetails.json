@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-01-02T16:08:22",
+  "timestamp": "2024-01-04T11:31:03",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.4.0",
@@ -1495,8 +1495,7 @@
           "goat-spinner",
           "goat-menu",
           "goat-text",
-          "goat-menu-item",
-          "goat-checkbox"
+          "goat-menu-item"
         ],
         "goat-tag": [
           "goat-icon"
@@ -1526,7 +1525,7 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "[\r\n    { label: 'Day', value: 'day', type: 'column', days: 1 },\r\n    {\r\n      label: 'Week',\r\n      value: 'week',\r\n      type: 'column',\r\n      days: 7,\r\n    },\r\n    {\r\n      label: 'Month',\r\n      value: 'month',\r\n      type: 'month',\r\n    },\r\n  ]",
+          "default": "[\n    { label: 'Day', value: 'day', type: 'column', days: 1 },\n    {\n      label: 'Week',\n      value: 'week',\n      type: 'column',\n      days: 7,\n    },\n    {\n      label: 'Month',\n      value: 'month',\n      type: 'month',\n    },\n  ]",
           "values": [
             {
               "type": "any"
@@ -2596,8 +2595,7 @@
           "goat-spinner",
           "goat-menu",
           "goat-text",
-          "goat-menu-item",
-          "goat-checkbox"
+          "goat-menu-item"
         ],
         "goat-tag": [
           "goat-icon"
@@ -2924,14 +2922,10 @@
       ],
       "encapsulation": "shadow",
       "dependents": [
-        "goat-select",
         "goat-table"
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "goat-select": [
-          "goat-checkbox"
-        ],
         "goat-table": [
           "goat-checkbox"
         ]
@@ -3885,8 +3879,7 @@
           "goat-spinner",
           "goat-menu",
           "goat-text",
-          "goat-menu-item",
-          "goat-checkbox"
+          "goat-menu-item"
         ],
         "goat-tag": [
           "goat-icon"
@@ -4697,29 +4690,8 @@
       ],
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [
-        "goat-menu",
-        "goat-menu-item",
-        "goat-icon"
-      ],
-      "dependencyGraph": {
-        "goat-dropdown": [
-          "goat-menu",
-          "goat-menu-item",
-          "goat-icon"
-        ],
-        "goat-menu": [
-          "goat-empty-state"
-        ],
-        "goat-empty-state": [
-          "goat-svg",
-          "goat-button"
-        ],
-        "goat-button": [
-          "goat-icon",
-          "goat-spinner"
-        ]
-      },
+      "dependencies": [],
+      "dependencyGraph": {},
       "props": [
         {
           "name": "disabled",
@@ -4766,28 +4738,7 @@
           "required": false
         },
         {
-          "name": "items",
-          "type": "any[]",
-          "complexType": {
-            "original": "any[]",
-            "resolved": "any[]",
-            "references": {}
-          },
-          "mutable": false,
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "default": "null",
-          "values": [
-            {
-              "type": "any[]"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "positions",
+          "name": "placements",
           "type": "string",
           "complexType": {
             "original": "string",
@@ -4795,11 +4746,11 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "positions",
+          "attr": "placements",
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "'bottom-right,top-right,bottom-left,top-left'",
+          "default": "'bottom-start,top-start,bottom-end,top-end'",
           "values": [
             {
               "type": "string"
@@ -4819,7 +4770,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "The button size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+          "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -4848,32 +4799,38 @@
             "docs": ""
           },
           "complexType": {
-            "signature": "(elm?: HTMLElement) => Promise<void>",
-            "parameters": [
-              {
-                "tags": [],
-                "text": ""
-              }
-            ],
+            "signature": "() => Promise<void>",
+            "parameters": [],
             "references": {
               "Promise": {
                 "location": "global",
                 "id": "global::Promise"
-              },
-              "HTMLElement": {
-                "location": "global",
-                "id": "global::HTMLElement"
               }
             },
             "return": "Promise<void>"
           },
-          "signature": "setFocus(elm?: HTMLElement) => Promise<void>",
+          "signature": "setFocus() => Promise<void>",
           "parameters": [],
           "docs": "",
           "docsTags": []
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "event": "goat:dropdown-item-click",
+          "detail": "any",
+          "bubbles": true,
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "styles": [],
       "slots": [],
       "parts": [],
@@ -4891,12 +4848,6 @@
           "passive": false
         },
         {
-          "event": "goat:click",
-          "target": "window",
-          "capture": false,
-          "passive": false
-        },
-        {
           "event": "keydown",
           "target": "window",
           "capture": false,
@@ -4904,6 +4855,12 @@
         },
         {
           "event": "scroll",
+          "target": "window",
+          "capture": false,
+          "passive": true
+        },
+        {
+          "event": "resize",
           "target": "window",
           "capture": false,
           "passive": true
@@ -6353,7 +6310,6 @@
       "dependents": [
         "goat-accordion-item",
         "goat-button",
-        "goat-dropdown",
         "goat-flow-designer",
         "goat-notification",
         "goat-progress",
@@ -6370,9 +6326,6 @@
           "goat-icon"
         ],
         "goat-button": [
-          "goat-icon"
-        ],
-        "goat-dropdown": [
           "goat-icon"
         ],
         "goat-flow-designer": [
@@ -7387,7 +7340,6 @@
       ],
       "encapsulation": "shadow",
       "dependents": [
-        "goat-dropdown",
         "goat-select"
       ],
       "dependencies": [
@@ -7404,9 +7356,6 @@
         "goat-button": [
           "goat-icon",
           "goat-spinner"
-        ],
-        "goat-dropdown": [
-          "goat-menu"
         ],
         "goat-select": [
           "goat-menu"
@@ -7612,14 +7561,10 @@
       "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [
-        "goat-dropdown",
         "goat-select"
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "goat-dropdown": [
-          "goat-menu-item"
-        ],
         "goat-select": [
           "goat-menu-item"
         ]
@@ -9172,8 +9117,7 @@
         "goat-spinner",
         "goat-menu",
         "goat-text",
-        "goat-menu-item",
-        "goat-checkbox"
+        "goat-menu-item"
       ],
       "dependencyGraph": {
         "goat-select": [
@@ -9183,8 +9127,7 @@
           "goat-spinner",
           "goat-menu",
           "goat-text",
-          "goat-menu-item",
-          "goat-checkbox"
+          "goat-menu-item"
         ],
         "goat-tag": [
           "goat-icon"
@@ -9541,7 +9484,7 @@
           "required": false
         },
         {
-          "name": "positions",
+          "name": "placements",
           "type": "string",
           "complexType": {
             "original": "string",
@@ -9549,11 +9492,11 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "positions",
+          "attr": "placements",
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "'bottom-right,top-right,bottom-left,top-left'",
+          "default": "'bottom-start,top-start,bottom-end,top-end'",
           "values": [
             {
               "type": "string"
@@ -9932,6 +9875,12 @@
         },
         {
           "event": "scroll",
+          "target": "window",
+          "capture": false,
+          "passive": true
+        },
+        {
+          "event": "resize",
           "target": "window",
           "capture": false,
           "passive": true
@@ -11349,8 +11298,7 @@
           "goat-spinner",
           "goat-menu",
           "goat-text",
-          "goat-menu-item",
-          "goat-checkbox"
+          "goat-menu-item"
         ],
         "goat-tag": [
           "goat-icon"
@@ -11374,7 +11322,7 @@
           },
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "Grid columns configuration.\r\n[\r\n{\r\n  \"name\":\"name\",\r\n  \"label\":\"Name\",\r\n  \"width\":300,\r\n  \"fixed\":true,\r\n  \"template\": function(row, column) { return row[column.name];}\r\n },\r\n{\r\n  \"name\":\"age\",\r\n  \"label\":\"Age\"\r\n}\r\n]",
+          "docs": "Grid columns configuration.\n[\n{\n  \"name\":\"name\",\n  \"label\":\"Name\",\n  \"width\":300,\n  \"fixed\":true,\n  \"template\": function(row, column) { return row[column.name];}\n },\n{\n  \"name\":\"age\",\n  \"label\":\"Age\"\n}\n]",
           "docsTags": [],
           "default": "[]",
           "values": [
@@ -11395,7 +11343,7 @@
           },
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "Grid data to display on table\r\n[{\r\n 'id': '5e7118ddce4b3d577956457f',\r\n 'age': 21,\r\n 'name': 'John',\r\n 'company': 'India',\r\n 'email': 'john@example.com',\r\n 'phone': '+1 (839) 560-3581',\r\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\r\n }]",
+          "docs": "Grid data to display on table\n[{\n 'id': '5e7118ddce4b3d577956457f',\n 'age': 21,\n 'name': 'John',\n 'company': 'India',\n 'email': 'john@example.com',\n 'phone': '+1 (839) 560-3581',\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\n }]",
           "docsTags": [],
           "default": "[]",
           "values": [
@@ -13949,6 +13897,107 @@
       }
     },
     {
+      "filePath": "src/components/tooltip/tooltip.tsx",
+      "fileName": "tooltip.tsx",
+      "tag": "goat-tooltip",
+      "readme": "# goat-icon\r\n\r\n\r\n\r",
+      "overview": "",
+      "usage": {},
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "name",
+          "text": "Tooltip"
+        },
+        {
+          "name": "description",
+          "text": "The Tooltip component is used to display additional information on hover."
+        },
+        {
+          "name": "category",
+          "text": "Data Display"
+        },
+        {
+          "name": "tag",
+          "text": "content"
+        },
+        {
+          "name": "example",
+          "text": "<goat-badge content=\"5\"> <goat-icon name=\"notification\" size=\"lg\"></goat-icon></goat-badge>"
+        }
+      ],
+      "encapsulation": "shadow",
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {},
+      "props": [
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "is-open",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "placements",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "placements",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'top,top-start,top-end,bottom,bottom-start,bottom-end,right,left'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "listeners": [
+        {
+          "event": "mouseover",
+          "target": "window",
+          "capture": false,
+          "passive": true
+        }
+      ],
+      "metadata": {
+        "name": "Tooltip",
+        "description": "The Tooltip component is used to display additional information on hover.",
+        "category": "Data Display",
+        "tag": "content",
+        "example": "<goat-badge content=\"5\"> <goat-icon name=\"notification\" size=\"lg\"></goat-icon></goat-badge>"
+      }
+    },
+    {
       "filePath": "src/components/tree-view/tree-node/tree-node.tsx",
       "fileName": "tree-node.tsx",
       "tag": "goat-tree-node",
@@ -15279,7 +15328,6 @@
           "dependents": [
             "goat-accordion-item",
             "goat-button",
-            "goat-dropdown",
             "goat-flow-designer",
             "goat-notification",
             "goat-progress",
@@ -15296,9 +15344,6 @@
               "goat-icon"
             ],
             "goat-button": [
-              "goat-icon"
-            ],
-            "goat-dropdown": [
               "goat-icon"
             ],
             "goat-flow-designer": [
@@ -15879,29 +15924,8 @@
           ],
           "encapsulation": "shadow",
           "dependents": [],
-          "dependencies": [
-            "goat-menu",
-            "goat-menu-item",
-            "goat-icon"
-          ],
-          "dependencyGraph": {
-            "goat-dropdown": [
-              "goat-menu",
-              "goat-menu-item",
-              "goat-icon"
-            ],
-            "goat-menu": [
-              "goat-empty-state"
-            ],
-            "goat-empty-state": [
-              "goat-svg",
-              "goat-button"
-            ],
-            "goat-button": [
-              "goat-icon",
-              "goat-spinner"
-            ]
-          },
+          "dependencies": [],
+          "dependencyGraph": {},
           "props": [
             {
               "name": "disabled",
@@ -15948,28 +15972,7 @@
               "required": false
             },
             {
-              "name": "items",
-              "type": "any[]",
-              "complexType": {
-                "original": "any[]",
-                "resolved": "any[]",
-                "references": {}
-              },
-              "mutable": false,
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "default": "null",
-              "values": [
-                {
-                  "type": "any[]"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
-              "name": "positions",
+              "name": "placements",
               "type": "string",
               "complexType": {
                 "original": "string",
@@ -15977,11 +15980,11 @@
                 "references": {}
               },
               "mutable": false,
-              "attr": "positions",
+              "attr": "placements",
               "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
-              "default": "'bottom-right,top-right,bottom-left,top-left'",
+              "default": "'bottom-start,top-start,bottom-end,top-end'",
               "values": [
                 {
                   "type": "string"
@@ -16001,7 +16004,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": false,
-              "docs": "The button size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+              "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -16030,32 +16033,38 @@
                 "docs": ""
               },
               "complexType": {
-                "signature": "(elm?: HTMLElement) => Promise<void>",
-                "parameters": [
-                  {
-                    "tags": [],
-                    "text": ""
-                  }
-                ],
+                "signature": "() => Promise<void>",
+                "parameters": [],
                 "references": {
                   "Promise": {
                     "location": "global",
                     "id": "global::Promise"
-                  },
-                  "HTMLElement": {
-                    "location": "global",
-                    "id": "global::HTMLElement"
                   }
                 },
                 "return": "Promise<void>"
               },
-              "signature": "setFocus(elm?: HTMLElement) => Promise<void>",
+              "signature": "setFocus() => Promise<void>",
               "parameters": [],
               "docs": "",
               "docsTags": []
             }
           ],
-          "events": [],
+          "events": [
+            {
+              "event": "goat:dropdown-item-click",
+              "detail": "any",
+              "bubbles": true,
+              "complexType": {
+                "original": "any",
+                "resolved": "any",
+                "references": {}
+              },
+              "cancelable": true,
+              "composed": true,
+              "docs": "",
+              "docsTags": []
+            }
+          ],
           "styles": [],
           "slots": [],
           "parts": [],
@@ -16073,12 +16082,6 @@
               "passive": false
             },
             {
-              "event": "goat:click",
-              "target": "window",
-              "capture": false,
-              "passive": false
-            },
-            {
               "event": "keydown",
               "target": "window",
               "capture": false,
@@ -16086,6 +16089,12 @@
             },
             {
               "event": "scroll",
+              "target": "window",
+              "capture": false,
+              "passive": true
+            },
+            {
+              "event": "resize",
               "target": "window",
               "capture": false,
               "passive": true
@@ -16371,7 +16380,6 @@
           ],
           "encapsulation": "shadow",
           "dependents": [
-            "goat-dropdown",
             "goat-select"
           ],
           "dependencies": [
@@ -16388,9 +16396,6 @@
             "goat-button": [
               "goat-icon",
               "goat-spinner"
-            ],
-            "goat-dropdown": [
-              "goat-menu"
             ],
             "goat-select": [
               "goat-menu"
@@ -16893,14 +16898,10 @@
           ],
           "encapsulation": "shadow",
           "dependents": [
-            "goat-select",
             "goat-table"
           ],
           "dependencies": [],
           "dependencyGraph": {
-            "goat-select": [
-              "goat-checkbox"
-            ],
             "goat-table": [
               "goat-checkbox"
             ]
@@ -19793,8 +19794,7 @@
             "goat-spinner",
             "goat-menu",
             "goat-text",
-            "goat-menu-item",
-            "goat-checkbox"
+            "goat-menu-item"
           ],
           "dependencyGraph": {
             "goat-select": [
@@ -19804,8 +19804,7 @@
               "goat-spinner",
               "goat-menu",
               "goat-text",
-              "goat-menu-item",
-              "goat-checkbox"
+              "goat-menu-item"
             ],
             "goat-tag": [
               "goat-icon"
@@ -20162,7 +20161,7 @@
               "required": false
             },
             {
-              "name": "positions",
+              "name": "placements",
               "type": "string",
               "complexType": {
                 "original": "string",
@@ -20170,11 +20169,11 @@
                 "references": {}
               },
               "mutable": false,
-              "attr": "positions",
+              "attr": "placements",
               "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
-              "default": "'bottom-right,top-right,bottom-left,top-left'",
+              "default": "'bottom-start,top-start,bottom-end,top-end'",
               "values": [
                 {
                   "type": "string"
@@ -20553,6 +20552,12 @@
             },
             {
               "event": "scroll",
+              "target": "window",
+              "capture": false,
+              "passive": true
+            },
+            {
+              "event": "resize",
               "target": "window",
               "capture": false,
               "passive": true
@@ -22736,8 +22741,7 @@
               "goat-spinner",
               "goat-menu",
               "goat-text",
-              "goat-menu-item",
-              "goat-checkbox"
+              "goat-menu-item"
             ],
             "goat-tag": [
               "goat-icon"
@@ -22767,7 +22771,7 @@
               "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
-              "default": "[\r\n    { label: 'Day', value: 'day', type: 'column', days: 1 },\r\n    {\r\n      label: 'Week',\r\n      value: 'week',\r\n      type: 'column',\r\n      days: 7,\r\n    },\r\n    {\r\n      label: 'Month',\r\n      value: 'month',\r\n      type: 'month',\r\n    },\r\n  ]",
+              "default": "[\n    { label: 'Day', value: 'day', type: 'column', days: 1 },\n    {\n      label: 'Week',\n      value: 'week',\n      type: 'column',\n      days: 7,\n    },\n    {\n      label: 'Month',\n      value: 'month',\n      type: 'month',\n    },\n  ]",
               "values": [
                 {
                   "type": "any"
@@ -23545,8 +23549,7 @@
               "goat-spinner",
               "goat-menu",
               "goat-text",
-              "goat-menu-item",
-              "goat-checkbox"
+              "goat-menu-item"
             ],
             "goat-tag": [
               "goat-icon"
@@ -23570,7 +23573,7 @@
               },
               "mutable": false,
               "reflectToAttr": false,
-              "docs": "Grid columns configuration.\r\n[\r\n{\r\n  \"name\":\"name\",\r\n  \"label\":\"Name\",\r\n  \"width\":300,\r\n  \"fixed\":true,\r\n  \"template\": function(row, column) { return row[column.name];}\r\n },\r\n{\r\n  \"name\":\"age\",\r\n  \"label\":\"Age\"\r\n}\r\n]",
+              "docs": "Grid columns configuration.\n[\n{\n  \"name\":\"name\",\n  \"label\":\"Name\",\n  \"width\":300,\n  \"fixed\":true,\n  \"template\": function(row, column) { return row[column.name];}\n },\n{\n  \"name\":\"age\",\n  \"label\":\"Age\"\n}\n]",
               "docsTags": [],
               "default": "[]",
               "values": [
@@ -23591,7 +23594,7 @@
               },
               "mutable": false,
               "reflectToAttr": false,
-              "docs": "Grid data to display on table\r\n[{\r\n 'id': '5e7118ddce4b3d577956457f',\r\n 'age': 21,\r\n 'name': 'John',\r\n 'company': 'India',\r\n 'email': 'john@example.com',\r\n 'phone': '+1 (839) 560-3581',\r\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\r\n }]",
+              "docs": "Grid data to display on table\n[{\n 'id': '5e7118ddce4b3d577956457f',\n 'age': 21,\n 'name': 'John',\n 'company': 'India',\n 'email': 'john@example.com',\n 'phone': '+1 (839) 560-3581',\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\n }]",
               "docsTags": [],
               "default": "[]",
               "values": [
@@ -24218,6 +24221,107 @@
             "category": "Data Display",
             "tag": "controls",
             "example": "<goat-tag class=\"color-red\">Important</goat-tag>"
+          }
+        },
+        {
+          "filePath": "src/components/tooltip/tooltip.tsx",
+          "fileName": "tooltip.tsx",
+          "tag": "goat-tooltip",
+          "readme": "# goat-icon\r\n\r\n\r\n\r",
+          "overview": "",
+          "usage": {},
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "name",
+              "text": "Tooltip"
+            },
+            {
+              "name": "description",
+              "text": "The Tooltip component is used to display additional information on hover."
+            },
+            {
+              "name": "category",
+              "text": "Data Display"
+            },
+            {
+              "name": "tag",
+              "text": "content"
+            },
+            {
+              "name": "example",
+              "text": "<goat-badge content=\"5\"> <goat-icon name=\"notification\" size=\"lg\"></goat-icon></goat-badge>"
+            }
+          ],
+          "encapsulation": "shadow",
+          "dependents": [],
+          "dependencies": [],
+          "dependencyGraph": {},
+          "props": [
+            {
+              "name": "isOpen",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": true,
+              "attr": "is-open",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "placements",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "placements",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "'top,top-start,top-end,bottom,bottom-start,bottom-end,right,left'",
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
+          "methods": [],
+          "events": [],
+          "styles": [],
+          "slots": [],
+          "parts": [],
+          "listeners": [
+            {
+              "event": "mouseover",
+              "target": "window",
+              "capture": false,
+              "passive": true
+            }
+          ],
+          "metadata": {
+            "name": "Tooltip",
+            "description": "The Tooltip component is used to display additional information on hover.",
+            "category": "Data Display",
+            "tag": "content",
+            "example": "<goat-badge content=\"5\"> <goat-icon name=\"notification\" size=\"lg\"></goat-icon></goat-badge>"
           }
         }
       ]
@@ -26213,8 +26317,7 @@
               "goat-spinner",
               "goat-menu",
               "goat-text",
-              "goat-menu-item",
-              "goat-checkbox"
+              "goat-menu-item"
             ],
             "goat-tag": [
               "goat-icon"
@@ -26563,8 +26666,7 @@
               "goat-spinner",
               "goat-menu",
               "goat-text",
-              "goat-menu-item",
-              "goat-checkbox"
+              "goat-menu-item"
             ],
             "goat-tag": [
               "goat-icon"
@@ -27567,14 +27669,10 @@
           "docsTags": [],
           "encapsulation": "shadow",
           "dependents": [
-            "goat-dropdown",
             "goat-select"
           ],
           "dependencies": [],
           "dependencyGraph": {
-            "goat-dropdown": [
-              "goat-menu-item"
-            ],
             "goat-select": [
               "goat-menu-item"
             ]

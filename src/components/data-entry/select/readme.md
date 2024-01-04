@@ -7,33 +7,33 @@
 
 ## Properties
 
-| Property           | Attribute            | Description                                                                                                    | Type                                             | Default                                         |
-| ------------------ | -------------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ----------------------------------------------- |
-| `clearable`        | `clearable`          | If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.          | `boolean`                                        | `false`                                         |
-| `configAria`       | `config-aria`        |                                                                                                                | `any`                                            | `{}`                                            |
-| `debounce`         | `debounce`           | Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.       | `number`                                         | `300`                                           |
-| `disabled`         | `disabled`           | If true, the user cannot interact with the button. Defaults to `false`.                                        | `boolean`                                        | `false`                                         |
-| `helperText`       | `helper-text`        |                                                                                                                | `string`                                         | `undefined`                                     |
-| `hideDropdownIcon` | `hide-dropdown-icon` |                                                                                                                | `boolean`                                        | `false`                                         |
-| `inline`           | `inline`             |                                                                                                                | `boolean`                                        | `false`                                         |
-| `invalid`          | `invalid`            |                                                                                                                | `boolean`                                        | `false`                                         |
-| `invalidText`      | `invalid-text`       |                                                                                                                | `string`                                         | `undefined`                                     |
-| `isOpen`           | `is-open`            |                                                                                                                | `boolean`                                        | `false`                                         |
-| `items`            | `items`              | [{   label: 'Shivaji Varma',   value: 'shivaji-varma',   icon: 'person' }]                                     | `any`                                            | `[]`                                            |
-| `label`            | `label`              |                                                                                                                | `string`                                         | `undefined`                                     |
-| `multiple`         | `multiple`           |                                                                                                                | `boolean`                                        | `false`                                         |
-| `name`             | `name`               | The input field name.                                                                                          | `string`                                         | ``goat-input-${this.gid}``                      |
-| `placeholder`      | `placeholder`        | The input field placeholder.                                                                                   | `string`                                         | `undefined`                                     |
-| `positions`        | `positions`          |                                                                                                                | `string`                                         | `'bottom-right,top-right,bottom-left,top-left'` |
-| `readonly`         | `readonly`           | If true, the user cannot interact with the button. Defaults to `false`.                                        | `boolean`                                        | `false`                                         |
-| `required`         | `required`           | If true, required icon is show. Defaults to `false`.                                                           | `boolean`                                        | `false`                                         |
-| `search`           | `search`             | Search type Possible values are `"none"`, `"initial"`, `"contains"`, `"managed"`. Defaults to `"none"`.        | `"contains" \| "initial" \| "managed" \| "none"` | `'none'`                                        |
-| `showLoader`       | `show-loader`        |                                                                                                                | `boolean`                                        | `false`                                         |
-| `size`             | `size`               | The select input size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.                        | `"lg" \| "md" \| "sm"`                           | `'md'`                                          |
-| `state`            | `state`              | The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`. | `"default" \| "error" \| "success" \| "warning"` | `'default'`                                     |
-| `value`            | `value`              | The input field value.                                                                                         | `number \| string`                               | `''`                                            |
-| `warn`             | `warn`               |                                                                                                                | `boolean`                                        | `false`                                         |
-| `warnText`         | `warn-text`          |                                                                                                                | `string`                                         | `undefined`                                     |
+| Property           | Attribute            | Description                                                                                                    | Type                                             | Default                                       |
+| ------------------ | -------------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | --------------------------------------------- |
+| `clearable`        | `clearable`          | If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.          | `boolean`                                        | `false`                                       |
+| `configAria`       | `config-aria`        |                                                                                                                | `any`                                            | `{}`                                          |
+| `debounce`         | `debounce`           | Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.       | `number`                                         | `300`                                         |
+| `disabled`         | `disabled`           | If true, the user cannot interact with the button. Defaults to `false`.                                        | `boolean`                                        | `false`                                       |
+| `helperText`       | `helper-text`        |                                                                                                                | `string`                                         | `undefined`                                   |
+| `hideDropdownIcon` | `hide-dropdown-icon` |                                                                                                                | `boolean`                                        | `false`                                       |
+| `inline`           | `inline`             |                                                                                                                | `boolean`                                        | `false`                                       |
+| `invalid`          | `invalid`            |                                                                                                                | `boolean`                                        | `false`                                       |
+| `invalidText`      | `invalid-text`       |                                                                                                                | `string`                                         | `undefined`                                   |
+| `isOpen`           | `is-open`            |                                                                                                                | `boolean`                                        | `false`                                       |
+| `items`            | `items`              | [{   label: 'Shivaji Varma',   value: 'shivaji-varma',   icon: 'person' }]                                     | `any`                                            | `[]`                                          |
+| `label`            | `label`              |                                                                                                                | `string`                                         | `undefined`                                   |
+| `multiple`         | `multiple`           |                                                                                                                | `boolean`                                        | `false`                                       |
+| `name`             | `name`               | The input field name.                                                                                          | `string`                                         | ``goat-input-${this.gid}``                    |
+| `placeholder`      | `placeholder`        | The input field placeholder.                                                                                   | `string`                                         | `undefined`                                   |
+| `placements`       | `placements`         |                                                                                                                | `string`                                         | `'bottom-start,top-start,bottom-end,top-end'` |
+| `readonly`         | `readonly`           | If true, the user cannot interact with the button. Defaults to `false`.                                        | `boolean`                                        | `false`                                       |
+| `required`         | `required`           | If true, required icon is show. Defaults to `false`.                                                           | `boolean`                                        | `false`                                       |
+| `search`           | `search`             | Search type Possible values are `"none"`, `"initial"`, `"contains"`, `"managed"`. Defaults to `"none"`.        | `"contains" \| "initial" \| "managed" \| "none"` | `'none'`                                      |
+| `showLoader`       | `show-loader`        |                                                                                                                | `boolean`                                        | `false`                                       |
+| `size`             | `size`               | The select input size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.                        | `"lg" \| "md" \| "sm"`                           | `'md'`                                        |
+| `state`            | `state`              | The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`. | `"default" \| "error" \| "success" \| "warning"` | `'default'`                                   |
+| `value`            | `value`              | The input field value.                                                                                         | `number \| string`                               | `''`                                          |
+| `warn`             | `warn`               |                                                                                                                | `boolean`                                        | `false`                                       |
+| `warnText`         | `warn-text`          |                                                                                                                | `string`                                         | `undefined`                                   |
 
 
 ## Events
@@ -98,7 +98,6 @@ Type: `Promise<void>`
 - [goat-menu](../../menu/menu)
 - [goat-text](../../text)
 - [goat-menu-item](../../menu/menu-item)
-- [goat-checkbox](../checkbox)
 
 ### Graph
 ```mermaid
@@ -110,7 +109,6 @@ graph TD;
   goat-select --> goat-menu
   goat-select --> goat-text
   goat-select --> goat-menu-item
-  goat-select --> goat-checkbox
   goat-tag --> goat-icon
   goat-button --> goat-icon
   goat-button --> goat-spinner

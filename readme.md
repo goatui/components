@@ -27,27 +27,27 @@ Checkout the complete documentation over here -> https://goatui.com
 
 ```html
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Goat UI Component</title>
+<html lang='en'>
+<head>
+  <meta charset='utf-8' />
+  <meta name='viewport' content='width=device-width' />
+  <title>Goat UI Component</title>
 
-    <!-- include your custom theme variable values, view variable names at https://cdn.jsdelivr.net/npm/@goatui/components@1.17.0/dist/goatui/assets/styles/theme.css -->
-    <!--link rel="stylesheet" href="/custom-theme.css"></link-->
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@goatui/components@1.17.0/dist/goatui/goatui.esm.js"></script>
+  <!-- include your custom theme variable values, view variable names at https://cdn.jsdelivr.net/npm/@goatui/components@1.17.0/dist/goatui/assets/styles/theme.css -->
+  <!--link rel="stylesheet" href="/custom-theme.css"></link-->
+  <script type='module' src='https://cdn.jsdelivr.net/npm/@goatui/components@1.17.0/dist/goatui/goatui.esm.js'></script>
 
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans+Condensed:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Serif:ital@0;1&display=swap');
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans+Condensed:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Serif:ital@0;1&display=swap');
 
-      :root {
-        --font-family-base: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
-      }
-    </style>
-  </head>
-  <body>
-    <goat-button size="lg" color="primary">Click me</goat-button>
-  </body>
+    :root {
+      --font-family-base: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+<goat-button size='lg' color='primary'>Click me</goat-button>
+</body>
 </html>
 ```
 
@@ -112,5 +112,5 @@ Checkout the complete documentation over here -> https://goatui.com
 | [Tree View](https://goatui.com/components/tree-view)                       | goat-tree-view            | 🟡    |
 | [Toast](https://goatui.com/components/toast)                               | goat-toast                | 🟢    |
 | [Toggle](https://goatui.com/components/toggle)                             | goat-toggle               | 🟢    |
-| Tooltip                                                                    | goat-tooltip              | 🔵    |
+| [Tooltip]     (https://goatui.com/components/tooltip)                      | goat-tooltip              | 🟢    |
 | Week picker                                                                | goat-week-picker          | 🔵    |

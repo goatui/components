@@ -140,15 +140,15 @@ export class GoatMenu {
           onKeyDown={this.keyDownHandler}
           aria-disabled={this.disabled}
         >
-          <div class="item-section slot-start" tabindex={0}>
+          <div class="item-section slot-start">
             <slot name="start" />
           </div>
 
-          <div class="item-section slot-main" tabindex={0}>
+          <div class="item-section slot-main">
             <slot />
           </div>
 
-          <div class="item-section slot-end" tabindex={0}>
+          <div class="item-section slot-end">
             <slot name="end" />
           </div>
         </div>

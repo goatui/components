@@ -69,13 +69,11 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [goat-select](../select)
  - [goat-table](../../data-display/table)
 
 ### Graph
 ```mermaid
 graph TD;
-  goat-select --> goat-checkbox
   goat-table --> goat-checkbox
   style goat-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 ```

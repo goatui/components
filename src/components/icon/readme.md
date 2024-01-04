@@ -19,7 +19,6 @@
 
  - [goat-accordion-item](../accordion/accordion-item)
  - [goat-button](../button)
- - [goat-dropdown](../menu/dropdown)
  - [goat-flow-designer](../flow-designer/flow-designer)
  - [goat-notification](../notification)
  - [goat-progress](../progress)
@@ -35,7 +34,6 @@
 graph TD;
   goat-accordion-item --> goat-icon
   goat-button --> goat-icon
-  goat-dropdown --> goat-icon
   goat-flow-designer --> goat-icon
   goat-notification --> goat-icon
   goat-progress --> goat-icon

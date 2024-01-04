@@ -1,0 +1,34 @@
+@import "../../globalStyles/commons";
+
+:host {
+  position: absolute;
+  display: inline-block;
+  transform: scale(0);
+  transition: transform 0.1s ease-out 0s;
+  z-index: v(--z-index-tooltip);
+}
+
+:host([is-open]) {
+  transform: scale(1);
+}
+
+.tooltip {
+  background: v(--background-inverse);
+  @include font-style(label-01);
+  color: v(--text-inverse);
+  display: inline-block;
+  max-width: 18rem;
+  padding: v(--spacing-03) v(--spacing-05);
+}
+
+.arrow {
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: v(--background-inverse);
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
+
+

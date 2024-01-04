@@ -298,7 +298,7 @@ export class Table {
               inline
               class="select"
               items={SUPPORTED_PAGE_SIZES}
-              positions="top-right"
+              placements="top-start"
               value={this.pageSize}
               onGoat:change={e => {
                 this.pageSize = e.detail.value;

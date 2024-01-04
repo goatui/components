@@ -461,9 +461,8 @@ export namespace Components {
          */
         "disabled": boolean;
         "isOpen": boolean;
-        "items": any[];
-        "positions": string;
-        "setFocus": (elm?: HTMLElement) => Promise<void>;
+        "placements": string;
+        "setFocus": () => Promise<void>;
         /**
           * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
@@ -925,7 +924,7 @@ export namespace Components {
           * The input field placeholder.
          */
         "placeholder": string;
-        "positions": string;
+        "placements": string;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -1352,6 +1351,17 @@ export namespace Components {
          */
         "value": boolean;
     }
+    /**
+     * @name Tooltip
+     * @description The Tooltip component is used to display additional information on hover.
+     * @category Data Display
+     * @tag content
+     * @example <goat-badge content="5"> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
+     */
+    interface GoatTooltip {
+        "isOpen": boolean;
+        "placements": string;
+    }
     interface GoatTreeNode {
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
@@ -1431,6 +1441,10 @@ export interface GoatCodeEditorCustomEvent<T> extends CustomEvent<T> {
 export interface GoatDatePickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLGoatDatePickerElement;
+}
+export interface GoatDropdownCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatDropdownElement;
 }
 export interface GoatHtmlEditorCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2204,6 +2218,19 @@ declare global {
         prototype: HTMLGoatToggleElement;
         new (): HTMLGoatToggleElement;
     };
+    /**
+     * @name Tooltip
+     * @description The Tooltip component is used to display additional information on hover.
+     * @category Data Display
+     * @tag content
+     * @example <goat-badge content="5"> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
+     */
+    interface HTMLGoatTooltipElement extends Components.GoatTooltip, HTMLStencilElement {
+    }
+    var HTMLGoatTooltipElement: {
+        prototype: HTMLGoatTooltipElement;
+        new (): HTMLGoatTooltipElement;
+    };
     interface HTMLGoatTreeNodeElement extends Components.GoatTreeNode, HTMLStencilElement {
     }
     var HTMLGoatTreeNodeElement: {
@@ -2289,6 +2316,7 @@ declare global {
         "goat-time-picker": HTMLGoatTimePickerElement;
         "goat-toast": HTMLGoatToastElement;
         "goat-toggle": HTMLGoatToggleElement;
+        "goat-tooltip": HTMLGoatTooltipElement;
         "goat-tree-node": HTMLGoatTreeNodeElement;
         "goat-tree-view": HTMLGoatTreeViewElement;
     }
@@ -2758,8 +2786,8 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         "isOpen"?: boolean;
-        "items"?: any[];
-        "positions"?: string;
+        "onGoat:dropdown-item-click"?: (event: GoatDropdownCustomEvent<any>) => void;
+        "placements"?: string;
         /**
           * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
@@ -3230,7 +3258,7 @@ declare namespace LocalJSX {
           * The input field placeholder.
          */
         "placeholder"?: string;
-        "positions"?: string;
+        "placements"?: string;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -3666,6 +3694,17 @@ declare namespace LocalJSX {
          */
         "value"?: boolean;
     }
+    /**
+     * @name Tooltip
+     * @description The Tooltip component is used to display additional information on hover.
+     * @category Data Display
+     * @tag content
+     * @example <goat-badge content="5"> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
+     */
+    interface GoatTooltip {
+        "isOpen"?: boolean;
+        "placements"?: string;
+    }
     interface GoatTreeNode {
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
@@ -3769,6 +3808,7 @@ declare namespace LocalJSX {
         "goat-time-picker": GoatTimePicker;
         "goat-toast": GoatToast;
         "goat-toggle": GoatToggle;
+        "goat-tooltip": GoatTooltip;
         "goat-tree-node": GoatTreeNode;
         "goat-tree-view": GoatTreeView;
     }
@@ -4163,6 +4203,14 @@ declare module "@stencil/core" {
              * @example <goat-toggle value='true'>Want ice cream?</goat-toggle>
              */
             "goat-toggle": LocalJSX.GoatToggle & JSXBase.HTMLAttributes<HTMLGoatToggleElement>;
+            /**
+             * @name Tooltip
+             * @description The Tooltip component is used to display additional information on hover.
+             * @category Data Display
+             * @tag content
+             * @example <goat-badge content="5"> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
+             */
+            "goat-tooltip": LocalJSX.GoatTooltip & JSXBase.HTMLAttributes<HTMLGoatTooltipElement>;
             "goat-tree-node": LocalJSX.GoatTreeNode & JSXBase.HTMLAttributes<HTMLGoatTreeNodeElement>;
             /**
              * @name TreeView

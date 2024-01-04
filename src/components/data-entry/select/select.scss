@@ -134,6 +134,12 @@
     color: v(--text-secondary);
   }
 
+  .toggle-icon {
+    display: flex;
+    align-self: stretch;
+    align-items: center;
+  }
+
 
   &.multiple {
     padding: .5rem 0;

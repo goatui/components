@@ -107,26 +107,14 @@ export class Calendar implements ComponentInterface {
           <goat-button variant="outline" size="sm" kind="simple" class="color-secondary" onClick={() => (this.contextDate = this.currentTime)}>
             Today
           </goat-button>
-          <goat-button
-            variant="ghost"
-            size="sm"
-            class="color-secondary"
-            icon="chevron--left"
-            onClick={() => this.previous()}
-          ></goat-button>
-          <goat-button
-            variant="ghost"
-            size="sm"
-            class="color-secondary"
-            icon="chevron--right"
-            onClick={() => this.next()}
-          ></goat-button>
+          <goat-button variant="ghost" size="sm" class="color-secondary" icon="chevron--left" onClick={() => this.previous()}></goat-button>
+          <goat-button variant="ghost" size="sm" class="color-secondary" icon="chevron--right" onClick={() => this.next()}></goat-button>
           <div class="title">{format(this.contextDate, 'MMMM d, yyyy')}</div>
         </div>
         <div class="header-right">
           <goat-select
             size="sm"
-            positions={'bottom-left'}
+            placements={'bottom-end'}
             value={this.view}
             items={this.availableViews.map(view => {
               return {

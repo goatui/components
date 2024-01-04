@@ -1,7 +1,6 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Listen, Method, Prop, State, Watch } from '@stencil/core';
-import { debounceEvent, getComponentIndex, isOutOfViewport } from '../../../utils/utils';
-import { Components } from '../../../components';
-import GoatMenu = Components.GoatMenu;
+import { debounceEvent, getComponentIndex, throttle } from '../../../utils/utils';
+import { computePosition, flip, offset, size } from '@floating-ui/dom';
 
 /**
  * @name Select
@@ -100,7 +99,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
    */
   @Prop() items: any = [];
 
-  @Prop() positions: string = 'bottom-right,top-right,bottom-left,top-left';
+  @Prop() placements: string = 'bottom-start,top-start,bottom-end,top-end';
 
   /**
    * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
@@ -174,10 +173,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
 
   @Element() elm!: HTMLElement;
   private nativeElement?: HTMLInputElement;
-  private dropdownContentElm?: HTMLElement;
-  private menuElm?: GoatMenu;
-  private dropdownContentHeight: any;
-  private dropdownContentWidth: any;
+  private menuElm?: HTMLGoatMenuElement;
   @State() hasFocus = false;
   @State() searchString: string = '';
   @State() startSlotHasContent = false;
@@ -253,36 +249,27 @@ export class Select implements ComponentInterface, InputComponentInterface {
   private closeList = () => {
     if (!this.disabled && !this.readonly && this.isOpen) {
       this.isOpen = false;
-      setTimeout(() => this.setFocus(), 100);
+      setTimeout(() => this.setFocus(), 80);
     }
   };
 
   private openList = () => {
     if (!this.disabled && !this.readonly && !this.isOpen) {
       this.isOpen = true;
+      this.hasFocus = false;
       if (this.search !== 'none') {
         this.searchString = '';
-        setTimeout(() => {
-          const dropdownContent = this.dropdownContentElm;
-          this.dropdownContentHeight = dropdownContent.getBoundingClientRect().height;
-          this.dropdownContentWidth = dropdownContent.getBoundingClientRect().width;
-          this.fixPosition();
-          this.nativeElement.focus();
-        }, 100);
-      } else {
-        setTimeout(() => {
-          const dropdownContent = this.dropdownContentElm;
-          this.dropdownContentHeight = dropdownContent.getBoundingClientRect().height;
-          this.dropdownContentWidth = dropdownContent.getBoundingClientRect().width;
-          this.fixPosition();
-        }, 100);
       }
+      setTimeout(() => {
+        this._fixPosition();
+        if (this.search !== 'none') {
+          this.nativeElement.focus();
+        }
+      }, 80);
     }
   };
 
-  private toggleList = evt => {
-    evt.stopPropagation();
-    evt.preventDefault();
+  private toggleList = () => {
     if (this.isOpen) this.closeList();
     else this.openList();
   };
@@ -290,7 +277,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
   private keyDownHandler = evt => {
     if (evt.key === 'Enter') {
       evt.preventDefault();
-      this.toggleList(evt);
+      this.toggleList();
       this.goatSearchEnter.emit({
         value: this.searchString,
         currentItems: this.filterItems(),
@@ -356,60 +343,73 @@ export class Select implements ComponentInterface, InputComponentInterface {
   }
 
   componentWillLoad() {
-    if (this.positions) this.position = this.positions.split(',')[0];
-    this.elm.getAttributeNames().forEach((name: string) => {
-      if (name.includes('aria-')) {
-        this.configAria[name] = this.elm.getAttribute(name);
-        this.elm.removeAttribute(name);
-      }
-    });
+    if (this.elm.getAttributeNames)
+      this.elm.getAttributeNames().forEach((name: string) => {
+        if (name.includes('aria-')) {
+          this.configAria[name] = this.elm.getAttribute(name);
+          this.elm.removeAttribute(name);
+        }
+      });
     this.startSlotHasContent = !!this.elm.querySelector('[slot="start"]');
     this.endSlotHasContent = !!this.elm.querySelector('[slot="end"]');
   }
 
+  private getMenuElement() {
+    return this.elm.querySelector('goat-menu');
+  }
+
+  index = 0;
+
+  _fixPosition = throttle(
+    callBack => {
+      const positions = this.placements.split(',');
+      const placement: any = positions[0];
+      const fallbackPlacements: any = positions.splice(1);
+      const dropdownContent: any = this.elm.shadowRoot.querySelector('.dropdown-content');
+      const menuElm: any = this.getMenuElement();
+
+      computePosition(this.elm.shadowRoot.querySelector('.input-container'), dropdownContent, {
+        placement: placement,
+        // Try removing the middleware. The dropdown will
+        // overflow the boundary's edge and get clipped!
+        middleware: [
+          offset(10),
+          size({
+            apply({ availableHeight }) {
+              if (availableHeight < 10 * 16) return;
+              menuElm?.style.setProperty('--list-max-height', `${availableHeight}px`);
+            },
+            padding: 5,
+          }),
+          flip({
+            fallbackPlacements: fallbackPlacements,
+          }),
+        ],
+      }).then(({ x, y }) => {
+        Object.assign(dropdownContent.style, {
+          top: `${y}px`,
+          left: `${x}px`,
+        });
+        if (callBack) callBack();
+      });
+    },
+    80,
+    {
+      leading: true,
+      trailing: false,
+    },
+  );
+
   @Listen('scroll', { target: 'window' })
   fixPosition() {
-    const isMobile = false; //isMobile();
-    if (this.isOpen && this.dropdownContentHeight && this.dropdownContentWidth) {
-      if (isMobile) {
-        this.position = 'center';
-        return;
-      } else if (this.position === 'center') {
-        this.position = this.positions.split(',')[0];
-      }
-
-      const positions = this.positions.split(',');
-      for (let i = 0; i < positions.length; i++) {
-        const dropdownButtonRect: any = this.elm.getBoundingClientRect();
-        const dropdownContentRect: any = {};
-        if (positions[i] === 'bottom-right') {
-          dropdownContentRect.top = dropdownButtonRect.top + dropdownButtonRect.height;
-          dropdownContentRect.bottom = dropdownContentRect.top + this.dropdownContentHeight;
-          dropdownContentRect.left = dropdownButtonRect.left;
-          dropdownContentRect.right = dropdownButtonRect.left + this.dropdownContentWidth;
-        } else if (positions[i] === 'top-right') {
-          dropdownContentRect.top = dropdownButtonRect.top - this.dropdownContentHeight;
-          dropdownContentRect.bottom = dropdownButtonRect.top;
-          dropdownContentRect.left = dropdownButtonRect.left;
-          dropdownContentRect.right = dropdownButtonRect.left + this.dropdownContentWidth;
-        } else if (positions[i] === 'bottom-left') {
-          dropdownContentRect.top = dropdownButtonRect.top + dropdownButtonRect.height;
-          dropdownContentRect.bottom = dropdownContentRect.top + this.dropdownContentHeight;
-          dropdownContentRect.left = dropdownButtonRect.left - this.dropdownContentWidth;
-          dropdownContentRect.right = dropdownButtonRect.left;
-        } else if (positions[i] === 'top-left') {
-          dropdownContentRect.top = dropdownButtonRect.top - this.dropdownContentHeight;
-          dropdownContentRect.bottom = dropdownButtonRect.top;
-          dropdownContentRect.left = dropdownButtonRect.left - this.dropdownContentWidth;
-          dropdownContentRect.right = dropdownButtonRect.left;
-        }
-        const isOut = isOutOfViewport(dropdownContentRect);
-        if (!isOut.any) {
-          this.position = positions[i];
-          break;
-        }
-      }
+    if (this.isOpen) {
+      this._fixPosition();
     }
+  }
+
+  @Listen('resize', { target: 'window' })
+  resizeHandler() {
+    this.fixPosition();
   }
 
   connectedCallback() {
@@ -418,9 +418,16 @@ export class Select implements ComponentInterface, InputComponentInterface {
 
   renderMultiSelectValues() {
     const values = this.getValues();
-    if (this.multiple && values.length) {
+    if (this.multiple && values.length && !this.isOpen) {
       return (
-        <div class="multi-select-values">
+        <div
+          class="multi-select-values"
+          on-click={evt => {
+            if (evt.target.classList.contains('multi-select-values')) {
+              this.toggleList();
+            }
+          }}
+        >
           {values.map(value => {
             const item = this.getItemByValue(value);
             if (item) {
@@ -521,9 +528,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
 
                 {this.getModeIcon()}
               </div>
-              <div class="dropdown-content" ref={elm => (this.dropdownContentElm = elm)}>
-                {this.isOpen && this.renderDropdownList()}
-              </div>
+              <div class="dropdown-content">{this.isOpen && this.renderDropdownList()}</div>
             </div>
           </div>
         </div>
@@ -536,7 +541,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
       return <goat-spinner class="input-action loader" />;
     }
     if (!this.disabled && !this.readonly && !this.hideDropdownIcon)
-      return <goat-icon tabindex={-1} class="chevron-down color-secondary" size={this.size} name="chevron--down" onClick={this.toggleList}></goat-icon>;
+      return <goat-icon tabindex={-1} class="toggle-icon chevron-down color-secondary" size={this.size} name="chevron--down" onClick={this.toggleList}></goat-icon>;
   }
 
   private renderDropdownList() {
@@ -560,20 +565,11 @@ export class Select implements ComponentInterface, InputComponentInterface {
               return (
                 <goat-menu-item value={item.value}>
                   <div class={'slot-container-start'} slot="start">
-                    {this.multiple && (
-                      <goat-checkbox
-                        class={'item-checkbox'}
-                        value={this.containsValue(item.value)}
-                        on-click={evt => {
-                          evt.preventDefault();
-                          evt.stopPropagation();
-                          this.selectHandler(item.value);
-                        }}
-                      ></goat-checkbox>
-                    )}
                     {item.icon && <goat-icon name={item.icon} size={this.size} />}
                   </div>
                   {item.label || item.value}
+
+                  <div slot="end">{((this.multiple && this.containsValue(item.value)) || this.value == item.value) && <goat-icon name="checkmark" size={this.size} />}</div>
                 </goat-menu-item>
               );
             });

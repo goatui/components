@@ -4,7 +4,37 @@ import Highlighter from '../../../../components/Highlighter.astro';
 ---
 
 <HighlighterCard lang='html'>
-  <goat-dropdown id='dropdown'>
+  <goat-button dropdown-target='data-dropdown' color='secondary' variant='ghost' icon='overflow-menu--vertical'></goat-button>
+
+  <goat-dropdown id='data-dropdown'>
+    <goat-menu slot='dropdown-content' class='menu' style='width: 200px'>
+      <goat-menu-item value='cut'>
+        <goat-icon name='scissors' slot='start'></goat-icon>
+        Cut
+        <span slot='end'>⌘X</span>
+      </goat-menu-item>
+      <goat-menu-item value='copy'>
+        <goat-icon name='files' slot='start'></goat-icon>
+        Copy
+        <span slot='end'>⌘C</span>
+      </goat-menu-item>
+      <goat-menu-item value='paste'>
+        <goat-icon name='clipboard' slot='start'></goat-icon>
+        Paste
+        <span slot='end'>⌘X</span>
+      </goat-menu-item>
+      <goat-divider></goat-divider>
+      <goat-menu-item value='delete'>
+        <goat-icon name='trash' slot='start'></goat-icon>
+        Delete
+        <span slot='end'>←</span>
+      </goat-menu-item>
+    </goat-menu>
+  </goat-dropdown>
+</HighlighterCard>
+
+<HighlighterCard lang='html'>
+  <goat-dropdown id='dropdown' placements='bottom-start'>
     <goat-button color='secondary' variant='ghost' icon='overflow-menu--vertical'></goat-button>
     <goat-menu slot='dropdown-content' class='menu' style='width: 200px'>
       <goat-menu-item value='cut'>
@@ -32,27 +62,3 @@ import Highlighter from '../../../../components/Highlighter.astro';
   </goat-dropdown>
 </HighlighterCard>
 
-<goat-card>
-  <goat-card-content>
-    <goat-button color='secondary' variant='ghost' icon='overflow-menu--vertical' dropdown-target='data-dropdown'></goat-button>
-    <goat-dropdown id='data-dropdown'></goat-dropdown>
-  </goat-card-content>
-  <script is:inline>
-    document.getElementById('data-dropdown').items = [
-      { value: 'copy', label: 'Copy' },
-      { value: 'cut', label: 'Cut' },
-    ];
-  </script>
-  <goat-card-content class='no-padding'>
-    <Highlighter lang='html'>
-      <goat-button color='secondary' variant='ghost' icon='overflow-menu--vertical' dropdown-target='data-dropdown'></goat-button>
-      <goat-dropdown id='data-dropdown'></goat-dropdown>
-      <script is:inline>
-        document.getElementById('data-dropdown').items = [
-          { value: 'copy', label: 'Copy' },
-          { value: 'cut', label: 'Cut' },
-        ];
-      </script>
-    </Highlighter>
-  </goat-card-content>
-</goat-card>

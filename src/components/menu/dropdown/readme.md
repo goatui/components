@@ -7,18 +7,24 @@
 
 ## Properties
 
-| Property    | Attribute   | Description                                                                       | Type                   | Default                                         |
-| ----------- | ----------- | --------------------------------------------------------------------------------- | ---------------------- | ----------------------------------------------- |
-| `disabled`  | `disabled`  | If true, the user cannot interact with the button. Defaults to `false`.           | `boolean`              | `false`                                         |
-| `isOpen`    | `is-open`   |                                                                                   | `boolean`              | `false`                                         |
-| `items`     | --          |                                                                                   | `any[]`                | `null`                                          |
-| `positions` | `positions` |                                                                                   | `string`               | `'bottom-right,top-right,bottom-left,top-left'` |
-| `size`      | `size`      | The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`. | `"lg" \| "md" \| "sm"` | `'md'`                                          |
+| Property     | Attribute    | Description                                                                       | Type                   | Default                                       |
+| ------------ | ------------ | --------------------------------------------------------------------------------- | ---------------------- | --------------------------------------------- |
+| `disabled`   | `disabled`   | If true, the user cannot interact with the button. Defaults to `false`.           | `boolean`              | `false`                                       |
+| `isOpen`     | `is-open`    |                                                                                   | `boolean`              | `false`                                       |
+| `placements` | `placements` |                                                                                   | `string`               | `'bottom-start,top-start,bottom-end,top-end'` |
+| `size`       | `size`       | The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`. | `"lg" \| "md" \| "sm"` | `'md'`                                        |
+
+
+## Events
+
+| Event                      | Description | Type               |
+| -------------------------- | ----------- | ------------------ |
+| `goat:dropdown-item-click` |             | `CustomEvent<any>` |
 
 
 ## Methods
 
-### `setFocus(elm?: HTMLElement) => Promise<void>`
+### `setFocus() => Promise<void>`
 
 
 
@@ -28,28 +34,6 @@ Type: `Promise<void>`
 
 
 
-
-## Dependencies
-
-### Depends on
-
-- [goat-menu](../menu)
-- [goat-menu-item](../menu-item)
-- [goat-icon](../../icon)
-
-### Graph
-```mermaid
-graph TD;
-  goat-dropdown --> goat-menu
-  goat-dropdown --> goat-menu-item
-  goat-dropdown --> goat-icon
-  goat-menu --> goat-empty-state
-  goat-empty-state --> goat-svg
-  goat-empty-state --> goat-button
-  goat-button --> goat-icon
-  goat-button --> goat-spinner
-  style goat-dropdown fill:#f9f,stroke:#333,stroke-width:4px
-```
 
 ----------------------------------------------
 

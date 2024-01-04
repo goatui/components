@@ -46,6 +46,7 @@
     "test.watch": "stencil test --spec --e2e --watchAll"
   },
   "dependencies": {
+    "@floating-ui/dom": "^1.5.3",
     "@tiptap/core": "^2.1.12",
     "@tiptap/extension-document": "^2.1.12",
     "@tiptap/extension-heading": "^2.1.12",

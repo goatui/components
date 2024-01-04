@@ -834,6 +834,8 @@ Border-bottom paired with $field-03;
   --z-index-table-header: 30;
   --z-index-dropdown-content: 40;
   --z-index-notification-manager: 100;
+  --z-index-modal: 200;
+  --z-index-tooltip: 1000;
   --scrollbar-width: 0.75rem;
 }
 
