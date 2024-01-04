@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-01-04T11:32:53",
+  "timestamp": "2024-01-04T12:11:13",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.4.0",
@@ -13922,8 +13922,12 @@
           "text": "content"
         },
         {
-          "name": "example",
-          "text": "<goat-badge content=\"5\"> <goat-icon name=\"notification\" size=\"lg\"></goat-icon></goat-badge>"
+          "name": "img",
+          "text": "/assets/img/tooltip.png"
+        },
+        {
+          "name": "imgDark",
+          "text": "/assets/img/tooltip-dark.png"
         }
       ],
       "encapsulation": "shadow",
@@ -13994,7 +13998,8 @@
         "description": "The Tooltip component is used to display additional information on hover.",
         "category": "Data Display",
         "tag": "content",
-        "example": "<goat-badge content=\"5\"> <goat-icon name=\"notification\" size=\"lg\"></goat-icon></goat-badge>"
+        "img": "/assets/img/tooltip.png",
+        "imgDark": "/assets/img/tooltip-dark.png"
       }
     },
     {
@@ -24249,8 +24254,12 @@
               "text": "content"
             },
             {
-              "name": "example",
-              "text": "<goat-badge content=\"5\"> <goat-icon name=\"notification\" size=\"lg\"></goat-icon></goat-badge>"
+              "name": "img",
+              "text": "/assets/img/tooltip.png"
+            },
+            {
+              "name": "imgDark",
+              "text": "/assets/img/tooltip-dark.png"
             }
           ],
           "encapsulation": "shadow",
@@ -24321,7 +24330,8 @@
             "description": "The Tooltip component is used to display additional information on hover.",
             "category": "Data Display",
             "tag": "content",
-            "example": "<goat-badge content=\"5\"> <goat-icon name=\"notification\" size=\"lg\"></goat-icon></goat-badge>"
+            "img": "/assets/img/tooltip.png",
+            "imgDark": "/assets/img/tooltip-dark.png"
           }
         }
       ]

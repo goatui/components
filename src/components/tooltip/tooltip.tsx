@@ -6,7 +6,8 @@ import { arrow, computePosition, flip, offset } from '@floating-ui/dom';
  * @description The Tooltip component is used to display additional information on hover.
  * @category Data Display
  * @tag content
- * @example <goat-badge content="5"> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
+ * @img /assets/img/tooltip.png
+ * @imgDark /assets/img/tooltip-dark.png
  */
 @Component({
   tag: 'goat-tooltip',

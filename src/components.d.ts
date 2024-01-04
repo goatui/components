@@ -1356,7 +1356,8 @@ export namespace Components {
      * @description The Tooltip component is used to display additional information on hover.
      * @category Data Display
      * @tag content
-     * @example <goat-badge content="5"> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
+     * @img /assets/img/tooltip.png
+     * @imgDark /assets/img/tooltip-dark.png
      */
     interface GoatTooltip {
         "isOpen": boolean;
@@ -2223,7 +2224,8 @@ declare global {
      * @description The Tooltip component is used to display additional information on hover.
      * @category Data Display
      * @tag content
-     * @example <goat-badge content="5"> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
+     * @img /assets/img/tooltip.png
+     * @imgDark /assets/img/tooltip-dark.png
      */
     interface HTMLGoatTooltipElement extends Components.GoatTooltip, HTMLStencilElement {
     }
@@ -3699,7 +3701,8 @@ declare namespace LocalJSX {
      * @description The Tooltip component is used to display additional information on hover.
      * @category Data Display
      * @tag content
-     * @example <goat-badge content="5"> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
+     * @img /assets/img/tooltip.png
+     * @imgDark /assets/img/tooltip-dark.png
      */
     interface GoatTooltip {
         "isOpen"?: boolean;
@@ -4208,7 +4211,8 @@ declare module "@stencil/core" {
              * @description The Tooltip component is used to display additional information on hover.
              * @category Data Display
              * @tag content
-             * @example <goat-badge content="5"> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
+             * @img /assets/img/tooltip.png
+             * @imgDark /assets/img/tooltip-dark.png
              */
             "goat-tooltip": LocalJSX.GoatTooltip & JSXBase.HTMLAttributes<HTMLGoatTooltipElement>;
             "goat-tree-node": LocalJSX.GoatTreeNode & JSXBase.HTMLAttributes<HTMLGoatTreeNodeElement>;
