@@ -123,6 +123,7 @@ export class ChartDoughnut implements ComponentInterface {
       .attr('class', 'arc')
       .on('mouseover', function () {
         var current = this;
+        current.setAttribute('tooltip-target', 'tooltip');
         var others = svg.selectAll('.arc').filter(function (_el) {
           return this != current;
         });

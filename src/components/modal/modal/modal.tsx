@@ -1,10 +1,12 @@
-import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core';
+import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
 
 /**
  * @name Modal
  * @description  Modals are used to display content in a layer above the app.
- * @category Up coming
+ * @category Feedback
  * @tags controls
+ * @img /assets/img/modal.png
+ * @imgDark /assets/img/modal-dark.png
  */
 @Component({
   tag: 'goat-modal',
@@ -12,74 +14,41 @@ import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core'
   shadow: true,
 })
 export class Modal {
-  @Element() el!: HTMLElement;
+  @Element() elm!: HTMLElement;
 
-  @Prop() show: boolean = false;
+  @Prop({ reflect: true }) show: boolean = false;
 
-  @State() promptDetails: any = {
-    title: 'Confirm',
-    message: 'Can we save it?',
-    action: {
-      label: 'Ok',
-      type: 'error',
-      callback: () => {},
-    },
-  } /*{
-    title: '',
-    message: '',
-    action: {
-      label: '',
-      type: '',
-      callback: () => {},
-    },
-  }*/;
-
-  @Listen('os:prompt', { target: 'window' })
-  handler(evt) {
-    this.promptDetails = evt.detail;
-    this.show = true;
-  }
-
-  private cancel() {
-    this.show = false;
-  }
-
-  private async submit() {
-    await this.promptDetails.action.callback();
-    this.show = false;
-  }
-
-  componentDidRender() {
-    if (this.show) {
-      const prompt: any = this.el.shadowRoot.querySelector('.submit');
-      prompt.setFocus();
+  @Watch('show')
+  watchHandler(newValue: boolean) {
+    if (newValue) {
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => {
+        this.elm.shadowRoot.querySelector('.modal').classList.add('is-open');
+      }, 80);
+    } else {
+      document.body.style.overflow = 'visible';
+      this.elm.shadowRoot.querySelector('.modal').classList.remove('is-open');
     }
   }
 
   render() {
-    if (this.show) {
+    if (this.show)
       return (
         <Host>
-          <div class="prompt">
-            <div class="prompt-content">
-              <goat-text type="heading" heading-size="5" class="title">
-                {this.promptDetails.title}
-              </goat-text>
-              <goat-text expressive={true} class="prompt-message">
-                {this.promptDetails.message}
-              </goat-text>
-              <div class="actions">
-                <goat-button class={`submit action`} color={this.promptDetails.action.type} onClick={() => this.submit()}>
-                  {this.promptDetails.action.label}
-                </goat-button>
-                <goat-button class="cancel action" color={'secondary'} onClick={() => this.cancel()}>
-                  Cancel
-                </goat-button>
+          <div class="modal-container" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+            <div class="modal-overlay" />
+            <div class="modal--wrapper">
+              <div class="modal">
+                <div class="modal__content">
+                  <slot />
+                </div>
+                <div class="modal__footer">
+                  <slot name="footer"></slot>
+                </div>
               </div>
             </div>
           </div>
         </Host>
       );
-    }
   }
 }

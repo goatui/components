@@ -4,11 +4,11 @@
   position: absolute;
   display: inline-block;
   transform: scale(0);
-  transition: transform 0.1s ease-out 0s;
   z-index: v(--z-index-tooltip);
 }
 
 :host([is-open]) {
+  transition: transform 0.1s ease-out 0s;
   transform: scale(1);
 }
 

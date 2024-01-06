@@ -17,7 +17,7 @@ const { componentDetails, sections } = Astro.props;
       sections.map((section) => (
         <div id={`section-${section.title.toLowerCase().replace(' ', '-').replace('/', '-')}`}
              class='component-section'>
-          <goat-text type='heading' heading-size='4'>{section.title}</goat-text>
+          <goat-text class='heading-scrollable' type='heading' heading-size='4'>{section.title}</goat-text>
 
           <section.Component/>
         </div>))

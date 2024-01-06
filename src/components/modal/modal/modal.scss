@@ -1,8 +1,10 @@
+@import "../../../globalStyles/commons";
+
 :host {
   display: block;
 }
 
-.prompt {
+.modal-container {
   position: fixed;
   left: 0;
   top: 0;
@@ -11,37 +13,32 @@
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  z-index: 5000;
+  z-index: v(--z-index-modal);
 
-  &:before {
+  .modal-overlay {
     position: absolute;
     content: '';
-    background: black;
-    opacity: 0.5;
+    background: v(--overlay);
     width: 100%;
     height: 100%;
   }
 
-  .prompt-content {
-    z-index: 5001;
-    width: 32rem;
-    border-radius: var(--border-radius);
-    background: var(--color-white);
-    padding: 1.5rem;
-    .message {
-      padding-bottom: var(--spacing-03);
-    }
-    .actions {
-      display: flex;
-      justify-content: end;
-      gap: 0.5rem;
-      .action {
-        padding-bottom: 0;
-      }
-    }
+  .modal--wrapper {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    padding: 10% 0 v(--spacing-09) 0;
+  }
+}
 
-    .prompt-message {
-      margin-bottom: var(--spacing-05);
-    }
+.modal {
+  margin: auto;
+
+  width: 32rem;
+  background: v(--layer-01);
+
+  .modal__content {
+    padding: 1rem 0 v(--spacing-09);
   }
 }

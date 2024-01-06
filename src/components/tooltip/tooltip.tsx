@@ -63,7 +63,6 @@ export class Tooltip {
         });
       }, 1);
     } else {
-      console.log('close');
       this.isOpen = false;
     }
   }

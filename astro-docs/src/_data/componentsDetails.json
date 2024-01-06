@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-01-04T12:11:13",
+  "timestamp": "2024-01-06T04:25:28",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.4.0",
@@ -713,7 +713,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-button>\r\nButton CTA\r\n</goat-button>"
+          "text": "<goat-button>\nButton CTA\n</goat-button>"
         }
       ],
       "encapsulation": "shadow",
@@ -726,7 +726,6 @@
         "goat-header-action",
         "goat-html-editor",
         "goat-input",
-        "goat-modal",
         "goat-notification",
         "goat-number",
         "goat-select",
@@ -764,9 +763,6 @@
           "goat-button"
         ],
         "goat-input": [
-          "goat-button"
-        ],
-        "goat-modal": [
           "goat-button"
         ],
         "goat-notification": [
@@ -993,7 +989,7 @@
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
-          "docs": "Icon which will displayed on button.\r\nPossible values are icon names.",
+          "docs": "Icon which will displayed on button.\nPossible values are icon names.",
           "docsTags": [],
           "values": [
             {
@@ -1063,7 +1059,7 @@
           "mutable": false,
           "attr": "kind",
           "reflectToAttr": false,
-          "docs": "Button kind.\r\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\r\n`\"default\"` is a long button.\r\n`\"simple\"` is a text-only button.\r\n`\"block\"` is a full-width button.",
+          "docs": "Button kind.\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\n`\"default\"` is a long button.\n`\"simple\"` is a text-only button.\n`\"block\"` is a full-width button.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -1138,7 +1134,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
-          "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
+          "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -1234,7 +1230,7 @@
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "Button variants.\r\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\r\n`\"default\"` is a filled button.\r\n`\"outline\"` is an outlined button.\r\n`\"ghost\"` is a transparent button.",
+          "docs": "Button variants.\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\n`\"default\"` is a filled button.\n`\"outline\"` is an outlined button.\n`\"ghost\"` is a transparent button.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -1283,7 +1279,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.blur()`.",
+          "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\n`button.blur()`.",
           "docsTags": []
         },
         {
@@ -1305,7 +1301,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.focus()`.",
+          "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\n`button.focus()`.",
           "docsTags": []
         },
         {
@@ -1371,7 +1367,7 @@
         "tags": [
           "controls"
         ],
-        "example": "<goat-button>\r\nButton CTA\r\n</goat-button>"
+        "example": "<goat-button>\nButton CTA\n</goat-button>"
       }
     },
     {
@@ -7739,29 +7735,25 @@
         },
         {
           "name": "category",
-          "text": "Up coming"
+          "text": "Feedback"
         },
         {
           "name": "tags",
           "text": "controls"
+        },
+        {
+          "name": "img",
+          "text": "/assets/img/modal.png"
+        },
+        {
+          "name": "imgDark",
+          "text": "/assets/img/modal-dark.png"
         }
       ],
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [
-        "goat-text",
-        "goat-button"
-      ],
-      "dependencyGraph": {
-        "goat-modal": [
-          "goat-text",
-          "goat-button"
-        ],
-        "goat-button": [
-          "goat-icon",
-          "goat-spinner"
-        ]
-      },
+      "dependencies": [],
+      "dependencyGraph": {},
       "props": [
         {
           "name": "show",
@@ -7773,7 +7765,7 @@
           },
           "mutable": false,
           "attr": "show",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
           "default": "false",
@@ -7802,11 +7794,67 @@
       "metadata": {
         "name": "Modal",
         "description": "Modals are used to display content in a layer above the app.",
-        "category": "Up coming",
+        "category": "Feedback",
         "tags": [
           "controls"
-        ]
+        ],
+        "img": "/assets/img/modal.png",
+        "imgDark": "/assets/img/modal-dark.png"
       }
+    },
+    {
+      "filePath": "src/components/modal/modal-content/modal-content.tsx",
+      "fileName": "modal-content.tsx",
+      "tag": "goat-modal-content",
+      "readme": "# p4-modal\r\n\r\n\r\n\r",
+      "overview": "",
+      "usage": {},
+      "docs": "",
+      "docsTags": [],
+      "encapsulation": "shadow",
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {},
+      "props": [
+        {
+          "name": "type",
+          "type": "\"borderless\" | \"default\" | \"text\"",
+          "complexType": {
+            "original": "'text' | 'borderless' | 'default'",
+            "resolved": "\"borderless\" | \"default\" | \"text\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "'default'",
+          "values": [
+            {
+              "value": "borderless",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "text",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "listeners": [],
+      "metadata": {}
     },
     {
       "filePath": "src/components/notification/notification.tsx",
@@ -12138,7 +12186,6 @@
         "goat-breadcrumb-item",
         "goat-cb-compound-expression",
         "goat-condition-builder",
-        "goat-modal",
         "goat-select",
         "goat-table"
       ],
@@ -12151,9 +12198,6 @@
           "goat-text"
         ],
         "goat-condition-builder": [
-          "goat-text"
-        ],
-        "goat-modal": [
           "goat-text"
         ],
         "goat-select": [
@@ -14577,7 +14621,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-button>\r\nButton CTA\r\n</goat-button>"
+              "text": "<goat-button>\nButton CTA\n</goat-button>"
             }
           ],
           "encapsulation": "shadow",
@@ -14590,7 +14634,6 @@
             "goat-header-action",
             "goat-html-editor",
             "goat-input",
-            "goat-modal",
             "goat-notification",
             "goat-number",
             "goat-select",
@@ -14628,9 +14671,6 @@
               "goat-button"
             ],
             "goat-input": [
-              "goat-button"
-            ],
-            "goat-modal": [
               "goat-button"
             ],
             "goat-notification": [
@@ -14857,7 +14897,7 @@
               "mutable": false,
               "attr": "icon",
               "reflectToAttr": false,
-              "docs": "Icon which will displayed on button.\r\nPossible values are icon names.",
+              "docs": "Icon which will displayed on button.\nPossible values are icon names.",
               "docsTags": [],
               "values": [
                 {
@@ -14927,7 +14967,7 @@
               "mutable": false,
               "attr": "kind",
               "reflectToAttr": false,
-              "docs": "Button kind.\r\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\r\n`\"default\"` is a long button.\r\n`\"simple\"` is a text-only button.\r\n`\"block\"` is a full-width button.",
+              "docs": "Button kind.\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\n`\"default\"` is a long button.\n`\"simple\"` is a text-only button.\n`\"block\"` is a full-width button.",
               "docsTags": [],
               "default": "'default'",
               "values": [
@@ -15002,7 +15042,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": true,
-              "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
+              "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -15098,7 +15138,7 @@
               "mutable": false,
               "attr": "variant",
               "reflectToAttr": false,
-              "docs": "Button variants.\r\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\r\n`\"default\"` is a filled button.\r\n`\"outline\"` is an outlined button.\r\n`\"ghost\"` is a transparent button.",
+              "docs": "Button variants.\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\n`\"default\"` is a filled button.\n`\"outline\"` is an outlined button.\n`\"ghost\"` is a transparent button.",
               "docsTags": [],
               "default": "'default'",
               "values": [
@@ -15147,7 +15187,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.blur()`.",
+              "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\n`button.blur()`.",
               "docsTags": []
             },
             {
@@ -15169,7 +15209,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.focus()`.",
+              "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\n`button.focus()`.",
               "docsTags": []
             },
             {
@@ -15235,7 +15275,7 @@
             "tags": [
               "controls"
             ],
-            "example": "<goat-button>\r\nButton CTA\r\n</goat-button>"
+            "example": "<goat-button>\nButton CTA\n</goat-button>"
           }
         },
         {
@@ -15468,7 +15508,6 @@
             "goat-breadcrumb-item",
             "goat-cb-compound-expression",
             "goat-condition-builder",
-            "goat-modal",
             "goat-select",
             "goat-table"
           ],
@@ -15481,9 +15520,6 @@
               "goat-text"
             ],
             "goat-condition-builder": [
-              "goat-text"
-            ],
-            "goat-modal": [
               "goat-text"
             ],
             "goat-select": [
@@ -24341,6 +24377,92 @@
       "hide": false,
       "components": [
         {
+          "filePath": "src/components/modal/modal/modal.tsx",
+          "fileName": "modal.tsx",
+          "tag": "goat-modal",
+          "readme": "# p4-modal\r\n\r\n\r\n\r",
+          "overview": "",
+          "usage": {},
+          "docs": "",
+          "docsTags": [
+            {
+              "name": "name",
+              "text": "Modal"
+            },
+            {
+              "name": "description",
+              "text": "Modals are used to display content in a layer above the app."
+            },
+            {
+              "name": "category",
+              "text": "Feedback"
+            },
+            {
+              "name": "tags",
+              "text": "controls"
+            },
+            {
+              "name": "img",
+              "text": "/assets/img/modal.png"
+            },
+            {
+              "name": "imgDark",
+              "text": "/assets/img/modal-dark.png"
+            }
+          ],
+          "encapsulation": "shadow",
+          "dependents": [],
+          "dependencies": [],
+          "dependencyGraph": {},
+          "props": [
+            {
+              "name": "show",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "show",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
+          "methods": [],
+          "events": [],
+          "styles": [],
+          "slots": [],
+          "parts": [],
+          "listeners": [
+            {
+              "event": "os:prompt",
+              "target": "window",
+              "capture": false,
+              "passive": false
+            }
+          ],
+          "metadata": {
+            "name": "Modal",
+            "description": "Modals are used to display content in a layer above the app.",
+            "category": "Feedback",
+            "tags": [
+              "controls"
+            ],
+            "img": "/assets/img/modal.png",
+            "imgDark": "/assets/img/modal-dark.png"
+          }
+        },
+        {
           "filePath": "src/components/notification/notification.tsx",
           "fileName": "notification.tsx",
           "tag": "goat-notification",
@@ -27839,65 +27961,45 @@
           "metadata": {}
         },
         {
-          "filePath": "src/components/modal/modal/modal.tsx",
-          "fileName": "modal.tsx",
-          "tag": "goat-modal",
+          "filePath": "src/components/modal/modal-content/modal-content.tsx",
+          "fileName": "modal-content.tsx",
+          "tag": "goat-modal-content",
           "readme": "# p4-modal\r\n\r\n\r\n\r",
           "overview": "",
           "usage": {},
           "docs": "",
-          "docsTags": [
-            {
-              "name": "name",
-              "text": "Modal"
-            },
-            {
-              "name": "description",
-              "text": "Modals are used to display content in a layer above the app."
-            },
-            {
-              "name": "category",
-              "text": "Up coming"
-            },
-            {
-              "name": "tags",
-              "text": "controls"
-            }
-          ],
+          "docsTags": [],
           "encapsulation": "shadow",
           "dependents": [],
-          "dependencies": [
-            "goat-text",
-            "goat-button"
-          ],
-          "dependencyGraph": {
-            "goat-modal": [
-              "goat-text",
-              "goat-button"
-            ],
-            "goat-button": [
-              "goat-icon",
-              "goat-spinner"
-            ]
-          },
+          "dependencies": [],
+          "dependencyGraph": {},
           "props": [
             {
-              "name": "show",
-              "type": "boolean",
+              "name": "type",
+              "type": "\"borderless\" | \"default\" | \"text\"",
               "complexType": {
-                "original": "boolean",
-                "resolved": "boolean",
+                "original": "'text' | 'borderless' | 'default'",
+                "resolved": "\"borderless\" | \"default\" | \"text\"",
                 "references": {}
               },
               "mutable": false,
-              "attr": "show",
-              "reflectToAttr": false,
+              "attr": "type",
+              "reflectToAttr": true,
               "docs": "",
               "docsTags": [],
-              "default": "false",
+              "default": "'default'",
               "values": [
                 {
-                  "type": "boolean"
+                  "value": "borderless",
+                  "type": "string"
+                },
+                {
+                  "value": "default",
+                  "type": "string"
+                },
+                {
+                  "value": "text",
+                  "type": "string"
                 }
               ],
               "optional": false,
@@ -27909,22 +28011,8 @@
           "styles": [],
           "slots": [],
           "parts": [],
-          "listeners": [
-            {
-              "event": "os:prompt",
-              "target": "window",
-              "capture": false,
-              "passive": false
-            }
-          ],
-          "metadata": {
-            "name": "Modal",
-            "description": "Modals are used to display content in a layer above the app.",
-            "category": "Up coming",
-            "tags": [
-              "controls"
-            ]
-          }
+          "listeners": [],
+          "metadata": {}
         },
         {
           "filePath": "src/components/app-shell/sidenav/sidenav.tsx",

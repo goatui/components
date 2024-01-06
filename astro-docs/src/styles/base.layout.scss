@@ -146,7 +146,7 @@ figure {
 }
 
 
-[type='heading']::before {
+.heading-scrollable::before {
   content: '';
   display: block;
   height: var(--header-height);

@@ -1,0 +1,157 @@
+---
+import HighlighterCard from '../../../../components/HighlighterCard.astro';
+---
+
+<style>
+  #open-modal-button {
+    --header-height: 0;
+  }
+
+</style>
+<HighlighterCard lang={'html'} cssClasses={'demo-canvas'}>
+
+
+
+  <goat-button id='open-modal-button'>
+    Open Modal
+  </goat-button>
+
+  <goat-modal id='sample-modal'>
+
+    <goat-modal-content>
+      <div class='modal-header'>
+        <div class='modal-title-section'>
+          <goat-text class='modal-subtitle'>
+            Create User
+          </goat-text>
+          <goat-text class='modal-title' type='heading' heading-size='3'>
+            Create User
+          </goat-text>
+        </div>
+
+        <goat-button class='close-icon cancel-button' color='secondary' icon='close--large' variant='ghost' size='sm'></goat-button>
+      </div>
+    </goat-modal-content>
+
+    <goat-modal-content type='text'>
+      <goat-text style='margin-bottom: 1rem'>
+        Modal labels and headings should be set in sentence case. Keep all labels and headings concise and to the point.
+        Modal labels are optional.
+        <goat-icon size='sm' tooltip-target='save-tooltip-scroll' color='secondary' variant='ghost' name='warning'></goat-icon>
+        <goat-tooltip id='save-tooltip-scroll' placements='bottom,top'>Save the record</goat-tooltip>
+      </goat-text>
+    </goat-modal-content>
+
+    <goat-modal-content>
+      <goat-input
+        type='text'
+        class='form-field bg-light'
+        label='Name'
+        id='name'
+        required></goat-input>
+
+      <goat-select label='Gender'
+                   id='gender'
+                   class='form-field bg-light'
+                   placeholder='Select'
+                   clearable></goat-select>
+
+      <goat-checkbox class='bg-light'>Do you like Ice cream?</goat-checkbox>
+
+    </goat-modal-content>
+
+    <div slot='footer'>
+      <div class='modal-footer'>
+        <goat-button id='save-button'
+                     class='footer-button'
+                     size='xl'>Save
+        </goat-button>
+        <goat-button class='footer-button cancel-button'
+                     color='secondary'
+                     size='xl'>Cancel
+        </goat-button>
+      </div>
+    </div>
+
+
+  </goat-modal>
+
+  <style is:inline>
+    .modal-header {
+      display: flex;
+      margin-bottom: 1rem;
+      .modal-title-section {
+        flex: 1;
+      }
+      .modal-title {
+        margin-bottom: 0;
+      }
+    }
+
+    .close-icon {
+      align-self: start;
+    }
+
+    .modal-footer {
+      display: flex;
+    }
+
+    .footer-button {
+      --button-border-radius: 0;
+      flex: 1;
+    }
+  </style>
+
+  <script is:inline>
+    const modalButton = document.querySelector('#open-modal-button');
+    const modal = document.querySelector('#sample-modal');
+    const saveButton = document.querySelector('#save-button');
+    const cancelButtons = document.querySelectorAll('.cancel-button');
+    const nameElm = document.querySelector('#name');
+    const genderElm = document.querySelector('#gender');
+
+    genderElm.items = [
+      { label: 'Male', value: 'Male' },
+      { label: 'Female', value: 'Female' },
+      { label: 'Other', value: 'Other' },
+    ];
+
+    function resetForm() {
+      saveButton.showLoader = false;
+      saveButton.disable = false;
+      cancelButtons.forEach((cancelButton) => {
+        cancelButton.disabled = false;
+      })
+      nameElm.value = '';
+      genderElm.value = '';
+    }
+
+
+    modalButton.addEventListener('click', () => {
+      modal.show = true;
+      setTimeout(()=>{
+        nameElm.setFocus();
+      }, 80);
+    });
+
+    saveButton.addEventListener('click', () => {
+      saveButton.showLoader = true;
+      cancelButtons.forEach((cancelButton) => {
+        cancelButton.disabled = true;
+      })
+      // Mock save
+      setTimeout(() => {
+        modal.show = false;
+        resetForm();
+      }, 1000);
+    });
+
+    cancelButtons.forEach((cancelButton) => {
+      cancelButton.addEventListener('click', () => {
+        modal.show = false;
+      });
+    })
+
+  </script>
+
+</HighlighterCard>

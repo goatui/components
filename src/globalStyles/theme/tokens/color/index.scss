@@ -136,6 +136,8 @@ Secondary link color for lower contrast backgrounds
 @include defineVariable(--icon-primary, getColor(gray, 100), getColor(gray, 10));
 
 
+@include defineVariable(--overlay, getColor(gray, 100, .5), getColor(gray, 100, .7));
+
 
 
 @each $color in [gray, blue, green, red, yellow, primary, success, info, warning, error] {

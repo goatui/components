@@ -634,6 +634,7 @@ Border-bottom paired with $field-03;
   --toggle-off: #8d8d8d;
   --button-disabled: #c6c6c6;
   --icon-on-color-disabled: #8d8d8d;
+  --overlay: rgba(22, 22, 22, 0.5);
   --tag-background-gray: #e0e0e0;
   --tag-hover-gray: #c6c6c6;
   --tag-color-gray: #393939;
@@ -834,8 +835,8 @@ Border-bottom paired with $field-03;
   --z-index-table-header: 30;
   --z-index-dropdown-content: 40;
   --z-index-notification-manager: 100;
-  --z-index-modal: 200;
-  --z-index-tooltip: 1000;
+  --z-index-modal: 2000;
+  --z-index-tooltip: 3000;
   --scrollbar-width: 0.75rem;
 }
 
@@ -934,6 +935,7 @@ table th {
   --toggle-off: #6f6f6f;
   --button-disabled: #525252;
   --icon-on-color-disabled: white;
+  --overlay: rgba(22, 22, 22, 0.7);
   --tag-background-gray: #393939;
   --tag-hover-gray: #525252;
   --tag-color-gray: #c6c6c6;
