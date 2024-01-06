@@ -67,14 +67,12 @@ $header-background-dark: var(--header-background-dark, var(--header-background))
   background: v(--color-black);
 }
 
+
+
 /*
 
 
-@include for-phone-only {
-  .header {
-    padding: 0 v(--spacing-04);
-  }
-}
+
 
 .header-content {
   box-sizing: border-box;
@@ -114,57 +112,6 @@ $header-background-dark: var(--header-background-dark, var(--header-background))
   border-bottom: 1px solid var(--border-strong-01)
 }
 
-!*
- * Colors
- *!
-.header {
-  background-color: v(--color-white);
-
-  .header-content {
-    background-color: v(--color-white);
-  }
 
 
-
-}
-
-:host-context([data-theme="dark"]) {
-  .header {
-    background-color: v(--color-black);
-    .header-content {
-      background-color: v(--color-black);
-    }
-  }
-}
-
-
-
-:host(.float) .header, :host-context([data-theme="dark"]):host(.float) {
-  background-color: transparent;
-  .header-content {
-    border-radius: v(--border-radius);
-    border: 1px solid v(--layer-accent-01);
-    box-shadow: v(--shadow-md);
-  }
-}
-
-:host(.brand:not(.float)) .header {
-  background-color: v(--color-brand-secondary-10);
-}
-
-:host(.brand) .header {
-  .header-content {
-    background-color: v(--color-brand-secondary-10);
-  }
-}
-
-
-:host-context([data-theme="dark"]):host(.brand) {
-  .header {
-    background-color: v(--color-black);
-    .header-content {
-      background-color: v(--color-black);
-    }
-  }
-}
 */

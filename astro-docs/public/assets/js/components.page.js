@@ -1,4 +1,10 @@
-document.getElementById('component-search').addEventListener('goat:input', function (e) {
+const $componentSearchElm = document.getElementById('component-search');
+
+setTimeout(() => {
+  $componentSearchElm.setFocus();
+}, 80);
+
+$componentSearchElm.addEventListener('goat:input', function (e) {
   window.scrollTo({
     top: 0,
     behavior: 'instant',

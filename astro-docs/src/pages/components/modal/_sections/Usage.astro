@@ -11,20 +11,21 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
 <HighlighterCard lang={'html'} cssClasses={'demo-canvas'}>
 
 
-
   <goat-button id='open-modal-button'>
     Open Modal
   </goat-button>
 
   <goat-modal id='sample-modal'
-   heading='Create User'
-   subheading='User management'>
+              size='xs'
+              heading='Create User'
+              subheading='User management'>
 
     <goat-modal-content type='text'>
       <goat-text style='margin-bottom: 1rem'>
         Modal labels and headings should be set in sentence case. Keep all labels and headings concise and to the point.
         Modal labels are optional.
-        <goat-icon size='sm' tooltip-target='save-tooltip-scroll' color='secondary' variant='ghost' name='warning'></goat-icon>
+        <goat-icon size='sm' tooltip-target='save-tooltip-scroll' color='secondary' variant='ghost'
+                   name='warning'></goat-icon>
         <goat-tooltip id='save-tooltip-scroll' placements='bottom,top'>Save the record</goat-tooltip>
       </goat-text>
     </goat-modal-content>
@@ -49,13 +50,13 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
 
     <div slot='footer'>
       <div class='modal-footer'>
-        <goat-button id='save-button'
-                     class='footer-button'
-                     size='xl'>Save
-        </goat-button>
         <goat-button class='footer-button cancel-button'
                      color='secondary'
                      size='xl'>Cancel
+        </goat-button>
+        <goat-button id='save-button'
+                     class='footer-button'
+                     size='xl'>Save
         </goat-button>
       </div>
     </div>
@@ -89,11 +90,13 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
     ];
 
     function resetForm() {
+      modal.showLoader = false;
       saveButton.showLoader = false;
       saveButton.disable = false;
+      saveButton.color = 'primary';
       cancelButtons.forEach((cancelButton) => {
         cancelButton.disabled = false;
-      })
+      });
       nameElm.value = '';
       genderElm.value = '';
     }
@@ -101,16 +104,18 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
 
     modalButton.addEventListener('click', () => {
       modal.open = true;
-      setTimeout(()=>{
+      setTimeout(() => {
         nameElm.setFocus();
       }, 80);
     });
 
     saveButton.addEventListener('click', () => {
+      modal.showLoader = true;
       saveButton.showLoader = true;
+      saveButton.color = 'secondary';
       cancelButtons.forEach((cancelButton) => {
         cancelButton.disabled = true;
-      })
+      });
       // Mock save
       setTimeout(() => {
         modal.open = false;
@@ -118,16 +123,16 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
       }, 1000);
     });
 
-    modal.addEventListener('goat:modal-close', ()=>{
+    modal.addEventListener('goat:modal-close', () => {
       modal.open = false;
       resetForm();
-    })
+    });
 
     cancelButtons.forEach((cancelButton) => {
       cancelButton.addEventListener('click', () => {
         modal.open = false;
       });
-    })
+    });
 
   </script>
 

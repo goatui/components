@@ -3,10 +3,19 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
 import HeaderContent from './header-content.astro';
 ---
 
-<HighlighterCard lang={'html'}>
+<style is:inline>
+  .sample-modal {
+    color: var(--color-gray-100);
+  }
+
+  .modal-demo-container .demo-area {
+    background: var(--layer-01)
+  }
+</style>
+<HighlighterCard lang={'html'} cssClasses='modal-demo-container'>
 
   <div class='component-container'>
-    <goat-header>
+    <goat-header class='sample-modal'>
       <div slot='left'>Left Section</div>
       <div slot='center'>Center Section</div>
       <div slot='right'>Right Section</div>

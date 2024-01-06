@@ -15,47 +15,52 @@ const { componentDetails } = Astro.props;
   <goat-table id='comp-events' class='table-auto-height' paginate='false'></goat-table>
 </div>
 
-<script is:inline define:vars={{ componentDetails }}>
-  const $compProperties = document.getElementById('comp-properties');
-  // Columns
-  $compProperties.columns = [{
-    'name': 'name',
-    'label': 'Property',
-    'width': 10,
-    'fixed': true,
-  }, {
-    'name': 'attr',
-    'label': 'Attribute',
-    'width': 10,
-  }, {
-    'name': 'docs',
-    'label': 'Description',
-    'width': 25,
-  }, {
-    'name': 'type',
-    'label': 'Type',
-  }, {
-    'name': 'default',
-    'label': 'Default',
-  }];
-  // Data
-  $compProperties.data = componentDetails.props;
+<script is:inline define:vars={{ componentDetails }} >
+  const $compProperties = window.document.getElementById('comp-properties');
+    // Columns
+    $compProperties.columns = [{
+      'name': 'name',
+      'label': 'Property',
+      'width': 10,
+      'fixed': true,
+      }, {
+      'name': 'attr',
+      'label': 'Attribute',
+      'width': 10,
+      }, {
+      'name': 'docs',
+      'label': 'Description',
+      'width': 25,
+      template: function(row, column) {
+        if (row[column.name])
+          return `<div title='${row[column.name]}'>${row[column.name].replaceAll('\n', '<br/>')}</div>`;
+        return '';
+        },
+      }, {
+      'name': 'type',
+      'label': 'Type',
+      }, {
+      'name': 'default',
+      'label': 'Default',
+      }];
+    // Data
+    $compProperties.data = componentDetails.props;
 
-  const $compEvents = document.getElementById('comp-events');
-  // Columns
-  $compEvents.columns = [{
-    'name': 'event',
-    'label': 'Event',
-    'width': 10,
-    'fixed': true,
-  }, {
-    'name': 'docs',
-    'label': 'Description',
-    'width': 25,
-  }, {
-    'name': 'detail',
-    'label': 'Type',
-  }];
-  // Data
-  $compEvents.data = componentDetails.events;
+    const $compEvents = document.getElementById('comp-events');
+    // Columns
+    $compEvents.columns = [{
+      'name': 'event',
+      'label': 'Event',
+      'width': 10,
+      'fixed': true,
+      }, {
+      'name': 'docs',
+      'label': 'Description',
+      'width': 25,
+      }, {
+      'name': 'detail',
+      'label': 'Type',
+      }];
+    // Data
+    $compEvents.data = componentDetails.events;
 </script>

@@ -765,6 +765,8 @@ export namespace Components {
         "heading": string;
         "hideClose": boolean;
         "open": boolean;
+        "showLoader": boolean;
+        "size": 'sm' | 'md' | 'lg';
         "subheading": string;
     }
     interface GoatModalContent {
@@ -3110,6 +3112,8 @@ declare namespace LocalJSX {
          */
         "onGoat:modal-close"?: (event: GoatModalCustomEvent<any>) => void;
         "open"?: boolean;
+        "showLoader"?: boolean;
+        "size"?: 'sm' | 'md' | 'lg';
         "subheading"?: string;
     }
     interface GoatModalContent {

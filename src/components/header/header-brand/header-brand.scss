@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   height: 100%;
-  padding-inline-start: 1rem;
+  padding-inline-start: v(--spacing-05);
 
   .brand-link {
     height: 100%;
@@ -73,5 +73,11 @@
 
   .subtitle {
     color: v(--color-gray-80);
+  }
+}
+
+@include for-phone-only {
+  .header-brand {
+    padding-inline-start: v(--spacing-04);
   }
 }

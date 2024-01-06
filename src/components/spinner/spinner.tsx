@@ -53,7 +53,7 @@ export class Spinner {
 
     return (
       <Host>
-        <div style={{ width: this.getSize() + 'rem', height: this.getSize() + 'rem' }}>
+        <div style={{ width: this.getSize() + 'rem', height: this.getSize() + 'rem' }} title={this.description}>
           <svg viewBox={`0 0 ${2 * (radius + strokeWidth + 5 * this.getSize())} ${2 * (radius + strokeWidth + 5 * this.getSize())}`} class="spinner__svg">
             <title>{this.description}</title>
             {!this.hideBackground && (

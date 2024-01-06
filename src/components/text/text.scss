@@ -50,6 +50,10 @@ $types: "body", "body-compact", "code", "helper", "legal", "label";
   }
 }
 
+:host([type='code']) .native-element {
+  word-break: break-word;
+}
+
 
 :host {
   color: var(--text-color, v(--text-primary));

@@ -33,21 +33,21 @@ export class Modal {
 
   @Prop({ reflect: true }) hideClose: boolean = false;
 
+  @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' = 'md';
+
+  @Prop({ reflect: true }) showLoader: boolean = false;
+
   /**
    * On click of button, a CustomEvent 'goat:modal-close' will be triggered.
    */
   @Event({ eventName: 'goat:modal-close' }) goatModalClose: EventEmitter;
 
-  @Watch('show')
+  @Watch('open')
   watchHandler(newValue: boolean) {
     if (newValue) {
       document.body.style.overflow = 'hidden';
-      setTimeout(() => {
-        this.elm.shadowRoot.querySelector('.modal').classList.add('open');
-      }, 80);
     } else {
       document.body.style.overflow = 'visible';
-      this.elm.shadowRoot.querySelector('.modal').classList.remove('open');
     }
   }
 
@@ -58,41 +58,57 @@ export class Modal {
           <div class="modal-container" aria-labelledby="modal-heading" role="dialog" aria-modal="true">
             <div class="modal-overlay" />
             <div class="modal--wrapper">
-              <div class="modal">
-                <div class="modal-header">
-                  <div class="modal-heading-section">
-                    {this.subheading && (
-                      <goat-text class="modal-subheading" color="secondary" type="label">
-                        {this.subheading}
-                      </goat-text>
-                    )}
+              <div
+                class={{
+                  'modal': true,
+                  'show-loader': this.showLoader,
+                  [`size-${this.size}`]: true,
+                }}
+              >
+                <div class="modal-body">
+                  <div class="modal-header">
+                    <div class="modal-heading-section">
+                      {this.subheading && (
+                        <goat-text class="modal-subheading" color="secondary" type="label">
+                          {this.subheading}
+                        </goat-text>
+                      )}
 
-                    {this.heading && (
-                      <goat-text class="modal-heading" type="heading" heading-size="3">
-                        {this.heading}
-                      </goat-text>
-                    )}
+                      {this.heading && (
+                        <goat-text class="modal-heading" type="heading" heading-size="3">
+                          {this.heading}
+                        </goat-text>
+                      )}
+                    </div>
+                    <div class="action-container">
+                      {!this.hideClose && (
+                        <goat-button
+                          title="Close"
+                          class="close-icon cancel-button"
+                          color="dark"
+                          dark-mode-color="light"
+                          icon="close--large"
+                          variant="ghost"
+                          onGoat:click={() => {
+                            this.goatModalClose.emit();
+                          }}
+                        ></goat-button>
+                      )}
+                    </div>
                   </div>
-                  <div class="action-container">
-                    {!this.hideClose && (
-                      <goat-button
-                        title="Close"
-                        class="close-icon cancel-button"
-                        color="dark"
-                        dark-mode-color="light"
-                        icon="close--large"
-                        variant="ghost"
-                        onGoat:click={() => {
-                          this.goatModalClose.emit();
-                        }}
-                      ></goat-button>
-                    )}
+
+                  <div class="modal__content">
+                    <slot />
                   </div>
+
+                  {this.showLoader && (
+                    <div class="modal__loading">
+                      <div class="modal__loading-background"></div>
+                      <goat-spinner size="lg"></goat-spinner>
+                    </div>
+                  )}
                 </div>
 
-                <div class="modal__content">
-                  <slot />
-                </div>
                 <div class="modal__footer">
                   <slot name="footer"></slot>
                 </div>

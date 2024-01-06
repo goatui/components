@@ -1,3 +1,6 @@
+@charset "utf-8";
+@import "mixin";
+
 /* width */
 ::-webkit-scrollbar {
   width: 0.5rem;
@@ -46,6 +49,14 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.banner-actions {
+  display: flex;
+  gap: 1rem;
+  padding-top: 2rem;
 }
 
 .banner * {
@@ -62,6 +73,14 @@
 .banner-logo circle {
   stroke: var(--color-brand-primary);
 }
+
+@include for-phone-only {
+  .banner-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
 
 
 .container .section {
