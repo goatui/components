@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-01-06T04:25:28",
+  "timestamp": "2024-01-06T05:16:20",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.4.0",
@@ -7783,14 +7783,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "listeners": [
-        {
-          "event": "os:prompt",
-          "target": "window",
-          "capture": false,
-          "passive": false
-        }
-      ],
+      "listeners": [],
       "metadata": {
         "name": "Modal",
         "description": "Modals are used to display content in a layer above the app.",
@@ -24443,14 +24436,7 @@
           "styles": [],
           "slots": [],
           "parts": [],
-          "listeners": [
-            {
-              "event": "os:prompt",
-              "target": "window",
-              "capture": false,
-              "passive": false
-            }
-          ],
+          "listeners": [],
           "metadata": {
             "name": "Modal",
             "description": "Modals are used to display content in a layer above the app.",
