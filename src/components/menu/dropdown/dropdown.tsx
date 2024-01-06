@@ -22,7 +22,7 @@ export class Dropdown implements ComponentInterface {
    */
   @Prop() size: 'sm' | 'md' | 'lg' = 'md';
 
-  @Prop({ mutable: true }) isOpen: boolean = false;
+  @Prop({ mutable: true }) open: boolean = false;
 
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
@@ -48,7 +48,7 @@ export class Dropdown implements ComponentInterface {
       this.referenceElm = evt.target;
       this.toggleList();
     } else {
-      this.isOpen = false;
+      this.open = false;
     }
   }
 
@@ -67,7 +67,7 @@ export class Dropdown implements ComponentInterface {
     if (isEventTriggerByElement(evt, this.elm)) {
       this.closeList();
     }
-    this.isOpen = false;
+    this.open = false;
   }
 
   @Listen('keydown', { target: 'window' })
@@ -80,8 +80,8 @@ export class Dropdown implements ComponentInterface {
   }
 
   private closeList = () => {
-    if (!this.disabled && this.isOpen) {
-      this.isOpen = false;
+    if (!this.disabled && this.open) {
+      this.open = false;
       setTimeout(() => {
         if (this.referenceElm) {
           // @ts-ignore
@@ -93,8 +93,8 @@ export class Dropdown implements ComponentInterface {
   };
 
   private openList = () => {
-    if (!this.disabled && !this.isOpen) {
-      this.isOpen = true;
+    if (!this.disabled && !this.open) {
+      this.open = true;
 
       setTimeout(() => {
         // @ts-ignore
@@ -149,7 +149,7 @@ export class Dropdown implements ComponentInterface {
 
   @Listen('scroll', { target: 'window' })
   fixPosition() {
-    if (this.isOpen) {
+    if (this.open) {
       this._fixPosition();
     }
   }
@@ -166,7 +166,7 @@ export class Dropdown implements ComponentInterface {
   }
 
   private toggleList() {
-    if (this.isOpen) this.closeList();
+    if (this.open) this.closeList();
     else this.openList();
   }
 
@@ -176,17 +176,17 @@ export class Dropdown implements ComponentInterface {
       evt.preventDefault();
       this.toggleList();
     } else if (evt.key === 'ArrowDown') {
-      if (this.isOpen) {
+      if (this.open) {
         evt.preventDefault();
         $menuElm?.setFocus();
       }
     } else if (evt.key === 'ArrowUp') {
-      if (this.isOpen) {
+      if (this.open) {
         evt.preventDefault();
         $menuElm?.setFocus(); // focus on previous item
       }
     } else if (evt.key === 'Escape') {
-      if (this.isOpen) {
+      if (this.open) {
         evt.preventDefault();
         this.closeList();
       }
@@ -199,11 +199,11 @@ export class Dropdown implements ComponentInterface {
 
   render() {
     return (
-      <Host is-open={this.isOpen}>
+      <Host open={this.open}>
         <div
           class={{
-            'dropdown': true,
-            'is-open': this.isOpen,
+            dropdown: true,
+            open: this.open,
           }}
         >
           <button

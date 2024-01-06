@@ -460,7 +460,7 @@ export namespace Components {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
-        "isOpen": boolean;
+        "open": boolean;
         "placements": string;
         "setFocus": () => Promise<void>;
         /**
@@ -762,7 +762,10 @@ export namespace Components {
      * @imgDark /assets/img/modal-dark.png
      */
     interface GoatModal {
-        "show": boolean;
+        "heading": string;
+        "hideClose": boolean;
+        "open": boolean;
+        "subheading": string;
     }
     interface GoatModalContent {
         "type": 'text' | 'borderless' | 'default';
@@ -914,7 +917,6 @@ export namespace Components {
         "inline": boolean;
         "invalid": boolean;
         "invalidText": string;
-        "isOpen": boolean;
         /**
           * [{   label: 'Shivaji Varma',   value: 'shivaji-varma',   icon: 'person' }]
          */
@@ -925,6 +927,7 @@ export namespace Components {
           * The input field name.
          */
         "name": string;
+        "open": boolean;
         /**
           * The input field placeholder.
          */
@@ -1365,7 +1368,7 @@ export namespace Components {
      * @imgDark /assets/img/tooltip-dark.png
      */
     interface GoatTooltip {
-        "isOpen": boolean;
+        "open": boolean;
         "placements": string;
     }
     interface GoatTreeNode {
@@ -1463,6 +1466,10 @@ export interface GoatInputCustomEvent<T> extends CustomEvent<T> {
 export interface GoatMenuItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLGoatMenuItemElement;
+}
+export interface GoatModalCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatModalElement;
 }
 export interface GoatNotificationCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -2801,8 +2808,8 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
-        "isOpen"?: boolean;
         "onGoat:dropdown-item-click"?: (event: GoatDropdownCustomEvent<any>) => void;
+        "open"?: boolean;
         "placements"?: string;
         /**
           * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
@@ -3096,7 +3103,14 @@ declare namespace LocalJSX {
      * @imgDark /assets/img/modal-dark.png
      */
     interface GoatModal {
-        "show"?: boolean;
+        "heading"?: string;
+        "hideClose"?: boolean;
+        /**
+          * On click of button, a CustomEvent 'goat:modal-close' will be triggered.
+         */
+        "onGoat:modal-close"?: (event: GoatModalCustomEvent<any>) => void;
+        "open"?: boolean;
+        "subheading"?: string;
     }
     interface GoatModalContent {
         "type"?: 'text' | 'borderless' | 'default';
@@ -3255,7 +3269,6 @@ declare namespace LocalJSX {
         "inline"?: boolean;
         "invalid"?: boolean;
         "invalidText"?: string;
-        "isOpen"?: boolean;
         /**
           * [{   label: 'Shivaji Varma',   value: 'shivaji-varma',   icon: 'person' }]
          */
@@ -3275,6 +3288,7 @@ declare namespace LocalJSX {
          */
         "onGoat:search"?: (event: GoatSelectCustomEvent<any>) => void;
         "onGoat:search-enter"?: (event: GoatSelectCustomEvent<any>) => void;
+        "open"?: boolean;
         /**
           * The input field placeholder.
          */
@@ -3724,7 +3738,7 @@ declare namespace LocalJSX {
      * @imgDark /assets/img/tooltip-dark.png
      */
     interface GoatTooltip {
-        "isOpen"?: boolean;
+        "open"?: boolean;
         "placements"?: string;
     }
     interface GoatTreeNode {

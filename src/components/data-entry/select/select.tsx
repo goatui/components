@@ -86,7 +86,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
 
   @Prop() showLoader: boolean = false;
 
-  @Prop({ mutable: true }) isOpen: boolean = false;
+  @Prop({ mutable: true }) open: boolean = false;
 
   @Prop({ reflect: true, mutable: true }) configAria: any = {};
 
@@ -129,9 +129,9 @@ export class Select implements ComponentInterface, InputComponentInterface {
    */
   @Method()
   async setFocus(): Promise<void> {
-    if (!this.isOpen && this.displayElement) {
+    if (!this.open && this.displayElement) {
       this.displayElement.focus();
-    } else if (this.isOpen && this.nativeElement) {
+    } else if (this.open && this.nativeElement) {
       this.nativeElement.focus();
     }
   }
@@ -158,7 +158,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
     for (const elm of path) {
       if (elm == this.elm) return;
     }
-    this.isOpen = false;
+    this.open = false;
   }
 
   @Listen('goat:menu-item-click')
@@ -247,15 +247,15 @@ export class Select implements ComponentInterface, InputComponentInterface {
   };
 
   private closeList = () => {
-    if (!this.disabled && !this.readonly && this.isOpen) {
-      this.isOpen = false;
+    if (!this.disabled && !this.readonly && this.open) {
+      this.open = false;
       setTimeout(() => this.setFocus(), 80);
     }
   };
 
   private openList = () => {
-    if (!this.disabled && !this.readonly && !this.isOpen) {
-      this.isOpen = true;
+    if (!this.disabled && !this.readonly && !this.open) {
+      this.open = true;
       this.hasFocus = false;
       if (this.search !== 'none') {
         this.searchString = '';
@@ -270,7 +270,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
   };
 
   private toggleList = () => {
-    if (this.isOpen) this.closeList();
+    if (this.open) this.closeList();
     else this.openList();
   };
 
@@ -283,12 +283,12 @@ export class Select implements ComponentInterface, InputComponentInterface {
         currentItems: this.filterItems(),
       });
     } else if (evt.key === 'ArrowDown') {
-      if (this.isOpen) {
+      if (this.open) {
         evt.preventDefault();
         this.menuElm.setFocus();
       }
     } else if (evt.key === 'ArrowUp') {
-      if (this.isOpen) {
+      if (this.open) {
         evt.preventDefault();
         this.menuElm.setFocus(); // focus on previous item
       }
@@ -402,7 +402,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
 
   @Listen('scroll', { target: 'window' })
   fixPosition() {
-    if (this.isOpen) {
+    if (this.open) {
       this._fixPosition();
     }
   }
@@ -418,7 +418,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
 
   renderMultiSelectValues() {
     const values = this.getValues();
-    if (this.multiple && values.length && !this.isOpen) {
+    if (this.multiple && values.length && !this.open) {
       return (
         <div
           class="multi-select-values"
@@ -445,7 +445,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
 
   render() {
     return (
-      <Host has-value={this.hasValue()} has-focus={this.hasFocus} is-open={this.isOpen} position={this.position}>
+      <Host has-value={this.hasValue()} has-focus={this.hasFocus} position={this.position}>
         <div class={{ 'form-control': true, 'inline': this.inline }}>
           {this.label && (
             <label class="label">
@@ -457,11 +457,11 @@ export class Select implements ComponentInterface, InputComponentInterface {
           <div class="field">
             <div
               class={{
-                'dropdown': true,
-                'select': true,
-                'multiple': this.multiple,
+                dropdown: true,
+                select: true,
+                multiple: this.multiple,
                 [this.position]: true,
-                'is-open': this.isOpen,
+                open: this.open,
                 [`search-${this.search}`]: true,
               }}
             >
@@ -483,7 +483,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
                 {this.renderMultiSelectValues()}
 
                 {(() => {
-                  if (this.search !== 'none' && this.isOpen) {
+                  if (this.search !== 'none' && this.open) {
                     return (
                       <input
                         class="input input-native"
@@ -528,7 +528,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
 
                 {this.getModeIcon()}
               </div>
-              <div class="dropdown-content">{this.isOpen && this.renderDropdownList()}</div>
+              <div class="dropdown-content">{this.open && this.renderDropdownList()}</div>
             </div>
           </div>
         </div>

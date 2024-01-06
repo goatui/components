@@ -17,7 +17,7 @@ import { arrow, computePosition, flip, offset } from '@floating-ui/dom';
 export class Tooltip {
   @Prop() placements: string = 'top,top-start,top-end,bottom,bottom-start,bottom-end,right,left';
 
-  @Prop({ mutable: true, reflect: true }) isOpen: boolean = false;
+  @Prop({ mutable: true, reflect: true }) open: boolean = false;
 
   arrowEl: HTMLElement;
   @Element() elm!: HTMLElement;
@@ -30,7 +30,7 @@ export class Tooltip {
     }
     if (evt.target.hasAttribute('tooltip-target') && evt.target.getAttribute('tooltip-target') === this.elm.getAttribute('id')) {
       const referenceElm = evt.target;
-      this.isOpen = true;
+      this.open = true;
       const positions = this.placements.split(',');
       const placement: any = positions[0];
       const fallbackPlacements: any = positions.splice(1);
@@ -63,7 +63,7 @@ export class Tooltip {
         });
       }, 1);
     } else {
-      this.isOpen = false;
+      this.open = false;
     }
   }
 
@@ -75,15 +75,15 @@ export class Tooltip {
         <div
           ref={elm => (this.contentEl = elm)}
           class={{
-            'tooltip': true,
-            'is-open': this.isOpen,
+            tooltip: true,
+            open: this.open,
           }}
         >
           <slot />
           <div
             class={{
-              'arrow': true,
-              'is-open': this.isOpen,
+              arrow: true,
+              open: this.open,
             }}
             ref={elm => (this.arrowEl = elm)}
           ></div>

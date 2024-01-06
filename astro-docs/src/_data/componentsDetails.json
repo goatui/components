@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-01-06T05:16:20",
+  "timestamp": "2024-01-06T08:17:34",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.4.0",
@@ -726,6 +726,7 @@
         "goat-header-action",
         "goat-html-editor",
         "goat-input",
+        "goat-modal",
         "goat-notification",
         "goat-number",
         "goat-select",
@@ -763,6 +764,9 @@
           "goat-button"
         ],
         "goat-input": [
+          "goat-button"
+        ],
+        "goat-modal": [
           "goat-button"
         ],
         "goat-notification": [
@@ -4712,7 +4716,7 @@
           "required": false
         },
         {
-          "name": "isOpen",
+          "name": "open",
           "type": "boolean",
           "complexType": {
             "original": "boolean",
@@ -4720,7 +4724,7 @@
             "references": {}
           },
           "mutable": true,
-          "attr": "is-open",
+          "attr": "open",
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
@@ -7752,11 +7756,44 @@
       ],
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "dependencies": [
+        "goat-text",
+        "goat-button"
+      ],
+      "dependencyGraph": {
+        "goat-modal": [
+          "goat-text",
+          "goat-button"
+        ],
+        "goat-button": [
+          "goat-icon",
+          "goat-spinner"
+        ]
+      },
       "props": [
         {
-          "name": "show",
+          "name": "heading",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "heading",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "hideClose",
           "type": "boolean",
           "complexType": {
             "original": "boolean",
@@ -7764,7 +7801,7 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "show",
+          "attr": "hide-close",
           "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
@@ -7776,10 +7813,68 @@
           ],
           "optional": false,
           "required": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "open",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "subheading",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "subheading",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
         }
       ],
       "methods": [],
-      "events": [],
+      "events": [
+        {
+          "event": "goat:modal-close",
+          "detail": "any",
+          "bubbles": true,
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "On click of button, a CustomEvent 'goat:modal-close' will be triggered.",
+          "docsTags": []
+        }
+      ],
       "styles": [],
       "slots": [],
       "parts": [],
@@ -9395,28 +9490,6 @@
           "required": false
         },
         {
-          "name": "isOpen",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": true,
-          "attr": "is-open",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "items",
           "type": "any",
           "complexType": {
@@ -9498,6 +9571,28 @@
           "values": [
             {
               "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "open",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
             }
           ],
           "optional": false,
@@ -12179,6 +12274,7 @@
         "goat-breadcrumb-item",
         "goat-cb-compound-expression",
         "goat-condition-builder",
+        "goat-modal",
         "goat-select",
         "goat-table"
       ],
@@ -12191,6 +12287,9 @@
           "goat-text"
         ],
         "goat-condition-builder": [
+          "goat-text"
+        ],
+        "goat-modal": [
           "goat-text"
         ],
         "goat-select": [
@@ -12211,7 +12310,7 @@
           },
           "mutable": false,
           "attr": "color",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
           "default": "'primary'",
@@ -13973,7 +14072,7 @@
       "dependencyGraph": {},
       "props": [
         {
-          "name": "isOpen",
+          "name": "open",
           "type": "boolean",
           "complexType": {
             "original": "boolean",
@@ -13981,7 +14080,7 @@
             "references": {}
           },
           "mutable": true,
-          "attr": "is-open",
+          "attr": "open",
           "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
@@ -14627,6 +14726,7 @@
             "goat-header-action",
             "goat-html-editor",
             "goat-input",
+            "goat-modal",
             "goat-notification",
             "goat-number",
             "goat-select",
@@ -14664,6 +14764,9 @@
               "goat-button"
             ],
             "goat-input": [
+              "goat-button"
+            ],
+            "goat-modal": [
               "goat-button"
             ],
             "goat-notification": [
@@ -15501,6 +15604,7 @@
             "goat-breadcrumb-item",
             "goat-cb-compound-expression",
             "goat-condition-builder",
+            "goat-modal",
             "goat-select",
             "goat-table"
           ],
@@ -15513,6 +15617,9 @@
               "goat-text"
             ],
             "goat-condition-builder": [
+              "goat-text"
+            ],
+            "goat-modal": [
               "goat-text"
             ],
             "goat-select": [
@@ -15533,7 +15640,7 @@
               },
               "mutable": false,
               "attr": "color",
-              "reflectToAttr": false,
+              "reflectToAttr": true,
               "docs": "",
               "docsTags": [],
               "default": "'primary'",
@@ -15984,7 +16091,7 @@
               "required": false
             },
             {
-              "name": "isOpen",
+              "name": "open",
               "type": "boolean",
               "complexType": {
                 "original": "boolean",
@@ -15992,7 +16099,7 @@
                 "references": {}
               },
               "mutable": true,
-              "attr": "is-open",
+              "attr": "open",
               "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
@@ -20065,28 +20172,6 @@
               "required": false
             },
             {
-              "name": "isOpen",
-              "type": "boolean",
-              "complexType": {
-                "original": "boolean",
-                "resolved": "boolean",
-                "references": {}
-              },
-              "mutable": true,
-              "attr": "is-open",
-              "reflectToAttr": false,
-              "docs": "",
-              "docsTags": [],
-              "default": "false",
-              "values": [
-                {
-                  "type": "boolean"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
               "name": "items",
               "type": "any",
               "complexType": {
@@ -20168,6 +20253,28 @@
               "values": [
                 {
                   "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "open",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": true,
+              "attr": "open",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
                 }
               ],
               "optional": false,
@@ -24297,7 +24404,7 @@
           "dependencyGraph": {},
           "props": [
             {
-              "name": "isOpen",
+              "name": "open",
               "type": "boolean",
               "complexType": {
                 "original": "boolean",
@@ -24305,7 +24412,7 @@
                 "references": {}
               },
               "mutable": true,
-              "attr": "is-open",
+              "attr": "open",
               "reflectToAttr": true,
               "docs": "",
               "docsTags": [],
@@ -24405,11 +24512,44 @@
           ],
           "encapsulation": "shadow",
           "dependents": [],
-          "dependencies": [],
-          "dependencyGraph": {},
+          "dependencies": [
+            "goat-text",
+            "goat-button"
+          ],
+          "dependencyGraph": {
+            "goat-modal": [
+              "goat-text",
+              "goat-button"
+            ],
+            "goat-button": [
+              "goat-icon",
+              "goat-spinner"
+            ]
+          },
           "props": [
             {
-              "name": "show",
+              "name": "heading",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "heading",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "hideClose",
               "type": "boolean",
               "complexType": {
                 "original": "boolean",
@@ -24417,7 +24557,7 @@
                 "references": {}
               },
               "mutable": false,
-              "attr": "show",
+              "attr": "hide-close",
               "reflectToAttr": true,
               "docs": "",
               "docsTags": [],
@@ -24429,10 +24569,68 @@
               ],
               "optional": false,
               "required": false
+            },
+            {
+              "name": "open",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "open",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "subheading",
+              "type": "string",
+              "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "subheading",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
             }
           ],
           "methods": [],
-          "events": [],
+          "events": [
+            {
+              "event": "goat:modal-close",
+              "detail": "any",
+              "bubbles": true,
+              "complexType": {
+                "original": "any",
+                "resolved": "any",
+                "references": {}
+              },
+              "cancelable": true,
+              "composed": true,
+              "docs": "On click of button, a CustomEvent 'goat:modal-close' will be triggered.",
+              "docsTags": []
+            }
+          ],
           "styles": [],
           "slots": [],
           "parts": [],

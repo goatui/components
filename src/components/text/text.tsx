@@ -24,7 +24,7 @@ export class Text implements ComponentInterface {
 
   @Prop({ reflect: true, mutable: true }) configAria: any = {};
 
-  @Prop() color: 'primary' | 'secondary' | 'tertiary' | 'helper' | 'error' | 'on-color' | 'inverse' = 'primary';
+  @Prop({ reflect: true }) color: 'primary' | 'secondary' | 'tertiary' | 'helper' | 'error' | 'on-color' | 'inverse' = 'primary';
 
   @Element() elm!: HTMLElement;
 

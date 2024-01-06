@@ -16,22 +16,9 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
     Open Modal
   </goat-button>
 
-  <goat-modal id='sample-modal'>
-
-    <goat-modal-content>
-      <div class='modal-header'>
-        <div class='modal-title-section'>
-          <goat-text class='modal-subtitle'>
-            Create User
-          </goat-text>
-          <goat-text class='modal-title' type='heading' heading-size='3'>
-            Create User
-          </goat-text>
-        </div>
-
-        <goat-button class='close-icon cancel-button' color='secondary' icon='close--large' variant='ghost' size='sm'></goat-button>
-      </div>
-    </goat-modal-content>
+  <goat-modal id='sample-modal'
+   heading='Create User'
+   subheading='User management'>
 
     <goat-modal-content type='text'>
       <goat-text style='margin-bottom: 1rem'>
@@ -77,21 +64,6 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
   </goat-modal>
 
   <style is:inline>
-    .modal-header {
-      display: flex;
-      margin-bottom: 1rem;
-      .modal-title-section {
-        flex: 1;
-      }
-      .modal-title {
-        margin-bottom: 0;
-      }
-    }
-
-    .close-icon {
-      align-self: start;
-    }
-
     .modal-footer {
       display: flex;
     }
@@ -128,7 +100,7 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
 
 
     modalButton.addEventListener('click', () => {
-      modal.show = true;
+      modal.open = true;
       setTimeout(()=>{
         nameElm.setFocus();
       }, 80);
@@ -141,14 +113,19 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
       })
       // Mock save
       setTimeout(() => {
-        modal.show = false;
+        modal.open = false;
         resetForm();
       }, 1000);
     });
 
+    modal.addEventListener('goat:modal-close', ()=>{
+      modal.open = false;
+      resetForm();
+    })
+
     cancelButtons.forEach((cancelButton) => {
       cancelButton.addEventListener('click', () => {
-        modal.show = false;
+        modal.open = false;
       });
     })
 

@@ -1,19 +1,25 @@
 @import "../../../globalStyles/commons";
 
 :host {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: v(--z-index-modal);
+}
+
+:host([open]) {
   display: block;
 }
 
 .modal-container {
-  position: fixed;
-  left: 0;
-  top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  z-index: v(--z-index-modal);
 
   .modal-overlay {
     position: absolute;
@@ -24,21 +30,49 @@
   }
 
   .modal--wrapper {
-    position: absolute;
     width: 100vw;
     height: 100vh;
     overflow: auto;
     padding: 10% 0 v(--spacing-09) 0;
+    z-index: 1;
   }
 }
 
 .modal {
   margin: auto;
-
   width: 32rem;
   background: v(--layer-01);
 
   .modal__content {
-    padding: 1rem 0 v(--spacing-09);
+    padding: 0 0 v(--spacing-09);
   }
+
+  .modal-header {
+    display: flex;
+
+    .modal-heading-section {
+      padding: 1rem 0 0 1rem;
+      flex: 1;
+      margin-bottom: 1rem;
+
+      .modal-heading {
+        margin-bottom: 0;
+      }
+    }
+
+  }
+
+  .action-container {
+    display: flex;
+    flex-direction: row-reverse;
+
+    .close-icon {
+      --button-height: 3rem;
+      --button-ghost-color: var(--color-secondary-20);
+      --button-ghost-color-dark: var(--color-secondary-80);
+      --button-border-radius: 0;
+    }
+  }
+
+
 }
