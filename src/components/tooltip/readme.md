@@ -9,7 +9,7 @@
 
 | Property     | Attribute    | Description | Type      | Default                                                             |
 | ------------ | ------------ | ----------- | --------- | ------------------------------------------------------------------- |
-| `isOpen`     | `is-open`    |             | `boolean` | `false`                                                             |
+| `open`       | `open`       |             | `boolean` | `false`                                                             |
 | `placements` | `placements` |             | `string`  | `'top,top-start,top-end,bottom,bottom-start,bottom-end,right,left'` |
 
 
