@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, State, Watch } from '@stencil/core';
+import { Component, Element, h, Host, Prop, State, Watch } from '@stencil/core';
 import { isLightOrDark, observeThemeChange } from '../../../utils/utils';
 
 /**
@@ -14,6 +14,8 @@ import { isLightOrDark, observeThemeChange } from '../../../utils/utils';
   shadow: true,
 })
 export class Header {
+  @Element() elm!: HTMLElement;
+
   @Prop() float: boolean = false;
 
   @Prop({ reflect: true }) color: 'light' | 'dark' | 'brand-primary' | 'brand-secondary' = 'light';
@@ -31,8 +33,11 @@ export class Header {
     }
   }
 
+  @State() centerSlotHasContent = false;
+
   componentWillLoad() {
     this.colorChanged();
+    this.centerSlotHasContent = !!this.elm.querySelector('[slot="center"]');
     observeThemeChange(() => {
       this.colorChanged();
     });
@@ -41,16 +46,20 @@ export class Header {
   @State() colorType: string = 'unknown';
 
   render() {
+    let columnType = 'three-column';
+    if (!this.centerSlotHasContent) columnType = 'two-column';
     return (
       <Host color-is={this.colorType}>
         <div class="header-container">
-          <header class={{ header: true, float: this.float }}>
+          <header class={{ header: true, float: this.float, [columnType]: true }}>
             <div class="left-section section">
               <slot name="left" />
             </div>
-            <div class="center-section section">
-              <slot name="center" />
-            </div>
+            {this.centerSlotHasContent && (
+              <div class="center-section section">
+                <slot name="center" />
+              </div>
+            )}
             <div class="right-section section">
               <slot name="right" />
             </div>
