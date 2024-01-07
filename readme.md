@@ -88,7 +88,7 @@ Checkout the complete documentation over here -> https://goatui.com
 | [Icon](https://goatui.com/components/icon)                                 | goat-icon                 | 🟢    |
 | [Input](https://goatui.com/components/input)                               | goat-input                | 🟢    |
 | [Link](https://goatui.com/components/link)                                 | goat-link                 | 🟢    |
-| Modal                                                                      | goat-modal                | 🔵    |
+| [Modal](https://goatui.com/components/modal)                               | goat-modal                | 🟢    |
 | [Menu](https://goatui.com/components/menu)                                 | goat-menu                 | 🟡    |
 | Month picker                                                               | goat-month-picker         | 🔵    |
 | [Notification](https://goatui.com/components/notification)                 | goat-notification         | 🟢    |
@@ -106,7 +106,7 @@ Checkout the complete documentation over here -> https://goatui.com
 | [Table](https://goatui.com/components/table)                               | goat-table                | 🟡    |
 | [Tabs](https://goatui.com/components/tabs)                                 | goat-tabs                 | 🟢    |
 | [Tag](https://goatui.com/components/tag) / Chip                            | goat-tag                  | 🟢    |
-| [Text](https://goatui.com/components/text)                                 | goat-text                 | 🟡    |
+| [Text](https://goatui.com/components/text)                                 | goat-text                 | 🟢    |
 | [Textarea](https://goatui.com/components/textarea)                         | goat-textarea             | 🟢    |
 | [Time picker](https://goatui.com/components/time-picker)                   | goat-time-picker          | 🟡    |
 | [Tree View](https://goatui.com/components/tree-view)                       | goat-tree-view            | 🟡    |
