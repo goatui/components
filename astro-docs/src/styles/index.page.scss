@@ -107,12 +107,6 @@ goat-text[type='code'] {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 }
 
-.social-icons {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  --button-color: var(--text-primary);
-}
 
 .made-in-india .country-flag {
   padding: 0 var(--spacing-04);
@@ -135,10 +129,13 @@ goat-text[type='code'] {
   }
 
   .social-icons {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    --button-color: var(--text-primary);
     position: fixed;
     bottom: 2rem;
     right: 0.5rem;
-    display: flex;
     flex-direction: column;
   }
 

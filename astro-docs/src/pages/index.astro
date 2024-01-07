@@ -191,7 +191,7 @@ if (isProd) {
       dark-mode-color='light'
       target='_blank'
       aria-label='Github'
-      href='https://www.github.com/{site.github_username}'
+      href={`https://www.github.com/${site.github_username}`}
     ></goat-button>
     <goat-button
       icon-size='lg'
@@ -201,12 +201,12 @@ if (isProd) {
       variant='ghost'
       target='_blank'
       aria-label='Twitter'
-      href='https://www.twitter.com/{site.twitter_username}'
+      href={`https://www.twitter.com/${site.twitter_username}`}
     ></goat-button>
   </div>
 
   <div class='made-in-india'>
-    <span>&copy; 2023 <goat-link class='no-decoration' href='{site.author_url}'>{site.author}</goat-link>.</span>
+    <span>&copy; 2023 <goat-link class='no-decoration' href={site.author_url}>{site.author}</goat-link>.</span>
     <goat-svg class='country-flag' size='1.5rem'
               src='https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/in.svg'></goat-svg>
     Made in India.

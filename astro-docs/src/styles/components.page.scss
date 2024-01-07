@@ -91,7 +91,7 @@ goat-card > goat-card-content:first-child {
 #search-container {
   position: sticky;
   top: 100px;
-  z-index: 1000;
+  z-index: 100;
   &.scrolled {
     padding: 1rem;
     transition: transform 3s ease-in-out;
