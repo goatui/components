@@ -9,8 +9,9 @@
 
 | Property      | Attribute      | Description | Type      | Default               |
 | ------------- | -------------- | ----------- | --------- | --------------------- |
-| `format`      | `format`       |             | `boolean` | `true`                |
+| `format`      | `format`       |             | `boolean` | `undefined`           |
 | `hideCopy`    | `hide-copy`    |             | `boolean` | `false`               |
+| `inline`      | `inline`       |             | `boolean` | `false`               |
 | `language`    | `language`     |             | `string`  | `Language.javascript` |
 | `lineNumbers` | `line-numbers` |             | `boolean` | `false`               |
 | `value`       | `value`        |             | `string`  | `''`                  |
@@ -22,6 +23,7 @@
 
 - [goat-notification-manager](../../notification-manager)
 - [goat-button](../../button)
+- [goat-tooltip](../../tooltip)
 - [goat-spinner](../../spinner)
 
 ### Graph
@@ -29,6 +31,7 @@
 graph TD;
   goat-code-highlighter --> goat-notification-manager
   goat-code-highlighter --> goat-button
+  goat-code-highlighter --> goat-tooltip
   goat-code-highlighter --> goat-spinner
   goat-notification-manager --> goat-toast
   goat-notification-manager --> goat-notification

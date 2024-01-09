@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-01-07T03:22:04",
+  "timestamp": "2024-01-09T06:33:46",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.4.0",
@@ -3674,12 +3674,14 @@
       "dependencies": [
         "goat-notification-manager",
         "goat-button",
+        "goat-tooltip",
         "goat-spinner"
       ],
       "dependencyGraph": {
         "goat-code-highlighter": [
           "goat-notification-manager",
           "goat-button",
+          "goat-tooltip",
           "goat-spinner"
         ],
         "goat-notification-manager": [
@@ -3709,10 +3711,9 @@
           },
           "mutable": false,
           "attr": "format",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
-          "default": "true",
           "values": [
             {
               "type": "boolean"
@@ -3744,6 +3745,28 @@
           "required": false
         },
         {
+          "name": "inline",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "inline",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "language",
           "type": "string",
           "complexType": {
@@ -3753,7 +3776,7 @@
           },
           "mutable": false,
           "attr": "language",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
           "default": "Language.javascript",
@@ -3775,7 +3798,7 @@
           },
           "mutable": false,
           "attr": "line-numbers",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
           "default": "false",
@@ -14126,9 +14149,15 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [],
+      "dependents": [
+        "goat-code-highlighter"
+      ],
       "dependencies": [],
-      "dependencyGraph": {},
+      "dependencyGraph": {
+        "goat-code-highlighter": [
+          "goat-tooltip"
+        ]
+      },
       "props": [
         {
           "name": "open",
@@ -23197,12 +23226,14 @@
           "dependencies": [
             "goat-notification-manager",
             "goat-button",
+            "goat-tooltip",
             "goat-spinner"
           ],
           "dependencyGraph": {
             "goat-code-highlighter": [
               "goat-notification-manager",
               "goat-button",
+              "goat-tooltip",
               "goat-spinner"
             ],
             "goat-notification-manager": [
@@ -23232,10 +23263,9 @@
               },
               "mutable": false,
               "attr": "format",
-              "reflectToAttr": false,
+              "reflectToAttr": true,
               "docs": "",
               "docsTags": [],
-              "default": "true",
               "values": [
                 {
                   "type": "boolean"
@@ -23267,6 +23297,28 @@
               "required": false
             },
             {
+              "name": "inline",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "inline",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "false",
+              "values": [
+                {
+                  "type": "boolean"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
               "name": "language",
               "type": "string",
               "complexType": {
@@ -23276,7 +23328,7 @@
               },
               "mutable": false,
               "attr": "language",
-              "reflectToAttr": false,
+              "reflectToAttr": true,
               "docs": "",
               "docsTags": [],
               "default": "Language.javascript",
@@ -23298,7 +23350,7 @@
               },
               "mutable": false,
               "attr": "line-numbers",
-              "reflectToAttr": false,
+              "reflectToAttr": true,
               "docs": "",
               "docsTags": [],
               "default": "false",
@@ -24458,9 +24510,15 @@
             }
           ],
           "encapsulation": "shadow",
-          "dependents": [],
+          "dependents": [
+            "goat-code-highlighter"
+          ],
           "dependencies": [],
-          "dependencyGraph": {},
+          "dependencyGraph": {
+            "goat-code-highlighter": [
+              "goat-tooltip"
+            ]
+          },
           "props": [
             {
               "name": "open",
