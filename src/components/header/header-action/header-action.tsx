@@ -35,6 +35,8 @@ export class HeaderAction {
    */
   @Prop() selected: boolean = false;
 
+  @Prop({ reflect: true, mutable: true }) configAria: any = {};
+
   @Element() elm!: HTMLElement;
 
   @State() slotHasContent = false;
@@ -52,6 +54,14 @@ export class HeaderAction {
       this.color = headerColor;
     }
     this.slotHasContent = this.elm.hasChildNodes();
+
+    if (this.elm.getAttributeNames)
+      this.elm.getAttributeNames().forEach((name: string) => {
+        if (name.includes('aria-')) {
+          this.configAria[name] = this.elm.getAttribute(name);
+          this.elm.removeAttribute(name);
+        }
+      });
   }
 
   render() {
@@ -65,6 +75,7 @@ export class HeaderAction {
         iconSize={'1.25rem'}
         href={this.href}
         selected={this.selected}
+        configAria={this.configAria}
         target={this.target}
       >
         {this.slotHasContent && <slot></slot>}

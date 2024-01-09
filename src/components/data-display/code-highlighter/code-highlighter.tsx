@@ -145,7 +145,7 @@ export class CodeHighlighter implements ComponentInterface {
 
   @Prop() value: string = '';
 
-  @Prop({ reflect: true }) format: boolean;
+  @Prop({ reflect: true, mutable: true }) format: boolean;
 
   @Prop({ reflect: true }) inline: boolean = false;
 

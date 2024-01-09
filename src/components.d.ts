@@ -532,6 +532,7 @@ export namespace Components {
     }
     interface GoatHeaderAction {
         "badge": string;
+        "configAria": any;
         /**
           * Hyperlink to navigate to on click.
          */
@@ -2883,6 +2884,7 @@ declare namespace LocalJSX {
     }
     interface GoatHeaderAction {
         "badge"?: string;
+        "configAria"?: any;
         /**
           * Hyperlink to navigate to on click.
          */

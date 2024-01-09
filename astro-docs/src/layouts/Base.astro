@@ -26,16 +26,17 @@ function getKeywords() {
     return 'Web component, ' + Astro.props.title;
   }
 }
+const pageTitle = title ? `${title}  &middot; ${site.title}` : `${site.title} &middot; ${site.tagline}`
 ---
 
 <!DOCTYPE html>
 <html lang='en'>
 <head>
   <!-- Title -->
-  {title ? (<title>{title}  &middot; {site.title}</title>) : <title>{site.title} &middot; {site.tagline}</title>}
+  <title set:html={pageTitle}></title>
 
   <!-- Required Meta Tags Always Come First -->
-  <meta charset='utf-8' />
+  <meta charset="utf-8"/>
   <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no' />
   <link rel="sitemap" href="/sitemap-index.xml" />
 
