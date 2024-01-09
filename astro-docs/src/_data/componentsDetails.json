@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-01-09T06:33:46",
+  "timestamp": "2024-01-09T07:22:40",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.4.0",
@@ -3709,7 +3709,7 @@
             "resolved": "boolean",
             "references": {}
           },
-          "mutable": false,
+          "mutable": true,
           "attr": "format",
           "reflectToAttr": true,
           "docs": "",
@@ -5680,6 +5680,28 @@
           "required": false
         },
         {
+          "name": "configAria",
+          "type": "any",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "config-aria",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "{}",
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "href",
           "type": "string",
           "complexType": {
@@ -5711,7 +5733,7 @@
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
-          "docs": "Icon which will displayed on button.\r\nPossible values are icon names.",
+          "docs": "Icon which will displayed on button.\nPossible values are icon names.",
           "docsTags": [],
           "values": [
             {
@@ -5754,7 +5776,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"none\"`. Defaults to `\"md\"`.",
+          "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"none\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -23261,7 +23283,7 @@
                 "resolved": "boolean",
                 "references": {}
               },
-              "mutable": false,
+              "mutable": true,
               "attr": "format",
               "reflectToAttr": true,
               "docs": "",
@@ -27445,6 +27467,28 @@
               "required": false
             },
             {
+              "name": "configAria",
+              "type": "any",
+              "complexType": {
+                "original": "any",
+                "resolved": "any",
+                "references": {}
+              },
+              "mutable": true,
+              "attr": "config-aria",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "{}",
+              "values": [
+                {
+                  "type": "any"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
               "name": "href",
               "type": "string",
               "complexType": {
@@ -27476,7 +27520,7 @@
               "mutable": false,
               "attr": "icon",
               "reflectToAttr": false,
-              "docs": "Icon which will displayed on button.\r\nPossible values are icon names.",
+              "docs": "Icon which will displayed on button.\nPossible values are icon names.",
               "docsTags": [],
               "values": [
                 {
@@ -27519,7 +27563,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": false,
-              "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"none\"`. Defaults to `\"md\"`.",
+              "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"none\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
