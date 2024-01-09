@@ -1,55 +1,19 @@
 @import "base";
 
 
+
+
+@import "layer-colors";
+@import "icon-colors";
+@import "text-colors";
+@import "field-colors";
+@import "icon-colors";
+
 @include defineVariable(--color-white, getColor(white, 0));
 @include defineVariable(--color-black, getColor(black, 100));
 @include defineVariable(--color-dark, getColor(black, 100), getColor(white, 0));
 @include defineVariable(--color-light, getColor(white, 0), getColor(black, 100));
-
-
-
 @include defineVariable(--border-color, getColor(gray, 50));
-
-/*
- * Default page background;
- * UI Shell base color
- */
-@include defineVariable(--background, getColor(white, 0), getColor(gray, 100));
-
-/*
- * Container color on $background;
- * Secondary page background
- */
-@include defineVariable(--layer-01, getColor(gray, 10), getColor(gray, 90));
-
-/*
-Container color on $layer-01
- */
-@include defineVariable(--layer-02, getColor(white, 0), getColor(gray, 80));
-
-/*
-Container color on $layer-02
- */
-@include defineVariable(--layer-03, getColor(gray, 10), getColor(gray, 70));
-/*
-Subtle border;
-Tertiary background
- */
-@include defineVariable(--layer-accent-01, getColor(gray, 20), getColor(gray, 80));
-
-
-
-
-@include defineVariable(--border-inverse, getColor(gray, 100), getColor(gray, 10));
-
-@include defineVariable(--background-inverse, getColor(gray, 80), getColor(gray, 10));
-
-
-@include defineVariable(--layer-hover-01, #e8e8e8, #333333);
-
-@import "text-colors";
-@import "field-colors";
-@import "icon-colors";
 
 
 /*
@@ -110,7 +74,7 @@ Secondary link color for lower contrast backgrounds
 
 @include defineVariable(--border-subtle-00, getColor(gray, 30), getColor(gray, 30));
 
-
+@include defineVariable(--border-subtle-selected-01, getColor(gray, 30), getColor(gray, 70));
 @import "border-colors";
 
 
@@ -133,7 +97,6 @@ Secondary link color for lower contrast backgrounds
 
 @include defineVariable(--button-disabled, getColor(gray, 30), getColor(gray, 70));
 @include defineVariable(--icon-on-color-disabled, getColor(gray, 50), getColor(white, 0));
-@include defineVariable(--icon-primary, getColor(gray, 100), getColor(gray, 10));
 
 
 @include defineVariable(--overlay, getColor(gray, 100, .5), getColor(gray, 100, .7));

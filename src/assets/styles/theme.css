@@ -11,6 +11,18 @@
  * Tokens for developers
  */
 /*
+ * Application colors
+ */
+/*
+ * Theme colors
+ */
+/*
+ * Alert colors
+ */
+/*
+ * Tokens for developers
+ */
+/*
  * Default page background;
  * UI Shell base color
  */
@@ -27,6 +39,13 @@ Container color on $layer-02
 /*
 Subtle border;
 Tertiary background
+ */
+/*
+Primary icons
+ */
+/*
+
+Inverse icon color
  */
 /**
 Primary text;
@@ -158,6 +177,18 @@ Border-bottom paired with $field-03;
  * Tokens for developers
  */
 /*
+ * Application colors
+ */
+/*
+ * Theme colors
+ */
+/*
+ * Alert colors
+ */
+/*
+ * Tokens for developers
+ */
+/*
  * Default page background;
  * UI Shell base color
  */
@@ -174,6 +205,13 @@ Container color on $layer-02
 /*
 Subtle border;
 Tertiary background
+ */
+/*
+Primary icons
+ */
+/*
+
+Inverse icon color
  */
 /**
 Primary text;
@@ -571,19 +609,19 @@ Border-bottom paired with $field-03;
   --color-error-80: #750e13;
   --color-error-90: #520408;
   --color-error-100: #2d0709;
-  --color-white: white;
-  --color-black: black;
-  --color-dark: black;
-  --color-light: white;
-  --border-color: #8d8d8d;
   --background: white;
+  --border-inverse: #161616;
+  --background-inverse: #393939;
   --layer-01: #f4f4f4;
   --layer-02: white;
   --layer-03: #f4f4f4;
   --layer-accent-01: #e0e0e0;
-  --border-inverse: #161616;
-  --background-inverse: #393939;
   --layer-hover-01: #e8e8e8;
+  --layer-accent-hover-01: #e0e0e0;
+  --layer-accent-active-01: #a8a8a8;
+  --layer-selected-hover-01: #cacaca;
+  --icon-primary: #161616;
+  --icon-inverse: white;
   --text-primary: #161616;
   --text-secondary: #525252;
   --text-placeholder: #a8a8a8;
@@ -597,8 +635,11 @@ Border-bottom paired with $field-03;
   --field-hover-01: #f4f4f4;
   --field-hover-02: #f4f4f4;
   --field-hover-03: #f4f4f4;
-  --icon-primary: #161616;
-  --icon-inverse: white;
+  --color-white: white;
+  --color-black: black;
+  --color-dark: black;
+  --color-light: white;
+  --border-color: #8d8d8d;
   --selected-ui: #e0e0e0;
   --disabled-01: #f4f4f4;
   --text-disabled: rgba(22, 22, 22, 0.25);
@@ -614,6 +655,7 @@ Border-bottom paired with $field-03;
   --hover-ui: #f4f4f4;
   --active-ui: #c6c6c6;
   --border-subtle-00: #e0e0e0;
+  --border-subtle-selected-01: #c6c6c6;
   --border-interactive: #0f62fe;
   --border-subtle-01: #e0e0e0;
   --border-subtle-02: #e0e0e0;
@@ -880,16 +922,19 @@ table th {
 }
 
 [data-theme=dark] {
-  --color-dark: white;
-  --color-light: black;
   --background: #161616;
+  --border-inverse: #f4f4f4;
+  --background-inverse: #f4f4f4;
   --layer-01: #262626;
   --layer-02: #393939;
   --layer-03: #525252;
   --layer-accent-01: #393939;
-  --border-inverse: #f4f4f4;
-  --background-inverse: #f4f4f4;
   --layer-hover-01: #333333;
+  --layer-accent-hover-01: #393939;
+  --layer-accent-active-01: #525252;
+  --layer-selected-hover-01: #4c4c4c;
+  --icon-primary: #f4f4f4;
+  --icon-inverse: #161616;
   --text-primary: #f4f4f4;
   --text-secondary: #c6c6c6;
   --text-placeholder: #6f6f6f;
@@ -903,8 +948,8 @@ table th {
   --field-hover-01: #262626;
   --field-hover-02: #393939;
   --field-hover-03: #525252;
-  --icon-primary: #f4f4f4;
-  --icon-inverse: #161616;
+  --color-dark: white;
+  --color-light: black;
   --selected-ui: #393939;
   --disabled-01: #262626;
   --text-disabled: rgba(244, 244, 244, 0.25);
@@ -916,6 +961,7 @@ table th {
   --hover-ui: #262626;
   --active-ui: #c6c6c6;
   --border-subtle-00: #393939;
+  --border-subtle-selected-01: #525252;
   --border-interactive: #4589ff;
   --border-subtle-01: #393939;
   --border-subtle-02: #525252;

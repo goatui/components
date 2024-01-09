@@ -28,15 +28,18 @@ export class Tooltip {
     for (const elm of path) {
       if (elm == this.elm) return;
     }
-    if (evt.target.hasAttribute('tooltip-target') && evt.target.getAttribute('tooltip-target') === this.elm.getAttribute('id')) {
-      const referenceElm = evt.target;
+    let target = evt.target;
+    for (const elm of path) {
+      if (elm.hasAttribute && elm.hasAttribute('tooltip-target')) target = elm;
+    }
+    if (target.hasAttribute('tooltip-target') && target.getAttribute('tooltip-target') === this.elm.getAttribute('id')) {
       this.open = true;
       const positions = this.placements.split(',');
       const placement: any = positions[0];
       const fallbackPlacements: any = positions.splice(1);
 
       setTimeout(() => {
-        computePosition(referenceElm, this.elm, {
+        computePosition(target, this.elm, {
           placement: placement,
           middleware: [
             flip({

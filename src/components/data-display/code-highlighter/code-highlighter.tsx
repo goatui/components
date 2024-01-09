@@ -139,13 +139,15 @@ enum Language {
 export class CodeHighlighter implements ComponentInterface {
   gid: string = getComponentIndex();
 
-  @Prop() language: string = Language.javascript;
+  @Prop({ reflect: true }) language: string = Language.javascript;
 
-  @Prop() lineNumbers: boolean = false;
+  @Prop({ reflect: true }) lineNumbers: boolean = false;
 
   @Prop() value: string = '';
 
-  @Prop() format: boolean = true;
+  @Prop({ reflect: true }) format: boolean;
+
+  @Prop({ reflect: true }) inline: boolean = false;
 
   @Prop() hideCopy: boolean = false;
 
@@ -183,6 +185,10 @@ export class CodeHighlighter implements ComponentInterface {
     } else if (this.elm.querySelector('code')) {
       this.codeString = this.elm.querySelector('code').innerHTML;
     }
+    if (typeof this.format === 'undefined') {
+      this.format = !this.inline;
+    }
+
     this.codeString = this.decode(this.codeString);
     if (!window['Prism']) {
       await loadPrism();
@@ -266,24 +272,27 @@ export class CodeHighlighter implements ComponentInterface {
   }
 
   render() {
+    let HighlighterTab = 'pre';
+    if (this.inline) HighlighterTab = 'div';
+    let copiedText = 'Copy to clipboard';
+    if (this.copyState === 'copied') copiedText = 'Copied to clipboard';
+
     return (
       <Host>
         {this.compiledCode !== null && (
-          <div class="code-highlighter">
-            <div class="scroll-wrapper">
+          <div
+            class="code-highlighter"
+            on-click={() => {
+              if (this.inline) this.handleCopyClick();
+            }}
+          >
+            <div class="scroll-wrapper" tooltip-target={'copy-to-clipboard-' + this.gid}>
               <goat-notification-manager position="top-right" name={'code-highlighter-' + this.gid}></goat-notification-manager>
               <div class={{ 'line-numbers-wrapper': true, 'line-numbers': this.lineNumbers }}>
-                <pre dir="ltr" class="highlighter line-numbers" innerHTML={this.compiledCode} />
+                <HighlighterTab class="highlighter line-numbers" innerHTML={this.compiledCode} />
               </div>
             </div>
-            {!this.hideCopy && this.copyState === 'copied' && (
-              <div>
-                <goat-button class="copy-btn icon-only test" size="sm" color={'success'} variant={'default'} aria-label="Copied code" title="Copied code" icon={'checkmark'}>
-                  Copied
-                </goat-button>
-              </div>
-            )}
-            {!this.hideCopy && this.copyState === 'idle' && (
+            {!this.hideCopy && this.copyState === 'idle' && !this.inline && (
               <goat-button
                 class="copy-btn icon-only"
                 size="sm"
@@ -297,6 +306,14 @@ export class CodeHighlighter implements ComponentInterface {
                 }}
               ></goat-button>
             )}
+            {!this.hideCopy && this.copyState === 'copied' && !this.inline && (
+              <div>
+                <goat-button class="copy-btn icon-only test" size="sm" color={'success'} variant={'default'} aria-label="Copied code" title="Copied code" icon={'checkmark'}>
+                  Copied
+                </goat-button>
+              </div>
+            )}
+            {!this.hideCopy && this.inline && <goat-tooltip id={'copy-to-clipboard-' + this.gid}>{copiedText}</goat-tooltip>}
           </div>
         )}
         {this.compiledCode === null && (

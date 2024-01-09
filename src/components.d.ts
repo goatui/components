@@ -356,6 +356,7 @@ export namespace Components {
     interface GoatCodeHighlighter {
         "format": boolean;
         "hideCopy": boolean;
+        "inline": boolean;
         "language": string;
         "lineNumbers": boolean;
         "value": string;
@@ -2699,6 +2700,7 @@ declare namespace LocalJSX {
     interface GoatCodeHighlighter {
         "format"?: boolean;
         "hideCopy"?: boolean;
+        "inline"?: boolean;
         "language"?: string;
         "lineNumbers"?: boolean;
         "value"?: string;

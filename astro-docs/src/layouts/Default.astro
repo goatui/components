@@ -59,7 +59,7 @@ const getTitle = (root?: boolean) => {
                 document.addEventListener('keydown', function(e) {
                   if (e.key === '/') {
                     e.preventDefault();
-                    search.isOpen = true;
+                    search.open = true;
                     setTimeout(() => {
                       search.setFocus();
                     }, 300);

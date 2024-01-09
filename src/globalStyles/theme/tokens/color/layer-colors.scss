@@ -1,0 +1,38 @@
+@import "base";
+
+/*
+ * Default page background;
+ * UI Shell base color
+ */
+@include defineVariable(--background, getColor(white, 0), getColor(gray, 100));
+
+@include defineVariable(--border-inverse, getColor(gray, 100), getColor(gray, 10));
+
+@include defineVariable(--background-inverse, getColor(gray, 80), getColor(gray, 10));
+
+/*
+ * Container color on $background;
+ * Secondary page background
+ */
+@include defineVariable(--layer-01, getColor(gray, 10), getColor(gray, 90));
+
+/*
+Container color on $layer-01
+ */
+@include defineVariable(--layer-02, getColor(white, 0), getColor(gray, 80));
+
+/*
+Container color on $layer-02
+ */
+@include defineVariable(--layer-03, getColor(gray, 10), getColor(gray, 70));
+/*
+Subtle border;
+Tertiary background
+ */
+@include defineVariable(--layer-accent-01, getColor(gray, 20), getColor(gray, 80));
+
+@include defineVariable(--layer-hover-01, #e8e8e8, #333333);
+
+@include defineVariable(--layer-accent-hover-01, getColor(gray, 20), getColor(gray, 80));
+@include defineVariable(--layer-accent-active-01, getColor(gray, 40), getColor(gray, 70));
+@include defineVariable(--layer-selected-hover-01, #cacaca, #4c4c4c);

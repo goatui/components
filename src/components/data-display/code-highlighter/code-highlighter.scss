@@ -31,12 +31,12 @@
     .line-numbers-wrapper {
       height: 100%;
       position: relative;
+      @include font-style(code-02);
 
       &.line-numbers {
         margin-left: 3.8rem;
       }
 
-      @include font-style(text-sm);
       .highlighter {
         margin: 0;
       }
@@ -55,6 +55,30 @@
   }
 }
 
+:host([inline]) {
+  display: inline;
+  height: initial;
+  .code-highlighter {
+    display: inline;
+    cursor: pointer;
+    padding-inline-end: 0;
+    .scroll-wrapper {
+      display: inline;
+      padding: 0 v(--spacing-03);
+      .line-numbers-wrapper {
+        font-size: inherit;
+        display: inline;
+        .highlighter {
+          display: inline;
+        }
+      }
+    }
+  }
+  .code-loader {
+    height: initial;
+    display: inline;
+  }
+}
 
 :host-context([data-theme="dark"]) .code-highlighter {
   background-color: var(--code-highlighter-background-dark, v(--color-purple-100));

@@ -1,4 +1,5 @@
 import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core';
+import { throttle } from '../../../utils/utils';
 
 const DEFAULT_CELL_WIDTH = 16; // in rem
 const SUPPORTED_PAGE_SIZES = [
@@ -121,9 +122,16 @@ export class Table {
     this.onSelectChange(selectedRowKeys);
   };
 
-  onCellMouseOver = (row: any, column: any) => {
-    this.hoveredCell = { row, column };
-  };
+  onCellMouseOver = throttle(
+    (row: any, column: any) => {
+      this.hoveredCell = { row, column };
+    },
+    30,
+    {
+      leading: true,
+      trailing: false,
+    },
+  );
 
   onSelectChange(selectedRowKeys: any) {
     this.selectedRowKeys = selectedRowKeys;
@@ -149,7 +157,7 @@ export class Table {
       fixedCols.push(
         <div class="col col-checkbox center">
           <div class="col-content">
-            <goat-checkbox class="checkbox light" value={this.isSelectAll} intermediate={this.isSelectAllIntermediate} onGoat:change={this.onSelectAllClick} />
+            <goat-checkbox class="checkbox bg-light" value={this.isSelectAll} intermediate={this.isSelectAllIntermediate} onGoat:change={this.onSelectAllClick} />
           </div>
         </div>,
       );
@@ -172,7 +180,9 @@ export class Table {
                 return (
                   <goat-button
                     icon={icon}
-                    class="col-action color-secondary"
+                    class="col-action"
+                    color="dark"
+                    dark-mode-color="light"
                     variant="ghost"
                     onClick={() => {
                       if (this.sortBy === col.name) {
@@ -230,7 +240,7 @@ export class Table {
         fixedCols.push(
           <div class={{ 'col': true, 'center': true, 'col-checkbox': true }}>
             <div class="col-content">
-              <goat-checkbox class="checkbox light" value={this.selectedRowKeys.includes(row[this.keyField])} onGoat:change={() => this.onRowSelectClick(row)} />
+              <goat-checkbox class="checkbox bg-light" value={this.selectedRowKeys.includes(row[this.keyField])} onGoat:change={() => this.onRowSelectClick(row)} />
             </div>
           </div>,
         );
@@ -243,7 +253,10 @@ export class Table {
             tabindex="1"
             class={{ 'col': true, 'col-hover': this.hoveredCell.row === row && this.hoveredCell.column === column }}
             style={{ width: colWidth + 'rem' }}
-            onMouseOver={() => this.onCellMouseOver(row, column)}
+            onMouseOver={() => {
+              //@ts-ignore
+              this.onCellMouseOver(row, column);
+            }}
             onKeyDown={event => {
               if ((event.ctrlKey || event.metaKey) && event.key === 'c') {
                 const elem: any = event.target;
@@ -318,6 +331,8 @@ export class Table {
                 <goat-button
                   icon="arrow--left"
                   class="arrows"
+                  color="dark"
+                  dark-mode-color="light"
                   variant="ghost"
                   disabled={this.page === 1}
                   onClick={() => {
@@ -327,6 +342,8 @@ export class Table {
                 />
                 <goat-button
                   icon="arrow--right"
+                  color="dark"
+                  dark-mode-color="light"
                   variant="ghost"
                   class="arrows"
                   disabled={this.pageSize * this.page >= this.getTotalItems()}

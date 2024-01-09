@@ -88,7 +88,4 @@ export const config: Config = {
     },
   ],
   plugins: [sass()],
-  testing: {
-    browserHeadless: 'new',
-  },
 };

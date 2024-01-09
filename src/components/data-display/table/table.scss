@@ -4,19 +4,15 @@
   display: block;
   height: 100%;
   min-height: 20em;
-  --table-border-color: #{v(--border-strong-01)};
+  --table-border-color: #{v(--border-subtle-selected-01)};
   --table-border: 1px solid var(--table-border-color);
-  --table-col-content-padding: #{v(--spacing-02)} #{v(--spacing-03)};
+  --table-col-content-padding: #{v(--spacing-04)} #{v(--spacing-05)};
 }
 
 .table {
   height: 100%;
-  border-inline-start: var(--table-border-inline-start, var(--table-border));
-  border-inline-end: var(--table-border-inline-end, var(--table-border));
-  border-top: var(--table-border-top, var(--table-border));
-  border-bottom: var(--table-border-bottom, var(--table-border));
 
-  @include font-style(text-md);
+  @include font-style(body-compact-01);
   display: flex;
   flex-direction: column;
 
@@ -34,13 +30,14 @@
   }
 
   .pagination {
+    background: v(--layer-01);
     display: flex;
     border-top: 1px solid var(--table-border-color);
 
     .form-control {
       margin: 0;
     }
-    
+
     .select {
       margin: 0;
       --input-border-radius: none;
@@ -147,11 +144,9 @@
 
 .header {
   z-index: v(--z-index-table-header);
-  font-weight: v(--font-weight-semi-bold);
-  text-transform: uppercase;
+  @include font-style(heading-compact-01);
   position: sticky;
   top: 0;
-  background: v(--layer-01);
 
 
   .left-panel {
@@ -161,11 +156,10 @@
   }
 
   .col {
-    background: v(--layer-01);
-    border-bottom: 1px solid var(--table-border-color);
+    background: v(--layer-accent-01);
 
     &.sort {
-      background: v(--active-ui);
+      background: v(--layer-selected-hover-01);
     }
   }
 }
@@ -173,18 +167,18 @@
 .body {
 
   .row {
-    &:hover {
-      background-color: v(--hover-ui);
 
+
+    &:hover {
       .col {
-        background-color: v(--hover-ui);
+        background-color: v(--layer-hover-01);
       }
     }
 
     .col {
       cursor: pointer;
-      background: v(--background);
-      border-bottom: 1px solid var(--layer-accent-01);
+      background: v(--layer-01);
+      border-bottom: 1px solid v(--layer-accent-01);
 
       &.col-checkbox .col-content {
         border: 0;
