@@ -19,16 +19,17 @@
 
 .code-highlighter {
   position: relative;
-  padding-inline-end: 3rem;
   height: 100%;
   background-color: var(--code-highlighter-background, v(--color-purple-10));
   color: v(--text-primary);
   .scroll-wrapper {
     height: 100%;
     overflow-y: auto;
-    padding: v(--spacing-05);
 
     .line-numbers-wrapper {
+      display: inline-block;
+      padding: v(--spacing-05);
+      padding-inline-end: 3rem;
       height: 100%;
       position: relative;
       @include font-style(code-02);
@@ -61,11 +62,10 @@
   .code-highlighter {
     display: inline;
     cursor: pointer;
-    padding-inline-end: 0;
     .scroll-wrapper {
       display: inline;
-      padding: 0 v(--spacing-03);
       .line-numbers-wrapper {
+        padding: 0 v(--spacing-03);
         font-size: inherit;
         display: inline;
         .highlighter {
