@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, h, Prop } from '@stencil/core';
-import { addDays, addHours, differenceInDays, endOfDay, format, isEqual, startOfDay } from 'date-fns';
+import { addDays, addHours, differenceInDays, endOfDay, format, startOfDay } from 'date-fns';
 import { calculateDateRange } from './utils';
 import ColumnEventManager from './ColumnEventManager';
 import { BaseEvent } from '../event-management/BaseEvent';
@@ -47,9 +47,11 @@ export class CalendarColumnView implements ComponentInterface {
       this.singleDayEvents[this.#getDateOnly(i)] = manager.columns;
     });
     const manager = new ColumnEventManager();
-    manager.addEvents(this.events.filter(event => {
-      return event.isOverlapping(new BaseEvent(this.dateRange.startDate, this.dateRange.endDate)) && event.length() >= 86400000
-    }));
+    manager.addEvents(
+      this.events.filter(event => {
+        return event.isOverlapping(new BaseEvent(this.dateRange.startDate, this.dateRange.endDate)) && event.length() >= 86400000;
+      }),
+    );
     manager.process();
     this.multiDayEvents = manager.columns;
   }
@@ -60,7 +62,7 @@ export class CalendarColumnView implements ComponentInterface {
     }
   }
 
-  #getDateOnly(date) {
+  #getDateOnly(date: Date) {
     return format(date, 'dd-MM-yyyy');
   }
 
@@ -78,7 +80,7 @@ export class CalendarColumnView implements ComponentInterface {
       const diff = differenceInDays(startOfDay(i), startOfDay(this.currentTime));
       if (diff === 0) cls.push('today');
       else if (diff < 0) cls.push('past');
-      else if (diff < 0) cls.push('future');
+      else if (diff > 0) cls.push('future');
 
       columns.push(
         <div class={cls.join(' ')}>
@@ -101,7 +103,7 @@ export class CalendarColumnView implements ComponentInterface {
       const diff = differenceInDays(startOfDay(i), startOfDay(this.currentTime));
       if (diff === 0) cls.push('today');
       else if (diff < 0) cls.push('past');
-      else if (diff < 0) cls.push('future');
+      else if (diff > 0) cls.push('future');
 
       columns.push(<div class={cls.join(' ')}></div>);
     }
@@ -133,7 +135,10 @@ export class CalendarColumnView implements ComponentInterface {
     const columns = [];
     for (let i = new Date(this.dateRange.startDate), j = 0; differenceInDays(startOfDay(this.dateRange.endDate), i) >= 0; i = addDays(i, 1), j++) {
       const cls = ['column'];
-      if (isEqual(startOfDay(i), startOfDay(this.currentTime))) cls.push('active');
+      const diff = differenceInDays(startOfDay(i), startOfDay(this.currentTime));
+      if (diff === 0) cls.push('today');
+      else if (diff < 0) cls.push('past');
+      else if (diff > 0) cls.push('future');
       columns.push(
         <div class={cls.join(' ')}>
           <div class="column-content">
@@ -146,6 +151,20 @@ export class CalendarColumnView implements ComponentInterface {
                   return nodes.map(node => {
                     const cls = ['event'];
                     if (this.eventClickable) cls.push('clickable');
+                    const eventColors = {
+                      top: `${this.getTimePercent(node.start, startOfDay(i))}%`,
+                      height: `${this.getTimePercent(node.end, startOfDay(i)) - this.getTimePercent(node.start, startOfDay(i))}%`,
+                      left: `${(columnIndex / columnsLength) * 100}%`,
+                      width: `calc(${((1 * node.width) / columnsLength) * 100}% - 1px)`,
+                    };
+                    if (node.color) {
+                      eventColors['--calendar-event-bg-color'] = `var(--color-${node.color}-20)`;
+                      eventColors['--calendar-event-bg-color--hover'] = `var(--color-${node.color}-40)`;
+                      eventColors['--calendar-event-border-color'] = `var(--color-${node.color})`;
+                      eventColors['--calendar-event-dark-bg-color'] = `var(--color-${node.color}-90)`;
+                      eventColors['--calendar-event-dark-bg-color--hover'] = `var(--color-${node.color}-70)`;
+                      eventColors['--calendar-event-dark-border-color'] = `var(--color-${node.color})-70`;
+                    }
                     return (
                       <div
                         class={cls.join(' ')}
@@ -154,12 +173,7 @@ export class CalendarColumnView implements ComponentInterface {
                             this.goatColumnViewEventClick.emit({ event: node.data });
                           }
                         }}
-                        style={{
-                          top: `${this.getTimePercent(node.start, startOfDay(i))}%`,
-                          height: `${this.getTimePercent(node.end, startOfDay(i)) - this.getTimePercent(node.start, startOfDay(i))}%`,
-                          left: `${(columnIndex / columnsLength) * 100}%`,
-                          width: `calc(${((1 * node.width) / columnsLength) * 100}% - 1px)`,
-                        }}
+                        style={eventColors}
                       >
                         <div class="event-title">{node.title || '(no title)'}</div>
                       </div>
@@ -180,7 +194,7 @@ export class CalendarColumnView implements ComponentInterface {
     if (eventDay && eventDay.length) {
       return (
         <div class="row-content">
-          {eventDay.map((nodes) => {
+          {eventDay.map(nodes => {
             return (
               <div class="row">
                 {nodes.map(node => {
@@ -272,7 +286,7 @@ export class CalendarColumnView implements ComponentInterface {
           <div class="view-body-scroll">
             <div class="scale">{this.renderScale()}</div>
             <div class="drawing-area">
-              <goat-calendar-column-view-background columns={this.dateRange.totalDays} />
+              <goat-calendar-column-view-background dateRange={this.dateRange} currentTime={this.currentTime} />
               {this.renderEvents()}
             </div>
             {this.renderCurrentTime()}

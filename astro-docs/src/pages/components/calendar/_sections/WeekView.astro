@@ -3,12 +3,9 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
 ---
 
 <HighlighterCard lang={'html'}>
-  <goat-calendar id='calendar' view='month' style='height: 800px'></goat-calendar>
+  <goat-calendar id='week-calendar' view='week' style='height: 800px'></goat-calendar>
   <script is:inline>
-    const $calendar = document.getElementById('calendar');
-
-    const todayStartOfDay = new Date();
-    todayStartOfDay.setHours(0, 0, 0, 0);
+    const $weekCalendar = document.getElementById('week-calendar');
 
     function addDays(date, days) {
       var result = new Date(date);
@@ -22,11 +19,11 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
       return result;
     }
 
-    $calendar.events = [
+    $weekCalendar.events = [
       {
         start: addHours(todayStartOfDay, 2),
         end: addHours(todayStartOfDay, 4),
-        title: 'Event 1'
+        title: 'Event 1',
       },
       {
         start: addHours(todayStartOfDay, 3),
@@ -38,26 +35,6 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
         start: addHours(todayStartOfDay, 5),
         end: addHours(todayStartOfDay, 7),
         title: 'Event 3',
-      },
-      {
-        start: addHours(todayStartOfDay, 9),
-        end: addHours(todayStartOfDay, 10.5),
-        title: 'Event 4',
-      },
-      {
-        start: addHours(todayStartOfDay, 9),
-        end: addHours(todayStartOfDay, 10.5),
-        title: 'Event 4',
-      },
-      {
-        start: addHours(todayStartOfDay, 9),
-        end: addHours(todayStartOfDay, 10.5),
-        title: 'Event 4',
-      },
-      {
-        start: addHours(todayStartOfDay, 9),
-        end: addHours(todayStartOfDay, 10.5),
-        title: 'Event 4',
       },
       {
         start: addHours(todayStartOfDay, 9),
@@ -82,7 +59,7 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
     ];
 
     // Events
-    $calendar.addEventListener('goat:calendar-event-click', function(evt) {
+    $weekCalendar.addEventListener('goat:calendar-event-click', function(evt) {
       myConsole.log(JSON.stringify(evt.detail, null, 4));
     });
   </script>

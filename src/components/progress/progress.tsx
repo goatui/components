@@ -14,10 +14,13 @@ import { Component, h, Host, Prop } from '@stencil/core';
 })
 export class Progress {
   /*
-   * The progress value.
+   * The current value.
    */
   @Prop() value: number = null;
 
+  /**
+   * A label describing the progress bar.
+   */
   @Prop() label: string;
 
   @Prop() helperText: string;
@@ -51,10 +54,12 @@ export class Progress {
             indeterminate: this.value === null && this.status === 'active',
           }}
         >
-          {!this.hideLabel && <div class="progress-header">
-            <label class="progress-label">{this.label}</label>
-            {this.getRenderIcon()}
-          </div>}
+          {!this.hideLabel && (
+            <div class="progress-header">
+              <label class="progress-label">{this.label}</label>
+              {this.getRenderIcon()}
+            </div>
+          )}
           <div class="progress-track">
             <div class="progress-bar" role="progressbar" style={{ width: `${this.value}%` }} aria-valuenow={this.value} aria-valuemin="0" aria-valuemax="100"></div>
           </div>

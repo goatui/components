@@ -1,6 +1,7 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Listen, Method, Prop, State, Watch } from '@stencil/core';
 import { debounceEvent, getComponentIndex, throttle } from '../../../utils/utils';
 import { computePosition, flip, offset, size } from '@floating-ui/dom';
+import { GoatMenuItemCustomEvent, GoatTagCustomEvent } from '../../../components';
 
 /**
  * @name Select
@@ -162,7 +163,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
   }
 
   @Listen('goat:menu-item-click')
-  menuItemClick(evt) {
+  menuItemClick(evt: GoatMenuItemCustomEvent<any>) {
     this.selectHandler(evt.detail.value);
   }
 
@@ -182,7 +183,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
   private displayElement?: HTMLElement;
 
   @Listen('goat:tag-dismiss')
-  tagDismissClick(evt) {
+  tagDismissClick(evt: GoatTagCustomEvent<any>) {
     this.removeItem(evt.detail.value);
   }
 

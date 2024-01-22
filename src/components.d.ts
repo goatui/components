@@ -5,6 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { CalendarViewType, EventType } from "./components/calendar/calendar/types";
+export { CalendarViewType, EventType } from "./components/calendar/calendar/types";
 export namespace Components {
     /**
      * @name Accordion
@@ -179,15 +181,15 @@ export namespace Components {
      * @imgDark /assets/img/calendar-dark.png
      */
     interface GoatCalendar {
-        "availableViews": any;
-        "contextDate": any;
+        "availableViews": CalendarViewType[];
+        "contextDate": Date;
         "eventClickable": boolean;
-        "events": any[];
+        "events": EventType[];
         /**
           * Show loader.
          */
         "showLoader": boolean;
-        "timezone": any;
+        "timezone": string;
         "view": string;
     }
     interface GoatCalendarColumnView {
@@ -199,7 +201,8 @@ export namespace Components {
         "view": string;
     }
     interface GoatCalendarColumnViewBackground {
-        "columns": number;
+        "currentTime": Date;
+        "dateRange": any;
     }
     interface GoatCalendarMonthView {
         "contextDate": Date;
@@ -885,6 +888,9 @@ export namespace Components {
     interface GoatProgress {
         "helperText": string;
         "hideLabel": boolean;
+        /**
+          * A label describing the progress bar.
+         */
         "label": string;
         /**
           * Possible values are: `"sm"` and `"md"` in pixel. Defaults to `"md"`.
@@ -2521,16 +2527,16 @@ declare namespace LocalJSX {
      * @imgDark /assets/img/calendar-dark.png
      */
     interface GoatCalendar {
-        "availableViews"?: any;
-        "contextDate"?: any;
+        "availableViews"?: CalendarViewType[];
+        "contextDate"?: Date;
         "eventClickable"?: boolean;
-        "events"?: any[];
+        "events"?: EventType[];
         "onGoat:calendar-event-click"?: (event: GoatCalendarCustomEvent<any>) => void;
         /**
           * Show loader.
          */
         "showLoader"?: boolean;
-        "timezone"?: any;
+        "timezone"?: string;
         "view"?: string;
     }
     interface GoatCalendarColumnView {
@@ -2544,7 +2550,8 @@ declare namespace LocalJSX {
         "view"?: string;
     }
     interface GoatCalendarColumnViewBackground {
-        "columns"?: number;
+        "currentTime"?: Date;
+        "dateRange"?: any;
     }
     interface GoatCalendarMonthView {
         "contextDate"?: Date;
@@ -3242,6 +3249,9 @@ declare namespace LocalJSX {
     interface GoatProgress {
         "helperText"?: string;
         "hideLabel"?: boolean;
+        /**
+          * A label describing the progress bar.
+         */
         "label"?: string;
         /**
           * Possible values are: `"sm"` and `"md"` in pixel. Defaults to `"md"`.

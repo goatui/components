@@ -75,7 +75,7 @@
       background: v(--support-success);
     }
     .progress-icon {
-      --icon-color: v(--support-success);
+      --icon-color: #{v(--support-success)};
     }
   }
 
@@ -84,7 +84,7 @@
       background: v(--support-error);
     }
     .progress-icon {
-      --icon-color: v(--support-error);
+      --icon-color: #{v(--support-error)};
     }
   }
 

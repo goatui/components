@@ -1,6 +1,5 @@
 import { endOfMonth, endOfWeek, startOfMonth, startOfWeek } from 'date-fns/esm';
 
-
 /**
  * Calculates start and end dates of month in a calendar.
  * @param date Context date for which range need to calculated.
@@ -28,6 +27,3 @@ export function calculateWeekRange(date, weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6
     totalDays: 7,
   };
 }
-
-
-

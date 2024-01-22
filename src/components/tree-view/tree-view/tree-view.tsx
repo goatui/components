@@ -1,4 +1,5 @@
 import { Component, ComponentInterface, Element, h, Listen, Method, Prop, State, Watch } from '@stencil/core';
+import { GoatTreeNodeCustomEvent } from '../../../components';
 
 /**
  * @name TreeView
@@ -25,7 +26,7 @@ export class TreeView implements ComponentInterface {
   @State()
   internalEmptyState: any;
 
-  @Prop({mutable: true})
+  @Prop({ mutable: true })
   selectedNode: string;
 
   @Watch('emptyState')
@@ -38,7 +39,7 @@ export class TreeView implements ComponentInterface {
   }
 
   @Listen('goat:tree-node-click')
-  treeNodeClick(evt) {
+  treeNodeClick(evt: GoatTreeNodeCustomEvent<any>) {
     this.selectedNode = evt.detail.id;
     this.subscribers.forEach(cb => cb(evt.detail.value));
   }

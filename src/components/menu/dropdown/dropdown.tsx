@@ -29,7 +29,7 @@ export class Dropdown implements ComponentInterface {
    */
   @Prop() disabled: boolean = false;
 
-  @Prop() placements: string = 'bottom-start,top-start,bottom-end,top-end';
+  @Prop({ reflect: true }) placements: string = 'bottom-start,top-start,bottom-end,top-end';
 
   @Element() elm!: HTMLElement;
 

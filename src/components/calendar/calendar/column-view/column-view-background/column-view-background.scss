@@ -2,9 +2,6 @@
 
 :host {
   display: block;
-  --calendar-border-color: #{v(--border-strong-01)};
-  --scale-size: 3rem;
-  --scale-color: #{v(--text-placeholder)}
 }
 
 .background {
@@ -24,6 +21,16 @@
     .column {
       flex: 1;
       border-right: 1px solid v(--scale-color);
+    }
+  }
+}
+
+.column {
+  &.today {
+    background: v(--field-01);
+
+    .column-header {
+      border-top-color: v(--color-secondary);
     }
   }
 }
