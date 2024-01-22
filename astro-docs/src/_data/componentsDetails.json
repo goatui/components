@@ -1,8 +1,8 @@
 {
-  "timestamp": "2024-01-09T08:47:08",
+  "timestamp": "2024-01-10T07:10:18",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.4.0",
+    "version": "4.9.1",
     "typescriptVersion": "5.2.2"
   },
   "components": [
@@ -1514,21 +1514,26 @@
       "props": [
         {
           "name": "availableViews",
-          "type": "any",
+          "type": "CalendarViewType[]",
           "complexType": {
-            "original": "any",
-            "resolved": "any",
-            "references": {}
+            "original": "CalendarViewType[]",
+            "resolved": "CalendarViewType[]",
+            "references": {
+              "CalendarViewType": {
+                "location": "import",
+                "path": "./types",
+                "id": "src/components/calendar/calendar/types.tsx::CalendarViewType"
+              }
+            }
           },
           "mutable": false,
-          "attr": "available-views",
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "[\n    { label: 'Day', value: 'day', type: 'column', days: 1 },\n    {\n      label: 'Week',\n      value: 'week',\n      type: 'column',\n      days: 7,\n    },\n    {\n      label: 'Month',\n      value: 'month',\n      type: 'month',\n    },\n  ]",
+          "default": "[\n    {\n      label: 'Day',\n      value: 'day',\n      type: 'column',\n      days: 1,\n    },\n    {\n      label: 'Week',\n      value: 'week',\n      type: 'column',\n      days: 7,\n    },\n    {\n      label: 'Month',\n      value: 'month',\n      type: 'month',\n    },\n  ]",
           "values": [
             {
-              "type": "any"
+              "type": "CalendarViewType[]"
             }
           ],
           "optional": false,
@@ -1536,20 +1541,24 @@
         },
         {
           "name": "contextDate",
-          "type": "any",
+          "type": "Date",
           "complexType": {
-            "original": "any",
-            "resolved": "any",
-            "references": {}
+            "original": "Date",
+            "resolved": "Date",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
           },
           "mutable": true,
-          "attr": "context-date",
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
           "values": [
             {
-              "type": "any"
+              "type": "Date"
             }
           ],
           "optional": false,
@@ -1579,11 +1588,17 @@
         },
         {
           "name": "events",
-          "type": "any[]",
+          "type": "EventType[]",
           "complexType": {
-            "original": "any[]",
-            "resolved": "any[]",
-            "references": {}
+            "original": "EventType[]",
+            "resolved": "EventType[]",
+            "references": {
+              "EventType": {
+                "location": "import",
+                "path": "./types",
+                "id": "src/components/calendar/calendar/types.tsx::EventType"
+              }
+            }
           },
           "mutable": false,
           "reflectToAttr": false,
@@ -1592,7 +1607,7 @@
           "default": "[]",
           "values": [
             {
-              "type": "any[]"
+              "type": "EventType[]"
             }
           ],
           "optional": false,
@@ -1622,10 +1637,10 @@
         },
         {
           "name": "timezone",
-          "type": "any",
+          "type": "string",
           "complexType": {
-            "original": "any",
-            "resolved": "any",
+            "original": "string",
+            "resolved": "string",
             "references": {}
           },
           "mutable": false,
@@ -1635,7 +1650,7 @@
           "docsTags": [],
           "values": [
             {
-              "type": "any"
+              "type": "string"
             }
           ],
           "optional": false,
@@ -4770,7 +4785,7 @@
           },
           "mutable": false,
           "attr": "placements",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
           "default": "'bottom-start,top-start,bottom-end,top-end'",
@@ -11981,7 +11996,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
+          "text": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
         }
       ],
       "encapsulation": "shadow",
@@ -12008,7 +12023,7 @@
         "tags": [
           "navigation"
         ],
-        "example": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
+        "example": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
       }
     },
     {
@@ -14674,8 +14689,9 @@
             "signature": "(cb: any) => Promise<void>",
             "parameters": [
               {
-                "tags": [],
-                "text": ""
+                "name": "cb",
+                "type": "any",
+                "docs": ""
               }
             ],
             "references": {
@@ -14687,7 +14703,13 @@
             "return": "Promise<void>"
           },
           "signature": "subscribeToSelect(cb: any) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "cb",
+              "type": "any",
+              "docs": ""
+            }
+          ],
           "docs": "",
           "docsTags": []
         }
@@ -14718,7 +14740,18 @@
       }
     }
   ],
-  "typeLibrary": {},
+  "typeLibrary": {
+    "src/components/calendar/calendar/types.tsx::EventType": {
+      "declaration": "{\n  start: Date;\n  end: Date;\n  title: string;\n  [key: string]: any;\n}",
+      "docstring": "",
+      "path": "src/components/calendar/calendar/types.tsx"
+    },
+    "src/components/calendar/calendar/types.tsx::CalendarViewType": {
+      "declaration": "{\n  label: string;\n  value: string;\n  type: string;\n  days?: number;\n}",
+      "docstring": "",
+      "path": "src/components/calendar/calendar/types.tsx"
+    }
+  },
   "categories": [
     {
       "name": "Others",
@@ -16232,7 +16265,7 @@
               },
               "mutable": false,
               "attr": "placements",
-              "reflectToAttr": false,
+              "reflectToAttr": true,
               "docs": "",
               "docsTags": [],
               "default": "'bottom-start,top-start,bottom-end,top-end'",
@@ -16868,7 +16901,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
+              "text": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
             }
           ],
           "encapsulation": "shadow",
@@ -16895,7 +16928,7 @@
             "tags": [
               "navigation"
             ],
-            "example": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
+            "example": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
           }
         },
         {
@@ -17068,8 +17101,9 @@
                 "signature": "(cb: any) => Promise<void>",
                 "parameters": [
                   {
-                    "tags": [],
-                    "text": ""
+                    "name": "cb",
+                    "type": "any",
+                    "docs": ""
                   }
                 ],
                 "references": {
@@ -17081,7 +17115,13 @@
                 "return": "Promise<void>"
               },
               "signature": "subscribeToSelect(cb: any) => Promise<void>",
-              "parameters": [],
+              "parameters": [
+                {
+                  "name": "cb",
+                  "type": "any",
+                  "docs": ""
+                }
+              ],
               "docs": "",
               "docsTags": []
             }
@@ -23011,21 +23051,26 @@
           "props": [
             {
               "name": "availableViews",
-              "type": "any",
+              "type": "CalendarViewType[]",
               "complexType": {
-                "original": "any",
-                "resolved": "any",
-                "references": {}
+                "original": "CalendarViewType[]",
+                "resolved": "CalendarViewType[]",
+                "references": {
+                  "CalendarViewType": {
+                    "location": "import",
+                    "path": "./types",
+                    "id": "src/components/calendar/calendar/types.tsx::CalendarViewType"
+                  }
+                }
               },
               "mutable": false,
-              "attr": "available-views",
               "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
-              "default": "[\n    { label: 'Day', value: 'day', type: 'column', days: 1 },\n    {\n      label: 'Week',\n      value: 'week',\n      type: 'column',\n      days: 7,\n    },\n    {\n      label: 'Month',\n      value: 'month',\n      type: 'month',\n    },\n  ]",
+              "default": "[\n    {\n      label: 'Day',\n      value: 'day',\n      type: 'column',\n      days: 1,\n    },\n    {\n      label: 'Week',\n      value: 'week',\n      type: 'column',\n      days: 7,\n    },\n    {\n      label: 'Month',\n      value: 'month',\n      type: 'month',\n    },\n  ]",
               "values": [
                 {
-                  "type": "any"
+                  "type": "CalendarViewType[]"
                 }
               ],
               "optional": false,
@@ -23033,20 +23078,24 @@
             },
             {
               "name": "contextDate",
-              "type": "any",
+              "type": "Date",
               "complexType": {
-                "original": "any",
-                "resolved": "any",
-                "references": {}
+                "original": "Date",
+                "resolved": "Date",
+                "references": {
+                  "Date": {
+                    "location": "global",
+                    "id": "global::Date"
+                  }
+                }
               },
               "mutable": true,
-              "attr": "context-date",
               "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
               "values": [
                 {
-                  "type": "any"
+                  "type": "Date"
                 }
               ],
               "optional": false,
@@ -23076,11 +23125,17 @@
             },
             {
               "name": "events",
-              "type": "any[]",
+              "type": "EventType[]",
               "complexType": {
-                "original": "any[]",
-                "resolved": "any[]",
-                "references": {}
+                "original": "EventType[]",
+                "resolved": "EventType[]",
+                "references": {
+                  "EventType": {
+                    "location": "import",
+                    "path": "./types",
+                    "id": "src/components/calendar/calendar/types.tsx::EventType"
+                  }
+                }
               },
               "mutable": false,
               "reflectToAttr": false,
@@ -23089,7 +23144,7 @@
               "default": "[]",
               "values": [
                 {
-                  "type": "any[]"
+                  "type": "EventType[]"
                 }
               ],
               "optional": false,
@@ -23119,10 +23174,10 @@
             },
             {
               "name": "timezone",
-              "type": "any",
+              "type": "string",
               "complexType": {
-                "original": "any",
-                "resolved": "any",
+                "original": "string",
+                "resolved": "string",
                 "references": {}
               },
               "mutable": false,
@@ -23132,7 +23187,7 @@
               "docsTags": [],
               "values": [
                 {
-                  "type": "any"
+                  "type": "string"
                 }
               ],
               "optional": false,

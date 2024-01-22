@@ -1,4 +1,5 @@
 import { Component, Element, h, Host, Listen, Prop } from '@stencil/core';
+import { GoatAccordionItemCustomEvent } from '../../../components';
 
 /**
  * @name Accordion
@@ -32,7 +33,7 @@ export class Accordion {
   @Element() elm!: HTMLElement;
 
   @Listen('goat:accordion-item-click')
-  accordionItemClick(evt) {
+  accordionItemClick(evt: GoatAccordionItemCustomEvent<any>) {
     if (!this.multiple) {
       const accordionItems = this.elm.querySelectorAll('goat-accordion-item');
       accordionItems.forEach(item => {

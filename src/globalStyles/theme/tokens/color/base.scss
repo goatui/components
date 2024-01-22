@@ -16,6 +16,18 @@ $colors: (
     90: #001d6c,
     100: #001141,
   ),
+  blue-hover: (
+    10: #dbebff,
+    20: #b8d3ff,
+    30: #8ab6ff,
+    40: #5c97ff,
+    50: #1f70ff,
+    60: #0050e6,
+    70: #0053ff,
+    80: #0039c7,
+    90: #00258a,
+    100: #001f75,
+  ),
   cool-gray: (
     10: #f2f4f8,
     20: #dde1e6,
@@ -224,6 +236,7 @@ $colors: (
  */
 @include cloneColor(neutral, gray);
 @include cloneColor(primary, blue);
+@include cloneColor(primary-hover, blue-hover);
 @include cloneColor(secondary, warmGray);
 
 /*

@@ -3,9 +3,9 @@
 :host {
   display: block;
   height: 100%;
-  --calendar-border-color: #{v(--border-strong-01)};
-  --scale-size: 3rem;
-  --scale-color: #{v(--text-placeholder)}
+  --calendar-border-color: #{v(--field-01)};
+  --scale-size: 4rem;
+  --scale-color: #{v(--layer-accent-01)}
 }
 
 .scale {
@@ -18,12 +18,8 @@
   height: 100%;
 
   .view-header {
-    border-top: 1px solid v(--border-strong-01);
     display: flex;
-
-    .scale {
-      border-right: 1px solid v(--scale-color);
-    }
+    background: v(--layer-accent-01);
 
     .columns {
       display: flex;
@@ -31,7 +27,7 @@
 
       .column {
         flex: 1;
-        border-right: 1px solid v(--scale-color);
+        border-inline-start: 1px solid v(--calendar-border-color);
 
 
         .column-content {
@@ -53,18 +49,19 @@
         }
 
         .date {
-          font-size: 2rem;
+          font-size: 1.5rem;
           cursor: pointer;
           border-radius: 100%;
           padding: 0.5rem;
-
-          &:hover {
-            background: v(--color-primary-30);
-          }
+          width: 3rem;
+          height: 3rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .day {
-          font-size: 1rem;
+          @include font-style(heading-compact-01);
         }
       }
     }
@@ -75,7 +72,7 @@
   }
 
   .multi-day-section-wrapper {
-    border-bottom: 1px solid v(--scale-color);
+    background: v(--layer-accent-01);
 
     .multi-day-section-scroll {
       overflow-y: scroll;
@@ -90,17 +87,13 @@
           position: absolute;
           width: 100%;
 
-          .scale {
-            border-right: 1px solid v(--scale-color);
-          }
-
           .columns {
             display: flex;
             flex: 1;
 
             .column {
               flex: 1;
-              border-right: 1px solid v(--scale-color);
+              border-inline-start: 1px solid v(--calendar-border-color);
             }
           }
         }
@@ -114,6 +107,7 @@
             box-sizing: content-box;
             position: relative;
             padding-bottom: .5rem;
+
             &:last-child {
               padding-bottom: 0;
             }
@@ -124,31 +118,14 @@
           }
 
           .event {
-            background: v(--color-primary-20);
-            border-left: .35rem solid v(--color-primary);
-            border-radius: 3px;
             position: absolute;
             height: 1.8rem;
             text-overflow: ellipsis;
             overflow: hidden;
-
-            .event-title {
-              padding: 0.25rem;
-              @include font-style(body-01);
-            }
-
-            &.clickable {
-              cursor: pointer;
-
-              &:hover {
-                background: v(--color-primary-30);
-              }
-            }
           }
         }
       }
     }
-
   }
 
   .view-body {
@@ -162,6 +139,10 @@
 
       .scale {
         border-right: 1px solid v(--scale-color);
+
+        .background {
+          border-inline-start: 1rem;
+        }
 
         .row {
           width: 0;
@@ -208,22 +189,7 @@
             }
 
             .event {
-              background: v(--color-primary-20);
-              border-left: .35rem solid v(--color-primary);
-              border-radius: 3px;
               position: absolute;
-
-              .event-title {
-                padding: 0.25rem;
-              }
-
-              &.clickable {
-                cursor: pointer;
-
-                &:hover {
-                  background: v(--color-primary-30);
-                }
-              }
             }
           }
         }
@@ -272,4 +238,59 @@
       }
     }
   }
+}
+
+
+
+/*
+ * Common color styles for event
+ */
+.calendar-column-view {
+  .date {
+    &:hover {
+      background: v(--color-brand-primary-10);
+    }
+  }
+}
+
+.event {
+  background: var(--calendar-event-bg-color);
+  border-inline-start: .35rem solid var(--calendar-event-border-color);
+
+  .event-title {
+    padding: 0.25rem;
+    @include font-style(body-01);
+  }
+
+  &.clickable {
+    cursor: pointer;
+
+    &:hover {
+      background: v(--calendar-event-bg-color--hover);
+    }
+  }
+}
+
+
+
+:host-context([data-theme="dark"]) {
+
+  .calendar-column-view {
+    .date {
+      &:hover {
+        background: v(--color-brand-primary-90);
+      }
+    }
+  }
+
+
+  .event {
+    background: v(--calendar-event-dark-bg-color);
+    &.clickable {
+      &:hover {
+        background: v(--calendar-event-dark-bg-color--hover);
+      }
+    }
+  }
+
 }

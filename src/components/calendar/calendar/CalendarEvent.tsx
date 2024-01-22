@@ -1,11 +1,13 @@
-import {BaseEvent} from './event-management/BaseEvent';
+import { BaseEvent } from './event-management/BaseEvent';
 
-export  class CalendarEvent extends BaseEvent {
+export class CalendarEvent extends BaseEvent {
   data: any;
   title: string;
-  constructor(start: Date, end: Date, title: string, data) {
+  color?: string;
+  constructor(start: Date, end: Date, title: string, color: string, data: any) {
     super(start, end);
     this.data = data;
+    if (color) this.color = color;
     this.title = title;
   }
 }

@@ -34,7 +34,7 @@ export class EmptyState implements ComponentInterface {
 
   @Listen('resize', { target: 'window' })
   resizeHandler() {
-    this.vertical = this.elm.clientWidth < 768;
+    //this.vertical = this.elm.clientWidth < 768;
   }
 
   async componentWillLoad() {}
@@ -47,19 +47,21 @@ export class EmptyState implements ComponentInterface {
     return (
       <Host>
         <div class={{ 'empty-state': true, 'vertical': this.vertical }}>
-          <div class="illustration">
-            <goat-svg src={getAssetPath(`./assets/images/empty-state/${this.illustration}.svg`)} />
-          </div>
+          <div class="empty-state-container">
+            <div class="illustration">
+              <goat-svg src={getAssetPath(`./assets/images/empty-state/${this.illustration}.svg`)} />
+            </div>
 
-          <div class="content">
-            {this.headline && <div class="title">{this.headline}</div>}
-            {this.description && <div class="description" innerHTML={DOMPurify.sanitize(this.description)} />}
-            <div class="actions">
-              {this.action && (
-                <goat-button href={this.actionUrl} icon={'arrow--right'} disabled={this.actionDisabled} variant={this.actionVariant}>
-                  {this.action}
-                </goat-button>
-              )}
+            <div class="content">
+              {this.headline && <div class="title">{this.headline}</div>}
+              {this.description && <div class="description" innerHTML={DOMPurify.sanitize(this.description)} />}
+              <div class="actions">
+                {this.action && (
+                  <goat-button href={this.actionUrl} icon={'arrow--right'} disabled={this.actionDisabled} variant={this.actionVariant}>
+                    {this.action}
+                  </goat-button>
+                )}
+              </div>
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { Component, ComponentInterface, Element, h, Host, Listen } from '@stencil/core';
 import { getComponentIndex } from '../../../utils/utils';
+import { GoatTabCustomEvent } from '../../../components';
 
 /**
  * @name Tabs
@@ -23,7 +24,7 @@ export class Tabs implements ComponentInterface {
   @Element() elm!: HTMLElement;
 
   @Listen('goat:tab-click')
-  tabClick(evt) {
+  tabClick(evt: GoatTabCustomEvent<any>) {
     evt.stopPropagation();
     if (evt.detail.target) {
       this.selectTab(evt.detail.target);

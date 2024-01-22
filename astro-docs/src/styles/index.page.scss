@@ -169,6 +169,9 @@ goat-text[type='code'] {
   .social-icons {
     justify-content: center;
     padding-bottom: 1rem;
+    display: flex;
+    gap: .5rem;
+    --button-color: var(--text-primary);
   }
   .made-in-india {
     justify-content: center;

@@ -1,3 +1,5 @@
+import { endOfDay, startOfDay } from 'date-fns';
+
 export class BaseEvent {
   gid: string;
 
@@ -19,6 +21,13 @@ export class BaseEvent {
     let totalLength = null;
     if (this.start.valueOf() <= event.start.valueOf()) totalLength = event.end.valueOf() - this.start.valueOf();
     else totalLength = this.end.valueOf() - event.start.valueOf();
+    return this.length() + event.length() >= totalLength;
+  }
+
+  isOverlappingWithoutTime(event: BaseEvent) {
+    let totalLength = null;
+    if (startOfDay(this.start).valueOf() <= startOfDay(event.start).valueOf()) totalLength = endOfDay(event.end).valueOf() - startOfDay(this.start).valueOf();
+    else totalLength = endOfDay(this.end).valueOf() - startOfDay(event.start).valueOf();
     return this.length() + event.length() >= totalLength;
   }
 

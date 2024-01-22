@@ -5,12 +5,16 @@ import ApiPanel from '../../../components/ApiPanel.astro';
 const componentDetails = getComponentDetails('goat-calendar');
 
 import UsageSection from './_sections/Usage.astro';
+import WeekViewSection from './_sections/WeekView.astro';
 import OverviewPanel from '../../../components/OverviewPanel.astro';
 
 const sections = [
   {
     'title': 'Usage',
     'Component': UsageSection,
+  }, {
+    'title': 'Week view',
+    'Component': WeekViewSection,
   }];
 ---
 <Layout componentDetails={componentDetails}>
