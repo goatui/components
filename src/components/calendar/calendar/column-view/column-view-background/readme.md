@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type     | Default |
-| --------- | --------- | ----------- | -------- | ------- |
-| `columns` | `columns` |             | `number` | `1`     |
+| Property      | Attribute    | Description | Type   | Default     |
+| ------------- | ------------ | ----------- | ------ | ----------- |
+| `currentTime` | --           |             | `Date` | `undefined` |
+| `dateRange`   | `date-range` |             | `any`  | `undefined` |
 
 
 ## Dependencies

@@ -1546,7 +1546,18 @@ declare global {
         prototype: HTMLGoatAccordionElement;
         new (): HTMLGoatAccordionElement;
     };
+    interface HTMLGoatAccordionItemElementEventMap {
+        "goat:accordion-item-click": any;
+    }
     interface HTMLGoatAccordionItemElement extends Components.GoatAccordionItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatAccordionItemElementEventMap>(type: K, listener: (this: HTMLGoatAccordionItemElement, ev: GoatAccordionItemCustomEvent<HTMLGoatAccordionItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatAccordionItemElementEventMap>(type: K, listener: (this: HTMLGoatAccordionItemElement, ev: GoatAccordionItemCustomEvent<HTMLGoatAccordionItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatAccordionItemElement: {
         prototype: HTMLGoatAccordionItemElement;
@@ -1597,6 +1608,9 @@ declare global {
         prototype: HTMLGoatBreadcrumbItemElement;
         new (): HTMLGoatBreadcrumbItemElement;
     };
+    interface HTMLGoatButtonElementEventMap {
+        "goat:click": any;
+    }
     /**
      * @name Button
      * @description An interactive button with a range of presentation options.
@@ -1607,6 +1621,14 @@ declare global {
      * </goat-button>
      */
     interface HTMLGoatButtonElement extends Components.GoatButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatButtonElementEventMap>(type: K, listener: (this: HTMLGoatButtonElement, ev: GoatButtonCustomEvent<HTMLGoatButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatButtonElementEventMap>(type: K, listener: (this: HTMLGoatButtonElement, ev: GoatButtonCustomEvent<HTMLGoatButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatButtonElement: {
         prototype: HTMLGoatButtonElement;
@@ -1628,6 +1650,9 @@ declare global {
         prototype: HTMLGoatButtonGroupElement;
         new (): HTMLGoatButtonGroupElement;
     };
+    interface HTMLGoatCalendarElementEventMap {
+        "goat:calendar-event-click": any;
+    }
     /**
      * @name Calendar
      * @description The calendar component is used to display information in a daily, weekly, monthly, or category view.
@@ -1637,12 +1662,32 @@ declare global {
      * @imgDark /assets/img/calendar-dark.png
      */
     interface HTMLGoatCalendarElement extends Components.GoatCalendar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatCalendarElementEventMap>(type: K, listener: (this: HTMLGoatCalendarElement, ev: GoatCalendarCustomEvent<HTMLGoatCalendarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatCalendarElementEventMap>(type: K, listener: (this: HTMLGoatCalendarElement, ev: GoatCalendarCustomEvent<HTMLGoatCalendarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatCalendarElement: {
         prototype: HTMLGoatCalendarElement;
         new (): HTMLGoatCalendarElement;
     };
+    interface HTMLGoatCalendarColumnViewElementEventMap {
+        "goat:column-view-date-click": any;
+        "goat:column-view-event-click": any;
+    }
     interface HTMLGoatCalendarColumnViewElement extends Components.GoatCalendarColumnView, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatCalendarColumnViewElementEventMap>(type: K, listener: (this: HTMLGoatCalendarColumnViewElement, ev: GoatCalendarColumnViewCustomEvent<HTMLGoatCalendarColumnViewElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatCalendarColumnViewElementEventMap>(type: K, listener: (this: HTMLGoatCalendarColumnViewElement, ev: GoatCalendarColumnViewCustomEvent<HTMLGoatCalendarColumnViewElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatCalendarColumnViewElement: {
         prototype: HTMLGoatCalendarColumnViewElement;
@@ -1654,7 +1699,19 @@ declare global {
         prototype: HTMLGoatCalendarColumnViewBackgroundElement;
         new (): HTMLGoatCalendarColumnViewBackgroundElement;
     };
+    interface HTMLGoatCalendarMonthViewElementEventMap {
+        "goat:month-view-date-click": any;
+        "goat:month-view-event-click": any;
+    }
     interface HTMLGoatCalendarMonthViewElement extends Components.GoatCalendarMonthView, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatCalendarMonthViewElementEventMap>(type: K, listener: (this: HTMLGoatCalendarMonthViewElement, ev: GoatCalendarMonthViewCustomEvent<HTMLGoatCalendarMonthViewElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatCalendarMonthViewElementEventMap>(type: K, listener: (this: HTMLGoatCalendarMonthViewElement, ev: GoatCalendarMonthViewCustomEvent<HTMLGoatCalendarMonthViewElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatCalendarMonthViewElement: {
         prototype: HTMLGoatCalendarMonthViewElement;
@@ -1722,6 +1779,11 @@ declare global {
         prototype: HTMLGoatChartDoughnutElement;
         new (): HTMLGoatChartDoughnutElement;
     };
+    interface HTMLGoatCheckboxElementEventMap {
+        "goat:change": any;
+        "goat:blur": any;
+        "goat:focus": any;
+    }
     /**
      * @name Checkbox
      * @description Captures boolean input with an optional indeterminate mode.
@@ -1730,11 +1792,22 @@ declare global {
      * @example <goat-checkbox value='true'>Want ice cream?</goat-checkbox>
      */
     interface HTMLGoatCheckboxElement extends Components.GoatCheckbox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatCheckboxElementEventMap>(type: K, listener: (this: HTMLGoatCheckboxElement, ev: GoatCheckboxCustomEvent<HTMLGoatCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatCheckboxElementEventMap>(type: K, listener: (this: HTMLGoatCheckboxElement, ev: GoatCheckboxCustomEvent<HTMLGoatCheckboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatCheckboxElement: {
         prototype: HTMLGoatCheckboxElement;
         new (): HTMLGoatCheckboxElement;
     };
+    interface HTMLGoatCodeEditorElementEventMap {
+        "goat:change": any;
+    }
     /**
      * @name Code Editor
      * @description A browser based code editor.
@@ -1744,6 +1817,14 @@ declare global {
      * @imgDark /assets/img/code-editor-dark.png
      */
     interface HTMLGoatCodeEditorElement extends Components.GoatCodeEditor, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatCodeEditorElementEventMap>(type: K, listener: (this: HTMLGoatCodeEditorElement, ev: GoatCodeEditorCustomEvent<HTMLGoatCodeEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatCodeEditorElementEventMap>(type: K, listener: (this: HTMLGoatCodeEditorElement, ev: GoatCodeEditorCustomEvent<HTMLGoatCodeEditorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatCodeEditorElement: {
         prototype: HTMLGoatCodeEditorElement;
@@ -1794,6 +1875,12 @@ declare global {
         prototype: HTMLGoatCurrentTimeElement;
         new (): HTMLGoatCurrentTimeElement;
     };
+    interface HTMLGoatDatePickerElementEventMap {
+        "goat:input": any;
+        "goat:change": any;
+        "goat:blur": any;
+        "goat:focus": any;
+    }
     /**
      * @name Date Picker
      * @category Form Inputs
@@ -1801,6 +1888,14 @@ declare global {
      * @example <goat-date-picker value='true'></goat-date-picker>
      */
     interface HTMLGoatDatePickerElement extends Components.GoatDatePicker, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatDatePickerElementEventMap>(type: K, listener: (this: HTMLGoatDatePickerElement, ev: GoatDatePickerCustomEvent<HTMLGoatDatePickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatDatePickerElementEventMap>(type: K, listener: (this: HTMLGoatDatePickerElement, ev: GoatDatePickerCustomEvent<HTMLGoatDatePickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatDatePickerElement: {
         prototype: HTMLGoatDatePickerElement;
@@ -1818,6 +1913,9 @@ declare global {
         prototype: HTMLGoatDividerElement;
         new (): HTMLGoatDividerElement;
     };
+    interface HTMLGoatDropdownElementEventMap {
+        "goat:dropdown-item-click": any;
+    }
     /**
      * @name Dropdown
      * @description Enables native inputs to be used within a Form field.
@@ -1826,6 +1924,14 @@ declare global {
      * @imgDark /assets/img/dropdown-dark.png
      */
     interface HTMLGoatDropdownElement extends Components.GoatDropdown, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatDropdownElementEventMap>(type: K, listener: (this: HTMLGoatDropdownElement, ev: GoatDropdownCustomEvent<HTMLGoatDropdownElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatDropdownElementEventMap>(type: K, listener: (this: HTMLGoatDropdownElement, ev: GoatDropdownCustomEvent<HTMLGoatDropdownElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatDropdownElement: {
         prototype: HTMLGoatDropdownElement;
@@ -1896,6 +2002,9 @@ declare global {
         prototype: HTMLGoatHeaderBrandElement;
         new (): HTMLGoatHeaderBrandElement;
     };
+    interface HTMLGoatHtmlEditorElementEventMap {
+        "goat:change": any;
+    }
     /**
      * @name HTML Editor
      * @description HTML Editor component is a WYSIWYG editor that allows users to edit HTML content.
@@ -1905,6 +2014,14 @@ declare global {
      * @imgDark /assets/img/html-editor-dark.png
      */
     interface HTMLGoatHtmlEditorElement extends Components.GoatHtmlEditor, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatHtmlEditorElementEventMap>(type: K, listener: (this: HTMLGoatHtmlEditorElement, ev: GoatHtmlEditorCustomEvent<HTMLGoatHtmlEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatHtmlEditorElementEventMap>(type: K, listener: (this: HTMLGoatHtmlEditorElement, ev: GoatHtmlEditorCustomEvent<HTMLGoatHtmlEditorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatHtmlEditorElement: {
         prototype: HTMLGoatHtmlEditorElement;
@@ -1929,6 +2046,12 @@ declare global {
         prototype: HTMLGoatImageElement;
         new (): HTMLGoatImageElement;
     };
+    interface HTMLGoatInputElementEventMap {
+        "goat:input": any;
+        "goat:change": any;
+        "goat:blur": any;
+        "goat:focus": any;
+    }
     /**
      * @name Input
      * @description Enables native inputs to be used within a Form field.
@@ -1937,6 +2060,14 @@ declare global {
      * @example <goat-input placeholder="Enter your name"></goat-input>
      */
     interface HTMLGoatInputElement extends Components.GoatInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatInputElementEventMap>(type: K, listener: (this: HTMLGoatInputElement, ev: GoatInputCustomEvent<HTMLGoatInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatInputElementEventMap>(type: K, listener: (this: HTMLGoatInputElement, ev: GoatInputCustomEvent<HTMLGoatInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatInputElement: {
         prototype: HTMLGoatInputElement;
@@ -1967,12 +2098,26 @@ declare global {
         prototype: HTMLGoatMenuElement;
         new (): HTMLGoatMenuElement;
     };
+    interface HTMLGoatMenuItemElementEventMap {
+        "goat:menu-item-click": any;
+    }
     interface HTMLGoatMenuItemElement extends Components.GoatMenuItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatMenuItemElementEventMap>(type: K, listener: (this: HTMLGoatMenuItemElement, ev: GoatMenuItemCustomEvent<HTMLGoatMenuItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatMenuItemElementEventMap>(type: K, listener: (this: HTMLGoatMenuItemElement, ev: GoatMenuItemCustomEvent<HTMLGoatMenuItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatMenuItemElement: {
         prototype: HTMLGoatMenuItemElement;
         new (): HTMLGoatMenuItemElement;
     };
+    interface HTMLGoatModalElementEventMap {
+        "goat:modal-close": any;
+    }
     /**
      * @name Modal
      * @description Modals are used to display content in a layer above the app.
@@ -1982,6 +2127,14 @@ declare global {
      * @imgDark /assets/img/modal-dark.png
      */
     interface HTMLGoatModalElement extends Components.GoatModal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatModalElementEventMap>(type: K, listener: (this: HTMLGoatModalElement, ev: GoatModalCustomEvent<HTMLGoatModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatModalElementEventMap>(type: K, listener: (this: HTMLGoatModalElement, ev: GoatModalCustomEvent<HTMLGoatModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatModalElement: {
         prototype: HTMLGoatModalElement;
@@ -1993,6 +2146,9 @@ declare global {
         prototype: HTMLGoatModalContentElement;
         new (): HTMLGoatModalContentElement;
     };
+    interface HTMLGoatNotificationElementEventMap {
+        "goat:dismiss": any;
+    }
     /**
      * @name Notification
      * @description Notifications are messages that communicate information to the user.
@@ -2003,6 +2159,14 @@ declare global {
      *    </goat-notification>
      */
     interface HTMLGoatNotificationElement extends Components.GoatNotification, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatNotificationElementEventMap>(type: K, listener: (this: HTMLGoatNotificationElement, ev: GoatNotificationCustomEvent<HTMLGoatNotificationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatNotificationElementEventMap>(type: K, listener: (this: HTMLGoatNotificationElement, ev: GoatNotificationCustomEvent<HTMLGoatNotificationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatNotificationElement: {
         prototype: HTMLGoatNotificationElement;
@@ -2022,6 +2186,12 @@ declare global {
         prototype: HTMLGoatNotificationManagerElement;
         new (): HTMLGoatNotificationManagerElement;
     };
+    interface HTMLGoatNumberElementEventMap {
+        "goat:input": any;
+        "goat:change": any;
+        "goat:blur": any;
+        "goat:focus": any;
+    }
     /**
      * @name Number
      * @description Number input lets users enter a numeric value and incrementally increase or decrease the value with a two-segment control.
@@ -2030,6 +2200,14 @@ declare global {
      * @example <goat-number value="100"></goat-input>
      */
     interface HTMLGoatNumberElement extends Components.GoatNumber, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatNumberElementEventMap>(type: K, listener: (this: HTMLGoatNumberElement, ev: GoatNumberCustomEvent<HTMLGoatNumberElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatNumberElementEventMap>(type: K, listener: (this: HTMLGoatNumberElement, ev: GoatNumberCustomEvent<HTMLGoatNumberElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatNumberElement: {
         prototype: HTMLGoatNumberElement;
@@ -2048,6 +2226,11 @@ declare global {
         prototype: HTMLGoatProgressElement;
         new (): HTMLGoatProgressElement;
     };
+    interface HTMLGoatSelectElementEventMap {
+        "goat:change": any;
+        "goat:search": any;
+        "goat:search-enter": any;
+    }
     /**
      * @name Select
      * @description Allows the user to select one or more options using a dropdown.
@@ -2057,6 +2240,14 @@ declare global {
      * @imgDark /assets/img/select-dark.png
      */
     interface HTMLGoatSelectElement extends Components.GoatSelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatSelectElementEventMap>(type: K, listener: (this: HTMLGoatSelectElement, ev: GoatSelectCustomEvent<HTMLGoatSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatSelectElementEventMap>(type: K, listener: (this: HTMLGoatSelectElement, ev: GoatSelectCustomEvent<HTMLGoatSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatSelectElement: {
         prototype: HTMLGoatSelectElement;
@@ -2079,12 +2270,27 @@ declare global {
         prototype: HTMLGoatSidenavMenuElement;
         new (): HTMLGoatSidenavMenuElement;
     };
+    interface HTMLGoatSidenavMenuItemElementEventMap {
+        "goat:sidenav-menu-item-click": any;
+    }
     interface HTMLGoatSidenavMenuItemElement extends Components.GoatSidenavMenuItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatSidenavMenuItemElementEventMap>(type: K, listener: (this: HTMLGoatSidenavMenuItemElement, ev: GoatSidenavMenuItemCustomEvent<HTMLGoatSidenavMenuItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatSidenavMenuItemElementEventMap>(type: K, listener: (this: HTMLGoatSidenavMenuItemElement, ev: GoatSidenavMenuItemCustomEvent<HTMLGoatSidenavMenuItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatSidenavMenuItemElement: {
         prototype: HTMLGoatSidenavMenuItemElement;
         new (): HTMLGoatSidenavMenuItemElement;
     };
+    interface HTMLGoatSliderElementEventMap {
+        "goat:change": any;
+        "goat:input": any;
+    }
     /**
      * @name Slider
      * @description Sliders allow users to make selections from a range of values.
@@ -2094,6 +2300,14 @@ declare global {
      * @imgDark /assets/img/slider-dark.png
      */
     interface HTMLGoatSliderElement extends Components.GoatSlider, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatSliderElementEventMap>(type: K, listener: (this: HTMLGoatSliderElement, ev: GoatSliderCustomEvent<HTMLGoatSliderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatSliderElementEventMap>(type: K, listener: (this: HTMLGoatSliderElement, ev: GoatSliderCustomEvent<HTMLGoatSliderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatSliderElement: {
         prototype: HTMLGoatSliderElement;
@@ -2124,7 +2338,18 @@ declare global {
         prototype: HTMLGoatSvgElement;
         new (): HTMLGoatSvgElement;
     };
+    interface HTMLGoatTabElementEventMap {
+        "goat:tab-click": any;
+    }
     interface HTMLGoatTabElement extends Components.GoatTab, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatTabElementEventMap>(type: K, listener: (this: HTMLGoatTabElement, ev: GoatTabCustomEvent<HTMLGoatTabElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatTabElementEventMap>(type: K, listener: (this: HTMLGoatTabElement, ev: GoatTabCustomEvent<HTMLGoatTabElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatTabElement: {
         prototype: HTMLGoatTabElement;
@@ -2136,6 +2361,12 @@ declare global {
         prototype: HTMLGoatTabPanelElement;
         new (): HTMLGoatTabPanelElement;
     };
+    interface HTMLGoatTableElementEventMap {
+        "goat:table-cell-click": any;
+        "goat:table-select-change": any;
+        "goat:sort": any;
+        "goat:page": any;
+    }
     /**
      * @name Table
      * @description A configurable component for displaying tabular data.
@@ -2144,6 +2375,14 @@ declare global {
      * @imgDark /assets/img/table-dark.png
      */
     interface HTMLGoatTableElement extends Components.GoatTable, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatTableElementEventMap>(type: K, listener: (this: HTMLGoatTableElement, ev: GoatTableCustomEvent<HTMLGoatTableElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatTableElementEventMap>(type: K, listener: (this: HTMLGoatTableElement, ev: GoatTableCustomEvent<HTMLGoatTableElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatTableElement: {
         prototype: HTMLGoatTableElement;
@@ -2173,6 +2412,10 @@ declare global {
         prototype: HTMLGoatTabsListElement;
         new (): HTMLGoatTabsListElement;
     };
+    interface HTMLGoatTagElementEventMap {
+        "goat:click": any;
+        "goat:tag-dismiss": any;
+    }
     /**
      * @name Tag
      * @description Use tags to label, categorize, or organize items using keywords that describe them.
@@ -2181,6 +2424,14 @@ declare global {
      * @example <goat-tag class="color-red">Important</goat-tag>
      */
     interface HTMLGoatTagElement extends Components.GoatTag, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatTagElementEventMap>(type: K, listener: (this: HTMLGoatTagElement, ev: GoatTagCustomEvent<HTMLGoatTagElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatTagElementEventMap>(type: K, listener: (this: HTMLGoatTagElement, ev: GoatTagCustomEvent<HTMLGoatTagElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatTagElement: {
         prototype: HTMLGoatTagElement;
@@ -2198,6 +2449,13 @@ declare global {
         prototype: HTMLGoatTextElement;
         new (): HTMLGoatTextElement;
     };
+    interface HTMLGoatTextareaElementEventMap {
+        "goat:input": any;
+        "goat:change": any;
+        "goat:blur": any;
+        "goat:focus": any;
+        "goat:action-click": any;
+    }
     /**
      * @name Textarea
      * @description Enables native inputs to be used within a Form field.
@@ -2206,11 +2464,25 @@ declare global {
      * @example <goat-textarea placeholder="Enter some description over here"></goat-textarea>
      */
     interface HTMLGoatTextareaElement extends Components.GoatTextarea, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatTextareaElementEventMap>(type: K, listener: (this: HTMLGoatTextareaElement, ev: GoatTextareaCustomEvent<HTMLGoatTextareaElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatTextareaElementEventMap>(type: K, listener: (this: HTMLGoatTextareaElement, ev: GoatTextareaCustomEvent<HTMLGoatTextareaElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatTextareaElement: {
         prototype: HTMLGoatTextareaElement;
         new (): HTMLGoatTextareaElement;
     };
+    interface HTMLGoatTimePickerElementEventMap {
+        "goat:input": any;
+        "goat:change": any;
+        "goat:blur": any;
+        "goat:focus": any;
+    }
     /**
      * @name Time Picker
      * @description Captures time input.
@@ -2219,6 +2491,14 @@ declare global {
      * @example <goat-time-picker value='true'></goat-time-picker>
      */
     interface HTMLGoatTimePickerElement extends Components.GoatTimePicker, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatTimePickerElementEventMap>(type: K, listener: (this: HTMLGoatTimePickerElement, ev: GoatTimePickerCustomEvent<HTMLGoatTimePickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatTimePickerElementEventMap>(type: K, listener: (this: HTMLGoatTimePickerElement, ev: GoatTimePickerCustomEvent<HTMLGoatTimePickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatTimePickerElement: {
         prototype: HTMLGoatTimePickerElement;
@@ -2236,6 +2516,11 @@ declare global {
         prototype: HTMLGoatToastElement;
         new (): HTMLGoatToastElement;
     };
+    interface HTMLGoatToggleElementEventMap {
+        "goat:change": any;
+        "goat:blur": any;
+        "goat:focus": any;
+    }
     /**
      * @name Toggle
      * @description Captures boolean input with an optional indeterminate mode.
@@ -2244,6 +2529,14 @@ declare global {
      * @example <goat-toggle value='true'>Want ice cream?</goat-toggle>
      */
     interface HTMLGoatToggleElement extends Components.GoatToggle, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatToggleElementEventMap>(type: K, listener: (this: HTMLGoatToggleElement, ev: GoatToggleCustomEvent<HTMLGoatToggleElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatToggleElementEventMap>(type: K, listener: (this: HTMLGoatToggleElement, ev: GoatToggleCustomEvent<HTMLGoatToggleElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatToggleElement: {
         prototype: HTMLGoatToggleElement;
@@ -2263,7 +2556,18 @@ declare global {
         prototype: HTMLGoatTooltipElement;
         new (): HTMLGoatTooltipElement;
     };
+    interface HTMLGoatTreeNodeElementEventMap {
+        "goat:tree-node-click": any;
+    }
     interface HTMLGoatTreeNodeElement extends Components.GoatTreeNode, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatTreeNodeElementEventMap>(type: K, listener: (this: HTMLGoatTreeNodeElement, ev: GoatTreeNodeCustomEvent<HTMLGoatTreeNodeElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatTreeNodeElementEventMap>(type: K, listener: (this: HTMLGoatTreeNodeElement, ev: GoatTreeNodeCustomEvent<HTMLGoatTreeNodeElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLGoatTreeNodeElement: {
         prototype: HTMLGoatTreeNodeElement;

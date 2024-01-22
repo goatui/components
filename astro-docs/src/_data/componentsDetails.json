@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-01-10T07:10:18",
+  "timestamp": "2024-01-22T04:26:39",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.9.1",
@@ -25,7 +25,7 @@
         },
         {
           "name": "overview",
-          "text": " <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>\n <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>"
+          "text": " <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>\r\n <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>"
         },
         {
           "name": "category",
@@ -145,7 +145,7 @@
       "metadata": {
         "name": "Accordion",
         "description": "An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.",
-        "overview": " <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>\n <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>",
+        "overview": " <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>\r\n <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>",
         "category": "Data Display",
         "tags": [
           "display"
@@ -713,7 +713,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-button>\nButton CTA\n</goat-button>"
+          "text": "<goat-button>\r\nButton CTA\r\n</goat-button>"
         }
       ],
       "encapsulation": "shadow",
@@ -993,7 +993,7 @@
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
-          "docs": "Icon which will displayed on button.\nPossible values are icon names.",
+          "docs": "Icon which will displayed on button.\r\nPossible values are icon names.",
           "docsTags": [],
           "values": [
             {
@@ -1063,7 +1063,7 @@
           "mutable": false,
           "attr": "kind",
           "reflectToAttr": false,
-          "docs": "Button kind.\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\n`\"default\"` is a long button.\n`\"simple\"` is a text-only button.\n`\"block\"` is a full-width button.",
+          "docs": "Button kind.\r\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\r\n`\"default\"` is a long button.\r\n`\"simple\"` is a text-only button.\r\n`\"block\"` is a full-width button.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -1138,7 +1138,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
-          "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
+          "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -1234,7 +1234,7 @@
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "Button variants.\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\n`\"default\"` is a filled button.\n`\"outline\"` is an outlined button.\n`\"ghost\"` is a transparent button.",
+          "docs": "Button variants.\r\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\r\n`\"default\"` is a filled button.\r\n`\"outline\"` is an outlined button.\r\n`\"ghost\"` is a transparent button.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -1283,7 +1283,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\n`button.blur()`.",
+          "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.blur()`.",
           "docsTags": []
         },
         {
@@ -1305,7 +1305,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\n`button.focus()`.",
+          "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.focus()`.",
           "docsTags": []
         },
         {
@@ -1371,7 +1371,7 @@
         "tags": [
           "controls"
         ],
-        "example": "<goat-button>\nButton CTA\n</goat-button>"
+        "example": "<goat-button>\r\nButton CTA\r\n</goat-button>"
       }
     },
     {
@@ -1530,7 +1530,7 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "[\n    {\n      label: 'Day',\n      value: 'day',\n      type: 'column',\n      days: 1,\n    },\n    {\n      label: 'Week',\n      value: 'week',\n      type: 'column',\n      days: 7,\n    },\n    {\n      label: 'Month',\n      value: 'month',\n      type: 'month',\n    },\n  ]",
+          "default": "[\r\n    {\r\n      label: 'Day',\r\n      value: 'day',\r\n      type: 'column',\r\n      days: 1,\r\n    },\r\n    {\r\n      label: 'Week',\r\n      value: 'week',\r\n      type: 'column',\r\n      days: 7,\r\n    },\r\n    {\r\n      label: 'Month',\r\n      value: 'month',\r\n      type: 'month',\r\n    },\r\n  ]",
           "values": [
             {
               "type": "CalendarViewType[]"
@@ -1948,22 +1948,46 @@
       },
       "props": [
         {
-          "name": "columns",
-          "type": "number",
+          "name": "currentTime",
+          "type": "Date",
           "complexType": {
-            "original": "number",
-            "resolved": "number",
-            "references": {}
+            "original": "Date",
+            "resolved": "Date",
+            "references": {
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            }
           },
           "mutable": false,
-          "attr": "columns",
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "1",
           "values": [
             {
-              "type": "number"
+              "type": "Date"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "dateRange",
+          "type": "any",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "date-range",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "any"
             }
           ],
           "optional": false,
@@ -4700,7 +4724,7 @@
       "filePath": "src/components/menu/dropdown/dropdown.tsx",
       "fileName": "dropdown.tsx",
       "tag": "goat-dropdown",
-      "readme": "# goat-dropdown\n\n\n",
+      "readme": "# goat-dropdown\r\n\r\n\r\n\r",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -4808,7 +4832,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+          "docs": "The button size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -5748,7 +5772,7 @@
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
-          "docs": "Icon which will displayed on button.\nPossible values are icon names.",
+          "docs": "Icon which will displayed on button.\r\nPossible values are icon names.",
           "docsTags": [],
           "values": [
             {
@@ -5791,7 +5815,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"none\"`. Defaults to `\"md\"`.",
+          "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"none\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -7719,7 +7743,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -7741,7 +7765,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -9210,7 +9234,7 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "A label describing the progress bar.",
           "docsTags": [],
           "values": [
             {
@@ -9231,7 +9255,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "\nPossible values are: `\"sm\"` and `\"md\"` in pixel. Defaults to `\"md\"`.",
+          "docs": "\r\nPossible values are: `\"sm\"` and `\"md\"` in pixel. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -9615,7 +9639,7 @@
           "mutable": false,
           "attr": "items",
           "reflectToAttr": false,
-          "docs": "[{\n  label: 'Shivaji Varma',\n  value: 'shivaji-varma',\n  icon: 'person'\n}]",
+          "docs": "[{\r\n  label: 'Shivaji Varma',\r\n  value: 'shivaji-varma',\r\n  icon: 'person'\r\n}]",
           "docsTags": [],
           "default": "[]",
           "values": [
@@ -9811,7 +9835,7 @@
           "mutable": false,
           "attr": "search",
           "reflectToAttr": false,
-          "docs": "Search type\nPossible values are `\"none\"`, `\"initial\"`, `\"contains\"`, `\"managed\"`. Defaults to `\"none\"`.",
+          "docs": "Search type\r\nPossible values are `\"none\"`, `\"initial\"`, `\"contains\"`, `\"managed\"`. Defaults to `\"none\"`.",
           "docsTags": [],
           "default": "'none'",
           "values": [
@@ -9868,7 +9892,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
-          "docs": "The select input size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+          "docs": "The select input size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -9899,7 +9923,7 @@
           "mutable": false,
           "attr": "state",
           "reflectToAttr": true,
-          "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+          "docs": "The input state.\r\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -10034,7 +10058,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -10056,7 +10080,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\r\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -11024,7 +11048,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "The Icon size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"` and size in pixel. Defaults to `\"md\"`.",
+          "docs": "The Icon size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"` and size in pixel. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -11577,7 +11601,7 @@
           },
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "Grid columns configuration.\n[\n{\n  \"name\":\"name\",\n  \"label\":\"Name\",\n  \"width\":300,\n  \"fixed\":true,\n  \"template\": function(row, column) { return row[column.name];}\n },\n{\n  \"name\":\"age\",\n  \"label\":\"Age\"\n}\n]",
+          "docs": "Grid columns configuration.\r\n[\r\n{\r\n  \"name\":\"name\",\r\n  \"label\":\"Name\",\r\n  \"width\":300,\r\n  \"fixed\":true,\r\n  \"template\": function(row, column) { return row[column.name];}\r\n },\r\n{\r\n  \"name\":\"age\",\r\n  \"label\":\"Age\"\r\n}\r\n]",
           "docsTags": [],
           "default": "[]",
           "values": [
@@ -11598,7 +11622,7 @@
           },
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "Grid data to display on table\n[{\n 'id': '5e7118ddce4b3d577956457f',\n 'age': 21,\n 'name': 'John',\n 'company': 'India',\n 'email': 'john@example.com',\n 'phone': '+1 (839) 560-3581',\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\n }]",
+          "docs": "Grid data to display on table\r\n[{\r\n 'id': '5e7118ddce4b3d577956457f',\r\n 'age': 21,\r\n 'name': 'John',\r\n 'company': 'India',\r\n 'email': 'john@example.com',\r\n 'phone': '+1 (839) 560-3581',\r\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\r\n }]",
           "docsTags": [],
           "default": "[]",
           "values": [
@@ -11996,7 +12020,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
+          "text": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
         }
       ],
       "encapsulation": "shadow",
@@ -12023,7 +12047,7 @@
         "tags": [
           "navigation"
         ],
-        "example": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
+        "example": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
       }
     },
     {
@@ -14603,7 +14627,7 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "`{\n    \"headline\": \"No items\",\n    \"description\": \"There are no items to display\"\n  }`",
+          "default": "`{\r\n    \"headline\": \"No items\",\r\n    \"description\": \"There are no items to display\"\r\n  }`",
           "values": [
             {
               "type": "string"
@@ -14676,7 +14700,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on first menu item. Use this method instead of the global\n`element.focus()`.",
+          "docs": "Sets focus on first menu item. Use this method instead of the global\r\n`element.focus()`.",
           "docsTags": []
         },
         {
@@ -14742,12 +14766,12 @@
   ],
   "typeLibrary": {
     "src/components/calendar/calendar/types.tsx::EventType": {
-      "declaration": "{\n  start: Date;\n  end: Date;\n  title: string;\n  [key: string]: any;\n}",
+      "declaration": "{\r\n  start: Date;\r\n  end: Date;\r\n  title: string;\r\n  color?: string;\r\n  [key: string]: any;\r\n}",
       "docstring": "",
       "path": "src/components/calendar/calendar/types.tsx"
     },
     "src/components/calendar/calendar/types.tsx::CalendarViewType": {
-      "declaration": "{\n  label: string;\n  value: string;\n  type: string;\n  days?: number;\n}",
+      "declaration": "{\r\n  label: string;\r\n  value: string;\r\n  type: string;\r\n  days?: number;\r\n}",
       "docstring": "",
       "path": "src/components/calendar/calendar/types.tsx"
     }
@@ -14856,7 +14880,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-button>\nButton CTA\n</goat-button>"
+              "text": "<goat-button>\r\nButton CTA\r\n</goat-button>"
             }
           ],
           "encapsulation": "shadow",
@@ -15136,7 +15160,7 @@
               "mutable": false,
               "attr": "icon",
               "reflectToAttr": false,
-              "docs": "Icon which will displayed on button.\nPossible values are icon names.",
+              "docs": "Icon which will displayed on button.\r\nPossible values are icon names.",
               "docsTags": [],
               "values": [
                 {
@@ -15206,7 +15230,7 @@
               "mutable": false,
               "attr": "kind",
               "reflectToAttr": false,
-              "docs": "Button kind.\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\n`\"default\"` is a long button.\n`\"simple\"` is a text-only button.\n`\"block\"` is a full-width button.",
+              "docs": "Button kind.\r\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\r\n`\"default\"` is a long button.\r\n`\"simple\"` is a text-only button.\r\n`\"block\"` is a full-width button.",
               "docsTags": [],
               "default": "'default'",
               "values": [
@@ -15281,7 +15305,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": true,
-              "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
+              "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -15377,7 +15401,7 @@
               "mutable": false,
               "attr": "variant",
               "reflectToAttr": false,
-              "docs": "Button variants.\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\n`\"default\"` is a filled button.\n`\"outline\"` is an outlined button.\n`\"ghost\"` is a transparent button.",
+              "docs": "Button variants.\r\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\r\n`\"default\"` is a filled button.\r\n`\"outline\"` is an outlined button.\r\n`\"ghost\"` is a transparent button.",
               "docsTags": [],
               "default": "'default'",
               "values": [
@@ -15426,7 +15450,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\n`button.blur()`.",
+              "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.blur()`.",
               "docsTags": []
             },
             {
@@ -15448,7 +15472,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\n`button.focus()`.",
+              "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.focus()`.",
               "docsTags": []
             },
             {
@@ -15514,7 +15538,7 @@
             "tags": [
               "controls"
             ],
-            "example": "<goat-button>\nButton CTA\n</goat-button>"
+            "example": "<goat-button>\r\nButton CTA\r\n</goat-button>"
           }
         },
         {
@@ -16180,7 +16204,7 @@
           "filePath": "src/components/menu/dropdown/dropdown.tsx",
           "fileName": "dropdown.tsx",
           "tag": "goat-dropdown",
-          "readme": "# goat-dropdown\n\n\n",
+          "readme": "# goat-dropdown\r\n\r\n\r\n\r",
           "overview": "",
           "usage": {},
           "docs": "",
@@ -16288,7 +16312,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": false,
-              "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+              "docs": "The button size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -16901,7 +16925,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
+              "text": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
             }
           ],
           "encapsulation": "shadow",
@@ -16928,7 +16952,7 @@
             "tags": [
               "navigation"
             ],
-            "example": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
+            "example": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
           }
         },
         {
@@ -17015,7 +17039,7 @@
               "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
-              "default": "`{\n    \"headline\": \"No items\",\n    \"description\": \"There are no items to display\"\n  }`",
+              "default": "`{\r\n    \"headline\": \"No items\",\r\n    \"description\": \"There are no items to display\"\r\n  }`",
               "values": [
                 {
                   "type": "string"
@@ -17088,7 +17112,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on first menu item. Use this method instead of the global\n`element.focus()`.",
+              "docs": "Sets focus on first menu item. Use this method instead of the global\r\n`element.focus()`.",
               "docsTags": []
             },
             {
@@ -20332,7 +20356,7 @@
               "mutable": false,
               "attr": "items",
               "reflectToAttr": false,
-              "docs": "[{\n  label: 'Shivaji Varma',\n  value: 'shivaji-varma',\n  icon: 'person'\n}]",
+              "docs": "[{\r\n  label: 'Shivaji Varma',\r\n  value: 'shivaji-varma',\r\n  icon: 'person'\r\n}]",
               "docsTags": [],
               "default": "[]",
               "values": [
@@ -20528,7 +20552,7 @@
               "mutable": false,
               "attr": "search",
               "reflectToAttr": false,
-              "docs": "Search type\nPossible values are `\"none\"`, `\"initial\"`, `\"contains\"`, `\"managed\"`. Defaults to `\"none\"`.",
+              "docs": "Search type\r\nPossible values are `\"none\"`, `\"initial\"`, `\"contains\"`, `\"managed\"`. Defaults to `\"none\"`.",
               "docsTags": [],
               "default": "'none'",
               "values": [
@@ -20585,7 +20609,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": true,
-              "docs": "The select input size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+              "docs": "The select input size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -20616,7 +20640,7 @@
               "mutable": false,
               "attr": "state",
               "reflectToAttr": true,
-              "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+              "docs": "The input state.\r\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
               "docsTags": [],
               "default": "'default'",
               "values": [
@@ -20751,7 +20775,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
               "docsTags": []
             },
             {
@@ -20773,7 +20797,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\n`input.focus()`.",
+              "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\r\n`input.focus()`.",
               "docsTags": []
             }
           ],
@@ -22615,7 +22639,7 @@
             },
             {
               "name": "overview",
-              "text": " <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>\n <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>"
+              "text": " <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>\r\n <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>"
             },
             {
               "name": "category",
@@ -22735,7 +22759,7 @@
           "metadata": {
             "name": "Accordion",
             "description": "An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.",
-            "overview": " <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>\n <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>",
+            "overview": " <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>\r\n <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>",
             "category": "Data Display",
             "tags": [
               "display"
@@ -23067,7 +23091,7 @@
               "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
-              "default": "[\n    {\n      label: 'Day',\n      value: 'day',\n      type: 'column',\n      days: 1,\n    },\n    {\n      label: 'Week',\n      value: 'week',\n      type: 'column',\n      days: 7,\n    },\n    {\n      label: 'Month',\n      value: 'month',\n      type: 'month',\n    },\n  ]",
+              "default": "[\r\n    {\r\n      label: 'Day',\r\n      value: 'day',\r\n      type: 'column',\r\n      days: 1,\r\n    },\r\n    {\r\n      label: 'Week',\r\n      value: 'week',\r\n      type: 'column',\r\n      days: 7,\r\n    },\r\n    {\r\n      label: 'Month',\r\n      value: 'month',\r\n      type: 'month',\r\n    },\r\n  ]",
               "values": [
                 {
                   "type": "CalendarViewType[]"
@@ -23902,7 +23926,7 @@
               },
               "mutable": false,
               "reflectToAttr": false,
-              "docs": "Grid columns configuration.\n[\n{\n  \"name\":\"name\",\n  \"label\":\"Name\",\n  \"width\":300,\n  \"fixed\":true,\n  \"template\": function(row, column) { return row[column.name];}\n },\n{\n  \"name\":\"age\",\n  \"label\":\"Age\"\n}\n]",
+              "docs": "Grid columns configuration.\r\n[\r\n{\r\n  \"name\":\"name\",\r\n  \"label\":\"Name\",\r\n  \"width\":300,\r\n  \"fixed\":true,\r\n  \"template\": function(row, column) { return row[column.name];}\r\n },\r\n{\r\n  \"name\":\"age\",\r\n  \"label\":\"Age\"\r\n}\r\n]",
               "docsTags": [],
               "default": "[]",
               "values": [
@@ -23923,7 +23947,7 @@
               },
               "mutable": false,
               "reflectToAttr": false,
-              "docs": "Grid data to display on table\n[{\n 'id': '5e7118ddce4b3d577956457f',\n 'age': 21,\n 'name': 'John',\n 'company': 'India',\n 'email': 'john@example.com',\n 'phone': '+1 (839) 560-3581',\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\n }]",
+              "docs": "Grid data to display on table\r\n[{\r\n 'id': '5e7118ddce4b3d577956457f',\r\n 'age': 21,\r\n 'name': 'John',\r\n 'company': 'India',\r\n 'email': 'john@example.com',\r\n 'phone': '+1 (839) 560-3581',\r\n 'address': '326 Irving Street, Grimsley, Texas, 4048'\r\n }]",
               "docsTags": [],
               "default": "[]",
               "values": [
@@ -25370,7 +25394,7 @@
               "mutable": false,
               "attr": "label",
               "reflectToAttr": false,
-              "docs": "",
+              "docs": "A label describing the progress bar.",
               "docsTags": [],
               "values": [
                 {
@@ -25391,7 +25415,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": false,
-              "docs": "\nPossible values are: `\"sm\"` and `\"md\"` in pixel. Defaults to `\"md\"`.",
+              "docs": "\r\nPossible values are: `\"sm\"` and `\"md\"` in pixel. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -25600,7 +25624,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": false,
-              "docs": "The Icon size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"` and size in pixel. Defaults to `\"md\"`.",
+              "docs": "The Icon size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"` and size in pixel. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -26224,22 +26248,46 @@
           },
           "props": [
             {
-              "name": "columns",
-              "type": "number",
+              "name": "currentTime",
+              "type": "Date",
               "complexType": {
-                "original": "number",
-                "resolved": "number",
-                "references": {}
+                "original": "Date",
+                "resolved": "Date",
+                "references": {
+                  "Date": {
+                    "location": "global",
+                    "id": "global::Date"
+                  }
+                }
               },
               "mutable": false,
-              "attr": "columns",
               "reflectToAttr": false,
               "docs": "",
               "docsTags": [],
-              "default": "1",
               "values": [
                 {
-                  "type": "number"
+                  "type": "Date"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "dateRange",
+              "type": "any",
+              "complexType": {
+                "original": "any",
+                "resolved": "any",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "date-range",
+              "reflectToAttr": false,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "type": "any"
                 }
               ],
               "optional": false,
@@ -27575,7 +27623,7 @@
               "mutable": false,
               "attr": "icon",
               "reflectToAttr": false,
-              "docs": "Icon which will displayed on button.\nPossible values are icon names.",
+              "docs": "Icon which will displayed on button.\r\nPossible values are icon names.",
               "docsTags": [],
               "values": [
                 {
@@ -27618,7 +27666,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": false,
-              "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"none\"`. Defaults to `\"md\"`.",
+              "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"xxl\"`, `\"none\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -28358,7 +28406,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
               "docsTags": []
             },
             {
@@ -28380,7 +28428,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
+              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
               "docsTags": []
             }
           ],
