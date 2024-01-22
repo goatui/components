@@ -54,17 +54,11 @@
     const variable = '--color-brand-' + $dropDown.value;
     const color = new Values(input);
 
-    var output = variable + ': ' + input + ';\n';
-    for (var i = 1; i <= 10; i = i + 1) {
-      var newColor;
-      if (i < 5) {
-        newColor = color.tint((5 * 20) - (i * 20));
-      } else if (i == 5)
-        newColor = color;
-      else if (i > 5)
-        newColor = color.shade((i * 20) - (5 * 20));
+    let output = variable + ': ' + input + ';\n';
 
-      output = output + variable + '-' + (i * 10) + ': #' + newColor.hex + ';\n';
+    const items = color.all(20)
+    for (let i = 0; i < 10; i = i + 1) {
+      output = output + variable + '-' + ((i+1) * 10) + ': #' + items[i].hex + ';\n';
     }
     console.log(output);
     $outputCode.value = output;
@@ -108,6 +102,57 @@
 
 
 </script>
+
+<div style='padding: 1rem'>
+  <div class='border'>
+    <div class='inside'>
+      <goat-button>Generate</goat-button>
+    </div>
+  </div>
+
+</div>
+
+<style>
+  html {
+    background: var(--background);
+  }
+  .border {
+    display: inline-block;
+    --runtime: #157A6A;/*#70ffaf;*/
+    --outer-radius: 5px;
+    --border-size: 2px;
+     --inner-radius: calc(var(--outer-radius) - var(--border-size));
+    background-image: conic-gradient(from var(--border-gradient-angle) at 50% 50%, transparent, var(--runtime) 14%, transparent 17%);
+    border-radius: var(--outer-radius);
+    background-size: contain;
+    padding: var(--border-size);
+    animation: buttonBorderSpin 9s linear infinite;
+
+    .inside {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      border-radius: var(--inner-radius);
+    }
+  }
+  @keyframes buttonBorderSpin {
+    0% {
+      --border-gradient-angle: 0turn
+    }
+
+    100% {
+      --border-gradient-angle: 1turn
+    }
+  }
+
+  @property --border-gradient-angle {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0turn;
+  }
+
+</style>
 
 </body>
 </html>

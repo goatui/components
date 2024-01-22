@@ -1,5 +1,5 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, h, Prop } from '@stencil/core';
-import { addDays, addHours, differenceInDays, endOfDay, format, startOfDay } from 'date-fns';
+import { addDays, differenceInDays, endOfDay, format, startOfDay } from 'date-fns';
 import MonthEventManager from './MonthEventManager';
 import { BaseEvent } from '../event-management/BaseEvent';
 import { calculateMonthRange } from '../utils';
@@ -86,27 +86,6 @@ export class CalendarMonthView implements ComponentInterface {
     return columns;
   }
 
-  renderScale() {
-    const rows = [];
-    for (let i = 0; i < 48; i++) {
-      // @TODO: parameterize number of column, currently rendering 24 hours
-      const cls = ['row'];
-      if (i % 2) cls.push('hour');
-      const startTime = startOfDay(new Date());
-      const row = (
-        <div class={cls.join(' ')}>
-          {(() => {
-            if (i % 2 == 0 && i) {
-              return <div class="time">{format(addHours(startTime, i / 2), 'hh a')}</div>;
-            }
-          })()}
-        </div>
-      );
-      rows.push(row);
-    }
-    return <div class="background">{rows}</div>;
-  }
-
   renderEvents() {
     const eventPadding = 0.25;
 
@@ -124,6 +103,22 @@ export class CalendarMonthView implements ComponentInterface {
                     <div class="row">
                       {nodes.map(node => {
                         const cls = ['event'];
+                        const eventColors = {
+                          left: `${this.getDatePercent(node.start, { startDate: addDays(this.dateRange.startDate, index * 7) }) + eventPadding}%`,
+                          width: `${
+                            this.getDatePercent(addDays(node.end, 1), { startDate: addDays(this.dateRange.startDate, index * 7) }) -
+                            this.getDatePercent(node.start, { startDate: addDays(this.dateRange.startDate, index * 7) }) -
+                            2 * eventPadding
+                          }%`,
+                        };
+                        if (node.color) {
+                          eventColors['--calendar-event-bg-color'] = `var(--color-${node.color}-20)`;
+                          eventColors['--calendar-event-bg-color--hover'] = `var(--color-${node.color}-40)`;
+                          eventColors['--calendar-event-border-color'] = `var(--color-${node.color})`;
+                          eventColors['--calendar-event-dark-bg-color'] = `var(--color-${node.color}-90)`;
+                          eventColors['--calendar-event-dark-bg-color--hover'] = `var(--color-${node.color}-70)`;
+                          eventColors['--calendar-event-dark-border-color'] = `var(--color-${node.color})-70`;
+                        }
                         if (this.eventClickable) cls.push('clickable');
                         return (
                           <div
@@ -133,14 +128,7 @@ export class CalendarMonthView implements ComponentInterface {
                                 this.goatMonthViewEventClick.emit({ event: node.data });
                               }
                             }}
-                            style={{
-                              left: `${this.getDatePercent(node.start, { startDate: addDays(this.dateRange.startDate, index * 7) }) + eventPadding}%`,
-                              width: `${
-                                this.getDatePercent(addDays(node.end, 1), { startDate: addDays(this.dateRange.startDate, index * 7) }) -
-                                this.getDatePercent(node.start, { startDate: addDays(this.dateRange.startDate, index * 7) }) -
-                                2 * eventPadding
-                              }%`,
-                            }}
+                            style={eventColors}
                           >
                             <div class="event-title">{node.title || '(no title)'}</div>
                           </div>

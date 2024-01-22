@@ -2,9 +2,6 @@
 
 :host {
   display: block;
-  --calendar-border-color: #{v(--border-strong-01)};
-  --scale-size: 3rem;
-  --scale-color: #{v(--text-placeholder)}
 }
 
 .background {

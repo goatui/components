@@ -39,7 +39,7 @@
 @each $state in [success, warning, error] {
   .badge.color-#{$state} {
     .badge-content {
-      background-color: v(--color-#{$state});
+      background-color: v(--support-#{$state});
     }
   }
 }

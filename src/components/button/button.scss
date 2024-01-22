@@ -5,7 +5,7 @@ $inner-border-width: 0.0625;
 $outline-width: 0.0625;
 $button-border-style: var(--button-border-style, solid);
 
-$button-color-hover: var(--button-color-hover, v(--color-primary-70));
+$button-color-hover: var(--button-color-hover, var(--color-primary-hover-60, v(--color-primary-70)));
 $button-color-active: var(--button-color-active, v(--color-primary-80));
 $button-color-support: var(--button-color-support, var(--button-color));
 
@@ -433,7 +433,7 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
   :host([computed-color="#{$color}"]) {
     --button-color: #{v(--color-#{$color})};
     --button-color-light: #{v(--color-#{$color}-10)};
-    --button-color-hover: #{v(--color-#{$color}-70)};
+    --button-color-hover: var(--color-#{$color}-70, #{v(--color-#{$color}-hover-60)});
     --button-color-active: #{v(--color-#{$color}-80)};
     --button-color-support: #{v(--color-#{$color})};
     --button-color-light-hover: #{v(--color-#{$color}-20)};

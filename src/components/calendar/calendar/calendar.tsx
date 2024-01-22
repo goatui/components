@@ -1,6 +1,8 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Listen, Prop } from '@stencil/core';
 import { addDays, addMonths, format } from 'date-fns';
 import { CalendarEvent } from './CalendarEvent';
+import { CalendarViewType, EventType } from './types';
+import { GoatCalendarColumnViewCustomEvent, GoatCalendarMonthViewCustomEvent } from '../../../components';
 
 /**
  * @name Calendar
@@ -18,10 +20,15 @@ import { CalendarEvent } from './CalendarEvent';
 export class Calendar implements ComponentInterface {
   @Element() elm!: HTMLElement;
 
-  @Prop() events: any[] = [];
+  @Prop() events: EventType[] = [];
 
-  @Prop() availableViews: any = [
-    { label: 'Day', value: 'day', type: 'column', days: 1 },
+  @Prop() availableViews: CalendarViewType[] = [
+    {
+      label: 'Day',
+      value: 'day',
+      type: 'column',
+      days: 1,
+    },
     {
       label: 'Week',
       value: 'week',
@@ -44,28 +51,28 @@ export class Calendar implements ComponentInterface {
    */
   @Prop() showLoader: boolean = false;
 
-  @Prop() timezone;
+  @Prop() timezone: string;
 
-  currentTime;
-  currentView: any;
-
-  @Prop({ mutable: true }) contextDate;
+  @Prop({ mutable: true }) contextDate: Date;
 
   @Event({ eventName: 'goat:calendar-event-click' }) goatCalendarEventClick: EventEmitter;
 
+  currentTime: any;
+  currentView: CalendarViewType;
+
   @Listen('goat:column-view-date-click')
-  columnViewDateClick(evt) {
+  columnViewDateClick(evt: GoatCalendarColumnViewCustomEvent<any>) {
     this.view = 'day';
     this.contextDate = evt.detail.date;
   }
 
   @Listen('goat:column-view-event-click')
-  columnViewEventClick(evt) {
+  columnViewEventClick(evt: GoatCalendarColumnViewCustomEvent<any>) {
     this.goatCalendarEventClick.emit(evt.detail.event);
   }
 
   @Listen('goat:month-view-event-click')
-  monthViewEventClick(evt) {
+  monthViewEventClick(evt: GoatCalendarMonthViewCustomEvent<any>) {
     this.goatCalendarEventClick.emit(evt.detail.event);
   }
 
@@ -135,7 +142,7 @@ export class Calendar implements ComponentInterface {
     if (!this.currentView) return 'Invalid view';
 
     const events = this.events.map(event => {
-      return new CalendarEvent(event.start, event.end, event.title, event);
+      return new CalendarEvent(event.start, event.end, event.title, event.color, event);
     });
 
     if (this.currentView.type === 'column') {

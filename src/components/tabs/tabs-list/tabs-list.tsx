@@ -1,4 +1,5 @@
 import { Component, ComponentInterface, Element, h, Host, Listen, Prop } from '@stencil/core';
+import { GoatTabCustomEvent } from '../../../components';
 
 @Component({
   tag: 'goat-tabs-list',
@@ -6,7 +7,6 @@ import { Component, ComponentInterface, Element, h, Host, Listen, Prop } from '@
   shadow: true,
 })
 export class TabsList implements ComponentInterface {
-
   @Prop() variant: 'line' | 'contained' = 'line';
 
   @Prop() managed: boolean = false;
@@ -14,14 +14,13 @@ export class TabsList implements ComponentInterface {
   @Element() elm!: HTMLElement;
 
   @Listen('goat:tab-click')
-  tabClick(evt) {
+  tabClick(evt: GoatTabCustomEvent<any>) {
     if (!this.managed) {
       this.deselectAllTabs();
       evt.target.selected = true;
-      if(evt.detail.target) {
-
+      if (evt.detail.target) {
       } else {
-        console.warn("goat-tabs:: No target associated");
+        console.warn('goat-tabs:: No target associated');
       }
     }
   }
@@ -34,14 +33,14 @@ export class TabsList implements ComponentInterface {
   }
 
   render() {
-
-    return (<Host>
-      <div class={{ 'tabs-list': true, [`variant-${this.variant}`]: true }}>
-        <div class="tabs-container">
-          <slot />
+    return (
+      <Host>
+        <div class={{ 'tabs-list': true, [`variant-${this.variant}`]: true }}>
+          <div class="tabs-container">
+            <slot />
+          </div>
         </div>
-      </div>
-    </Host>);
+      </Host>
+    );
   }
-
 }

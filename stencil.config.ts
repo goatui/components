@@ -13,6 +13,7 @@ export const config: Config = {
     {
       type: 'dist',
       copy: [{ src: 'assets' }],
+      esmLoaderPath: '../loader',
     },
     {
       type: 'dist-custom-elements',
@@ -88,4 +89,7 @@ export const config: Config = {
     },
   ],
   plugins: [sass()],
+  testing: {
+    browserHeadless: 'new',
+  },
 };
