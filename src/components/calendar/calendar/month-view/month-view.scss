@@ -76,7 +76,6 @@
         .multi-day-section {
           border-bottom: 1px solid v(--scale-color);
           min-height: 9rem;
-          height: 20%;
 
           .multi-day-body-scroll {
             position: relative;
@@ -94,6 +93,7 @@
               flex: 1;
 
               .column {
+                min-height: 9rem;
                 flex: 1;
                 border-inline-start: 1px solid v(--scale-color);
 
