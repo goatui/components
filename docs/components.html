@@ -130,7 +130,7 @@ keywords: web components, button, input, grid, ui library, calendar, table, acco
 
       <goat-card-content class="body">
         <goat-text class="text" type="heading" heading-size='3'>{{component.metadata.name}}
-          <goat-link href="/components?filter={{component.metadata.category}}">
+          <goat-link href="/components/?filter={{component.metadata.category}}">
             <goat-tag class="color-blue" tag="{{component.metadata.category}}">{{component.metadata.category}}</goat-tag>
           </goat-link>
         </goat-text>
@@ -162,9 +162,9 @@ keywords: web components, button, input, grid, ui library, calendar, table, acco
         <goat-text class="text" type="heading" heading-size='3'>{{component.metadata.name}}</goat-text>
 
         {% for tag in component.metadata.tags %}
-        <goat-link href="/components?filter={{tag}}"> <goat-tag class="color-blue" tag="{{tag}}">{{tag}}</goat-tag></goat-link>
+        <goat-link href="/components/?filter={{tag}}"> <goat-tag class="color-blue" tag="{{tag}}">{{tag}}</goat-tag></goat-link>
         {% endfor %} {% if component.metadata.tags == null %}
-        <goat-link href="/components?filter=other"> <goat-tag class="color-blue" tag="other">other</goat-tag></goat-link>
+        <goat-link href="/components/?filter=other"> <goat-tag class="color-blue" tag="other">other</goat-tag></goat-link>
         {% endif %}
       </goat-card-content>
     </goat-card>

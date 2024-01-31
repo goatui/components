@@ -35,7 +35,7 @@ const description = 'The overview page is the first page you see when you visit 
       <div class='categories'>{
         componentsDetails.categories.map((category) => {
           return (
-            <goat-link href={`/components?filter=${category.name.toLowerCase().replace(' ', '-')}`} class='no-style'>
+            <goat-link href={`/components/?filter=${category.name.toLowerCase().replace(' ', '-')}`} class='no-style'>
               <goat-tag id={`tag-${category.name.toLowerCase().replace(' ', '-')}`}
                         color='blue'
                         class='category'>{category.name}
