@@ -14,7 +14,8 @@ import { GoatMenuItemCustomEvent, GoatTagCustomEvent } from '../../../components
 @Component({
   tag: 'goat-select',
   styleUrl: 'select.scss',
-  shadow: true,
+  shadow: false,
+  scoped: true,
 })
 export class Select implements ComponentInterface, InputComponentInterface {
   gid: string = getComponentIndex();

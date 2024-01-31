@@ -277,6 +277,7 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
 
   &.active, &.selected {
     .native-button {
+      color: var(--color-white);
       border-color: #{$button-color-active};
     }
 

@@ -1,0 +1,53 @@
+@import "../../../globalStyles/commons";
+
+$footer-height: var(--footer-height, 1.75rem);
+$header-background-dark: var(--header-background-dark, var(--header-background));
+:host {
+  display: block;
+}
+
+.footer-container {
+  container: footer-variant-simple / inline-size;
+}
+
+.footer.variant-simple {
+  display: flex;
+  background: v(--layer-01);
+
+  align-items: center;
+  min-height: $footer-height;
+
+  gap: 1rem;
+
+  .start {
+    display: flex;
+    align-items: center;
+  }
+
+}
+
+@container footer-variant-simple (min-width: 768px) {
+  .footer-container {
+    .variant-simple {
+      flex-direction: row;
+      padding: v(--spacing-05) var(--spacing-07);
+
+      .start {
+        flex: 1;
+      }
+    }
+  }
+}
+
+@container footer-variant-simple (max-width: 767px) {
+  .footer-container {
+    .variant-simple {
+      flex-direction: column;
+      padding: v(--spacing-05) var(--spacing-05);
+
+      .slot-container {
+        width: 100%;
+      }
+    }
+  }
+}

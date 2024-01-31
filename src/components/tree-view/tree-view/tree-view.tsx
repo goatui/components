@@ -126,10 +126,10 @@ export class TreeView implements ComponentInterface {
 
   render() {
     if (this.empty) {
-      return <div class="treeview">{this.renderEmptyState()}</div>;
+      return <div class="tree-view">{this.renderEmptyState()}</div>;
     } else
       return (
-        <div class="treeview">
+        <div class="tree-view">
           <slot></slot>
         </div>
       );

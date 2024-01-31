@@ -33,6 +33,8 @@ Tertiary background
 
 @include defineVariable(--layer-hover-01, #e8e8e8, #333333);
 
+@include defineVariable(--layer-active-01, getColor(gray, 30), getColor(gray, 70));
+
 @include defineVariable(--layer-accent-hover-01, getColor(gray, 20), getColor(gray, 80));
 @include defineVariable(--layer-accent-active-01, getColor(gray, 40), getColor(gray, 70));
 @include defineVariable(--layer-selected-hover-01, #cacaca, #4c4c4c);

@@ -11,7 +11,8 @@ import { debounceEvent, getComponentIndex } from '../../../../utils/utils';
 @Component({
   tag: 'goat-input',
   styleUrl: './input.scss',
-  shadow: true,
+  shadow: false,
+  scoped: true,
 })
 export class Input implements ComponentInterface, InputComponentInterface {
   gid: string = getComponentIndex();
@@ -267,7 +268,7 @@ export class Input implements ComponentInterface, InputComponentInterface {
           readOnly={this.readonly}
           required={this.required}
           onKeyDown={this.keyDownHandler}
-          onInput={this.inputHandler}
+          onInput={evt => this.inputHandler(evt)}
           onBlur={this.blurHandler}
           onFocus={this.focusHandler}
           disabled={this.disabled}

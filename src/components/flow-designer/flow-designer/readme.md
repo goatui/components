@@ -20,7 +20,7 @@
 
 - [goat-canvas](../canvas)
 - [goat-icon](../../icon)
-- [goat-tag](../../data-display/tag)
+- [goat-tag](../../tag)
 - [goat-button-group](../../button-group)
 - [goat-button](../../button)
 

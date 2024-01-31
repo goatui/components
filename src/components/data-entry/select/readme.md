@@ -87,12 +87,12 @@ Type: `Promise<void>`
  - [goat-calendar](../../calendar/calendar)
  - [goat-cb-expression](../../condition-builder/cb-expression)
  - [goat-condition-builder](../../condition-builder/condition-builder)
- - [goat-table](../../data-display/table)
+ - [goat-table](../../table)
 
 ### Depends on
 
 - [goat-icon](../../icon)
-- [goat-tag](../../data-display/tag)
+- [goat-tag](../../tag)
 - [goat-button](../../button)
 - [goat-spinner](../../spinner)
 - [goat-menu](../../menu/menu)

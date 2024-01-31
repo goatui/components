@@ -14,7 +14,8 @@ import loadMonaco from '../../../3d-party/monaco';
 @Component({
   tag: 'goat-code-editor',
   styleUrl: 'code-editor.scss',
-  shadow: true,
+  shadow: false,
+  scoped: true,
 })
 export class CodeEditor implements ComponentInterface, InputComponentInterface {
   gid: string = getComponentIndex();

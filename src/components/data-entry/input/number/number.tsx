@@ -11,7 +11,8 @@ import { debounceEvent, getComponentIndex } from '../../../../utils/utils';
 @Component({
   tag: 'goat-number',
   styleUrl: 'number.scss',
-  shadow: true,
+  shadow: false,
+  scoped: true,
 })
 export class Number implements ComponentInterface, InputComponentInterface {
   gid: string = getComponentIndex();
@@ -292,7 +293,7 @@ export class Number implements ComponentInterface, InputComponentInterface {
           {...this.configAria}
         />
 
-        {this.clearable && this.hasValue() && <goat-button class="clear input-action color-secondary" variant="ghost" icon="close" onClick={this.clearInput} />}
+        {this.clearable && this.hasValue() && <goat-button class="clear input-action" size={'full'} color={'secondary'} variant="ghost" icon="close" onClick={this.clearInput} />}
 
         {!this.readonly && !this.disabled && !this.hideActions && (
           <goat-button

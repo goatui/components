@@ -71,7 +71,7 @@ export const config: Config = {
           cat.components.push(component);
         });
 
-        const order = ['General', 'Layout', 'Navigation', 'Form Inputs', 'Data Display', 'Feedback', 'Up coming'];
+        const order = ['Data Display', 'Feedback', 'Form Inputs', 'General', 'Layout', 'Navigation', 'Others', 'Up coming'];
 
         // @ts-ignore
         docs.categories.sort((a, b) => {

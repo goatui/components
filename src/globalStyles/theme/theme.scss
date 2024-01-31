@@ -27,9 +27,13 @@ table td, table th {
   padding: 8px;
 }
 
-table tr:nth-child(even){background-color: #f2f2f2;}
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
-table tr:hover {background-color: #ddd;}
+table tr:hover {
+  background-color: #ddd;
+}
 
 table th {
   padding-top: 12px;
@@ -37,6 +41,14 @@ table th {
   text-align: left;
   background-color: #04AA6D;
   color: white;
+}
+
+.bg-background {
+  background: var(--background);
+}
+
+.bg-layer-01 {
+  background: var(--layer-01);
 }
 
 [data-theme="dark"] {

@@ -1,0 +1,30 @@
+---
+import HighlighterCard from '../../../../components/HighlighterCard.astro';
+import HeaderContent from './header-content.astro';
+---
+
+<style is:inline>
+  .simple {
+    width: 100%;
+  }
+</style>
+<HighlighterCard lang={'html'} cssClasses='modal-demo-container'>
+
+  <div class='component-container'>
+    <goat-footer class='simple'>
+      <goat-footer-copyright slot='start'
+                             copyright='Goat UI'
+                             copyright-href='https://goatui.com'>
+      </goat-footer-copyright>
+      <goat-footer-links id='footer-links' slot='end'></goat-footer-links>
+      <script is:inline>
+        document.getElementById('footer-links').links = [{ 'name': 'Privacy', 'href': '/privacy' }, {
+          'name': 'License',
+          'href': '/license',
+        }];
+      </script>
+    </goat-footer>
+  </div>
+
+
+</HighlighterCard>

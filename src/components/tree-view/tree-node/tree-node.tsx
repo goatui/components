@@ -189,7 +189,7 @@ export class GoatTreeNode {
               tabindex={this.tabindex}
               ref={el => (this.nativeElement = el as HTMLElement)}
             >
-              {this.hasChildNodes && <goat-icon name="chevron--right" class={{ 'expand-icon': true, 'expanded': this.expanded }} size="1rem" />}
+              {this.hasChildNodes && <goat-icon name="caret--right" class={{ 'expand-icon': true, 'expanded': this.expanded }} size="1rem" />}
 
               {!this.hasChildNodes && <div class="icon-space" />}
 

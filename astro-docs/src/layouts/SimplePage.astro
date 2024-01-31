@@ -1,0 +1,13 @@
+---
+import Layout from './Base.astro';
+interface Props {
+  title: any;
+  description: string;
+}
+const {title, description} = Astro.props;
+---
+<Layout title={title} description={description}>
+  <div class='simple-page-container page-container'>
+    <slot />
+  </div>
+</Layout>

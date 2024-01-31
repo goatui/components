@@ -24,8 +24,7 @@
  - [goat-progress](../progress)
  - [goat-select](../data-entry/select)
  - [goat-tab](../tabs/tab)
- - [goat-tag](../data-display/tag)
- - [goat-textarea](../data-entry/input/textarea)
+ - [goat-tag](../tag)
  - [goat-toast](../toast)
  - [goat-tree-node](../tree-view/tree-node)
 
@@ -40,7 +39,6 @@ graph TD;
   goat-select --> goat-icon
   goat-tab --> goat-icon
   goat-tag --> goat-icon
-  goat-textarea --> goat-icon
   goat-toast --> goat-icon
   goat-tree-node --> goat-icon
   style goat-icon fill:#f9f,stroke:#333,stroke-width:4px

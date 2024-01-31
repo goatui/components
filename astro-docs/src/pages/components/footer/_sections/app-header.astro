@@ -1,0 +1,54 @@
+---
+import Highlighter from '../../../../components/Highlighter.astro';
+import HighlighterCard from '../../../../components/HighlighterCard.astro';
+import HeaderContent from './header-content.astro';
+---
+
+<goat-card>
+  <style is:inline>
+    .demo goat-header {
+      --header-height: 4rem;
+    }
+  </style>
+  <goat-card-content class='demo'>
+
+    <goat-header color='brand-primary'>
+      <div slot='left'>
+        <goat-header-action icon='menu' href='#'></goat-header-action>
+        <goat-header-brand logo='/assets/img/logo.svg' href='#' name='Goat' sub-title='Subtitle'></goat-header-brand>
+      </div>
+
+      <HeaderContent />
+    </goat-header>
+
+    <br />
+
+    <goat-header color='brand-secondary'>
+      <div slot='left'>
+        <goat-header-action icon='menu' href='#'></goat-header-action>
+        <goat-header-brand logo='/assets/img/logo.svg' href='#' name='Goat' sub-title='Subtitle'></goat-header-brand>
+      </div>
+
+      <HeaderContent />
+    </goat-header>
+
+    <br />
+
+    <goat-header float>
+      <div slot='left'>
+        <goat-header-action icon='menu' href='#'></goat-header-action>
+        <goat-header-brand logo='/assets/img/logo.svg' href='#' name='Goat'
+                           sub-title='Non-brand - floating'></goat-header-brand>
+      </div>
+
+      <HeaderContent />
+    </goat-header>
+  </goat-card-content>
+  <goat-card-content class='no-padding'>
+    <Highlighter lang={'html'}>
+      <goat-header class='brand' brand-name='Goat' brand-logo='/assets/img/logo.svg' brand-url='/'>
+        <HeaderContent />
+      </goat-header>
+    </Highlighter>
+  </goat-card-content>
+</goat-card>
