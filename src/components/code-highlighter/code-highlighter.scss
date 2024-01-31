@@ -1,0 +1,89 @@
+@import "../../3d-party/prism/prism";
+@import "../../3d-party/prism/prism-line-numbers";
+@import "../../globalStyles/commons";
+
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.code-loader {
+  height: 10rem;
+  background-color: v(--field-01);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: v(--spacing-02);
+}
+
+.code-highlighter {
+  position: relative;
+  height: 100%;
+  background-color: var(--code-highlighter-background, v(--color-purple-10));
+  color: v(--text-primary);
+  .scroll-wrapper {
+    height: 100%;
+    overflow-y: auto;
+
+    .line-numbers-wrapper {
+      display: inline-block;
+      padding: v(--spacing-05);
+      padding-inline-end: 3rem;
+      height: 100%;
+      position: relative;
+      @include font-style(code-02);
+
+      &.line-numbers {
+        margin-left: 3.8rem;
+      }
+
+      .highlighter {
+        margin: 0;
+      }
+    }
+  }
+
+  .copy-btn {
+    position: absolute;
+    background-color: var(--code-highlighter-background, v(--color-purple-10));
+    top: 0.675rem;
+    right: v(--spacing-03);
+  }
+
+  .icon-only {
+    --button-padding: .5rem;
+  }
+}
+
+:host([inline]) {
+  display: inline;
+  height: initial;
+  .code-highlighter {
+    display: inline;
+    cursor: pointer;
+    .scroll-wrapper {
+      display: inline;
+      .line-numbers-wrapper {
+        padding: 0 v(--spacing-03);
+        font-size: inherit;
+        display: inline;
+        word-wrap: break-word;
+        .highlighter {
+          display: inline;
+        }
+      }
+    }
+  }
+  .code-loader {
+    height: initial;
+    display: inline;
+  }
+}
+
+:host-context([data-theme="dark"]) .code-highlighter {
+  background-color: var(--code-highlighter-background-dark, v(--color-purple-100));
+  .copy-btn {
+    background-color: var(--code-highlighter-background-dark, v(--color-purple-100));
+  }
+}

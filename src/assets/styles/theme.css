@@ -639,6 +639,7 @@ Border-bottom paired with $field-03;
   --layer-03: #f4f4f4;
   --layer-accent-01: #e0e0e0;
   --layer-hover-01: #e8e8e8;
+  --layer-active-01: #c6c6c6;
   --layer-accent-hover-01: #e0e0e0;
   --layer-accent-active-01: #a8a8a8;
   --layer-selected-hover-01: #cacaca;
@@ -943,6 +944,14 @@ table th {
   color: white;
 }
 
+.bg-background {
+  background: var(--background);
+}
+
+.bg-layer-01 {
+  background: var(--layer-01);
+}
+
 [data-theme=dark] {
   --background: #161616;
   --border-inverse: #f4f4f4;
@@ -952,6 +961,7 @@ table th {
   --layer-03: #525252;
   --layer-accent-01: #393939;
   --layer-hover-01: #333333;
+  --layer-active-01: #525252;
   --layer-accent-hover-01: #393939;
   --layer-accent-active-01: #525252;
   --layer-selected-hover-01: #4c4c4c;

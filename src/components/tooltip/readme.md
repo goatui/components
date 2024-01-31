@@ -17,7 +17,7 @@
 
 ### Used by
 
- - [goat-code-highlighter](../data-display/code-highlighter)
+ - [goat-code-highlighter](../code-highlighter)
 
 ### Graph
 ```mermaid

@@ -1,5 +1,6 @@
 import { loadScript } from '../../utils/utils';
+import { getAssetPath } from '@stencil/core';
 
 export default async function loadGoogleCharts() {
-  await loadScript(`https://d3js.org/d3.v6.js`);
+  await loadScript(getAssetPath('./assets/node_modules/d3/dist/d3.min.js'));
 }

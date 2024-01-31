@@ -69,7 +69,7 @@ Type: `Promise<void>`
 
 ### Used by
 
- - [goat-table](../../data-display/table)
+ - [goat-table](../../table)
 
 ### Graph
 ```mermaid

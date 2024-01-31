@@ -267,7 +267,7 @@ export class Input implements ComponentInterface, InputComponentInterface {
           readOnly={this.readonly}
           required={this.required}
           onKeyDown={this.keyDownHandler}
-          onInput={this.inputHandler}
+          onInput={evt => this.inputHandler(evt)}
           onBlur={this.blurHandler}
           onFocus={this.focusHandler}
           disabled={this.disabled}

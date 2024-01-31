@@ -31,12 +31,16 @@ Type: `Promise<void>`
 ### Used by
 
  - [goat-breadcrumb-item](../breadcrumb/breadcrumb-item)
+ - [goat-footer-copyright](../footer/footer-copyright)
+ - [goat-footer-links](../footer/footer-links)
  - [goat-header-brand](../header/header-brand)
 
 ### Graph
 ```mermaid
 graph TD;
   goat-breadcrumb-item --> goat-link
+  goat-footer-copyright --> goat-link
+  goat-footer-links --> goat-link
   goat-header-brand --> goat-link
   style goat-link fill:#f9f,stroke:#333,stroke-width:4px
 ```

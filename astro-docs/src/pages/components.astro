@@ -1,53 +1,99 @@
 ---
-import Layout from '../layouts/Component.astro';
+import Layout from '../layouts/Default.astro';
 import ComponentCard from '../components/ComponentCard.astro';
-import componentsDetails from '../_data/componentsDetails.json';
 import '../styles/components.page.scss';
-
-const comp = {
-  metadata: {
-    name: 'Overview',
-    description: 'The overview page is the first page you see when you visit the components section of the website. It shows all the components that are available to use in the Goat UI library. It also shows the components that are coming soon.',
-  },
-};
+import componentsDetails from '../_data/componentsDetails.json';
+import site from '../_data/site.json';
+const title = 'Overview';
+const description = 'The overview page is the first page you see when you visit the components section of the website. It shows all the components that are available to use in the Goat UI library. It also shows the components that are coming soon.';
 ---
 
 
-<Layout componentDetails={comp}>
-  <div id='search-container'>
-    <goat-input id='component-search' placeholder='Search'>
-      <goat-icon slot='start' size='1rem' name='search'></goat-icon>
-    </goat-input>
-  </div>
+<Layout title={title} description={description} classes='bg-layer-01'>
+
+  <div class='main-content'>
+    <div class='page-container'>
+
+      <goat-breadcrumb>
+        <goat-breadcrumb-item href='/'>Home</goat-breadcrumb-item>
+        {title != 'Overview' ?
+          <goat-breadcrumb-item href='/components'>Components</goat-breadcrumb-item> : ''}
+        <goat-breadcrumb-item active>{title}</goat-breadcrumb-item>
+      </goat-breadcrumb>
+
+      <div class='comp-header'>
+        <goat-text class='comp-title heading-scrollable' type='heading' heading-size='6'>{title}</goat-text>
+      </div>
 
 
-  <div class='filters hidden'>
-    <goat-link href='/components'>
-      Remove filter
-    </goat-link>
-  </div>
+      <div id='search-container'>
+        <goat-input id='component-search' placeholder='Search'>
+          <goat-icon slot='start' size='1rem' name='search'></goat-icon>
+        </goat-input>
+      </div>
 
-  <div class='cards'>
-    {
-      componentsDetails.components.map((component) => {
-        if (component.metadata.name && component.metadata.category != 'Up coming') {
-          return <ComponentCard component={component}></ComponentCard>;
+      <div class='categories'>{
+        componentsDetails.categories.map((category) => {
+          return (
+            <goat-link href={`/components?filter=${category.name.toLowerCase().replace(' ', '-')}`} class='no-style'>
+              <goat-tag id={`tag-${category.name.toLowerCase().replace(' ', '-')}`}
+                        color='blue'
+                        class='category'>{category.name}
+                <goat-icon class='selected-icon inherit' name='checkmark'></goat-icon>
+              </goat-tag>
+            </goat-link>);
+        })
+      }</div>
+
+      <div class='filters hidden'>
+        <goat-link href='/components'>
+          Remove filter
+        </goat-link>
+      </div>
+
+      <div class='cards'>
+        {
+          componentsDetails.components.map((component) => {
+            if (component.metadata.name && component.metadata.category != 'Up coming') {
+              return (
+                <ComponentCard component={component}></ComponentCard>);
+            }
+          })
         }
-      })
-    }
-  </div>
+      </div>
 
-  <goat-text class='up-coming-title' type='heading' heading-size='4'>Upcoming</goat-text>
+      <goat-text class='up-coming-title' type='heading' heading-size='4'>Upcoming</goat-text>
 
-  <div class='cards up-coming'>
-    {
-      componentsDetails.components.map((component) => {
-        if (component.metadata.name && component.metadata.category == 'Up coming') {
-          return <ComponentCard component={component}/>;
+      <div class='cards up-coming'>
+        {
+          componentsDetails.components.map((component) => {
+            if (component.metadata.name && component.metadata.category == 'Up coming') {
+              return (
+                <ComponentCard component={component} />);
+            }
+          })
         }
-      })
-    }
+      </div>
+
+      <script is:inline src='/assets/js/components.page.js'></script>
+    </div>
+
+    <goat-footer class='simple'>
+      <goat-footer-copyright slot='start' copyright='Shivaji Varma'
+                             copyright-href='https://shivajivarma.com'></goat-footer-copyright>
+      <goat-footer-links id='footer-links' slot='end'></goat-footer-links>
+      <script is:inline>
+        document.getElementById('footer-links').links = [{
+          'name': 'Privacy',
+          'href': '/privacy',
+        }, {
+          'name': 'License',
+          'href': '/license',
+        }];
+      </script>
+    </goat-footer>
+
   </div>
 
-  <script is:inline src='/assets/js/components.page.js'></script>
+
 </Layout>

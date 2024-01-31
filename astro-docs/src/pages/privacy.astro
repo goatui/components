@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/SimplePage.astro';
+const title = 'License';
+const description = 'Site is copyrighted under The MIT License.';
+import site from '../_data/site.json';
+const year = new Date().getFullYear();
+---
+<Layout title={title} description={description} keywords='License, MIT'>
+  <goat-container>
+    <goat-text type="heading">
+      Privacy Policy
+    </goat-text>
+
+    <goat-text expressive>
+      This website does not share personal information with third parties nor do we store any information about your visit to this website other than to analyze and optimize your content and reading experience through the use of cookies.
+    </goat-text>
+
+      <goat-text expressive>
+        You can turn off the use of cookies at anytime by changing your specific browser settings.
+      </goat-text>
+
+      <goat-text expressive>
+        We are not responsible for republished content from this website on other blogs or websites without our permission.
+      </goat-text>
+
+      <goat-text expressive>
+        This privacy policy is subject to change without notice and was last updated on Feb, 23, 2014. If you have any questions feel free to contact me directly here: contact@shivajivarma.com.
+      </goat-text>
+  </goat-container>
+
+</Layout>
+

@@ -7,7 +7,7 @@ const {component} = Astro.props;
 ---
 
 { component &&
-<div class='card-wrapper'>
+<div class='card-wrapper' data-category={component.metadata.category.toLowerCase().replace(' ', '-')}>
   <goat-card shadow-level='md' class='card'>
     <goat-card-content class='header card-header' data-tag={component.tag}>
       {
@@ -18,13 +18,17 @@ const {component} = Astro.props;
     </goat-card-content>
 
     <goat-card-content class='body'>
-      <goat-text class='text' type='heading' heading-size='3'>{component.metadata.name}&nbsp;
-        <goat-link href={`/components?filter=${component.metadata.category}`}>
-          <goat-tag class='color-blue'
-                    tag={component.metadata.category}>{component.metadata.category}</goat-tag>
-        </goat-link>
-      </goat-text>
-      <goat-text class='text'>{component.metadata.description}</goat-text>
+
+      <goat-text class='component-title' type='heading' heading-size='3'>{component.metadata.name}</goat-text>
+
+      <goat-link href={`/components?filter=${component.metadata.category.toLowerCase().replace(' ', '-')}`}>
+        <goat-tag color='warning' size='sm' class='category-tag'
+                  tag={component.metadata.category}>{component.metadata.category}</goat-tag>
+      </goat-link>
+
+      <goat-text class='component-description'>{component.metadata.description}</goat-text>
+
+      <goat-button size='sm' color='dark' dark-mode-color="light" href={`/components/${component.tag.replace('goat-', '')}#`}  icon="arrow--right">Read more</goat-button>
     </goat-card-content>
   </goat-card>
 </div>}

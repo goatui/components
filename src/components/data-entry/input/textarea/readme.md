@@ -79,12 +79,14 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [goat-icon](../../../icon)
+- [goat-button](../../../button)
 
 ### Graph
 ```mermaid
 graph TD;
-  goat-textarea --> goat-icon
+  goat-textarea --> goat-button
+  goat-button --> goat-icon
+  goat-button --> goat-spinner
   style goat-textarea fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

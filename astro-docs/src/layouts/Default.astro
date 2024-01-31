@@ -4,9 +4,10 @@ interface Props {
   description?: string;
   root?: boolean;
   keywords?: string;
+  classes?: string;
 }
 
-const { title, root, description, keywords } = Astro.props;
+const { title, root, description, keywords, classes } = Astro.props;
 
 import Layout from './Base.astro';
 import site from '../_data/site.json';
@@ -116,7 +117,7 @@ const getTitle = (root?: boolean) => {
     </goat-header>
   </nav>
 
-  <main>
+  <main class={classes}>
     <slot />
   </main>
 

@@ -21,7 +21,7 @@
 ### Depends on
 
 - [goat-link](../../link)
-- [goat-svg](../../data-display/svg)
+- [goat-svg](../../svg)
 - [goat-divider](../../layout/divider)
 
 ### Graph

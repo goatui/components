@@ -74,9 +74,9 @@ Type: `Promise<void>`
 ### Used by
 
  - [goat-calendar](../calendar/calendar)
- - [goat-code-highlighter](../data-display/code-highlighter)
+ - [goat-code-highlighter](../code-highlighter)
  - [goat-date-picker](../data-entry/date/date-picker)
- - [goat-empty-state](../data-display/empty-state)
+ - [goat-empty-state](../empty-state)
  - [goat-flow-designer](../flow-designer/flow-designer)
  - [goat-header-action](../header/header-action)
  - [goat-html-editor](../data-entry/html-editor)
@@ -85,7 +85,8 @@ Type: `Promise<void>`
  - [goat-notification](../notification)
  - [goat-number](../data-entry/input/number)
  - [goat-select](../data-entry/select)
- - [goat-table](../data-display/table)
+ - [goat-table](../table)
+ - [goat-textarea](../data-entry/input/textarea)
  - [goat-time-picker](../data-entry/date/time-picker)
 
 ### Depends on
@@ -111,6 +112,7 @@ graph TD;
   goat-number --> goat-button
   goat-select --> goat-button
   goat-table --> goat-button
+  goat-textarea --> goat-button
   goat-time-picker --> goat-button
   style goat-button fill:#f9f,stroke:#333,stroke-width:4px
 ```

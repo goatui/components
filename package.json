@@ -28,9 +28,11 @@
   "contributors": [],
   "files": [
     "dist/",
-    "loader/"
+    "loader/",
+    "src/"
   ],
   "scripts": {
+    "postinstall": "npm run build",
     "build": "stencil build --docs --prod",
     "build:docs": "stencil docs",
     "build:full": "npm run build:theme && npm run build",
@@ -63,7 +65,7 @@
   },
   "devDependencies": {
     "@shopify/prettier-plugin-liquid": "^1.2.2",
-    "@stencil/core": "^4.9.1",
+    "@stencil/core": "^4.11.0",
     "@stencil/sass": "^3.0.8",
     "@types/jest": "^27.5.2",
     "@types/js-beautify": "^1.13.3",
@@ -72,7 +74,7 @@
     "jest": "^27.5.1",
     "jest-cli": "^27.5.1",
     "puppeteer": "21.1.1",
-    "sass": "^1.69.7"
+    "sass": "^1.70.0"
   },
   "engines": {
     "node": ">=18.x"

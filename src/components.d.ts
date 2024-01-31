@@ -476,8 +476,8 @@ export namespace Components {
      * @name Empty State
      * @description A message that displays when there is no information to display.
      * @category Data Display
-     * @example <goat-empty-state class="content-center" headline="Empty list" description="Nothing to display">
-     * </goat-empty-state>
+     * @img /assets/img/empty-state.png
+     * @imgDark /assets/img/empty-state-dark.png
      */
     interface GoatEmptyState {
         "action": string;
@@ -498,6 +498,26 @@ export namespace Components {
         "blockSize": number;
         "data": any[];
         "disabled": boolean;
+    }
+    /**
+     * @name Footer
+     * @description The footer component provides a container for displaying additional navigation information about a site.
+     * @overview <p>The footer is one of the most underestimated sections of a website being located at the very bottom of every page, however, it can be used as a way to try to convince users to stay on your website if they haven’t found the information they’ve been looking for inside the main content area.</p>
+     * @category Navigation
+     * @img /assets/img/footer.png
+     * @imgDark /assets/img/footer-dark.png
+     */
+    interface GoatFooter {
+        "variant": 'simple';
+        "year": number;
+    }
+    interface GoatFooterCopyright {
+        "copyright": string;
+        "copyrightHref": string;
+        "year": number;
+    }
+    interface GoatFooterLinks {
+        "links": { name: string; href: string }[];
     }
     /**
      * @name Form Control
@@ -1180,6 +1200,7 @@ export namespace Components {
         "color": 'gray' | 'blue' | 'green' | 'red' | 'yellow' | 'primary' | 'success' | 'info' | 'warning' | 'error';
         "filter": boolean;
         "imageSrc": string;
+        "selected": boolean;
         /**
           * Text size.
          */
@@ -1941,8 +1962,8 @@ declare global {
      * @name Empty State
      * @description A message that displays when there is no information to display.
      * @category Data Display
-     * @example <goat-empty-state class="content-center" headline="Empty list" description="Nothing to display">
-     * </goat-empty-state>
+     * @img /assets/img/empty-state.png
+     * @imgDark /assets/img/empty-state-dark.png
      */
     interface HTMLGoatEmptyStateElement extends Components.GoatEmptyState, HTMLStencilElement {
     }
@@ -1961,6 +1982,32 @@ declare global {
     var HTMLGoatFlowDesignerElement: {
         prototype: HTMLGoatFlowDesignerElement;
         new (): HTMLGoatFlowDesignerElement;
+    };
+    /**
+     * @name Footer
+     * @description The footer component provides a container for displaying additional navigation information about a site.
+     * @overview <p>The footer is one of the most underestimated sections of a website being located at the very bottom of every page, however, it can be used as a way to try to convince users to stay on your website if they haven’t found the information they’ve been looking for inside the main content area.</p>
+     * @category Navigation
+     * @img /assets/img/footer.png
+     * @imgDark /assets/img/footer-dark.png
+     */
+    interface HTMLGoatFooterElement extends Components.GoatFooter, HTMLStencilElement {
+    }
+    var HTMLGoatFooterElement: {
+        prototype: HTMLGoatFooterElement;
+        new (): HTMLGoatFooterElement;
+    };
+    interface HTMLGoatFooterCopyrightElement extends Components.GoatFooterCopyright, HTMLStencilElement {
+    }
+    var HTMLGoatFooterCopyrightElement: {
+        prototype: HTMLGoatFooterCopyrightElement;
+        new (): HTMLGoatFooterCopyrightElement;
+    };
+    interface HTMLGoatFooterLinksElement extends Components.GoatFooterLinks, HTMLStencilElement {
+    }
+    var HTMLGoatFooterLinksElement: {
+        prototype: HTMLGoatFooterLinksElement;
+        new (): HTMLGoatFooterLinksElement;
     };
     /**
      * @name Form Control
@@ -2618,6 +2665,9 @@ declare global {
         "goat-dropdown": HTMLGoatDropdownElement;
         "goat-empty-state": HTMLGoatEmptyStateElement;
         "goat-flow-designer": HTMLGoatFlowDesignerElement;
+        "goat-footer": HTMLGoatFooterElement;
+        "goat-footer-copyright": HTMLGoatFooterCopyrightElement;
+        "goat-footer-links": HTMLGoatFooterLinksElement;
         "goat-form-control": HTMLGoatFormControlElement;
         "goat-header": HTMLGoatHeaderElement;
         "goat-header-action": HTMLGoatHeaderActionElement;
@@ -3136,8 +3186,8 @@ declare namespace LocalJSX {
      * @name Empty State
      * @description A message that displays when there is no information to display.
      * @category Data Display
-     * @example <goat-empty-state class="content-center" headline="Empty list" description="Nothing to display">
-     * </goat-empty-state>
+     * @img /assets/img/empty-state.png
+     * @imgDark /assets/img/empty-state-dark.png
      */
     interface GoatEmptyState {
         "action"?: string;
@@ -3158,6 +3208,26 @@ declare namespace LocalJSX {
         "blockSize"?: number;
         "data"?: any[];
         "disabled"?: boolean;
+    }
+    /**
+     * @name Footer
+     * @description The footer component provides a container for displaying additional navigation information about a site.
+     * @overview <p>The footer is one of the most underestimated sections of a website being located at the very bottom of every page, however, it can be used as a way to try to convince users to stay on your website if they haven’t found the information they’ve been looking for inside the main content area.</p>
+     * @category Navigation
+     * @img /assets/img/footer.png
+     * @imgDark /assets/img/footer-dark.png
+     */
+    interface GoatFooter {
+        "variant"?: 'simple';
+        "year"?: number;
+    }
+    interface GoatFooterCopyright {
+        "copyright"?: string;
+        "copyrightHref"?: string;
+        "year"?: number;
+    }
+    interface GoatFooterLinks {
+        "links"?: { name: string; href: string }[];
     }
     /**
      * @name Form Control
@@ -3841,6 +3911,7 @@ declare namespace LocalJSX {
         "imageSrc"?: string;
         "onGoat:click"?: (event: GoatTagCustomEvent<any>) => void;
         "onGoat:tag-dismiss"?: (event: GoatTagCustomEvent<any>) => void;
+        "selected"?: boolean;
         /**
           * Text size.
          */
@@ -4132,6 +4203,9 @@ declare namespace LocalJSX {
         "goat-dropdown": GoatDropdown;
         "goat-empty-state": GoatEmptyState;
         "goat-flow-designer": GoatFlowDesigner;
+        "goat-footer": GoatFooter;
+        "goat-footer-copyright": GoatFooterCopyright;
+        "goat-footer-links": GoatFooterLinks;
         "goat-form-control": GoatFormControl;
         "goat-header": GoatHeader;
         "goat-header-action": GoatHeaderAction;
@@ -4336,8 +4410,8 @@ declare module "@stencil/core" {
              * @name Empty State
              * @description A message that displays when there is no information to display.
              * @category Data Display
-             * @example <goat-empty-state class="content-center" headline="Empty list" description="Nothing to display">
-             * </goat-empty-state>
+             * @img /assets/img/empty-state.png
+             * @imgDark /assets/img/empty-state-dark.png
              */
             "goat-empty-state": LocalJSX.GoatEmptyState & JSXBase.HTMLAttributes<HTMLGoatEmptyStateElement>;
             /**
@@ -4347,6 +4421,17 @@ declare module "@stencil/core" {
              * @img /assets/img/flow-designer.png
              */
             "goat-flow-designer": LocalJSX.GoatFlowDesigner & JSXBase.HTMLAttributes<HTMLGoatFlowDesignerElement>;
+            /**
+             * @name Footer
+             * @description The footer component provides a container for displaying additional navigation information about a site.
+             * @overview <p>The footer is one of the most underestimated sections of a website being located at the very bottom of every page, however, it can be used as a way to try to convince users to stay on your website if they haven’t found the information they’ve been looking for inside the main content area.</p>
+             * @category Navigation
+             * @img /assets/img/footer.png
+             * @imgDark /assets/img/footer-dark.png
+             */
+            "goat-footer": LocalJSX.GoatFooter & JSXBase.HTMLAttributes<HTMLGoatFooterElement>;
+            "goat-footer-copyright": LocalJSX.GoatFooterCopyright & JSXBase.HTMLAttributes<HTMLGoatFooterCopyrightElement>;
+            "goat-footer-links": LocalJSX.GoatFooterLinks & JSXBase.HTMLAttributes<HTMLGoatFooterLinksElement>;
             /**
              * @name Form Control
              * @description The Form Control component adds a label and caption for its child control.

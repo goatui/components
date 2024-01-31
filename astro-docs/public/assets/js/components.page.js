@@ -18,10 +18,13 @@ $componentSearchElm.addEventListener('goat:input', function (e) {
 });
 if (window.location.href.indexOf('?filter=') !== -1) {
   const filter = new URLSearchParams(window.location.search).get('filter');
-  if (filter) document.querySelector('.filters').classList.remove('hidden');
+  if (filter) {
+    document.querySelector('#tag-' + filter).selected = true;
+    document.querySelector('.filters').classList.remove('hidden');
+  }
   document.querySelectorAll('.card-wrapper').forEach(elm => {
     elm.classList.add('hidden-force');
-    if (elm.querySelector(`goat-tag[tag="${filter}"]`)) {
+    if (elm.getAttribute('data-category') === filter) {
       elm.classList.remove('hidden-force');
     }
   });

@@ -1,8 +1,6 @@
 @use "sass:map";
 @import "../../globalStyles/commons";
 
-$input-background-color: var(--input-background-color, #{v(--field-01)});
-
 :host {
   display: block;
   width: 100%;
@@ -119,7 +117,7 @@ $input-background-color: var(--input-background-color, #{v(--field-01)});
   align-items: center;
   justify-content: center;
 
-  background-color: $input-background-color;
+  background-color: var(--input-background-color, #{v(--field-01)});
   border: var(--input-border);
   border-inline-start: var(--input-border-inline-start, var(--input-border));
   border-inline-end: var(--input-border-inline-end, var(--input-border));
@@ -216,11 +214,6 @@ $input-background-color: var(--input-background-color, #{v(--field-01)});
   }
 }
 
-:host(.bg-light) .input-container {
-  background-color: v(--field-02);
-}
-
-
 /**
  * States
  */
@@ -262,9 +255,9 @@ $input-background-color: var(--input-background-color, #{v(--field-01)});
   }
 }
 
-:host(.bg-light) {
+:host-context(.bg-layer-01) {
   .input-container {
-    background-color: v(--field-02);
+    background-color: var(--input-background-color, #{v(--field-02)});
   }
 }
 

@@ -20,7 +20,7 @@
 
  - [goat-button](../button)
  - [goat-code-editor](../data-entry/code-editor)
- - [goat-code-highlighter](../data-display/code-highlighter)
+ - [goat-code-highlighter](../code-highlighter)
  - [goat-html-editor](../data-entry/html-editor)
  - [goat-modal](../modal/modal)
  - [goat-select](../data-entry/select)

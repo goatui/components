@@ -29,8 +29,6 @@
 }
 
 :root {
-
-
   --color-brand-primary: var(--color-purple);
   --color-brand-primary-10: var(--color-purple-10);
   --color-brand-primary-20: var(--color-purple-20);
@@ -62,34 +60,6 @@
 
 
 
-html[data-theme='dark'] {
-
-  --color-brand-primary: #fdf0d5;
-  --color-brand-primary-10: #fffcf7;
-  --color-brand-primary-20: #fef9ee;
-  --color-brand-primary-30: #fef6e6;
-  --color-brand-primary-40: #fdf3dd;
-  --color-brand-primary-50: #fdf0d5;
-  --color-brand-primary-60: #cac0aa;
-  --color-brand-primary-70: #989080;
-  --color-brand-primary-80: #656055;
-  --color-brand-primary-90: #33302b;
-  --color-brand-primary-100: #000000;
-
-  --color-brand-secondary: #780000;
-  --color-brand-secondary-10: #e4cccc;
-  --color-brand-secondary-20: #c99999;
-  --color-brand-secondary-30: #ae6666;
-  --color-brand-secondary-40: #933333;
-  --color-brand-secondary-50: #780000;
-  --color-brand-secondary-60: #600000;
-  --color-brand-secondary-70: #480000;
-  --color-brand-secondary-80: #300000;
-  --color-brand-secondary-90: #180000;
-  --color-brand-secondary-100: #000000;
-}
-
-
 body {
   position: relative;
   margin: 0;
@@ -98,7 +68,6 @@ body {
 }
 
 html {
-  background-color: var(--background);
   scroll-behavior: smooth;
   visibility: hidden;
   font-size: 16px;
@@ -175,7 +144,6 @@ figure {
 
 .page-container {
   padding: var(--spacing-07) var(--spacing-05);
-  min-height: calc(100vh - 8rem);
 }
 
 @include for-tablet-landscape-up {
