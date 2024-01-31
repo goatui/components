@@ -11,8 +11,7 @@ import { debounceEvent, getComponentIndex } from '../../../../utils/utils';
 @Component({
   tag: 'goat-input',
   styleUrl: './input.scss',
-  shadow: false,
-  scoped: true,
+  shadow: true,
 })
 export class Input implements ComponentInterface, InputComponentInterface {
   gid: string = getComponentIndex();

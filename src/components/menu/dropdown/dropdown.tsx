@@ -96,12 +96,12 @@ export class Dropdown implements ComponentInterface {
     if (!this.disabled && !this.open) {
       this.open = true;
 
-      setTimeout(() => {
-        // @ts-ignore
-        this._fixPosition(() => {
+      // @ts-ignore
+      this._fixPosition(() => {
+        setTimeout(() => {
           this.getMenuElement()?.setFocus();
-        });
-      }, 80);
+        }, 80);
+      });
     }
   };
 

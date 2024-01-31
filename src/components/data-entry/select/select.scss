@@ -82,6 +82,15 @@
     min-width: 10rem;
   }
 
+  .selected-items {
+    background: v(--background);
+    border: 1px solid v(--border-strong-01);
+    box-shadow: v(--shadow-sm);
+    padding: .5rem;
+    border-radius: v(--border-radius);
+    margin-bottom: 0.5rem;
+  }
+
   .menu {
     width: 100%;
     --list-max-height: 20rem;

@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Listen, Method, Prop, State, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, Fragment, h, Host, Listen, Method, Prop, State, Watch } from '@stencil/core';
 import { debounceEvent, getComponentIndex, throttle } from '../../../utils/utils';
 import { computePosition, flip, offset, size } from '@floating-ui/dom';
 import { GoatMenuItemCustomEvent, GoatTagCustomEvent } from '../../../components';
@@ -14,8 +14,7 @@ import { GoatMenuItemCustomEvent, GoatTagCustomEvent } from '../../../components
 @Component({
   tag: 'goat-select',
   styleUrl: 'select.scss',
-  shadow: false,
-  scoped: true,
+  shadow: true,
 })
 export class Select implements ComponentInterface, InputComponentInterface {
   gid: string = getComponentIndex();
@@ -262,12 +261,14 @@ export class Select implements ComponentInterface, InputComponentInterface {
       if (this.search !== 'none') {
         this.searchString = '';
       }
-      setTimeout(() => {
-        this._fixPosition();
-        if (this.search !== 'none') {
-          this.nativeElement.focus();
-        }
-      }, 80);
+      // @ts-ignore
+      this._fixPosition(() => {
+        setTimeout(() => {
+          if (this.search !== 'none') {
+            this.nativeElement.focus();
+          }
+        }, 80);
+      });
     }
   };
 
@@ -420,7 +421,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
 
   renderMultiSelectValues() {
     const values = this.getValues();
-    if (this.multiple && values.length && !this.open) {
+    if (this.multiple && values.length) {
       return (
         <div
           class="multi-select-values"
@@ -482,7 +483,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
                   <slot name="start" />
                 </div>
 
-                {this.renderMultiSelectValues()}
+                {!this.open && this.renderMultiSelectValues()}
 
                 {(() => {
                   if (this.search !== 'none' && this.open) {
@@ -561,22 +562,25 @@ export class Select implements ComponentInterface, InputComponentInterface {
     if (this.items) {
       const filteredItems = this.filterItems();
       return (
-        <goat-menu class="menu" empty={filteredItems.length == 0} ref={el => (this.menuElm = el)} size={this.size}>
-          {(() => {
-            return filteredItems.map(item => {
-              return (
-                <goat-menu-item value={item.value}>
-                  <div class={'slot-container-start'} slot="start">
-                    {item.icon && <goat-icon name={item.icon} size={this.size} />}
-                  </div>
-                  {item.label || item.value}
+        <Fragment>
+          {this.multiple && <div class="selected-items">{this.renderMultiSelectValues()}</div>}
+          <goat-menu class="menu" empty={filteredItems.length == 0} ref={el => (this.menuElm = el)} size={this.size}>
+            {(() => {
+              return filteredItems.map(item => {
+                return (
+                  <goat-menu-item value={item.value}>
+                    <div class={'slot-container-start'} slot="start">
+                      {item.icon && <goat-icon name={item.icon} size={this.size} />}
+                    </div>
+                    {item.label || item.value}
 
-                  <div slot="end">{((this.multiple && this.containsValue(item.value)) || this.value == item.value) && <goat-icon name="checkmark" size={this.size} />}</div>
-                </goat-menu-item>
-              );
-            });
-          })()}
-        </goat-menu>
+                    <div slot="end">{((this.multiple && this.containsValue(item.value)) || this.value == item.value) && <goat-icon name="checkmark" size={this.size} />}</div>
+                  </goat-menu-item>
+                );
+              });
+            })()}
+          </goat-menu>
+        </Fragment>
       );
     }
   }

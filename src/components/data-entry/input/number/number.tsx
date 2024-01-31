@@ -11,8 +11,7 @@ import { debounceEvent, getComponentIndex } from '../../../../utils/utils';
 @Component({
   tag: 'goat-number',
   styleUrl: 'number.scss',
-  shadow: false,
-  scoped: true,
+  shadow: true,
 })
 export class Number implements ComponentInterface, InputComponentInterface {
   gid: string = getComponentIndex();
