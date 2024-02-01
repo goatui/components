@@ -255,7 +255,7 @@
   }
 }
 
-:host-context(.bg-layer-01) {
+:host(.bg-layer-01) {
   .input-container {
     background-color: var(--input-background-color, #{v(--field-02)});
   }
