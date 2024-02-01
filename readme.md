@@ -19,7 +19,7 @@ Checkout the complete documentation over here -> https://goatui.com
 ### Script tag
 
 - Put a script tag similar to
-  this `<script type="module" src="https://cdn.jsdelivr.net/npm/@goatui/components@1.29.0/dist/goatui/goatui.esm.js"></script>`
+  this `<script type="module" src="https://cdn.jsdelivr.net/npm/@goatui/components@1.29.1/dist/goatui/goatui.esm.js"></script>`
   in
   the head of your index.html
 - Include default font Roboto in the page
@@ -33,9 +33,9 @@ Checkout the complete documentation over here -> https://goatui.com
   <meta name='viewport' content='width=device-width' />
   <title>Goat UI Component</title>
 
-  <!-- include your custom theme variable values, view variable names at https://cdn.jsdelivr.net/npm/@goatui/components@1.29.0/dist/goatui/assets/styles/theme.css -->
+  <!-- include your custom theme variable values, view variable names at https://cdn.jsdelivr.net/npm/@goatui/components@1.29.1/dist/goatui/assets/styles/theme.css -->
   <!--link rel="stylesheet" href="/custom-theme.css"></link-->
-  <script type='module' src='https://cdn.jsdelivr.net/npm/@goatui/components@1.29.0/dist/goatui/goatui.esm.js'></script>
+  <script type='module' src='https://cdn.jsdelivr.net/npm/@goatui/components@1.29.1/dist/goatui/goatui.esm.js'></script>
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans+Condensed:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Serif:ital@0;1&display=swap');
