@@ -28,8 +28,7 @@
   "contributors": [],
   "files": [
     "dist/",
-    "loader/",
-    "src/"
+    "loader/"
   ],
   "scripts": {
     "build": "stencil build --docs --prod",
