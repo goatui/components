@@ -27,6 +27,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    .empty-state {
+      width: 10rem;
+    }
   }
 
   .pagination {

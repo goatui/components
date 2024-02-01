@@ -9,6 +9,12 @@
   background-color: v(--layer-01);
 }
 
+:host-context(.bg-background) {
+  .tree-view {
+    background-color: v(--layer-01);
+  }
+}
+
 :host-context(.bg-layer-01) {
   .tree-view {
     background-color: v(--background);

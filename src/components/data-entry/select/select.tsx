@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, Fragment, h, Host, Listen, Method, Prop, State, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Listen, Method, Prop, State, Watch } from '@stencil/core';
 import { debounceEvent, getComponentIndex, throttle } from '../../../utils/utils';
 import { computePosition, flip, offset, size } from '@floating-ui/dom';
 import { GoatMenuItemCustomEvent, GoatTagCustomEvent } from '../../../components';
@@ -337,7 +337,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
         return <span>&nbsp;</span>;
       }
     } else {
-      if (!this.value && !this.disabled && !this.readonly) {
+      if (!this.disabled && !this.readonly) {
         return this.placeholder;
       } else {
         return <span>&nbsp;</span>;
@@ -422,27 +422,16 @@ export class Select implements ComponentInterface, InputComponentInterface {
   renderMultiSelectValues() {
     const values = this.getValues();
     if (this.multiple && values.length) {
-      return (
-        <div
-          class="multi-select-values"
-          on-click={evt => {
-            if (evt.target.classList.contains('multi-select-values')) {
-              this.toggleList();
-            }
-          }}
-        >
-          {values.map(value => {
-            const item = this.getItemByValue(value);
-            if (item) {
-              return (
-                <goat-tag filter={!this.disabled && !this.readonly} class="multi-select-value" value={item.value}>
-                  {item.label}
-                </goat-tag>
-              );
-            }
-          })}
-        </div>
-      );
+      return values.map(value => {
+        const item = this.getItemByValue(value);
+        if (item) {
+          return (
+            <goat-tag size="sm" filter={!this.disabled && !this.readonly} class="multi-select-value" value={item.value}>
+              {item.label}
+            </goat-tag>
+          );
+        }
+      });
     }
   }
 
@@ -483,43 +472,52 @@ export class Select implements ComponentInterface, InputComponentInterface {
                   <slot name="start" />
                 </div>
 
-                {!this.open && this.renderMultiSelectValues()}
+                <div
+                  class="value-container"
+                  on-click={evt => {
+                    if (evt.target.classList.contains('multi-select-values')) {
+                      this.toggleList();
+                    }
+                  }}
+                >
+                  {this.renderMultiSelectValues()}
 
-                {(() => {
-                  if (this.search !== 'none' && this.open) {
-                    return (
-                      <input
-                        class="input input-native"
-                        ref={input => (this.nativeElement = input)}
-                        type="text"
-                        name={this.name}
-                        value={this.searchString}
-                        placeholder={this.placeholder}
-                        onBlur={this.blurHandler}
-                        onFocus={this.focusHandler}
-                        onInput={this.onInput}
-                        onKeyDown={this.keyDownHandler}
-                        {...this.configAria}
-                      />
-                    );
-                  } else {
-                    return (
-                      <div
-                        class="input display-value"
-                        tabindex="0"
-                        ref={input => (this.displayElement = input)}
-                        aria-disabled={this.disabled ? 'true' : null}
-                        onFocus={this.focusHandler}
-                        onBlur={this.blurHandler}
-                        onKeyDown={this.keyDownHandler}
-                        onClick={this.toggleList}
-                        {...this.configAria}
-                      >
-                        {this.getDisplayValue()}
-                      </div>
-                    );
-                  }
-                })()}
+                  {(() => {
+                    if (this.search !== 'none' && this.open) {
+                      return (
+                        <input
+                          class="input input-native"
+                          ref={input => (this.nativeElement = input)}
+                          type="text"
+                          name={this.name}
+                          value={this.searchString}
+                          placeholder={this.placeholder}
+                          onBlur={this.blurHandler}
+                          onFocus={this.focusHandler}
+                          onInput={this.onInput}
+                          onKeyDown={this.keyDownHandler}
+                          {...this.configAria}
+                        />
+                      );
+                    } else {
+                      return (
+                        <div
+                          class="input display-value"
+                          tabindex="0"
+                          ref={input => (this.displayElement = input)}
+                          aria-disabled={this.disabled ? 'true' : null}
+                          onFocus={this.focusHandler}
+                          onBlur={this.blurHandler}
+                          onKeyDown={this.keyDownHandler}
+                          onClick={this.toggleList}
+                          {...this.configAria}
+                        >
+                          {this.getDisplayValue()}
+                        </div>
+                      );
+                    }
+                  })()}
+                </div>
 
                 {this.clearable && !this.multiple && this.hasValue() && (
                   <goat-button class="clear input-action" size={'full'} color={'secondary'} kind={'simple'} variant="ghost" icon="close" onClick={this.clearInput} />
@@ -562,25 +560,22 @@ export class Select implements ComponentInterface, InputComponentInterface {
     if (this.items) {
       const filteredItems = this.filterItems();
       return (
-        <Fragment>
-          {this.multiple && <div class="selected-items">{this.renderMultiSelectValues()}</div>}
-          <goat-menu class="menu" empty={filteredItems.length == 0} ref={el => (this.menuElm = el)} size={this.size}>
-            {(() => {
-              return filteredItems.map(item => {
-                return (
-                  <goat-menu-item value={item.value}>
-                    <div class={'slot-container-start'} slot="start">
-                      {item.icon && <goat-icon name={item.icon} size={this.size} />}
-                    </div>
-                    {item.label || item.value}
+        <goat-menu class="menu" empty={filteredItems.length == 0} ref={el => (this.menuElm = el)} size={this.size}>
+          {(() => {
+            return filteredItems.map(item => {
+              return (
+                <goat-menu-item value={item.value}>
+                  <div class={'slot-container-start'} slot="start">
+                    {item.icon && <goat-icon name={item.icon} size={this.size} />}
+                  </div>
+                  {item.label || item.value}
 
-                    <div slot="end">{((this.multiple && this.containsValue(item.value)) || this.value == item.value) && <goat-icon name="checkmark" size={this.size} />}</div>
-                  </goat-menu-item>
-                );
-              });
-            })()}
-          </goat-menu>
-        </Fragment>
+                  <div slot="end">{((this.multiple && this.containsValue(item.value)) || this.value == item.value) && <goat-icon name="checkmark" size={this.size} />}</div>
+                </goat-menu-item>
+              );
+            });
+          })()}
+        </goat-menu>
       );
     }
   }

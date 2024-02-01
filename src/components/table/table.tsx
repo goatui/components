@@ -389,7 +389,7 @@ export class Table {
   private renderEmptyState() {
     return (
       <div class="empty-table">
-        <goat-empty-state class="content-center" headline={this.emptyStateHeadline} description={this.emptyStateDescription} />
+        <goat-empty-state class="empty-state content-center" headline={this.emptyStateHeadline} description={this.emptyStateDescription} />
       </div>
     );
   }
