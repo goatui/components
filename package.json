@@ -1,6 +1,6 @@
 {
   "name": "@goatui/components",
-  "version": "1.29.0",
+  "version": "1.29.1",
   "description": "A light weight web component library",
   "keywords": [
     "goatui",
@@ -47,8 +47,7 @@
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@shopify/prettier-plugin-liquid": "^1.2.2",
     "@stencil/core": "^4.11.0",
@@ -61,8 +60,6 @@
     "jest-cli": "^27.5.1",
     "puppeteer": "21.1.1",
     "sass": "^1.70.0",
-
-
     "@floating-ui/dom": "^1.5.3",
     "@tiptap/core": "^2.1.12",
     "@tiptap/extension-document": "^2.1.12",
