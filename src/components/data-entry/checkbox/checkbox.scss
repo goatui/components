@@ -1,13 +1,11 @@
 @import "../../../globalStyles/commons";
 
-$input-background-color: var(--input-background-color, #{v(--field-01)});
 
 :host {
   display: inline-block;
   color: v(--text-primary);
   --checkbox-size: 1rem;
 }
-
 
 .checkbox {
   position: relative;
@@ -34,7 +32,7 @@ $input-background-color: var(--input-background-color, #{v(--field-01)});
 
   .box {
     position: relative;
-    background: $input-background-color;
+    background: var(--input-background-color, #{v(--field)});
     border: 1px solid v(--icon-primary);
     border-radius: 2px;
     display: flex;
