@@ -301,7 +301,7 @@ export class Input implements ComponentInterface, InputComponentInterface {
       <Host has-focus={this.hasFocus} has-value={this.hasValue()} invalid={this.invalid} warn={this.warn}>
         <div class={{ 'form-control': true, 'inline': this.inline }}>
           {this.label && this.getLabel()}
-          <div class="field">{this.skeleton ? <div class="input-container-skeleton" /> : this.renderInput()}</div>
+          <div class="field">{this.skeleton ? <div class="input-container-skeleton skeleton" /> : this.renderInput()}</div>
           {this.renderHelper()}
         </div>
       </Host>

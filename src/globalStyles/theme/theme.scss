@@ -43,12 +43,35 @@ table th {
   color: white;
 }
 
-.bg-background {
+.layer-background {
   background: var(--background);
 }
 
-.bg-layer-01 {
+.layer-01 {
   background: var(--layer-01);
+}
+
+.layer-02 {
+  background: var(--layer-02);
+}
+
+
+[data-theme="light"] {
+  @each $name, $value in $css-variables {
+    #{$name}: #{$value};
+  }
+}
+
+[data-theme="g10"] {
+  @each $name, $value in $color-gray-10-variables {
+    #{$name}: #{$value};
+  }
+}
+
+[data-theme="g90"] {
+  @each $name, $value in $color-gray-90-variables {
+    #{$name}: #{$value};
+  }
 }
 
 [data-theme="dark"] {

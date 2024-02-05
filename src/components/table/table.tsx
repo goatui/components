@@ -157,7 +157,7 @@ export class Table {
       fixedCols.push(
         <div class="col col-checkbox center">
           <div class="col-content">
-            <goat-checkbox class="checkbox bg-light" value={this.isSelectAll} intermediate={this.isSelectAllIntermediate} onGoat:change={this.onSelectAllClick} />
+            <goat-checkbox class="checkbox bg-layer-01" value={this.isSelectAll} intermediate={this.isSelectAllIntermediate} onGoat:change={this.onSelectAllClick} />
           </div>
         </div>,
       );

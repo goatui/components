@@ -1,10 +1,11 @@
+
 /*
 Primary icons
  */
-@include defineVariable(--icon-primary, getColor(gray, 100), getColor(gray, 10));
+@include defineVariableDeprecated(--icon-primary, getColor(gray, 100), getColor(gray, 10));
 
 /*
 
 Inverse icon color
  */
-@include defineVariable(--icon-inverse, getColor(white, 0), getColor(gray, 100));
+@include defineVariableDeprecated(--icon-inverse, getColor(white, 0), getColor(gray, 100));

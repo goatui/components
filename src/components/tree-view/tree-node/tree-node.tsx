@@ -21,6 +21,12 @@ export class GoatTreeNode {
   @Prop({ mutable: true }) label: string = '';
 
   /**
+   * Icon which will displayed on button.
+   * Possible values are icon names.
+   */
+  @Prop() icon: string;
+
+  /**
    * Hyperlink to navigate to on click.
    */
   @Prop() href: string;
@@ -35,7 +41,7 @@ export class GoatTreeNode {
    */
   @Prop({ reflect: true, mutable: true }) selectedNode: string;
 
-  @Prop({ reflect: true }) expanded: boolean = true;
+  @Prop({ reflect: true, mutable: true }) expanded: boolean = true;
 
   @Prop({ reflect: true }) level: number = 0;
 
@@ -179,7 +185,7 @@ export class GoatTreeNode {
                 'disabled': this.disabled,
                 'has-focus': this.hasFocus,
               }}
-              style={{ paddingLeft: `${this.level + 1}rem` }}
+              style={{ paddingInlineStart: `calc(${this.level + 1}rem - 0.125rem)` }}
               onClick={this.clickHandler}
               onMouseDown={this.mouseDownHandler}
               onKeyDown={this.keyDownHandler}
@@ -192,6 +198,8 @@ export class GoatTreeNode {
               {this.hasChildNodes && <goat-icon name="caret--right" class={{ 'expand-icon': true, 'expanded': this.expanded }} size="1rem" />}
 
               {!this.hasChildNodes && <div class="icon-space" />}
+
+              {this.icon && <goat-icon name={this.icon} class={'icon'} size="1rem" />}
 
               <span class="tree-node-label">{this.label}</span>
             </div>

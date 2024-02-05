@@ -15,14 +15,14 @@ const description = componentDetails.metadata.description;
 
 ---
 
-<Layout title={title} description={description} classes='bg-layer-01'>
+<Layout title={title} description={description} classes='layer-01'>
 
   <div class='sidenav m-hide'>
 
     <div class='sidenav-components'>
 
-      <goat-tree-view class='bg-layer-01' value={title} selected-node={title}>
-        <goat-tree-node label="Overview" href='/components'></goat-tree-node>
+      <goat-tree-view class='layer-background' value={title} selected-node={title}>
+        <goat-tree-node class='layer-background' label="Overview" href='/components'></goat-tree-node>
 
         {
           componentsDetails.categories.map((category) => {
@@ -31,7 +31,9 @@ const description = componentDetails.metadata.description;
                 {
                   category.components.map((component) => {
                     if (component.metadata.name) {
-                      return <goat-tree-node label={component.metadata.name} href={`/components/${component.tag.replace('goat-', '')}`}></goat-tree-node>
+                      return <goat-tree-node class='layer-background'
+                                             label={component.metadata.name}
+                                             href={`/components/${component.tag.replace('goat-', '')}`}></goat-tree-node>
                     }
                   })
                 }

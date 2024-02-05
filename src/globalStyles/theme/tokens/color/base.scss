@@ -76,6 +76,18 @@ $colors: (
     90: #262626,
     100: #161616,
   ),
+  gray-hover: (
+    10: #e8e8e8,
+    20: #d1d1d1,
+    30: #b5b5b5,
+    40: #999999,
+    50: #7a7a7a,
+    60: #5e5e5e,
+    70: #636363,
+    80: #474747,
+    90: #333333,
+    100: #292929,
+  ),
   green: (
     10: #defbe6,
     20: #a7f0ba,
@@ -259,6 +271,8 @@ $colors: (
  * Tokens for developers
  */
 $color-css-variables: ();
+$color-gray-10-variables: ();
+$color-gray-90-variables: ();
 $dark-color-css-variables: ();
 
 @each $colorName, $colorMap in $colors {
@@ -272,9 +286,18 @@ $dark-color-css-variables: ();
   }
 }
 
-@mixin defineVariable($key, $value, $darkValue: "") {
+@mixin defineVariableDeprecated($key, $value, $darkValue: "") {
   $color-css-variables: map-merge($color-css-variables, ($key: $value)) !global;
+  $color-gray-10-variables: map-merge($color-gray-10-variables, ($key: $value)) !global;
   @if $darkValue != "" {
+    $color-gray-90-variables: map-merge($color-gray-90-variables, ($key: $darkValue)) !global;
     $dark-color-css-variables: map-merge($dark-color-css-variables, ($key: $darkValue)) !global;
   }
+}
+
+@mixin defineThemeVariable($key, $value, $gray10Value, $gray90Value, $darkValue) {
+  $color-css-variables: map-merge($color-css-variables, ($key: $value)) !global;
+  $color-gray-10-variables: map-merge($color-gray-10-variables, ($key: $gray10Value)) !global;
+  $color-gray-90-variables: map-merge($color-gray-90-variables, ($key: $gray90Value)) !global;
+  $dark-color-css-variables: map-merge($dark-color-css-variables, ($key: $darkValue)) !global;
 }

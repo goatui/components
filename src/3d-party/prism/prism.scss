@@ -167,8 +167,11 @@ code[class*="language-css"] {
   background: linear-gradient(to right, rgba(193, 222, 241, 0.2) 70%, rgba(221, 222, 241, 0));
 }
 
+:host-context([data-theme="g10"]) {
 
-:host-context([data-theme="dark"]) {
+}
+
+:host-context([data-theme="dark"]), :host-context([data-theme="g90"])  {
   pre[class*="language-"],
   code[class*="language-"] {
     color: #d4d4d4;

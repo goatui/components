@@ -6,6 +6,7 @@
 :host {
   display: block;
   height: 100%;
+  --code-highlighter-background: #{v(--code-bg-primary)};
 }
 
 .code-loader {
@@ -20,7 +21,7 @@
 .code-highlighter {
   position: relative;
   height: 100%;
-  background-color: var(--code-highlighter-background, v(--color-purple-10));
+  background-color: var(--code-highlighter-background);
   color: v(--text-primary);
   .scroll-wrapper {
     height: 100%;
@@ -47,7 +48,7 @@
 
   .copy-btn {
     position: absolute;
-    background-color: var(--code-highlighter-background, v(--color-purple-10));
+    background-color: var(--code-highlighter-background);
     top: 0.675rem;
     right: v(--spacing-03);
   }
@@ -79,12 +80,5 @@
   .code-loader {
     height: initial;
     display: inline;
-  }
-}
-
-:host-context([data-theme="dark"]) .code-highlighter {
-  background-color: var(--code-highlighter-background-dark, v(--color-purple-100));
-  .copy-btn {
-    background-color: var(--code-highlighter-background-dark, v(--color-purple-100));
   }
 }

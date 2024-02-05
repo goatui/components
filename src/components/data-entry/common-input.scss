@@ -6,7 +6,7 @@
   width: 100%;
   margin-bottom: v(--spacing-03);
   --input-border-radius: #{v(--border-radius)};
-  --input-border: 1px solid #{v(--border-strong-01)};
+  --input-border: 1px solid var(--border-strong);
   color: v(--text-primary);
 }
 
@@ -39,24 +39,8 @@
     }
 
     &.skeleton {
-      position: relative;
-      padding: 0;
-      border: none;
-      background: v(--layer-hover-01);
-      box-shadow: none;
-      pointer-events: none;
       height: v(--spacing-04);
       width: v(--spacing-10);
-      &::before {
-        position: absolute;
-        -webkit-animation: 3000ms ease-in-out skeleton infinite;
-        animation: 3000ms ease-in-out skeleton infinite;
-        background: v(--color-neutral-30);
-        block-size: 100%;
-        content: "";
-        inline-size: 100%;
-        will-change: transform-origin,transform,opacity;
-      }
     }
   }
 
@@ -117,7 +101,7 @@
   align-items: center;
   justify-content: center;
 
-  background-color: var(--input-background-color, #{v(--field-01)});
+  background-color: var(--input-background-color, var(--field));
   border: var(--input-border);
   border-inline-start: var(--input-border-inline-start, var(--input-border));
   border-inline-end: var(--input-border-inline-end, var(--input-border));
@@ -158,33 +142,28 @@
     slot::slotted(*) {
       padding-bottom: 0 !important;
       margin-bottom: 0 !important;
-      color: v(--color-neutral-400);
-
-      goat-icon {
-        --color: #{v(--color-neutral-400)};
-      }
     }
 
   }
 
   .slot-container.start {
-    margin-inline-start: 1rem;
+    margin-inline-start: v(--spacing-05);
   }
 
   .slot-container.end {
     margin-inline-end: 1rem;
-    margin-inline-start: .5rem;
+    margin-inline-start: v(--spacing-03);
   }
 
   &.start-slot-has-content {
     .input {
-      padding-inline-start: .5rem;
+      padding-inline-start: v(--spacing-03);
     }
   }
 
   &.end-slot-has-content {
     .input {
-      padding-inline-end: .5rem;
+      padding-inline-end: v(--spacing-03);
     }
   }
 
@@ -255,12 +234,6 @@
   }
 }
 
-:host(.bg-layer-01) {
-  .input-container {
-    background-color: var(--input-background-color, #{v(--field-02)});
-  }
-}
-
 /**
  * Sizes
  */
@@ -288,17 +261,21 @@
 :host([readonly]) {
   .input-container {
     cursor: initial;
-    background-color: v(--disabled-01) !important;
-    border-color: v(--disabled-01) !important;
+    border-color: var(--border-subtle) !important;
+    background-color: transparent !important;
     opacity: 1 !important;
+
+    .input {
+      color: v(--text-primary) !important;
+    }
+
   }
 }
 
 :host([disabled]) {
   .input-container {
     cursor: not-allowed;
-    background-color: v(--disabled-01) !important;
-    border-color: v(--disabled-01) !important;
+    border-color: var(--border-subtle) !important;
     opacity: 1 !important;
 
     .input {

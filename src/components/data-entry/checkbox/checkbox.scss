@@ -80,12 +80,11 @@ $input-background-color: var(--input-background-color, #{v(--field-01)});
     }
   }
 
-}
+  .label {
+    color: v(--text-primary);
+  }
 
-:host(.bg-light) .box {
-  background-color: v(--field-02);
 }
-
 
 .checkbox.state-checked {
   .box {

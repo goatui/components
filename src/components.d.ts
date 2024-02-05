@@ -1412,6 +1412,10 @@ export namespace Components {
           * Hyperlink to navigate to on click.
          */
         "href": string;
+        /**
+          * Icon which will displayed on button. Possible values are icon names.
+         */
+        "icon": string;
         "label": string;
         "level": number;
         /**
@@ -4144,6 +4148,10 @@ declare namespace LocalJSX {
           * Hyperlink to navigate to on click.
          */
         "href"?: string;
+        /**
+          * Icon which will displayed on button. Possible values are icon names.
+         */
+        "icon"?: string;
         "label"?: string;
         "level"?: number;
         /**

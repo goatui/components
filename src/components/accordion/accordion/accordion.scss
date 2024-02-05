@@ -5,9 +5,9 @@
 }
 
 slot::slotted(goat-accordion-item) {
-  border-top: 1px solid v(--border-subtle-01);
+  border-top: 1px solid var(--border-subtle);
 }
 
 slot::slotted(goat-accordion-item:last-child) {
-  border-bottom: 1px solid v(--border-subtle-01);
+  border-bottom: 1px solid var(--border-subtle);
 }

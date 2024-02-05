@@ -6,11 +6,5 @@
 
 
 .tree-view {
-  background-color: v(--layer-01);
-}
-
-:host(.bg-layer-01) {
-  .tree-view {
-    background-color: v(--background);
-  }
+  background-color: var(--layer);
 }

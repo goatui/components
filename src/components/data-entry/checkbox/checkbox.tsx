@@ -222,7 +222,7 @@ export class Checkbox implements ComponentInterface, InputComponentInterface {
               return <div class="label">{this.label}</div>;
             } else {
               return (
-                <div class="slot-container">
+                <div class="label slot-container">
                   <slot />
                 </div>
               );
