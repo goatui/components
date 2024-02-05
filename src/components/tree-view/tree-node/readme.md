@@ -12,6 +12,7 @@
 | `disabled`     | `disabled`      | If true, the user cannot interact with the button. Defaults to `false`. | `boolean`          | `false`     |
 | `expanded`     | `expanded`      |                                                                         | `boolean`          | `true`      |
 | `href`         | `href`          | Hyperlink to navigate to on click.                                      | `string`           | `undefined` |
+| `icon`         | `icon`          | Icon which will displayed on button. Possible values are icon names.    | `string`           | `undefined` |
 | `label`        | `label`         |                                                                         | `string`           | `''`        |
 | `level`        | `level`         |                                                                         | `number`           | `0`         |
 | `selectedNode` | `selected-node` | Menu item selection state.                                              | `string`           | `undefined` |
