@@ -200,9 +200,14 @@ export class CodeHighlighter implements ComponentInterface {
     const Prism = window['Prism'];
     const autoloader = Prism.plugins.autoloader;
     if (autoloader) {
-      if (!Prism.languages[this.language]) autoloader.loadLanguages([this.language]);
+      if (!Prism.languages[this.language]) {
+        autoloader.loadLanguages([this.language], () => {
+          this.renderPrism();
+        });
+      }
+    } else {
+      this.renderPrism();
     }
-    setTimeout(() => this.renderPrism(), 1000);
   }
 
   decode(str: string) {
