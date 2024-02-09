@@ -7,14 +7,15 @@
 
 ## Properties
 
-| Property                | Attribute                 | Description                                                                          | Type                   | Default                           |
-| ----------------------- | ------------------------- | ------------------------------------------------------------------------------------ | ---------------------- | --------------------------------- |
-| `empty`                 | `empty`                   |                                                                                      | `boolean`              | `false`                           |
-| `emptyStateDescription` | `empty-state-description` |                                                                                      | `string`               | `'There are no items to display'` |
-| `emptyStateHeadline`    | `empty-state-headline`    |                                                                                      | `string`               | `'No items'`                      |
-| `showLoader`            | `show-loader`             |                                                                                      | `boolean`              | `false`                           |
-| `size`                  | `size`                    | The menu item size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`. | `"lg" \| "md" \| "sm"` | `'md'`                            |
-| `value`                 | `value`                   |                                                                                      | `number \| string`     | `undefined`                       |
+| Property                | Attribute                 | Description                                                                          | Type                           | Default                           |
+| ----------------------- | ------------------------- | ------------------------------------------------------------------------------------ | ------------------------------ | --------------------------------- |
+| `empty`                 | `empty`                   |                                                                                      | `boolean`                      | `false`                           |
+| `emptyStateDescription` | `empty-state-description` |                                                                                      | `string`                       | `'There are no items to display'` |
+| `emptyStateHeadline`    | `empty-state-headline`    |                                                                                      | `string`                       | `'No items'`                      |
+| `layer`                 | `layer`                   |                                                                                      | `"01" \| "02" \| "background"` | `undefined`                       |
+| `showLoader`            | `show-loader`             |                                                                                      | `boolean`                      | `false`                           |
+| `size`                  | `size`                    | The menu item size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`. | `"lg" \| "md" \| "sm"`         | `'md'`                            |
+| `value`                 | `value`                   |                                                                                      | `number \| string`             | `undefined`                       |
 
 
 ## Methods

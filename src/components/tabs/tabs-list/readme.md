@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type                    | Default  |
-| --------- | --------- | ----------- | ----------------------- | -------- |
-| `managed` | `managed` |             | `boolean`               | `false`  |
-| `variant` | `variant` |             | `"contained" \| "line"` | `'line'` |
+| Property  | Attribute | Description | Type                       | Default     |
+| --------- | --------- | ----------- | -------------------------- | ----------- |
+| `managed` | `managed` |             | `boolean`                  | `false`     |
+| `type`    | `type`    |             | `"contained" \| "default"` | `'default'` |
 
 
 ----------------------------------------------
