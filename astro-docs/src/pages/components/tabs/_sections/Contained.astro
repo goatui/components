@@ -1,13 +1,10 @@
 ---
 import HighlighterCard from '../../../../components/HighlighterCard.astro';
 ---
-<style is:inline>
-  .demo-canvas .demo-area {
-    height: 25rem;
-  }
-</style>
-<HighlighterCard lang={'html'} cssClasses='demo-canvas'>
-<goat-tabs>
+<goat-text type="body" expressive>Here are several predefined button styles, each serving its own semantic purpose. </goat-text>
+
+<HighlighterCard lang={'html'}  cssClasses='demo-canvas'>
+<goat-tabs type='contained'>
   <goat-tabs-list>
     <goat-tab>First tab</goat-tab>
     <goat-tab selected="true">Second tab</goat-tab>
@@ -15,11 +12,11 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
     <goat-tab>Last tab</goat-tab>
   </goat-tabs-list>
 
-  <goat-tab-panel>
+  <goat-tab-panel class='layer-01'>
     <goat-text type="heading"> First tab content </goat-text>
   </goat-tab-panel>
 
-  <goat-tab-panel>
+  <goat-tab-panel class='layer-01'>
     <goat-text type="heading"> Second tab content </goat-text>
   </goat-tab-panel>
 </goat-tabs>

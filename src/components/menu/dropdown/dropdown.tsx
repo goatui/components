@@ -22,7 +22,7 @@ export class Dropdown implements ComponentInterface {
    */
   @Prop() size: 'sm' | 'md' | 'lg' = 'md';
 
-  @Prop({ mutable: true }) open: boolean = false;
+  @Prop({ mutable: true, reflect: true }) open: boolean = false;
 
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
@@ -83,7 +83,7 @@ export class Dropdown implements ComponentInterface {
     if (!this.disabled && this.open) {
       this.open = false;
       setTimeout(() => {
-        if (this.referenceElm) {
+        if (this.referenceElm && this.open) {
           // @ts-ignore
           if (this.referenceElm.setFocus) this.referenceElm.setFocus();
           else this.referenceElm.focus();
@@ -95,17 +95,17 @@ export class Dropdown implements ComponentInterface {
   private openList = () => {
     if (!this.disabled && !this.open) {
       this.open = true;
-
-      // @ts-ignore
-      this._fixPosition(() => {
-        setTimeout(() => {
-          this.getMenuElement()?.setFocus();
-        }, 80);
-      });
+      setTimeout(() => {
+        this.getMenuElement()?.setFocus();
+      }, 300);
     }
   };
 
-  index = 0;
+  componentDidUpdate() {
+    if (this.open)
+      // @ts-ignore
+      this._fixPosition();
+  }
 
   _fixPosition = throttle(
     callBack => {
@@ -199,7 +199,7 @@ export class Dropdown implements ComponentInterface {
 
   render() {
     return (
-      <Host open={this.open}>
+      <Host>
         <div
           class={{
             dropdown: true,

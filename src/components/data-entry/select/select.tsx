@@ -87,7 +87,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
 
   @Prop() showLoader: boolean = false;
 
-  @Prop({ mutable: true }) open: boolean = false;
+  @Prop({ mutable: true, reflect: true }) open: boolean = false;
 
   @Prop({ reflect: true, mutable: true }) configAria: any = {};
 
@@ -111,6 +111,8 @@ export class Select implements ComponentInterface, InputComponentInterface {
    * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
    */
   @Prop() debounce = 300;
+
+  @Prop({ reflect: true }) layer?: 'background' | '01' | '02';
 
   /**
    * Emitted when the value has changed.
@@ -261,16 +263,20 @@ export class Select implements ComponentInterface, InputComponentInterface {
       if (this.search !== 'none') {
         this.searchString = '';
       }
-      // @ts-ignore
-      this._fixPosition(() => {
-        setTimeout(() => {
-          if (this.search !== 'none') {
-            this.nativeElement.focus();
-          }
-        }, 80);
-      });
+
+      setTimeout(() => {
+        if (this.search !== 'none' && this.open) {
+          this.nativeElement.focus();
+        }
+      }, 300);
     }
   };
+
+  componentDidUpdate() {
+    if (this.open)
+      // @ts-ignore
+      this._fixPosition();
+  }
 
   private toggleList = () => {
     if (this.open) this.closeList();
@@ -548,7 +554,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
   private renderDropdownList() {
     if (this.search === 'managed' && !this.items.length) {
       return (
-        <goat-menu class="menu" ref={el => (this.menuElm = el)} size={this.size}>
+        <goat-menu class="menu" ref={el => (this.menuElm = el)} size={this.size} layer={this.layer}>
           <div class="start-search">
             <goat-icon name="search" size={this.size} />
             <goat-text class="text-secondary">Start typing to perform search</goat-text>
@@ -560,11 +566,11 @@ export class Select implements ComponentInterface, InputComponentInterface {
     if (this.items) {
       const filteredItems = this.filterItems();
       return (
-        <goat-menu class="menu" empty={filteredItems.length == 0} ref={el => (this.menuElm = el)} size={this.size}>
+        <goat-menu class="menu" empty={filteredItems.length == 0} ref={el => (this.menuElm = el)} size={this.size} layer={this.layer}>
           {(() => {
             return filteredItems.map(item => {
               return (
-                <goat-menu-item value={item.value}>
+                <goat-menu-item value={item.value} layer={this.layer}>
                   <div class={'slot-container-start'} slot="start">
                     {item.icon && <goat-icon name={item.icon} size={this.size} />}
                   </div>

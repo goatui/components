@@ -28,6 +28,8 @@ export class GoatMenu {
    */
   @Prop({ reflect: true }) selected: boolean = false;
 
+  @Prop({ reflect: true }) layer?: 'background' | '01' | '02';
+
   /**
    * Emitted when the menu item is clicked.
    */
@@ -98,7 +100,7 @@ export class GoatMenu {
   };
 
   private keyDownHandler = evt => {
-    if (evt.key == ' ' || evt.key == 'Enter') {
+    if (evt.key == ' ') {
       evt.preventDefault();
       this.isActive = true;
       this.clickHandler(evt);

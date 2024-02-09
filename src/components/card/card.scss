@@ -8,7 +8,7 @@
 .card {
   display: flex;
   flex-direction: column;
-  border: 1px solid v(--border-strong-01);
+  border: 1px solid v(--border-subtle);
   border-radius: v(--border-radius);
   height: 100%;
   background-color: v(--background);
@@ -42,7 +42,7 @@
 slot::slotted(goat-card-content) {
   display: block;
   padding: 1rem;
-  border-bottom: 1px solid v(--border-strong-01);
+  border-bottom: 1px solid v(--border-subtle);
 }
 
 slot::slotted(goat-card-content.no-padding) {

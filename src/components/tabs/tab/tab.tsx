@@ -30,6 +30,8 @@ export class Tab implements ComponentInterface {
   @Prop() value: string;
   @Prop() target: string;
 
+  @Prop({ reflect: true }) type: 'contained' | 'default' = 'default';
+
   /**
    * Show loader.
    */
@@ -126,6 +128,7 @@ export class Tab implements ComponentInterface {
             'disabled': this.disabled,
             'selected': this.selected,
             'has-focus': this.hasFocus,
+            [`type-${this.type}`]: true,
             'active': this.isActive,
             'has-content': this.slotHasContent,
             'show-loader': this.showLoader,

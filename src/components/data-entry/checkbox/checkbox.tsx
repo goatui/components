@@ -26,6 +26,8 @@ export class Checkbox implements ComponentInterface, InputComponentInterface {
    */
   @Prop() label: string;
 
+  @Prop({ reflect: true }) layer?: 'background' | '01' | '02';
+
   /**
    * The input field value.
    */

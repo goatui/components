@@ -82,26 +82,21 @@
     .value-container {
       display: flex;
       width: 100%;
+      height: 100%;
       flex-wrap: wrap;
-      gap: v(--spacing-03);
-      padding-inline: v(--spacing-05);
-
-      .input {
-        padding: 0;
-      }
+      column-gap: v(--spacing-03);
     }
   }
 
   .input-container.start-slot-has-content {
     .value-container {
       padding-inline-start: .5rem;
+
       .input {
-        padding: 0;
+        padding-inline-start: 0;
       }
     }
   }
-
-
 
 
   .dropdown-content {
@@ -138,6 +133,7 @@
     display: flex;
     align-items: center;
     color: v(--text-placeholder);
+    padding-inline: v(--spacing-05);
   }
 
   .display-value-container {
@@ -175,8 +171,21 @@
   &.multiple {
     padding: .5rem 0;
 
+    .value-container {
+      padding-inline: v(--spacing-05);
+    }
+
+    .input {
+      padding-inline: 0;
+      padding-block: v(--spacing-03);
+    }
+
     .input-native {
       min-width: 6rem;
+    }
+
+    .multi-select-value {
+      padding-block: v(--spacing-03);
     }
   }
 
@@ -185,20 +194,15 @@
 :host([size="sm"]) .multiple :is(.input-container, .input-container-skeleton) {
   height: auto;
   min-height: var(--input-height, 2rem);
-  padding-top: .5rem;
-  padding-bottom: .5rem;
 }
 
 :host([size="md"]) .multiple :is(.input-container, .input-container-skeleton) {
   height: auto;
   min-height: var(--input-height, 2.5rem);
-  padding-top: .5rem;
-  padding-bottom: .5rem;
 }
 
 :host([size="lg"]) .multiple :is(.input-container, .input-container-skeleton) {
   height: auto;
   min-height: var(--input-height, 3rem);
-  padding-top: .5rem;
-  padding-bottom: .5rem;
 }
+

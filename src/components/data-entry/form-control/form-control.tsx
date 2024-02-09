@@ -42,24 +42,29 @@ export class FormControl implements ComponentInterface {
 
   componentDidLoad() {
     this.elm.setAttribute('role', 'group');
+    const controlElm = this.getInputElement();
+    this.passRequiredToField(controlElm, this.required);
+    this.passLabelToField(controlElm, this.label);
+  }
+
+  getInputElement() {
     for (const compName of ['goat-input', 'goat-textarea', 'goat-select', 'goat-checkbox', 'goat-radio', 'goat-code-editor']) {
-      this.controlElm = this.elm.querySelector(`${compName}`);
-      this.passRequiredToField(this.required);
-      this.passLabelToField(this.label);
+      const controlElm = this.elm.querySelector(`${compName}`);
+      if (controlElm) return controlElm;
     }
   }
 
-  passRequiredToField(required: boolean) {
-    if (this.controlElm) {
+  passRequiredToField(controlElm: Element, required: boolean) {
+    if (controlElm) {
       // @ts-ignore
-      this.controlElm.required = required;
+      controlElm.required = required;
     }
   }
 
-  passLabelToField(label: string) {
-    if (this.controlElm) {
+  passLabelToField(controlElm: Element, label: string) {
+    if (controlElm) {
       // @ts-ignore
-      const oldProps = this.controlElm.configAria;
+      const oldProps = controlElm.configAria;
       // @ts-ignore
       this.controlElm.configAria = {
         'aria-label': label,
@@ -70,9 +75,9 @@ export class FormControl implements ComponentInterface {
 
   componentShouldUpdate(newVal: any, _oldVal, propName: string): boolean | void {
     if (propName === 'required') {
-      this.passRequiredToField(newVal);
+      this.passRequiredToField(this.getInputElement(), newVal);
     } else if (propName === 'label') {
-      this.passLabelToField(newVal);
+      this.passLabelToField(this.getInputElement(), newVal);
     }
   }
 

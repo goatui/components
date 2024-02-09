@@ -2,22 +2,24 @@
 
 :host {
   display: block;
-  --menu-item-padding: #{v(--spacing-04)};
 }
 
 
 .menu-item {
-  border: 1px solid transparent;
+
   min-height: 2.5rem;
+ /* min-width: 10rem;*/
 
   cursor: pointer;
-  @include font-style(text-md);
-  padding: 0 var(--menu-item-padding);
+  @include font-style(body-compact-01);
+  padding-inline: v(--spacing-05);
   box-sizing: border-box;
   display: flex;
   align-items: center;
   gap: v(--spacing-02);
   color: v(--text-secondary);
+
+  border: 1px solid transparent;
 
   .item-section {
     display: flex;
@@ -38,6 +40,11 @@
 
 }
 
+slot::slotted(*) {
+  --icon-color: var(--icon-secondary);
+}
+
+
 :host-context([size="sm"]) {
   .menu-item {
     min-height: 2rem;
@@ -57,8 +64,8 @@
 }
 
 .menu-item {
-  &:hover, &.has-focus:not(.active) {
-    background: v(--layer-hover-01);
+  &:hover {
+    background: v(--layer-hover);
     color: v(--text-primary);
 
     .slot-end {
@@ -104,5 +111,6 @@
     display: none;
   }
 }
+
 
 

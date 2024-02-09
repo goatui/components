@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, h, Host, Listen } from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Host, Listen, Prop } from '@stencil/core';
 import { getComponentIndex } from '../../../utils/utils';
 import { GoatTabCustomEvent } from '../../../components';
 
@@ -22,6 +22,8 @@ import { GoatTabCustomEvent } from '../../../components';
 export class Tabs implements ComponentInterface {
   gid: string = getComponentIndex();
   @Element() elm!: HTMLElement;
+
+  @Prop({ reflect: true }) type: 'contained' | 'default' = 'default';
 
   @Listen('goat:tab-click')
   tabClick(evt: GoatTabCustomEvent<any>) {
@@ -48,6 +50,10 @@ export class Tabs implements ComponentInterface {
     return this.elm.querySelectorAll(':scope > goat-tabs-list goat-tab');
   }
 
+  getTabList() {
+    return this.elm.querySelector(':scope > goat-tabs-list');
+  }
+
   getTabPanels() {
     return this.elm.querySelectorAll(':scope > goat-tab-panel');
   }
@@ -59,9 +65,15 @@ export class Tabs implements ComponentInterface {
   componentDidLoad() {
     if (!this.tabsHaveTarget()) {
       const tabs = this.getTabs();
-      tabs.forEach((tab, index) => {
+      tabs.forEach((tab: HTMLGoatTabElement, index) => {
         tab.setAttribute('target', `tab-${this.gid}-${index}`);
+        tab.type = this.type;
       });
+      tabs[0].classList.add('first-tab');
+      tabs[tabs.length - 1].classList.add('last-tab');
+
+      const tabList: any = this.getTabList();
+      tabList.type = this.type;
       this.getTabPanels().forEach((tab, index) => {
         tab.setAttribute('value', `tab-${this.gid}-${index}`);
       });

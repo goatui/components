@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-02-07T04:50:59",
+  "timestamp": "2024-02-09T06:36:37",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.11.0",
@@ -3062,6 +3062,36 @@
           "required": false
         },
         {
+          "name": "layer",
+          "type": "\"01\" | \"02\" | \"background\"",
+          "complexType": {
+            "original": "'background' | '01' | '02'",
+            "resolved": "\"01\" | \"02\" | \"background\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "layer",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "01",
+              "type": "string"
+            },
+            {
+              "value": "02",
+              "type": "string"
+            },
+            {
+              "value": "background",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "name",
           "type": "string",
           "complexType": {
@@ -4791,7 +4821,7 @@
           },
           "mutable": true,
           "attr": "open",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
           "default": "false",
@@ -4836,7 +4866,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "The button size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+          "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -5600,7 +5630,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-form-control label='Full Name' required>\r\n<goat-input type='text'></goat-input>\r\n</goat-form-control>"
+          "text": "<goat-form-control label='Full Name' required>\n<goat-input type='text'></goat-input>\n</goat-form-control>"
         }
       ],
       "encapsulation": "shadow",
@@ -5816,7 +5846,7 @@
         "tags": [
           "form"
         ],
-        "example": "<goat-form-control label='Full Name' required>\r\n<goat-input type='text'></goat-input>\r\n</goat-form-control>"
+        "example": "<goat-form-control label='Full Name' required>\n<goat-input type='text'></goat-input>\n</goat-form-control>"
       }
     },
     {
@@ -7771,6 +7801,36 @@
           "required": false
         },
         {
+          "name": "layer",
+          "type": "\"01\" | \"02\" | \"background\"",
+          "complexType": {
+            "original": "'background' | '01' | '02'",
+            "resolved": "\"01\" | \"02\" | \"background\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "layer",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "01",
+              "type": "string"
+            },
+            {
+              "value": "02",
+              "type": "string"
+            },
+            {
+              "value": "background",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "showLoader",
           "type": "boolean",
           "complexType": {
@@ -7935,6 +7995,36 @@
           "required": false
         },
         {
+          "name": "layer",
+          "type": "\"01\" | \"02\" | \"background\"",
+          "complexType": {
+            "original": "'background' | '01' | '02'",
+            "resolved": "\"01\" | \"02\" | \"background\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "layer",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "01",
+              "type": "string"
+            },
+            {
+              "value": "02",
+              "type": "string"
+            },
+            {
+              "value": "background",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "selected",
           "type": "boolean",
           "complexType": {
@@ -8001,7 +8091,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -8023,7 +8113,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -9930,6 +10020,36 @@
           "required": false
         },
         {
+          "name": "layer",
+          "type": "\"01\" | \"02\" | \"background\"",
+          "complexType": {
+            "original": "'background' | '01' | '02'",
+            "resolved": "\"01\" | \"02\" | \"background\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "layer",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "01",
+              "type": "string"
+            },
+            {
+              "value": "02",
+              "type": "string"
+            },
+            {
+              "value": "background",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "multiple",
           "type": "boolean",
           "complexType": {
@@ -9983,7 +10103,7 @@
           },
           "mutable": true,
           "attr": "open",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
           "default": "false",
@@ -11609,6 +11729,33 @@
           "required": false
         },
         {
+          "name": "type",
+          "type": "\"contained\" | \"default\"",
+          "complexType": {
+            "original": "'contained' | 'default'",
+            "resolved": "\"contained\" | \"default\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "'default'",
+          "values": [
+            {
+              "value": "contained",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "value",
           "type": "string",
           "complexType": {
@@ -11958,6 +12105,36 @@
           "required": false
         },
         {
+          "name": "layer",
+          "type": "\"01\" | \"02\" | \"background\"",
+          "complexType": {
+            "original": "'background' | '01' | '02'",
+            "resolved": "\"01\" | \"02\" | \"background\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "layer",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "01",
+              "type": "string"
+            },
+            {
+              "value": "02",
+              "type": "string"
+            },
+            {
+              "value": "background",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "managed",
           "type": "boolean",
           "complexType": {
@@ -12278,14 +12455,42 @@
         },
         {
           "name": "example",
-          "text": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
+          "text": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
         }
       ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
-      "props": [],
+      "props": [
+        {
+          "name": "type",
+          "type": "\"contained\" | \"default\"",
+          "complexType": {
+            "original": "'contained' | 'default'",
+            "resolved": "\"contained\" | \"default\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "'default'",
+          "values": [
+            {
+              "value": "contained",
+              "type": "string"
+            },
+            {
+              "value": "default",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
       "methods": [],
       "events": [],
       "styles": [],
@@ -12305,7 +12510,7 @@
         "tags": [
           "navigation"
         ],
-        "example": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
+        "example": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
       }
     },
     {
@@ -12345,26 +12550,26 @@
           "required": false
         },
         {
-          "name": "variant",
-          "type": "\"contained\" | \"line\"",
+          "name": "type",
+          "type": "\"contained\" | \"default\"",
           "complexType": {
-            "original": "'line' | 'contained'",
-            "resolved": "\"contained\" | \"line\"",
+            "original": "'contained' | 'default'",
+            "resolved": "\"contained\" | \"default\"",
             "references": {}
           },
           "mutable": false,
-          "attr": "variant",
-          "reflectToAttr": false,
+          "attr": "type",
+          "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
-          "default": "'line'",
+          "default": "'default'",
           "values": [
             {
               "value": "contained",
               "type": "string"
             },
             {
-              "value": "line",
+              "value": "default",
               "type": "string"
             }
           ],
@@ -16500,6 +16705,36 @@
               "required": false
             },
             {
+              "name": "layer",
+              "type": "\"01\" | \"02\" | \"background\"",
+              "complexType": {
+                "original": "'background' | '01' | '02'",
+                "resolved": "\"01\" | \"02\" | \"background\"",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "layer",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "value": "01",
+                  "type": "string"
+                },
+                {
+                  "value": "02",
+                  "type": "string"
+                },
+                {
+                  "value": "background",
+                  "type": "string"
+                }
+              ],
+              "optional": true,
+              "required": false
+            },
+            {
               "name": "managed",
               "type": "boolean",
               "complexType": {
@@ -18400,6 +18635,36 @@
               "required": false
             },
             {
+              "name": "layer",
+              "type": "\"01\" | \"02\" | \"background\"",
+              "complexType": {
+                "original": "'background' | '01' | '02'",
+                "resolved": "\"01\" | \"02\" | \"background\"",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "layer",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "value": "01",
+                  "type": "string"
+                },
+                {
+                  "value": "02",
+                  "type": "string"
+                },
+                {
+                  "value": "background",
+                  "type": "string"
+                }
+              ],
+              "optional": true,
+              "required": false
+            },
+            {
               "name": "name",
               "type": "string",
               "complexType": {
@@ -19581,7 +19846,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-form-control label='Full Name' required>\r\n<goat-input type='text'></goat-input>\r\n</goat-form-control>"
+              "text": "<goat-form-control label='Full Name' required>\n<goat-input type='text'></goat-input>\n</goat-form-control>"
             }
           ],
           "encapsulation": "shadow",
@@ -19797,7 +20062,7 @@
             "tags": [
               "form"
             ],
-            "example": "<goat-form-control label='Full Name' required>\r\n<goat-input type='text'></goat-input>\r\n</goat-form-control>"
+            "example": "<goat-form-control label='Full Name' required>\n<goat-input type='text'></goat-input>\n</goat-form-control>"
           }
         },
         {
@@ -21479,6 +21744,36 @@
               "required": false
             },
             {
+              "name": "layer",
+              "type": "\"01\" | \"02\" | \"background\"",
+              "complexType": {
+                "original": "'background' | '01' | '02'",
+                "resolved": "\"01\" | \"02\" | \"background\"",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "layer",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "value": "01",
+                  "type": "string"
+                },
+                {
+                  "value": "02",
+                  "type": "string"
+                },
+                {
+                  "value": "background",
+                  "type": "string"
+                }
+              ],
+              "optional": true,
+              "required": false
+            },
+            {
               "name": "multiple",
               "type": "boolean",
               "complexType": {
@@ -21532,7 +21827,7 @@
               },
               "mutable": true,
               "attr": "open",
-              "reflectToAttr": false,
+              "reflectToAttr": true,
               "docs": "",
               "docsTags": [],
               "default": "false",
@@ -25132,7 +25427,7 @@
               },
               "mutable": true,
               "attr": "open",
-              "reflectToAttr": false,
+              "reflectToAttr": true,
               "docs": "",
               "docsTags": [],
               "default": "false",
@@ -25177,7 +25472,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": false,
-              "docs": "The button size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+              "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -25750,6 +26045,36 @@
               "required": false
             },
             {
+              "name": "layer",
+              "type": "\"01\" | \"02\" | \"background\"",
+              "complexType": {
+                "original": "'background' | '01' | '02'",
+                "resolved": "\"01\" | \"02\" | \"background\"",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "layer",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "value": "01",
+                  "type": "string"
+                },
+                {
+                  "value": "02",
+                  "type": "string"
+                },
+                {
+                  "value": "background",
+                  "type": "string"
+                }
+              ],
+              "optional": true,
+              "required": false
+            },
+            {
               "name": "showLoader",
               "type": "boolean",
               "complexType": {
@@ -25898,14 +26223,42 @@
             },
             {
               "name": "example",
-              "text": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
+              "text": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
             }
           ],
           "encapsulation": "shadow",
           "dependents": [],
           "dependencies": [],
           "dependencyGraph": {},
-          "props": [],
+          "props": [
+            {
+              "name": "type",
+              "type": "\"contained\" | \"default\"",
+              "complexType": {
+                "original": "'contained' | 'default'",
+                "resolved": "\"contained\" | \"default\"",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "type",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "'default'",
+              "values": [
+                {
+                  "value": "contained",
+                  "type": "string"
+                },
+                {
+                  "value": "default",
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            }
+          ],
           "methods": [],
           "events": [],
           "styles": [],
@@ -25925,7 +26278,7 @@
             "tags": [
               "navigation"
             ],
-            "example": "<goat-tabs>\r\n<goat-tabs-list>\r\n<goat-tab selected >Tab 1</goat-tab>\r\n<goat-tab>Tab 2</goat-tab>\r\n</goat-tabs-list>\r\n</goat-tabs>"
+            "example": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
           }
         },
         {
@@ -28937,6 +29290,36 @@
               "required": false
             },
             {
+              "name": "layer",
+              "type": "\"01\" | \"02\" | \"background\"",
+              "complexType": {
+                "original": "'background' | '01' | '02'",
+                "resolved": "\"01\" | \"02\" | \"background\"",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "layer",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "values": [
+                {
+                  "value": "01",
+                  "type": "string"
+                },
+                {
+                  "value": "02",
+                  "type": "string"
+                },
+                {
+                  "value": "background",
+                  "type": "string"
+                }
+              ],
+              "optional": true,
+              "required": false
+            },
+            {
               "name": "selected",
               "type": "boolean",
               "complexType": {
@@ -29003,7 +29386,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+              "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
               "docsTags": []
             },
             {
@@ -29025,7 +29408,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
+              "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
               "docsTags": []
             }
           ],
@@ -29675,6 +30058,33 @@
               "required": false
             },
             {
+              "name": "type",
+              "type": "\"contained\" | \"default\"",
+              "complexType": {
+                "original": "'contained' | 'default'",
+                "resolved": "\"contained\" | \"default\"",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "type",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "'default'",
+              "values": [
+                {
+                  "value": "contained",
+                  "type": "string"
+                },
+                {
+                  "value": "default",
+                  "type": "string"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
               "name": "value",
               "type": "string",
               "complexType": {
@@ -29880,26 +30290,26 @@
               "required": false
             },
             {
-              "name": "variant",
-              "type": "\"contained\" | \"line\"",
+              "name": "type",
+              "type": "\"contained\" | \"default\"",
               "complexType": {
-                "original": "'line' | 'contained'",
-                "resolved": "\"contained\" | \"line\"",
+                "original": "'contained' | 'default'",
+                "resolved": "\"contained\" | \"default\"",
                 "references": {}
               },
               "mutable": false,
-              "attr": "variant",
-              "reflectToAttr": false,
+              "attr": "type",
+              "reflectToAttr": true,
               "docs": "",
               "docsTags": [],
-              "default": "'line'",
+              "default": "'default'",
               "values": [
                 {
                   "value": "contained",
                   "type": "string"
                 },
                 {
-                  "value": "line",
+                  "value": "default",
                   "type": "string"
                 }
               ],

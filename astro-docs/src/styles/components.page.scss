@@ -72,7 +72,7 @@
     margin-bottom: var(--spacing-02);
   }
 
-  .category-tag {
+  .component-category-container {
     padding-bottom: var(--spacing-06);
   }
 
@@ -106,7 +106,7 @@
 
   .body {
     height: 100%;
-    background: var(--layer-hover-01);
+    background: var(--code-bg-primary);
     display: flex;
     flex-direction: column;
 
@@ -120,7 +120,7 @@
 .card-wrapper:hover {
   border-radius: var(--border-radius);
   transition: linear .2s;
-  box-shadow: 6px 6px 0 var(--layer-active-01);
+  box-shadow: 6px 6px 0 var(--layer-accent-active-01);
 }
 
 .up-coming-title {

@@ -25,6 +25,8 @@ export class Menu implements ComponentInterface {
    */
   @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' = 'md';
 
+  @Prop({ reflect: true }) layer?: 'background' | '01' | '02';
+
   @Prop({ mutable: true }) empty: boolean = false;
 
   @Prop({ mutable: true }) emptyStateHeadline: string = 'No items';
@@ -98,7 +100,10 @@ export class Menu implements ComponentInterface {
   render() {
     return (
       <div class="menu">
-        <slot />
+        <div class="slot-container">
+          <slot />
+        </div>
+
         {this.renderEmptyState()}
       </div>
     );

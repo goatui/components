@@ -7,9 +7,9 @@ import { GoatTabCustomEvent } from '../../../components';
   shadow: true,
 })
 export class TabsList implements ComponentInterface {
-  @Prop() variant: 'line' | 'contained' = 'line';
-
   @Prop() managed: boolean = false;
+
+  @Prop({ reflect: true }) type: 'contained' | 'default' = 'default';
 
   @Element() elm!: HTMLElement;
 
@@ -35,7 +35,7 @@ export class TabsList implements ComponentInterface {
   render() {
     return (
       <Host>
-        <div class={{ 'tabs-list': true, [`variant-${this.variant}`]: true }}>
+        <div class={{ 'tabs-list': true, [`type-${this.type}`]: true }}>
           <div class="tabs-container">
             <slot />
           </div>

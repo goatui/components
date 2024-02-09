@@ -25,10 +25,6 @@ Container color on $layer-01
 Container color on $layer-02
  */
 /*
-Subtle border;
-Tertiary background
- */
-/*
 Primary icons
  */
 /*
@@ -183,10 +179,6 @@ Container color on $layer-01
  */
 /*
 Container color on $layer-02
- */
-/*
-Subtle border;
-Tertiary background
  */
 /*
 Primary icons
@@ -635,14 +627,16 @@ Border-bottom paired with $field-03;
   --background-inverse: #393939;
   --layer-01: #f4f4f4;
   --layer-hover-01: #e8e8e8;
-  --layer-02: white;
-  --layer-hover-02: #e8e8e8;
-  --layer-03: #f4f4f4;
-  --layer-hover-03: #e8e8e8;
-  --layer-accent-01: #e0e0e0;
   --layer-active-01: #c6c6c6;
   --layer-accent-hover-01: #e0e0e0;
   --layer-accent-active-01: #a8a8a8;
+  --layer-accent-01: #e0e0e0;
+  --layer-02: white;
+  --layer-hover-02: #e8e8e8;
+  --layer-accent-02: #e0e0e0;
+  --layer-03: #f4f4f4;
+  --layer-hover-03: #e8e8e8;
+  --layer-accent-03: #e0e0e0;
   --layer-selected-01: #e0e0e0;
   --layer-selected-hover-01: #d1d1d1;
   --layer-selected-02: #e0e0e0;
@@ -651,6 +645,7 @@ Border-bottom paired with $field-03;
   --layer-selected-hover-03: #d1d1d1;
   --icon-primary: #161616;
   --icon-inverse: white;
+  --icon-secondary: #525252;
   --text-primary: #161616;
   --text-secondary: #525252;
   --text-placeholder: #a8a8a8;
@@ -1281,14 +1276,16 @@ table th {
   --background-inverse: #393939;
   --layer-01: #f4f4f4;
   --layer-hover-01: #e8e8e8;
-  --layer-02: white;
-  --layer-hover-02: #e8e8e8;
-  --layer-03: #f4f4f4;
-  --layer-hover-03: #e8e8e8;
-  --layer-accent-01: #e0e0e0;
   --layer-active-01: #c6c6c6;
   --layer-accent-hover-01: #e0e0e0;
   --layer-accent-active-01: #a8a8a8;
+  --layer-accent-01: #e0e0e0;
+  --layer-02: white;
+  --layer-hover-02: #e8e8e8;
+  --layer-accent-02: #e0e0e0;
+  --layer-03: #f4f4f4;
+  --layer-hover-03: #e8e8e8;
+  --layer-accent-03: #e0e0e0;
   --layer-selected-01: #e0e0e0;
   --layer-selected-hover-01: #d1d1d1;
   --layer-selected-02: #e0e0e0;
@@ -1297,6 +1294,7 @@ table th {
   --layer-selected-hover-03: #d1d1d1;
   --icon-primary: #161616;
   --icon-inverse: white;
+  --icon-secondary: #525252;
   --text-primary: #161616;
   --text-secondary: #525252;
   --text-placeholder: #a8a8a8;
@@ -1566,14 +1564,16 @@ table th {
   --background-inverse: #393939;
   --layer-01: white;
   --layer-hover-01: #e8e8e8;
-  --layer-02: white;
-  --layer-hover-02: #e8e8e8;
-  --layer-03: #f4f4f4;
-  --layer-hover-03: #e8e8e8;
-  --layer-accent-01: #e0e0e0;
   --layer-active-01: #c6c6c6;
   --layer-accent-hover-01: #e0e0e0;
   --layer-accent-active-01: #a8a8a8;
+  --layer-accent-01: #e0e0e0;
+  --layer-02: white;
+  --layer-hover-02: #e8e8e8;
+  --layer-accent-02: #e0e0e0;
+  --layer-03: #f4f4f4;
+  --layer-hover-03: #e8e8e8;
+  --layer-accent-03: #e0e0e0;
   --layer-selected-01: #e0e0e0;
   --layer-selected-hover-01: #d1d1d1;
   --layer-selected-02: #e0e0e0;
@@ -1582,6 +1582,7 @@ table th {
   --layer-selected-hover-03: #d1d1d1;
   --icon-primary: #161616;
   --icon-inverse: white;
+  --icon-secondary: #525252;
   --text-primary: #161616;
   --text-secondary: #525252;
   --text-placeholder: #a8a8a8;
@@ -1678,14 +1679,16 @@ table th {
   --background-inverse: #f4f4f4;
   --layer-01: #393939;
   --layer-hover-01: #474747;
-  --layer-02: #393939;
-  --layer-hover-02: #333333;
-  --layer-03: #525252;
-  --layer-hover-03: #333333;
-  --layer-accent-01: #393939;
   --layer-active-01: #525252;
   --layer-accent-hover-01: #393939;
   --layer-accent-active-01: #525252;
+  --layer-accent-01: #525252;
+  --layer-02: #393939;
+  --layer-hover-02: #333333;
+  --layer-accent-02: #6f6f6f;
+  --layer-03: #525252;
+  --layer-hover-03: #333333;
+  --layer-accent-03: #8d8d8d;
   --layer-selected-01: #525252;
   --layer-selected-hover-01: #636363;
   --layer-selected-02: #6f6f6f;
@@ -1694,6 +1697,7 @@ table th {
   --layer-selected-hover-03: #636363;
   --icon-primary: #f4f4f4;
   --icon-inverse: #161616;
+  --icon-secondary: #c6c6c6;
   --text-primary: #f4f4f4;
   --text-secondary: #c6c6c6;
   --text-placeholder: #6f6f6f;
@@ -1782,14 +1786,16 @@ table th {
   --background-inverse: #f4f4f4;
   --layer-01: #262626;
   --layer-hover-01: #333333;
-  --layer-02: #393939;
-  --layer-hover-02: #333333;
-  --layer-03: #525252;
-  --layer-hover-03: #333333;
-  --layer-accent-01: #393939;
   --layer-active-01: #525252;
   --layer-accent-hover-01: #393939;
   --layer-accent-active-01: #525252;
+  --layer-accent-01: #393939;
+  --layer-02: #393939;
+  --layer-hover-02: #333333;
+  --layer-accent-02: #525252;
+  --layer-03: #525252;
+  --layer-hover-03: #333333;
+  --layer-accent-03: #6f6f6f;
   --layer-selected-01: #393939;
   --layer-selected-hover-01: #474747;
   --layer-selected-02: #525252;
@@ -1798,6 +1804,7 @@ table th {
   --layer-selected-hover-03: #5e5e5e;
   --icon-primary: #f4f4f4;
   --icon-inverse: #161616;
+  --icon-secondary: #c6c6c6;
   --text-primary: #f4f4f4;
   --text-secondary: #c6c6c6;
   --text-placeholder: #6f6f6f;

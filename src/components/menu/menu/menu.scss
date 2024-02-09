@@ -2,24 +2,20 @@
 
 :host {
   display: inline-block;
-  --list-border-radius: var(--border-radius);
-  --list-background: #{v(--background)};
   --list-max-height: 100%;
-  --list-border-color:  #{v(--border-strong-01)};
-  --list-shadow: #{v(--shadow-sm)};
+  --list-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
 }
 
 .menu {
-  background: var(--list-background);
+  background: var(--layer);
   box-sizing: border-box;
-  border-radius: var(--list-border-radius);
   max-height: var(--list-max-height);
-  overflow: auto;
-  border: 1px solid var(--list-border-color);
+  overflow-x: auto;
+  border: 1px solid var(--border-subtle);
   box-shadow: var(--list-shadow);
 }
 
 slot::slotted(goat-divider) {
-  --divider-color:#{v(--border-subtle-01)};
-  --divider-padding:#{v(--spacing-03)};
+  --divider-color: var(--border-subtle);
+  --divider-padding: #{v(--spacing-03)};
 }

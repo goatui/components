@@ -7,12 +7,12 @@ const { componentDetails } = Astro.props;
 ---
 <div class='api-section'>
   <goat-text type='heading' heading-size='4'>Properties</goat-text>
-  <goat-table id='comp-properties' class='table-auto-height' paginate='false'></goat-table>
+  <goat-table id='comp-properties' class='table-auto-height' layer="01" paginate='false'></goat-table>
 </div>
 
 <div class='api-section'>
   <goat-text type='heading' heading-size='4'>Events</goat-text>
-  <goat-table id='comp-events' class='table-auto-height' paginate='false'></goat-table>
+  <goat-table id='comp-events' class='table-auto-height' layer="01" paginate='false'></goat-table>
 </div>
 
 <script is:inline define:vars={{ componentDetails }} >

@@ -180,3 +180,9 @@ export function isLightOrDark(color) {
     return 'dark';
   }
 }
+
+export function getNextLayer(layer?: 'background' | '01' | '02') {
+  if (!layer || layer == 'background') return '01';
+  if (layer == '01') return '02';
+  if (layer == '02') return 'background';
+}

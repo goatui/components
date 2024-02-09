@@ -1,5 +1,5 @@
 import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core';
-import { throttle } from '../../utils/utils';
+import { getNextLayer, throttle } from '../../utils/utils';
 
 const DEFAULT_CELL_WIDTH = 16; // in rem
 const SUPPORTED_PAGE_SIZES = [
@@ -88,6 +88,8 @@ export class Table {
 
   @Prop() pageSize: number = 10;
 
+  @Prop({ reflect: true }) layer?: 'background' | '01' | '02';
+
   @Prop({ mutable: true }) totalItems;
 
   @Prop({ mutable: true }) emptyStateHeadline: string = 'No items';
@@ -157,7 +159,13 @@ export class Table {
       fixedCols.push(
         <div class="col col-checkbox center">
           <div class="col-content">
-            <goat-checkbox class="checkbox bg-layer-01" value={this.isSelectAll} intermediate={this.isSelectAllIntermediate} onGoat:change={this.onSelectAllClick} />
+            <goat-checkbox
+              class="checkbox"
+              layer={getNextLayer(this.layer)}
+              value={this.isSelectAll}
+              intermediate={this.isSelectAllIntermediate}
+              onGoat:change={this.onSelectAllClick}
+            />
           </div>
         </div>,
       );
@@ -240,7 +248,12 @@ export class Table {
         fixedCols.push(
           <div class={{ 'col': true, 'center': true, 'col-checkbox': true }}>
             <div class="col-content">
-              <goat-checkbox class="checkbox bg-light" value={this.selectedRowKeys.includes(row[this.keyField])} onGoat:change={() => this.onRowSelectClick(row)} />
+              <goat-checkbox
+                class="checkbox"
+                layer={getNextLayer(this.layer)}
+                value={this.selectedRowKeys.includes(row[this.keyField])}
+                onGoat:change={() => this.onRowSelectClick(row)}
+              />
             </div>
           </div>,
         );

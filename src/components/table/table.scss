@@ -27,13 +27,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background: var(--layer);
+
     .empty-state {
       width: 10rem;
     }
   }
 
   .pagination {
-    background: v(--layer-01);
+    background: v(--layer);
     display: flex;
     border-top: 1px solid var(--table-border-color);
 
@@ -162,7 +164,7 @@
     background: v(--layer-accent-01);
 
     &.sort {
-      background: v(--layer-selected-hover-01);
+      background: v(--layer-selected-hover);
     }
   }
 }
@@ -174,13 +176,13 @@
 
     &:hover {
       .col {
-        background-color: v(--layer-hover-01);
+        background-color: v(--layer-hover);
       }
     }
 
     .col {
       cursor: pointer;
-      background: v(--layer-01);
+      background: v(--layer);
       border-bottom: 1px solid v(--layer-accent-01);
 
       &.col-checkbox .col-content {
@@ -197,6 +199,7 @@
         outline: none;
         border-bottom-color: v(--color-primary);
         z-index: 1;
+
         .col-content {
           border-color: v(--color-primary);
         }

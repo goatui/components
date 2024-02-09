@@ -279,6 +279,7 @@ export namespace Components {
           * The checkbox label.
          */
         "label": string;
+        "layer"?: 'background' | '01' | '02';
         /**
           * The input field name.
          */
@@ -745,6 +746,7 @@ export namespace Components {
         "empty": boolean;
         "emptyStateDescription": string;
         "emptyStateHeadline": string;
+        "layer"?: 'background' | '01' | '02';
         /**
           * Sets focus on first menu item. Use this method instead of the global `element.focus()`.
          */
@@ -761,6 +763,7 @@ export namespace Components {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
+        "layer"?: 'background' | '01' | '02';
         /**
           * Menu item selection state.
          */
@@ -952,6 +955,7 @@ export namespace Components {
          */
         "items": any;
         "label": string;
+        "layer"?: 'background' | '01' | '02';
         "multiple": boolean;
         /**
           * The input field name.
@@ -1135,6 +1139,7 @@ export namespace Components {
         "showLoader": boolean;
         "target": string;
         "triggerClick": () => Promise<void>;
+        "type": 'contained' | 'default';
         "value": string;
     }
     interface GoatTabPanel {
@@ -1160,6 +1165,7 @@ export namespace Components {
         "emptyStateDescription": string;
         "emptyStateHeadline": string;
         "keyField": string;
+        "layer"?: 'background' | '01' | '02';
         "managed": boolean;
         "page": number;
         "pageSize": number;
@@ -1184,10 +1190,11 @@ export namespace Components {
      * </goat-tabs>
      */
     interface GoatTabs {
+        "type": 'contained' | 'default';
     }
     interface GoatTabsList {
         "managed": boolean;
-        "variant": 'line' | 'contained';
+        "type": 'contained' | 'default';
     }
     /**
      * @name Tag
@@ -2987,6 +2994,7 @@ declare namespace LocalJSX {
           * The checkbox label.
          */
         "label"?: string;
+        "layer"?: 'background' | '01' | '02';
         /**
           * The input field name.
          */
@@ -3460,6 +3468,7 @@ declare namespace LocalJSX {
         "empty"?: boolean;
         "emptyStateDescription"?: string;
         "emptyStateHeadline"?: string;
+        "layer"?: 'background' | '01' | '02';
         "showLoader"?: boolean;
         /**
           * The menu item size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
@@ -3472,6 +3481,7 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
+        "layer"?: 'background' | '01' | '02';
         /**
           * Emitted when the menu item is clicked.
          */
@@ -3670,6 +3680,7 @@ declare namespace LocalJSX {
          */
         "items"?: any;
         "label"?: string;
+        "layer"?: 'background' | '01' | '02';
         "multiple"?: boolean;
         /**
           * The input field name.
@@ -3844,6 +3855,7 @@ declare namespace LocalJSX {
          */
         "showLoader"?: boolean;
         "target"?: string;
+        "type"?: 'contained' | 'default';
         "value"?: string;
     }
     interface GoatTabPanel {
@@ -3869,6 +3881,7 @@ declare namespace LocalJSX {
         "emptyStateDescription"?: string;
         "emptyStateHeadline"?: string;
         "keyField"?: string;
+        "layer"?: 'background' | '01' | '02';
         "managed"?: boolean;
         "onGoat:page"?: (event: GoatTableCustomEvent<any>) => void;
         "onGoat:sort"?: (event: GoatTableCustomEvent<any>) => void;
@@ -3897,10 +3910,11 @@ declare namespace LocalJSX {
      * </goat-tabs>
      */
     interface GoatTabs {
+        "type"?: 'contained' | 'default';
     }
     interface GoatTabsList {
         "managed"?: boolean;
-        "variant"?: 'line' | 'contained';
+        "type"?: 'contained' | 'default';
     }
     /**
      * @name Tag

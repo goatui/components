@@ -34,10 +34,11 @@
   }
 }
 
-:host, :host(.layer-background) {
+:host, :host([layer="background"]) {
   --field: #{v(--field-01)};
   --layer: #{v(--layer-01)};
   --layer-hover: #{v(--layer-hover-01)};
+  --layer-accent: #{v(--layer-accent-01)};
   --layer-selected: #{v(--layer-selected-01)};
   --layer-selected-hover: #{v(--layer-selected-hover-01)};
 
@@ -47,10 +48,11 @@
 
 }
 
-:host(.layer-01) {
+:host([layer="01"]) {
   --field: #{v(--field-02)};
   --layer: #{v(--layer-02)};
   --layer-hover: #{v(--layer-hover-02)};
+  --layer-accent: #{v(--layer-accent-02)};
   --layer-selected: #{v(--layer-selected-02)};
   --layer-selected-hover: #{v(--layer-selected-hover-02)};
 
@@ -59,10 +61,11 @@
   --border-subtle: #{v(--border-subtle-01)};
 }
 
-:host(.layer-02) {
+:host([layer="02"]) {
   --field: #{v(--field-03)};
   --layer: #{v(--layer-03)};
   --layer-hover: #{v(--layer-hover-03)};
+  --layer-accent: #{v(--layer-accent-03)};
   --layer-selected: #{v(--layer-selected-03)};
   --layer-selected-hover: #{v(--layer-selected-hover-03)};
 

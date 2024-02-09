@@ -6,15 +6,19 @@ import OverviewPanel from '../../../components/OverviewPanel.astro';
 const componentDetails = getComponentDetails('goat-tabs');
 
 import UsageSection from './_sections/usage.astro';
-import VariantsSection from './_sections/variants.astro';
+import ContainedSection from './_sections/Contained.astro';
+import IconsSection from './_sections/Icons.astro';
 
 const sections = [
   {
     'title': 'Usage',
     'Component': UsageSection,
   },{
-    'title': 'Variants',
-    'Component': VariantsSection,
+    'title': 'Contained',
+    'Component': ContainedSection,
+  },{
+    'title': 'Icons',
+    'Component': IconsSection,
   }];
 ---
 <Layout componentDetails={componentDetails}>
