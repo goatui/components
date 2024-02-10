@@ -4,7 +4,7 @@
   display: block;
   height: 100%;
   min-height: 20em;
-  --table-border-color: var(--border-subtle-selected-01);
+  --table-border-color: #{v(--border-subtle-selected-01)};
   --table-border: 1px solid var(--table-border-color);
   --table-col-content-padding: #{v(--spacing-04)} #{v(--spacing-05)};
 }
@@ -176,6 +176,7 @@
 
     .col {
       cursor: pointer;
+      background: v(--layer);
       border-bottom: 1px solid var(--layer-accent);
 
       &.col-checkbox .col-content {
