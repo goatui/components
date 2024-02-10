@@ -73,6 +73,7 @@ Secondary link color for lower contrast backgrounds
 @include defineVariableDeprecated(--border-subtle-00, getColor(gray, 30), getColor(gray, 30));
 
 @include defineVariableDeprecated(--border-subtle-selected-01, getColor(gray, 30), getColor(gray, 70));
+
 @import "border-colors";
 
 

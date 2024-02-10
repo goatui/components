@@ -159,13 +159,7 @@ export class Table {
       fixedCols.push(
         <div class="col col-checkbox center">
           <div class="col-content">
-            <goat-checkbox
-              class="checkbox"
-              layer={getNextLayer(this.layer)}
-              value={this.isSelectAll}
-              intermediate={this.isSelectAllIntermediate}
-              onGoat:change={this.onSelectAllClick}
-            />
+            <goat-checkbox class="checkbox" layer={'01'} value={this.isSelectAll} intermediate={this.isSelectAllIntermediate} onGoat:change={this.onSelectAllClick} />
           </div>
         </div>,
       );
@@ -321,6 +315,7 @@ export class Table {
           <div class="page-sizes-select">
             <goat-select
               label="Items per page:"
+              layer={getNextLayer(this.layer)}
               inline
               class="select"
               items={SUPPORTED_PAGE_SIZES}
@@ -333,7 +328,7 @@ export class Table {
             />
           </div>
           <div class="pagination-item-count">
-            <goat-text inline>
+            <goat-text inline color="secondary">
               {this.pageSize * (this.page - 1)} - {this.pageSize * this.page < this.getTotalItems() ? this.pageSize * this.page : this.getTotalItems()} of {this.getTotalItems()}{' '}
               items
             </goat-text>

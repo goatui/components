@@ -38,8 +38,6 @@ export class FormControl implements ComponentInterface {
 
   @Element() elm!: HTMLElement;
 
-  private controlElm!: HTMLElement;
-
   componentDidLoad() {
     this.elm.setAttribute('role', 'group');
     const controlElm = this.getInputElement();
@@ -66,7 +64,7 @@ export class FormControl implements ComponentInterface {
       // @ts-ignore
       const oldProps = controlElm.configAria;
       // @ts-ignore
-      this.controlElm.configAria = {
+      controlElm.configAria = {
         'aria-label': label,
         ...oldProps,
       };
