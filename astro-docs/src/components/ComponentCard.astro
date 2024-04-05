@@ -22,7 +22,7 @@ const {component} = Astro.props;
       <goat-text class='component-title' type='heading' heading-size='3'>{component.metadata.name}</goat-text>
 
       <div class='component-category-container'>
-        <goat-link href={`/components?filter=${component.metadata.category.toLowerCase().replace(' ', '-')}`}>
+        <goat-link href={`/components/?filter=${component.metadata.category.toLowerCase().replace(' ', '-')}`}>
           <goat-tag color='warning' size='sm' class='category-tag'
                     tag={component.metadata.category}>{component.metadata.category}</goat-tag>
         </goat-link>
