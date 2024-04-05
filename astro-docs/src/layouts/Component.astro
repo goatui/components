@@ -33,7 +33,7 @@ const description = componentDetails.metadata.description;
                     if (component.metadata.name) {
                       return <goat-tree-node class='layer-background'
                                              label={component.metadata.name}
-                                             href={`/components/${component.tag.replace('goat-', '')}`}></goat-tree-node>
+                                             href={`/components/${component.tag.replace('goat-', '')}/`}></goat-tree-node>
                     }
                   })
                 }
