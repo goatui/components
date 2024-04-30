@@ -31,7 +31,7 @@
     "loader/"
   ],
   "scripts": {
-    "build": "npm run build:theme && npm run build:stencil",
+    "build": "node env.js REMOTE && npm run build:theme && npm run build:stencil",
     "build:local": "node env.js LOCAL && npm run build:theme && npm run build:3d-party && npm run build:stencil",
     "build:stencil": "stencil build --docs --prod",
     "build:docs-only": "stencil docs",
