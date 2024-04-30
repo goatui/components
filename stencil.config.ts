@@ -1,6 +1,7 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 import { JsonDocs } from '@stencil/core/internal';
+import dotEnvPlugin from 'rollup-plugin-dotenv';
 import * as fs from 'fs';
 
 export const config: Config = {
@@ -88,7 +89,7 @@ export const config: Config = {
       copy: [{ src: 'assets', dest: 'build/assets' }],
     },
   ],
-  plugins: [sass()],
+  plugins: [sass(), dotEnvPlugin()],
   testing: {
     browserHeadless: 'new',
   },

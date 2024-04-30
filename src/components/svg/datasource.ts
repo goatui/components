@@ -6,7 +6,7 @@ export async function fetchIcon(url) {
   }
   const res = await fetch(url, {
     method: 'GET',
-    mode: 'cors',
+    mode: process.env.THIRD_PARTY_ASSETS == 'LOCAL' ? 'no-cors' :'cors',
     credentials: 'omit',
   });
   result = await res.text();
