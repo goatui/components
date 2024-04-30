@@ -1,5 +1,6 @@
-import icons from "./icons";
-import {ICON_BASE_URL} from "./constants";
+import icons from './icons';
+import { ICON_BASE_URL } from './constants';
+import { getAssetPath } from '@stencil/core';
 
 export async function fetchIcon(name: string) {
   if (!name) return '';
@@ -13,7 +14,14 @@ export async function fetchIcon(name: string) {
 
   if (!icon) return '';
 
-  const request = new Request(`${ICON_BASE_URL}/svg/${icon.path}`);
+  let iconBaseUrl: string;
+  if (process.env.THIRD_PARTY_ASSETS == 'LOCAL') {
+    iconBaseUrl = getAssetPath('./assets/node_modules/@carbon/icons');
+  } else {
+    iconBaseUrl = ICON_BASE_URL;
+  }
+
+  const request = new Request(`${iconBaseUrl}/svg/${icon.path}`);
   let response = await cache.match(request);
   if (response) {
     const result = await response.text();
@@ -30,4 +38,3 @@ export async function fetchIcon(name: string) {
   }
   return result;
 }
-
