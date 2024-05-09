@@ -75,7 +75,7 @@ const getTitle = (root?: boolean) => {
           id='theme-switcher'
           icon='sun'
           class='theme-switcher'
-          aria-title='Theme switcher'></goat-header-action>
+          aria-label='Theme switcher'></goat-header-action>
 
         <goat-header-action id='dir-switcher' class='hide-tablet-landscape-below'>LTR</goat-header-action>
 
@@ -94,6 +94,7 @@ const getTitle = (root?: boolean) => {
           (
             <goat-header-action
               icon='logo--github'
+              aria-label='View Github'
               href={`https://github.com/${site.github_username}/${site.github_project}`}
               target='_blank'
             ></goat-header-action>)
@@ -108,6 +109,7 @@ const getTitle = (root?: boolean) => {
 
             <goat-header-action
               icon='logo--github'
+              aria-label='Report Issue'
               class='hide-desktop'
               href={`https://github.com/${site.github_username}/${site.github_project}/issues`}
               target='_blank'

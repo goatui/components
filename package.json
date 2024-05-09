@@ -51,7 +51,6 @@
   },
   "devDependencies": {
     "@floating-ui/dom": "^1.5.3",
-    "@shopify/prettier-plugin-liquid": "^1.2.2",
     "@stencil/core": "^4.11.0",
     "@stencil/sass": "^3.0.8",
     "@tiptap/core": "^2.1.12",
@@ -71,7 +70,6 @@
     "dompurify": "^3.0.6",
     "jest": "^27.5.1",
     "jest-cli": "^27.5.1",
-    "prettier": "3.0.0",
     "puppeteer": "21.1.1",
     "rollup-plugin-dotenv": "^0.5.0",
     "sass": "^1.70.0"

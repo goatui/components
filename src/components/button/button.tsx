@@ -167,7 +167,9 @@ export class Button implements ComponentInterface {
 
   private clickHandler = (event: KeyboardEvent) => {
     if (!this.disabled && !this.showLoader) {
-      this.goatClick.emit();
+      this.goatClick.emit({
+        element: this.elm,
+      });
     } else {
       event.preventDefault();
       event.stopPropagation();
