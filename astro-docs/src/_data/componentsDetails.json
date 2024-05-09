@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-09T05:10:08",
+  "timestamp": "2024-05-09T05:12:04",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -3692,13 +3692,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "----------------------------------------------------------- Copyright (c) Microsoft Corporation. All rights reserved. Version",
-          "annotation": "prop",
-          "docs": "0.40.0(83b3cf23ca80c94cccca7c5b3e48351b220f8e35) Released under the MIT license https://github.com/microsoft/vscode/blob/main/LICENSE.txt -----------------------------------------------------------"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "listeners": [],
@@ -19271,13 +19265,7 @@
               "docsTags": []
             }
           ],
-          "styles": [
-            {
-              "name": "----------------------------------------------------------- Copyright (c) Microsoft Corporation. All rights reserved. Version",
-              "annotation": "prop",
-              "docs": "0.40.0(83b3cf23ca80c94cccca7c5b3e48351b220f8e35) Released under the MIT license https://github.com/microsoft/vscode/blob/main/LICENSE.txt -----------------------------------------------------------"
-            }
-          ],
+          "styles": [],
           "slots": [],
           "parts": [],
           "listeners": [],
