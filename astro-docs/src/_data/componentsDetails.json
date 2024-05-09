@@ -1,9 +1,9 @@
 {
-  "timestamp": "2024-04-30T14:09:10",
+  "timestamp": "2024-05-09T05:10:08",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.11.0",
-    "typescriptVersion": "5.3.3"
+    "version": "4.17.2",
+    "typescriptVersion": "5.4.5"
   },
   "components": [
     {
@@ -713,7 +713,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-button>\r\nButton CTA\r\n</goat-button>"
+          "text": "<goat-button>\nButton CTA\n</goat-button>"
         }
       ],
       "encapsulation": "shadow",
@@ -997,7 +997,7 @@
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
-          "docs": "Icon which will displayed on button.\r\nPossible values are icon names.",
+          "docs": "Icon which will displayed on button.\nPossible values are icon names.",
           "docsTags": [],
           "values": [
             {
@@ -1067,7 +1067,7 @@
           "mutable": false,
           "attr": "kind",
           "reflectToAttr": false,
-          "docs": "Button kind.\r\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\r\n`\"default\"` is a long button.\r\n`\"simple\"` is a text-only button.\r\n`\"block\"` is a full-width button.",
+          "docs": "Button kind.\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\n`\"default\"` is a long button.\n`\"simple\"` is a text-only button.\n`\"block\"` is a full-width button.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -1142,7 +1142,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
-          "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
+          "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -1238,7 +1238,7 @@
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "Button variants.\r\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\r\n`\"default\"` is a filled button.\r\n`\"outline\"` is an outlined button.\r\n`\"ghost\"` is a transparent button.",
+          "docs": "Button variants.\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\n`\"default\"` is a filled button.\n`\"outline\"` is an outlined button.\n`\"ghost\"` is a transparent button.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -1287,7 +1287,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.blur()`.",
+          "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\n`button.blur()`.",
           "docsTags": []
         },
         {
@@ -1309,7 +1309,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.focus()`.",
+          "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\n`button.focus()`.",
           "docsTags": []
         },
         {
@@ -1375,7 +1375,7 @@
         "tags": [
           "controls"
         ],
-        "example": "<goat-button>\r\nButton CTA\r\n</goat-button>"
+        "example": "<goat-button>\nButton CTA\n</goat-button>"
       }
     },
     {
@@ -3692,7 +3692,13 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "----------------------------------------------------------- Copyright (c) Microsoft Corporation. All rights reserved. Version",
+          "annotation": "prop",
+          "docs": "0.40.0(83b3cf23ca80c94cccca7c5b3e48351b220f8e35) Released under the MIT license https://github.com/microsoft/vscode/blob/main/LICENSE.txt -----------------------------------------------------------"
+        }
+      ],
       "slots": [],
       "parts": [],
       "listeners": [],
@@ -19265,7 +19271,13 @@
               "docsTags": []
             }
           ],
-          "styles": [],
+          "styles": [
+            {
+              "name": "----------------------------------------------------------- Copyright (c) Microsoft Corporation. All rights reserved. Version",
+              "annotation": "prop",
+              "docs": "0.40.0(83b3cf23ca80c94cccca7c5b3e48351b220f8e35) Released under the MIT license https://github.com/microsoft/vscode/blob/main/LICENSE.txt -----------------------------------------------------------"
+            }
+          ],
           "slots": [],
           "parts": [],
           "listeners": [],
@@ -24036,7 +24048,7 @@
             },
             {
               "name": "example",
-              "text": "<goat-button>\r\nButton CTA\r\n</goat-button>"
+              "text": "<goat-button>\nButton CTA\n</goat-button>"
             }
           ],
           "encapsulation": "shadow",
@@ -24320,7 +24332,7 @@
               "mutable": false,
               "attr": "icon",
               "reflectToAttr": false,
-              "docs": "Icon which will displayed on button.\r\nPossible values are icon names.",
+              "docs": "Icon which will displayed on button.\nPossible values are icon names.",
               "docsTags": [],
               "values": [
                 {
@@ -24390,7 +24402,7 @@
               "mutable": false,
               "attr": "kind",
               "reflectToAttr": false,
-              "docs": "Button kind.\r\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\r\n`\"default\"` is a long button.\r\n`\"simple\"` is a text-only button.\r\n`\"block\"` is a full-width button.",
+              "docs": "Button kind.\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\n`\"default\"` is a long button.\n`\"simple\"` is a text-only button.\n`\"block\"` is a full-width button.",
               "docsTags": [],
               "default": "'default'",
               "values": [
@@ -24465,7 +24477,7 @@
               "mutable": false,
               "attr": "size",
               "reflectToAttr": true,
-              "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
+              "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
               "docsTags": [],
               "default": "'md'",
               "values": [
@@ -24561,7 +24573,7 @@
               "mutable": false,
               "attr": "variant",
               "reflectToAttr": false,
-              "docs": "Button variants.\r\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\r\n`\"default\"` is a filled button.\r\n`\"outline\"` is an outlined button.\r\n`\"ghost\"` is a transparent button.",
+              "docs": "Button variants.\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\n`\"default\"` is a filled button.\n`\"outline\"` is an outlined button.\n`\"ghost\"` is a transparent button.",
               "docsTags": [],
               "default": "'default'",
               "values": [
@@ -24610,7 +24622,7 @@
               },
               "signature": "setBlur() => Promise<void>",
               "parameters": [],
-              "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.blur()`.",
+              "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\n`button.blur()`.",
               "docsTags": []
             },
             {
@@ -24632,7 +24644,7 @@
               },
               "signature": "setFocus() => Promise<void>",
               "parameters": [],
-              "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.focus()`.",
+              "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\n`button.focus()`.",
               "docsTags": []
             },
             {
@@ -24698,7 +24710,7 @@
             "tags": [
               "controls"
             ],
-            "example": "<goat-button>\r\nButton CTA\r\n</goat-button>"
+            "example": "<goat-button>\nButton CTA\n</goat-button>"
           }
         },
         {
