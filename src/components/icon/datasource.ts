@@ -24,8 +24,7 @@ export async function fetchIcon(name: string) {
   const request = new Request(`${iconBaseUrl}/svg/${icon.path}`);
   let response = await cache.match(request);
   if (response) {
-    const result = await response.text();
-    return result;
+    return await response.text();
   }
   response = await fetch(request.url, {
     method: 'GET',
@@ -33,7 +32,7 @@ export async function fetchIcon(name: string) {
     credentials: 'omit',
   });
   const result = await response.text();
-  if (response.status === 200) {
+  if (response.status === 200 && process.env.THIRD_PARTY_ASSETS == 'REMOTE') {
     await cache.put(request, new Response(result));
   }
   return result;

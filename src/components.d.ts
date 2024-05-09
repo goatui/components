@@ -256,8 +256,8 @@ export namespace Components {
      */
     interface GoatChartDoughnut {
         "data": any;
-        "height": number;
         "margin": number;
+        "showLabels": boolean;
         "width": number;
     }
     /**
@@ -2972,8 +2972,8 @@ declare namespace LocalJSX {
      */
     interface GoatChartDoughnut {
         "data"?: any;
-        "height"?: number;
         "margin"?: number;
+        "showLabels"?: boolean;
         "width"?: number;
     }
     /**
