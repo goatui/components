@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-09T05:12:04",
+  "timestamp": "2024-05-09T16:49:50",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -2852,28 +2852,6 @@
           "required": false
         },
         {
-          "name": "height",
-          "type": "number",
-          "complexType": {
-            "original": "number",
-            "resolved": "number",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "height",
-          "reflectToAttr": true,
-          "docs": "",
-          "docsTags": [],
-          "default": "0",
-          "values": [
-            {
-              "type": "number"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "margin",
           "type": "number",
           "complexType": {
@@ -2890,6 +2868,28 @@
           "values": [
             {
               "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "showLabels",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-labels",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
             }
           ],
           "optional": false,
@@ -27953,28 +27953,6 @@
               "required": false
             },
             {
-              "name": "height",
-              "type": "number",
-              "complexType": {
-                "original": "number",
-                "resolved": "number",
-                "references": {}
-              },
-              "mutable": false,
-              "attr": "height",
-              "reflectToAttr": true,
-              "docs": "",
-              "docsTags": [],
-              "default": "0",
-              "values": [
-                {
-                  "type": "number"
-                }
-              ],
-              "optional": false,
-              "required": false
-            },
-            {
               "name": "margin",
               "type": "number",
               "complexType": {
@@ -27991,6 +27969,28 @@
               "values": [
                 {
                   "type": "number"
+                }
+              ],
+              "optional": false,
+              "required": false
+            },
+            {
+              "name": "showLabels",
+              "type": "boolean",
+              "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+              },
+              "mutable": false,
+              "attr": "show-labels",
+              "reflectToAttr": true,
+              "docs": "",
+              "docsTags": [],
+              "default": "true",
+              "values": [
+                {
+                  "type": "boolean"
                 }
               ],
               "optional": false,
