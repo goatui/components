@@ -26,11 +26,8 @@ export class Header {
   }
 
   computeColorLightOrDark() {
-    this.colorType = 'unknown';
-    if (this.color == 'brand-primary' || this.color == 'brand-secondary') {
-      const color = getComputedStyle(document.documentElement).getPropertyValue(`--color-${this.color}`);
-      this.colorType = isLightOrDark(color);
-    }
+    const color = getComputedStyle(document.documentElement).getPropertyValue(`--color-${this.color}`);
+    this.colorType = isLightOrDark(color);
   }
 
   @State() centerSlotHasContent = false;

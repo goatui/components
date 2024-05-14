@@ -1,6 +1,7 @@
 ---
 import HighlighterCard from '../../../../components/HighlighterCard.astro';
 import HeaderContent from './header-content.astro';
+import Highlighter from '../../../../components/Highlighter.astro';
 ---
 
 <style is:inline>
@@ -12,34 +13,58 @@ import HeaderContent from './header-content.astro';
     background: var(--layer-01)
   }
 </style>
-<HighlighterCard lang={'html'} cssClasses='modal-demo-container'>
+<goat-card>
+  <goat-card-content class='demo'>
 
-  <div class='component-container'>
-    <goat-header class='sample-modal'>
-      <div slot='left'>Left Section</div>
-      <div slot='center'>Center Section</div>
-      <div slot='right'>Right Section</div>
-    </goat-header>
-  </div>
+    <div class='component-container'>
+      <goat-header class='sample-modal'>
+        <div slot='left'>Left Section</div>
+        <div slot='center'>Center Section</div>
+        <div slot='right'>Right Section</div>
+      </goat-header>
+    </div>
 
-  <div class='component-container'>
-    <goat-header>
-      <div slot='left'>
-        <goat-header-action icon='menu' href='#'></goat-header-action>
-        <goat-header-brand logo='/assets/img/logo.svg' href='#' name='Goat' sub-title='Subtitle'></goat-header-brand>
+    <div class='component-container'>
+      <goat-header>
+        <div slot='left'>
+          <goat-header-action icon='menu' href='#'></goat-header-action>
+          <goat-header-brand logo='/assets/img/logo.svg' href='#' name='Goat' sub-title='Subtitle'></goat-header-brand>
+        </div>
+        <HeaderContent />
+      </goat-header>
+    </div>
+
+    <div class='component-container'>
+      <goat-header float>
+        <div slot='left'>
+          <goat-header-action icon='menu' href='#'></goat-header-action>
+          <goat-header-brand logo='/assets/img/logo.svg' href='#' name='Goat' sub-title='Subtitle'></goat-header-brand>
+        </div>
+
+        <HeaderContent />
+      </goat-header>
+    </div>
+
+  </goat-card-content>
+  <goat-card-content class='no-padding' is:inline>
+    <Highlighter lang={'html'}>
+      <div class='component-container' >
+        <goat-header class='sample-modal'>
+          <div slot='left'>Left Section</div>
+          <div slot='center'>Center Section</div>
+          <div slot='right'>Right Section</div>
+        </goat-header>
       </div>
-      <HeaderContent />
-    </goat-header>
-  </div>
 
-  <div class='component-container'>
-    <goat-header float>
-      <div slot='left'>
-        <goat-header-action icon='menu' href='#'></goat-header-action>
-        <goat-header-brand logo='/assets/img/logo.svg' href='#' name='Goat' sub-title='Subtitle'></goat-header-brand>
+      <div class='component-container' >
+        <goat-header>
+          <div slot='left'>
+            <goat-header-action icon='menu' href='#'></goat-header-action>
+            <goat-header-brand is:inline logo='/assets/img/logo.png' href='#' name='Goat' sub-title='Subtitle'></goat-header-brand>
+          </div>
+          <HeaderContent />
+        </goat-header>
       </div>
-
-      <HeaderContent />
-    </goat-header>
-  </div>
-</HighlighterCard>
+    </Highlighter>
+  </goat-card-content>
+</goat-card>

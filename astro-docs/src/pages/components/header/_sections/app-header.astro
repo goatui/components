@@ -34,19 +34,20 @@ import HeaderContent from './header-content.astro';
 
     <br />
 
-    <goat-header float>
+    <goat-header float color='dark'>
       <div slot='left'>
         <goat-header-action icon='menu' href='#'></goat-header-action>
-        <goat-header-brand logo='/assets/img/logo.svg' href='#' name='Goat'
+        <goat-header-brand logo="/assets/img/logo.svg" href='#' name='Goat'
                            sub-title='Non-brand - floating'></goat-header-brand>
       </div>
 
       <HeaderContent />
     </goat-header>
+
   </goat-card-content>
   <goat-card-content class='no-padding'>
     <Highlighter lang={'html'}>
-      <goat-header class='brand' brand-name='Goat' brand-logo='/assets/img/logo.svg' brand-url='/'>
+      <goat-header color='brand-primary'>
         <HeaderContent />
       </goat-header>
     </Highlighter>

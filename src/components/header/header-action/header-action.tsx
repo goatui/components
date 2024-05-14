@@ -44,15 +44,8 @@ export class HeaderAction {
   @State() color: any;
 
   componentWillLoad() {
-    const headerColor = this.elm.closest('goat-header').getAttribute('color');
+    this.color = this.elm.closest('goat-header').getAttribute('color');
 
-    if (headerColor === 'light') {
-      this.color = 'light';
-    } else if (headerColor === 'dark') {
-      this.color = 'light';
-    } else {
-      this.color = headerColor;
-    }
     this.slotHasContent = this.elm.hasChildNodes();
 
     if (this.elm.getAttributeNames)

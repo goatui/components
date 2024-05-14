@@ -1,7 +1,7 @@
 export async function fetchSVG(url) {
   if (!url) return '';
 
-  const cache = await caches.open('goat-svg');
+  const cache = await window.caches.open('goat-svg');
 
   const request = new Request(url);
   let response = await cache.match(request);

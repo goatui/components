@@ -5,7 +5,7 @@ import { getAssetPath } from '@stencil/core';
 export async function fetchIcon(name: string) {
   if (!name) return '';
 
-  const cache = await caches.open('goat-icons');
+  const cache = await window.caches.open('goat-icons');
   const icon = icons.find((icon: any) => {
     if (icon.name === name) {
       return icon;
