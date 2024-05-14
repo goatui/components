@@ -1,6 +1,5 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
-import { debounceEvent, getComponentIndex } from '../../../utils/utils';
-import { isDarkMode, observeThemeChange } from '../../../utils/utils';
+import { debounceEvent, getComponentIndex, isDarkMode, observeThemeChange } from '../../../utils/utils';
 import loadMonaco from '../../../3d-party/monaco';
 
 /**
@@ -67,13 +66,11 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
   @Watch('disabled')
   disabledWatcher(newValue: boolean) {
     this.editorMonacoInstance.updateOptions({ readOnly: newValue || this.readonly });
-    this.themeWatcher();
   }
 
   @Watch('readonly')
   readonlyWatcher(newValue: string) {
     this.editorMonacoInstance.updateOptions({ readOnly: newValue || this.disabled });
-    this.themeWatcher();
   }
 
   @Watch('language')
@@ -196,6 +193,12 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
             'has-focus': this.hasFocus,
           }}
         >
+          {this.disabled || this.readonly ? (
+            <goat-tag class="read-only-tag" color="red">
+              Read Only
+            </goat-tag>
+          ) : null}
+
           <div class="editor" ref={el => (this.editorElement = el)} />
           {!this.editorMonacoInstance && (
             <div class="code-editor-loader">

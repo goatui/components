@@ -420,6 +420,82 @@
     ]
   },
   {
+    "name": "AI",
+    "label": "AI",
+    "path": "32/AI.svg",
+    "aliases": [
+      "automation",
+      "artificial intelligence",
+      "governance",
+      "assistant",
+      "enterprise",
+      "Plex"
+    ]
+  },
+  {
+    "name": "ai-governance--lifecycle",
+    "label": "AI governance lifecycle",
+    "path": "32/ai-governance--lifecycle.svg",
+    "aliases": [
+      "automation",
+      "artificial intelligence",
+      "governance",
+      "lifecycle",
+      "enterprise",
+      "cycle",
+      "security",
+      "control"
+    ]
+  },
+  {
+    "name": "ai-governance--tracked",
+    "label": "AI governance tracked",
+    "path": "32/ai-governance--tracked.svg",
+    "aliases": [
+      "automation",
+      "artificial intelligence",
+      "governance",
+      "tracked",
+      "enterprise",
+      "checkmark",
+      "security",
+      "secure",
+      "control"
+    ]
+  },
+  {
+    "name": "ai-governance--untracked",
+    "label": "AI governance untracked",
+    "path": "32/ai-governance--untracked.svg",
+    "aliases": [
+      "automation",
+      "artificial intelligence",
+      "governance",
+      "untracked",
+      "enterprise",
+      "x",
+      "security",
+      "unsecure",
+      "secure",
+      "uncontrolled"
+    ]
+  },
+  {
+    "name": "ai-launch",
+    "label": "Launch AI",
+    "path": "32/ai-launch.svg",
+    "aliases": [
+      "ai",
+      "automation",
+      "artificial intelligence",
+      "enterprise",
+      "explainability",
+      "ai interactivity",
+      "generate",
+      "generative"
+    ]
+  },
+  {
     "name": "ai-results",
     "label": "AI results",
     "path": "32/watson-health/ai-results.svg",
@@ -1227,6 +1303,32 @@
     ]
   },
   {
+    "name": "arithmetic-mean",
+    "label": "Arithmetic mean",
+    "path": "32/arithmetic-mean.svg",
+    "aliases": [
+      "arithmetic",
+      "mean",
+      "operation",
+      "x",
+      "data",
+      "math"
+    ]
+  },
+  {
+    "name": "arithmetic-median",
+    "label": "Arithmetic median",
+    "path": "32/arithmetic-median.svg",
+    "aliases": [
+      "arithmetic",
+      "media",
+      "operation",
+      "x",
+      "data",
+      "math"
+    ]
+  },
+  {
     "name": "arrival",
     "label": "Arrival",
     "path": "32/arrival.svg",
@@ -1523,6 +1625,19 @@
     ]
   },
   {
+    "name": "async",
+    "label": "async",
+    "path": "32/async.svg",
+    "aliases": [
+      "asynchrononous",
+      "arrows",
+      "status",
+      "exclamation point",
+      "bang",
+      "circular"
+    ]
+  },
+  {
     "name": "at",
     "label": "At",
     "path": "32/at.svg",
@@ -1591,7 +1706,7 @@
   },
   {
     "name": "automatic",
-    "label": "automatic",
+    "label": "Automatic",
     "path": "32/automatic.svg",
     "aliases": [
       "auto",
@@ -1758,7 +1873,7 @@
   },
   {
     "name": "bat",
-    "label": "bat",
+    "label": "Bat",
     "path": "32/bat.svg",
     "aliases": [
       "bat",
@@ -2073,7 +2188,7 @@
   },
   {
     "name": "boolean",
-    "label": "boolean",
+    "label": "Boolean",
     "path": "32/boolean.svg",
     "aliases": [
       "boolean",
@@ -2798,6 +2913,42 @@
     ]
   },
   {
+    "name": "calls",
+    "label": "Calls",
+    "path": "32/calls.svg",
+    "aliases": [
+      "arrow",
+      "circle",
+      "operations",
+      "call"
+    ]
+  },
+  {
+    "name": "calls--all",
+    "label": "Calls all",
+    "path": "32/calls--all.svg",
+    "aliases": [
+      "arrows",
+      "circle",
+      "operations",
+      "call",
+      "all"
+    ]
+  },
+  {
+    "name": "calls--incoming",
+    "label": "Calls incoming",
+    "path": "32/calls--incoming.svg",
+    "aliases": [
+      "arrows",
+      "circles",
+      "operations",
+      "call",
+      "incoming",
+      "inbound"
+    ]
+  },
+  {
     "name": "camera",
     "label": "Camera",
     "path": "32/camera.svg",
@@ -2965,6 +3116,32 @@
       "mobile",
       "iOS",
       "Android"
+    ]
+  },
+  {
+    "name": "carbon-for-salesforce",
+    "label": "Carbon for Salesforce",
+    "path": "32/carbon-for-salesforce.svg",
+    "aliases": [
+      "carbon",
+      "IBM",
+      "IBM Carbon",
+      "design system",
+      "IBM design system",
+      "design",
+      "hexagon",
+      "cloud",
+      "system",
+      "software",
+      "automation",
+      "e-commerce",
+      "analytics",
+      "salesforce",
+      "manage",
+      "sales",
+      "CRM",
+      "customer relationship management",
+      "customer service"
     ]
   },
   {
@@ -3965,6 +4142,19 @@
     ]
   },
   {
+    "name": "chart--planning-waterfall",
+    "label": "Chart planning waterfall",
+    "path": "32/chart--planning-waterfall.svg",
+    "aliases": [
+      "chart",
+      "bar",
+      "planning",
+      "waterfall",
+      "cascade",
+      "data"
+    ]
+  },
+  {
     "name": "chart--point",
     "label": "Chart point",
     "path": "32/chart--point.svg",
@@ -4501,6 +4691,18 @@
     ]
   },
   {
+    "name": "chevron--down--outline",
+    "label": "Chevron down outline",
+    "path": "32/chevron--down--outline.svg",
+    "aliases": [
+      "chevron",
+      "navigation",
+      "down",
+      "circle",
+      "arrow"
+    ]
+  },
+  {
     "name": "chevron--left",
     "label": "Chevron left",
     "path": "32/chevron--left.svg",
@@ -4606,6 +4808,18 @@
       "chevron up",
       "up chevron",
       "navigation"
+    ]
+  },
+  {
+    "name": "chevron--up--outline",
+    "label": "Chevron up outline",
+    "path": "32/chevron--up--outline.svg",
+    "aliases": [
+      "chevron",
+      "navigation",
+      "up",
+      "circle",
+      "arrow"
     ]
   },
   {
@@ -4808,13 +5022,32 @@
     ]
   },
   {
+    "name": "circle--outline",
+    "label": "Circle outline",
+    "path": "32/circle--outline.svg",
+    "aliases": [
+      "circle outlined",
+      "outlined circle",
+      "stroke",
+      "border",
+      "circle",
+      "round",
+      "shape",
+      "geometry"
+    ]
+  },
+  {
     "name": "circle--solid",
     "label": "Circle solid",
     "path": "32/circle--solid.svg",
     "aliases": [
       "circle filled",
       "filled circle",
+      "solid",
       "circle",
+      "round",
+      "shape",
+      "geometry",
       "data"
     ]
   },
@@ -5742,7 +5975,7 @@
   },
   {
     "name": "continuous-deployment",
-    "label": "continuous-deployment",
+    "label": "Continuous deployment",
     "path": "32/continuous-deployment.svg",
     "aliases": [
       "continuous",
@@ -6140,7 +6373,7 @@
   },
   {
     "name": "currency",
-    "label": "currency",
+    "label": "Currency",
     "path": "32/currency.svg",
     "aliases": [
       "currency",
@@ -6292,6 +6525,21 @@
       "mouse",
       "click",
       "pointer"
+    ]
+  },
+  {
+    "name": "customer",
+    "label": "Customer",
+    "path": "32/customer.svg",
+    "aliases": [
+      "customer",
+      "person",
+      "human",
+      "people",
+      "shopping",
+      "cart",
+      "basket",
+      "consumer"
     ]
   },
   {
@@ -6634,6 +6882,18 @@
     ]
   },
   {
+    "name": "data-analytics",
+    "label": "Data analytics",
+    "path": "32/data-analytics.svg",
+    "aliases": [
+      "data",
+      "analytics",
+      "analysis",
+      "magnifying glass",
+      "bar chart"
+    ]
+  },
+  {
     "name": "data-backup",
     "label": "Data backup",
     "path": "32/data-backup.svg",
@@ -6959,6 +7219,21 @@
     ]
   },
   {
+    "name": "database--messaging",
+    "label": "Database messaging",
+    "path": "32/database--messaging.svg",
+    "aliases": [
+      "data",
+      "database",
+      "server",
+      "speech bubble",
+      "messaging",
+      "notification",
+      "message",
+      "text"
+    ]
+  },
+  {
     "name": "database--mongodb",
     "label": "IBM Cloud® Databases for MongoDB",
     "path": "32/database--mongodb.svg",
@@ -7143,6 +7418,18 @@
       "van",
       "shipping",
       "ecommerce"
+    ]
+  },
+  {
+    "name": "demo",
+    "label": "Demo",
+    "path": "32/demo.svg",
+    "aliases": [
+      "demo",
+      "demonstration",
+      "tutorial",
+      "computer monitor",
+      "video"
     ]
   },
   {
@@ -7339,6 +7626,20 @@
     ]
   },
   {
+    "name": "devices--apps",
+    "label": "Devices apps",
+    "path": "32/devices--apps.svg",
+    "aliases": [
+      "device",
+      "mobile",
+      "applications",
+      "tablet",
+      "computer",
+      "computer monitor",
+      "software"
+    ]
+  },
+  {
     "name": "dew-point",
     "label": "Dew point",
     "path": "32/dew-point.svg",
@@ -7381,6 +7682,35 @@
       "reference",
       "citation",
       "source"
+    ]
+  },
+  {
+    "name": "diamond--outline",
+    "label": "Diamond outline",
+    "path": "32/diamond--outline.svg",
+    "aliases": [
+      "diamond outlined",
+      "outlined diamond",
+      "stroke",
+      "border",
+      "diamond",
+      "rectangle",
+      "shape",
+      "geometry"
+    ]
+  },
+  {
+    "name": "diamond--solid",
+    "label": "Diamond solid",
+    "path": "32/diamond--solid.svg",
+    "aliases": [
+      "diamond filled",
+      "filled diamond",
+      "solid",
+      "diamond",
+      "rectangle",
+      "shape",
+      "geometry"
     ]
   },
   {
@@ -7993,7 +8323,7 @@
   },
   {
     "name": "document--pdf",
-    "label": "Document pdf",
+    "label": "Document PDF",
     "path": "32/document--pdf.svg",
     "aliases": [
       "document pdf",
@@ -8237,6 +8567,19 @@
       "download study",
       "download",
       "learn"
+    ]
+  },
+  {
+    "name": "downstream",
+    "label": "Downstream",
+    "path": "32/downstream.svg",
+    "aliases": [
+      "arrows",
+      "circles",
+      "workflow",
+      "data",
+      "flow",
+      "process"
     ]
   },
   {
@@ -8748,6 +9091,17 @@
     ]
   },
   {
+    "name": "equal--approximately",
+    "label": "Equal approximately",
+    "path": "32/equal--approximately.svg",
+    "aliases": [
+      "circle",
+      "tilde",
+      "approximate",
+      "equal"
+    ]
+  },
+  {
     "name": "equalizer",
     "label": "Equalizer",
     "path": "32/equalizer.svg",
@@ -8835,6 +9189,33 @@
     ]
   },
   {
+    "name": "event--change",
+    "label": "Event change",
+    "path": "32/event--change.svg",
+    "aliases": [
+      "event",
+      "change",
+      "exclamation point",
+      "bang",
+      "triangle",
+      "dashed triangle"
+    ]
+  },
+  {
+    "name": "event--incident",
+    "label": "Event incident",
+    "path": "32/event--incident.svg",
+    "aliases": [
+      "event",
+      "incident",
+      "exclamation point",
+      "bang",
+      "triangle",
+      "asterisk",
+      "star"
+    ]
+  },
+  {
     "name": "event--schedule",
     "label": "Event schedule",
     "path": "32/event--schedule.svg",
@@ -8844,6 +9225,20 @@
       "date",
       "favorite",
       "schedule"
+    ]
+  },
+  {
+    "name": "event--warning",
+    "label": "Event warning",
+    "path": "32/event--warning.svg",
+    "aliases": [
+      "event",
+      "incident",
+      "exclamation point",
+      "bang",
+      "triangle",
+      "warning",
+      "caution"
     ]
   },
   {
@@ -10807,6 +11202,64 @@
     ]
   },
   {
+    "name": "hexagon--outline",
+    "label": "Hexagon outline",
+    "path": "32/hexagon--outline.svg",
+    "aliases": [
+      "hexagon outlined",
+      "outlined hexagon",
+      "stroke",
+      "border",
+      "hexagon",
+      "shape",
+      "geometry",
+      "horizontal"
+    ]
+  },
+  {
+    "name": "hexagon--solid",
+    "label": "Hexagon solid",
+    "path": "32/hexagon--solid.svg",
+    "aliases": [
+      "hexagon filled",
+      "filled hexagon",
+      "solid",
+      "hexagon",
+      "shape",
+      "geometry",
+      "horizontal"
+    ]
+  },
+  {
+    "name": "hexagon--vertical--outline",
+    "label": "Hexagon vertical outline",
+    "path": "32/hexagon--vertical--outline.svg",
+    "aliases": [
+      "hexagon outlined",
+      "outlined hexagon",
+      "stroke",
+      "border",
+      "hexagon",
+      "shape",
+      "geometry",
+      "vertical"
+    ]
+  },
+  {
+    "name": "hexagon--vertical--solid",
+    "label": "Hexagon vertical solid",
+    "path": "32/hexagon--vertical--solid.svg",
+    "aliases": [
+      "hexagon filled",
+      "filled hexagon",
+      "solid",
+      "hexagon",
+      "shape",
+      "geometry",
+      "vertical"
+    ]
+  },
+  {
     "name": "hinton-plot",
     "label": "Hinton plot",
     "path": "32/Q/hinton-plot.svg",
@@ -11100,6 +11553,20 @@
     ]
   },
   {
+    "name": "ibm--data-product-exchange",
+    "label": "IBM® Data Product Exchange",
+    "path": "32/ibm--data-product-exchange.svg",
+    "aliases": [
+      "circle",
+      "arrows",
+      "box",
+      "cube",
+      "product",
+      "exchange",
+      "replace"
+    ]
+  },
+  {
     "name": "ibm--data-replication",
     "label": "IBM® Data Replication",
     "path": "32/ibm--data-replication.svg",
@@ -11159,6 +11626,61 @@
       "open",
       "data",
       "ai"
+    ]
+  },
+  {
+    "name": "ibm--dynamic-route-server",
+    "label": "IBM® Dynamic Route Server",
+    "path": "32/ibm--dynamic-route-server.svg",
+    "aliases": [
+      "data",
+      "routing",
+      "process",
+      "server"
+    ]
+  },
+  {
+    "name": "ibm--engineering-systems-design-rhapsody-model-manager",
+    "label": "IBM® Engineering Systems Design Rhapsody Model Manager",
+    "path": "32/ibm--engineering-systems-design-rhapsody-model-manager.svg",
+    "aliases": [
+      "data",
+      "model",
+      "manager",
+      "engineering",
+      "cloud",
+      "R",
+      "work flow management"
+    ]
+  },
+  {
+    "name": "ibm--engineering-systems-design-rhapsody-sn1",
+    "label": "IBM® Engineering Systems Design Rhapsody sn1",
+    "path": "32/ibm--engineering-systems-design-rhapsody-sn1.svg",
+    "aliases": [
+      "data",
+      "model",
+      "manager",
+      "engineering",
+      "cloud",
+      "R",
+      "workflow management",
+      "sn1"
+    ]
+  },
+  {
+    "name": "ibm--engineering-systems-design-rhapsody-sn2",
+    "label": "IBM® Engineering Systems Design Rhapsody sn2",
+    "path": "32/ibm--engineering-systems-design-rhapsody-sn2.svg",
+    "aliases": [
+      "data",
+      "model",
+      "manager",
+      "engineering",
+      "cloud",
+      "R",
+      "workflow management",
+      "sn2"
     ]
   },
   {
@@ -11230,6 +11752,32 @@
     ]
   },
   {
+    "name": "ibm--ibv",
+    "label": "IBM® Institute for Business Value",
+    "path": "32/ibm--ibv.svg",
+    "aliases": [
+      "app",
+      "business",
+      "analysis",
+      "analytics",
+      "metrics",
+      "improvement"
+    ]
+  },
+  {
+    "name": "ibm--instana",
+    "label": "IBM® Instana®",
+    "path": "32/ibm--instana.svg",
+    "aliases": [
+      "app",
+      "business",
+      "automated",
+      "observability",
+      "data",
+      "performance"
+    ]
+  },
+  {
     "name": "ibm--match-360",
     "label": "IBM® Match 360",
     "path": "32/ibm--match-360.svg",
@@ -11280,7 +11828,7 @@
   },
   {
     "name": "ibm--power-vs",
-    "label": "IBM Power® Virtual Server",
+    "label": "IBM® Power® Virtual Server",
     "path": "32/ibm--power-vs.svg",
     "aliases": [
       "virtual server",
@@ -11966,13 +12514,24 @@
   },
   {
     "name": "ibm-cloud--pal",
-    "label": "IBM Cloud® Pattern and Asset Library",
+    "label": "Carbon for Cloud",
     "path": "32/ibm-cloud--pal.svg",
     "aliases": [
-      "cloud",
-      "cloud",
-      "pattern library",
-      "asset library"
+      "IT Infrastructure",
+      "public cloud",
+      "cloud PAL",
+      "software",
+      "product",
+      "assets",
+      "patterns",
+      "library",
+      "code",
+      "guidance",
+      "UI",
+      "UX",
+      "design system",
+      "hexagon",
+      "cloud"
     ]
   },
   {
@@ -12283,11 +12842,13 @@
   },
   {
     "name": "ibm-cloud-pak--watson-aiops",
-    "label": "IBM Cloud Pak® Watson AIOps",
+    "label": "IBM Cloud Pak® AIOps",
     "path": "32/ibm-cloud-pak--watson-aiops.svg",
     "aliases": [
       "cloud",
       "Watson",
+      "watsonx",
+      "AI",
       "AIOps",
       "app"
     ]
@@ -12355,11 +12916,12 @@
   },
   {
     "name": "ibm-watson--discovery",
-    "label": "IBM Watson® Discovery",
+    "label": "IBM® watsonx™ Discovery",
     "path": "32/ibm-watson--discovery.svg",
     "aliases": [
       "Watson",
       "IBM Watson",
+      "watsonx",
       "natural language",
       "AI",
       "artificial intelligence",
@@ -12374,11 +12936,12 @@
   },
   {
     "name": "ibm-watson--knowledge-catalog",
-    "label": "IBM Watson® Knowledge Catalog",
+    "label": "IBM® Knowledge Catalog",
     "path": "32/ibm-watson--knowledge-catalog.svg",
     "aliases": [
       "Watson",
       "IBM Watson",
+      "watsonx",
       "catalog",
       "knowledge catalog",
       "intelligent cataloging",
@@ -12398,11 +12961,13 @@
   },
   {
     "name": "ibm-watson--knowledge-studio",
-    "label": "IBM Watson® Knowledge Studio",
+    "label": "IBM® Knowledge Studio",
     "path": "32/ibm-watson--knowledge-studio.svg",
     "aliases": [
       "Watson",
       "IBM Watson",
+      "watsonx",
+      "AI",
       "language domain",
       "unstructured text",
       "natural language understanding",
@@ -12437,11 +13002,13 @@
   },
   {
     "name": "ibm-watson--machine-learning",
-    "label": "IBM Watson® Machine Learning",
+    "label": "IBM® Machine Learning",
     "path": "32/ibm-watson--machine-learning.svg",
     "aliases": [
       "Watson",
       "IBM Watson",
+      "AI",
+      "watsonx",
       "machine learning",
       "ML",
       "ML management",
@@ -12492,11 +13059,13 @@
   },
   {
     "name": "ibm-watson--openscale",
-    "label": "IBM Watson® OpenScale",
+    "label": "IBM® OpenScale",
     "path": "32/ibm-watson--openscale.svg",
     "aliases": [
       "Watson",
       "IBM Watson",
+      "watsonx",
+      "AI",
       "OpenScale",
       "AI analysis",
       "analysis",
@@ -12512,10 +13081,15 @@
   },
   {
     "name": "ibm-watson--orders",
-    "label": "IBM Watson® Orders",
+    "label": "IBM® watsonx™ Orders",
     "path": "32/ibm-watson--orders.svg",
     "aliases": [
-      "IBM Watson®",
+      "IBM Watson",
+      "watsonx",
+      "AI",
+      "restaurant",
+      "fast food",
+      "retail",
       "enterprise",
       "app",
       "orders"
@@ -12584,6 +13158,8 @@
     "aliases": [
       "Watson",
       "IBM Watson",
+      "watsonx",
+      "AI",
       "cloud",
       "AI on cloud building",
       "AI on cloud scaling",
@@ -12651,6 +13227,7 @@
     "path": "32/ibm-watsonx--assistant.svg",
     "aliases": [
       "AI",
+      "watsonx",
       "chatbot",
       "virtual agent",
       "conversational AI",
@@ -12664,6 +13241,7 @@
     "path": "32/ibm-watsonx--code-assistant.svg",
     "aliases": [
       "AI",
+      "watsonx",
       "developer",
       "code",
       "code generation",
@@ -12683,6 +13261,7 @@
     "path": "32/ibm-watsonx--code-assistant-for-z.svg",
     "aliases": [
       "AI",
+      "watsonx",
       "developer",
       "code",
       "code generation",
@@ -12701,6 +13280,20 @@
     ]
   },
   {
+    "name": "ibm-watsonx--code-assistant-for-z--refactor",
+    "label": "IBM® watsonx™ Code Assistant for Z Refactor",
+    "path": "32/ibm-watsonx--code-assistant-for-z--refactor.svg",
+    "aliases": [
+      "app",
+      "development",
+      "developer",
+      "code",
+      "assistant",
+      "refactor",
+      "application"
+    ]
+  },
+  {
     "name": "ibm-watsonx--orchestrate",
     "label": "IBM® watsonx™ Orchestrate",
     "path": "32/ibm-watsonx--orchestrate.svg",
@@ -12713,6 +13306,7 @@
       "efficiency",
       "complex",
       "natural language processing",
+      "watsonx",
       "AI"
     ]
   },
@@ -12744,6 +13338,23 @@
       "integration",
       "deployment",
       "security"
+    ]
+  },
+  {
+    "name": "ibm-z--processor-capacity-reference",
+    "label": "IBM Z® Processor Capacity Reference",
+    "path": "32/ibm-z--processor-capacity-reference.svg",
+    "aliases": [
+      "app",
+      "development",
+      "developer",
+      "code",
+      "assistant",
+      "refactor",
+      "application",
+      "translation",
+      "COBOL",
+      "Java"
     ]
   },
   {
@@ -13187,6 +13798,16 @@
     ]
   },
   {
+    "name": "infinity-symbol",
+    "label": "Infinity",
+    "path": "32/infinity-symbol.svg",
+    "aliases": [
+      "operations",
+      "loop",
+      "infinity"
+    ]
+  },
+  {
     "name": "information",
     "label": "Information",
     "path": "32/information.svg",
@@ -13584,6 +14205,16 @@
     ]
   },
   {
+    "name": "IP",
+    "label": "IP",
+    "path": "32/IP.svg",
+    "aliases": [
+      "intellectual property",
+      "file",
+      "IP"
+    ]
+  },
+  {
     "name": "ISO",
     "label": "ISO",
     "path": "32/ISO.svg",
@@ -13694,6 +14325,18 @@
     ]
   },
   {
+    "name": "js-error",
+    "label": "JS error",
+    "path": "32/js-error.svg",
+    "aliases": [
+      "status",
+      "JS",
+      "error",
+      "exclamation point",
+      "hexagon"
+    ]
+  },
+  {
     "name": "JSON",
     "label": "JSON",
     "path": "32/JSON.svg",
@@ -13789,6 +14432,30 @@
       "container",
       "cloud",
       "hybrid"
+    ]
+  },
+  {
+    "name": "kubernetes--ip-address",
+    "label": "Kubernetes IP address",
+    "path": "32/kubernetes--ip-address.svg",
+    "aliases": [
+      "data",
+      "Kubernetes",
+      "IP address",
+      "node"
+    ]
+  },
+  {
+    "name": "kubernetes--pod",
+    "label": "Kubernetes pod",
+    "path": "32/kubernetes--pod.svg",
+    "aliases": [
+      "data",
+      "Kubernetes",
+      "pod",
+      "node",
+      "hexagon",
+      "cube"
     ]
   },
   {
@@ -14246,7 +14913,7 @@
   },
   {
     "name": "lifesaver",
-    "label": "lifesaver",
+    "label": "Lifesaver",
     "path": "32/lifesaver.svg",
     "aliases": [
       "life preserver",
@@ -15430,6 +16097,17 @@
     ]
   },
   {
+    "name": "logo--x",
+    "label": "Logo X",
+    "path": "32/logo--x.svg",
+    "aliases": [
+      "logo",
+      "Twitter",
+      "X",
+      "identifier"
+    ]
+  },
+  {
     "name": "logo--xing",
     "label": "Logo XING",
     "path": "32/logo--xing.svg",
@@ -15510,6 +16188,21 @@
       "severity",
       "status",
       "state"
+    ]
+  },
+  {
+    "name": "MAC",
+    "label": "MAC",
+    "path": "32/MAC.svg",
+    "aliases": [
+      "file",
+      "MAC",
+      "media",
+      "access",
+      "control",
+      "devices",
+      "network",
+      "identifier"
     ]
   },
   {
@@ -16172,6 +16865,18 @@
     ]
   },
   {
+    "name": "mobile--crash",
+    "label": "Mobile crash",
+    "path": "32/mobile--crash.svg",
+    "aliases": [
+      "technology",
+      "mobile",
+      "phone",
+      "crash",
+      "zigzag"
+    ]
+  },
+  {
     "name": "mobile--download",
     "label": "Mobile download",
     "path": "32/mobile--download.svg",
@@ -16188,6 +16893,18 @@
     ]
   },
   {
+    "name": "mobile--event",
+    "label": "Mobile event",
+    "path": "32/mobile--event.svg",
+    "aliases": [
+      "technology",
+      "mobile",
+      "phone",
+      "event",
+      "triangle"
+    ]
+  },
+  {
     "name": "mobile--landscape",
     "label": "Mobile landscape",
     "path": "32/mobile--landscape.svg",
@@ -16201,6 +16918,57 @@
       "ux",
       "portable",
       "device"
+    ]
+  },
+  {
+    "name": "mobile--request",
+    "label": "Mobile request",
+    "path": "32/mobile--request.svg",
+    "aliases": [
+      "technology",
+      "mobile",
+      "phone",
+      "request",
+      "bellhop",
+      "front desk"
+    ]
+  },
+  {
+    "name": "mobile--session",
+    "label": "Mobile session",
+    "path": "32/mobile--session.svg",
+    "aliases": [
+      "technology",
+      "mobile",
+      "phone",
+      "session",
+      "clock",
+      "timer"
+    ]
+  },
+  {
+    "name": "mobile--view",
+    "label": "Mobile view",
+    "path": "32/mobile--view.svg",
+    "aliases": [
+      "technology",
+      "mobile",
+      "phone",
+      "view",
+      "eye"
+    ]
+  },
+  {
+    "name": "mobile--view-orientation",
+    "label": "Mobile view orientation",
+    "path": "32/mobile--view-orientation.svg",
+    "aliases": [
+      "technology",
+      "mobile",
+      "phone",
+      "view",
+      "orientation",
+      "arrow"
     ]
   },
   {
@@ -16226,7 +16994,9 @@
       "assemble",
       "fabricate",
       "manufacture",
-      "construct"
+      "construct",
+      "foundation",
+      "foundation model"
     ]
   },
   {
@@ -16511,6 +17281,17 @@
     ]
   },
   {
+    "name": "mysql",
+    "label": "MySQL",
+    "path": "32/mysql.svg",
+    "aliases": [
+      "enterprise",
+      "app",
+      "software",
+      "database"
+    ]
+  },
+  {
     "name": "name-space",
     "label": "Name space",
     "path": "32/name-space.svg",
@@ -16678,7 +17459,7 @@
   },
   {
     "name": "need",
-    "label": "need",
+    "label": "Need",
     "path": "32/need.svg",
     "aliases": [
       "need",
@@ -16798,6 +17579,17 @@
       "open",
       "network",
       "hybrid"
+    ]
+  },
+  {
+    "name": "network-interface",
+    "label": "Network interface",
+    "path": "32/network-interface.svg",
+    "aliases": [
+      "technology",
+      "systems",
+      "network",
+      "interface"
     ]
   },
   {
@@ -18152,6 +18944,120 @@
     ]
   },
   {
+    "name": "pentagon--down--outline",
+    "label": "Pentagon down outline",
+    "path": "32/pentagon--down--outline.svg",
+    "aliases": [
+      "pentagon outlined",
+      "outlined pentagon",
+      "stroke",
+      "border",
+      "pentagon",
+      "shape",
+      "geometry",
+      "down"
+    ]
+  },
+  {
+    "name": "pentagon--down--solid",
+    "label": "Pentagon down solid",
+    "path": "32/pentagon--down--solid.svg",
+    "aliases": [
+      "pentagon filled",
+      "filled pentagon",
+      "solid",
+      "pentagon",
+      "shape",
+      "geometry",
+      "down"
+    ]
+  },
+  {
+    "name": "pentagon--left--outline",
+    "label": "Pentagon left outline",
+    "path": "32/pentagon--left--outline.svg",
+    "aliases": [
+      "pentagon outlined",
+      "outlined pentagon",
+      "stroke",
+      "border",
+      "pentagon",
+      "shape",
+      "geometry",
+      "left"
+    ]
+  },
+  {
+    "name": "pentagon--left--solid",
+    "label": "Pentagon left solid",
+    "path": "32/pentagon--left--solid.svg",
+    "aliases": [
+      "pentagon filled",
+      "filled pentagon",
+      "solid",
+      "pentagon",
+      "shape",
+      "geometry",
+      "left"
+    ]
+  },
+  {
+    "name": "pentagon--outline",
+    "label": "Pentagon outline",
+    "path": "32/pentagon--outline.svg",
+    "aliases": [
+      "pentagon outlined",
+      "outlined pentagon",
+      "stroke",
+      "border",
+      "pentagon",
+      "shape",
+      "geometry"
+    ]
+  },
+  {
+    "name": "pentagon--right--outline",
+    "label": "Pentagon right outline",
+    "path": "32/pentagon--right--outline.svg",
+    "aliases": [
+      "pentagon outlined",
+      "outlined pentagon",
+      "stroke",
+      "border",
+      "pentagon",
+      "shape",
+      "geometry",
+      "right"
+    ]
+  },
+  {
+    "name": "pentagon--right--solid",
+    "label": "Pentagon right solid",
+    "path": "32/pentagon--right--solid.svg",
+    "aliases": [
+      "pentagon filled",
+      "filled pentagon",
+      "solid",
+      "pentagon",
+      "shape",
+      "geometry",
+      "right"
+    ]
+  },
+  {
+    "name": "pentagon--solid",
+    "label": "Pentagon solid",
+    "path": "32/pentagon--solid.svg",
+    "aliases": [
+      "pentagon filled",
+      "filled pentagon",
+      "solid",
+      "pentagon",
+      "shape",
+      "geometry"
+    ]
+  },
+  {
     "name": "percentage",
     "label": "Percentage",
     "path": "32/percentage.svg",
@@ -18568,6 +19474,15 @@
     ]
   },
   {
+    "name": "platforms",
+    "label": "Platforms",
+    "path": "32/platforms.svg",
+    "aliases": [
+      "technology",
+      "platforms"
+    ]
+  },
+  {
     "name": "play",
     "label": "Play",
     "path": "32/play.svg",
@@ -18863,6 +19778,30 @@
     ]
   },
   {
+    "name": "process",
+    "label": "Process",
+    "path": "32/process.svg",
+    "aliases": [
+      "operations",
+      "process",
+      "automate",
+      "triangle",
+      "circles",
+      "dots"
+    ]
+  },
+  {
+    "name": "process-automate",
+    "label": "Process automate",
+    "path": "32/process-automate.svg",
+    "aliases": [
+      "operations",
+      "process",
+      "automate",
+      "workflow"
+    ]
+  },
+  {
     "name": "product",
     "label": "Product",
     "path": "32/product.svg",
@@ -18910,6 +19849,18 @@
       "prompt",
       "timing",
       "clock"
+    ]
+  },
+  {
+    "name": "prompt-template",
+    "label": "Prompt template",
+    "path": "32/prompt-template.svg",
+    "aliases": [
+      "operations",
+      "process",
+      "automate",
+      "workflow",
+      "template"
     ]
   },
   {
@@ -19613,6 +20564,80 @@
     ]
   },
   {
+    "name": "right-panel--close",
+    "label": "Right panel close",
+    "path": "32/right-panel--close.svg",
+    "aliases": [
+      "controls",
+      "side panel",
+      "side bar",
+      "close",
+      "arrow right",
+      "open",
+      "panel",
+      "navigation",
+      "side nav",
+      "ui",
+      "nav"
+    ]
+  },
+  {
+    "name": "right-panel--close--filled",
+    "label": "Right panel close filled",
+    "path": "32/right-panel--close--filled.svg",
+    "aliases": [
+      "controls",
+      "side panel",
+      "side bar",
+      "close",
+      "arrow right",
+      "open",
+      "panel",
+      "navigation",
+      "side nav",
+      "ui",
+      "nav",
+      "filled"
+    ]
+  },
+  {
+    "name": "right-panel--open",
+    "label": "Right panel open",
+    "path": "32/right-panel--open.svg",
+    "aliases": [
+      "controls",
+      "side panel",
+      "side bar",
+      "open",
+      "arrow right",
+      "open",
+      "panel",
+      "navigation",
+      "side nav",
+      "ui",
+      "nav"
+    ]
+  },
+  {
+    "name": "right-panel--open--filled",
+    "label": "Right panel open filled",
+    "path": "32/right-panel--open--filled.svg",
+    "aliases": [
+      "controls",
+      "side panel",
+      "side bar",
+      "close",
+      "arrow right",
+      "open",
+      "panel",
+      "navigation",
+      "side nav",
+      "ui",
+      "nav",
+      "filled"
+    ]
+  },
+  {
     "name": "road",
     "label": "Road",
     "path": "32/road.svg",
@@ -20065,6 +21090,16 @@
     ]
   },
   {
+    "name": "running",
+    "label": "Running",
+    "path": "32/running.svg",
+    "aliases": [
+      "person",
+      "running",
+      "user"
+    ]
+  },
+  {
     "name": "S",
     "label": "S",
     "path": "32/Q/S.svg",
@@ -20104,6 +21139,21 @@
       "sailboat",
       "offshore",
       "weather"
+    ]
+  },
+  {
+    "name": "sales-ops",
+    "label": "Sales ops",
+    "path": "32/sales-ops.svg",
+    "aliases": [
+      "operations",
+      "sales",
+      "person",
+      "user",
+      "human",
+      "currency",
+      "dollar",
+      "progress"
     ]
   },
   {
@@ -20756,6 +21806,18 @@
       "settings",
       "badge",
       "gear"
+    ]
+  },
+  {
+    "name": "service-levels",
+    "label": "Service levels",
+    "path": "32/service-levels.svg",
+    "aliases": [
+      "service",
+      "levels",
+      "meter",
+      "wrench",
+      "data"
     ]
   },
   {
@@ -21877,6 +22939,35 @@
     ]
   },
   {
+    "name": "square--outline",
+    "label": "Square outline",
+    "path": "32/square--outline.svg",
+    "aliases": [
+      "square outlined",
+      "outlined square",
+      "stroke",
+      "border",
+      "square",
+      "rectangle",
+      "shape",
+      "geometry"
+    ]
+  },
+  {
+    "name": "square--solid",
+    "label": "Square solid",
+    "path": "32/square--solid.svg",
+    "aliases": [
+      "square filled",
+      "filled square",
+      "solid",
+      "square",
+      "rectangle",
+      "shape",
+      "geometry"
+    ]
+  },
+  {
     "name": "square-fill",
     "label": "Square fill",
     "path": "square-fill.svg",
@@ -22335,6 +23426,16 @@
     ]
   },
   {
+    "name": "subdirectory",
+    "label": "Subdirectory",
+    "path": "32/subdirectory.svg",
+    "aliases": [
+      "file",
+      "arrow",
+      "subdirectory"
+    ]
+  },
+  {
     "name": "subflow",
     "label": "Subflow",
     "path": "32/subflow.svg",
@@ -22402,6 +23503,17 @@
     ]
   },
   {
+    "name": "subtract--filled",
+    "label": "Subtract filled",
+    "path": "32/subtract--filled.svg",
+    "aliases": [
+      "navigation",
+      "filled",
+      "circle",
+      "subtraction"
+    ]
+  },
+  {
     "name": "subtract--large",
     "label": "Subtract large",
     "path": "32/subtract--large.svg",
@@ -22430,7 +23542,7 @@
   },
   {
     "name": "summary--KPI--mirror",
-    "label": "summary--KPI--mirror",
+    "label": "Summary KPI mirror",
     "path": "32/summary--KPI--mirror.svg",
     "aliases": [
       "summary KPI",
@@ -22530,6 +23642,19 @@
     "aliases": [
       "switcher",
       "selector"
+    ]
+  },
+  {
+    "name": "sync-settings",
+    "label": "Sync settings",
+    "path": "32/sync-settings.svg",
+    "aliases": [
+      "sync",
+      "apply",
+      "mapping",
+      "pattern",
+      "match",
+      "software"
     ]
   },
   {
@@ -23777,6 +24902,17 @@
     ]
   },
   {
+    "name": "time--filled",
+    "label": "Time filled",
+    "path": "32/time--filled.svg",
+    "aliases": [
+      "time",
+      "filled",
+      "clock",
+      "circle"
+    ]
+  },
+  {
     "name": "time-plot",
     "label": "Time plot",
     "path": "32/time-plot.svg",
@@ -23946,6 +25082,19 @@
     "aliases": [
       "mobile",
       "device"
+    ]
+  },
+  {
+    "name": "tour",
+    "label": "Tour",
+    "path": "32/tour.svg",
+    "aliases": [
+      "tour",
+      "computer",
+      "location",
+      "pin",
+      "tutorial",
+      "demo"
     ]
   },
   {
@@ -24231,6 +25380,120 @@
       "flow chart",
       "data analytics",
       "chart"
+    ]
+  },
+  {
+    "name": "triangle--down--outline",
+    "label": "Triangle down outline",
+    "path": "32/triangle--down--outline.svg",
+    "aliases": [
+      "triangle outlined",
+      "outlined triangle",
+      "stroke",
+      "border",
+      "triangle",
+      "shape",
+      "geometry",
+      "down"
+    ]
+  },
+  {
+    "name": "triangle--down--solid",
+    "label": "Triangle down solid",
+    "path": "32/triangle--down--solid.svg",
+    "aliases": [
+      "triangle filled",
+      "filled triangle",
+      "solid",
+      "triangle",
+      "shape",
+      "geometry",
+      "down"
+    ]
+  },
+  {
+    "name": "triangle--left--outline",
+    "label": "Triangle left outline",
+    "path": "32/triangle--left--outline.svg",
+    "aliases": [
+      "triangle outlined",
+      "outlined triangle",
+      "stroke",
+      "border",
+      "triangle",
+      "shape",
+      "geometry",
+      "left"
+    ]
+  },
+  {
+    "name": "triangle--left--solid",
+    "label": "Triangle left solid",
+    "path": "32/triangle--left--solid.svg",
+    "aliases": [
+      "triangle filled",
+      "filled triangle",
+      "solid",
+      "triangle",
+      "shape",
+      "geometry",
+      "left"
+    ]
+  },
+  {
+    "name": "triangle--outline",
+    "label": "Triangle outline",
+    "path": "32/triangle--outline.svg",
+    "aliases": [
+      "triangle outlined",
+      "outlined triangle",
+      "stroke",
+      "border",
+      "triangle",
+      "shape",
+      "geometry"
+    ]
+  },
+  {
+    "name": "triangle--right--outline",
+    "label": "Triangle right outline",
+    "path": "32/triangle--right--outline.svg",
+    "aliases": [
+      "triangle outlined",
+      "outlined triangle",
+      "stroke",
+      "border",
+      "triangle",
+      "shape",
+      "geometry",
+      "right"
+    ]
+  },
+  {
+    "name": "triangle--right--solid",
+    "label": "Triangle right solid",
+    "path": "32/triangle--right--solid.svg",
+    "aliases": [
+      "triangle filled",
+      "filled triangle",
+      "solid",
+      "triangle",
+      "shape",
+      "geometry",
+      "right"
+    ]
+  },
+  {
+    "name": "triangle--solid",
+    "label": "Triangle solid",
+    "path": "32/triangle--solid.svg",
+    "aliases": [
+      "triangle filled",
+      "filled triangle",
+      "solid",
+      "triangle",
+      "shape",
+      "geometry"
     ]
   },
   {
@@ -24573,6 +25836,29 @@
     ]
   },
   {
+    "name": "upstream",
+    "label": "Upstream",
+    "path": "32/upstream.svg",
+    "aliases": [
+      "data",
+      "upstream",
+      "circle",
+      "arrow",
+      "workflow"
+    ]
+  },
+  {
+    "name": "URL",
+    "label": "URL",
+    "path": "32/URL.svg",
+    "aliases": [
+      "URL",
+      "internet address",
+      "hyperlink",
+      "file"
+    ]
+  },
+  {
     "name": "USB",
     "label": "USB",
     "path": "32/USB.svg",
@@ -24812,7 +26098,7 @@
   },
   {
     "name": "user--military",
-    "label": "user--military",
+    "label": "User military",
     "path": "32/user--military.svg",
     "aliases": [
       "person",
@@ -24939,7 +26225,7 @@
   },
   {
     "name": "user--sponsor",
-    "label": "user--sponsor",
+    "label": "User sponsor",
     "path": "32/user--sponsor.svg",
     "aliases": [
       "sponsor",
@@ -25128,7 +26414,7 @@
   },
   {
     "name": "version--major",
-    "label": "version--major",
+    "label": "Version major",
     "path": "32/version--major.svg",
     "aliases": [
       "major",
@@ -25137,7 +26423,7 @@
   },
   {
     "name": "version--minor",
-    "label": "version--minor",
+    "label": "Version minor",
     "path": "32/version--minor.svg",
     "aliases": [
       "version",
@@ -25146,7 +26432,7 @@
   },
   {
     "name": "version--patch",
-    "label": "version--patch",
+    "label": "Version patch",
     "path": "32/version--patch.svg",
     "aliases": [
       "version",
@@ -25223,6 +26509,17 @@
       "camera",
       "recorder",
       "movie"
+    ]
+  },
+  {
+    "name": "video-player",
+    "label": "Video player",
+    "path": "32/video-player.svg",
+    "aliases": [
+      "rectangle",
+      "triange",
+      "video",
+      "player"
     ]
   },
   {
@@ -25685,6 +26982,17 @@
     ]
   },
   {
+    "name": "warning--diamond",
+    "label": "Warning diamond",
+    "path": "32/warning--diamond.svg",
+    "aliases": [
+      "diamond",
+      "exclamation point",
+      "warning",
+      "caution"
+    ]
+  },
+  {
     "name": "warning--filled",
     "label": "Warning filled",
     "path": "32/warning--filled.svg",
@@ -25724,6 +27032,18 @@
       "warn",
       "alert",
       "notification"
+    ]
+  },
+  {
+    "name": "warning--multiple",
+    "label": "Warning multiple",
+    "path": "32/warning--multiple.svg",
+    "aliases": [
+      "triangle",
+      "exclamation point",
+      "warning",
+      "caution",
+      "multiple"
     ]
   },
   {
@@ -25769,15 +27089,16 @@
     "label": "Watson™",
     "path": "32/watson.svg",
     "aliases": [
-      "ai"
+      "AI"
     ]
   },
   {
     "name": "watson--machine-learning",
-    "label": "IBM Watson® Machine Learning",
+    "label": "IBM® Machine Learning",
     "path": "32/watson--machine-learning.svg",
     "aliases": [
-      "ai",
+      "AI",
+      "watsonx",
       "machine learing",
       "ML"
     ]
@@ -25789,11 +27110,13 @@
     "aliases": [
       "data",
       "AI",
+      "watsonx",
       "platform",
       "generative AI",
       "foundation models",
       "machine learning",
-      "enterprise"
+      "enterprise",
+      "circle"
     ]
   },
   {
@@ -25803,6 +27126,7 @@
     "aliases": [
       "data",
       "AI",
+      "watsonx",
       "studio",
       "generative AI",
       "foundation models",
@@ -25819,6 +27143,7 @@
     "aliases": [
       "data",
       "AI",
+      "watsonx",
       "open",
       "data store",
       "data architecture",
@@ -25839,6 +27164,7 @@
     "aliases": [
       "data",
       "AI",
+      "watsonx",
       "ethical AI",
       "risk mitigation",
       "secure",
@@ -25922,6 +27248,76 @@
     "aliases": [
       "weather station",
       "weather"
+    ]
+  },
+  {
+    "name": "web-services--cluster",
+    "label": "Web services cluster",
+    "path": "32/web-services--cluster.svg",
+    "aliases": [
+      "diamonds",
+      "hexagon",
+      "web services",
+      "cluster"
+    ]
+  },
+  {
+    "name": "web-services--container",
+    "label": "Web services container",
+    "path": "32/web-services--container.svg",
+    "aliases": [
+      "hexagon",
+      "web services",
+      "container",
+      "cube"
+    ]
+  },
+  {
+    "name": "web-services--definition",
+    "label": "Web services definition",
+    "path": "32/web-services--definition.svg",
+    "aliases": [
+      "definition",
+      "hexagon",
+      "web services",
+      "document"
+    ]
+  },
+  {
+    "name": "web-services--service",
+    "label": "Web services service",
+    "path": "32/web-services--service.svg",
+    "aliases": [
+      "square",
+      "hexagon",
+      "web services",
+      "service"
+    ]
+  },
+  {
+    "name": "web-services--task",
+    "label": "Web services task",
+    "path": "32/web-services--task.svg",
+    "aliases": [
+      "document",
+      "hexagon",
+      "web services",
+      "task",
+      "check mark"
+    ]
+  },
+  {
+    "name": "web-services--task-definition-version",
+    "label": "Web services task definition version",
+    "path": "32/web-services--task-definition-version.svg",
+    "aliases": [
+      "definition",
+      "hexagon",
+      "web services",
+      "document",
+      "V",
+      "task",
+      "version"
     ]
   },
   {

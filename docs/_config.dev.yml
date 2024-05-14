@@ -1,6 +1,0 @@
-script: '/assets/goatui-dev/build/goatui.esm.js'
-themeCss: '/assets/goatui-dev/build/assets/styles/theme.css'
-webrick:
-  headers:
-    Access-Control-Allow-Origin: '*'
-    Access-Control-Allow-Methods: GET, OPTIONS, HEAD

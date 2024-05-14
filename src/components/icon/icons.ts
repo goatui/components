@@ -140,6 +140,31 @@ export default [
     "path": "32/agriculture-analytics.svg"
   },
   {
+    "name": "AI",
+    "label": "AI",
+    "path": "32/AI.svg"
+  },
+  {
+    "name": "ai-governance--lifecycle",
+    "label": "AI governance lifecycle",
+    "path": "32/ai-governance--lifecycle.svg"
+  },
+  {
+    "name": "ai-governance--tracked",
+    "label": "AI governance tracked",
+    "path": "32/ai-governance--tracked.svg"
+  },
+  {
+    "name": "ai-governance--untracked",
+    "label": "AI governance untracked",
+    "path": "32/ai-governance--untracked.svg"
+  },
+  {
+    "name": "ai-launch",
+    "label": "Launch AI",
+    "path": "32/ai-launch.svg"
+  },
+  {
     "name": "ai-results",
     "label": "AI results",
     "path": "32/watson-health/ai-results.svg"
@@ -435,6 +460,16 @@ export default [
     "path": "32/area--custom.svg"
   },
   {
+    "name": "arithmetic-mean",
+    "label": "Arithmetic mean",
+    "path": "32/arithmetic-mean.svg"
+  },
+  {
+    "name": "arithmetic-median",
+    "label": "Arithmetic median",
+    "path": "32/arithmetic-median.svg"
+  },
+  {
     "name": "arrival",
     "label": "Arrival",
     "path": "32/arrival.svg"
@@ -550,6 +585,11 @@ export default [
     "path": "32/asterisk.svg"
   },
   {
+    "name": "async",
+    "label": "async",
+    "path": "32/async.svg"
+  },
+  {
     "name": "at",
     "label": "At",
     "path": "32/at.svg"
@@ -576,7 +616,7 @@ export default [
   },
   {
     "name": "automatic",
-    "label": "automatic",
+    "label": "Automatic",
     "path": "32/automatic.svg"
   },
   {
@@ -641,7 +681,7 @@ export default [
   },
   {
     "name": "bat",
-    "label": "bat",
+    "label": "Bat",
     "path": "32/bat.svg"
   },
   {
@@ -766,7 +806,7 @@ export default [
   },
   {
     "name": "boolean",
-    "label": "boolean",
+    "label": "Boolean",
     "path": "32/boolean.svg"
   },
   {
@@ -1045,6 +1085,21 @@ export default [
     "path": "32/calibrate.svg"
   },
   {
+    "name": "calls",
+    "label": "Calls",
+    "path": "32/calls.svg"
+  },
+  {
+    "name": "calls--all",
+    "label": "Calls all",
+    "path": "32/calls--all.svg"
+  },
+  {
+    "name": "calls--incoming",
+    "label": "Calls incoming",
+    "path": "32/calls--incoming.svg"
+  },
+  {
     "name": "camera",
     "label": "Camera",
     "path": "32/camera.svg"
@@ -1098,6 +1153,11 @@ export default [
     "name": "carbon-for-mobile",
     "label": "Carbon for mobile",
     "path": "32/carbon-for-mobile.svg"
+  },
+  {
+    "name": "carbon-for-salesforce",
+    "label": "Carbon for Salesforce",
+    "path": "32/carbon-for-salesforce.svg"
   },
   {
     "name": "caret--down",
@@ -1510,6 +1570,11 @@ export default [
     "path": "32/chart--pie.svg"
   },
   {
+    "name": "chart--planning-waterfall",
+    "label": "Chart planning waterfall",
+    "path": "32/chart--planning-waterfall.svg"
+  },
+  {
     "name": "chart--point",
     "label": "Chart point",
     "path": "32/chart--point.svg"
@@ -1705,6 +1770,11 @@ export default [
     "path": "32/chevron--down.svg"
   },
   {
+    "name": "chevron--down--outline",
+    "label": "Chevron down outline",
+    "path": "32/chevron--down--outline.svg"
+  },
+  {
     "name": "chevron--left",
     "label": "Chevron left",
     "path": "32/chevron--left.svg"
@@ -1738,6 +1808,11 @@ export default [
     "name": "chevron--up",
     "label": "Chevron up",
     "path": "32/chevron--up.svg"
+  },
+  {
+    "name": "chevron--up--outline",
+    "label": "Chevron up outline",
+    "path": "32/chevron--up--outline.svg"
   },
   {
     "name": "chip",
@@ -1833,6 +1908,11 @@ export default [
     "name": "circle--filled",
     "label": "Circle filled",
     "path": "32/circle--filled.svg"
+  },
+  {
+    "name": "circle--outline",
+    "label": "Circle outline",
+    "path": "32/circle--outline.svg"
   },
   {
     "name": "circle--solid",
@@ -2231,7 +2311,7 @@ export default [
   },
   {
     "name": "continuous-deployment",
-    "label": "continuous-deployment",
+    "label": "Continuous deployment",
     "path": "32/continuous-deployment.svg"
   },
   {
@@ -2406,7 +2486,7 @@ export default [
   },
   {
     "name": "currency",
-    "label": "currency",
+    "label": "Currency",
     "path": "32/currency.svg"
   },
   {
@@ -2468,6 +2548,11 @@ export default [
     "name": "cursor--2",
     "label": "Cursor 2",
     "path": "32/cursor--2.svg"
+  },
+  {
+    "name": "customer",
+    "label": "Customer",
+    "path": "32/customer.svg"
   },
   {
     "name": "customer-service",
@@ -2610,6 +2695,11 @@ export default [
     "path": "32/data-accessor.svg"
   },
   {
+    "name": "data-analytics",
+    "label": "Data analytics",
+    "path": "32/data-analytics.svg"
+  },
+  {
     "name": "data-backup",
     "label": "Data backup",
     "path": "32/data-backup.svg"
@@ -2745,6 +2835,11 @@ export default [
     "path": "32/database--etcd.svg"
   },
   {
+    "name": "database--messaging",
+    "label": "Database messaging",
+    "path": "32/database--messaging.svg"
+  },
+  {
     "name": "database--mongodb",
     "label": "IBM Cloud® Databases for MongoDB",
     "path": "32/database--mongodb.svg"
@@ -2818,6 +2913,11 @@ export default [
     "name": "delivery-truck",
     "label": "Delivery truck",
     "path": "32/delivery-truck.svg"
+  },
+  {
+    "name": "demo",
+    "label": "Demo",
+    "path": "32/demo.svg"
   },
   {
     "name": "denominate",
@@ -2905,6 +3005,11 @@ export default [
     "path": "32/devices.svg"
   },
   {
+    "name": "devices--apps",
+    "label": "Devices apps",
+    "path": "32/devices--apps.svg"
+  },
+  {
     "name": "dew-point",
     "label": "Dew point",
     "path": "32/dew-point.svg"
@@ -2923,6 +3028,16 @@ export default [
     "name": "diagram--reference",
     "label": "Diagram reference",
     "path": "32/diagram--reference.svg"
+  },
+  {
+    "name": "diamond--outline",
+    "label": "Diamond outline",
+    "path": "32/diamond--outline.svg"
+  },
+  {
+    "name": "diamond--solid",
+    "label": "Diamond solid",
+    "path": "32/diamond--solid.svg"
   },
   {
     "name": "diamond-fill",
@@ -3216,7 +3331,7 @@ export default [
   },
   {
     "name": "document--pdf",
-    "label": "Document pdf",
+    "label": "Document PDF",
     "path": "32/document--pdf.svg"
   },
   {
@@ -3323,6 +3438,11 @@ export default [
     "name": "download-study",
     "label": "Download study",
     "path": "32/watson-health/download-study.svg"
+  },
+  {
+    "name": "downstream",
+    "label": "Downstream",
+    "path": "32/downstream.svg"
   },
   {
     "name": "drag--horizontal",
@@ -3550,6 +3670,11 @@ export default [
     "path": "32/enterprise.svg"
   },
   {
+    "name": "equal--approximately",
+    "label": "Equal approximately",
+    "path": "32/equal--approximately.svg"
+  },
+  {
     "name": "equalizer",
     "label": "Equalizer",
     "path": "32/equalizer.svg"
@@ -3585,9 +3710,24 @@ export default [
     "path": "32/event.svg"
   },
   {
+    "name": "event--change",
+    "label": "Event change",
+    "path": "32/event--change.svg"
+  },
+  {
+    "name": "event--incident",
+    "label": "Event incident",
+    "path": "32/event--incident.svg"
+  },
+  {
     "name": "event--schedule",
     "label": "Event schedule",
     "path": "32/event--schedule.svg"
+  },
+  {
+    "name": "event--warning",
+    "label": "Event warning",
+    "path": "32/event--warning.svg"
   },
   {
     "name": "events",
@@ -4365,6 +4505,26 @@ export default [
     "path": "32/help-desk.svg"
   },
   {
+    "name": "hexagon--outline",
+    "label": "Hexagon outline",
+    "path": "32/hexagon--outline.svg"
+  },
+  {
+    "name": "hexagon--solid",
+    "label": "Hexagon solid",
+    "path": "32/hexagon--solid.svg"
+  },
+  {
+    "name": "hexagon--vertical--outline",
+    "label": "Hexagon vertical outline",
+    "path": "32/hexagon--vertical--outline.svg"
+  },
+  {
+    "name": "hexagon--vertical--solid",
+    "label": "Hexagon vertical solid",
+    "path": "32/hexagon--vertical--solid.svg"
+  },
+  {
     "name": "hinton-plot",
     "label": "Hinton plot",
     "path": "32/Q/hinton-plot.svg"
@@ -4480,6 +4640,11 @@ export default [
     "path": "32/ibm--content-services.svg"
   },
   {
+    "name": "ibm--data-product-exchange",
+    "label": "IBM® Data Product Exchange",
+    "path": "32/ibm--data-product-exchange.svg"
+  },
+  {
     "name": "ibm--data-replication",
     "label": "IBM® Data Replication",
     "path": "32/ibm--data-replication.svg"
@@ -4505,6 +4670,26 @@ export default [
     "path": "32/ibm--db2-warehouse.svg"
   },
   {
+    "name": "ibm--dynamic-route-server",
+    "label": "IBM® Dynamic Route Server",
+    "path": "32/ibm--dynamic-route-server.svg"
+  },
+  {
+    "name": "ibm--engineering-systems-design-rhapsody-model-manager",
+    "label": "IBM® Engineering Systems Design Rhapsody Model Manager",
+    "path": "32/ibm--engineering-systems-design-rhapsody-model-manager.svg"
+  },
+  {
+    "name": "ibm--engineering-systems-design-rhapsody-sn1",
+    "label": "IBM® Engineering Systems Design Rhapsody sn1",
+    "path": "32/ibm--engineering-systems-design-rhapsody-sn1.svg"
+  },
+  {
+    "name": "ibm--engineering-systems-design-rhapsody-sn2",
+    "label": "IBM® Engineering Systems Design Rhapsody sn2",
+    "path": "32/ibm--engineering-systems-design-rhapsody-sn2.svg"
+  },
+  {
     "name": "ibm--event-automation",
     "label": "IBM® Event Automation",
     "path": "32/ibm--event-automation.svg"
@@ -4523,6 +4708,16 @@ export default [
     "name": "ibm--event-streams",
     "label": "IBM® Event Streams",
     "path": "32/ibm--event-streams.svg"
+  },
+  {
+    "name": "ibm--ibv",
+    "label": "IBM® Institute for Business Value",
+    "path": "32/ibm--ibv.svg"
+  },
+  {
+    "name": "ibm--instana",
+    "label": "IBM® Instana®",
+    "path": "32/ibm--instana.svg"
   },
   {
     "name": "ibm--match-360",
@@ -4546,7 +4741,7 @@ export default [
   },
   {
     "name": "ibm--power-vs",
-    "label": "IBM Power® Virtual Server",
+    "label": "IBM® Power® Virtual Server",
     "path": "32/ibm--power-vs.svg"
   },
   {
@@ -4761,7 +4956,7 @@ export default [
   },
   {
     "name": "ibm-cloud--pal",
-    "label": "IBM Cloud® Pattern and Asset Library",
+    "label": "Carbon for Cloud",
     "path": "32/ibm-cloud--pal.svg"
   },
   {
@@ -4881,7 +5076,7 @@ export default [
   },
   {
     "name": "ibm-cloud-pak--watson-aiops",
-    "label": "IBM Cloud Pak® Watson AIOps",
+    "label": "IBM Cloud Pak® AIOps",
     "path": "32/ibm-cloud-pak--watson-aiops.svg"
   },
   {
@@ -4901,17 +5096,17 @@ export default [
   },
   {
     "name": "ibm-watson--discovery",
-    "label": "IBM Watson® Discovery",
+    "label": "IBM® watsonx™ Discovery",
     "path": "32/ibm-watson--discovery.svg"
   },
   {
     "name": "ibm-watson--knowledge-catalog",
-    "label": "IBM Watson® Knowledge Catalog",
+    "label": "IBM® Knowledge Catalog",
     "path": "32/ibm-watson--knowledge-catalog.svg"
   },
   {
     "name": "ibm-watson--knowledge-studio",
-    "label": "IBM Watson® Knowledge Studio",
+    "label": "IBM® Knowledge Studio",
     "path": "32/ibm-watson--knowledge-studio.svg"
   },
   {
@@ -4921,7 +5116,7 @@ export default [
   },
   {
     "name": "ibm-watson--machine-learning",
-    "label": "IBM Watson® Machine Learning",
+    "label": "IBM® Machine Learning",
     "path": "32/ibm-watson--machine-learning.svg"
   },
   {
@@ -4936,12 +5131,12 @@ export default [
   },
   {
     "name": "ibm-watson--openscale",
-    "label": "IBM Watson® OpenScale",
+    "label": "IBM® OpenScale",
     "path": "32/ibm-watson--openscale.svg"
   },
   {
     "name": "ibm-watson--orders",
-    "label": "IBM Watson® Orders",
+    "label": "IBM® watsonx™ Orders",
     "path": "32/ibm-watson--orders.svg"
   },
   {
@@ -4985,6 +5180,11 @@ export default [
     "path": "32/ibm-watsonx--code-assistant-for-z.svg"
   },
   {
+    "name": "ibm-watsonx--code-assistant-for-z--refactor",
+    "label": "IBM® watsonx™ Code Assistant for Z Refactor",
+    "path": "32/ibm-watsonx--code-assistant-for-z--refactor.svg"
+  },
+  {
     "name": "ibm-watsonx--orchestrate",
     "label": "IBM® watsonx™ Orchestrate",
     "path": "32/ibm-watsonx--orchestrate.svg"
@@ -4998,6 +5198,11 @@ export default [
     "name": "ibm-z--environments-dev-sec-ops",
     "label": "IBM Z® Environments for DevSecOps Development",
     "path": "32/ibm-z--environments-dev-sec-ops.svg"
+  },
+  {
+    "name": "ibm-z--processor-capacity-reference",
+    "label": "IBM Z® Processor Capacity Reference",
+    "path": "32/ibm-z--processor-capacity-reference.svg"
   },
   {
     "name": "ibm-z-cloud--provisioning",
@@ -5165,6 +5370,11 @@ export default [
     "path": "32/industry.svg"
   },
   {
+    "name": "infinity-symbol",
+    "label": "Infinity",
+    "path": "32/infinity-symbol.svg"
+  },
+  {
     "name": "information",
     "label": "Information",
     "path": "32/information.svg"
@@ -5320,6 +5530,11 @@ export default [
     "path": "32/iot--platform.svg"
   },
   {
+    "name": "IP",
+    "label": "IP",
+    "path": "32/IP.svg"
+  },
+  {
     "name": "ISO",
     "label": "ISO",
     "path": "32/ISO.svg"
@@ -5365,6 +5580,11 @@ export default [
     "path": "32/JPG.svg"
   },
   {
+    "name": "js-error",
+    "label": "JS error",
+    "path": "32/js-error.svg"
+  },
+  {
     "name": "JSON",
     "label": "JSON",
     "path": "32/JSON.svg"
@@ -5398,6 +5618,16 @@ export default [
     "name": "kubernetes",
     "label": "Kubernetes",
     "path": "32/kubernetes.svg"
+  },
+  {
+    "name": "kubernetes--ip-address",
+    "label": "Kubernetes IP address",
+    "path": "32/kubernetes--ip-address.svg"
+  },
+  {
+    "name": "kubernetes--pod",
+    "label": "Kubernetes pod",
+    "path": "32/kubernetes--pod.svg"
   },
   {
     "name": "label",
@@ -5621,7 +5851,7 @@ export default [
   },
   {
     "name": "lifesaver",
-    "label": "lifesaver",
+    "label": "Lifesaver",
     "path": "32/lifesaver.svg"
   },
   {
@@ -6010,6 +6240,11 @@ export default [
     "path": "32/logo--wechat.svg"
   },
   {
+    "name": "logo--x",
+    "label": "Logo X",
+    "path": "32/logo--x.svg"
+  },
+  {
     "name": "logo--xing",
     "label": "Logo XING",
     "path": "32/logo--xing.svg"
@@ -6038,6 +6273,11 @@ export default [
     "name": "low-severity",
     "label": "Low severity",
     "path": "low-severity.svg"
+  },
+  {
+    "name": "MAC",
+    "label": "MAC",
+    "path": "32/MAC.svg"
   },
   {
     "name": "mac--command",
@@ -6295,14 +6535,44 @@ export default [
     "path": "32/mobile--check.svg"
   },
   {
+    "name": "mobile--crash",
+    "label": "Mobile crash",
+    "path": "32/mobile--crash.svg"
+  },
+  {
     "name": "mobile--download",
     "label": "Mobile download",
     "path": "32/mobile--download.svg"
   },
   {
+    "name": "mobile--event",
+    "label": "Mobile event",
+    "path": "32/mobile--event.svg"
+  },
+  {
     "name": "mobile--landscape",
     "label": "Mobile landscape",
     "path": "32/mobile--landscape.svg"
+  },
+  {
+    "name": "mobile--request",
+    "label": "Mobile request",
+    "path": "32/mobile--request.svg"
+  },
+  {
+    "name": "mobile--session",
+    "label": "Mobile session",
+    "path": "32/mobile--session.svg"
+  },
+  {
+    "name": "mobile--view",
+    "label": "Mobile view",
+    "path": "32/mobile--view.svg"
+  },
+  {
+    "name": "mobile--view-orientation",
+    "label": "Mobile view orientation",
+    "path": "32/mobile--view-orientation.svg"
   },
   {
     "name": "mobility--services",
@@ -6435,6 +6705,11 @@ export default [
     "path": "32/music--remove.svg"
   },
   {
+    "name": "mysql",
+    "label": "MySQL",
+    "path": "32/mysql.svg"
+  },
+  {
     "name": "name-space",
     "label": "Name space",
     "path": "32/name-space.svg"
@@ -6511,7 +6786,7 @@ export default [
   },
   {
     "name": "need",
-    "label": "need",
+    "label": "Need",
     "path": "32/need.svg"
   },
   {
@@ -6563,6 +6838,11 @@ export default [
     "name": "network--public",
     "label": "Network public",
     "path": "32/network--public.svg"
+  },
+  {
+    "name": "network-interface",
+    "label": "Network interface",
+    "path": "32/network-interface.svg"
   },
   {
     "name": "new-tab",
@@ -7125,6 +7405,46 @@ export default [
     "path": "32/pending--filled.svg"
   },
   {
+    "name": "pentagon--down--outline",
+    "label": "Pentagon down outline",
+    "path": "32/pentagon--down--outline.svg"
+  },
+  {
+    "name": "pentagon--down--solid",
+    "label": "Pentagon down solid",
+    "path": "32/pentagon--down--solid.svg"
+  },
+  {
+    "name": "pentagon--left--outline",
+    "label": "Pentagon left outline",
+    "path": "32/pentagon--left--outline.svg"
+  },
+  {
+    "name": "pentagon--left--solid",
+    "label": "Pentagon left solid",
+    "path": "32/pentagon--left--solid.svg"
+  },
+  {
+    "name": "pentagon--outline",
+    "label": "Pentagon outline",
+    "path": "32/pentagon--outline.svg"
+  },
+  {
+    "name": "pentagon--right--outline",
+    "label": "Pentagon right outline",
+    "path": "32/pentagon--right--outline.svg"
+  },
+  {
+    "name": "pentagon--right--solid",
+    "label": "Pentagon right solid",
+    "path": "32/pentagon--right--solid.svg"
+  },
+  {
+    "name": "pentagon--solid",
+    "label": "Pentagon solid",
+    "path": "32/pentagon--solid.svg"
+  },
+  {
     "name": "percentage",
     "label": "Percentage",
     "path": "32/percentage.svg"
@@ -7300,6 +7620,11 @@ export default [
     "path": "32/plane--sea.svg"
   },
   {
+    "name": "platforms",
+    "label": "Platforms",
+    "path": "32/platforms.svg"
+  },
+  {
     "name": "play",
     "label": "Play",
     "path": "32/play.svg"
@@ -7425,6 +7750,16 @@ export default [
     "path": "32/printer.svg"
   },
   {
+    "name": "process",
+    "label": "Process",
+    "path": "32/process.svg"
+  },
+  {
+    "name": "process-automate",
+    "label": "Process automate",
+    "path": "32/process-automate.svg"
+  },
+  {
     "name": "product",
     "label": "Product",
     "path": "32/product.svg"
@@ -7448,6 +7783,11 @@ export default [
     "name": "prompt-session",
     "label": "Prompt session",
     "path": "32/prompt-session.svg"
+  },
+  {
+    "name": "prompt-template",
+    "label": "Prompt template",
+    "path": "32/prompt-template.svg"
   },
   {
     "name": "property-relationship",
@@ -7790,6 +8130,26 @@ export default [
     "path": "32/rewind--5.svg"
   },
   {
+    "name": "right-panel--close",
+    "label": "Right panel close",
+    "path": "32/right-panel--close.svg"
+  },
+  {
+    "name": "right-panel--close--filled",
+    "label": "Right panel close filled",
+    "path": "32/right-panel--close--filled.svg"
+  },
+  {
+    "name": "right-panel--open",
+    "label": "Right panel open",
+    "path": "32/right-panel--open.svg"
+  },
+  {
+    "name": "right-panel--open--filled",
+    "label": "Right panel open filled",
+    "path": "32/right-panel--open--filled.svg"
+  },
+  {
     "name": "road",
     "label": "Road",
     "path": "32/road.svg"
@@ -7970,6 +8330,11 @@ export default [
     "path": "32/run--mirror.svg"
   },
   {
+    "name": "running",
+    "label": "Running",
+    "path": "32/running.svg"
+  },
+  {
     "name": "S",
     "label": "S",
     "path": "32/Q/S.svg"
@@ -7988,6 +8353,11 @@ export default [
     "name": "sailboat--offshore",
     "label": "Sailboat offshore",
     "path": "32/sailboat--offshore.svg"
+  },
+  {
+    "name": "sales-ops",
+    "label": "Sales ops",
+    "path": "32/sales-ops.svg"
   },
   {
     "name": "sankey-diagram",
@@ -8253,6 +8623,11 @@ export default [
     "name": "service-id",
     "label": "Service ID",
     "path": "32/service-id.svg"
+  },
+  {
+    "name": "service-levels",
+    "label": "Service levels",
+    "path": "32/service-levels.svg"
   },
   {
     "name": "session-border-control",
@@ -8700,6 +9075,16 @@ export default [
     "path": "32/SQL.svg"
   },
   {
+    "name": "square--outline",
+    "label": "Square outline",
+    "path": "32/square--outline.svg"
+  },
+  {
+    "name": "square--solid",
+    "label": "Square solid",
+    "path": "32/square--solid.svg"
+  },
+  {
     "name": "square-fill",
     "label": "Square fill",
     "path": "square-fill.svg"
@@ -8900,6 +9285,11 @@ export default [
     "path": "32/watson-health/sub-volume.svg"
   },
   {
+    "name": "subdirectory",
+    "label": "Subdirectory",
+    "path": "32/subdirectory.svg"
+  },
+  {
     "name": "subflow",
     "label": "Subflow",
     "path": "32/subflow.svg"
@@ -8925,6 +9315,11 @@ export default [
     "path": "32/subtract--alt.svg"
   },
   {
+    "name": "subtract--filled",
+    "label": "Subtract filled",
+    "path": "32/subtract--filled.svg"
+  },
+  {
     "name": "subtract--large",
     "label": "Subtract large",
     "path": "32/subtract--large.svg"
@@ -8936,7 +9331,7 @@ export default [
   },
   {
     "name": "summary--KPI--mirror",
-    "label": "summary--KPI--mirror",
+    "label": "Summary KPI mirror",
     "path": "32/summary--KPI--mirror.svg"
   },
   {
@@ -8988,6 +9383,11 @@ export default [
     "name": "switcher",
     "label": "Switcher",
     "path": "32/switcher.svg"
+  },
+  {
+    "name": "sync-settings",
+    "label": "Sync settings",
+    "path": "32/sync-settings.svg"
   },
   {
     "name": "sys-provision",
@@ -9535,6 +9935,11 @@ export default [
     "path": "32/time.svg"
   },
   {
+    "name": "time--filled",
+    "label": "Time filled",
+    "path": "32/time--filled.svg"
+  },
+  {
     "name": "time-plot",
     "label": "Time plot",
     "path": "32/time-plot.svg"
@@ -9608,6 +10013,11 @@ export default [
     "name": "touch--interaction",
     "label": "Touch interaction",
     "path": "32/touch--interaction.svg"
+  },
+  {
+    "name": "tour",
+    "label": "Tour",
+    "path": "32/tour.svg"
   },
   {
     "name": "traffic--event",
@@ -9733,6 +10143,46 @@ export default [
     "name": "tree-view--alt",
     "label": "Tree view alt",
     "path": "32/tree-view--alt.svg"
+  },
+  {
+    "name": "triangle--down--outline",
+    "label": "Triangle down outline",
+    "path": "32/triangle--down--outline.svg"
+  },
+  {
+    "name": "triangle--down--solid",
+    "label": "Triangle down solid",
+    "path": "32/triangle--down--solid.svg"
+  },
+  {
+    "name": "triangle--left--outline",
+    "label": "Triangle left outline",
+    "path": "32/triangle--left--outline.svg"
+  },
+  {
+    "name": "triangle--left--solid",
+    "label": "Triangle left solid",
+    "path": "32/triangle--left--solid.svg"
+  },
+  {
+    "name": "triangle--outline",
+    "label": "Triangle outline",
+    "path": "32/triangle--outline.svg"
+  },
+  {
+    "name": "triangle--right--outline",
+    "label": "Triangle right outline",
+    "path": "32/triangle--right--outline.svg"
+  },
+  {
+    "name": "triangle--right--solid",
+    "label": "Triangle right solid",
+    "path": "32/triangle--right--solid.svg"
+  },
+  {
+    "name": "triangle--solid",
+    "label": "Triangle solid",
+    "path": "32/triangle--solid.svg"
   },
   {
     "name": "trophy",
@@ -9900,6 +10350,16 @@ export default [
     "path": "32/upload.svg"
   },
   {
+    "name": "upstream",
+    "label": "Upstream",
+    "path": "32/upstream.svg"
+  },
+  {
+    "name": "URL",
+    "label": "URL",
+    "path": "32/URL.svg"
+  },
+  {
     "name": "USB",
     "label": "USB",
     "path": "32/USB.svg"
@@ -9981,7 +10441,7 @@ export default [
   },
   {
     "name": "user--military",
-    "label": "user--military",
+    "label": "User military",
     "path": "32/user--military.svg"
   },
   {
@@ -10026,7 +10486,7 @@ export default [
   },
   {
     "name": "user--sponsor",
-    "label": "user--sponsor",
+    "label": "User sponsor",
     "path": "32/user--sponsor.svg"
   },
   {
@@ -10106,17 +10566,17 @@ export default [
   },
   {
     "name": "version--major",
-    "label": "version--major",
+    "label": "Version major",
     "path": "32/version--major.svg"
   },
   {
     "name": "version--minor",
-    "label": "version--minor",
+    "label": "Version minor",
     "path": "32/version--minor.svg"
   },
   {
     "name": "version--patch",
-    "label": "version--patch",
+    "label": "Version patch",
     "path": "32/version--patch.svg"
   },
   {
@@ -10153,6 +10613,11 @@ export default [
     "name": "video--off--filled",
     "label": "Video off filled",
     "path": "32/video--off--filled.svg"
+  },
+  {
+    "name": "video-player",
+    "label": "Video player",
+    "path": "32/video-player.svg"
   },
   {
     "name": "view",
@@ -10360,6 +10825,11 @@ export default [
     "path": "32/warning--alt-inverted--filled.svg"
   },
   {
+    "name": "warning--diamond",
+    "label": "Warning diamond",
+    "path": "32/warning--diamond.svg"
+  },
+  {
     "name": "warning--filled",
     "label": "Warning filled",
     "path": "32/warning--filled.svg"
@@ -10373,6 +10843,11 @@ export default [
     "name": "warning--hex--filled",
     "label": "Warning hex filled",
     "path": "32/warning--hex--filled.svg"
+  },
+  {
+    "name": "warning--multiple",
+    "label": "Warning multiple",
+    "path": "32/warning--multiple.svg"
   },
   {
     "name": "warning--other",
@@ -10401,7 +10876,7 @@ export default [
   },
   {
     "name": "watson--machine-learning",
-    "label": "IBM Watson® Machine Learning",
+    "label": "IBM® Machine Learning",
     "path": "32/watson--machine-learning.svg"
   },
   {
@@ -10458,6 +10933,36 @@ export default [
     "name": "weather-station",
     "label": "Weather station",
     "path": "32/weather-station.svg"
+  },
+  {
+    "name": "web-services--cluster",
+    "label": "Web services cluster",
+    "path": "32/web-services--cluster.svg"
+  },
+  {
+    "name": "web-services--container",
+    "label": "Web services container",
+    "path": "32/web-services--container.svg"
+  },
+  {
+    "name": "web-services--definition",
+    "label": "Web services definition",
+    "path": "32/web-services--definition.svg"
+  },
+  {
+    "name": "web-services--service",
+    "label": "Web services service",
+    "path": "32/web-services--service.svg"
+  },
+  {
+    "name": "web-services--task",
+    "label": "Web services task",
+    "path": "32/web-services--task.svg"
+  },
+  {
+    "name": "web-services--task-definition-version",
+    "label": "Web services task definition version",
+    "path": "32/web-services--task-definition-version.svg"
   },
   {
     "name": "webhook",

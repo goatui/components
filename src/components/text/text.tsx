@@ -12,7 +12,7 @@ import { Component, ComponentInterface, Element, h, Host, Prop } from '@stencil/
   shadow: true,
 })
 export class Text implements ComponentInterface {
-  @Prop({ reflect: true }) type: 'code' | 'helper-text' | 'label' | 'legal' | 'heading' | 'body' | 'body-compact' | 'heading-compact' = 'body';
+  @Prop({ reflect: true }) type: 'code' | 'helper-text' | 'label' | 'legal' | 'heading' | 'body' | 'body-compact' | 'heading-compact' | 'fluid-heading' = 'body';
 
   @Prop({ reflect: true }) expressive: boolean = false;
 

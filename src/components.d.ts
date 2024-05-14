@@ -1227,7 +1227,7 @@ export namespace Components {
         "headingLevel": 1 | 2 | 3 | 4 | 5 | 6;
         "headingSize": 1 | 2 | 3 | 4 | 5 | 6 | 7;
         "inline": boolean;
-        "type": 'code' | 'helper-text' | 'label' | 'legal' | 'heading' | 'body' | 'body-compact' | 'heading-compact';
+        "type": 'code' | 'helper-text' | 'label' | 'legal' | 'heading' | 'body' | 'body-compact' | 'heading-compact' | 'fluid-heading';
     }
     /**
      * @name Textarea
@@ -3949,7 +3949,7 @@ declare namespace LocalJSX {
         "headingLevel"?: 1 | 2 | 3 | 4 | 5 | 6;
         "headingSize"?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
         "inline"?: boolean;
-        "type"?: 'code' | 'helper-text' | 'label' | 'legal' | 'heading' | 'body' | 'body-compact' | 'heading-compact';
+        "type"?: 'code' | 'helper-text' | 'label' | 'legal' | 'heading' | 'body' | 'body-compact' | 'heading-compact' | 'fluid-heading';
     }
     /**
      * @name Textarea

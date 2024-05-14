@@ -1,9 +1,0 @@
-<!-- Sidebar -->
-<div class="col-xl-2 order-xl-2 d-none d-xl-inline-block">
-  <ul class="js-scroll-nav duik-sidebar">
-    {% for item in page.menu %}
-    <li class="duik-sidebar__item"><goat-link href='#doc-{{item.title | downcase | replace: " ", "-" | replace: "/", "-"}}'>{{item.title}}</goat-link></li>
-    {% endfor %}
-  </ul>
-</div>
-<!-- End Sidebar -->
