@@ -1,15 +1,21 @@
-export async function fetchIcon(url) {
+export async function fetchSVG(url) {
   if (!url) return '';
-  let result = window.localStorage.getItem(url);
-  if (result) {
-    return result;
+
+  const cache = await caches.open('goat-svg');
+
+  const request = new Request(url);
+  let response = await cache.match(request);
+  if (response) {
+    return await response.text();
   }
-  const res = await fetch(url, {
+  response = await fetch(request.url, {
     method: 'GET',
-    mode: process.env.THIRD_PARTY_ASSETS == 'LOCAL' ? 'no-cors' :'cors',
+    mode: 'cors',
     credentials: 'omit',
   });
-  result = await res.text();
-  window.localStorage.setItem(url, result);
+  const result = await response.text();
+  if (response.status === 200) {
+    await cache.put(request, new Response(result));
+  }
   return result;
 }

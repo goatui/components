@@ -186,3 +186,9 @@ export function getNextLayer(layer?: 'background' | '01' | '02') {
   if (layer == '01') return '02';
   if (layer == '02') return 'background';
 }
+
+export function convertToDomSVG(svg: string) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(svg, 'image/svg+xml');
+  return doc.documentElement;
+}

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-09T16:49:50",
+  "timestamp": "2024-05-14T11:28:52",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -3410,11 +3410,16 @@
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
+        "goat-tag",
         "goat-spinner"
       ],
       "dependencyGraph": {
         "goat-code-editor": [
+          "goat-tag",
           "goat-spinner"
+        ],
+        "goat-tag": [
+          "goat-icon"
         ]
       },
       "props": [
@@ -12625,6 +12630,7 @@
       "dependents": [
         "goat-cb-compound-expression",
         "goat-cb-predicate",
+        "goat-code-editor",
         "goat-condition-builder",
         "goat-flow-designer",
         "goat-select"
@@ -12640,6 +12646,9 @@
           "goat-tag"
         ],
         "goat-cb-predicate": [
+          "goat-tag"
+        ],
+        "goat-code-editor": [
           "goat-tag"
         ],
         "goat-condition-builder": [
@@ -13136,10 +13145,10 @@
         },
         {
           "name": "type",
-          "type": "\"body\" | \"body-compact\" | \"code\" | \"heading\" | \"heading-compact\" | \"helper-text\" | \"label\" | \"legal\"",
+          "type": "\"body\" | \"body-compact\" | \"code\" | \"fluid-heading\" | \"heading\" | \"heading-compact\" | \"helper-text\" | \"label\" | \"legal\"",
           "complexType": {
-            "original": "'code' | 'helper-text' | 'label' | 'legal' | 'heading' | 'body' | 'body-compact' | 'heading-compact'",
-            "resolved": "\"body\" | \"body-compact\" | \"code\" | \"heading\" | \"heading-compact\" | \"helper-text\" | \"label\" | \"legal\"",
+            "original": "'code' | 'helper-text' | 'label' | 'legal' | 'heading' | 'body' | 'body-compact' | 'heading-compact' | 'fluid-heading'",
+            "resolved": "\"body\" | \"body-compact\" | \"code\" | \"fluid-heading\" | \"heading\" | \"heading-compact\" | \"helper-text\" | \"label\" | \"legal\"",
             "references": {}
           },
           "mutable": false,
@@ -13159,6 +13168,10 @@
             },
             {
               "value": "code",
+              "type": "string"
+            },
+            {
+              "value": "fluid-heading",
               "type": "string"
             },
             {
@@ -17062,6 +17075,7 @@
           "dependents": [
             "goat-cb-compound-expression",
             "goat-cb-predicate",
+            "goat-code-editor",
             "goat-condition-builder",
             "goat-flow-designer",
             "goat-select"
@@ -17077,6 +17091,9 @@
               "goat-tag"
             ],
             "goat-cb-predicate": [
+              "goat-tag"
+            ],
+            "goat-code-editor": [
               "goat-tag"
             ],
             "goat-condition-builder": [
@@ -18983,11 +19000,16 @@
           "encapsulation": "shadow",
           "dependents": [],
           "dependencies": [
+            "goat-tag",
             "goat-spinner"
           ],
           "dependencyGraph": {
             "goat-code-editor": [
+              "goat-tag",
               "goat-spinner"
+            ],
+            "goat-tag": [
+              "goat-icon"
             ]
           },
           "props": [
@@ -25161,10 +25183,10 @@
             },
             {
               "name": "type",
-              "type": "\"body\" | \"body-compact\" | \"code\" | \"heading\" | \"heading-compact\" | \"helper-text\" | \"label\" | \"legal\"",
+              "type": "\"body\" | \"body-compact\" | \"code\" | \"fluid-heading\" | \"heading\" | \"heading-compact\" | \"helper-text\" | \"label\" | \"legal\"",
               "complexType": {
-                "original": "'code' | 'helper-text' | 'label' | 'legal' | 'heading' | 'body' | 'body-compact' | 'heading-compact'",
-                "resolved": "\"body\" | \"body-compact\" | \"code\" | \"heading\" | \"heading-compact\" | \"helper-text\" | \"label\" | \"legal\"",
+                "original": "'code' | 'helper-text' | 'label' | 'legal' | 'heading' | 'body' | 'body-compact' | 'heading-compact' | 'fluid-heading'",
+                "resolved": "\"body\" | \"body-compact\" | \"code\" | \"fluid-heading\" | \"heading\" | \"heading-compact\" | \"helper-text\" | \"label\" | \"legal\"",
                 "references": {}
               },
               "mutable": false,
@@ -25184,6 +25206,10 @@
                 },
                 {
                   "value": "code",
+                  "type": "string"
+                },
+                {
+                  "value": "fluid-heading",
                   "type": "string"
                 },
                 {

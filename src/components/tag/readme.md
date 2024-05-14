@@ -31,6 +31,7 @@
 
  - [goat-cb-compound-expression](../condition-builder/cb-compound-expression)
  - [goat-cb-predicate](../condition-builder/cb-predicate)
+ - [goat-code-editor](../data-entry/code-editor)
  - [goat-condition-builder](../condition-builder/condition-builder)
  - [goat-flow-designer](../flow-designer/flow-designer)
  - [goat-select](../data-entry/select)
@@ -45,6 +46,7 @@ graph TD;
   goat-tag --> goat-icon
   goat-cb-compound-expression --> goat-tag
   goat-cb-predicate --> goat-tag
+  goat-code-editor --> goat-tag
   goat-condition-builder --> goat-tag
   goat-flow-designer --> goat-tag
   goat-select --> goat-tag

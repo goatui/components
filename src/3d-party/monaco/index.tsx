@@ -1,7 +1,7 @@
 import { loadScript } from '../../utils/utils';
 import { getAssetPath } from '@stencil/core';
 
-const VERSION = '0.40.0';
+const VERSION = '0.48.0';
 export default async function loadMonaco() {
   if (process.env.THIRD_PARTY_ASSETS == 'LOCAL') {
     // @ts-ignore

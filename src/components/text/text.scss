@@ -22,6 +22,10 @@
 }
 
 
+/* *
+ * heading styles
+ */
+
 :host([type="heading"]) {
   margin-bottom: v(--spacing-05);
 
@@ -35,6 +39,80 @@
     }
   }
 }
+
+
+/* *
+ * fluid-heading styles
+ */
+
+:host([type="fluid-heading"]) {
+  margin-bottom: v(--spacing-05);
+}
+
+@include for-phone-only {
+  :host([type="fluid-heading"]) .text {
+    @for $i from 3 through 6 {
+      &.heading-size-#{$i} {
+        .native-element {
+          @include font-style(fluid-heading-0#{$i}-sm);
+        }
+      }
+    }
+  }
+}
+
+@include for-tablet-portrait-up {
+  :host([type="fluid-heading"]) .text {
+    @for $i from 3 through 6 {
+      &.heading-size-#{$i} {
+        .native-element {
+          @include font-style(fluid-heading-0#{$i}-md);
+        }
+      }
+    }
+  }
+}
+
+@include for-tablet-landscape-up {
+  :host([type="fluid-heading"]) .text {
+    @for $i from 3 through 6 {
+      &.heading-size-#{$i} {
+        .native-element {
+          @include font-style(fluid-heading-0#{$i}-lg);
+        }
+      }
+    }
+  }
+}
+
+@include for-desktop-up {
+  :host([type="fluid-heading"]) .text {
+    @for $i from 3 through 6 {
+      &.heading-size-#{$i} {
+        .native-element {
+          @include font-style(fluid-heading-0#{$i}-xl);
+        }
+      }
+    }
+  }
+}
+
+@include for-big-desktop-up {
+  :host([type="fluid-heading"]) .text {
+    @for $i from 3 through 6 {
+      &.heading-size-#{$i} {
+        .native-element {
+          @include font-style(fluid-heading-0#{$i}-max);
+        }
+      }
+    }
+  }
+}
+
+
+/* *
+ * Other styles
+ */
 
 $types: "body", "body-compact", "code", "helper", "legal", "label";
 

@@ -32,41 +32,44 @@ export class Tooltip {
     for (const elm of path) {
       if (elm.hasAttribute && elm.hasAttribute('tooltip-target')) target = elm;
     }
-    if (target.hasAttribute('tooltip-target') && target.getAttribute('tooltip-target') === this.elm.getAttribute('id')) {
-      this.open = true;
-      const positions = this.placements.split(',');
-      const placement: any = positions[0];
-      const fallbackPlacements: any = positions.splice(1);
 
-      setTimeout(() => {
-        computePosition(target, this.elm, {
-          placement: placement,
-          middleware: [
-            flip({
-              fallbackPlacements: fallbackPlacements,
-            }),
-            offset(10),
-            arrow({ element: this.arrowEl }),
-          ],
-        }).then(({ x, y, middlewareData }) => {
-          Object.assign(this.elm.style, {
-            top: `${y}px`,
-            left: `${x}px`,
-          });
-          if (middlewareData.arrow) {
-            const { x, y } = middlewareData.arrow;
+    this.open = false;
 
-            Object.assign(this.arrowEl.style, {
-              [middlewareData.offset.placement.includes('left') ? 'right' : 'left']: x ? `${x}px` : `${-this.arrowEl.offsetWidth / 2}px`,
-              [!middlewareData.offset.placement.includes('left') ? 'right' : 'left']: null,
-              [middlewareData.offset.placement.includes('top') ? 'bottom' : 'top']: y ? `${y}px` : `${-this.arrowEl.offsetHeight / 2}px`,
-              [!middlewareData.offset.placement.includes('top') ? 'bottom' : 'top']: null,
+    if (target.hasAttribute('tooltip-target')) {
+      if (target.getAttribute('tooltip-target') === this.elm.getAttribute('id')) {
+        this.open = true;
+        const positions = this.placements.split(',');
+        const placement: any = positions[0];
+        const fallbackPlacements: any = positions.splice(1);
+
+        setTimeout(() => {
+          computePosition(target, this.elm, {
+            placement: placement,
+            middleware: [
+              flip({
+                fallbackPlacements: fallbackPlacements,
+              }),
+              offset(10),
+              arrow({ element: this.arrowEl }),
+            ],
+          }).then(({ x, y, middlewareData }) => {
+            Object.assign(this.elm.style, {
+              top: `${y}px`,
+              left: `${x}px`,
             });
-          }
-        });
-      }, 1);
-    } else {
-      this.open = false;
+            if (middlewareData.arrow) {
+              const { x, y } = middlewareData.arrow;
+
+              Object.assign(this.arrowEl.style, {
+                [middlewareData.offset.placement.includes('left') ? 'right' : 'left']: x ? `${x}px` : `${-this.arrowEl.offsetWidth / 2}px`,
+                [!middlewareData.offset.placement.includes('left') ? 'right' : 'left']: null,
+                [middlewareData.offset.placement.includes('top') ? 'bottom' : 'top']: y ? `${y}px` : `${-this.arrowEl.offsetHeight / 2}px`,
+                [!middlewareData.offset.placement.includes('top') ? 'bottom' : 'top']: null,
+              });
+            }
+          });
+        }, 1);
+      }
     }
   }
 

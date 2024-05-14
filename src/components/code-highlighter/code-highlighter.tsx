@@ -1,127 +1,8 @@
-import { Component, ComponentInterface, Element, h, Host, Prop, State, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Element, Fragment, h, Host, Prop, State, Watch } from '@stencil/core';
 import { loadPrism } from '../../3d-party/prism';
 import * as beautify from 'js-beautify/js';
 import { getComponentIndex } from '../../utils/utils';
-
-enum Language {
-  markup = 'markup',
-  css = 'css',
-  clike = 'clike',
-  javascript = 'javascript',
-  abap = 'abap',
-  actionscript = 'actionscript',
-  ada = 'ada',
-  apacheconf = 'apacheconf',
-  apl = 'apl',
-  applescript = 'applescript',
-  arduino = 'arduino',
-  arff = 'arff',
-  asciidoc = 'asciidoc',
-  asm6502 = 'asm6502',
-  aspnet = 'aspnet',
-
-  autohotkey = 'autohotkey',
-  autoit = 'autoit',
-  bash = 'bash',
-  basic = 'basic',
-  batch = 'batch',
-  bison = 'bison',
-  brainfuck = 'brainfuck',
-  bro = 'bro',
-  c = 'c',
-  csharp = 'csharp',
-  cpp = 'cpp',
-  coffeescript = 'coffeescript',
-  clojure = 'clojure',
-  crystal = 'crystal',
-  csp = 'csp',
-  cssExtras = 'css-extras',
-  d = 'd',
-  dart = 'dart',
-  diff = 'diff',
-  django = 'django',
-  docker = 'docker',
-  eiffel = 'eiffel',
-  elixir = 'elixir',
-  elm = 'elm',
-  erb = 'erb',
-  erlang = 'erlang',
-  fsharp = 'fsharp',
-  flow = 'flow',
-  fortran = 'fortran',
-  gedcom = 'gedcom',
-  gherkin = 'gherkin',
-  git = 'git',
-  glsl = 'glsl',
-  go = 'go',
-  graphql = 'graphql',
-  groovy = 'groovy',
-  haml = 'haml',
-  handlebars = 'handlebars',
-  haskell = 'haskell',
-  haxe = 'haxe',
-  http = 'http',
-  hpkp = 'hpkp',
-  hsts = 'hsts',
-  ichigojam = 'ichigojam',
-  icon = 'icon',
-  inform7 = 'inform7',
-  ini = 'ini',
-  io = 'io',
-  j = 'j',
-  java = 'java',
-  jolie = 'jolie',
-  json = 'json',
-  jsx = 'jsx',
-  julia = 'julia',
-
-  keyman = 'keyman',
-  kotlin = 'kotlin',
-  latex = 'latex',
-  less = 'less',
-  lilypond = 'lilypond',
-  liquid = 'liquid',
-  lisp = 'lisp',
-  livescript = 'livescript',
-  lolcode = 'lolcode',
-  lua = 'lua',
-  makefile = 'makefile',
-  markdown = 'markdown',
-  markupTemplating = 'markup-templating',
-  matlab = 'matlab',
-  mel = 'mel',
-  mizar = 'mizar',
-  monkey = 'monkey',
-  n4js = 'n4js',
-  nasm = 'nasm',
-  nginx = 'nginx',
-  nim = 'nim',
-  nix = 'nix',
-  nsis = 'nsis',
-  objectivec = 'objectivec',
-  ocaml = 'ocaml',
-  opencl = 'opencl',
-  oz = 'oz',
-  parigp = 'parigp',
-  parser = 'parser',
-  pascal = 'pascal',
-  perl = 'perl',
-  php = 'php',
-  phpExtras = 'php-extras',
-  plsql = 'plsql',
-  powershell = 'powershell',
-  processing = 'processing',
-  prolog = 'prolog',
-  properties = 'properties',
-  protobuf = 'protobuf',
-  pug = 'pug',
-  puppet = 'puppet',
-  pure = 'pure',
-  python = 'python',
-  q = 'q',
-  qore = 'qore',
-  r = 'r',
-}
+import { Language } from './constants';
 
 /**
  * @name Code Highlighter
@@ -287,29 +168,31 @@ export class CodeHighlighter implements ComponentInterface {
         {this.compiledCode !== null && (
           <div
             class="code-highlighter"
-            on-click={() => {
-              if (this.inline) this.handleCopyClick();
+            on-click={async () => {
+              if (this.inline) await this.handleCopyClick();
             }}
           >
-            <div class="scroll-wrapper" tooltip-target={'copy-to-clipboard-' + this.gid}>
+            <div class="scroll-wrapper">
               <goat-notification-manager position="top-right" name={'code-highlighter-' + this.gid}></goat-notification-manager>
               <div class={{ 'line-numbers-wrapper': true, 'line-numbers': this.lineNumbers }}>
                 <HighlighterTab class="highlighter line-numbers" innerHTML={this.compiledCode} />
               </div>
             </div>
             {!this.hideCopy && this.copyState === 'idle' && !this.inline && (
-              <goat-button
-                class="copy-btn icon-only"
-                size="sm"
-                color={'secondary'}
-                variant={'ghost'}
-                aria-label="Copy code"
-                title="Copy code"
-                icon={'copy'}
-                onGoat:click={() => {
-                  this.handleCopyClick();
-                }}
-              ></goat-button>
+              <Fragment>
+                <goat-button
+                  class="copy-btn icon-only"
+                  size="sm"
+                  color={'secondary'}
+                  variant={'ghost'}
+                  aria-label="Copy to clipboard"
+                  icon={'copy'}
+                  tooltip-target={'copy-to-tooltip' + this.gid}
+                  onGoat:click={async () => {
+                    await this.handleCopyClick();
+                  }}
+                ></goat-button>
+              </Fragment>
             )}
             {!this.hideCopy && this.copyState === 'copied' && !this.inline && (
               <div>
@@ -319,6 +202,10 @@ export class CodeHighlighter implements ComponentInterface {
               </div>
             )}
             {!this.hideCopy && this.inline && <goat-tooltip id={'copy-to-clipboard-' + this.gid}>{copiedText}</goat-tooltip>}
+
+            <goat-tooltip id={'copy-to-tooltip' + this.gid} placements="bottom">
+              Save the record
+            </goat-tooltip>
           </div>
         )}
         {this.compiledCode === null && (

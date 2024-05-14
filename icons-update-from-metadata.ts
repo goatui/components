@@ -1,4 +1,9 @@
-// Run in deno: deno run -A icons-update-from-metadata.ts
+/**
+ * Run in deno:
+ * ```cmd
+ * deno run -A icons-update-from-metadata.ts
+ * ```
+ */
 import { ICON_BASE_URL } from './src/components/icon/constants.ts';
 
 const response = await fetch(ICON_BASE_URL + '/metadata.json');

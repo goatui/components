@@ -1,5 +1,6 @@
 import { Component, h, Host, Prop, State, Watch } from '@stencil/core';
-import { fetchIcon } from './datasource';
+import { fetchSVG } from './datasource';
+import { convertToDomSVG } from '../../utils/utils';
 
 /**
  * @name SVG
@@ -13,7 +14,6 @@ import { fetchIcon } from './datasource';
   shadow: true,
 })
 export class Svg {
-
   @Prop() src: string = '';
 
   @State() svg: string = '';
@@ -23,20 +23,13 @@ export class Svg {
    */
   @Prop({ reflect: true }) size: string;
 
-
-  async fetchSvg(name: string) {
-    if (this.src)
-      this.svg = await fetchIcon(name);
-  }
-
-
   @Watch('src')
   async handleNameChange(newValue: string) {
-    this.svg = await fetchIcon(newValue);
+    this.svg = await fetchSVG(newValue);
   }
 
   async componentWillLoad() {
-    await this.fetchSvg(this.src);
+    this.svg = await fetchSVG(this.src);
   }
 
   private getSize() {
@@ -51,10 +44,10 @@ export class Svg {
   }
 
   render() {
-    const svg = this.convertToDom(this.svg);
+    const svg = convertToDomSVG(this.svg);
     let svgHtmlString = 'No icon found';
     if (svg.tagName === 'svg') {
-      if (this.getSize()){
+      if (this.getSize()) {
         svg.setAttribute('width', this.getSize());
         svg.setAttribute('height', this.getSize());
       }
@@ -64,15 +57,8 @@ export class Svg {
 
     return (
       <Host>
-        <div innerHTML={svgHtmlString} class={{ 'icon': true }} />
+        <div innerHTML={svgHtmlString} class={{ icon: true }} />
       </Host>
     );
   }
-
-  convertToDom(svg: string) {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(svg, 'image/svg+xml');
-    return doc.documentElement;
-  }
-
 }
