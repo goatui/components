@@ -3,6 +3,7 @@
 :host {
   display: block;
   height: 100%;
+  --tag-background-color: none;
 }
 
 .header-brand {
@@ -45,10 +46,10 @@
  * Colors
  */
 .header-brand {
-  color: v(--color-gray-100);
+  color: var(--tag-background-color, v(--color-gray-100));
 
   .subtitle {
-    color: v(--color-gray-100);
+    color: var(--tag-background-color, v(--color-gray-100));
   }
 }
 

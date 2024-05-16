@@ -1,7 +1,6 @@
 @import "../../../globalStyles/commons";
 
 $header-height: var(--header-height, 3rem);
-$header-background-dark: var(--header-background-dark, var(--header-background));
 :host {
   display: block;
 }
@@ -30,9 +29,11 @@ $header-background-dark: var(--header-background-dark, var(--header-background))
   .left-section {
     justify-self: flex-start;
   }
+
   .center-section {
     justify-self: center;
   }
+
   .right-section {
     justify-self: flex-end;
   }
@@ -61,65 +62,16 @@ $header-background-dark: var(--header-background-dark, var(--header-background))
   * Color Variants
   */
 @each $color in [primary, secondary, success, info, warning, error, brand-primary, brand-secondary] {
-  :host([color="#{$color}"]) {
+  :host([color="#{$color}"]) .header {
     background: #{v(--color-#{$color})};
   }
 }
 
-:host([color="light"]) {
+:host([color="light"]) .header {
   background: v(--color-white);
 }
 
 
-:host([color="dark"]) {
+:host([color="dark"]) .header {
   background: v(--color-black);
 }
-
-
-
-/*
-
-
-
-
-.header-content {
-  box-sizing: border-box;
-  display: flex;
-  width: 100%;
-
-  .section {
-    display: flex;
-    align-items: center;
-  }
-
-  .left-section {
-    flex: 1;
-  }
-
-  .right-section {
-    slot::slotted(*) {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      gap: var(--header-action-gap, 0);
-    }
-  }
-
-  --dropdown-height: 100%;
-  --button-height: 100%;
-}
-
-:host(.actions-separated) .header-content {
-  --header-action-gap: #{v(--spacing-02)};
-}
-:host(:not(.actions-separated)) .header-content {
-  --button-border-radius: none;
-}
-
-:host(.border) .header {
-  border-bottom: 1px solid var(--border-strong-01)
-}
-
-
-
-*/
