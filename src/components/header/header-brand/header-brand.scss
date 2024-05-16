@@ -3,7 +3,6 @@
 :host {
   display: block;
   height: 100%;
-  --tag-background-color: none;
 }
 
 .header-brand {
@@ -27,7 +26,6 @@
     font-weight: v(--font-weight-bold);
   }
 
-
   .logo {
     height: 2rem;
   }
@@ -46,34 +44,28 @@
  * Colors
  */
 .header-brand {
-  color: var(--tag-background-color, v(--color-gray-100));
+  color: var(--header-brand-title-color, v(--color-gray-100));
 
   .subtitle {
-    color: var(--tag-background-color, v(--color-gray-100));
+    color: var(--header-brand-subtitle-color, v(--color-gray-100));
   }
 }
 
-:host-context([color-is="dark"]) .header-brand {
-  color: v(--color-white);
-
+:host-context([color-is="dark"]) :host{
+  --header-brand-title-color: #{v(--color-white)};
+  --header-brand-subtitle-color: #{v(--color-white)};
 
   .subtitle-divider {
     --divider-color: #{v(--color-white)};
   }
-  .subtitle {
-    color: v(--color-white);
-  }
 }
 
-:host-context([color-is="light"]) .header-brand {
-  color: v(--color-black);
+:host-context([color-is="light"]) :host {
+  --header-brand-title-color: #{v(--color-black)};
+  --header-brand-subtitle-color: #{v(--color-black)};
 
   .subtitle-divider {
     --divider-color: #{v(--color-black)};
-  }
-
-  .subtitle {
-    color: v(--color-gray-80);
   }
 }
 
