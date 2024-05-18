@@ -8,7 +8,7 @@
 .menu-item {
 
   min-height: 2.5rem;
- /* min-width: 10rem;*/
+  text-decoration: none;
 
   cursor: pointer;
   @include font-style(body-compact-01);

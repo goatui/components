@@ -430,7 +430,7 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
 /**
   * Color Variants
   */
-@each $color in [primary, secondary, success, info, warning, error, brand-primary, brand-secondary] {
+@each $color in [primary, secondary, success, info, warning, error, brand-primary, brand-secondary, custom-01, custom-02, custom-03] {
   :host([computed-color="#{$color}"]) {
     --button-color: #{v(--color-#{$color})};
     --button-color-light: #{v(--color-#{$color}-10)};
@@ -452,11 +452,17 @@ $button-color-light-active: var(--button-color-light-active, v(--color-primary-3
   --button-color-light-active: #{v(--color-error-30)};
 }
 
-:host([computed-color="brand-primary"]) .button.color-is-light, :host([computed-color="brand-secondary"]) .button.color-is-light {
+.button.color-is-light {
   --button-text-color: var(--color-black);
 
   &:hover, &.active, &.selected {
     --button-text-color: var(--color-white);
+  }
+
+  &.variant-outline {
+    &:hover, &.active, &.selected {
+      --button-text-color: var(--color-black);
+    }
   }
 }
 

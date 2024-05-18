@@ -21,7 +21,7 @@ const getTitle = (root?: boolean) => {
 <Layout title={title} description={description} keywords={keywords}>
 
   <nav class='top-nav'>
-    <goat-header color="brand-secondary" class={`actions-separated ${!root ? 'border' : ''}`}>
+    <goat-header color='custom-01' class={`actions-separated ${!root ? 'border' : ''}`}>
       <div slot='left'>
         <goat-header-brand logo='/assets/img/logo.svg' href='/#' name={site.title}
                            sub-title={getTitle(root)}></goat-header-brand>
@@ -39,37 +39,35 @@ const getTitle = (root?: boolean) => {
                          placeholder="Type '/' for search">
               <goat-icon slot='start' name='search' size='1rem'></goat-icon>
             </goat-select>
-            <script is:inline  define:vars={{ componentsDetails }}>
-              document.addEventListener('DOMContentLoaded', function() {
-                const search = document.querySelector('#site-search');
-
-                // prettier-ignore
-                search.items = componentsDetails.components.map(component => ({
-                  label: component.metadata.name,
-                  value: component.tag.replace('goat-', ''),
-                }));
-                search.items = search.items.filter(item => !!item.label);
-                search.addEventListener('goat:change', function(e) {
-                  window.location.href = '/components/' + e.detail.value;
-                });
-
-                search.addEventListener('goat:search-enter', function(e) {
-                  if (e.detail.currentItems.length > 0)
-                    window.location.href = '/components/' + e.detail.currentItems[0].value;
-                });
-
-                document.addEventListener('keydown', function(e) {
-                  if (e.key === '/') {
-                    e.preventDefault();
-                    search.open = true;
-                    setTimeout(() => {
-                      search.setFocus();
-                    }, 300);
-                  }
-                });
-              });
-              </script>)
+          )
         }
+
+
+        <!-- <goat-header-action id='dir-switcher' class='hide-tablet-landscape-below'>LTR</goat-header-action>
+ -->
+        <goat-header-action
+          class='hide-mobile'
+          href='/components#'>
+          Components
+        </goat-header-action>
+
+        <goat-header-action
+          class='hide-mobile'
+          href='/blog#'>
+          Blog
+        </goat-header-action>
+
+        <goat-button
+          color='brand-primary'
+          size='sm'
+          kind='simple'
+          target='_blank'
+          class='hide-mobile sponsor-btn'
+          href='https://github.com/sponsors/shivajivarma'>
+          Sponsor
+        </goat-button>
+
+        <goat-divider class='header-divider hide-mobile' vertical></goat-divider>
 
         <goat-header-action
           id='theme-switcher'
@@ -77,51 +75,74 @@ const getTitle = (root?: boolean) => {
           class='theme-switcher'
           aria-label='Theme switcher'></goat-header-action>
 
-        <goat-header-action id='dir-switcher' class='hide-tablet-landscape-below'>LTR</goat-header-action>
+        <goat-header-action
+          icon='logo--github'
+          aria-label='View Github'
+          href={`https://github.com/${site.github_username}/${site.github_project}`}
+          target='_blank'
+        ></goat-header-action>
 
         <goat-header-action
-          href='/blog#'>
-          Blog
-        </goat-header-action>
+          class='show-mobile'
+          dropdown-target='data-dropdown'
+          aria-label='Menu'
+          icon='menu'></goat-header-action>
 
-        <goat-header-action
-          class='hide-tablet-portrait-below'
-          href='https://opencollective.com/goat-ui-components#support'>
-          Become a backer
-        </goat-header-action>
-
-        {root ?
-          (
-            <goat-header-action
-              icon='logo--github'
-              aria-label='View Github'
-              href={`https://github.com/${site.github_username}/${site.github_project}`}
-              target='_blank'
-            ></goat-header-action>)
-          :
-          (
-            <goat-header-action
-              class='show-desktop'
-              href={`https://github.com/${site.github_username}/${site.github_project}/issues`}
-              target='_blank'
-            >Report Issue
-            </goat-header-action>
-
-            <goat-header-action
-              icon='logo--github'
-              aria-label='Report Issue'
-              class='hide-desktop'
-              href={`https://github.com/${site.github_username}/${site.github_project}/issues`}
-              target='_blank'
-            ></goat-header-action>)
-        }
+        <goat-dropdown id='data-dropdown'>
+          <goat-menu slot='dropdown-content' class='menu' style='width: 200px'>
+            <goat-menu-item href='/components#'>
+              <goat-icon name='roadmap' slot='start'></goat-icon>
+              Components
+            </goat-menu-item>
+            <goat-menu-item href='/blog#'>
+              <goat-icon name='blog' slot='start'></goat-icon>
+              Blog
+            </goat-menu-item>
+            <goat-divider></goat-divider>
+            <goat-menu-item href='https://github.com/sponsors/shivajivarma'>
+              <goat-icon name='currency--rupee' slot='start'></goat-icon>
+              Sponsor
+            </goat-menu-item>
+          </goat-menu>
+        </goat-dropdown>
       </div>
 
     </goat-header>
+
   </nav>
 
   <main class={classes}>
     <slot />
   </main>
 
+  <script is:inline define:vars={{ componentsDetails }}>
+    document.addEventListener('DOMContentLoaded', function() {
+      const search = document.querySelector('#site-search');
+
+      // prettier-ignore
+      search.items = componentsDetails.components.map(component => ({
+        label: component.metadata.name,
+        value: component.tag.replace('goat-', ''),
+      }));
+      search.items = search.items.filter(item => !!item.label);
+      search.addEventListener('goat:change', function(e) {
+        window.location.href = '/components/' + e.detail.value;
+      });
+
+      search.addEventListener('goat:search-enter', function(e) {
+        if (e.detail.currentItems.length > 0)
+          window.location.href = '/components/' + e.detail.currentItems[0].value;
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === '/') {
+          e.preventDefault();
+          search.open = true;
+          setTimeout(() => {
+            search.setFocus();
+          }, 300);
+        }
+      });
+    });
+  </script>
 </Layout>

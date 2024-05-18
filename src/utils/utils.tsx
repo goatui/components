@@ -149,7 +149,23 @@ export const getFromObject = (obj, path, defaultValue = undefined) => {
   return result === undefined || result === obj ? defaultValue : result;
 };
 
-export function isLightOrDark(color) {
+const memoize = fn => {
+  let cache = {};
+  return (...args) => {
+    let n = args[0];
+    if (n in cache) {
+      console.log('Fetching from cache', n);
+      return cache[n];
+    } else {
+      console.log('Calculating result', n);
+      let result = fn(n);
+      cache[n] = result;
+      return result;
+    }
+  };
+};
+
+export const isLightOrDark = memoize(color => {
   // Variables for red, green, blue values
   let r, g, b, hsp;
 
@@ -179,7 +195,7 @@ export function isLightOrDark(color) {
   } else {
     return 'dark';
   }
-}
+});
 
 export function getNextLayer(layer?: 'background' | '01' | '02') {
   if (!layer || layer == 'background') return '01';

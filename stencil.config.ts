@@ -69,7 +69,7 @@ export const config: Config = {
             // @ts-ignore
             docs.categories.push(cat);
           }
-          cat.components.push(component);
+          cat.components.push(component.tag);
         });
 
         const order = ['Data Display', 'Feedback', 'Form Inputs', 'General', 'Layout', 'Navigation', 'Others', 'Up coming'];

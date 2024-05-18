@@ -48,18 +48,20 @@
 
     const dirSwitcher = document.querySelector('#dir-switcher');
 
-    function setDir(dir) {
-      document.documentElement.setAttribute('dir', dir);
-      themeSwitcher.innetText = dir;
-      localStorage.setItem('dir', dir);
-    }
+    if (dirSwitcher) {
+      function setDir(dir) {
+        document.documentElement.setAttribute('dir', dir);
+        dirSwitcher.innetText = dir;
+        localStorage.setItem('dir', dir);
+      }
 
-    const dir = localStorage.getItem('dir') || 'ltr';
-    setDir(dir);
-
-    dirSwitcher.addEventListener('click', function () {
-      const dir = localStorage.getItem('dir') === 'ltr' ? 'rtl' : 'ltr';
+      const dir = localStorage.getItem('dir') || 'ltr';
       setDir(dir);
-    });
+
+      dirSwitcher.addEventListener('click', function () {
+        const dir = localStorage.getItem('dir') === 'ltr' ? 'rtl' : 'ltr';
+        setDir(dir);
+      });
+    }
   });
 })();

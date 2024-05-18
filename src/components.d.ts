@@ -49,7 +49,7 @@ export namespace Components {
      * @description The Avatar component is used to represent user, and displays the profile picture, initials or fallback icon.
      * @category Data Display
      * @tags display
-     * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.png"></goat-avatar>
+     * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.webp"></goat-avatar>
      */
     interface GoatAvatar {
         "name": string;
@@ -763,6 +763,10 @@ export namespace Components {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
+        /**
+          * Hyperlink to navigate to on click.
+         */
+        "href": string;
         "layer"?: 'background' | '01' | '02';
         /**
           * Menu item selection state.
@@ -776,6 +780,10 @@ export namespace Components {
           * Sets focus on the native `input` in `goat-input`. Use this method instead of the global `input.focus()`.
          */
         "setFocus": () => Promise<void>;
+        /**
+          * Sets or retrieves the window or frame at which to target content.
+         */
+        "target": string;
         /**
           * The menu item value.
          */
@@ -1600,7 +1608,7 @@ declare global {
      * @description The Avatar component is used to represent user, and displays the profile picture, initials or fallback icon.
      * @category Data Display
      * @tags display
-     * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.png"></goat-avatar>
+     * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.webp"></goat-avatar>
      */
     interface HTMLGoatAvatarElement extends Components.GoatAvatar, HTMLStencilElement {
     }
@@ -2765,7 +2773,7 @@ declare namespace LocalJSX {
      * @description The Avatar component is used to represent user, and displays the profile picture, initials or fallback icon.
      * @category Data Display
      * @tags display
-     * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.png"></goat-avatar>
+     * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.webp"></goat-avatar>
      */
     interface GoatAvatar {
         "name"?: string;
@@ -3481,6 +3489,10 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
+        /**
+          * Hyperlink to navigate to on click.
+         */
+        "href"?: string;
         "layer"?: 'background' | '01' | '02';
         /**
           * Emitted when the menu item is clicked.
@@ -3490,6 +3502,10 @@ declare namespace LocalJSX {
           * Menu item selection state.
          */
         "selected"?: boolean;
+        /**
+          * Sets or retrieves the window or frame at which to target content.
+         */
+        "target"?: string;
         /**
           * The menu item value.
          */
@@ -4289,7 +4305,7 @@ declare module "@stencil/core" {
              * @description The Avatar component is used to represent user, and displays the profile picture, initials or fallback icon.
              * @category Data Display
              * @tags display
-             * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.png"></goat-avatar>
+             * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.webp"></goat-avatar>
              */
             "goat-avatar": LocalJSX.GoatAvatar & JSXBase.HTMLAttributes<HTMLGoatAvatarElement>;
             /**

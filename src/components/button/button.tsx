@@ -245,11 +245,8 @@ export class Button implements ComponentInterface {
   }
 
   computeColorLightOrDark() {
-    this.colorType = 'unknown';
-    if (this.color == 'brand-primary' || this.color == 'brand-secondary') {
-      const color = getComputedStyle(document.documentElement).getPropertyValue(`--color-${this.color}`);
-      this.colorType = isLightOrDark(color);
-    }
+    const color = getComputedStyle(document.documentElement).getPropertyValue(`--color-${this.computedColor}`);
+    this.colorType = isLightOrDark(color);
   }
 
   @State() colorType: string = 'unknown';

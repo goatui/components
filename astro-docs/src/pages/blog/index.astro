@@ -4,7 +4,7 @@ const allPosts = await Astro.glob('./posts/*.astro');
 import '../../styles/blog.scss';
 import site from '../../_data/site.json';
 ---
-<Layout>
+<Layout  classes='layer-background'>
   <div class='main-content'>
     <goat-container class='blog-posts page-container'>
       <goat-text type='heading' heading-size='7'>Blog</goat-text>
@@ -32,7 +32,7 @@ import site from '../../_data/site.json';
       <div class='footer container'>
         <goat-divider></goat-divider>
         <div class='footer-content'>
-          <goat-text type='legal' expressive>
+          <goat-text class='legal' type='legal' expressive>
             &copy; {new Date().getFullYear()} <goat-link href={site.author_url}>{site.author}</goat-link>. All Rights Reserved.
           </goat-text>
         </div>

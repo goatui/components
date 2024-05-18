@@ -8,7 +8,7 @@ interface Props {
 
 const {title, description} = Astro.props;
 ---
-<Layout title={title} description={description}>
+<Layout title={title} description={description}  classes='layer-background'>
 <div class='main-content'>
 
   <goat-container class='page-container'>
@@ -38,7 +38,7 @@ const {title, description} = Astro.props;
     <div class='footer container'>
       <goat-divider></goat-divider>
       <div class='footer-content'>
-        <goat-text type='legal' expressive>
+        <goat-text class='legal' type='legal' expressive>
           &copy; {new Date().getFullYear()} <goat-link href={site.author_url}>{site.author}</goat-link>. All Rights Reserved.
         </goat-text>
       </div>

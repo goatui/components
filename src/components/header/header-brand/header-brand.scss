@@ -27,7 +27,7 @@
   }
 
   .logo {
-    height: 2rem;
+    height: var(--header-brand-logo-height, 2rem);
   }
 
 }
@@ -44,29 +44,21 @@
  * Colors
  */
 .header-brand {
-  color: var(--header-brand-title-color, v(--color-gray-100));
+  color: var(--header-brand-title-color);
 
   .subtitle {
-    color: var(--header-brand-subtitle-color, v(--color-gray-100));
+    color: var(--header-brand-subtitle-color);
   }
 }
 
-:host-context([color-is="dark"]) :host{
+:host-context([color-is="dark"]):host {
   --header-brand-title-color: #{v(--color-white)};
-  --header-brand-subtitle-color: #{v(--color-white)};
-
-  .subtitle-divider {
-    --divider-color: #{v(--color-white)};
-  }
+  --header-brand-subtitle-color: #{v(--color-gray-40)};
 }
 
-:host-context([color-is="light"]) :host {
+:host-context([color-is="light"]):host {
   --header-brand-title-color: #{v(--color-black)};
-  --header-brand-subtitle-color: #{v(--color-black)};
-
-  .subtitle-divider {
-    --divider-color: #{v(--color-black)};
-  }
+  --header-brand-subtitle-color: #{v(--color-gray-80)};
 }
 
 @include for-phone-only {

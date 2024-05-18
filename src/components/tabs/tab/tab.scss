@@ -164,7 +164,7 @@ $border-width: 0.125;
 
   &.disabled {
     .tab-background {
-      background:  v(--button-disabled) !important;
+      background: v(--button-disabled) !important;
     }
   }
 
@@ -179,7 +179,7 @@ $border-width: 0.125;
 /**
   * Color Variants
   */
-@each $color in [brand-primary, brand-secondary, primary, success, error, info, warning, secondary] {
+@each $color in [ primary, secondary, success, error, info, warning, brand-primary, brand-secondary, custom-01, custom-02, custom-03] {
   :host(.color-#{$color}) .tab {
     --tab-color: #{v(--color-#{$color})};
   }

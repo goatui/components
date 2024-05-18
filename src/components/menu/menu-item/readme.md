@@ -10,8 +10,10 @@
 | Property   | Attribute  | Description                                                             | Type                           | Default     |
 | ---------- | ---------- | ----------------------------------------------------------------------- | ------------------------------ | ----------- |
 | `disabled` | `disabled` | If true, the user cannot interact with the button. Defaults to `false`. | `boolean`                      | `false`     |
+| `href`     | `href`     | Hyperlink to navigate to on click.                                      | `string`                       | `undefined` |
 | `layer`    | `layer`    |                                                                         | `"01" \| "02" \| "background"` | `undefined` |
 | `selected` | `selected` | Menu item selection state.                                              | `boolean`                      | `false`     |
+| `target`   | `target`   | Sets or retrieves the window or frame at which to target content.       | `string`                       | `'_self'`   |
 | `value`    | `value`    | The menu item value.                                                    | `number \| string`             | `undefined` |
 
 

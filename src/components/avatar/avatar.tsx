@@ -5,7 +5,7 @@ import { Component, Element, h, Host, Prop } from '@stencil/core';
  * @description The Avatar component is used to represent user, and displays the profile picture, initials or fallback icon.
  * @category Data Display
  * @tags display
- * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.png"></goat-avatar>
+ * @example <goat-avatar size="5rem" name="Shivaji Varma" src="/assets/img/avatar.webp"></goat-avatar>
  */
 @Component({
   tag: 'goat-avatar',

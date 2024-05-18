@@ -21,11 +21,14 @@ if (isProd) {
   <div class='banner'>
     <div class='banner-content'>
       <BannerLogo />
-      <goat-text class=' title' type='heading' heading-size='7' heading-level='1'>{site.title}</goat-text>
+      <goat-text class='title' type='fluid-heading' heading-size='6' heading-level='1'>Rapidly build web
+        applications<br />with {site.title}</goat-text>
       <goat-text class='' type='heading' heading-size='3' heading-level='2'>{site.tagline}</goat-text>
       <goat-text class='' type='heading' heading-size='3' heading-level='2'>Hooray! we are now v1.0 🎉</goat-text>
       <div class='banner-actions'>
-        <goat-button href='#getting-started' size='lg' color='dark' icon='arrow--right'>Get Started</goat-button>
+        <goat-button href='#getting-started' size='lg' color='dark' dark-mode-color='light' icon='arrow--right'>Get
+          Started
+        </goat-button>
         <goat-button href='/components/' size='lg' color='brand-primary' kind='simple'>Browse Components</goat-button>
       </div>
     </div>
@@ -43,50 +46,50 @@ if (isProd) {
       ></goat-button>
       <goat-button
         icon-size='lg'
-        icon='logo--twitter'
+        icon='logo--x'
         color='dark'
         dark-mode-color='light'
         variant='ghost'
         target='_blank'
         aria-label='Twitter'
-        href={`https://www.twitter.com/${site.twitter_username}`}
+        href={`https://x.com/${site.twitter_username}`}
       ></goat-button>
     </div>
 
     <div class='made-in-india'>
-      <goat-text>&copy; 2023 <goat-link class='no-decoration' href={site.author_url}>{site.author}</goat-link>.</goat-text>
+      <goat-text>&copy; 2023
+        <goat-link class='no-decoration' href={site.author_url}>{site.author}</goat-link>
+        .
+      </goat-text>
       <goat-svg class='country-flag' size='1.5rem'
                 src='https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/in.svg'></goat-svg>
       <goat-text>Made in India.</goat-text>
     </div>
   </div>
 
-  <script
-    src='https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js'
-    integrity='sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=='
-    crossorigin='anonymous'
-    referrerpolicy='no-referrer'
-  ></script>
+
   <script is:inline>
-    anime({
-      targets: '.banner-logo path',
-      strokeDashoffset: [anime.setDashoffset, 0],
-      easing: 'easeInOutSine',
-      duration: 1500,
-      delay: function(_el, i) {
-        return i * 250;
-      },
-      direction: 'alternate',
-      loop: false,
-    });
-    document.body.addEventListener('mousemove', evt => {
-      document.querySelectorAll('.banner-logo .head').forEach(headPath => {
-        headPath.style.transform = `rotate(${15 - (evt.clientY / document.body.clientHeight) * 60}deg)`;
-        if ((evt.clientX / document.body.clientWidth) * 100 > 50) {
-          document.querySelector('.banner-logo').style.transform = ' rotateY(180deg)';
-        } else {
-          document.querySelector('.banner-logo').style.transform = ' rotateY(0deg)';
-        }
+    document.addEventListener('DOMContentLoaded', function() {
+      anime({
+        targets: '.banner-logo path',
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: 'easeInOutSine',
+        duration: 1500,
+        delay: function(_el, i) {
+          return i * 250;
+        },
+        direction: 'alternate',
+        loop: false,
+      });
+      document.body.addEventListener('mousemove', evt => {
+        document.querySelectorAll('.banner-logo .head').forEach(headPath => {
+          headPath.style.transform = `rotate(${15 - (evt.clientY / document.body.clientHeight) * 60}deg)`;
+          if ((evt.clientX / document.body.clientWidth) * 100 > 50) {
+            document.querySelector('.banner-logo').style.transform = ' rotateY(180deg)';
+          } else {
+            document.querySelector('.banner-logo').style.transform = ' rotateY(0deg)';
+          }
+        });
       });
     });
   </script>
@@ -99,10 +102,7 @@ if (isProd) {
         component js, and right away start using it.
       </goat-text>
       <goat-text expressive>Can easily be consumed by any other framework, like Vue, React, Angular, etc.</goat-text>
-    </goat-container>
-
-    <goat-container class='section'>
-      <goat-text type='heading' heading-size='5'>About</goat-text>
+      <br/>
       <goat-text expressive
       >{site.title} components are beautiful Open Source web components under MIT license. They are maintained by
         <goat-link href='https://shivajivarma.com'>Shivaji Varma</goat-link>
@@ -113,12 +113,14 @@ if (isProd) {
 
     <div class='section'>
       <goat-container>
-        <goat-text type='heading' heading-size='5' id='getting-started'>Getting Started</goat-text>
+        <goat-text class='heading-scrollable' type='heading' heading-size='5' id='getting-started'>Getting Started
+        </goat-text>
         <ul style='padding-inline-start: 1.5rem'>
           <li>
             <goat-text expressive=''>
               Put a script tag similar to this
-              <goat-code-highlighter inline><code>&lt;script type="module" src="{envProps.script}"&gt;&lt;/script&gt;</code></goat-code-highlighter>
+              <goat-code-highlighter inline><code>&lt;script type="module"
+                src="{envProps.script}"&gt;&lt;/script&gt;</code></goat-code-highlighter>
               in the head of your index.html
             </goat-text>
           </li>
@@ -205,12 +207,20 @@ if (isProd) {
 
     <div class='sections'>
       <goat-container>
-        <goat-button href='/components/' size='lg' kind='block' icon='arrow--right'>Browse Components</goat-button>
+        <goat-button color='brand-primary' href='/components/' size='lg' kind='block' icon='arrow--right'>Browse Components</goat-button>
+        <br/>
+        <goat-button color='brand-secondary' href='/theme-creator/' size='lg' kind='block' icon='arrow--right'>Theme Creator</goat-button>
       </goat-container>
     </div>
   </div>
 
 
+  <script
+    src='https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js'
+    integrity='sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=='
+    crossorigin='anonymous'
+    referrerpolicy='no-referrer'
+  ></script>
 
 
 </Layout>

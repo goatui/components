@@ -61,7 +61,7 @@ $header-height: var(--header-height, 3rem);
 /**
   * Color Variants
   */
-@each $color in [primary, secondary, success, info, warning, error, brand-primary, brand-secondary] {
+@each $color in [primary, secondary, success, info, warning, error, brand-primary, brand-secondary, custom-01, custom-02, custom-03] {
   :host([color="#{$color}"]) .header {
     background: #{v(--color-#{$color})};
   }

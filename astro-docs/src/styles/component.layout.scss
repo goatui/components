@@ -208,6 +208,13 @@ pre[class*='language-'] {
   gap: 1rem;
 }
 
+.previous-next-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  --icon-color: white;
+}
+
 
 @media only screen and (max-width: 1055px) {
   .sidenav {

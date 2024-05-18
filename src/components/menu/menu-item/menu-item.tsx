@@ -31,6 +31,16 @@ export class GoatMenu {
   @Prop({ reflect: true }) layer?: 'background' | '01' | '02';
 
   /**
+   * Hyperlink to navigate to on click.
+   */
+  @Prop() href: string;
+
+  /**
+   * Sets or retrieves the window or frame at which to target content.
+   */
+  @Prop() target: string = '_self';
+
+  /**
    * Emitted when the menu item is clicked.
    */
   @Event({ eventName: 'goat:menu-item-click' }) goatMenuItemClick: EventEmitter;
@@ -80,6 +90,7 @@ export class GoatMenu {
       this.goatMenuItemClick.emit({
         value: this.value || this.elm.innerText,
       });
+      if (this.href) window.open(this.href, this.target);
     } else {
       event.preventDefault();
       event.stopPropagation();
@@ -107,7 +118,12 @@ export class GoatMenu {
     }
   };
 
-  componentWillLoad() {
+  getNativeElementTagName() {
+    if (this.href) return 'a';
+    else return 'div';
+  }
+
+  async componentWillLoad() {
     // If the ion-input has a tabindex attribute we get the value
     // and pass it down to the native input, then remove it from the
     // goat-input to avoid causing tabbing twice on the same element
@@ -121,10 +137,14 @@ export class GoatMenu {
   }
 
   render = () => {
+    const NativeElementTag = this.getNativeElementTagName();
+
     return (
       <Host active={this.isActive} has-focus={this.hasFocus}>
-        <div
+        <NativeElementTag
           ref={el => (this.nativeElement = el as HTMLElement)}
+          href={this.href}
+          target={this.target}
           class={{
             'menu-item': true,
             'selected': this.selected,
@@ -153,7 +173,7 @@ export class GoatMenu {
           <div class="item-section slot-end">
             <slot name="end" />
           </div>
-        </div>
+        </NativeElementTag>
       </Host>
     );
   };
