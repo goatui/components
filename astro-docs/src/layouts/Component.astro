@@ -65,8 +65,6 @@ const {nextComponent, previousComponent} = getNextAndPrevious(componentDetails.t
         { componentDetails.metadata.category == 'Up coming' ? <goat-tag color='red'>Work in progress</goat-tag>  : '' }
       </div>
 
-      {nextComponent.tag}
-
       <slot/>
 
       <div class='previous-next-nav'>

@@ -3,3 +3,9 @@
 :host {
   display: inline-block;
 }
+
+.label-polyline, .label {
+  stroke: v(--text-primary);
+}
+
+

@@ -9,6 +9,9 @@
   .hide-tablet-portrait-below {
     display: none;
   }
+  .show-tablet-portrait-below {
+    display: inherit;
+  }
   .hide-tablet-landscape-below {
     display: none;
   }
@@ -26,6 +29,9 @@
   }
   .hide-tablet-portrait-below {
     display: none;
+  }
+  .show-tablet-portrait-below {
+    display: inherit;
   }
   .hide-tablet-landscape-below {
     display: none;
@@ -45,6 +51,9 @@
   .hide-tablet-landscape-below {
     display: none;
   }
+  .show-tablet-portrait-below {
+    display: none;
+  }
   .hide-tablet-portrait-below {
     display: inherit;
   }
@@ -59,6 +68,9 @@
 @include for-desktop-up {
   .hide-tablet-landscape-below {
     display: inherit;
+  }
+  .show-tablet-portrait-below {
+    display: none;
   }
   .hide-tablet-portrait-below {
     display: inherit;

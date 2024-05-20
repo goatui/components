@@ -27,41 +27,60 @@
     },
   };
 
-  document.addEventListener('DOMContentLoaded', function () {
-    const themeSwitcher = document.querySelector('.theme-switcher');
-
-    if (!themeSwitcher) return;
-
-    function setTheme(theme) {
+  const registerThemeSwitcher = (() => {
+    function setTheme($themeSwitcher, theme) {
       document.documentElement.setAttribute('data-theme', theme);
-      themeSwitcher.icon = theme === 'dark' ? 'asleep--filled' : 'sun';
+      $themeSwitcher.icon = theme === 'dark' ? 'asleep--filled' : 'sun';
       localStorage.setItem('theme', theme);
     }
 
-    const theme = localStorage.getItem('theme') || 'light';
-    setTheme(theme);
+    return function ($themeSwitcher) {
+      if ($themeSwitcher) {
+        const theme = localStorage.getItem('theme') || 'light';
+        setTheme($themeSwitcher, theme);
+        $themeSwitcher.addEventListener('click', function () {
+          const theme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
+          setTheme($themeSwitcher, theme);
+        });
+      }
+    };
+  })();
 
-    themeSwitcher.addEventListener('click', function () {
-      const theme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
-      setTheme(theme);
+  const registerDirSwitcher = (() => {
+    function setDir($dirSwitcher, dir) {
+      document.documentElement.setAttribute('dir', dir);
+      $dirSwitcher.textContent = dir.toUpperCase();
+      localStorage.setItem('dir', dir);
+    }
+
+    return function ($dirSwitcher) {
+      if ($dirSwitcher) {
+        const dir = localStorage.getItem('dir') || 'ltr';
+        setDir($dirSwitcher, dir);
+        $dirSwitcher.addEventListener('click', function () {
+          const dir = localStorage.getItem('dir') === 'ltr' ? 'rtl' : 'ltr';
+          setDir($dirSwitcher, dir);
+        });
+      }
+    };
+  })();
+
+  document.addEventListener('DOMContentLoaded', function () {
+    registerThemeSwitcher(document.querySelector('.theme-switcher'));
+    registerDirSwitcher(document.querySelector('.dir-switcher'));
+
+    const $headerMenu = document.querySelector('#header-menu');
+
+    const $headerMenuBtn = document.querySelector('#header-menu-btn');
+    $headerMenuBtn.addEventListener('goat:click', function () {
+      $headerMenu.classList.add('show');
+      document.body.classList.add('stop-scroll');
     });
 
-    const dirSwitcher = document.querySelector('#dir-switcher');
-
-    if (dirSwitcher) {
-      function setDir(dir) {
-        document.documentElement.setAttribute('dir', dir);
-        dirSwitcher.innetText = dir;
-        localStorage.setItem('dir', dir);
-      }
-
-      const dir = localStorage.getItem('dir') || 'ltr';
-      setDir(dir);
-
-      dirSwitcher.addEventListener('click', function () {
-        const dir = localStorage.getItem('dir') === 'ltr' ? 'rtl' : 'ltr';
-        setDir(dir);
-      });
-    }
+    const $headerMenuCloseBtn = document.querySelector('#header-menu-close-btn');
+    $headerMenuCloseBtn.addEventListener('goat:click', function () {
+      $headerMenu.classList.remove('show');
+      document.body.classList.remove('stop-scroll');
+    });
   });
 })();

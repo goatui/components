@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-18T09:43:16",
+  "timestamp": "2024-05-20T03:14:35",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -2809,7 +2809,7 @@
         },
         {
           "name": "category",
-          "text": "Up coming"
+          "text": "Charts"
         },
         {
           "name": "tag",
@@ -2927,7 +2927,7 @@
       "metadata": {
         "name": "ChartDoughnut",
         "description": "A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.",
-        "category": "Up coming",
+        "category": "Charts",
         "tag": "controls",
         "img": "/assets/img/chart-doughnut.png",
         "imgDark": "/assets/img/chart-doughnut-dark.png"
@@ -15424,6 +15424,13 @@
       ]
     },
     {
+      "name": "Charts",
+      "hide": false,
+      "components": [
+        "goat-chart-doughnut"
+      ]
+    },
+    {
       "name": "Others",
       "hide": false,
       "components": [
@@ -15446,7 +15453,6 @@
         "goat-cb-divider",
         "goat-cb-expression",
         "goat-cb-predicate",
-        "goat-chart-doughnut",
         "goat-condition-builder",
         "goat-container",
         "goat-flow-designer",

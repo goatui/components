@@ -5,7 +5,7 @@ import { debounce } from '../../../utils/utils';
 /**
  * @name ChartDoughnut
  * @description A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.
- * @category Up coming
+ * @category Charts
  * @tag controls
  * @img /assets/img/chart-doughnut.png
  * @imgDark /assets/img/chart-doughnut-dark.png

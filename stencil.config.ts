@@ -72,7 +72,7 @@ export const config: Config = {
           cat.components.push(component.tag);
         });
 
-        const order = ['Data Display', 'Feedback', 'Form Inputs', 'General', 'Layout', 'Navigation', 'Others', 'Up coming'];
+        const order = ['Data Display', 'Feedback', 'Form Inputs', 'General', 'Layout', 'Navigation', 'Charts', 'Others', 'Up coming'];
 
         // @ts-ignore
         docs.categories.sort((a, b) => {

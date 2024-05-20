@@ -125,6 +125,38 @@ html.hydrated {
   z-index: 1000;
 }
 
+body.stop-scroll {
+  overflow-y: hidden;
+}
+
+#header-menu {
+  background: var(--layer-03);
+  position: fixed;
+  overflow: auto;
+  height: 100vh;
+  max-height: 100vh;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(-100%);
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  &.show {
+    transform: translateY(0);
+  }
+
+  .header-menu-head {
+    display: flex;
+    justify-content: flex-end;
+    height: var(--header-height);
+    align-items: center;
+  }
+
+  goat-menu {
+    width: 100%;
+  }
+}
+
 figure {
   margin: 0;
 }

@@ -32,7 +32,7 @@ const getTitle = (root?: boolean) => {
         {!root &&
           (
             <goat-select id='site-search'
-                         class='hide-mobile'
+                         class='hide-tablet-portrait-below'
                          search='contains'
                          layer='01'
                          hide-dropdown-icon
@@ -43,16 +43,14 @@ const getTitle = (root?: boolean) => {
         }
 
 
-        <!-- <goat-header-action id='dir-switcher' class='hide-tablet-landscape-below'>LTR</goat-header-action>
- -->
         <goat-header-action
-          class='hide-mobile'
+          class='hide-tablet-portrait-below'
           href='/components#'>
           Components
         </goat-header-action>
 
         <goat-header-action
-          class='hide-mobile'
+          class='hide-tablet-portrait-below'
           href='/blog#'>
           Blog
         </goat-header-action>
@@ -62,12 +60,14 @@ const getTitle = (root?: boolean) => {
           size='sm'
           kind='simple'
           target='_blank'
-          class='hide-mobile sponsor-btn'
+          class='hide-tablet-portrait-below sponsor-btn'
           href='https://github.com/sponsors/shivajivarma'>
           Sponsor
         </goat-button>
 
-        <goat-divider class='header-divider hide-mobile' vertical></goat-divider>
+        <goat-divider class='header-divider hide-tablet-portrait-below' vertical></goat-divider>
+
+        <goat-header-action class='dir-switcher hide-tablet-portrait-below'>LTR</goat-header-action>
 
         <goat-header-action
           id='theme-switcher'
@@ -83,35 +83,39 @@ const getTitle = (root?: boolean) => {
         ></goat-header-action>
 
         <goat-header-action
-          class='show-mobile'
-          dropdown-target='data-dropdown'
+          class='show-tablet-portrait-below'
           aria-label='Menu'
+          id="header-menu-btn"
           icon='menu'></goat-header-action>
-
-        <goat-dropdown id='data-dropdown'>
-          <goat-menu slot='dropdown-content' class='menu' style='width: 200px'>
-            <goat-menu-item href='/components#'>
-              <goat-icon name='roadmap' slot='start'></goat-icon>
-              Components
-            </goat-menu-item>
-            <goat-menu-item href='/blog#'>
-              <goat-icon name='blog' slot='start'></goat-icon>
-              Blog
-            </goat-menu-item>
-            <goat-divider></goat-divider>
-            <goat-menu-item href='https://github.com/sponsors/shivajivarma'>
-              <goat-icon name='currency--rupee' slot='start'></goat-icon>
-              Sponsor
-            </goat-menu-item>
-          </goat-menu>
-        </goat-dropdown>
       </div>
+
+
 
     </goat-header>
 
   </nav>
 
+  <div id="header-menu">
+    <div class='header-menu-head'>
+      <goat-button id='header-menu-close-btn' variant='ghost' icon='close--large' color='dark' dark-mode-color='light'></goat-button>
+    </div>
+
+    <goat-button  href='/components#' kind='block' variant='ghost' color='dark' dark-mode-color='light'>
+      <goat-icon name='roadmap'></goat-icon>&nbsp;
+      Components
+    </goat-button>
+    <goat-button href='/blog#' kind='block' variant='ghost' color='dark' dark-mode-color='light'>
+      <goat-icon name='blog'></goat-icon>&nbsp;
+      Blog
+    </goat-button>
+    <goat-button href='https://github.com/sponsors/shivajivarma' kind='block' variant='ghost' color='dark' dark-mode-color='light'>
+      <goat-icon name='currency--rupee'></goat-icon>&nbsp;
+      Sponsor
+    </goat-button>
+  </div>
+
   <main class={classes}>
+
     <slot />
   </main>
 
@@ -119,30 +123,32 @@ const getTitle = (root?: boolean) => {
     document.addEventListener('DOMContentLoaded', function() {
       const search = document.querySelector('#site-search');
 
-      // prettier-ignore
-      search.items = componentsDetails.components.map(component => ({
-        label: component.metadata.name,
-        value: component.tag.replace('goat-', ''),
-      }));
-      search.items = search.items.filter(item => !!item.label);
-      search.addEventListener('goat:change', function(e) {
-        window.location.href = '/components/' + e.detail.value;
-      });
+      if (search) {
+        // prettier-ignore
+        search.items = componentsDetails.components.map(component => ({
+          label: component.metadata.name,
+          value: component.tag.replace('goat-', ''),
+        }));
+        search.items = search.items.filter(item => !!item.label);
+        search.addEventListener('goat:change', function(e) {
+          window.location.href = '/components/' + e.detail.value;
+        });
 
-      search.addEventListener('goat:search-enter', function(e) {
-        if (e.detail.currentItems.length > 0)
-          window.location.href = '/components/' + e.detail.currentItems[0].value;
-      });
+        search.addEventListener('goat:search-enter', function(e) {
+          if (e.detail.currentItems.length > 0)
+            window.location.href = '/components/' + e.detail.currentItems[0].value;
+        });
 
-      document.addEventListener('keydown', function(e) {
-        if (e.key === '/') {
-          e.preventDefault();
-          search.open = true;
-          setTimeout(() => {
-            search.setFocus();
-          }, 300);
-        }
-      });
+        document.addEventListener('keydown', function(e) {
+          if (e.key === '/') {
+            e.preventDefault();
+            search.open = true;
+            setTimeout(() => {
+              search.setFocus();
+            }, 300);
+          }
+        });
+      }
     });
   </script>
 </Layout>
