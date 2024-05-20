@@ -57,7 +57,7 @@ const pageTitle = title ? `${title}  &middot; ${site.title}` : `${site.title} &m
   <link rel='stylesheet' href={envProps.themeCss} />
 
   <!-- GoatUI scripts -->
-  <script type='module' src={"ste"+envProps.script}></script>
+  <script type='module' src={envProps.script}></script>
 
   <script type='module'>
     if (!window.customElements.get('goat-button')) {
