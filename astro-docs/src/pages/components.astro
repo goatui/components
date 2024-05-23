@@ -4,6 +4,7 @@ import ComponentCard from '../components/ComponentCard.astro';
 import '../styles/components.page.scss';
 import componentsDetails from '../_data/componentsDetails.json';
 import site from '../_data/site.json';
+import Footer from '../components/Footer.astro';
 const title = 'Overview';
 const description = 'The overview page is the first page you see when you visit the components section of the website. It shows all the components that are available to use in the Goat UI library. It also shows the components that are coming soon.';
 ---
@@ -78,20 +79,7 @@ const description = 'The overview page is the first page you see when you visit 
       <script is:inline src='/assets/js/components.page.js'></script>
     </div>
 
-    <goat-footer class='simple'>
-      <goat-footer-copyright slot='start' copyright='Shivaji Varma'
-                             copyright-href='https://shivajivarma.com'></goat-footer-copyright>
-      <goat-footer-links id='footer-links' slot='end'></goat-footer-links>
-      <script is:inline>
-        document.getElementById('footer-links').links = [{
-          'name': 'Privacy',
-          'href': '/privacy',
-        }, {
-          'name': 'License',
-          'href': '/license',
-        }];
-      </script>
-    </goat-footer>
+    <Footer/>
 
   </div>
 

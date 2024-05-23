@@ -1,12 +1,22 @@
-import { Component, ComponentInterface, Element, h, Listen, Method, Prop, State, Watch } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  h,
+  Listen,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core';
 import { GoatTreeNodeCustomEvent } from '../../../components';
 
 /**
  * @name TreeView
  * @description A tree view is a hierarchical structure that provides nested levels of navigation.
  * @category Navigation
- * @img /assets/img/tree-view.png
- * @imgDark /assets/img/tree-view-dark.png
+ * @img /assets/img/tree-view.webp
+ * @imgDark /assets/img/tree-view-dark.webp
  */
 @Component({
   tag: 'goat-tree-view',
@@ -93,7 +103,11 @@ export class TreeView implements ComponentInterface {
   private focusNextItem(currentItem) {
     let nextItem: any = currentItem.nextElementSibling;
     do {
-      if (nextItem && nextItem.tagName === 'GOAT-TREE-NODE' && !nextItem.disabled) {
+      if (
+        nextItem &&
+        nextItem.tagName === 'GOAT-TREE-NODE' &&
+        !nextItem.disabled
+      ) {
         nextItem.setFocus();
         return;
       }
@@ -108,7 +122,11 @@ export class TreeView implements ComponentInterface {
   private focusPreviousItem(currentItem) {
     let previousItem: any = currentItem.previousElementSibling;
     do {
-      if (previousItem && previousItem.tagName === 'GOAT-TREE-NODE' && !previousItem.disabled) {
+      if (
+        previousItem &&
+        previousItem.tagName === 'GOAT-TREE-NODE' &&
+        !previousItem.disabled
+      ) {
         previousItem.setFocus();
         return;
       }
@@ -136,6 +154,9 @@ export class TreeView implements ComponentInterface {
   }
 
   private renderEmptyState() {
-    if (this.empty) return <goat-empty-state class="empty-menu" {...this.internalEmptyState} />;
+    if (this.empty)
+      return (
+        <goat-empty-state class="empty-menu" {...this.internalEmptyState} />
+      );
   }
 }

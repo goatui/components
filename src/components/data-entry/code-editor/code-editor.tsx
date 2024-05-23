@@ -1,5 +1,22 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
-import { debounceEvent, getComponentIndex, isDarkMode, observeThemeChange } from '../../../utils/utils';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core';
+import {
+  debounceEvent,
+  getComponentIndex,
+  isDarkMode,
+  observeThemeChange,
+} from '../../../utils/utils';
 import loadMonaco from '../../../3d-party/monaco';
 
 /**
@@ -7,8 +24,8 @@ import loadMonaco from '../../../3d-party/monaco';
  * @description A browser based code editor.
  * @category Form Inputs
  * @tags input, form
- * @img /assets/img/code-editor.png
- * @imgDark /assets/img/code-editor-dark.png
+ * @img /assets/img/code-editor.webp
+ * @imgDark /assets/img/code-editor-dark.webp
  */
 @Component({
   tag: 'goat-code-editor',
@@ -65,17 +82,24 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
 
   @Watch('disabled')
   disabledWatcher(newValue: boolean) {
-    this.editorMonacoInstance.updateOptions({ readOnly: newValue || this.readonly });
+    this.editorMonacoInstance.updateOptions({
+      readOnly: newValue || this.readonly,
+    });
   }
 
   @Watch('readonly')
   readonlyWatcher(newValue: string) {
-    this.editorMonacoInstance.updateOptions({ readOnly: newValue || this.disabled });
+    this.editorMonacoInstance.updateOptions({
+      readOnly: newValue || this.disabled,
+    });
   }
 
   @Watch('language')
   languageWatcher(newValue: string) {
-    window['monaco'].editor.setModelLanguage(this.editorMonacoInstance.getModel(), newValue);
+    window['monaco'].editor.setModelLanguage(
+      this.editorMonacoInstance.getModel(),
+      newValue,
+    );
   }
 
   themeWatcher() {
@@ -84,7 +108,10 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
 
   @Watch('value')
   valueWatcher(newValue: string) {
-    if (this.editorMonacoInstance && this.editorMonacoInstance.getValue() !== this.value) {
+    if (
+      this.editorMonacoInstance &&
+      this.editorMonacoInstance.getValue() !== this.value
+    ) {
       this.editorMonacoInstance.setValue(newValue);
     }
   }
@@ -147,7 +174,9 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
 
   isInViewport(element: HTMLElement) {
     const rect = element.getBoundingClientRect();
-    return rect.top !== 0 && rect.left !== 0 && rect.bottom !== 0 && rect.right !== 0;
+    return (
+      rect.top !== 0 && rect.left !== 0 && rect.bottom !== 0 && rect.right !== 0
+    );
   }
 
   private initializeMonaco() {
@@ -158,13 +187,16 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
     }
     this.editorElement.innerHTML = '';
 
-    this.editorMonacoInstance = window['monaco'].editor.create(this.editorElement, {
-      value: this.value,
-      lineNumbers: this.lineNumbers,
-      language: this.language,
-      theme: this.getTheme(),
-      readOnly: this.disabled || this.readonly,
-    });
+    this.editorMonacoInstance = window['monaco'].editor.create(
+      this.editorElement,
+      {
+        value: this.value,
+        lineNumbers: this.lineNumbers,
+        language: this.language,
+        theme: this.getTheme(),
+        readOnly: this.disabled || this.readonly,
+      },
+    );
 
     this.editorMonacoInstance.onDidChangeModelContent(() => {
       this.value = this.editorMonacoInstance.getValue();

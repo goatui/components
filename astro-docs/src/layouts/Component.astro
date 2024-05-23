@@ -10,6 +10,7 @@ import Layout from './Default.astro';
 import componentsDetails from '../_data/componentsDetails.json';
 import '../styles/component.layout.scss';
 import { getComponentDetails, getNextAndPrevious } from '../_data/getComponentDetails';
+import Footer from '../components/Footer.astro';
 
 const title = componentDetails.metadata.name;
 const description = componentDetails.metadata.description;
@@ -85,23 +86,7 @@ const {nextComponent, previousComponent} = getNextAndPrevious(componentDetails.t
 
     <div class='footer container'>
       <goat-divider></goat-divider>
-
-      <goat-footer class="simple">
-        <goat-footer-copyright slot="start" copyright={site.author}
-                               copyright-href={site.author_url}></goat-footer-copyright>
-        <goat-footer-links id="footer-links" slot="end"></goat-footer-links>
-        <script>
-          document.getElementById('footer-links').links = [{
-            'name': 'Privacy',
-            'href': '/privacy'
-          }, {
-            'name': 'License',
-            'href': '/license',
-          }];
-        </script>
-      </goat-footer>
-
-
+      <Footer/>
     </div>
   </div>
 

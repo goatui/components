@@ -1,13 +1,28 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Listen, Method, Prop } from '@stencil/core';
-import { getComponentIndex, isEventTriggerByElement, throttle } from '../../../utils/utils';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Listen,
+  Method,
+  Prop,
+} from '@stencil/core';
+import {
+  getComponentIndex,
+  isEventTriggerByElement,
+  throttle,
+} from '../../../utils/utils';
 import { computePosition, flip, offset, size } from '@floating-ui/dom';
 
 /**
  * @name Dropdown
  * @description Enables native inputs to be used within a Form field.
  * @category Navigation
- * @img /assets/img/dropdown.png
- * @imgDark /assets/img/dropdown-dark.png
+ * @img /assets/img/dropdown.webp
+ * @imgDark /assets/img/dropdown-dark.webp
  */
 @Component({
   tag: 'goat-dropdown',
@@ -29,14 +44,16 @@ export class Dropdown implements ComponentInterface {
    */
   @Prop() disabled: boolean = false;
 
-  @Prop({ reflect: true }) placements: string = 'bottom-start,top-start,bottom-end,top-end';
+  @Prop({ reflect: true }) placements: string =
+    'bottom-start,top-start,bottom-end,top-end';
 
   @Element() elm!: HTMLElement;
 
   referenceElm: HTMLElement;
   dropdownButtonElm: HTMLElement;
 
-  @Event({ eventName: 'goat:dropdown-item-click' }) goatMenuItemClick: EventEmitter;
+  @Event({ eventName: 'goat:dropdown-item-click' })
+  goatMenuItemClick: EventEmitter;
 
   @Listen('click', { target: 'window' })
   windowClick(evt) {
@@ -44,7 +61,10 @@ export class Dropdown implements ComponentInterface {
     for (const elm of path) {
       if (elm == this.elm) return;
     }
-    if (evt.target.hasAttribute('dropdown-target') && evt.target.getAttribute('dropdown-target') === this.elm.getAttribute('id')) {
+    if (
+      evt.target.hasAttribute('dropdown-target') &&
+      evt.target.getAttribute('dropdown-target') === this.elm.getAttribute('id')
+    ) {
       this.referenceElm = evt.target;
       this.toggleList();
     } else {
@@ -112,7 +132,8 @@ export class Dropdown implements ComponentInterface {
       const positions = this.placements.split(',');
       const placement: any = positions[0];
       const fallbackPlacements: any = positions.splice(1);
-      const dropdownContent: any = this.elm.shadowRoot.querySelector('.dropdown-content');
+      const dropdownContent: any =
+        this.elm.shadowRoot.querySelector('.dropdown-content');
       const menuElm: any = this.getMenuElement();
 
       computePosition(this.referenceElm, dropdownContent, {
@@ -124,7 +145,10 @@ export class Dropdown implements ComponentInterface {
           size({
             apply({ availableHeight }) {
               if (availableHeight < 10 * 16) return;
-              menuElm.style.setProperty('--list-max-height', `${availableHeight}px`);
+              menuElm.style.setProperty(
+                '--list-max-height',
+                `${availableHeight}px`,
+              );
             },
             padding: 5,
           }),

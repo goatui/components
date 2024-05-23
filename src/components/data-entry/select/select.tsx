@@ -1,15 +1,35 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Listen, Method, Prop, State, Watch } from '@stencil/core';
-import { debounceEvent, getComponentIndex, throttle } from '../../../utils/utils';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core';
+import {
+  debounceEvent,
+  getComponentIndex,
+  throttle,
+} from '../../../utils/utils';
 import { computePosition, flip, offset, size } from '@floating-ui/dom';
-import { GoatMenuItemCustomEvent, GoatTagCustomEvent } from '../../../components';
+import {
+  GoatMenuItemCustomEvent,
+  GoatTagCustomEvent,
+} from '../../../components';
 
 /**
  * @name Select
  * @description Allows the user to select one or more options using a dropdown.
  * @category Form Inputs
  * @tags input, form
- * @img /assets/img/select.png
- * @imgDark /assets/img/select-dark.png
+ * @img /assets/img/select.webp
+ * @imgDark /assets/img/select-dark.webp
  */
 @Component({
   tag: 'goat-select',
@@ -68,7 +88,8 @@ export class Select implements ComponentInterface, InputComponentInterface {
    * The input state.
    * Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
    */
-  @Prop({ reflect: true }) state: 'success' | 'error' | 'warning' | 'default' = 'default';
+  @Prop({ reflect: true }) state: 'success' | 'error' | 'warning' | 'default' =
+    'default';
 
   /**
    * If true, required icon is show. Defaults to `false`.
@@ -205,7 +226,10 @@ export class Select implements ComponentInterface, InputComponentInterface {
       if (!this.multiple) value = [];
       value.push(selectItemValue);
       this.value = value.join(',');
-      this.goatChange.emit({ value: this.value, newItem: this.getItemByValue(selectItemValue) });
+      this.goatChange.emit({
+        value: this.value,
+        newItem: this.getItemByValue(selectItemValue),
+      });
     }
   }
 
@@ -214,7 +238,10 @@ export class Select implements ComponentInterface, InputComponentInterface {
     if (value.includes(selectItemValue)) {
       value = value.filter(item => item !== selectItemValue);
       this.value = value.join(',');
-      this.goatChange.emit({ value: this.value, removedItem: this.getItemByValue(selectItemValue) });
+      this.goatChange.emit({
+        value: this.value,
+        removedItem: this.getItemByValue(selectItemValue),
+      });
     }
   }
 
@@ -374,27 +401,35 @@ export class Select implements ComponentInterface, InputComponentInterface {
       const positions = this.placements.split(',');
       const placement: any = positions[0];
       const fallbackPlacements: any = positions.splice(1);
-      const dropdownContent: any = this.elm.shadowRoot.querySelector('.dropdown-content');
+      const dropdownContent: any =
+        this.elm.shadowRoot.querySelector('.dropdown-content');
       const menuElm: any = this.getMenuElement();
 
-      computePosition(this.elm.shadowRoot.querySelector('.input-container'), dropdownContent, {
-        placement: placement,
-        // Try removing the middleware. The dropdown will
-        // overflow the boundary's edge and get clipped!
-        middleware: [
-          offset(10),
-          size({
-            apply({ availableHeight }) {
-              if (availableHeight < 10 * 16) return;
-              menuElm?.style.setProperty('--list-max-height', `${availableHeight}px`);
-            },
-            padding: 5,
-          }),
-          flip({
-            fallbackPlacements: fallbackPlacements,
-          }),
-        ],
-      }).then(({ x, y }) => {
+      computePosition(
+        this.elm.shadowRoot.querySelector('.input-container'),
+        dropdownContent,
+        {
+          placement: placement,
+          // Try removing the middleware. The dropdown will
+          // overflow the boundary's edge and get clipped!
+          middleware: [
+            offset(10),
+            size({
+              apply({ availableHeight }) {
+                if (availableHeight < 10 * 16) return;
+                menuElm?.style.setProperty(
+                  '--list-max-height',
+                  `${availableHeight}px`,
+                );
+              },
+              padding: 5,
+            }),
+            flip({
+              fallbackPlacements: fallbackPlacements,
+            }),
+          ],
+        },
+      ).then(({ x, y }) => {
         Object.assign(dropdownContent.style, {
           top: `${y}px`,
           left: `${x}px`,
@@ -432,7 +467,12 @@ export class Select implements ComponentInterface, InputComponentInterface {
         const item = this.getItemByValue(value);
         if (item) {
           return (
-            <goat-tag size="sm" filter={!this.disabled && !this.readonly} class="multi-select-value" value={item.value}>
+            <goat-tag
+              size="sm"
+              filter={!this.disabled && !this.readonly}
+              class="multi-select-value"
+              value={item.value}
+            >
               {item.label}
             </goat-tag>
           );
@@ -443,7 +483,11 @@ export class Select implements ComponentInterface, InputComponentInterface {
 
   render() {
     return (
-      <Host has-value={this.hasValue()} has-focus={this.hasFocus} position={this.position}>
+      <Host
+        has-value={this.hasValue()}
+        has-focus={this.hasFocus}
+        position={this.position}
+      >
         <div class={{ 'form-control': true, 'inline': this.inline }}>
           {this.label && (
             <label class="label">
@@ -526,7 +570,15 @@ export class Select implements ComponentInterface, InputComponentInterface {
                 </div>
 
                 {this.clearable && !this.multiple && this.hasValue() && (
-                  <goat-button class="clear input-action" size={'full'} color={'secondary'} kind={'simple'} variant="ghost" icon="close" onClick={this.clearInput} />
+                  <goat-button
+                    class="clear input-action"
+                    size={'full'}
+                    color={'secondary'}
+                    kind={'simple'}
+                    variant="ghost"
+                    icon="close"
+                    onClick={this.clearInput}
+                  />
                 )}
 
                 <div class="slot-container end">
@@ -535,7 +587,9 @@ export class Select implements ComponentInterface, InputComponentInterface {
 
                 {this.getModeIcon()}
               </div>
-              <div class="dropdown-content">{this.open && this.renderDropdownList()}</div>
+              <div class="dropdown-content">
+                {this.open && this.renderDropdownList()}
+              </div>
             </div>
           </div>
         </div>
@@ -548,16 +602,31 @@ export class Select implements ComponentInterface, InputComponentInterface {
       return <goat-spinner class="input-action loader" />;
     }
     if (!this.disabled && !this.readonly && !this.hideDropdownIcon)
-      return <goat-icon tabindex={-1} class="toggle-icon chevron-down color-secondary" size={this.size} name="chevron--down" onClick={this.toggleList}></goat-icon>;
+      return (
+        <goat-icon
+          tabindex={-1}
+          class="toggle-icon chevron-down color-secondary"
+          size={this.size}
+          name="chevron--down"
+          onClick={this.toggleList}
+        ></goat-icon>
+      );
   }
 
   private renderDropdownList() {
     if (this.search === 'managed' && !this.items.length) {
       return (
-        <goat-menu class="menu" ref={el => (this.menuElm = el)} size={this.size} layer={this.layer}>
+        <goat-menu
+          class="menu"
+          ref={el => (this.menuElm = el)}
+          size={this.size}
+          layer={this.layer}
+        >
           <div class="start-search">
             <goat-icon name="search" size={this.size} />
-            <goat-text class="text-secondary">Start typing to perform search</goat-text>
+            <goat-text class="text-secondary">
+              Start typing to perform search
+            </goat-text>
           </div>
         </goat-menu>
       );
@@ -566,17 +635,30 @@ export class Select implements ComponentInterface, InputComponentInterface {
     if (this.items) {
       const filteredItems = this.filterItems();
       return (
-        <goat-menu class="menu" empty={filteredItems.length == 0} ref={el => (this.menuElm = el)} size={this.size} layer={this.layer}>
+        <goat-menu
+          class="menu"
+          empty={filteredItems.length == 0}
+          ref={el => (this.menuElm = el)}
+          size={this.size}
+          layer={this.layer}
+        >
           {(() => {
             return filteredItems.map(item => {
               return (
                 <goat-menu-item value={item.value} layer={this.layer}>
                   <div class={'slot-container-start'} slot="start">
-                    {item.icon && <goat-icon name={item.icon} size={this.size} />}
+                    {item.icon && (
+                      <goat-icon name={item.icon} size={this.size} />
+                    )}
                   </div>
                   {item.label || item.value}
 
-                  <div slot="end">{((this.multiple && this.containsValue(item.value)) || this.value == item.value) && <goat-icon name="checkmark" size={this.size} />}</div>
+                  <div slot="end">
+                    {((this.multiple && this.containsValue(item.value)) ||
+                      this.value == item.value) && (
+                      <goat-icon name="checkmark" size={this.size} />
+                    )}
+                  </div>
                 </goat-menu-item>
               );
             });
@@ -589,7 +671,12 @@ export class Select implements ComponentInterface, InputComponentInterface {
   private filterItems() {
     if (this.search === 'managed') return this.items;
     return this.items.filter(item => {
-      return !this.searchString || item.label.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase());
+      return (
+        !this.searchString ||
+        item.label
+          .toLocaleLowerCase()
+          .includes(this.searchString.toLocaleLowerCase())
+      );
     });
   }
 }

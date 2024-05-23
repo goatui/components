@@ -3,6 +3,7 @@ import Layout from '../layouts/Default.astro';
 import BannerLogo from '../components/BannerLogo.astro';
 import site from '../_data/site.json';
 import '../styles/index.page.scss';
+import Footer from '../components/Footer.astro';
 
 const isProd = import.meta.env.PROD;
 let envProps;
@@ -39,7 +40,6 @@ if (isProd) {
         icon-size='lg'
         variant='ghost'
         color='dark'
-        dark-mode-color='light'
         target='_blank'
         aria-label='Github'
         href={`https://www.github.com/${site.github_username}`}
@@ -48,7 +48,6 @@ if (isProd) {
         icon-size='lg'
         icon='logo--x'
         color='dark'
-        dark-mode-color='light'
         variant='ghost'
         target='_blank'
         aria-label='Twitter'
@@ -57,13 +56,16 @@ if (isProd) {
     </div>
 
     <div class='made-in-india'>
-      <goat-text>&copy; 2023
-        <goat-link class='no-decoration' href={site.author_url}>{site.author}</goat-link>
-        .
+      <goat-text expressive>&copy; 2024</goat-text>&nbsp;
+      <goat-text expressive><goat-link class='no-decoration' href={site.author_url}>
+          <goat-avatar src='/assets/img/avatar.webp' size='1.5rem'/>&nbsp;
+          {site.author}
+        </goat-link>
       </goat-text>
+      <goat-text expressive>.</goat-text>
       <goat-svg class='country-flag' size='1.5rem'
                 src='https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/in.svg'></goat-svg>
-      <goat-text>Made in India.</goat-text>
+      <goat-text expressive>Made in India.</goat-text>
     </div>
   </div>
 
@@ -94,7 +96,7 @@ if (isProd) {
     });
   </script>
 
-  <div class='sections-wrapper'>
+  <div class='sections-wrapper layer-01'>
     <goat-container class='section'>
       <goat-text type='heading' heading-size='5'>Introduction</goat-text>
       <goat-text expressive>{site.title} contains most used web components built using Stencil. So you don't need to
@@ -214,6 +216,7 @@ if (isProd) {
     </div>
   </div>
 
+  <Footer/>
 
   <script
     src='https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js'

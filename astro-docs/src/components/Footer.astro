@@ -1,2 +1,17 @@
 ---
+import site from '../_data/site.json';
 ---
+<goat-footer class="simple">
+  <goat-footer-copyright slot="start" copyright={site.author}
+                         copyright-href={site.author_url}></goat-footer-copyright>
+  <goat-footer-links id="footer-links" slot="end"></goat-footer-links>
+  <script type='text/javascript'>
+    document.getElementById('footer-links').links = [{
+      'name': 'Privacy',
+      'href': '/privacy'
+    }, {
+      'name': 'License',
+      'href': '/license',
+    }];
+  </script>
+</goat-footer>

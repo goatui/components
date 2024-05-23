@@ -15,8 +15,8 @@ export namespace Components {
      *  <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>
      * @category Data Display
      * @tags display
-     * @img /assets/img/accordion.png
-     * @imgDark /assets/img/accordion-dark.png
+     * @img /assets/img/accordion.webp
+     * @imgDark /assets/img/accordion-dark.webp
      */
     interface GoatAccordion {
         /**
@@ -177,8 +177,8 @@ export namespace Components {
      * @description The calendar component is used to display information in a daily, weekly, monthly, or category view.
      * @category Data Display
      * @tags calendar
-     * @img /assets/img/calendar.png
-     * @imgDark /assets/img/calendar-dark.png
+     * @img /assets/img/calendar.webp
+     * @imgDark /assets/img/calendar-dark.webp
      */
     interface GoatCalendar {
         "availableViews": CalendarViewType[];
@@ -217,7 +217,7 @@ export namespace Components {
      * @name Canvas
      * @category Up coming
      * @description Canvas for drawing lines and shapes on.
-     * @img /assets/img/canvas.png
+     * @img /assets/img/canvas.webp
      */
     interface GoatCanvas {
         "padding": number;
@@ -251,11 +251,12 @@ export namespace Components {
      * @description A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.
      * @category Charts
      * @tag controls
-     * @img /assets/img/chart-doughnut.png
-     * @imgDark /assets/img/chart-doughnut-dark.png
+     * @img /assets/img/chart-doughnut.webp
+     * @imgDark /assets/img/chart-doughnut-dark.webp
      */
     interface GoatChartDoughnut {
         "data": any;
+        "label": string;
         "margin": number;
         "showLabels": boolean;
         "width": number;
@@ -312,8 +313,8 @@ export namespace Components {
      * @description A browser based code editor.
      * @category Form Inputs
      * @tags input, form
-     * @img /assets/img/code-editor.png
-     * @imgDark /assets/img/code-editor-dark.png
+     * @img /assets/img/code-editor.webp
+     * @imgDark /assets/img/code-editor-dark.webp
      */
     interface GoatCodeEditor {
         /**
@@ -354,8 +355,8 @@ export namespace Components {
      * @description A browser based code highlighter.
      * @category Data Display
      * @tag display, code
-     * @img /assets/img/code-highlighter.png
-     * @imgDark /assets/img/code-highlighter-dark.png
+     * @img /assets/img/code-highlighter.webp
+     * @imgDark /assets/img/code-highlighter-dark.webp
      */
     interface GoatCodeHighlighter {
         "format": boolean;
@@ -370,7 +371,7 @@ export namespace Components {
      * @description A condition builder is a component that allows users to build a condition using a set of rules.
      * @category Up coming
      * @tag content
-     * @img /assets/img/condition-builder.png
+     * @img /assets/img/condition-builder.webp
      */
     interface GoatConditionBuilder {
         "content": string;
@@ -457,8 +458,8 @@ export namespace Components {
      * @name Dropdown
      * @description Enables native inputs to be used within a Form field.
      * @category Navigation
-     * @img /assets/img/dropdown.png
-     * @imgDark /assets/img/dropdown-dark.png
+     * @img /assets/img/dropdown.webp
+     * @imgDark /assets/img/dropdown-dark.webp
      */
     interface GoatDropdown {
         /**
@@ -477,8 +478,8 @@ export namespace Components {
      * @name Empty State
      * @description A message that displays when there is no information to display.
      * @category Data Display
-     * @img /assets/img/empty-state.png
-     * @imgDark /assets/img/empty-state-dark.png
+     * @img /assets/img/empty-state.webp
+     * @imgDark /assets/img/empty-state-dark.webp
      */
     interface GoatEmptyState {
         "action": string;
@@ -493,7 +494,7 @@ export namespace Components {
      * @name Flow Designer
      * @category Up coming
      * @description Flow Designer is a component that allows users to create and edit flows.
-     * @img /assets/img/flow-designer.png
+     * @img /assets/img/flow-designer.webp
      */
     interface GoatFlowDesigner {
         "blockSize": number;
@@ -505,8 +506,8 @@ export namespace Components {
      * @description The footer component provides a container for displaying additional navigation information about a site.
      * @overview <p>The footer is one of the most underestimated sections of a website being located at the very bottom of every page, however, it can be used as a way to try to convince users to stay on your website if they haven’t found the information they’ve been looking for inside the main content area.</p>
      * @category Navigation
-     * @img /assets/img/footer.png
-     * @imgDark /assets/img/footer-dark.png
+     * @img /assets/img/footer.webp
+     * @imgDark /assets/img/footer-dark.webp
      */
     interface GoatFooter {
         "variant": 'simple';
@@ -547,11 +548,14 @@ export namespace Components {
      * @name Header
      * @description Header component is used to display a header with a brand, navigation, and actions.
      * @category Navigation
-     * @img /assets/img/header.png
-     * @imgDark /assets/img/header-dark.png
+     * @img /assets/img/header.webp
+     * @imgDark /assets/img/header-dark.webp
      */
     interface GoatHeader {
-        "color": 'light' | 'dark' | 'brand-primary' | 'brand-secondary';
+        "color": | 'light'
+    | 'dark'
+    | 'brand-primary'
+    | 'brand-secondary';
         "float": boolean;
     }
     interface GoatHeaderAction {
@@ -590,8 +594,8 @@ export namespace Components {
      * @description HTML Editor component is a WYSIWYG editor that allows users to edit HTML content.
      * @category Up coming
      * @tags input, form
-     * @img /assets/img/html-editor.png
-     * @imgDark /assets/img/html-editor-dark.png
+     * @img /assets/img/html-editor.webp
+     * @imgDark /assets/img/html-editor-dark.webp
      */
     interface GoatHtmlEditor {
         /**
@@ -739,8 +743,8 @@ export namespace Components {
      * @name Menu
      * @description Menus display a list of choices on temporary surfaces.
      * @category Navigation
-     * @img /assets/img/menu.png
-     * @imgDark /assets/img/menu-dark.png
+     * @img /assets/img/menu.webp
+     * @imgDark /assets/img/menu-dark.webp
      */
     interface GoatMenu {
         "empty": boolean;
@@ -794,8 +798,8 @@ export namespace Components {
      * @description Modals are used to display content in a layer above the app.
      * @category Feedback
      * @tags controls
-     * @img /assets/img/modal.png
-     * @imgDark /assets/img/modal-dark.png
+     * @img /assets/img/modal.webp
+     * @imgDark /assets/img/modal-dark.webp
      */
     interface GoatModal {
         "heading": string;
@@ -830,8 +834,8 @@ export namespace Components {
      * @description Manages alert, toasts and notifications.
      * @category Feedback
      * @tags notification
-     * @img /assets/img/notification-manager.png
-     * @imgDark /assets/img/notification-manager-dark.png
+     * @img /assets/img/notification-manager.webp
+     * @imgDark /assets/img/notification-manager-dark.webp
      */
     interface GoatNotificationManager {
         "name": string;
@@ -935,8 +939,8 @@ export namespace Components {
      * @description Allows the user to select one or more options using a dropdown.
      * @category Form Inputs
      * @tags input, form
-     * @img /assets/img/select.png
-     * @imgDark /assets/img/select-dark.png
+     * @img /assets/img/select.webp
+     * @imgDark /assets/img/select-dark.webp
      */
     interface GoatSelect {
         /**
@@ -1014,7 +1018,7 @@ export namespace Components {
     /**
      * @name1 Side Navigation
      * @description1 The side navigation component provides an easy way to navigate through your website / application.
-     * @img1 /assets/img/sidenav.png
+     * @img1 /assets/img/sidenav.webp
      */
     interface GoatSidenav {
         "showLoader": boolean;
@@ -1056,8 +1060,8 @@ export namespace Components {
      * @description Sliders allow users to make selections from a range of values.
      * @category Form Inputs
      * @tags input, form
-     * @img /assets/img/slider.png
-     * @imgDark /assets/img/slider-dark.png
+     * @img /assets/img/slider.webp
+     * @imgDark /assets/img/slider-dark.webp
      */
     interface GoatSlider {
         "configAria": any;
@@ -1158,8 +1162,8 @@ export namespace Components {
      * @name Table
      * @description A configurable component for displaying tabular data.
      * @category Data Display
-     * @img /assets/img/table.png
-     * @imgDark /assets/img/table-dark.png
+     * @img /assets/img/table.webp
+     * @imgDark /assets/img/table-dark.webp
      */
     interface GoatTable {
         /**
@@ -1410,8 +1414,8 @@ export namespace Components {
      * @description The Tooltip component is used to display additional information on hover.
      * @category Data Display
      * @tag content
-     * @img /assets/img/tooltip.png
-     * @imgDark /assets/img/tooltip-dark.png
+     * @img /assets/img/tooltip.webp
+     * @imgDark /assets/img/tooltip-dark.webp
      */
     interface GoatTooltip {
         "open": boolean;
@@ -1454,8 +1458,8 @@ export namespace Components {
      * @name TreeView
      * @description A tree view is a hierarchical structure that provides nested levels of navigation.
      * @category Navigation
-     * @img /assets/img/tree-view.png
-     * @imgDark /assets/img/tree-view-dark.png
+     * @img /assets/img/tree-view.webp
+     * @imgDark /assets/img/tree-view-dark.webp
      */
     interface GoatTreeView {
         "empty": boolean;
@@ -1577,8 +1581,8 @@ declare global {
      *  <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>
      * @category Data Display
      * @tags display
-     * @img /assets/img/accordion.png
-     * @imgDark /assets/img/accordion-dark.png
+     * @img /assets/img/accordion.webp
+     * @imgDark /assets/img/accordion-dark.webp
      */
     interface HTMLGoatAccordionElement extends Components.GoatAccordion, HTMLStencilElement {
     }
@@ -1698,8 +1702,8 @@ declare global {
      * @description The calendar component is used to display information in a daily, weekly, monthly, or category view.
      * @category Data Display
      * @tags calendar
-     * @img /assets/img/calendar.png
-     * @imgDark /assets/img/calendar-dark.png
+     * @img /assets/img/calendar.webp
+     * @imgDark /assets/img/calendar-dark.webp
      */
     interface HTMLGoatCalendarElement extends Components.GoatCalendar, HTMLStencilElement {
         addEventListener<K extends keyof HTMLGoatCalendarElementEventMap>(type: K, listener: (this: HTMLGoatCalendarElement, ev: GoatCalendarCustomEvent<HTMLGoatCalendarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1767,7 +1771,7 @@ declare global {
      * @name Canvas
      * @category Up coming
      * @description Canvas for drawing lines and shapes on.
-     * @img /assets/img/canvas.png
+     * @img /assets/img/canvas.webp
      */
     interface HTMLGoatCanvasElement extends Components.GoatCanvas, HTMLStencilElement {
     }
@@ -1810,8 +1814,8 @@ declare global {
      * @description A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.
      * @category Charts
      * @tag controls
-     * @img /assets/img/chart-doughnut.png
-     * @imgDark /assets/img/chart-doughnut-dark.png
+     * @img /assets/img/chart-doughnut.webp
+     * @imgDark /assets/img/chart-doughnut-dark.webp
      */
     interface HTMLGoatChartDoughnutElement extends Components.GoatChartDoughnut, HTMLStencilElement {
     }
@@ -1853,8 +1857,8 @@ declare global {
      * @description A browser based code editor.
      * @category Form Inputs
      * @tags input, form
-     * @img /assets/img/code-editor.png
-     * @imgDark /assets/img/code-editor-dark.png
+     * @img /assets/img/code-editor.webp
+     * @imgDark /assets/img/code-editor-dark.webp
      */
     interface HTMLGoatCodeEditorElement extends Components.GoatCodeEditor, HTMLStencilElement {
         addEventListener<K extends keyof HTMLGoatCodeEditorElementEventMap>(type: K, listener: (this: HTMLGoatCodeEditorElement, ev: GoatCodeEditorCustomEvent<HTMLGoatCodeEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1875,8 +1879,8 @@ declare global {
      * @description A browser based code highlighter.
      * @category Data Display
      * @tag display, code
-     * @img /assets/img/code-highlighter.png
-     * @imgDark /assets/img/code-highlighter-dark.png
+     * @img /assets/img/code-highlighter.webp
+     * @imgDark /assets/img/code-highlighter-dark.webp
      */
     interface HTMLGoatCodeHighlighterElement extends Components.GoatCodeHighlighter, HTMLStencilElement {
     }
@@ -1889,7 +1893,7 @@ declare global {
      * @description A condition builder is a component that allows users to build a condition using a set of rules.
      * @category Up coming
      * @tag content
-     * @img /assets/img/condition-builder.png
+     * @img /assets/img/condition-builder.webp
      */
     interface HTMLGoatConditionBuilderElement extends Components.GoatConditionBuilder, HTMLStencilElement {
     }
@@ -1960,8 +1964,8 @@ declare global {
      * @name Dropdown
      * @description Enables native inputs to be used within a Form field.
      * @category Navigation
-     * @img /assets/img/dropdown.png
-     * @imgDark /assets/img/dropdown-dark.png
+     * @img /assets/img/dropdown.webp
+     * @imgDark /assets/img/dropdown-dark.webp
      */
     interface HTMLGoatDropdownElement extends Components.GoatDropdown, HTMLStencilElement {
         addEventListener<K extends keyof HTMLGoatDropdownElementEventMap>(type: K, listener: (this: HTMLGoatDropdownElement, ev: GoatDropdownCustomEvent<HTMLGoatDropdownElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1981,8 +1985,8 @@ declare global {
      * @name Empty State
      * @description A message that displays when there is no information to display.
      * @category Data Display
-     * @img /assets/img/empty-state.png
-     * @imgDark /assets/img/empty-state-dark.png
+     * @img /assets/img/empty-state.webp
+     * @imgDark /assets/img/empty-state-dark.webp
      */
     interface HTMLGoatEmptyStateElement extends Components.GoatEmptyState, HTMLStencilElement {
     }
@@ -1994,7 +1998,7 @@ declare global {
      * @name Flow Designer
      * @category Up coming
      * @description Flow Designer is a component that allows users to create and edit flows.
-     * @img /assets/img/flow-designer.png
+     * @img /assets/img/flow-designer.webp
      */
     interface HTMLGoatFlowDesignerElement extends Components.GoatFlowDesigner, HTMLStencilElement {
     }
@@ -2007,8 +2011,8 @@ declare global {
      * @description The footer component provides a container for displaying additional navigation information about a site.
      * @overview <p>The footer is one of the most underestimated sections of a website being located at the very bottom of every page, however, it can be used as a way to try to convince users to stay on your website if they haven’t found the information they’ve been looking for inside the main content area.</p>
      * @category Navigation
-     * @img /assets/img/footer.png
-     * @imgDark /assets/img/footer-dark.png
+     * @img /assets/img/footer.webp
+     * @imgDark /assets/img/footer-dark.webp
      */
     interface HTMLGoatFooterElement extends Components.GoatFooter, HTMLStencilElement {
     }
@@ -2047,8 +2051,8 @@ declare global {
      * @name Header
      * @description Header component is used to display a header with a brand, navigation, and actions.
      * @category Navigation
-     * @img /assets/img/header.png
-     * @imgDark /assets/img/header-dark.png
+     * @img /assets/img/header.webp
+     * @imgDark /assets/img/header-dark.webp
      */
     interface HTMLGoatHeaderElement extends Components.GoatHeader, HTMLStencilElement {
     }
@@ -2076,8 +2080,8 @@ declare global {
      * @description HTML Editor component is a WYSIWYG editor that allows users to edit HTML content.
      * @category Up coming
      * @tags input, form
-     * @img /assets/img/html-editor.png
-     * @imgDark /assets/img/html-editor-dark.png
+     * @img /assets/img/html-editor.webp
+     * @imgDark /assets/img/html-editor-dark.webp
      */
     interface HTMLGoatHtmlEditorElement extends Components.GoatHtmlEditor, HTMLStencilElement {
         addEventListener<K extends keyof HTMLGoatHtmlEditorElementEventMap>(type: K, listener: (this: HTMLGoatHtmlEditorElement, ev: GoatHtmlEditorCustomEvent<HTMLGoatHtmlEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2155,8 +2159,8 @@ declare global {
      * @name Menu
      * @description Menus display a list of choices on temporary surfaces.
      * @category Navigation
-     * @img /assets/img/menu.png
-     * @imgDark /assets/img/menu-dark.png
+     * @img /assets/img/menu.webp
+     * @imgDark /assets/img/menu-dark.webp
      */
     interface HTMLGoatMenuElement extends Components.GoatMenu, HTMLStencilElement {
     }
@@ -2189,8 +2193,8 @@ declare global {
      * @description Modals are used to display content in a layer above the app.
      * @category Feedback
      * @tags controls
-     * @img /assets/img/modal.png
-     * @imgDark /assets/img/modal-dark.png
+     * @img /assets/img/modal.webp
+     * @imgDark /assets/img/modal-dark.webp
      */
     interface HTMLGoatModalElement extends Components.GoatModal, HTMLStencilElement {
         addEventListener<K extends keyof HTMLGoatModalElementEventMap>(type: K, listener: (this: HTMLGoatModalElement, ev: GoatModalCustomEvent<HTMLGoatModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2243,8 +2247,8 @@ declare global {
      * @description Manages alert, toasts and notifications.
      * @category Feedback
      * @tags notification
-     * @img /assets/img/notification-manager.png
-     * @imgDark /assets/img/notification-manager-dark.png
+     * @img /assets/img/notification-manager.webp
+     * @imgDark /assets/img/notification-manager-dark.webp
      */
     interface HTMLGoatNotificationManagerElement extends Components.GoatNotificationManager, HTMLStencilElement {
     }
@@ -2302,8 +2306,8 @@ declare global {
      * @description Allows the user to select one or more options using a dropdown.
      * @category Form Inputs
      * @tags input, form
-     * @img /assets/img/select.png
-     * @imgDark /assets/img/select-dark.png
+     * @img /assets/img/select.webp
+     * @imgDark /assets/img/select-dark.webp
      */
     interface HTMLGoatSelectElement extends Components.GoatSelect, HTMLStencilElement {
         addEventListener<K extends keyof HTMLGoatSelectElementEventMap>(type: K, listener: (this: HTMLGoatSelectElement, ev: GoatSelectCustomEvent<HTMLGoatSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2322,7 +2326,7 @@ declare global {
     /**
      * @name1 Side Navigation
      * @description1 The side navigation component provides an easy way to navigate through your website / application.
-     * @img1 /assets/img/sidenav.png
+     * @img1 /assets/img/sidenav.webp
      */
     interface HTMLGoatSidenavElement extends Components.GoatSidenav, HTMLStencilElement {
     }
@@ -2362,8 +2366,8 @@ declare global {
      * @description Sliders allow users to make selections from a range of values.
      * @category Form Inputs
      * @tags input, form
-     * @img /assets/img/slider.png
-     * @imgDark /assets/img/slider-dark.png
+     * @img /assets/img/slider.webp
+     * @imgDark /assets/img/slider-dark.webp
      */
     interface HTMLGoatSliderElement extends Components.GoatSlider, HTMLStencilElement {
         addEventListener<K extends keyof HTMLGoatSliderElementEventMap>(type: K, listener: (this: HTMLGoatSliderElement, ev: GoatSliderCustomEvent<HTMLGoatSliderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2437,8 +2441,8 @@ declare global {
      * @name Table
      * @description A configurable component for displaying tabular data.
      * @category Data Display
-     * @img /assets/img/table.png
-     * @imgDark /assets/img/table-dark.png
+     * @img /assets/img/table.webp
+     * @imgDark /assets/img/table-dark.webp
      */
     interface HTMLGoatTableElement extends Components.GoatTable, HTMLStencilElement {
         addEventListener<K extends keyof HTMLGoatTableElementEventMap>(type: K, listener: (this: HTMLGoatTableElement, ev: GoatTableCustomEvent<HTMLGoatTableElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2613,8 +2617,8 @@ declare global {
      * @description The Tooltip component is used to display additional information on hover.
      * @category Data Display
      * @tag content
-     * @img /assets/img/tooltip.png
-     * @imgDark /assets/img/tooltip-dark.png
+     * @img /assets/img/tooltip.webp
+     * @imgDark /assets/img/tooltip-dark.webp
      */
     interface HTMLGoatTooltipElement extends Components.GoatTooltip, HTMLStencilElement {
     }
@@ -2643,8 +2647,8 @@ declare global {
      * @name TreeView
      * @description A tree view is a hierarchical structure that provides nested levels of navigation.
      * @category Navigation
-     * @img /assets/img/tree-view.png
-     * @imgDark /assets/img/tree-view-dark.png
+     * @img /assets/img/tree-view.webp
+     * @imgDark /assets/img/tree-view-dark.webp
      */
     interface HTMLGoatTreeViewElement extends Components.GoatTreeView, HTMLStencilElement {
     }
@@ -2735,8 +2739,8 @@ declare namespace LocalJSX {
      *  <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>
      * @category Data Display
      * @tags display
-     * @img /assets/img/accordion.png
-     * @imgDark /assets/img/accordion-dark.png
+     * @img /assets/img/accordion.webp
+     * @imgDark /assets/img/accordion-dark.webp
      */
     interface GoatAccordion {
         /**
@@ -2896,8 +2900,8 @@ declare namespace LocalJSX {
      * @description The calendar component is used to display information in a daily, weekly, monthly, or category view.
      * @category Data Display
      * @tags calendar
-     * @img /assets/img/calendar.png
-     * @imgDark /assets/img/calendar-dark.png
+     * @img /assets/img/calendar.webp
+     * @imgDark /assets/img/calendar-dark.webp
      */
     interface GoatCalendar {
         "availableViews"?: CalendarViewType[];
@@ -2941,7 +2945,7 @@ declare namespace LocalJSX {
      * @name Canvas
      * @category Up coming
      * @description Canvas for drawing lines and shapes on.
-     * @img /assets/img/canvas.png
+     * @img /assets/img/canvas.webp
      */
     interface GoatCanvas {
         "padding"?: number;
@@ -2975,11 +2979,12 @@ declare namespace LocalJSX {
      * @description A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.
      * @category Charts
      * @tag controls
-     * @img /assets/img/chart-doughnut.png
-     * @imgDark /assets/img/chart-doughnut-dark.png
+     * @img /assets/img/chart-doughnut.webp
+     * @imgDark /assets/img/chart-doughnut-dark.webp
      */
     interface GoatChartDoughnut {
         "data"?: any;
+        "label"?: string;
         "margin"?: number;
         "showLabels"?: boolean;
         "width"?: number;
@@ -3039,8 +3044,8 @@ declare namespace LocalJSX {
      * @description A browser based code editor.
      * @category Form Inputs
      * @tags input, form
-     * @img /assets/img/code-editor.png
-     * @imgDark /assets/img/code-editor-dark.png
+     * @img /assets/img/code-editor.webp
+     * @imgDark /assets/img/code-editor-dark.webp
      */
     interface GoatCodeEditor {
         /**
@@ -3076,8 +3081,8 @@ declare namespace LocalJSX {
      * @description A browser based code highlighter.
      * @category Data Display
      * @tag display, code
-     * @img /assets/img/code-highlighter.png
-     * @imgDark /assets/img/code-highlighter-dark.png
+     * @img /assets/img/code-highlighter.webp
+     * @imgDark /assets/img/code-highlighter-dark.webp
      */
     interface GoatCodeHighlighter {
         "format"?: boolean;
@@ -3092,7 +3097,7 @@ declare namespace LocalJSX {
      * @description A condition builder is a component that allows users to build a condition using a set of rules.
      * @category Up coming
      * @tag content
-     * @img /assets/img/condition-builder.png
+     * @img /assets/img/condition-builder.webp
      */
     interface GoatConditionBuilder {
         "content"?: string;
@@ -3186,8 +3191,8 @@ declare namespace LocalJSX {
      * @name Dropdown
      * @description Enables native inputs to be used within a Form field.
      * @category Navigation
-     * @img /assets/img/dropdown.png
-     * @imgDark /assets/img/dropdown-dark.png
+     * @img /assets/img/dropdown.webp
+     * @imgDark /assets/img/dropdown-dark.webp
      */
     interface GoatDropdown {
         /**
@@ -3206,8 +3211,8 @@ declare namespace LocalJSX {
      * @name Empty State
      * @description A message that displays when there is no information to display.
      * @category Data Display
-     * @img /assets/img/empty-state.png
-     * @imgDark /assets/img/empty-state-dark.png
+     * @img /assets/img/empty-state.webp
+     * @imgDark /assets/img/empty-state-dark.webp
      */
     interface GoatEmptyState {
         "action"?: string;
@@ -3222,7 +3227,7 @@ declare namespace LocalJSX {
      * @name Flow Designer
      * @category Up coming
      * @description Flow Designer is a component that allows users to create and edit flows.
-     * @img /assets/img/flow-designer.png
+     * @img /assets/img/flow-designer.webp
      */
     interface GoatFlowDesigner {
         "blockSize"?: number;
@@ -3234,8 +3239,8 @@ declare namespace LocalJSX {
      * @description The footer component provides a container for displaying additional navigation information about a site.
      * @overview <p>The footer is one of the most underestimated sections of a website being located at the very bottom of every page, however, it can be used as a way to try to convince users to stay on your website if they haven’t found the information they’ve been looking for inside the main content area.</p>
      * @category Navigation
-     * @img /assets/img/footer.png
-     * @imgDark /assets/img/footer-dark.png
+     * @img /assets/img/footer.webp
+     * @imgDark /assets/img/footer-dark.webp
      */
     interface GoatFooter {
         "variant"?: 'simple';
@@ -3276,11 +3281,14 @@ declare namespace LocalJSX {
      * @name Header
      * @description Header component is used to display a header with a brand, navigation, and actions.
      * @category Navigation
-     * @img /assets/img/header.png
-     * @imgDark /assets/img/header-dark.png
+     * @img /assets/img/header.webp
+     * @imgDark /assets/img/header-dark.webp
      */
     interface GoatHeader {
-        "color"?: 'light' | 'dark' | 'brand-primary' | 'brand-secondary';
+        "color"?: | 'light'
+    | 'dark'
+    | 'brand-primary'
+    | 'brand-secondary';
         "float"?: boolean;
     }
     interface GoatHeaderAction {
@@ -3319,8 +3327,8 @@ declare namespace LocalJSX {
      * @description HTML Editor component is a WYSIWYG editor that allows users to edit HTML content.
      * @category Up coming
      * @tags input, form
-     * @img /assets/img/html-editor.png
-     * @imgDark /assets/img/html-editor-dark.png
+     * @img /assets/img/html-editor.webp
+     * @imgDark /assets/img/html-editor-dark.webp
      */
     interface GoatHtmlEditor {
         /**
@@ -3469,8 +3477,8 @@ declare namespace LocalJSX {
      * @name Menu
      * @description Menus display a list of choices on temporary surfaces.
      * @category Navigation
-     * @img /assets/img/menu.png
-     * @imgDark /assets/img/menu-dark.png
+     * @img /assets/img/menu.webp
+     * @imgDark /assets/img/menu-dark.webp
      */
     interface GoatMenu {
         "empty"?: boolean;
@@ -3516,8 +3524,8 @@ declare namespace LocalJSX {
      * @description Modals are used to display content in a layer above the app.
      * @category Feedback
      * @tags controls
-     * @img /assets/img/modal.png
-     * @imgDark /assets/img/modal-dark.png
+     * @img /assets/img/modal.webp
+     * @imgDark /assets/img/modal-dark.webp
      */
     interface GoatModal {
         "heading"?: string;
@@ -3557,8 +3565,8 @@ declare namespace LocalJSX {
      * @description Manages alert, toasts and notifications.
      * @category Feedback
      * @tags notification
-     * @img /assets/img/notification-manager.png
-     * @imgDark /assets/img/notification-manager-dark.png
+     * @img /assets/img/notification-manager.webp
+     * @imgDark /assets/img/notification-manager-dark.webp
      */
     interface GoatNotificationManager {
         "name"?: string;
@@ -3669,8 +3677,8 @@ declare namespace LocalJSX {
      * @description Allows the user to select one or more options using a dropdown.
      * @category Form Inputs
      * @tags input, form
-     * @img /assets/img/select.png
-     * @imgDark /assets/img/select-dark.png
+     * @img /assets/img/select.webp
+     * @imgDark /assets/img/select-dark.webp
      */
     interface GoatSelect {
         /**
@@ -3748,7 +3756,7 @@ declare namespace LocalJSX {
     /**
      * @name1 Side Navigation
      * @description1 The side navigation component provides an easy way to navigate through your website / application.
-     * @img1 /assets/img/sidenav.png
+     * @img1 /assets/img/sidenav.webp
      */
     interface GoatSidenav {
         "showLoader"?: boolean;
@@ -3782,8 +3790,8 @@ declare namespace LocalJSX {
      * @description Sliders allow users to make selections from a range of values.
      * @category Form Inputs
      * @tags input, form
-     * @img /assets/img/slider.png
-     * @imgDark /assets/img/slider-dark.png
+     * @img /assets/img/slider.webp
+     * @imgDark /assets/img/slider-dark.webp
      */
     interface GoatSlider {
         "configAria"?: any;
@@ -3882,8 +3890,8 @@ declare namespace LocalJSX {
      * @name Table
      * @description A configurable component for displaying tabular data.
      * @category Data Display
-     * @img /assets/img/table.png
-     * @imgDark /assets/img/table-dark.png
+     * @img /assets/img/table.webp
+     * @imgDark /assets/img/table-dark.webp
      */
     interface GoatTable {
         /**
@@ -4161,8 +4169,8 @@ declare namespace LocalJSX {
      * @description The Tooltip component is used to display additional information on hover.
      * @category Data Display
      * @tag content
-     * @img /assets/img/tooltip.png
-     * @imgDark /assets/img/tooltip-dark.png
+     * @img /assets/img/tooltip.webp
+     * @imgDark /assets/img/tooltip-dark.webp
      */
     interface GoatTooltip {
         "open"?: boolean;
@@ -4201,8 +4209,8 @@ declare namespace LocalJSX {
      * @name TreeView
      * @description A tree view is a hierarchical structure that provides nested levels of navigation.
      * @category Navigation
-     * @img /assets/img/tree-view.png
-     * @imgDark /assets/img/tree-view-dark.png
+     * @img /assets/img/tree-view.webp
+     * @imgDark /assets/img/tree-view-dark.webp
      */
     interface GoatTreeView {
         "empty"?: boolean;
@@ -4295,8 +4303,8 @@ declare module "@stencil/core" {
              *  <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>
              * @category Data Display
              * @tags display
-             * @img /assets/img/accordion.png
-             * @imgDark /assets/img/accordion-dark.png
+             * @img /assets/img/accordion.webp
+             * @imgDark /assets/img/accordion-dark.webp
              */
             "goat-accordion": LocalJSX.GoatAccordion & JSXBase.HTMLAttributes<HTMLGoatAccordionElement>;
             "goat-accordion-item": LocalJSX.GoatAccordionItem & JSXBase.HTMLAttributes<HTMLGoatAccordionItemElement>;
@@ -4351,8 +4359,8 @@ declare module "@stencil/core" {
              * @description The calendar component is used to display information in a daily, weekly, monthly, or category view.
              * @category Data Display
              * @tags calendar
-             * @img /assets/img/calendar.png
-             * @imgDark /assets/img/calendar-dark.png
+             * @img /assets/img/calendar.webp
+             * @imgDark /assets/img/calendar-dark.webp
              */
             "goat-calendar": LocalJSX.GoatCalendar & JSXBase.HTMLAttributes<HTMLGoatCalendarElement>;
             "goat-calendar-column-view": LocalJSX.GoatCalendarColumnView & JSXBase.HTMLAttributes<HTMLGoatCalendarColumnViewElement>;
@@ -4363,7 +4371,7 @@ declare module "@stencil/core" {
              * @name Canvas
              * @category Up coming
              * @description Canvas for drawing lines and shapes on.
-             * @img /assets/img/canvas.png
+             * @img /assets/img/canvas.webp
              */
             "goat-canvas": LocalJSX.GoatCanvas & JSXBase.HTMLAttributes<HTMLGoatCanvasElement>;
             "goat-card": LocalJSX.GoatCard & JSXBase.HTMLAttributes<HTMLGoatCardElement>;
@@ -4376,8 +4384,8 @@ declare module "@stencil/core" {
              * @description A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.
              * @category Charts
              * @tag controls
-             * @img /assets/img/chart-doughnut.png
-             * @imgDark /assets/img/chart-doughnut-dark.png
+             * @img /assets/img/chart-doughnut.webp
+             * @imgDark /assets/img/chart-doughnut-dark.webp
              */
             "goat-chart-doughnut": LocalJSX.GoatChartDoughnut & JSXBase.HTMLAttributes<HTMLGoatChartDoughnutElement>;
             /**
@@ -4393,8 +4401,8 @@ declare module "@stencil/core" {
              * @description A browser based code editor.
              * @category Form Inputs
              * @tags input, form
-             * @img /assets/img/code-editor.png
-             * @imgDark /assets/img/code-editor-dark.png
+             * @img /assets/img/code-editor.webp
+             * @imgDark /assets/img/code-editor-dark.webp
              */
             "goat-code-editor": LocalJSX.GoatCodeEditor & JSXBase.HTMLAttributes<HTMLGoatCodeEditorElement>;
             /**
@@ -4402,8 +4410,8 @@ declare module "@stencil/core" {
              * @description A browser based code highlighter.
              * @category Data Display
              * @tag display, code
-             * @img /assets/img/code-highlighter.png
-             * @imgDark /assets/img/code-highlighter-dark.png
+             * @img /assets/img/code-highlighter.webp
+             * @imgDark /assets/img/code-highlighter-dark.webp
              */
             "goat-code-highlighter": LocalJSX.GoatCodeHighlighter & JSXBase.HTMLAttributes<HTMLGoatCodeHighlighterElement>;
             /**
@@ -4411,7 +4419,7 @@ declare module "@stencil/core" {
              * @description A condition builder is a component that allows users to build a condition using a set of rules.
              * @category Up coming
              * @tag content
-             * @img /assets/img/condition-builder.png
+             * @img /assets/img/condition-builder.webp
              */
             "goat-condition-builder": LocalJSX.GoatConditionBuilder & JSXBase.HTMLAttributes<HTMLGoatConditionBuilderElement>;
             "goat-container": LocalJSX.GoatContainer & JSXBase.HTMLAttributes<HTMLGoatContainerElement>;
@@ -4440,23 +4448,23 @@ declare module "@stencil/core" {
              * @name Dropdown
              * @description Enables native inputs to be used within a Form field.
              * @category Navigation
-             * @img /assets/img/dropdown.png
-             * @imgDark /assets/img/dropdown-dark.png
+             * @img /assets/img/dropdown.webp
+             * @imgDark /assets/img/dropdown-dark.webp
              */
             "goat-dropdown": LocalJSX.GoatDropdown & JSXBase.HTMLAttributes<HTMLGoatDropdownElement>;
             /**
              * @name Empty State
              * @description A message that displays when there is no information to display.
              * @category Data Display
-             * @img /assets/img/empty-state.png
-             * @imgDark /assets/img/empty-state-dark.png
+             * @img /assets/img/empty-state.webp
+             * @imgDark /assets/img/empty-state-dark.webp
              */
             "goat-empty-state": LocalJSX.GoatEmptyState & JSXBase.HTMLAttributes<HTMLGoatEmptyStateElement>;
             /**
              * @name Flow Designer
              * @category Up coming
              * @description Flow Designer is a component that allows users to create and edit flows.
-             * @img /assets/img/flow-designer.png
+             * @img /assets/img/flow-designer.webp
              */
             "goat-flow-designer": LocalJSX.GoatFlowDesigner & JSXBase.HTMLAttributes<HTMLGoatFlowDesignerElement>;
             /**
@@ -4464,8 +4472,8 @@ declare module "@stencil/core" {
              * @description The footer component provides a container for displaying additional navigation information about a site.
              * @overview <p>The footer is one of the most underestimated sections of a website being located at the very bottom of every page, however, it can be used as a way to try to convince users to stay on your website if they haven’t found the information they’ve been looking for inside the main content area.</p>
              * @category Navigation
-             * @img /assets/img/footer.png
-             * @imgDark /assets/img/footer-dark.png
+             * @img /assets/img/footer.webp
+             * @imgDark /assets/img/footer-dark.webp
              */
             "goat-footer": LocalJSX.GoatFooter & JSXBase.HTMLAttributes<HTMLGoatFooterElement>;
             "goat-footer-copyright": LocalJSX.GoatFooterCopyright & JSXBase.HTMLAttributes<HTMLGoatFooterCopyrightElement>;
@@ -4484,8 +4492,8 @@ declare module "@stencil/core" {
              * @name Header
              * @description Header component is used to display a header with a brand, navigation, and actions.
              * @category Navigation
-             * @img /assets/img/header.png
-             * @imgDark /assets/img/header-dark.png
+             * @img /assets/img/header.webp
+             * @imgDark /assets/img/header-dark.webp
              */
             "goat-header": LocalJSX.GoatHeader & JSXBase.HTMLAttributes<HTMLGoatHeaderElement>;
             "goat-header-action": LocalJSX.GoatHeaderAction & JSXBase.HTMLAttributes<HTMLGoatHeaderActionElement>;
@@ -4495,8 +4503,8 @@ declare module "@stencil/core" {
              * @description HTML Editor component is a WYSIWYG editor that allows users to edit HTML content.
              * @category Up coming
              * @tags input, form
-             * @img /assets/img/html-editor.png
-             * @imgDark /assets/img/html-editor-dark.png
+             * @img /assets/img/html-editor.webp
+             * @imgDark /assets/img/html-editor-dark.webp
              */
             "goat-html-editor": LocalJSX.GoatHtmlEditor & JSXBase.HTMLAttributes<HTMLGoatHtmlEditorElement>;
             /**
@@ -4527,8 +4535,8 @@ declare module "@stencil/core" {
              * @name Menu
              * @description Menus display a list of choices on temporary surfaces.
              * @category Navigation
-             * @img /assets/img/menu.png
-             * @imgDark /assets/img/menu-dark.png
+             * @img /assets/img/menu.webp
+             * @imgDark /assets/img/menu-dark.webp
              */
             "goat-menu": LocalJSX.GoatMenu & JSXBase.HTMLAttributes<HTMLGoatMenuElement>;
             "goat-menu-item": LocalJSX.GoatMenuItem & JSXBase.HTMLAttributes<HTMLGoatMenuItemElement>;
@@ -4537,8 +4545,8 @@ declare module "@stencil/core" {
              * @description Modals are used to display content in a layer above the app.
              * @category Feedback
              * @tags controls
-             * @img /assets/img/modal.png
-             * @imgDark /assets/img/modal-dark.png
+             * @img /assets/img/modal.webp
+             * @imgDark /assets/img/modal-dark.webp
              */
             "goat-modal": LocalJSX.GoatModal & JSXBase.HTMLAttributes<HTMLGoatModalElement>;
             "goat-modal-content": LocalJSX.GoatModalContent & JSXBase.HTMLAttributes<HTMLGoatModalContentElement>;
@@ -4557,8 +4565,8 @@ declare module "@stencil/core" {
              * @description Manages alert, toasts and notifications.
              * @category Feedback
              * @tags notification
-             * @img /assets/img/notification-manager.png
-             * @imgDark /assets/img/notification-manager-dark.png
+             * @img /assets/img/notification-manager.webp
+             * @imgDark /assets/img/notification-manager-dark.webp
              */
             "goat-notification-manager": LocalJSX.GoatNotificationManager & JSXBase.HTMLAttributes<HTMLGoatNotificationManagerElement>;
             /**
@@ -4582,14 +4590,14 @@ declare module "@stencil/core" {
              * @description Allows the user to select one or more options using a dropdown.
              * @category Form Inputs
              * @tags input, form
-             * @img /assets/img/select.png
-             * @imgDark /assets/img/select-dark.png
+             * @img /assets/img/select.webp
+             * @imgDark /assets/img/select-dark.webp
              */
             "goat-select": LocalJSX.GoatSelect & JSXBase.HTMLAttributes<HTMLGoatSelectElement>;
             /**
              * @name1 Side Navigation
              * @description1 The side navigation component provides an easy way to navigate through your website / application.
-             * @img1 /assets/img/sidenav.png
+             * @img1 /assets/img/sidenav.webp
              */
             "goat-sidenav": LocalJSX.GoatSidenav & JSXBase.HTMLAttributes<HTMLGoatSidenavElement>;
             "goat-sidenav-menu": LocalJSX.GoatSidenavMenu & JSXBase.HTMLAttributes<HTMLGoatSidenavMenuElement>;
@@ -4599,8 +4607,8 @@ declare module "@stencil/core" {
              * @description Sliders allow users to make selections from a range of values.
              * @category Form Inputs
              * @tags input, form
-             * @img /assets/img/slider.png
-             * @imgDark /assets/img/slider-dark.png
+             * @img /assets/img/slider.webp
+             * @imgDark /assets/img/slider-dark.webp
              */
             "goat-slider": LocalJSX.GoatSlider & JSXBase.HTMLAttributes<HTMLGoatSliderElement>;
             /**
@@ -4624,8 +4632,8 @@ declare module "@stencil/core" {
              * @name Table
              * @description A configurable component for displaying tabular data.
              * @category Data Display
-             * @img /assets/img/table.png
-             * @imgDark /assets/img/table-dark.png
+             * @img /assets/img/table.webp
+             * @imgDark /assets/img/table-dark.webp
              */
             "goat-table": LocalJSX.GoatTable & JSXBase.HTMLAttributes<HTMLGoatTableElement>;
             /**
@@ -4693,8 +4701,8 @@ declare module "@stencil/core" {
              * @description The Tooltip component is used to display additional information on hover.
              * @category Data Display
              * @tag content
-             * @img /assets/img/tooltip.png
-             * @imgDark /assets/img/tooltip-dark.png
+             * @img /assets/img/tooltip.webp
+             * @imgDark /assets/img/tooltip-dark.webp
              */
             "goat-tooltip": LocalJSX.GoatTooltip & JSXBase.HTMLAttributes<HTMLGoatTooltipElement>;
             "goat-tree-node": LocalJSX.GoatTreeNode & JSXBase.HTMLAttributes<HTMLGoatTreeNodeElement>;
@@ -4702,8 +4710,8 @@ declare module "@stencil/core" {
              * @name TreeView
              * @description A tree view is a hierarchical structure that provides nested levels of navigation.
              * @category Navigation
-             * @img /assets/img/tree-view.png
-             * @imgDark /assets/img/tree-view-dark.png
+             * @img /assets/img/tree-view.webp
+             * @imgDark /assets/img/tree-view-dark.webp
              */
             "goat-tree-view": LocalJSX.GoatTreeView & JSXBase.HTMLAttributes<HTMLGoatTreeViewElement>;
         }

@@ -1,4 +1,13 @@
-import { Component, ComponentInterface, Element, h, Host, Listen, Prop, State } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  h,
+  Host,
+  Listen,
+  Prop,
+  State,
+} from '@stencil/core';
 import { isDarkMode, observeThemeChange } from '../../utils/utils';
 import * as DOMPurify from 'dompurify';
 
@@ -14,8 +23,8 @@ const getNotificationIndex = (() => {
  * @description Manages alert, toasts and notifications.
  * @category Feedback
  * @tags notification
- * @img /assets/img/notification-manager.png
- * @imgDark /assets/img/notification-manager-dark.png
+ * @img /assets/img/notification-manager.webp
+ * @imgDark /assets/img/notification-manager-dark.webp
  */
 @Component({
   tag: 'goat-notification-manager',
@@ -24,7 +33,8 @@ const getNotificationIndex = (() => {
 })
 export class NotificationManager implements ComponentInterface {
   @Prop({ reflect: true }) name: string = 'global';
-  @Prop() position: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' = 'bottom-right';
+  @Prop() position: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' =
+    'bottom-right';
 
   @Element() elm!: HTMLElement;
   @State() notifications: any = [];
@@ -32,7 +42,10 @@ export class NotificationManager implements ComponentInterface {
 
   @Listen('goat:toast', { target: 'window' })
   listenToast(evt) {
-    if ((evt.detail.target === this.name || this.name === 'global') && !evt.detail.procced) {
+    if (
+      (evt.detail.target === this.name || this.name === 'global') &&
+      !evt.detail.procced
+    ) {
       evt.preventDefault();
       evt.stopPropagation();
       evt.detail.procced = true;
@@ -43,7 +56,9 @@ export class NotificationManager implements ComponentInterface {
         state: evt.detail.state,
         hide: false,
       };
-      this.notifications = this.notifications.concat([notification]).filter(n => !n.hide);
+      this.notifications = this.notifications
+        .concat([notification])
+        .filter(n => !n.hide);
       setTimeout(() => {
         notification.hide = true;
         this.notifications = [...this.notifications];
@@ -53,7 +68,10 @@ export class NotificationManager implements ComponentInterface {
 
   @Listen('goat:notification', { target: 'window' })
   listenNotification(evt) {
-    if ((evt.detail.target === this.name || this.name === 'global') && !evt.detail.procced) {
+    if (
+      (evt.detail.target === this.name || this.name === 'global') &&
+      !evt.detail.procced
+    ) {
       evt.preventDefault();
       evt.stopPropagation();
       evt.detail.procced = true;
@@ -66,7 +84,9 @@ export class NotificationManager implements ComponentInterface {
         state: evt.detail.state,
         hide: false,
       };
-      this.notifications = this.notifications.concat([notification]).filter(n => !n.hide);
+      this.notifications = this.notifications
+        .concat([notification])
+        .filter(n => !n.hide);
       setTimeout(() => {
         notification.hide = true;
         this.notifications = [...this.notifications];
@@ -84,14 +104,29 @@ export class NotificationManager implements ComponentInterface {
     if (notification.type) {
       switch (notification.type) {
         case 'toast':
-          return <goat-toast id={`${notification.id}`} state={notification.state} message={notification.message} />;
+          return (
+            <goat-toast
+              id={`${notification.id}`}
+              state={notification.state}
+              message={notification.message}
+            />
+          );
         case 'alert':
           return <goat-alert {...notification.props} />;
         case 'notification':
           return (
-            <goat-notification id={`${notification.id}`} state={notification.state}>
-              <div innerHTML={DOMPurify.sanitize(notification.title)} slot="title" />
-              <div innerHTML={DOMPurify.sanitize(notification.subtitle)} slot="subtitle" />
+            <goat-notification
+              id={`${notification.id}`}
+              state={notification.state}
+            >
+              <div
+                innerHTML={DOMPurify.sanitize(notification.title)}
+                slot="title"
+              />
+              <div
+                innerHTML={DOMPurify.sanitize(notification.subtitle)}
+                slot="subtitle"
+              />
             </goat-notification>
           );
         default:
@@ -103,9 +138,16 @@ export class NotificationManager implements ComponentInterface {
   render() {
     return (
       <Host>
-        <div class={{ 'notification-manager': true, [`position-${this.position}`]: true }}>
+        <div
+          class={{
+            'notification-manager': true,
+            [`position-${this.position}`]: true,
+          }}
+        >
           {this.notifications.map(notification => (
-            <div class={{ notification: true, hidden: notification.hide }}>{this.renderNotification(notification)}</div>
+            <div class={{ notification: true, hidden: notification.hide }}>
+              {this.renderNotification(notification)}
+            </div>
           ))}
         </div>
       </Host>

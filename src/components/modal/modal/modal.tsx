@@ -1,12 +1,21 @@
-import { Component, Element, Event, EventEmitter, h, Host, Prop, Watch } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+  Watch,
+} from '@stencil/core';
 
 /**
  * @name Modal
  * @description  Modals are used to display content in a layer above the app.
  * @category Feedback
  * @tags controls
- * @img /assets/img/modal.png
- * @imgDark /assets/img/modal-dark.png
+ * @img /assets/img/modal.webp
+ * @imgDark /assets/img/modal-dark.webp
  */
 @Component({
   tag: 'goat-modal',
@@ -55,7 +64,12 @@ export class Modal {
     if (this.open)
       return (
         <Host>
-          <div class="modal-container" aria-labelledby="modal-heading" role="dialog" aria-modal="true">
+          <div
+            class="modal-container"
+            aria-labelledby="modal-heading"
+            role="dialog"
+            aria-modal="true"
+          >
             <div class="modal-overlay" />
             <div class="modal--wrapper">
               <div
@@ -69,13 +83,21 @@ export class Modal {
                   <div class="modal-header">
                     <div class="modal-heading-section">
                       {this.subheading && (
-                        <goat-text class="modal-subheading" color="secondary" type="label">
+                        <goat-text
+                          class="modal-subheading"
+                          color="secondary"
+                          type="label"
+                        >
                           {this.subheading}
                         </goat-text>
                       )}
 
                       {this.heading && (
-                        <goat-text class="modal-heading" type="heading" heading-size="3">
+                        <goat-text
+                          class="modal-heading"
+                          type="heading"
+                          heading-size="3"
+                        >
                           {this.heading}
                         </goat-text>
                       )}

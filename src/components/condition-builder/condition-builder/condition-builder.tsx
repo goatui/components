@@ -5,7 +5,7 @@ import { Component, h, Host, Prop } from '@stencil/core';
  * @description A condition builder is a component that allows users to build a condition using a set of rules.
  * @category Up coming
  * @tag content
- * @img /assets/img/condition-builder.png
+ * @img /assets/img/condition-builder.webp
  */
 @Component({
   tag: 'goat-condition-builder',
@@ -103,11 +103,15 @@ export class ConditionBuilder {
   renderPredicates() {
     return (
       <div class="condition-builder__predicates">
-        <div class={`condition-builder__predicate`}>{this.renderCompound()}</div>
+        <div class={`condition-builder__predicate`}>
+          {this.renderCompound()}
+        </div>
         <goat-cb-divider vertical={true} class="predicate-divider">
           <goat-tag color={'warning'}>{'or'}</goat-tag>
         </goat-cb-divider>
-        <div class={`condition-builder__predicate`}>{this.renderCompound()}</div>
+        <div class={`condition-builder__predicate`}>
+          {this.renderCompound()}
+        </div>
       </div>
     );
   }

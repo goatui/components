@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-20T03:17:03",
+  "timestamp": "2024-05-22T14:54:30",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -25,7 +25,7 @@
         },
         {
           "name": "overview",
-          "text": " <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>\r\n <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>"
+          "text": " <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>\n <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>"
         },
         {
           "name": "category",
@@ -37,11 +37,11 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/accordion.png"
+          "text": "/assets/img/accordion.webp"
         },
         {
           "name": "imgDark",
-          "text": "/assets/img/accordion-dark.png"
+          "text": "/assets/img/accordion-dark.webp"
         }
       ],
       "encapsulation": "shadow",
@@ -145,13 +145,13 @@
       "metadata": {
         "name": "Accordion",
         "description": "An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.",
-        "overview": " <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>\r\n <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>",
+        "overview": " <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>\n <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>",
         "category": "Data Display",
         "tags": [
           "display"
         ],
-        "img": "/assets/img/accordion.png",
-        "imgDark": "/assets/img/accordion-dark.png"
+        "img": "/assets/img/accordion.webp",
+        "imgDark": "/assets/img/accordion-dark.webp"
       }
     },
     {
@@ -1466,11 +1466,11 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/calendar.png"
+          "text": "/assets/img/calendar.webp"
         },
         {
           "name": "imgDark",
-          "text": "/assets/img/calendar-dark.png"
+          "text": "/assets/img/calendar-dark.webp"
         }
       ],
       "encapsulation": "shadow",
@@ -1534,7 +1534,7 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "[\r\n    {\r\n      label: 'Day',\r\n      value: 'day',\r\n      type: 'column',\r\n      days: 1,\r\n    },\r\n    {\r\n      label: 'Week',\r\n      value: 'week',\r\n      type: 'column',\r\n      days: 7,\r\n    },\r\n    {\r\n      label: 'Month',\r\n      value: 'month',\r\n      type: 'month',\r\n    },\r\n  ]",
+          "default": "[\n    {\n      label: 'Day',\n      value: 'day',\n      type: 'column',\n      days: 1,\n    },\n    {\n      label: 'Week',\n      value: 'week',\n      type: 'column',\n      days: 7,\n    },\n    {\n      label: 'Month',\n      value: 'month',\n      type: 'month',\n    },\n  ]",
           "values": [
             {
               "type": "CalendarViewType[]"
@@ -1727,8 +1727,8 @@
         "tags": [
           "calendar"
         ],
-        "img": "/assets/img/calendar.png",
-        "imgDark": "/assets/img/calendar-dark.png"
+        "img": "/assets/img/calendar.webp",
+        "imgDark": "/assets/img/calendar-dark.webp"
       }
     },
     {
@@ -2225,7 +2225,7 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/canvas.png"
+          "text": "/assets/img/canvas.webp"
         }
       ],
       "encapsulation": "shadow",
@@ -2336,7 +2336,7 @@
         "name": "Canvas",
         "category": "Up coming",
         "description": "Canvas for drawing lines and shapes on.",
-        "img": "/assets/img/canvas.png"
+        "img": "/assets/img/canvas.webp"
       }
     },
     {
@@ -2817,11 +2817,11 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/chart-doughnut.png"
+          "text": "/assets/img/chart-doughnut.webp"
         },
         {
           "name": "imgDark",
-          "text": "/assets/img/chart-doughnut-dark.png"
+          "text": "/assets/img/chart-doughnut-dark.webp"
         }
       ],
       "encapsulation": "shadow",
@@ -2846,6 +2846,27 @@
           "values": [
             {
               "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
             }
           ],
           "optional": false,
@@ -2929,8 +2950,8 @@
         "description": "A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.",
         "category": "Charts",
         "tag": "controls",
-        "img": "/assets/img/chart-doughnut.png",
-        "imgDark": "/assets/img/chart-doughnut-dark.png"
+        "img": "/assets/img/chart-doughnut.webp",
+        "imgDark": "/assets/img/chart-doughnut-dark.webp"
       }
     },
     {
@@ -3400,11 +3421,11 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/code-editor.png"
+          "text": "/assets/img/code-editor.webp"
         },
         {
           "name": "imgDark",
-          "text": "/assets/img/code-editor-dark.png"
+          "text": "/assets/img/code-editor-dark.webp"
         }
       ],
       "encapsulation": "shadow",
@@ -3655,7 +3676,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -3677,7 +3698,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -3709,8 +3730,8 @@
           "input",
           " form"
         ],
-        "img": "/assets/img/code-editor.png",
-        "imgDark": "/assets/img/code-editor-dark.png"
+        "img": "/assets/img/code-editor.webp",
+        "imgDark": "/assets/img/code-editor-dark.webp"
       }
     },
     {
@@ -3740,11 +3761,11 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/code-highlighter.png"
+          "text": "/assets/img/code-highlighter.webp"
         },
         {
           "name": "imgDark",
-          "text": "/assets/img/code-highlighter-dark.png"
+          "text": "/assets/img/code-highlighter-dark.webp"
         }
       ],
       "encapsulation": "shadow",
@@ -3922,8 +3943,8 @@
         "description": "A browser based code highlighter.",
         "category": "Data Display",
         "tag": "display, code",
-        "img": "/assets/img/code-highlighter.png",
-        "imgDark": "/assets/img/code-highlighter-dark.png"
+        "img": "/assets/img/code-highlighter.webp",
+        "imgDark": "/assets/img/code-highlighter-dark.webp"
       }
     },
     {
@@ -3953,7 +3974,7 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/condition-builder.png"
+          "text": "/assets/img/condition-builder.webp"
         }
       ],
       "encapsulation": "shadow",
@@ -4034,7 +4055,7 @@
         "description": "A condition builder is a component that allows users to build a condition using a set of rules.",
         "category": "Up coming",
         "tag": "content",
-        "img": "/assets/img/condition-builder.png"
+        "img": "/assets/img/condition-builder.webp"
       }
     },
     {
@@ -4782,11 +4803,11 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/dropdown.png"
+          "text": "/assets/img/dropdown.webp"
         },
         {
           "name": "imgDark",
-          "text": "/assets/img/dropdown-dark.png"
+          "text": "/assets/img/dropdown-dark.webp"
         }
       ],
       "encapsulation": "shadow",
@@ -4971,8 +4992,8 @@
         "name": "Dropdown",
         "description": "Enables native inputs to be used within a Form field.",
         "category": "Navigation",
-        "img": "/assets/img/dropdown.png",
-        "imgDark": "/assets/img/dropdown-dark.png"
+        "img": "/assets/img/dropdown.webp",
+        "imgDark": "/assets/img/dropdown-dark.webp"
       }
     },
     {
@@ -4998,11 +5019,11 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/empty-state.png"
+          "text": "/assets/img/empty-state.webp"
         },
         {
           "name": "imgDark",
-          "text": "/assets/img/empty-state-dark.png"
+          "text": "/assets/img/empty-state-dark.webp"
         }
       ],
       "encapsulation": "shadow",
@@ -5221,8 +5242,8 @@
         "name": "Empty State",
         "description": "A message that displays when there is no information to display.",
         "category": "Data Display",
-        "img": "/assets/img/empty-state.png",
-        "imgDark": "/assets/img/empty-state-dark.png"
+        "img": "/assets/img/empty-state.webp",
+        "imgDark": "/assets/img/empty-state-dark.webp"
       }
     },
     {
@@ -5248,7 +5269,7 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/flow-designer.png"
+          "text": "/assets/img/flow-designer.webp"
         }
       ],
       "encapsulation": "shadow",
@@ -5360,7 +5381,7 @@
         "name": "Flow Designer",
         "category": "Up coming",
         "description": "Flow Designer is a component that allows users to create and edit flows.",
-        "img": "/assets/img/flow-designer.png"
+        "img": "/assets/img/flow-designer.webp"
       }
     },
     {
@@ -5390,11 +5411,11 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/footer.png"
+          "text": "/assets/img/footer.webp"
         },
         {
           "name": "imgDark",
-          "text": "/assets/img/footer-dark.png"
+          "text": "/assets/img/footer-dark.webp"
         }
       ],
       "encapsulation": "shadow",
@@ -5459,8 +5480,8 @@
         "description": "The footer component provides a container for displaying additional navigation information about a site.",
         "overview": "<p>The footer is one of the most underestimated sections of a website being located at the very bottom of every page, however, it can be used as a way to try to convince users to stay on your website if they haven’t found the information they’ve been looking for inside the main content area.</p>",
         "category": "Navigation",
-        "img": "/assets/img/footer.png",
-        "imgDark": "/assets/img/footer-dark.png"
+        "img": "/assets/img/footer.webp",
+        "imgDark": "/assets/img/footer-dark.webp"
       }
     },
     {
@@ -5877,11 +5898,11 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/header.png"
+          "text": "/assets/img/header.webp"
         },
         {
           "name": "imgDark",
-          "text": "/assets/img/header-dark.png"
+          "text": "/assets/img/header-dark.webp"
         }
       ],
       "encapsulation": "shadow",
@@ -5893,7 +5914,7 @@
           "name": "color",
           "type": "\"brand-primary\" | \"brand-secondary\" | \"dark\" | \"light\"",
           "complexType": {
-            "original": "'light' | 'dark' | 'brand-primary' | 'brand-secondary'",
+            "original": "| 'light'\n    | 'dark'\n    | 'brand-primary'\n    | 'brand-secondary'",
             "resolved": "\"brand-primary\" | \"brand-secondary\" | \"dark\" | \"light\"",
             "references": {}
           },
@@ -5957,8 +5978,8 @@
         "name": "Header",
         "description": "Header component is used to display a header with a brand, navigation, and actions.",
         "category": "Navigation",
-        "img": "/assets/img/header.png",
-        "imgDark": "/assets/img/header-dark.png"
+        "img": "/assets/img/header.webp",
+        "imgDark": "/assets/img/header-dark.webp"
       }
     },
     {
@@ -6337,11 +6358,11 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/html-editor.png"
+          "text": "/assets/img/html-editor.webp"
         },
         {
           "name": "imgDark",
-          "text": "/assets/img/html-editor-dark.png"
+          "text": "/assets/img/html-editor-dark.webp"
         }
       ],
       "encapsulation": "none",
@@ -6645,8 +6666,8 @@
           "input",
           " form"
         ],
-        "img": "/assets/img/html-editor.png",
-        "imgDark": "/assets/img/html-editor-dark.png"
+        "img": "/assets/img/html-editor.webp",
+        "imgDark": "/assets/img/html-editor-dark.webp"
       }
     },
     {
@@ -7708,11 +7729,11 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/menu.png"
+          "text": "/assets/img/menu.webp"
         },
         {
           "name": "imgDark",
-          "text": "/assets/img/menu-dark.png"
+          "text": "/assets/img/menu-dark.webp"
         }
       ],
       "encapsulation": "shadow",
@@ -7953,8 +7974,8 @@
         "name": "Menu",
         "description": "Menus display a list of choices on temporary surfaces.",
         "category": "Navigation",
-        "img": "/assets/img/menu.png",
-        "imgDark": "/assets/img/menu-dark.png"
+        "img": "/assets/img/menu.webp",
+        "imgDark": "/assets/img/menu-dark.webp"
       }
     },
     {
@@ -8227,11 +8248,11 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/modal.png"
+          "text": "/assets/img/modal.webp"
         },
         {
           "name": "imgDark",
-          "text": "/assets/img/modal-dark.png"
+          "text": "/assets/img/modal-dark.webp"
         }
       ],
       "encapsulation": "shadow",
@@ -8421,8 +8442,8 @@
         "tags": [
           "controls"
         ],
-        "img": "/assets/img/modal.png",
-        "imgDark": "/assets/img/modal-dark.png"
+        "img": "/assets/img/modal.webp",
+        "imgDark": "/assets/img/modal-dark.webp"
       }
     },
     {
@@ -8735,11 +8756,11 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/notification-manager.png"
+          "text": "/assets/img/notification-manager.webp"
         },
         {
           "name": "imgDark",
-          "text": "/assets/img/notification-manager-dark.png"
+          "text": "/assets/img/notification-manager-dark.webp"
         }
       ],
       "encapsulation": "shadow",
@@ -8855,8 +8876,8 @@
         "tags": [
           "notification"
         ],
-        "img": "/assets/img/notification-manager.png",
-        "imgDark": "/assets/img/notification-manager-dark.png"
+        "img": "/assets/img/notification-manager.webp",
+        "imgDark": "/assets/img/notification-manager-dark.webp"
       }
     },
     {
@@ -9767,11 +9788,11 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/select.png"
+          "text": "/assets/img/select.webp"
         },
         {
           "name": "imgDark",
-          "text": "/assets/img/select-dark.png"
+          "text": "/assets/img/select-dark.webp"
         }
       ],
       "encapsulation": "shadow",
@@ -10595,8 +10616,8 @@
           "input",
           " form"
         ],
-        "img": "/assets/img/select.png",
-        "imgDark": "/assets/img/select-dark.png"
+        "img": "/assets/img/select.webp",
+        "imgDark": "/assets/img/select-dark.webp"
       }
     },
     {
@@ -10618,7 +10639,7 @@
         },
         {
           "name": "img1",
-          "text": "/assets/img/sidenav.png"
+          "text": "/assets/img/sidenav.webp"
         }
       ],
       "encapsulation": "shadow",
@@ -10658,7 +10679,7 @@
       "metadata": {
         "name1": "Side Navigation",
         "description1": "The side navigation component provides an easy way to navigate through your website / application.",
-        "img1": "/assets/img/sidenav.png"
+        "img1": "/assets/img/sidenav.webp"
       }
     },
     {
@@ -11009,11 +11030,11 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/slider.png"
+          "text": "/assets/img/slider.webp"
         },
         {
           "name": "imgDark",
-          "text": "/assets/img/slider-dark.png"
+          "text": "/assets/img/slider-dark.webp"
         }
       ],
       "encapsulation": "shadow",
@@ -11275,7 +11296,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -11297,7 +11318,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\r\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -11350,8 +11371,8 @@
           "input",
           " form"
         ],
-        "img": "/assets/img/slider.png",
-        "imgDark": "/assets/img/slider-dark.png"
+        "img": "/assets/img/slider.webp",
+        "imgDark": "/assets/img/slider-dark.webp"
       }
     },
     {
@@ -11995,11 +12016,11 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/table.png"
+          "text": "/assets/img/table.webp"
         },
         {
           "name": "imgDark",
-          "text": "/assets/img/table-dark.png"
+          "text": "/assets/img/table-dark.webp"
         }
       ],
       "encapsulation": "shadow",
@@ -12472,8 +12493,8 @@
         "name": "Table",
         "description": "A configurable component for displaying tabular data.",
         "category": "Data Display",
-        "img": "/assets/img/table.png",
-        "imgDark": "/assets/img/table-dark.png"
+        "img": "/assets/img/table.webp",
+        "imgDark": "/assets/img/table-dark.webp"
       }
     },
     {
@@ -14751,11 +14772,11 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/tooltip.png"
+          "text": "/assets/img/tooltip.webp"
         },
         {
           "name": "imgDark",
-          "text": "/assets/img/tooltip-dark.png"
+          "text": "/assets/img/tooltip-dark.webp"
         }
       ],
       "encapsulation": "shadow",
@@ -14832,8 +14853,8 @@
         "description": "The Tooltip component is used to display additional information on hover.",
         "category": "Data Display",
         "tag": "content",
-        "img": "/assets/img/tooltip.png",
-        "imgDark": "/assets/img/tooltip-dark.png"
+        "img": "/assets/img/tooltip.webp",
+        "imgDark": "/assets/img/tooltip-dark.webp"
       }
     },
     {
@@ -15136,11 +15157,11 @@
         },
         {
           "name": "img",
-          "text": "/assets/img/tree-view.png"
+          "text": "/assets/img/tree-view.webp"
         },
         {
           "name": "imgDark",
-          "text": "/assets/img/tree-view-dark.png"
+          "text": "/assets/img/tree-view-dark.webp"
         }
       ],
       "encapsulation": "shadow",
@@ -15197,7 +15218,7 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "`{\r\n    \"headline\": \"No items\",\r\n    \"description\": \"There are no items to display\"\r\n  }`",
+          "default": "`{\n    \"headline\": \"No items\",\n    \"description\": \"There are no items to display\"\n  }`",
           "values": [
             {
               "type": "string"
@@ -15270,7 +15291,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on first menu item. Use this method instead of the global\r\n`element.focus()`.",
+          "docs": "Sets focus on first menu item. Use this method instead of the global\n`element.focus()`.",
           "docsTags": []
         },
         {
@@ -15329,8 +15350,8 @@
         "name": "TreeView",
         "description": "A tree view is a hierarchical structure that provides nested levels of navigation.",
         "category": "Navigation",
-        "img": "/assets/img/tree-view.png",
-        "imgDark": "/assets/img/tree-view-dark.png"
+        "img": "/assets/img/tree-view.webp",
+        "imgDark": "/assets/img/tree-view-dark.webp"
       }
     }
   ],

@@ -1,11 +1,19 @@
-import { Component, Element, h, Host, Listen, Prop, State } from '@stencil/core';
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Listen,
+  Prop,
+  State,
+} from '@stencil/core';
 import { loadScript } from '../../../utils/utils';
 
 /**
  * @name Flow Designer
  * @category Up coming
  * @description Flow Designer is a component that allows users to create and edit flows.
- * @img /assets/img/flow-designer.png
+ * @img /assets/img/flow-designer.webp
  */
 @Component({
   tag: 'goat-flow-designer',
@@ -43,7 +51,9 @@ export class FlowDesigner {
 
   async componentWillLoad() {
     if (!window['SVG']) {
-      await loadScript(`https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.1.2/svg.min.js`);
+      await loadScript(
+        `https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.1.2/svg.min.js`,
+      );
     }
     this.lines = [
       {
@@ -138,7 +148,11 @@ export class FlowDesigner {
 
     return (
       <Host disabled={this.disabled}>
-        <img src="https://cdn.img42.com/4b6f5e63ac50c95fe147052d8a4db676.jpeg" style={{ height: '20px', width: '20px' }} draggable={true} />
+        <img
+          src="https://cdn.img42.com/4b6f5e63ac50c95fe147052d8a4db676.jpeg"
+          style={{ height: '20px', width: '20px' }}
+          draggable={true}
+        />
         <div class="flow-designer-container">
           <div class="flow-designer" ref={elm => (this.nativeScrollElm = elm)}>
             <div
@@ -166,13 +180,15 @@ export class FlowDesigner {
                 const x = event.pageX - this.nativeScrollElm.offsetLeft;
                 const walkX = x - this.startX; //scroll-fast
                 this.nativeScrollElm.scrollLeft = this.scrollLeft - walkX;
-                if (!this.nativeScrollElm.scrollLeft) this.startX = this.startX - (this.scrollLeft - walkX);
+                if (!this.nativeScrollElm.scrollLeft)
+                  this.startX = this.startX - (this.scrollLeft - walkX);
                 console.log(this.nativeScrollElm.scrollLeft, this.startX);
 
                 const y = event.pageY - this.nativeScrollElm.offsetTop;
                 const walkY = y - this.startY; //scroll-fast
                 this.nativeScrollElm.scrollTop = this.scrollTop - walkY;
-                if (!this.nativeScrollElm.scrollTop) this.startY = this.startY - (this.scrollTop - walkY);
+                if (!this.nativeScrollElm.scrollTop)
+                  this.startY = this.startY - (this.scrollTop - walkY);
               }}
             >
               <goat-canvas
@@ -180,7 +196,13 @@ export class FlowDesigner {
                 padding={0}
                 zoom={this.zoom}
                 shapes={[
-                  { type: 'circle', x: 200, y: 200, radius: 0.25, color: 'red' },
+                  {
+                    type: 'circle',
+                    x: 200,
+                    y: 200,
+                    radius: 0.25,
+                    color: 'red',
+                  },
                   ...shapes,
                   {
                     type: 'connector',

@@ -1,4 +1,13 @@
-import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+  State,
+} from '@stencil/core';
 import { getNextLayer, throttle } from '../../utils/utils';
 
 const DEFAULT_CELL_WIDTH = 16; // in rem
@@ -25,8 +34,8 @@ const SUPPORTED_PAGE_SIZES = [
  * @name Table
  * @description A configurable component for displaying tabular data.
  * @category Data Display
- * @img /assets/img/table.png
- * @imgDark /assets/img/table-dark.png
+ * @img /assets/img/table.webp
+ * @imgDark /assets/img/table-dark.webp
  */
 @Component({
   tag: 'goat-table',
@@ -94,7 +103,8 @@ export class Table {
 
   @Prop({ mutable: true }) emptyStateHeadline: string = 'No items';
 
-  @Prop({ mutable: true }) emptyStateDescription: string = 'There are no items to display';
+  @Prop({ mutable: true }) emptyStateDescription: string =
+    'There are no items to display';
 
   @State() private hoveredCell: any = {};
   @State() private isSelectAll: boolean = false;
@@ -102,14 +112,18 @@ export class Table {
   @State() private isHorizontallyScrolled: boolean = false;
 
   @Event({ eventName: 'goat:table-cell-click' }) goatCellClick: EventEmitter;
-  @Event({ eventName: 'goat:table-select-change' }) goatSelectChange: EventEmitter;
+  @Event({ eventName: 'goat:table-select-change' })
+  goatSelectChange: EventEmitter;
   @Event({ eventName: 'goat:sort' }) goatSort: EventEmitter;
   @Event({ eventName: 'goat:page' }) goatPage: EventEmitter;
 
   onSelectAllClick = () => {
     let selectedRowKeys = [];
     this.isSelectAll = !this.isSelectAll;
-    if (this.isSelectAll) selectedRowKeys = this.data.map(row => row[this.keyField]).slice((this.page - 1) * this.pageSize, this.page * this.pageSize);
+    if (this.isSelectAll)
+      selectedRowKeys = this.data
+        .map(row => row[this.keyField])
+        .slice((this.page - 1) * this.pageSize, this.page * this.pageSize);
     this.onSelectChange(selectedRowKeys);
   };
 
@@ -117,7 +131,9 @@ export class Table {
     let selectedRowKeys = [...this.selectedRowKeys];
     if (selectedRowKeys.includes(row[this.keyField])) {
       this.isSelectAll = false;
-      selectedRowKeys = selectedRowKeys.filter(rowId => rowId !== row[this.keyField]);
+      selectedRowKeys = selectedRowKeys.filter(
+        rowId => rowId !== row[this.keyField],
+      );
     } else {
       selectedRowKeys.push(row[this.keyField]);
     }
@@ -137,7 +153,10 @@ export class Table {
 
   onSelectChange(selectedRowKeys: any) {
     this.selectedRowKeys = selectedRowKeys;
-    this.goatSelectChange.emit({ value: this.selectedRowKeys, isSelectAll: this.isSelectAll });
+    this.goatSelectChange.emit({
+      value: this.selectedRowKeys,
+      isSelectAll: this.isSelectAll,
+    });
   }
 
   onCellClick(row: any, col: any, evt: MouseEvent) {
@@ -159,7 +178,13 @@ export class Table {
       fixedCols.push(
         <div class="col col-checkbox center">
           <div class="col-content">
-            <goat-checkbox class="checkbox" layer={'01'} value={this.isSelectAll} intermediate={this.isSelectAllIntermediate} onGoat:change={this.onSelectAllClick} />
+            <goat-checkbox
+              class="checkbox"
+              layer={'01'}
+              value={this.isSelectAll}
+              intermediate={this.isSelectAllIntermediate}
+              onGoat:change={this.onSelectAllClick}
+            />
           </div>
         </div>,
       );
@@ -168,7 +193,10 @@ export class Table {
       let colWidth = DEFAULT_CELL_WIDTH;
       if (col.width) colWidth = parseInt(col.width);
       const colEl = (
-        <div class={{ col: true, sort: this.sortBy === col.name }} style={{ width: colWidth + 'rem' }}>
+        <div
+          class={{ col: true, sort: this.sortBy === col.name }}
+          style={{ width: colWidth + 'rem' }}
+        >
           <div class="col-content">
             <div class="col-text">{col.label}</div>
             <div class="col-actions">
@@ -194,7 +222,10 @@ export class Table {
                         this.sortBy = col.name;
                         this.sortOrder = 'asc';
                       }
-                      this.goatSort.emit({ sortBy: this.sortBy, sortOrder: this.sortOrder });
+                      this.goatSort.emit({
+                        sortBy: this.sortBy,
+                        sortOrder: this.sortOrder,
+                      });
                     }}
                   />
                 );
@@ -224,13 +255,18 @@ export class Table {
     if (!this.managed) {
       if (this.sortable && this.sortBy) {
         data = data.sort((a, b) => {
-          if (a[this.sortBy] < b[this.sortBy]) return this.sortOrder === 'asc' ? -1 : 1;
-          if (a[this.sortBy] > b[this.sortBy]) return this.sortOrder === 'asc' ? 1 : -1;
+          if (a[this.sortBy] < b[this.sortBy])
+            return this.sortOrder === 'asc' ? -1 : 1;
+          if (a[this.sortBy] > b[this.sortBy])
+            return this.sortOrder === 'asc' ? 1 : -1;
           return 0;
         });
       }
       if (this.paginate) {
-        data = data.slice((this.page - 1) * this.pageSize, this.page * this.pageSize);
+        data = data.slice(
+          (this.page - 1) * this.pageSize,
+          this.page * this.pageSize,
+        );
       }
     }
 
@@ -258,7 +294,12 @@ export class Table {
         const colEl = (
           <div
             tabindex="1"
-            class={{ 'col': true, 'col-hover': this.hoveredCell.row === row && this.hoveredCell.column === column }}
+            class={{
+              'col': true,
+              'col-hover':
+                this.hoveredCell.row === row &&
+                this.hoveredCell.column === column,
+            }}
             style={{ width: colWidth + 'rem' }}
             onMouseOver={() => {
               //@ts-ignore
@@ -277,7 +318,13 @@ export class Table {
           >
             <div class="col-content">
               {(() => {
-                if (column.template) return <div class="col-template" innerHTML={column.template(row, column)}></div>;
+                if (column.template)
+                  return (
+                    <div
+                      class="col-template"
+                      innerHTML={column.template(row, column)}
+                    ></div>
+                  );
                 else
                   return (
                     <div class="col-text" title={row?.[column.name]}>
@@ -323,14 +370,20 @@ export class Table {
               value={this.pageSize}
               onGoat:change={e => {
                 this.pageSize = e.detail.value;
-                this.goatPage.emit({ page: this.page, pageSize: this.pageSize });
+                this.goatPage.emit({
+                  page: this.page,
+                  pageSize: this.pageSize,
+                });
               }}
             />
           </div>
           <div class="pagination-item-count">
             <goat-text inline color="secondary">
-              {this.pageSize * (this.page - 1)} - {this.pageSize * this.page < this.getTotalItems() ? this.pageSize * this.page : this.getTotalItems()} of {this.getTotalItems()}{' '}
-              items
+              {this.pageSize * (this.page - 1)} -{' '}
+              {this.pageSize * this.page < this.getTotalItems()
+                ? this.pageSize * this.page
+                : this.getTotalItems()}{' '}
+              of {this.getTotalItems()} items
             </goat-text>
           </div>
           <div class="pagination-right">
@@ -345,7 +398,10 @@ export class Table {
                   disabled={this.page === 1}
                   onClick={() => {
                     this.page = this.page - 1;
-                    this.goatPage.emit({ page: this.page, pageSize: this.pageSize });
+                    this.goatPage.emit({
+                      page: this.page,
+                      pageSize: this.pageSize,
+                    });
                   }}
                 />
                 <goat-button
@@ -357,7 +413,10 @@ export class Table {
                   disabled={this.pageSize * this.page >= this.getTotalItems()}
                   onClick={() => {
                     this.page = this.page + 1;
-                    this.goatPage.emit({ page: this.page, pageSize: this.pageSize });
+                    this.goatPage.emit({
+                      page: this.page,
+                      pageSize: this.pageSize,
+                    });
                   }}
                 />
               </div>
@@ -397,7 +456,11 @@ export class Table {
   private renderEmptyState() {
     return (
       <div class="empty-table">
-        <goat-empty-state class="empty-state content-center" headline={this.emptyStateHeadline} description={this.emptyStateDescription} />
+        <goat-empty-state
+          class="empty-state content-center"
+          headline={this.emptyStateHeadline}
+          description={this.emptyStateDescription}
+        />
       </div>
     );
   }

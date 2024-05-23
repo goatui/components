@@ -1,4 +1,14 @@
-import { Component, ComponentInterface, Element, Fragment, h, Host, Prop, State, Watch } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Fragment,
+  h,
+  Host,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core';
 import { loadPrism } from '../../3d-party/prism';
 import * as beautify from 'js-beautify/js';
 import { getComponentIndex } from '../../utils/utils';
@@ -9,8 +19,8 @@ import { Language } from './constants';
  * @description A browser based code highlighter.
  * @category Data Display
  * @tag display, code
- * @img /assets/img/code-highlighter.png
- * @imgDark /assets/img/code-highlighter-dark.png
+ * @img /assets/img/code-highlighter.webp
+ * @imgDark /assets/img/code-highlighter-dark.webp
  */
 @Component({
   tag: 'goat-code-highlighter',
@@ -96,16 +106,26 @@ export class CodeHighlighter implements ComponentInterface {
   }
 
   private renderPrism() {
-    if ((this.format && this.language === 'javascript') || this.language === 'html' || this.language === 'css') {
+    if (
+      (this.format && this.language === 'javascript') ||
+      this.language === 'html' ||
+      this.language === 'css'
+    ) {
       switch (this.language) {
         case 'javascript':
-          this.parsedCodeString = beautify.js(this.codeString, { wrap_line_length: 120 });
+          this.parsedCodeString = beautify.js(this.codeString, {
+            wrap_line_length: 120,
+          });
           break;
         case 'html':
-          this.parsedCodeString = beautify.html(this.codeString, { wrap_line_length: 120 });
+          this.parsedCodeString = beautify.html(this.codeString, {
+            wrap_line_length: 120,
+          });
           break;
         case 'css':
-          this.parsedCodeString = beautify.css(this.codeString, { wrap_line_length: 120 });
+          this.parsedCodeString = beautify.css(this.codeString, {
+            wrap_line_length: 120,
+          });
           break;
       }
       this.populateCode();
@@ -118,7 +138,11 @@ export class CodeHighlighter implements ComponentInterface {
   private populateCode() {
     // @ts-ignore
     const Prism = window['Prism'];
-    const formatted = Prism.highlight(this.parsedCodeString, Prism.languages[this.language], this.language);
+    const formatted = Prism.highlight(
+      this.parsedCodeString,
+      Prism.languages[this.language],
+      this.language,
+    );
     let lineNumbersWrapper = '';
     if (this.lineNumbers) {
       const linesNum = formatted.split('\n').length;
@@ -173,9 +197,20 @@ export class CodeHighlighter implements ComponentInterface {
             }}
           >
             <div class="scroll-wrapper">
-              <goat-notification-manager position="top-right" name={'code-highlighter-' + this.gid}></goat-notification-manager>
-              <div class={{ 'line-numbers-wrapper': true, 'line-numbers': this.lineNumbers }}>
-                <HighlighterTab class="highlighter line-numbers" innerHTML={this.compiledCode} />
+              <goat-notification-manager
+                position="top-right"
+                name={'code-highlighter-' + this.gid}
+              ></goat-notification-manager>
+              <div
+                class={{
+                  'line-numbers-wrapper': true,
+                  'line-numbers': this.lineNumbers,
+                }}
+              >
+                <HighlighterTab
+                  class="highlighter line-numbers"
+                  innerHTML={this.compiledCode}
+                />
               </div>
             </div>
             {!this.hideCopy && this.copyState === 'idle' && !this.inline && (
@@ -196,12 +231,24 @@ export class CodeHighlighter implements ComponentInterface {
             )}
             {!this.hideCopy && this.copyState === 'copied' && !this.inline && (
               <div>
-                <goat-button class="copy-btn icon-only test" size="sm" color={'success'} variant={'default'} aria-label="Copied code" title="Copied code" icon={'checkmark'}>
+                <goat-button
+                  class="copy-btn icon-only test"
+                  size="sm"
+                  color={'success'}
+                  variant={'default'}
+                  aria-label="Copied code"
+                  title="Copied code"
+                  icon={'checkmark'}
+                >
                   Copied
                 </goat-button>
               </div>
             )}
-            {!this.hideCopy && this.inline && <goat-tooltip id={'copy-to-clipboard-' + this.gid}>{copiedText}</goat-tooltip>}
+            {!this.hideCopy && this.inline && (
+              <goat-tooltip id={'copy-to-clipboard-' + this.gid}>
+                {copiedText}
+              </goat-tooltip>
+            )}
 
             <goat-tooltip id={'copy-to-tooltip' + this.gid} placements="bottom">
               Save the record

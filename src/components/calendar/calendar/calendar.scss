@@ -7,13 +7,13 @@
   --calendar-border-color: #{v(--border-strong-01)};
   --scale-color: #{v(--text-placeholder)};
 
-  --calendar-event-bg-color: #{v(--color-new-purple-20)};
-  --calendar-event-bg-color--hover: #{v(--color-new-purple-40)};
+  --calendar-event-bg-color: #{v(--color-purple-20)};
+  --calendar-event-bg-color--hover: #{v(--color-purple-40)};
   --calendar-event-border-color: #{v(--color-new-purple)};
 
-  --calendar-event-dark-bg-color: #{v(--color-new-purple-90)};
-  --calendar-event-dark-bg-color--hover: #{v(--color-new-purple-70)};
-  --calendar-event-dark-border-color: #{v(--color-new-purple-70)};
+  --calendar-event-dark-bg-color: #{v(--color-purple-90)};
+  --calendar-event-dark-bg-color--hover: #{v(--color-purple-70)};
+  --calendar-event-dark-border-color: #{v(--color-purple-70)};
 }
 
 .calendar {

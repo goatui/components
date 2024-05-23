@@ -4,7 +4,7 @@ import { Component, Element, h, Host, Prop } from '@stencil/core';
  * @name Canvas
  * @category Up coming
  * @description Canvas for drawing lines and shapes on.
- * @img /assets/img/canvas.png
+ * @img /assets/img/canvas.webp
  */
 @Component({
   tag: 'goat-canvas',
@@ -72,7 +72,14 @@ export class Canvas {
           if (shape.y - Math.ceil(shape.radius) < computedViewbox.y) {
             computedViewbox.y = shape.y - Math.ceil(shape.radius);
           }
-          return <circle cx={shape.x * this.gap + dotRadius} cy={shape.y * this.gap + dotRadius} r={shape.radius * this.gap} fill={shape.color || 'black'} />;
+          return (
+            <circle
+              cx={shape.x * this.gap + dotRadius}
+              cy={shape.y * this.gap + dotRadius}
+              r={shape.radius * this.gap}
+              fill={shape.color || 'black'}
+            />
+          );
         }
         case 'rect': {
           if (shape.x + Math.ceil(shape.width) > computedViewbox.width) {
@@ -98,13 +105,27 @@ export class Canvas {
           );
         }
         case 'line': {
-          const pathString = `M${shape.start.x * this.gap + this.dotRadius} ${shape.start.y * this.gap + this.dotRadius} L${shape.end.x * this.gap + this.dotRadius} ${
+          const pathString = `M${shape.start.x * this.gap + this.dotRadius} ${
+            shape.start.y * this.gap + this.dotRadius
+          } L${shape.end.x * this.gap + this.dotRadius} ${
             shape.end.y * this.gap + this.dotRadius
           }`;
-          return <path class="line clickable" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#000" d={pathString} fill="none" />;
+          return (
+            <path
+              class="line clickable"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke="#000"
+              d={pathString}
+              fill="none"
+            />
+          );
         }
         case 'connector': {
-          let pathString = `M${shape.start.x * this.gap + this.dotRadius} ${shape.start.y * this.gap + this.dotRadius}`;
+          let pathString = `M${shape.start.x * this.gap + this.dotRadius} ${
+            shape.start.y * this.gap + this.dotRadius
+          }`;
           let current = { ...shape.start };
           this.updateComputationArea(current, computedViewbox);
 
@@ -115,27 +136,43 @@ export class Canvas {
 
             if (i == 0) {
               point = this.getNextPoint(current, path.direction, 1);
-              pathString += ` L${point.x * this.gap + this.dotRadius} ${point.y * this.gap + this.dotRadius}`;
+              pathString += ` L${point.x * this.gap + this.dotRadius} ${
+                point.y * this.gap + this.dotRadius
+              }`;
               current = { ...point };
               this.updateComputationArea(current, computedViewbox);
             }
 
             point = this.getNextPoint(current, path.direction, path.length - 2);
-            pathString += ` L${point.x * this.gap + this.dotRadius} ${point.y * this.gap + this.dotRadius}`;
+            pathString += ` L${point.x * this.gap + this.dotRadius} ${
+              point.y * this.gap + this.dotRadius
+            }`;
             current = { ...point };
             this.updateComputationArea(current, computedViewbox);
 
             if (i == shape.path.length - 1) {
               point = this.getNextPoint(current, path.direction, 1);
-              pathString += ` L${point.x * this.gap + this.dotRadius} ${point.y * this.gap + this.dotRadius}`;
+              pathString += ` L${point.x * this.gap + this.dotRadius} ${
+                point.y * this.gap + this.dotRadius
+              }`;
               current = { ...point };
               this.updateComputationArea(current, computedViewbox);
             } else {
               // draw curve
               const nextPath = shape.path[i + 1];
-              const midPoint: any = this.getNextPoint(current, path.direction, 1);
-              const nextPoint = this.getNextPoint(midPoint, nextPath.direction, 1);
-              pathString += ` Q ${midPoint.x * this.gap + this.dotRadius} ${midPoint.y * this.gap + this.dotRadius} ${nextPoint.x * this.gap + this.dotRadius} ${
+              const midPoint: any = this.getNextPoint(
+                current,
+                path.direction,
+                1,
+              );
+              const nextPoint = this.getNextPoint(
+                midPoint,
+                nextPath.direction,
+                1,
+              );
+              pathString += ` Q ${midPoint.x * this.gap + this.dotRadius} ${
+                midPoint.y * this.gap + this.dotRadius
+              } ${nextPoint.x * this.gap + this.dotRadius} ${
                 nextPoint.y * this.gap + this.dotRadius
               }`;
               current = { ...nextPoint };
@@ -158,7 +195,14 @@ export class Canvas {
                 stroke-dasharray={shape.dashed ? '6,6' : null}
                 fill="none"
               />
-              <path stroke-width="10" stroke-linecap="round" stroke-linejoin="round" stroke="transparent" d={pathString} fill="none" />
+              <path
+                stroke-width="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke="transparent"
+                d={pathString}
+                fill="none"
+              />
             </g>
           );
         }
@@ -212,29 +256,54 @@ export class Canvas {
         <div
           class="canvas-wrapper"
           style={{
-            width: (computedViewBox.width * this.gap + 2) * dotRadius * this.zoom + 'px',
-            height: (computedViewBox.height * this.gap + 2) * dotRadius * this.zoom + 'px',
+            width:
+              (computedViewBox.width * this.gap + 2) * dotRadius * this.zoom +
+              'px',
+            height:
+              (computedViewBox.height * this.gap + 2) * dotRadius * this.zoom +
+              'px',
           }}
         >
           <svg
             class="canvas"
             height="100%"
             width="100%"
-            viewBox={`${computedViewBox.x * this.gap} ${computedViewBox.y * this.gap} ${computedViewBox.width * this.gap + 2 * dotRadius} ${
+            viewBox={`${computedViewBox.x * this.gap} ${
+              computedViewBox.y * this.gap
+            } ${computedViewBox.width * this.gap + 2 * dotRadius} ${
               computedViewBox.height * this.gap + 2 * dotRadius
             }`}
           >
             <defs>
-              <pattern id="canvas-background" patternUnits="userSpaceOnUse" width={this.gap} height={this.gap}>
+              <pattern
+                id="canvas-background"
+                patternUnits="userSpaceOnUse"
+                width={this.gap}
+                height={this.gap}
+              >
                 <circle cx={1} cy={1} r={this.dotRadius} />
               </pattern>
 
-              <marker id="endarrow" markerWidth="15" markerHeight="22.5" refX="9" refY="15" markerUnits="userSpaceOnUse" orient="auto">
+              <marker
+                id="endarrow"
+                markerWidth="15"
+                markerHeight="22.5"
+                refX="9"
+                refY="15"
+                markerUnits="userSpaceOnUse"
+                orient="auto"
+              >
                 <polyline points="0 22.5, 7.5 15, 0 7.5"></polyline>
               </marker>
             </defs>
 
-            <rect x={computedViewBox.x * this.gap} y={computedViewBox.y * this.gap} width="100%" height="100%" fill="url(#canvas-background)" />
+            <rect
+              x={computedViewBox.x * this.gap}
+              y={computedViewBox.y * this.gap}
+              width="100%"
+              height="100%"
+              fill="url(#canvas-background)"
+            />
 
             {shapes}
           </svg>

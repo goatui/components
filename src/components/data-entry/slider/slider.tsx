@@ -1,13 +1,32 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Listen, Method, Prop, State, Watch } from '@stencil/core';
-import { debounceEvent, getComponentIndex, DRAG_EVENT_TYPES, DRAG_STOP_EVENT_TYPES, throttle } from '../../../utils/utils';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core';
+import {
+  debounceEvent,
+  getComponentIndex,
+  DRAG_EVENT_TYPES,
+  DRAG_STOP_EVENT_TYPES,
+  throttle,
+} from '../../../utils/utils';
 
 /**
  * @name Slider
  * @description Sliders allow users to make selections from a range of values.
  * @category Form Inputs
  * @tags input, form
- * @img /assets/img/slider.png
- * @imgDark /assets/img/slider-dark.png
+ * @img /assets/img/slider.webp
+ * @imgDark /assets/img/slider-dark.webp
  */
 @Component({
   tag: 'goat-slider',
@@ -261,9 +280,18 @@ export class Slider implements ComponentInterface, InputComponentInterface {
               onTouchStart={this.onDragStart}
               onWheel={this.onWheel}
             >
-              <div class="slider__thumb" onBlur={this.blurHandler} onFocus={this.focusHandler} tabIndex={0} style={{ left: `${this.percentageValue}%` }}></div>
+              <div
+                class="slider__thumb"
+                onBlur={this.blurHandler}
+                onFocus={this.focusHandler}
+                tabIndex={0}
+                style={{ left: `${this.percentageValue}%` }}
+              ></div>
               <div class="slider__track"></div>
-              <div class="slider__track--filled" style={{ width: `${this.percentageValue}%` }}></div>
+              <div
+                class="slider__track--filled"
+                style={{ width: `${this.percentageValue}%` }}
+              ></div>
             </div>
             <div class="slider-range-label">
               <span>{this.max}</span>

@@ -1,11 +1,19 @@
-import { Component, ComponentInterface, Element, h, Listen, Method, Prop } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  h,
+  Listen,
+  Method,
+  Prop,
+} from '@stencil/core';
 
 /**
  * @name Menu
  * @description Menus display a list of choices on temporary surfaces.
  * @category Navigation
- * @img /assets/img/menu.png
- * @imgDark /assets/img/menu-dark.png
+ * @img /assets/img/menu.webp
+ * @imgDark /assets/img/menu-dark.webp
  */
 @Component({
   tag: 'goat-menu',
@@ -31,7 +39,8 @@ export class Menu implements ComponentInterface {
 
   @Prop({ mutable: true }) emptyStateHeadline: string = 'No items';
 
-  @Prop({ mutable: true }) emptyStateDescription: string = 'There are no items to display';
+  @Prop({ mutable: true }) emptyStateDescription: string =
+    'There are no items to display';
 
   @Listen('keydown', { target: 'window' })
   handleKeyDown(evt: KeyboardEvent) {
@@ -70,7 +79,11 @@ export class Menu implements ComponentInterface {
   private focusNextItem(currentItem) {
     let nextItem: any = currentItem.nextElementSibling;
     do {
-      if (nextItem && nextItem.tagName === 'GOAT-MENU-ITEM' && !nextItem.disabled) {
+      if (
+        nextItem &&
+        nextItem.tagName === 'GOAT-MENU-ITEM' &&
+        !nextItem.disabled
+      ) {
         nextItem.setFocus();
         return;
       }
@@ -85,7 +98,11 @@ export class Menu implements ComponentInterface {
   private focusPreviousItem(currentItem) {
     let previousItem: any = currentItem.previousElementSibling;
     do {
-      if (previousItem && previousItem.tagName === 'GOAT-MENU-ITEM' && !previousItem.disabled) {
+      if (
+        previousItem &&
+        previousItem.tagName === 'GOAT-MENU-ITEM' &&
+        !previousItem.disabled
+      ) {
         previousItem.setFocus();
         return;
       }
@@ -110,6 +127,13 @@ export class Menu implements ComponentInterface {
   }
 
   private renderEmptyState() {
-    if (this.empty) return <goat-empty-state class="empty-menu" headline={this.emptyStateHeadline} description={this.emptyStateDescription} />;
+    if (this.empty)
+      return (
+        <goat-empty-state
+          class="empty-menu"
+          headline={this.emptyStateHeadline}
+          description={this.emptyStateDescription}
+        />
+      );
   }
 }

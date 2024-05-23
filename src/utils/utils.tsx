@@ -8,7 +8,11 @@ export const DRAG_EVENT_TYPES = new Set(['mousemove', 'touchmove']);
 /**
  * Event types that trigger a "drag" to stop.
  */
-export const DRAG_STOP_EVENT_TYPES = new Set(['mouseup', 'touchend', 'touchcancel']);
+export const DRAG_STOP_EVENT_TYPES = new Set([
+  'mouseup',
+  'touchend',
+  'touchcancel',
+]);
 
 export const getComponentIndex = (() => {
   let counter = 1;
@@ -26,8 +30,12 @@ export const isOutOfViewport = (bounding: DOMRect) => {
   const out: any = {};
   out.top = bounding.top < 0;
   out.left = bounding.left < 0;
-  out.bottom = bounding.bottom > (window.innerHeight || document.documentElement.clientHeight);
-  out.right = bounding.right > (window.innerWidth || document.documentElement.clientWidth);
+  out.bottom =
+    bounding.bottom >
+    (window.innerHeight || document.documentElement.clientHeight);
+  out.right =
+    bounding.right >
+    (window.innerWidth || document.documentElement.clientWidth);
   out.any = out.top || out.left || out.bottom || out.right;
   out.all = out.top && out.left && out.bottom && out.right;
   return out;
@@ -100,7 +108,10 @@ export function throttle(fn, threshhold, scope) {
   };
 }
 
-export const debounceEvent = (event: EventEmitter, wait: number): EventEmitter => {
+export const debounceEvent = (
+  event: EventEmitter,
+  wait: number,
+): EventEmitter => {
   const original = (event as any)._original || event;
   return {
     _original: event,
@@ -144,7 +155,10 @@ export const getFromObject = (obj, path, defaultValue = undefined) => {
     String.prototype.split
       .call(path, regexp)
       .filter(Boolean)
-      .reduce((res, key) => (res !== null && res !== undefined ? res[key] : res), obj);
+      .reduce(
+        (res, key) => (res !== null && res !== undefined ? res[key] : res),
+        obj,
+      );
   const result = travel(/[,[\]]+?/) || travel(/[,[\].]+?/);
   return result === undefined || result === obj ? defaultValue : result;
 };
@@ -154,10 +168,8 @@ const memoize = fn => {
   return (...args) => {
     let n = args[0];
     if (n in cache) {
-      console.log('Fetching from cache', n);
       return cache[n];
     } else {
-      console.log('Calculating result', n);
       let result = fn(n);
       cache[n] = result;
       return result;
@@ -207,4 +219,35 @@ export function convertToDomSVG(svg: string) {
   const parser = new DOMParser();
   const doc = parser.parseFromString(svg, 'image/svg+xml');
   return doc.documentElement;
+}
+
+export async function createCacheFetch(name: string) {
+  let cache: any;
+  try {
+    cache = await window.caches.open(name);
+  } catch (e) {
+    console.warn('window.caches access not allowed');
+  }
+  return async function (url: string) {
+    const request = new Request(url);
+    let response: Response;
+    if (cache) response = await cache.match(request);
+    if (response) {
+      return await response.text();
+    }
+    response = await fetch(request.url, {
+      method: 'GET',
+      mode: 'cors',
+      credentials: 'omit',
+    });
+    const result: string = await response.text();
+    if (
+      cache &&
+      response.status === 200 &&
+      process.env.THIRD_PARTY_ASSETS == 'REMOTE'
+    ) {
+      await cache.put(request, new Response(result));
+    }
+    return result;
+  };
 }

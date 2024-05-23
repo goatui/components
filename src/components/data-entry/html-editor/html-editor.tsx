@@ -1,4 +1,15 @@
-import { Component, ComponentInterface, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core';
 import { debounceEvent, getComponentIndex } from '../../../utils/utils';
 import { Editor } from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
@@ -11,8 +22,8 @@ import Text from '@tiptap/extension-text';
  * @description HTML Editor component is a WYSIWYG editor that allows users to edit HTML content.
  * @category Up coming
  * @tags input, form
- * @img /assets/img/html-editor.png
- * @imgDark /assets/img/html-editor-dark.png
+ * @img /assets/img/html-editor.webp
+ * @imgDark /assets/img/html-editor-dark.webp
  */
 @Component({
   tag: 'goat-html-editor',

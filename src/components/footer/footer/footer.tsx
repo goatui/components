@@ -5,8 +5,8 @@ import { Component, Element, h, Host, Prop } from '@stencil/core';
  * @description The footer component provides a container for displaying additional navigation information about a site.
  * @overview <p>The footer is one of the most underestimated sections of a website being located at the very bottom of every page, however, it can be used as a way to try to convince users to stay on your website if they haven’t found the information they’ve been looking for inside the main content area.</p>
  * @category Navigation
- * @img /assets/img/footer.png
- * @imgDark /assets/img/footer-dark.png
+ * @img /assets/img/footer.webp
+ * @imgDark /assets/img/footer-dark.webp
  */
 @Component({
   tag: 'goat-footer',

@@ -6,8 +6,8 @@ import { arrow, computePosition, flip, offset } from '@floating-ui/dom';
  * @description The Tooltip component is used to display additional information on hover.
  * @category Data Display
  * @tag content
- * @img /assets/img/tooltip.png
- * @imgDark /assets/img/tooltip-dark.png
+ * @img /assets/img/tooltip.webp
+ * @imgDark /assets/img/tooltip-dark.webp
  */
 @Component({
   tag: 'goat-tooltip',
@@ -15,7 +15,8 @@ import { arrow, computePosition, flip, offset } from '@floating-ui/dom';
   shadow: true,
 })
 export class Tooltip {
-  @Prop() placements: string = 'top,top-start,top-end,bottom,bottom-start,bottom-end,right,left';
+  @Prop() placements: string =
+    'top,top-start,top-end,bottom,bottom-start,bottom-end,right,left';
 
   @Prop({ mutable: true, reflect: true }) open: boolean = false;
 
@@ -36,7 +37,9 @@ export class Tooltip {
     this.open = false;
 
     if (target.hasAttribute('tooltip-target')) {
-      if (target.getAttribute('tooltip-target') === this.elm.getAttribute('id')) {
+      if (
+        target.getAttribute('tooltip-target') === this.elm.getAttribute('id')
+      ) {
         this.open = true;
         const positions = this.placements.split(',');
         const placement: any = positions[0];
@@ -61,10 +64,22 @@ export class Tooltip {
               const { x, y } = middlewareData.arrow;
 
               Object.assign(this.arrowEl.style, {
-                [middlewareData.offset.placement.includes('left') ? 'right' : 'left']: x ? `${x}px` : `${-this.arrowEl.offsetWidth / 2}px`,
-                [!middlewareData.offset.placement.includes('left') ? 'right' : 'left']: null,
-                [middlewareData.offset.placement.includes('top') ? 'bottom' : 'top']: y ? `${y}px` : `${-this.arrowEl.offsetHeight / 2}px`,
-                [!middlewareData.offset.placement.includes('top') ? 'bottom' : 'top']: null,
+                [middlewareData.offset.placement.includes('left')
+                  ? 'right'
+                  : 'left']: x
+                  ? `${x}px`
+                  : `${-this.arrowEl.offsetWidth / 2}px`,
+                [!middlewareData.offset.placement.includes('left')
+                  ? 'right'
+                  : 'left']: null,
+                [middlewareData.offset.placement.includes('top')
+                  ? 'bottom'
+                  : 'top']: y
+                  ? `${y}px`
+                  : `${-this.arrowEl.offsetHeight / 2}px`,
+                [!middlewareData.offset.placement.includes('top')
+                  ? 'bottom'
+                  : 'top']: null,
               });
             }
           });

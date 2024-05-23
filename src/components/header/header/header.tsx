@@ -5,8 +5,8 @@ import { isLightOrDark, observeThemeChange } from '../../../utils/utils';
  * @name Header
  * @description Header component is used to display a header with a brand, navigation, and actions.
  * @category Navigation
- * @img /assets/img/header.png
- * @imgDark /assets/img/header-dark.png
+ * @img /assets/img/header.webp
+ * @imgDark /assets/img/header-dark.webp
  */
 @Component({
   tag: 'goat-header',
@@ -18,7 +18,11 @@ export class Header {
 
   @Prop() float: boolean = false;
 
-  @Prop({ reflect: true }) color: 'light' | 'dark' | 'brand-primary' | 'brand-secondary' = 'light';
+  @Prop({ reflect: true }) color:
+    | 'light'
+    | 'dark'
+    | 'brand-primary'
+    | 'brand-secondary' = 'light';
 
   @Watch('color')
   colorChanged() {
@@ -26,7 +30,9 @@ export class Header {
   }
 
   computeColorLightOrDark() {
-    const color = getComputedStyle(document.documentElement).getPropertyValue(`--color-${this.color}`);
+    const color = getComputedStyle(document.documentElement).getPropertyValue(
+      `--color-${this.color}`,
+    );
     this.colorType = isLightOrDark(color);
   }
 
@@ -48,7 +54,9 @@ export class Header {
     return (
       <Host color-is={this.colorType}>
         <div class="header-container">
-          <header class={{ header: true, float: this.float, [columnType]: true }}>
+          <header
+            class={{ header: true, float: this.float, [columnType]: true }}
+          >
             <div class="left-section section">
               <slot name="left" />
             </div>

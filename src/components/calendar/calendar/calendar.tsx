@@ -1,16 +1,29 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Listen, Prop } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Listen,
+  Prop,
+} from '@stencil/core';
 import { addDays, addMonths, format } from 'date-fns';
 import { CalendarEvent } from './CalendarEvent';
 import { CalendarViewType, EventType } from './types';
-import { GoatCalendarColumnViewCustomEvent, GoatCalendarMonthViewCustomEvent } from '../../../components';
+import {
+  GoatCalendarColumnViewCustomEvent,
+  GoatCalendarMonthViewCustomEvent,
+} from '../../../components';
 
 /**
  * @name Calendar
  * @description The calendar component is used to display information in a daily, weekly, monthly, or category view.
  * @category Data Display
  * @tags calendar
- * @img /assets/img/calendar.png
- * @imgDark /assets/img/calendar-dark.png
+ * @img /assets/img/calendar.webp
+ * @imgDark /assets/img/calendar-dark.webp
  */
 @Component({
   tag: 'goat-calendar',
@@ -55,7 +68,8 @@ export class Calendar implements ComponentInterface {
 
   @Prop({ mutable: true }) contextDate: Date;
 
-  @Event({ eventName: 'goat:calendar-event-click' }) goatCalendarEventClick: EventEmitter;
+  @Event({ eventName: 'goat:calendar-event-click' })
+  goatCalendarEventClick: EventEmitter;
 
   currentTime: any;
   currentView: CalendarViewType;
@@ -78,7 +92,9 @@ export class Calendar implements ComponentInterface {
 
   async componentWillLoad() {
     if (this.timezone) {
-      this.currentTime = new Date(new Date().toLocaleString('en', { timeZone: this.timezone }));
+      this.currentTime = new Date(
+        new Date().toLocaleString('en', { timeZone: this.timezone }),
+      );
     } else {
       this.currentTime = new Date();
     }
@@ -88,7 +104,9 @@ export class Calendar implements ComponentInterface {
   }
 
   async componentWillRender() {
-    this.currentView = this.availableViews.find(view => view.value === this.view);
+    this.currentView = this.availableViews.find(
+      view => view.value === this.view,
+    );
   }
 
   previous() {
@@ -111,11 +129,29 @@ export class Calendar implements ComponentInterface {
     return (
       <div class="calendar-header-classic">
         <div class="header-left">
-          <goat-button variant="outline" size="sm" kind="simple" class="color-secondary" onClick={() => (this.contextDate = this.currentTime)}>
+          <goat-button
+            variant="outline"
+            size="sm"
+            kind="simple"
+            class="color-secondary"
+            onClick={() => (this.contextDate = this.currentTime)}
+          >
             Today
           </goat-button>
-          <goat-button variant="ghost" size="sm" class="color-secondary" icon="chevron--left" onClick={() => this.previous()}></goat-button>
-          <goat-button variant="ghost" size="sm" class="color-secondary" icon="chevron--right" onClick={() => this.next()}></goat-button>
+          <goat-button
+            variant="ghost"
+            size="sm"
+            class="color-secondary"
+            icon="chevron--left"
+            onClick={() => this.previous()}
+          ></goat-button>
+          <goat-button
+            variant="ghost"
+            size="sm"
+            class="color-secondary"
+            icon="chevron--right"
+            onClick={() => this.next()}
+          ></goat-button>
           <div class="title">{format(this.contextDate, 'MMMM d, yyyy')}</div>
         </div>
         <div class="header-right">
@@ -142,7 +178,13 @@ export class Calendar implements ComponentInterface {
     if (!this.currentView) return 'Invalid view';
 
     const events = this.events.map(event => {
-      return new CalendarEvent(event.start, event.end, event.title, event.color, event);
+      return new CalendarEvent(
+        event.start,
+        event.end,
+        event.title,
+        event.color,
+        event,
+      );
     });
 
     if (this.currentView.type === 'column') {
@@ -157,7 +199,14 @@ export class Calendar implements ComponentInterface {
         />
       );
     } else if (this.currentView.type === 'month') {
-      return <goat-calendar-month-view currentTime={this.currentTime} contextDate={this.contextDate} eventClickable={this.eventClickable} events={events} />;
+      return (
+        <goat-calendar-month-view
+          currentTime={this.currentTime}
+          contextDate={this.contextDate}
+          eventClickable={this.eventClickable}
+          events={events}
+        />
+      );
     }
   }
 

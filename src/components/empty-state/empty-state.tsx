@@ -1,12 +1,22 @@
-import { Component, ComponentInterface, Element, getAssetPath, h, Host, Listen, Prop, State } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  getAssetPath,
+  h,
+  Host,
+  Listen,
+  Prop,
+  State,
+} from '@stencil/core';
 import * as DOMPurify from 'dompurify';
 
 /**
  * @name Empty State
  * @description A message that displays when there is no information to display.
  * @category Data Display
- * @img /assets/img/empty-state.png
- * @imgDark /assets/img/empty-state-dark.png
+ * @img /assets/img/empty-state.webp
+ * @imgDark /assets/img/empty-state-dark.webp
  */
 @Component({
   tag: 'goat-empty-state',
@@ -49,15 +59,29 @@ export class EmptyState implements ComponentInterface {
         <div class={{ 'empty-state': true, 'vertical': this.vertical }}>
           <div class="empty-state-container">
             <div class="illustration">
-              <goat-svg src={getAssetPath(`./assets/images/empty-state/${this.illustration}.svg`)} />
+              <goat-svg
+                src={getAssetPath(
+                  `./assets/images/empty-state/${this.illustration}.svg`,
+                )}
+              />
             </div>
 
             <div class="content">
               {this.headline && <div class="title">{this.headline}</div>}
-              {this.description && <div class="description" innerHTML={DOMPurify.sanitize(this.description)} />}
+              {this.description && (
+                <div
+                  class="description"
+                  innerHTML={DOMPurify.sanitize(this.description)}
+                />
+              )}
               <div class="actions">
                 {this.action && (
-                  <goat-button href={this.actionUrl} icon={'arrow--right'} disabled={this.actionDisabled} variant={this.actionVariant}>
+                  <goat-button
+                    href={this.actionUrl}
+                    icon={'arrow--right'}
+                    disabled={this.actionDisabled}
+                    variant={this.actionVariant}
+                  >
                     {this.action}
                   </goat-button>
                 )}
