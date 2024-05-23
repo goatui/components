@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-22T14:54:30",
+  "timestamp": "2024-05-23T17:47:15",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -794,7 +794,7 @@
           "name": "color",
           "type": "\"brand-primary\" | \"brand-secondary\" | \"danger\" | \"dark\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\"",
           "complexType": {
-            "original": "'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light' | 'inverse'",
+            "original": "| 'primary'\n    | 'secondary'\n    | 'success'\n    | 'danger'\n    | 'brand-primary'\n    | 'brand-secondary'\n    | 'dark'\n    | 'light'\n    | 'inverse'",
             "resolved": "\"brand-primary\" | \"brand-secondary\" | \"danger\" | \"dark\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\"",
             "references": {}
           },
@@ -871,7 +871,7 @@
           "name": "darkModeColor",
           "type": "\"brand-primary\" | \"brand-secondary\" | \"danger\" | \"dark\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\"",
           "complexType": {
-            "original": "'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light' | 'inverse'",
+            "original": "| 'primary'\n    | 'secondary'\n    | 'success'\n    | 'danger'\n    | 'brand-primary'\n    | 'brand-secondary'\n    | 'dark'\n    | 'light'\n    | 'inverse'",
             "resolved": "\"brand-primary\" | \"brand-secondary\" | \"danger\" | \"dark\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\"",
             "references": {}
           },
@@ -1066,7 +1066,7 @@
           },
           "mutable": false,
           "attr": "kind",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "Button kind.\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\n`\"default\"` is a long button.\n`\"simple\"` is a text-only button.\n`\"block\"` is a full-width button.",
           "docsTags": [],
           "default": "'default'",
@@ -1231,13 +1231,13 @@
           "name": "variant",
           "type": "\"default\" | \"ghost\" | \"light\" | \"link\" | \"outline\"",
           "complexType": {
-            "original": "'default' | 'outline' | 'ghost' | 'light' | 'link'",
+            "original": "| 'default'\n    | 'outline'\n    | 'ghost'\n    | 'light'\n    | 'link'",
             "resolved": "\"default\" | \"ghost\" | \"light\" | \"link\" | \"outline\"",
             "references": {}
           },
           "mutable": false,
           "attr": "variant",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "Button variants.\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\n`\"default\"` is a filled button.\n`\"outline\"` is an outlined button.\n`\"ghost\"` is a transparent button.",
           "docsTags": [],
           "default": "'default'",
@@ -2801,7 +2801,7 @@
       "docsTags": [
         {
           "name": "name",
-          "text": "ChartDoughnut"
+          "text": "Chart Doughnut"
         },
         {
           "name": "description",
@@ -2813,7 +2813,7 @@
         },
         {
           "name": "tag",
-          "text": "controls"
+          "text": "chart"
         },
         {
           "name": "img",
@@ -2946,12 +2946,176 @@
       "parts": [],
       "listeners": [],
       "metadata": {
-        "name": "ChartDoughnut",
+        "name": "Chart Doughnut",
         "description": "A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.",
         "category": "Charts",
-        "tag": "controls",
+        "tag": "chart",
         "img": "/assets/img/chart-doughnut.webp",
         "imgDark": "/assets/img/chart-doughnut-dark.webp"
+      }
+    },
+    {
+      "filePath": "src/components/charts/chart-pie/chart-pie.tsx",
+      "fileName": "chart-pie.tsx",
+      "tag": "goat-chart-pie",
+      "readme": "# goat-heading\r\n\r\n\r\n\r",
+      "overview": "",
+      "usage": {},
+      "docs": "",
+      "docsTags": [
+        {
+          "name": "name",
+          "text": "Chart Pie"
+        },
+        {
+          "name": "description",
+          "text": "A pie chart (also known as a circle chart) is a circular statistical graphic that visually represents numerical proportions. It is commonly used to illustrate how parts relate to the whole for a specific categorical variable."
+        },
+        {
+          "name": "category",
+          "text": "Charts"
+        },
+        {
+          "name": "tag",
+          "text": "chart"
+        },
+        {
+          "name": "img",
+          "text": "/assets/img/chart-pie.webp"
+        },
+        {
+          "name": "imgDark",
+          "text": "/assets/img/chart-pie-dark.webp"
+        }
+      ],
+      "encapsulation": "shadow",
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {},
+      "props": [
+        {
+          "name": "data",
+          "type": "any",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "data",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "[]",
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "margin",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "margin",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "10",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "showLabels",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-labels",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "width",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "width",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "0",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "listeners": [],
+      "metadata": {
+        "name": "Chart Pie",
+        "description": "A pie chart (also known as a circle chart) is a circular statistical graphic that visually represents numerical proportions. It is commonly used to illustrate how parts relate to the whole for a specific categorical variable.",
+        "category": "Charts",
+        "tag": "chart",
+        "img": "/assets/img/chart-pie.webp",
+        "imgDark": "/assets/img/chart-pie-dark.webp"
       }
     },
     {
@@ -15448,7 +15612,8 @@
       "name": "Charts",
       "hide": false,
       "components": [
-        "goat-chart-doughnut"
+        "goat-chart-doughnut",
+        "goat-chart-pie"
       ]
     },
     {

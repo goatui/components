@@ -1,4 +1,5 @@
 @import "../../../globalStyles/commons";
+@import "../pie/pie";
 
 :host {
   display: inline-block;
@@ -25,17 +26,10 @@
   stroke: v(--text-primary);
 }
 
-
 .item-label {
   fill: v(--text-primary);
   font-size: v(--label-01-font-size);
   font-weight: v(--label-01-font-weight);
   line-height: v(--label-01-line-height);
   letter-spacing: v(--label-01-letter-spacing);
-}
-
-.arc-container path {
-  stroke: v(--color-light);
-  stroke-width: 2px;
-  transition: all 0.1s ease-out;
 }

@@ -12,19 +12,19 @@ import { chartColors, convertToHex } from '../chart-colors';
 import { getColorScale, getPieData } from '../pie/pie';
 
 /**
- * @name Chart Doughnut
- * @description A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.
+ * @name Chart Pie
+ * @description A pie chart (also known as a circle chart) is a circular statistical graphic that visually represents numerical proportions. It is commonly used to illustrate how parts relate to the whole for a specific categorical variable.
  * @category Charts
  * @tag chart
- * @img /assets/img/chart-doughnut.webp
- * @imgDark /assets/img/chart-doughnut-dark.webp
+ * @img /assets/img/chart-pie.webp
+ * @imgDark /assets/img/chart-pie-dark.webp
  */
 @Component({
-  tag: 'goat-chart-doughnut',
-  styleUrl: 'chart-doughnut.scss',
+  tag: 'goat-chart-pie',
+  styleUrl: 'chart-pie.scss',
   shadow: true,
 })
-export class ChartDoughnut implements ComponentInterface {
+export class ChartPie implements ComponentInterface {
   private svgElement?: SVGElement;
 
   @Prop({ reflect: true }) width: number = 0;
@@ -56,7 +56,7 @@ export class ChartDoughnut implements ComponentInterface {
     const d3 = window['d3'];
     return d3
       .arc()
-      .innerRadius(radius * 0.72) // This is the size of the donut hole
+      .innerRadius(0) // This is the size of the donut hole
       .outerRadius(radius);
   }
 
@@ -297,8 +297,16 @@ export class ChartDoughnut implements ComponentInterface {
           <svg ref={el => (this.svgElement = el)}>
             <g class={'chart-container'}>
               <g class={'arc-container'}></g>
-              <text class="title" text-anchor="middle"></text>
-              <text class="label" text-anchor="middle" y={16}>
+              <text
+                class="title"
+                text-anchor="middle"
+                y={this.getRadius() + 30}
+              ></text>
+              <text
+                class="label"
+                text-anchor="middle"
+                y={this.getRadius() + 46}
+              >
                 {this.label}
               </text>
             </g>

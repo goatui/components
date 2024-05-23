@@ -101,9 +101,25 @@ export namespace Components {
      * </goat-button>
      */
     interface GoatButton {
-        "color": 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light' | 'inverse';
+        "color": | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'brand-primary'
+    | 'brand-secondary'
+    | 'dark'
+    | 'light'
+    | 'inverse';
         "configAria": any;
-        "darkModeColor": 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light' | 'inverse';
+        "darkModeColor": | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'brand-primary'
+    | 'brand-secondary'
+    | 'dark'
+    | 'light'
+    | 'inverse';
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -158,7 +174,11 @@ export namespace Components {
         /**
           * Button variants. Possible values are `"default"`, `"outline"`, `"ghost"`. Defaults to `"default"`. `"default"` is a filled button. `"outline"` is an outlined button. `"ghost"` is a transparent button.
          */
-        "variant": 'default' | 'outline' | 'ghost' | 'light' | 'link';
+        "variant": | 'default'
+    | 'outline'
+    | 'ghost'
+    | 'light'
+    | 'link';
     }
     /**
      * @name Button Group
@@ -247,14 +267,29 @@ export namespace Components {
         "vertical": boolean;
     }
     /**
-     * @name ChartDoughnut
+     * @name Chart Doughnut
      * @description A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.
      * @category Charts
-     * @tag controls
+     * @tag chart
      * @img /assets/img/chart-doughnut.webp
      * @imgDark /assets/img/chart-doughnut-dark.webp
      */
     interface GoatChartDoughnut {
+        "data": any;
+        "label": string;
+        "margin": number;
+        "showLabels": boolean;
+        "width": number;
+    }
+    /**
+     * @name Chart Pie
+     * @description A pie chart (also known as a circle chart) is a circular statistical graphic that visually represents numerical proportions. It is commonly used to illustrate how parts relate to the whole for a specific categorical variable.
+     * @category Charts
+     * @tag chart
+     * @img /assets/img/chart-pie.webp
+     * @imgDark /assets/img/chart-pie-dark.webp
+     */
+    interface GoatChartPie {
         "data": any;
         "label": string;
         "margin": number;
@@ -1810,10 +1845,10 @@ declare global {
         new (): HTMLGoatCbPredicateElement;
     };
     /**
-     * @name ChartDoughnut
+     * @name Chart Doughnut
      * @description A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.
      * @category Charts
-     * @tag controls
+     * @tag chart
      * @img /assets/img/chart-doughnut.webp
      * @imgDark /assets/img/chart-doughnut-dark.webp
      */
@@ -1822,6 +1857,20 @@ declare global {
     var HTMLGoatChartDoughnutElement: {
         prototype: HTMLGoatChartDoughnutElement;
         new (): HTMLGoatChartDoughnutElement;
+    };
+    /**
+     * @name Chart Pie
+     * @description A pie chart (also known as a circle chart) is a circular statistical graphic that visually represents numerical proportions. It is commonly used to illustrate how parts relate to the whole for a specific categorical variable.
+     * @category Charts
+     * @tag chart
+     * @img /assets/img/chart-pie.webp
+     * @imgDark /assets/img/chart-pie-dark.webp
+     */
+    interface HTMLGoatChartPieElement extends Components.GoatChartPie, HTMLStencilElement {
+    }
+    var HTMLGoatChartPieElement: {
+        prototype: HTMLGoatChartPieElement;
+        new (): HTMLGoatChartPieElement;
     };
     interface HTMLGoatCheckboxElementEventMap {
         "goat:change": any;
@@ -2677,6 +2726,7 @@ declare global {
         "goat-cb-expression": HTMLGoatCbExpressionElement;
         "goat-cb-predicate": HTMLGoatCbPredicateElement;
         "goat-chart-doughnut": HTMLGoatChartDoughnutElement;
+        "goat-chart-pie": HTMLGoatChartPieElement;
         "goat-checkbox": HTMLGoatCheckboxElement;
         "goat-code-editor": HTMLGoatCodeEditorElement;
         "goat-code-highlighter": HTMLGoatCodeHighlighterElement;
@@ -2829,9 +2879,25 @@ declare namespace LocalJSX {
      * </goat-button>
      */
     interface GoatButton {
-        "color"?: 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light' | 'inverse';
+        "color"?: | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'brand-primary'
+    | 'brand-secondary'
+    | 'dark'
+    | 'light'
+    | 'inverse';
         "configAria"?: any;
-        "darkModeColor"?: 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light' | 'inverse';
+        "darkModeColor"?: | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'brand-primary'
+    | 'brand-secondary'
+    | 'dark'
+    | 'light'
+    | 'inverse';
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -2881,7 +2947,11 @@ declare namespace LocalJSX {
         /**
           * Button variants. Possible values are `"default"`, `"outline"`, `"ghost"`. Defaults to `"default"`. `"default"` is a filled button. `"outline"` is an outlined button. `"ghost"` is a transparent button.
          */
-        "variant"?: 'default' | 'outline' | 'ghost' | 'light' | 'link';
+        "variant"?: | 'default'
+    | 'outline'
+    | 'ghost'
+    | 'light'
+    | 'link';
     }
     /**
      * @name Button Group
@@ -2975,14 +3045,29 @@ declare namespace LocalJSX {
         "vertical"?: boolean;
     }
     /**
-     * @name ChartDoughnut
+     * @name Chart Doughnut
      * @description A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.
      * @category Charts
-     * @tag controls
+     * @tag chart
      * @img /assets/img/chart-doughnut.webp
      * @imgDark /assets/img/chart-doughnut-dark.webp
      */
     interface GoatChartDoughnut {
+        "data"?: any;
+        "label"?: string;
+        "margin"?: number;
+        "showLabels"?: boolean;
+        "width"?: number;
+    }
+    /**
+     * @name Chart Pie
+     * @description A pie chart (also known as a circle chart) is a circular statistical graphic that visually represents numerical proportions. It is commonly used to illustrate how parts relate to the whole for a specific categorical variable.
+     * @category Charts
+     * @tag chart
+     * @img /assets/img/chart-pie.webp
+     * @imgDark /assets/img/chart-pie-dark.webp
+     */
+    interface GoatChartPie {
         "data"?: any;
         "label"?: string;
         "margin"?: number;
@@ -4238,6 +4323,7 @@ declare namespace LocalJSX {
         "goat-cb-expression": GoatCbExpression;
         "goat-cb-predicate": GoatCbPredicate;
         "goat-chart-doughnut": GoatChartDoughnut;
+        "goat-chart-pie": GoatChartPie;
         "goat-checkbox": GoatCheckbox;
         "goat-code-editor": GoatCodeEditor;
         "goat-code-highlighter": GoatCodeHighlighter;
@@ -4380,14 +4466,23 @@ declare module "@stencil/core" {
             "goat-cb-expression": LocalJSX.GoatCbExpression & JSXBase.HTMLAttributes<HTMLGoatCbExpressionElement>;
             "goat-cb-predicate": LocalJSX.GoatCbPredicate & JSXBase.HTMLAttributes<HTMLGoatCbPredicateElement>;
             /**
-             * @name ChartDoughnut
+             * @name Chart Doughnut
              * @description A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information.
              * @category Charts
-             * @tag controls
+             * @tag chart
              * @img /assets/img/chart-doughnut.webp
              * @imgDark /assets/img/chart-doughnut-dark.webp
              */
             "goat-chart-doughnut": LocalJSX.GoatChartDoughnut & JSXBase.HTMLAttributes<HTMLGoatChartDoughnutElement>;
+            /**
+             * @name Chart Pie
+             * @description A pie chart (also known as a circle chart) is a circular statistical graphic that visually represents numerical proportions. It is commonly used to illustrate how parts relate to the whole for a specific categorical variable.
+             * @category Charts
+             * @tag chart
+             * @img /assets/img/chart-pie.webp
+             * @imgDark /assets/img/chart-pie-dark.webp
+             */
+            "goat-chart-pie": LocalJSX.GoatChartPie & JSXBase.HTMLAttributes<HTMLGoatChartPieElement>;
             /**
              * @name Checkbox
              * @description Captures boolean input with an optional indeterminate mode.

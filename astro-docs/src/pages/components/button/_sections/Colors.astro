@@ -24,8 +24,12 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
 <br />
 
 <goat-text type='heading' heading-size='3'>Custom branding</goat-text>
-<goat-text type='body' expressive>Custom branding is possible by overriding the CSS variables. The following example shows how to change the color of the button to the primary brand color.</goat-text>
-<goat-text type='body' expressive>Button text color will be adjusted to white or black based on it brightness of branding.</goat-text>
+<goat-text type='body' expressive>Custom branding is possible by overriding the CSS variables. The following example
+  shows how to change the color of the button to the primary brand color.
+</goat-text>
+<goat-text type='body' expressive>Button text color will be adjusted to white or black based on it brightness of
+  branding.
+</goat-text>
 
 
 <HighlighterCard lang={'html'}>
@@ -37,10 +41,25 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
     <goat-button variant='ghost' color='brand-primary' icon='arrow--right'>Ghost</goat-button>
   </div>
 
+  <style is:inline>
+    :root {
+      --color-custom-02: #ced83b;
+      --color-custom-02-10: #ffffff;
+      --color-custom-02-20: #f5f7d8;
+      --color-custom-02-30: #ebefb1;
+      --color-custom-02-40: #e2e889;
+      --color-custom-02-50: #d8e062;
+      --color-custom-02-60: #ced83b;
+      --color-custom-02-70: #a5ad2f;
+      --color-custom-02-80: #7c8223;
+      --color-custom-02-90: #525618;
+      --color-custom-02-100: #292b0c;
+    }
+  </style>
   <div class='component-container'>
-    <goat-button variant='default' color='brand-secondary' icon='arrow--right'>Default</goat-button>
-    <goat-button variant='light' color='brand-secondary' icon='arrow--right'>Light</goat-button>
-    <goat-button variant='outline' color='brand-secondary' icon='arrow--right'>Outline</goat-button>
-    <goat-button variant='ghost' color='brand-secondary' icon='arrow--right'>Ghost</goat-button>
+    <goat-button variant='default' color='custom-02' icon='arrow--right'>Default</goat-button>
+    <goat-button variant='light' color='custom-02' icon='arrow--right'>Light</goat-button>
+    <goat-button variant='outline' color='custom-02' icon='arrow--right'>Outline</goat-button>
+    <goat-button variant='ghost' color='custom-02' icon='arrow--right'>Ghost</goat-button>
   </div>
 </HighlighterCard>

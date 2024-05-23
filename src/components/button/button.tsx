@@ -1,5 +1,23 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Listen, Method, Prop, State, Watch } from '@stencil/core';
-import { getComponentIndex, isDarkMode, isLightOrDark, observeThemeChange } from '../../utils/utils';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core';
+import {
+  getComponentIndex,
+  isDarkMode,
+  isLightOrDark,
+  observeThemeChange,
+} from '../../utils/utils';
 
 /**
  * @name Button
@@ -22,7 +40,8 @@ export class Button implements ComponentInterface {
    * Button size.
    * Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"2xl"`, `"full"`. Defaults to `"md"`.
    */
-  @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full' = 'md';
+  @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full' =
+    'md';
 
   /**
    * Button kind.
@@ -31,7 +50,7 @@ export class Button implements ComponentInterface {
    * `"simple"` is a text-only button.
    * `"block"` is a full-width button.
    */
-  @Prop() kind: 'default' | 'simple' | 'block' = 'default';
+  @Prop({ reflect: true }) kind: 'default' | 'simple' | 'block' = 'default';
 
   @Prop() type: 'button' | 'submit' | 'reset' = 'button';
 
@@ -42,7 +61,12 @@ export class Button implements ComponentInterface {
    * `"outline"` is an outlined button.
    * `"ghost"` is a transparent button.
    */
-  @Prop() variant: 'default' | 'outline' | 'ghost' | 'light' | 'link' = 'default';
+  @Prop({ reflect: true }) variant:
+    | 'default'
+    | 'outline'
+    | 'ghost'
+    | 'light'
+    | 'link' = 'default';
 
   /**
    * Button selection state.
@@ -56,9 +80,27 @@ export class Button implements ComponentInterface {
 
   @Prop() disabledReason: string = '';
 
-  @Prop({ reflect: true }) color: 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light' | 'inverse' = 'primary';
+  @Prop({ reflect: true }) color:
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'brand-primary'
+    | 'brand-secondary'
+    | 'dark'
+    | 'light'
+    | 'inverse' = 'primary';
 
-  @Prop({ reflect: true }) darkModeColor: 'primary' | 'secondary' | 'success' | 'danger' | 'brand-primary' | 'brand-secondary' | 'dark' | 'light' | 'inverse';
+  @Prop({ reflect: true }) darkModeColor:
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'brand-primary'
+    | 'brand-secondary'
+    | 'dark'
+    | 'light'
+    | 'inverse';
 
   /**
    * Icon which will displayed on button.
@@ -103,6 +145,7 @@ export class Button implements ComponentInterface {
   @State() hover = false;
   @State() slotHasContent = false;
   @State() computedColor: string;
+  @State() theme: 'light' | 'dark';
 
   @Element() elm!: HTMLElement;
   private tabindex?: string | number;
@@ -112,7 +155,6 @@ export class Button implements ComponentInterface {
   @Watch('darkModeColor')
   colorChanged() {
     this.computedColor = this.getComputedColor();
-    this.computeColorLightOrDark();
   }
 
   @Listen('mouseup', { target: 'window' })
@@ -162,7 +204,13 @@ export class Button implements ComponentInterface {
   }
 
   private renderIcon = (iconName: string) => {
-    return <goat-icon name={iconName} size={this.getIconSize()} class="icon inherit" />;
+    return (
+      <goat-icon
+        name={iconName}
+        size={this.getIconSize()}
+        class="icon inherit"
+      />
+    );
   };
 
   private clickHandler = (event: KeyboardEvent) => {
@@ -216,7 +264,9 @@ export class Button implements ComponentInterface {
       this.slotHasContent = this.elm.hasChildNodes();
     }
     this.colorChanged();
+    this.theme = isDarkMode() ? 'dark' : 'light';
     observeThemeChange(() => {
+      this.theme = isDarkMode() ? 'dark' : 'light';
       this.colorChanged();
     });
   }
@@ -245,17 +295,21 @@ export class Button implements ComponentInterface {
   }
 
   computeColorLightOrDark() {
-    const color = getComputedStyle(document.documentElement).getPropertyValue(`--color-${this.computedColor}`);
-    this.colorType = isLightOrDark(color);
+    const color = getComputedStyle(document.documentElement).getPropertyValue(
+      `--color-${this.computedColor}`,
+    );
+    return isLightOrDark(color);
   }
-
-  @State() colorType: string = 'unknown';
 
   render() {
     const NativeElementTag = this.getNativeElementTagName();
 
     return (
-      <Host has-focus={this.hasFocus} kind={this.kind} active={this.isActive} computed-color={this.computedColor}>
+      <Host
+        has-focus={this.hasFocus}
+        active={this.isActive}
+        computed-color={this.computedColor}
+      >
         <div
           class={{
             'button': true,
@@ -271,7 +325,7 @@ export class Button implements ComponentInterface {
             'has-content': this.slotHasContent,
             'has-icon': !!this.icon,
             'show-loader': this.showLoader,
-            [`color-is-${this.colorType}`]: true,
+            [`color-is-${this.computeColorLightOrDark()}`]: true,
           }}
         >
           <div class="button-background" />
@@ -294,20 +348,36 @@ export class Button implements ComponentInterface {
             onMouseDown={this.mouseDownHandler}
             onKeyDown={this.keyDownHandler}
             role="button"
-            aria-describedby={this.disabled && this.disabledReason ? `disabled-reason-${this.gid}` : null}
+            aria-describedby={
+              this.disabled && this.disabledReason
+                ? `disabled-reason-${this.gid}`
+                : null
+            }
             aria-disabled={(this.disabled || this.showLoader) + ''}
             {...this.configAria}
           >
             <div class="button-content">
-              {!this.showLoader && this.icon && this.iconAlign == 'start' && this.renderIcon(this.icon)}
+              {!this.showLoader &&
+                this.icon &&
+                this.iconAlign == 'start' &&
+                this.renderIcon(this.icon)}
 
               <div class="slot-container">
                 <slot />
               </div>
 
-              {this.showLoader && <goat-spinner hideBackground={true} class="spinner loader inherit" size={this.getIconSize()} />}
+              {this.showLoader && (
+                <goat-spinner
+                  hideBackground={true}
+                  class="spinner loader inherit"
+                  size={this.getIconSize()}
+                />
+              )}
 
-              {!this.showLoader && this.icon && this.iconAlign == 'end' && this.renderIcon(this.icon)}
+              {!this.showLoader &&
+                this.icon &&
+                this.iconAlign == 'end' &&
+                this.renderIcon(this.icon)}
             </div>
           </NativeElementTag>
           {this.renderDisabledReason()}
