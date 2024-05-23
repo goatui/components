@@ -113,3 +113,9 @@ Checkout the complete documentation over here -> https://goatui.com
 | [Toggle](https://goatui.com/components/toggle)                             | goat-toggle               | 🟢    |
 | [Tooltip](https://goatui.com/components/tooltip)                   | goat-tooltip              | 🟢    |
 | Week picker                                                                | goat-week-picker          | 🔵    |
+
+## Charts
+| Name                                                           | Component           | State |
+|----------------------------------------------------------------|---------------------|-------|
+| [Doughnut Chart](https://goatui.com/components/chart-doughnut) | goat-chart-doughnut | 🟢   |
+| [Pie Chart ](https://goatui.com/components/chart-pie)          | goat-chart-pie      | 🟢   |
