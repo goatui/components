@@ -38,6 +38,7 @@
     "build:3d-party": "cd src/assets && npm ci",
     "build:theme": "sass ./src/globalStyles/theme/theme.scss ./src/assets/styles/theme.css",
     "generate": "stencil generate",
+    "release:major": "npm version major && npm run release-to-docs && git add . && git commit -m \"Release to docs\"",
     "release:premajor": "npm version premajor && npm run release-to-docs && git add . && git commit -m \"Release to docs\"",
     "release:minor": "npm version minor && npm run release-to-docs && git add . && git commit -m \"Release to docs\"",
     "release:patch": "npm version patch && npm run release-to-docs && git add . && git commit -m \"Release to docs\"",
