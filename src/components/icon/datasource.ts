@@ -3,10 +3,10 @@ import { ICON_BASE_URL } from './constants';
 import { getAssetPath } from '@stencil/core';
 import { createCacheFetch } from '../../utils/utils';
 
-const cacheFetch = await createCacheFetch('goat-icons');
-
 export async function fetchIcon(name: string) {
   if (!name) return '';
+
+  const cacheFetch = await createCacheFetch('goat-icons');
 
   const icon = icons.find((icon: any) => icon.name === name);
 
