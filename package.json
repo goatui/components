@@ -36,7 +36,7 @@
     "build:stencil": "stencil build --docs --prod",
     "build:docs-only": "stencil docs",
     "build:3d-party": "cd src/assets && npm ci",
-    "build:theme": "sass ./src/globalStyles/theme/theme.scss ./src/assets/styles/theme.css",
+    "build:theme": "sass --style=compressed ./src/globalStyles/theme/theme.scss ./src/assets/styles/theme.css",
     "generate": "stencil generate",
     "release:major": "npm version major && npm run release-to-docs && git add . && git commit -m \"Release to docs\"",
     "release:premajor": "npm version premajor && npm run release-to-docs && git add . && git commit -m \"Release to docs\"",
