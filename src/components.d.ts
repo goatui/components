@@ -1111,6 +1111,7 @@ export namespace Components {
         "format": 'number' | 'time';
         "getComponentId": () => Promise<string>;
         "hideInput": boolean;
+        "hideLabels": boolean;
         "max": number;
         "min": number;
         /**
@@ -3894,6 +3895,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "format"?: 'number' | 'time';
         "hideInput"?: boolean;
+        "hideLabels"?: boolean;
         "max"?: number;
         "min"?: number;
         /**

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-25T12:05:23",
+  "timestamp": "2024-05-27T09:46:46",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -11204,11 +11204,13 @@
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
-        "goat-number"
+        "goat-number",
+        "goat-tooltip"
       ],
       "dependencyGraph": {
         "goat-slider": [
-          "goat-number"
+          "goat-number",
+          "goat-tooltip"
         ],
         "goat-number": [
           "goat-button"
@@ -11275,6 +11277,77 @@
           "attr": "disabled",
           "reflectToAttr": true,
           "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "format",
+          "type": "\"number\" | \"time\"",
+          "complexType": {
+            "original": "'number' | 'time'",
+            "resolved": "\"number\" | \"time\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "format",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'number'",
+          "values": [
+            {
+              "value": "number",
+              "type": "string"
+            },
+            {
+              "value": "time",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "hideInput",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-input",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "hideLabels",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "hide-labels",
+          "reflectToAttr": false,
+          "docs": "",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -11503,6 +11576,20 @@
         },
         {
           "event": "goat:input",
+          "detail": "any",
+          "bubbles": true,
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        },
+        {
+          "event": "goat:tooltip",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -14945,15 +15032,41 @@
       ],
       "encapsulation": "shadow",
       "dependents": [
-        "goat-code-highlighter"
+        "goat-code-highlighter",
+        "goat-slider"
       ],
       "dependencies": [],
       "dependencyGraph": {
         "goat-code-highlighter": [
           "goat-tooltip"
+        ],
+        "goat-slider": [
+          "goat-tooltip"
         ]
       },
       "props": [
+        {
+          "name": "managed",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "managed",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
         {
           "name": "open",
           "type": "boolean",
@@ -15010,6 +15123,12 @@
           "target": "window",
           "capture": false,
           "passive": true
+        },
+        {
+          "event": "goat:tooltip",
+          "target": "window",
+          "capture": false,
+          "passive": false
         }
       ],
       "metadata": {

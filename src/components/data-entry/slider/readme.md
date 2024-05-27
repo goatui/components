@@ -14,6 +14,7 @@
 | `disabled`   | `disabled`    | If true, the user cannot interact with the button. Defaults to `false`.                                  | `boolean`            | `false`                    |
 | `format`     | `format`      |                                                                                                          | `"number" \| "time"` | `'number'`                 |
 | `hideInput`  | `hide-input`  |                                                                                                          | `boolean`            | `false`                    |
+| `hideLabels` | `hide-labels` |                                                                                                          | `boolean`            | `false`                    |
 | `max`        | `max`         |                                                                                                          | `number`             | `100`                      |
 | `min`        | `min`         |                                                                                                          | `number`             | `0`                        |
 | `name`       | `name`        | The input field name.                                                                                    | `string`             | ``goat-input-${this.gid}`` |

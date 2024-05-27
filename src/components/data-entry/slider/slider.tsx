@@ -46,6 +46,8 @@ export class Slider implements ComponentInterface, InputComponentInterface {
 
   @Prop() max: number = 100;
 
+  @Prop() hideLabels: boolean = false;
+
   @Prop() hideInput: boolean = false;
 
   @Prop() format: 'number' | 'time' = 'number';
@@ -286,9 +288,11 @@ export class Slider implements ComponentInterface, InputComponentInterface {
       <Host has-value={this.hasValue()} has-focus={this.hasFocus}>
         <div class="slider-container">
           <div class="slider-wrapper">
-            <div class="slider-range-label">
-              <span>{this.getFormattedValue(this.min)}</span>
-            </div>
+            {!this.hideLabels && (
+              <div class="slider-range-label">
+                <span>{this.getFormattedValue(this.min)}</span>
+              </div>
+            )}
             <div
               class={{ 'slider': true, 'has-focus': this.hasFocus }}
               ref={elm => (this.slideElement = elm)}
@@ -324,9 +328,11 @@ export class Slider implements ComponentInterface, InputComponentInterface {
                 style={{ width: `${this.percentageValue}%` }}
               ></div>
             </div>
-            <div class="slider-range-label">
-              <span>{this.getFormattedValue(this.max)}</span>
-            </div>
+            {!this.hideLabels && (
+              <div class="slider-range-label">
+                <span>{this.getFormattedValue(this.max)}</span>
+              </div>
+            )}
           </div>
           {!this.hideInput ? (
             <div class="slide-input">
