@@ -1108,7 +1108,9 @@ export namespace Components {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
+        "format": 'number' | 'time';
         "getComponentId": () => Promise<string>;
+        "hideInput": boolean;
         "max": number;
         "min": number;
         /**
@@ -1453,6 +1455,7 @@ export namespace Components {
      * @imgDark /assets/img/tooltip-dark.webp
      */
     interface GoatTooltip {
+        "managed": boolean;
         "open": boolean;
         "placements": string;
     }
@@ -2409,6 +2412,7 @@ declare global {
     interface HTMLGoatSliderElementEventMap {
         "goat:change": any;
         "goat:input": any;
+        "goat:tooltip": any;
     }
     /**
      * @name Slider
@@ -3888,6 +3892,8 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
+        "format"?: 'number' | 'time';
+        "hideInput"?: boolean;
         "max"?: number;
         "min"?: number;
         /**
@@ -3899,6 +3905,7 @@ declare namespace LocalJSX {
          */
         "onGoat:change"?: (event: GoatSliderCustomEvent<any>) => void;
         "onGoat:input"?: (event: GoatSliderCustomEvent<any>) => void;
+        "onGoat:tooltip"?: (event: GoatSliderCustomEvent<any>) => void;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -4258,6 +4265,7 @@ declare namespace LocalJSX {
      * @imgDark /assets/img/tooltip-dark.webp
      */
     interface GoatTooltip {
+        "managed"?: boolean;
         "open"?: boolean;
         "placements"?: string;
     }

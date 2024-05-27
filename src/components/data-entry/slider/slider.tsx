@@ -14,9 +14,10 @@ import {
 } from '@stencil/core';
 import {
   debounceEvent,
-  getComponentIndex,
   DRAG_EVENT_TYPES,
   DRAG_STOP_EVENT_TYPES,
+  getComponentIndex,
+  secondsToHHMMSS,
   throttle,
 } from '../../../utils/utils';
 
@@ -44,6 +45,10 @@ export class Slider implements ComponentInterface, InputComponentInterface {
   @Prop() min: number = 0;
 
   @Prop() max: number = 100;
+
+  @Prop() hideInput: boolean = false;
+
+  @Prop() format: 'number' | 'time' = 'number';
 
   /**
    * The input field value.
@@ -77,6 +82,7 @@ export class Slider implements ComponentInterface, InputComponentInterface {
    */
   @Event({ eventName: 'goat:change' }) goatChange: EventEmitter;
   @Event({ eventName: 'goat:input' }) goatInput: EventEmitter;
+  @Event({ eventName: 'goat:tooltip' }) goatTooltipOpen: EventEmitter;
 
   /**
    * Sets focus on the native `input` in `ion-input`. Use this method instead of the global
@@ -160,17 +166,7 @@ export class Slider implements ComponentInterface, InputComponentInterface {
 
     this.value = parseInt(String(this.value)) + delta;
 
-    if (this.value > this.max) {
-      this.value = this.max;
-    } else if (this.value < this.min) {
-      this.value = this.min;
-    }
-
-    this.computePercentageValue();
-
-    this.goatInput.emit({
-      value: this.value,
-    });
+    this.updateValue();
   };
 
   onDragStart = event => {
@@ -226,17 +222,27 @@ export class Slider implements ComponentInterface, InputComponentInterface {
       return;
     }
 
-    this.updateValue(event.clientX);
+    this.goatTooltipOpen.emit({
+      target: this.thumbElement,
+      open: true,
+    });
+
+    this.updateByPosition(event.clientX);
   };
 
-  updateValue = current => {
+  updateByPosition = current => {
     const start = this.slideElement.getBoundingClientRect().left;
     const total = this.slideElement.getBoundingClientRect().width;
     this.value = parseInt(String(((current - start) / total) * 100));
-    if (this.value > this.max) {
-      this.value = this.max;
-    } else if (this.value < this.min) {
+
+    this.updateValue();
+  };
+
+  updateValue = () => {
+    if (this.value == null || this.value < this.min) {
       this.value = this.min;
+    } else if (this.value > this.max) {
+      this.value = this.max;
     }
 
     this.computePercentageValue();
@@ -256,14 +262,24 @@ export class Slider implements ComponentInterface, InputComponentInterface {
   }
 
   private slideElement?: HTMLElement;
+  private thumbElement?: HTMLElement;
 
   private blurHandler = () => {
     this.hasFocus = false;
+    this.goatTooltipOpen.emit({
+      target: this.thumbElement,
+      open: false,
+    });
   };
 
   private focusHandler = () => {
     this.hasFocus = true;
   };
+
+  private getFormattedValue(value) {
+    if (this.format === 'number') return value;
+    return secondsToHHMMSS(value);
+  }
 
   render() {
     return (
@@ -271,7 +287,7 @@ export class Slider implements ComponentInterface, InputComponentInterface {
         <div class="slider-container">
           <div class="slider-wrapper">
             <div class="slider-range-label">
-              <span>{this.min}</span>
+              <span>{this.getFormattedValue(this.min)}</span>
             </div>
             <div
               class={{ 'slider': true, 'has-focus': this.hasFocus }}
@@ -284,6 +300,21 @@ export class Slider implements ComponentInterface, InputComponentInterface {
                 class="slider__thumb"
                 onBlur={this.blurHandler}
                 onFocus={this.focusHandler}
+                ref={elm => (this.thumbElement = elm)}
+                onMouseOver={_e => {
+                  this.goatTooltipOpen.emit({
+                    target: this.thumbElement,
+                    open: true,
+                  });
+                }}
+                onMouseLeave={_e => {
+                  if (!this.hasFocus)
+                    this.goatTooltipOpen.emit({
+                      target: this.thumbElement,
+                      open: false,
+                    });
+                }}
+                tooltip-target={`slider-tooltip-${this.gid}`}
                 tabIndex={0}
                 style={{ left: `${this.percentageValue}%` }}
               ></div>
@@ -294,24 +325,35 @@ export class Slider implements ComponentInterface, InputComponentInterface {
               ></div>
             </div>
             <div class="slider-range-label">
-              <span>{this.max}</span>
+              <span>{this.getFormattedValue(this.max)}</span>
             </div>
           </div>
-          <div class="slide-input">
-            <goat-number
-              class="input"
-              value={this.value}
-              size="sm"
-              hide-actions={true}
-              onGoat:change={e => {
-                e.stopPropagation();
-              }}
-              onGoat:input={e => {
-                e.stopPropagation();
-              }}
-            ></goat-number>
-          </div>
+          {!this.hideInput ? (
+            <div class="slide-input">
+              <goat-number
+                class="input"
+                value={this.value}
+                size="sm"
+                hide-actions={true}
+                onGoat:change={e => {
+                  e.stopPropagation();
+                  this.value = e.target.value;
+                  this.updateValue();
+                }}
+                onGoat:input={e => {
+                  e.stopPropagation();
+                }}
+              ></goat-number>
+            </div>
+          ) : null}
         </div>
+        <goat-tooltip
+          id={`slider-tooltip-${this.gid}`}
+          placements="top,bottom"
+          managed={true}
+        >
+          {this.getFormattedValue(this.value)}
+        </goat-tooltip>
       </Host>
     );
   }

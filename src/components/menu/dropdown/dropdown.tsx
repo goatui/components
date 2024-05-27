@@ -61,11 +61,15 @@ export class Dropdown implements ComponentInterface {
     for (const elm of path) {
       if (elm == this.elm) return;
     }
+    let target: HTMLElement;
+    for (const elm of path) {
+      if (elm.hasAttribute && elm.hasAttribute('dropdown-target')) target = elm;
+    }
     if (
-      evt.target.hasAttribute('dropdown-target') &&
-      evt.target.getAttribute('dropdown-target') === this.elm.getAttribute('id')
+      target &&
+      target.getAttribute('dropdown-target') === this.elm.getAttribute('id')
     ) {
-      this.referenceElm = evt.target;
+      this.referenceElm = target;
       this.toggleList();
     } else {
       this.open = false;

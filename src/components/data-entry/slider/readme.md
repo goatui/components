@@ -7,25 +7,28 @@
 
 ## Properties
 
-| Property     | Attribute     | Description                                                                                              | Type      | Default                    |
-| ------------ | ------------- | -------------------------------------------------------------------------------------------------------- | --------- | -------------------------- |
-| `configAria` | `config-aria` |                                                                                                          | `any`     | `{}`                       |
-| `debounce`   | `debounce`    | Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke. | `number`  | `300`                      |
-| `disabled`   | `disabled`    | If true, the user cannot interact with the button. Defaults to `false`.                                  | `boolean` | `false`                    |
-| `max`        | `max`         |                                                                                                          | `number`  | `100`                      |
-| `min`        | `min`         |                                                                                                          | `number`  | `0`                        |
-| `name`       | `name`        | The input field name.                                                                                    | `string`  | ``goat-input-${this.gid}`` |
-| `readonly`   | `readonly`    | If true, the user cannot interact with the button. Defaults to `false`.                                  | `boolean` | `false`                    |
-| `required`   | `required`    | If true, required icon is show. Defaults to `false`.                                                     | `boolean` | `false`                    |
-| `value`      | `value`       | The input field value.                                                                                   | `number`  | `0`                        |
+| Property     | Attribute     | Description                                                                                              | Type                 | Default                    |
+| ------------ | ------------- | -------------------------------------------------------------------------------------------------------- | -------------------- | -------------------------- |
+| `configAria` | `config-aria` |                                                                                                          | `any`                | `{}`                       |
+| `debounce`   | `debounce`    | Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke. | `number`             | `300`                      |
+| `disabled`   | `disabled`    | If true, the user cannot interact with the button. Defaults to `false`.                                  | `boolean`            | `false`                    |
+| `format`     | `format`      |                                                                                                          | `"number" \| "time"` | `'number'`                 |
+| `hideInput`  | `hide-input`  |                                                                                                          | `boolean`            | `false`                    |
+| `max`        | `max`         |                                                                                                          | `number`             | `100`                      |
+| `min`        | `min`         |                                                                                                          | `number`             | `0`                        |
+| `name`       | `name`        | The input field name.                                                                                    | `string`             | ``goat-input-${this.gid}`` |
+| `readonly`   | `readonly`    | If true, the user cannot interact with the button. Defaults to `false`.                                  | `boolean`            | `false`                    |
+| `required`   | `required`    | If true, required icon is show. Defaults to `false`.                                                     | `boolean`            | `false`                    |
+| `value`      | `value`       | The input field value.                                                                                   | `number`             | `0`                        |
 
 
 ## Events
 
-| Event         | Description                         | Type               |
-| ------------- | ----------------------------------- | ------------------ |
-| `goat:change` | Emitted when the value has changed. | `CustomEvent<any>` |
-| `goat:input`  |                                     | `CustomEvent<any>` |
+| Event          | Description                         | Type               |
+| -------------- | ----------------------------------- | ------------------ |
+| `goat:change`  | Emitted when the value has changed. | `CustomEvent<any>` |
+| `goat:input`   |                                     | `CustomEvent<any>` |
+| `goat:tooltip` |                                     | `CustomEvent<any>` |
 
 
 ## Methods
@@ -68,11 +71,13 @@ Type: `Promise<void>`
 ### Depends on
 
 - [goat-number](../input/number)
+- [goat-tooltip](../../tooltip)
 
 ### Graph
 ```mermaid
 graph TD;
   goat-slider --> goat-number
+  goat-slider --> goat-tooltip
   goat-number --> goat-button
   goat-button --> goat-icon
   goat-button --> goat-spinner
