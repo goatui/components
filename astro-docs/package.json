@@ -1,7 +1,7 @@
 {
-  "name": "majestic-mars",
+  "name": "goatui-docs",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -11,9 +11,9 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",
-    "@astrojs/sitemap": "^3.1.4",
-    "astro": "^4.8.6",
-    "sass": "^1.77.2",
+    "@astrojs/sitemap": "^3.1.5",
+    "astro": "^4.9.2",
+    "sass": "^1.77.4",
     "typescript": "^5.4.5"
   }
 }
