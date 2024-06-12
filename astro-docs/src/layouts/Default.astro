@@ -13,6 +13,11 @@ import Layout from './Base.astro';
 import site from '../_data/site.json';
 import componentsDetails from '../_data/componentsDetails.json';
 
+const searchItems = componentsDetails.components.map(component => ({
+  label: component.metadata.name,
+  value: component.tag.replace('goat-', ''),
+}));
+
 const getTitle = (root?: boolean) => {
   return (!root) ? title : '';
 };
@@ -122,16 +127,13 @@ const getTitle = (root?: boolean) => {
     <slot />
   </main>
 
-  <script is:inline define:vars={{ componentsDetails }}>
+  <script is:inline define:vars={{ searchItems }}>
     document.addEventListener('DOMContentLoaded', function() {
       const search = document.querySelector('#site-search');
 
       if (search) {
         // prettier-ignore
-        search.items = componentsDetails.components.map(component => ({
-          label: component.metadata.name,
-          value: component.tag.replace('goat-', ''),
-        }));
+        search.items = searchItems;
         search.items = search.items.filter(item => !!item.label);
         search.addEventListener('goat:change', function(e) {
           window.location.href = '/components/' + e.detail.value;
