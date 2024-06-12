@@ -20,7 +20,7 @@ function jumpingSentence(sentence: string) {
     return `<div class='jumping-word'>${word.split('').map((char, index) => {
       if (char === ' ')
         return char;
-      return `<goat-text style='z-index:${len--};position:relative' class='jumping-text' type='fluid-heading' heading-size='6' heading-level='1'>${char}</goat-text>`;
+      return `<goat-text style='z-index:${len--};' class='jumping-text' type='fluid-heading' heading-size='6' heading-level='1'>${char}</goat-text>`;
     }).join('')}</div>`;
   }).join(' ');
 }

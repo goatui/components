@@ -191,6 +191,7 @@ goat-text[type='code'] {
   padding-inline: .2rem;
 }
 .jumping-text {
+  position:relative;
   text-shadow: -20px 10px 10px rgba(0, 0, 0, .3), 0 20px 50px rgba(0, 0, 0, .3);
   font-weight: 900;
   letter-spacing: -2px;
