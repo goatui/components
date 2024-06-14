@@ -501,6 +501,7 @@ export namespace Components {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
+        "managed": boolean;
         "open": boolean;
         "placements": string;
         "setFocus": () => Promise<void>;
@@ -3292,6 +3293,7 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
+        "managed"?: boolean;
         "onGoat:dropdown-item-click"?: (event: GoatDropdownCustomEvent<any>) => void;
         "open"?: boolean;
         "placements"?: string;

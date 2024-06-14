@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-14T17:12:05",
+  "timestamp": "2024-06-14T17:23:55",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -4991,6 +4991,28 @@
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "If true, the user cannot interact with the button. Defaults to `false`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "managed",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "managed",
+          "reflectToAttr": true,
+          "docs": "",
           "docsTags": [],
           "default": "false",
           "values": [
