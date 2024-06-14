@@ -33,7 +33,7 @@
 
   .close-button {
     margin: 0;
-    --button-padding: v(--spacing-02);
+    --button-padding: #{v(--spacing-02)};
     padding: v(--spacing-02) 0;
   }
 }
