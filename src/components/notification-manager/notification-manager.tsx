@@ -33,8 +33,11 @@ const getNotificationIndex = (() => {
 })
 export class NotificationManager implements ComponentInterface {
   @Prop({ reflect: true }) name: string = 'global';
-  @Prop() position: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' =
-    'bottom-right';
+  @Prop({ reflect: true }) position:
+    | 'top-right'
+    | 'top-left'
+    | 'bottom-right'
+    | 'bottom-left' = 'bottom-right';
 
   @Element() elm!: HTMLElement;
   @State() notifications: any = [];
