@@ -874,7 +874,10 @@ export namespace Components {
      */
     interface GoatNotificationManager {
         "name": string;
-        "position": 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
+        "position": | 'top-right'
+    | 'top-left'
+    | 'bottom-right'
+    | 'bottom-left';
     }
     /**
      * @name Number
@@ -3660,7 +3663,10 @@ declare namespace LocalJSX {
      */
     interface GoatNotificationManager {
         "name"?: string;
-        "position"?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
+        "position"?: | 'top-right'
+    | 'top-left'
+    | 'bottom-right'
+    | 'bottom-left';
     }
     /**
      * @name Number

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-14T16:31:55",
+  "timestamp": "2024-06-14T17:12:05",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -8982,13 +8982,13 @@
           "name": "position",
           "type": "\"bottom-left\" | \"bottom-right\" | \"top-left\" | \"top-right\"",
           "complexType": {
-            "original": "'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'",
+            "original": "| 'top-right'\n    | 'top-left'\n    | 'bottom-right'\n    | 'bottom-left'",
             "resolved": "\"bottom-left\" | \"bottom-right\" | \"top-left\" | \"top-right\"",
             "references": {}
           },
           "mutable": false,
           "attr": "position",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
           "default": "'bottom-right'",
