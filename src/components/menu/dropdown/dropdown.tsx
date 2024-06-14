@@ -39,6 +39,8 @@ export class Dropdown implements ComponentInterface {
 
   @Prop({ mutable: true, reflect: true }) open: boolean = false;
 
+  @Prop({ mutable: true, reflect: true }) managed: boolean = false;
+
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
@@ -57,6 +59,8 @@ export class Dropdown implements ComponentInterface {
 
   @Listen('click', { target: 'window' })
   windowClick(evt) {
+    if (this.managed) return;
+
     const path = evt.path || evt.composedPath();
     for (const elm of path) {
       if (elm == this.elm) return;
