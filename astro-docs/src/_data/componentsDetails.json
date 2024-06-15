@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-15T06:19:46",
+  "timestamp": "2024-06-15T06:20:35",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -15150,7 +15150,12 @@
                 "docs": ""
               }
             ],
-            "references": {},
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
             "return": "Promise<void>"
           },
           "signature": "openTooltip(target: any) => Promise<void>",
