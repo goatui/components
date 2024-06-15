@@ -109,7 +109,6 @@ export class Slider implements ComponentInterface, InputComponentInterface {
   @Watch('debounce')
   protected debounceChanged() {
     this.goatChange = debounceEvent(this.goatChange, this.debounce);
-    this.goatInput = debounceEvent(this.goatInput, this.debounce);
   }
 
   @Listen('click', { target: 'window' })
