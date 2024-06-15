@@ -1460,9 +1460,18 @@ export namespace Components {
      * @imgDark /assets/img/tooltip-dark.webp
      */
     interface GoatTooltip {
+        /**
+          * If true, the tooltip will be managed by the parent component.
+         */
         "managed": boolean;
+        /**
+          * If true, the tooltip will be visible.
+         */
         "open": boolean;
         "openTooltip": (target: any) => Promise<void>;
+        /**
+          * The placements of the tooltip. It can be top, top-start, top-end, bottom, bottom-start, bottom-end, right, left.
+         */
         "placements": string;
     }
     interface GoatTreeNode {
@@ -4276,8 +4285,17 @@ declare namespace LocalJSX {
      * @imgDark /assets/img/tooltip-dark.webp
      */
     interface GoatTooltip {
+        /**
+          * If true, the tooltip will be managed by the parent component.
+         */
         "managed"?: boolean;
+        /**
+          * If true, the tooltip will be visible.
+         */
         "open"?: boolean;
+        /**
+          * The placements of the tooltip. It can be top, top-start, top-end, bottom, bottom-start, bottom-end, right, left.
+         */
         "placements"?: string;
     }
     interface GoatTreeNode {

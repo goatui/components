@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-15T06:24:50",
+  "timestamp": "2024-06-15T06:28:40",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -15078,7 +15078,7 @@
           "mutable": true,
           "attr": "managed",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "If true, the tooltip will be managed by the parent component.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -15100,7 +15100,7 @@
           "mutable": true,
           "attr": "open",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "If true, the tooltip will be visible.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -15122,7 +15122,7 @@
           "mutable": false,
           "attr": "placements",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The placements of the tooltip. It can be top, top-start, top-end, bottom, bottom-start, bottom-end, right, left.",
           "docsTags": [],
           "default": "'top,top-start,top-end,bottom,bottom-start,bottom-end,right,left'",
           "values": [

@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property     | Attribute    | Description | Type      | Default                                                             |
-| ------------ | ------------ | ----------- | --------- | ------------------------------------------------------------------- |
-| `managed`    | `managed`    |             | `boolean` | `false`                                                             |
-| `open`       | `open`       |             | `boolean` | `false`                                                             |
-| `placements` | `placements` |             | `string`  | `'top,top-start,top-end,bottom,bottom-start,bottom-end,right,left'` |
+| Property     | Attribute    | Description                                                                                                      | Type      | Default                                                             |
+| ------------ | ------------ | ---------------------------------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------- |
+| `managed`    | `managed`    | If true, the tooltip will be managed by the parent component.                                                    | `boolean` | `false`                                                             |
+| `open`       | `open`       | If true, the tooltip will be visible.                                                                            | `boolean` | `false`                                                             |
+| `placements` | `placements` | The placements of the tooltip. It can be top, top-start, top-end, bottom, bottom-start, bottom-end, right, left. | `string`  | `'top,top-start,top-end,bottom,bottom-start,bottom-end,right,left'` |
 
 
 ## Methods
