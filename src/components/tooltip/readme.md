@@ -14,6 +14,25 @@
 | `placements` | `placements` |             | `string`  | `'top,top-start,top-end,bottom,bottom-start,bottom-end,right,left'` |
 
 
+## Methods
+
+### `openTooltip(target: any) => Promise<void>`
+
+
+
+#### Parameters
+
+| Name     | Type  | Description |
+| -------- | ----- | ----------- |
+| `target` | `any` |             |
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Used by

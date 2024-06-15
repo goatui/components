@@ -1462,6 +1462,7 @@ export namespace Components {
     interface GoatTooltip {
         "managed": boolean;
         "open": boolean;
+        "openTooltip": (target: any) => Promise<void>;
         "placements": string;
     }
     interface GoatTreeNode {
