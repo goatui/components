@@ -73,7 +73,7 @@ export class Tooltip {
   }
 
   @Method()
-  openTooltip(target: any) {
+  async openTooltip(target: any) {
     this.open = true;
     const positions = this.placements.split(',');
     const placement: any = positions[0];
