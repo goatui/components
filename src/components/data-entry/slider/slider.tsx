@@ -230,7 +230,9 @@ export class Slider implements ComponentInterface, InputComponentInterface {
   updateByPosition = current => {
     const start = this.slideElement.getBoundingClientRect().left;
     const total = this.slideElement.getBoundingClientRect().width;
-    this.value = parseInt(String(((current - start) / total) * 100));
+    this.value = parseInt(
+      String(((current - start) / total) * (this.max - this.min)),
+    );
 
     this.updateValue();
   };
