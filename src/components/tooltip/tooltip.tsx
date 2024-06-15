@@ -23,11 +23,20 @@ import { arrow, computePosition, flip, offset } from '@floating-ui/dom';
   shadow: true,
 })
 export class Tooltip {
+  /**
+   * The placements of the tooltip. It can be top, top-start, top-end, bottom, bottom-start, bottom-end, right, left.
+   */
   @Prop() placements: string =
     'top,top-start,top-end,bottom,bottom-start,bottom-end,right,left';
 
+  /**
+   * If true, the tooltip will be visible.
+   */
   @Prop({ mutable: true, reflect: true }) open: boolean = false;
 
+  /**
+   * If true, the tooltip will be managed by the parent component.
+   */
   @Prop({ mutable: true, reflect: true }) managed: boolean = false;
 
   arrowEl: HTMLElement;
