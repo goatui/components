@@ -1,4 +1,12 @@
-import { Component, Element, h, Host, Listen, Prop } from '@stencil/core';
+import {
+  Component,
+  Element,
+  h,
+  Host,
+  Listen,
+  Method,
+  Prop,
+} from '@stencil/core';
 import { arrow, computePosition, flip, offset } from '@floating-ui/dom';
 
 /**
@@ -64,6 +72,7 @@ export class Tooltip {
     }
   }
 
+  @Method()
   openTooltip(target: any) {
     this.open = true;
     const positions = this.placements.split(',');
