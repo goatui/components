@@ -166,7 +166,6 @@ export class Slider implements ComponentInterface, InputComponentInterface {
   };
 
   onDragStart = event => {
-    event.preventDefault();
     // Do nothing if component is disabled
     if (this.disabled || this.readonly) {
       return;
