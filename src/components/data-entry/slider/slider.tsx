@@ -128,17 +128,12 @@ export class Slider implements ComponentInterface, InputComponentInterface {
   @Element() elm!: HTMLElement;
   private nativeElement?: HTMLInputElement;
   @State() hasFocus = false;
-  @State() percentageValue = 0;
   @State() needsOnRelease = false;
   private displayElement?: HTMLElement;
 
   private hasValue(): boolean {
     return (this.value || '').toString().length > 0;
   }
-
-  computePercentageValue = () => {
-    this.percentageValue = (this.value / (this.max - this.min)) * 100;
-  };
 
   componentWillLoad() {
     this.elm.getAttributeNames().forEach((name: string) => {
@@ -147,7 +142,6 @@ export class Slider implements ComponentInterface, InputComponentInterface {
         this.elm.removeAttribute(name);
       }
     });
-    this.computePercentageValue();
   }
 
   onWheel = event => {
@@ -172,6 +166,7 @@ export class Slider implements ComponentInterface, InputComponentInterface {
   };
 
   onDragStart = event => {
+    event.preventDefault();
     // Do nothing if component is disabled
     if (this.disabled || this.readonly) {
       return;
@@ -247,8 +242,6 @@ export class Slider implements ComponentInterface, InputComponentInterface {
       this.value = this.max;
     }
 
-    this.computePercentageValue();
-
     this.goatInput.emit({
       value: this.value,
     });
@@ -262,6 +255,9 @@ export class Slider implements ComponentInterface, InputComponentInterface {
   connectedCallback() {
     this.debounceChanged();
   }
+
+  @State()
+  slideElementWidth: number | null = null;
 
   private slideElement?: HTMLElement;
   private thumbElement?: HTMLElement;
@@ -279,8 +275,29 @@ export class Slider implements ComponentInterface, InputComponentInterface {
   };
 
   private getFormattedValue(value) {
-    if (this.format === 'number') return value;
-    return secondsToHHMMSS(value);
+    if (this.format === 'time') return secondsToHHMMSS(value);
+    return value;
+  }
+
+  componentDidLoad() {
+    setTimeout(() => this.computeSliderWidth(), 1);
+  }
+
+  private computeSliderWidth() {
+    //monaco.languages.typescript.javascriptDefaults.addExtraLib(this.extraLibs);
+    if (this.slideElementWidth == null && !this.isInViewport(this.elm)) {
+      setTimeout(() => this.computeSliderWidth(), 80);
+      return;
+    }
+
+    this.slideElementWidth = this.slideElement.getBoundingClientRect().width;
+  }
+
+  isInViewport(element: HTMLElement) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top !== 0 && rect.left !== 0 && rect.bottom !== 0 && rect.right !== 0
+    );
   }
 
   render() {
@@ -320,12 +337,22 @@ export class Slider implements ComponentInterface, InputComponentInterface {
                 }}
                 tooltip-target={`slider-tooltip-${this.gid}`}
                 tabIndex={0}
-                style={{ left: `${this.percentageValue}%` }}
+                style={{
+                  left: `${
+                    (this.value * (this.slideElementWidth | 0)) /
+                    (this.max - this.min)
+                  }px`,
+                }}
               ></div>
               <div class="slider__track"></div>
               <div
                 class="slider__track--filled"
-                style={{ width: `${this.percentageValue}%` }}
+                style={{
+                  width: `${
+                    (this.value * (this.slideElementWidth | 0)) /
+                    (this.max - this.min)
+                  }px`,
+                }}
               ></div>
             </div>
             {!this.hideLabels && (
