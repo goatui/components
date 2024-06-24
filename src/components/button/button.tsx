@@ -238,10 +238,17 @@ export class Button implements ComponentInterface {
   };
 
   private keyDownHandler = (evt: KeyboardEvent) => {
-    if (evt.key == 'Enter') {
-      evt.preventDefault();
-      this.isActive = true;
-      this.clickHandler(evt);
+    if (!this.disabled && !this.showLoader) {
+      if (!this.href && evt.key == 'Enter') {
+        evt.preventDefault();
+        this.isActive = true;
+        this.clickHandler(evt);
+      } else if (this.href && (evt.key == 'Enter' || evt.key == ' ')){
+        evt.preventDefault();
+        this.isActive = true;
+        this.clickHandler(evt);
+        window.open(this.href, this.target);
+      }
     }
   };
 
