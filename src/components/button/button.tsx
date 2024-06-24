@@ -238,7 +238,7 @@ export class Button implements ComponentInterface {
   };
 
   private keyDownHandler = (evt: KeyboardEvent) => {
-    if (evt.key == ' ') {
+    if (evt.key == ' ' || evt.key == 'Enter') {
       this.isActive = true;
       this.clickHandler(evt);
     }
