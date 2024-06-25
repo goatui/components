@@ -1,7 +1,7 @@
 @import "mixin";
 @include for-phone-only {
   .show-mobile {
-    display: inherit;
+    display: unset;
   }
   .hide-mobile {
     display: none;
@@ -10,7 +10,7 @@
     display: none;
   }
   .show-tablet-portrait-below {
-    display: inherit;
+    display: unset;
   }
   .hide-tablet-landscape-below {
     display: none;
@@ -19,7 +19,7 @@
     display: none;
   }
   .hide-desktop {
-    display: inherit;
+    display: unset;
   }
 }
 
@@ -31,7 +31,7 @@
     display: none;
   }
   .show-tablet-portrait-below {
-    display: inherit;
+    display: unset;
   }
   .hide-tablet-landscape-below {
     display: none;
@@ -40,7 +40,7 @@
     display: none;
   }
   .hide-desktop {
-    display: inherit;
+    display: unset;
   }
 }
 
@@ -55,10 +55,10 @@
     display: none;
   }
   .hide-tablet-portrait-below {
-    display: inherit;
+    display: unset;
   }
   .hide-desktop {
-    display: inherit;
+    display: unset;
   }
   .show-desktop {
     display: none;
@@ -67,18 +67,18 @@
 
 @include for-desktop-up {
   .hide-tablet-landscape-below {
-    display: inherit;
+    display: unset;
   }
   .show-tablet-portrait-below {
     display: none;
   }
   .hide-tablet-portrait-below {
-    display: inherit;
+    display: unset;
   }
   .hide-desktop {
     display: none;
   }
   .show-desktop {
-    display: inherit;
+    display: unset;
   }
 }

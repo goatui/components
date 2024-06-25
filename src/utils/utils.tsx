@@ -240,8 +240,8 @@ export async function createCacheFetch(name: string) {
     }
     response = await fetch(request.url, {
       method: 'GET',
-      mode: 'cors',
-      credentials: 'omit',
+      mode: new URL(request.url).origin == window.location.origin ? 'no-cors' : 'cors',
+      credentials: new URL(request.url).origin == window.location.origin ? 'same-origin': 'omit',
     });
     const result: string = await response.text();
     if (
