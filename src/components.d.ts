@@ -1193,7 +1193,7 @@ export namespace Components {
         "showLoader": boolean;
         "target": string;
         "triggerClick": () => Promise<void>;
-        "type": 'contained' | 'default';
+        "type": 'contained' | 'contained-bottom' | 'default';
         "value": string;
     }
     interface GoatTabPanel {
@@ -1244,11 +1244,11 @@ export namespace Components {
      * </goat-tabs>
      */
     interface GoatTabs {
-        "type": 'contained' | 'default';
+        "type": 'contained' | 'contained-bottom' | 'default';
     }
     interface GoatTabsList {
         "managed": boolean;
-        "type": 'contained' | 'default';
+        "type": 'contained' | 'contained-bottom' | 'default';
     }
     /**
      * @name Tag
@@ -3991,7 +3991,7 @@ declare namespace LocalJSX {
          */
         "showLoader"?: boolean;
         "target"?: string;
-        "type"?: 'contained' | 'default';
+        "type"?: 'contained' | 'contained-bottom' | 'default';
         "value"?: string;
     }
     interface GoatTabPanel {
@@ -4046,11 +4046,11 @@ declare namespace LocalJSX {
      * </goat-tabs>
      */
     interface GoatTabs {
-        "type"?: 'contained' | 'default';
+        "type"?: 'contained' | 'contained-bottom' | 'default';
     }
     interface GoatTabsList {
         "managed"?: boolean;
-        "type"?: 'contained' | 'default';
+        "type"?: 'contained' | 'contained-bottom' | 'default';
     }
     /**
      * @name Tag

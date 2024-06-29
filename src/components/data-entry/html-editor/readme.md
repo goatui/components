@@ -67,6 +67,11 @@ Type: `Promise<void>`
 
 - [goat-button-group](../../button-group)
 - [goat-button](../../button)
+- [goat-tabs](../../tabs/tabs)
+- [goat-tab-panel](../../tabs/tab-panel)
+- [goat-text](../../text)
+- [goat-tabs-list](../../tabs/tabs-list)
+- [goat-tab](../../tabs/tab)
 - [goat-spinner](../../spinner)
 
 ### Graph
@@ -74,9 +79,16 @@ Type: `Promise<void>`
 graph TD;
   goat-html-editor --> goat-button-group
   goat-html-editor --> goat-button
+  goat-html-editor --> goat-tabs
+  goat-html-editor --> goat-tab-panel
+  goat-html-editor --> goat-text
+  goat-html-editor --> goat-tabs-list
+  goat-html-editor --> goat-tab
   goat-html-editor --> goat-spinner
   goat-button --> goat-icon
   goat-button --> goat-spinner
+  goat-tab --> goat-icon
+  goat-tab --> goat-spinner
   style goat-html-editor fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

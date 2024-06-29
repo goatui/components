@@ -30,7 +30,7 @@ export class Tab implements ComponentInterface {
   @Prop() value: string;
   @Prop() target: string;
 
-  @Prop({ reflect: true }) type: 'contained' | 'default' = 'default';
+  @Prop({ reflect: true }) type: 'contained' | 'contained-bottom' | 'default' = 'default';
 
   /**
    * Show loader.

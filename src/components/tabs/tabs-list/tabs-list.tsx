@@ -9,7 +9,7 @@ import { GoatTabCustomEvent } from '../../../components';
 export class TabsList implements ComponentInterface {
   @Prop() managed: boolean = false;
 
-  @Prop({ reflect: true }) type: 'contained' | 'default' = 'default';
+  @Prop({ reflect: true }) type: 'contained' | 'contained-bottom' | 'default' = 'default';
 
   @Element() elm!: HTMLElement;
 

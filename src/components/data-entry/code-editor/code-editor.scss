@@ -4,6 +4,7 @@
 :host {
   display: block;
   height: 100%;
+  --code-editor-border: 1px solid #{v(--border-strong-01)}
 }
 
 .code-editor-loader {
@@ -25,7 +26,7 @@
   .editor {
     height: 100%;
     min-height: 2rem;
-    border: 1px solid v(--border-strong-01);
+    border: var(--code-editor-border);
     border-radius: v(--border-radius);
     overflow: hidden;
   }

@@ -23,7 +23,7 @@ export class Tabs implements ComponentInterface {
   gid: string = getComponentIndex();
   @Element() elm!: HTMLElement;
 
-  @Prop({ reflect: true }) type: 'contained' | 'default' = 'default';
+  @Prop({ reflect: true }) type: 'contained' | 'contained-bottom' | 'default' = 'default';
 
   @Listen('goat:tab-click')
   tabClick(evt: GoatTabCustomEvent<any>) {

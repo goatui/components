@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-24T12:47:29",
+  "timestamp": "2024-06-26T12:42:19",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -6556,15 +6556,29 @@
       "dependencies": [
         "goat-button-group",
         "goat-button",
+        "goat-tabs",
+        "goat-tab-panel",
+        "goat-text",
+        "goat-tabs-list",
+        "goat-tab",
         "goat-spinner"
       ],
       "dependencyGraph": {
         "goat-html-editor": [
           "goat-button-group",
           "goat-button",
+          "goat-tabs",
+          "goat-tab-panel",
+          "goat-text",
+          "goat-tabs-list",
+          "goat-tab",
           "goat-spinner"
         ],
         "goat-button": [
+          "goat-icon",
+          "goat-spinner"
+        ],
+        "goat-tab": [
           "goat-icon",
           "goat-spinner"
         ]
@@ -11907,7 +11921,9 @@
       "docs": "",
       "docsTags": [],
       "encapsulation": "shadow",
-      "dependents": [],
+      "dependents": [
+        "goat-html-editor"
+      ],
       "dependencies": [
         "goat-icon",
         "goat-spinner"
@@ -11916,6 +11932,9 @@
         "goat-tab": [
           "goat-icon",
           "goat-spinner"
+        ],
+        "goat-html-editor": [
+          "goat-tab"
         ]
       },
       "props": [
@@ -12072,10 +12091,10 @@
         },
         {
           "name": "type",
-          "type": "\"contained\" | \"default\"",
+          "type": "\"contained\" | \"contained-bottom\" | \"default\"",
           "complexType": {
-            "original": "'contained' | 'default'",
-            "resolved": "\"contained\" | \"default\"",
+            "original": "'contained' | 'contained-bottom' | 'default'",
+            "resolved": "\"contained\" | \"contained-bottom\" | \"default\"",
             "references": {}
           },
           "mutable": false,
@@ -12087,6 +12106,10 @@
           "values": [
             {
               "value": "contained",
+              "type": "string"
+            },
+            {
+              "value": "contained-bottom",
               "type": "string"
             },
             {
@@ -12210,9 +12233,15 @@
       "docs": "",
       "docsTags": [],
       "encapsulation": "shadow",
-      "dependents": [],
+      "dependents": [
+        "goat-html-editor"
+      ],
       "dependencies": [],
-      "dependencyGraph": {},
+      "dependencyGraph": {
+        "goat-html-editor": [
+          "goat-tab-panel"
+        ]
+      },
       "props": [
         {
           "name": "active",
@@ -12801,16 +12830,22 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [],
+      "dependents": [
+        "goat-html-editor"
+      ],
       "dependencies": [],
-      "dependencyGraph": {},
+      "dependencyGraph": {
+        "goat-html-editor": [
+          "goat-tabs"
+        ]
+      },
       "props": [
         {
           "name": "type",
-          "type": "\"contained\" | \"default\"",
+          "type": "\"contained\" | \"contained-bottom\" | \"default\"",
           "complexType": {
-            "original": "'contained' | 'default'",
-            "resolved": "\"contained\" | \"default\"",
+            "original": "'contained' | 'contained-bottom' | 'default'",
+            "resolved": "\"contained\" | \"contained-bottom\" | \"default\"",
             "references": {}
           },
           "mutable": false,
@@ -12822,6 +12857,10 @@
           "values": [
             {
               "value": "contained",
+              "type": "string"
+            },
+            {
+              "value": "contained-bottom",
               "type": "string"
             },
             {
@@ -12865,9 +12904,15 @@
       "docs": "",
       "docsTags": [],
       "encapsulation": "shadow",
-      "dependents": [],
+      "dependents": [
+        "goat-html-editor"
+      ],
       "dependencies": [],
-      "dependencyGraph": {},
+      "dependencyGraph": {
+        "goat-html-editor": [
+          "goat-tabs-list"
+        ]
+      },
       "props": [
         {
           "name": "managed",
@@ -12893,10 +12938,10 @@
         },
         {
           "name": "type",
-          "type": "\"contained\" | \"default\"",
+          "type": "\"contained\" | \"contained-bottom\" | \"default\"",
           "complexType": {
-            "original": "'contained' | 'default'",
-            "resolved": "\"contained\" | \"default\"",
+            "original": "'contained' | 'contained-bottom' | 'default'",
+            "resolved": "\"contained\" | \"contained-bottom\" | \"default\"",
             "references": {}
           },
           "mutable": false,
@@ -12908,6 +12953,10 @@
           "values": [
             {
               "value": "contained",
+              "type": "string"
+            },
+            {
+              "value": "contained-bottom",
               "type": "string"
             },
             {
@@ -13249,6 +13298,7 @@
         "goat-cb-compound-expression",
         "goat-condition-builder",
         "goat-footer-copyright",
+        "goat-html-editor",
         "goat-modal",
         "goat-select",
         "goat-table"
@@ -13265,6 +13315,9 @@
           "goat-text"
         ],
         "goat-footer-copyright": [
+          "goat-text"
+        ],
+        "goat-html-editor": [
           "goat-text"
         ],
         "goat-modal": [

@@ -10,10 +10,22 @@
   height: 100%;
   border: 1px solid v(--border-strong-01);
   border-radius: v(--border-radius);
+
+  .toolbar {
+    display: flex;
+    border-bottom: 1px solid v(--border-color);
+    .action-group {
+      border-inline-end: 1px solid v(--border-color);
+    }
+    .action-group: {
+    }
+  }
+
   .editor {
     height: 100%;
     min-height: 20rem;
     outline: none;
+    padding-top: v(--spacing-04);
     * {
       box-sizing: border-box;
       margin: 0;
@@ -22,10 +34,23 @@
   }
   .editor .tiptap {
     outline: none ;
+
+    ul, 
+    ol {
+      padding: 0 1rem;
+      margin: 1.25rem 1rem 1.25rem 0.4rem;
+      
+      li p {
+        margin-top: 0.25em;
+        margin-bottom: 0.25em;
+      }
+    }
   }
-  .toolbar {
-    display: flex;
-    gap: v(--spacing-04);
-    padding-bottom: v(--spacing-04);
+
+  .html-code-editor {
+      height: 10rem;
+      --code-editor-border: none;
   }
+
+  
 }

@@ -7,17 +7,17 @@
 
 ## Properties
 
-| Property         | Attribute         | Description                                                                    | Type                       | Default     |
-| ---------------- | ----------------- | ------------------------------------------------------------------------------ | -------------------------- | ----------- |
-| `disabled`       | `disabled`        | If true, the user cannot interact with the button. Defaults to `false`.        | `boolean`                  | `false`     |
-| `disabledReason` | `disabled-reason` |                                                                                | `string`                   | `''`        |
-| `icon`           | `icon`            | Icon which will displayed on button. Possible values are bootstrap icon names. | `string`                   | `undefined` |
-| `label`          | `label`           |                                                                                | `string`                   | `undefined` |
-| `selected`       | `selected`        | Button selection state.                                                        | `boolean`                  | `false`     |
-| `showLoader`     | `show-loader`     | Show loader.                                                                   | `boolean`                  | `false`     |
-| `target`         | `target`          |                                                                                | `string`                   | `undefined` |
-| `type`           | `type`            |                                                                                | `"contained" \| "default"` | `'default'` |
-| `value`          | `value`           |                                                                                | `string`                   | `undefined` |
+| Property         | Attribute         | Description                                                                    | Type                                             | Default     |
+| ---------------- | ----------------- | ------------------------------------------------------------------------------ | ------------------------------------------------ | ----------- |
+| `disabled`       | `disabled`        | If true, the user cannot interact with the button. Defaults to `false`.        | `boolean`                                        | `false`     |
+| `disabledReason` | `disabled-reason` |                                                                                | `string`                                         | `''`        |
+| `icon`           | `icon`            | Icon which will displayed on button. Possible values are bootstrap icon names. | `string`                                         | `undefined` |
+| `label`          | `label`           |                                                                                | `string`                                         | `undefined` |
+| `selected`       | `selected`        | Button selection state.                                                        | `boolean`                                        | `false`     |
+| `showLoader`     | `show-loader`     | Show loader.                                                                   | `boolean`                                        | `false`     |
+| `target`         | `target`          |                                                                                | `string`                                         | `undefined` |
+| `type`           | `type`            |                                                                                | `"contained" \| "contained-bottom" \| "default"` | `'default'` |
+| `value`          | `value`           |                                                                                | `string`                                         | `undefined` |
 
 
 ## Events
@@ -52,6 +52,10 @@ Type: `Promise<void>`
 
 ## Dependencies
 
+### Used by
+
+ - [goat-html-editor](../../data-entry/html-editor)
+
 ### Depends on
 
 - [goat-icon](../../icon)
@@ -62,6 +66,7 @@ Type: `Promise<void>`
 graph TD;
   goat-tab --> goat-icon
   goat-tab --> goat-spinner
+  goat-html-editor --> goat-tab
   style goat-tab fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

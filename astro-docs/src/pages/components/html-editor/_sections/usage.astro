@@ -9,16 +9,7 @@ import Highlighter from '../../../../components/Highlighter.astro';
 
     <goat-html-editor id="business-rule-editor" style="height: 300px"></goat-html-editor>
     <script is:inline>
-      document.getElementById('business-rule-editor').value = value =
-        "/**\n"+
-        "* Sample Code\n"+
-        "*/\n"+
-        "function myBusinessRuleFunction(){\n"+
-        "   const a = 1;\n"+
-        "   const b = 2;\n"+
-        "   let c = a + b;\n"+
-        "   console.log(c);\n"+
-        "}";
+      document.getElementById('business-rule-editor').value = `<b>Hello world</b>`;
 
       document.querySelector('#disableEditor').addEventListener('goat:change', function (evt) {
         document.getElementById('business-rule-editor').disabled = evt.target.value;
@@ -35,15 +26,7 @@ import Highlighter from '../../../../components/Highlighter.astro';
   </goat-card-content>
   <goat-card-content class='no-padding'>
     <Highlighter lang={'javascript'} is:raw> document.getElementById('business-rule-editor').value =
-    "/**\\n"+
-    "* Sample Code\\n"+
-    "*/\\n"+
-    "function myBusinessRuleFunction(){\\n"+
-    "   const a = 1;\\n"+
-    "   const b = 2;\\n"+
-    "   let c = a + b;\\n"+
-    "   console.log(c);\\n"+
-    "}";
+    "<b>Hello world</b>";
         </Highlighter>
   </goat-card-content>
 </goat-card>

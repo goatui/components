@@ -16,6 +16,8 @@ import StarterKit from '@tiptap/starter-kit';
 import Document from '@tiptap/extension-document';
 import Paragraph from '@tiptap/extension-paragraph';
 import Text from '@tiptap/extension-text';
+import * as beautify from 'js-beautify/js';
+
 
 /**
  * @name HTML Editor
@@ -97,8 +99,8 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
 
   @Watch('value')
   valueWatcher(newValue: string) {
-    if (this.editorInstance.getValue() !== this.value) {
-      this.editorInstance.setValue(newValue);
+    if (this.editorInstance.getHTML() !== this.value) {
+      this.editorInstance.commands.setContent(newValue);
     }
   }
 
@@ -114,7 +116,7 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
   @Method()
   async setFocus() {
     if (this.editorInstance) {
-      this.editorInstance.focus();
+      this.editorInstance.chain().focus().run();
     }
   }
 
@@ -145,6 +147,8 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
     setTimeout(() => this.initializeEditor(), 1000);
   }
 
+  copiedContent: any = 'testing';
+
   private initializeEditor() {
     //const CKEDITOR = window['CKEDITOR'];
 
@@ -155,8 +159,22 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
     this.editorInstance = new Editor({
       element: this.editorElement,
       extensions: [StarterKit, Document, Paragraph, Text],
-      content: '<p>Hello World!</p>',
+      content: this.value,
     });
+
+    this.editorInstance.on('update', () => {
+      
+      this.value = beautify.html(this.editorInstance.getHTML(), {
+        wrap_line_length: 120,
+      });
+      this.goatChange.emit({ value: this.value });
+    });
+
+    this.editorElement.addEventListener('click', (e) => {
+        if (this.editorElement == e.target)
+          this.editorInstance.commands.focus('end');
+    });
+
   }
 
   render() {
@@ -173,28 +191,72 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
           }}
         >
           <div class="toolbar">
-            <goat-button-group>
-              <goat-button
+            <goat-tooltip></goat-tooltip>
+            
+            <div class={'action-group'}>
+            <goat-button
                 icon="undo"
-                variant="outline"
-                color="secondary"
-                size={'sm'}
+                variant="ghost"
+                color="dark"
                 onGoat:click={() => {
                   this.editorInstance.commands.undo();
                 }}
               ></goat-button>
-              <goat-button
+
+            <goat-button
                 icon="redo"
-                color="secondary"
-                size={'sm'}
+                variant="ghost"
+                color="dark"
                 onGoat:click={() => {
                   this.editorInstance.commands.redo();
                 }}
               ></goat-button>
-            </goat-button-group>
 
-            <goat-button-group>
-              <goat-button
+</div>
+
+<div class={'action-group'}>
+            <goat-button
+                icon="cut"
+                variant="ghost"
+                color="dark"
+                onGoat:click={() => {
+                  const from = this.editorInstance.state.selection.from;
+                  const to = this.editorInstance.state.selection.to;
+                  this.copiedContent = this.editorInstance.state.doc.textBetween(from, to);
+                  document.execCommand('cut');
+
+                }}
+              ></goat-button>
+
+            <goat-button
+                icon="copy"
+                variant="ghost"
+                color="dark"
+                onGoat:click={() => {
+                  const from = this.editorInstance.state.selection.from;
+                  const to = this.editorInstance.state.selection.to;
+                  this.copiedContent = this.editorInstance.state.doc.textBetween(from, to);
+                 document.execCommand('copy');
+                }}
+              ></goat-button>
+
+<goat-button
+                icon="paste"
+                variant="ghost"
+                color="dark"
+                onGoat:click={() => {
+                  this.editorInstance.chain().focus().run();
+                  setTimeout(function() {
+                    document.execCommand('paste');
+                  }, 10)
+                 
+                }}
+              ></goat-button>
+
+</div>
+
+
+              {/* <goat-button
                 icon="text--align--left"
                 variant="outline"
                 color="secondary"
@@ -222,15 +284,14 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
                 onGoat:click={() => {
                   //.editorInstance.dispatchCommand(FORMAT_ELEMENT_COMMAND, 'right');
                 }}
-              ></goat-button>
-            </goat-button-group>
+              ></goat-button> */}
 
-            <goat-button-group>
-              <goat-button
+
+<div class={'action-group'}>
+          <goat-button
                 icon="text--bold"
-                variant="outline"
-                color="secondary"
-                size={'sm'}
+                variant="ghost"
+                color="dark"
                 onGoat:click={() => {
                   this.editorInstance.commands.toggleBold();
                 }}
@@ -238,16 +299,68 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
 
               <goat-button
                 icon="text--italic"
-                variant="outline"
-                color="secondary"
-                size={'sm'}
+                variant="ghost"
+                color="dark"
                 onGoat:click={() => {
                   this.editorInstance.commands.toggleItalic();
                 }}
               ></goat-button>
-            </goat-button-group>
+
+              </div>
+
+              <div class={'action-group'}>
+
+
+              <goat-button
+                icon="list--bulleted"
+                variant="ghost"
+                color="dark"
+                onGoat:click={() => {
+                  this.editorInstance.chain().focus().toggleBulletList().run()
+                }}
+              ></goat-button>
+
+<goat-button
+                icon="list--numbered"
+                variant="ghost"
+                color="dark"
+                onGoat:click={() => {
+                  this.editorInstance.chain().focus().toggleOrderedList().run()
+                }}
+              ></goat-button>
+              
+
+              </div>
+
           </div>
-          <div class="editor" ref={el => (this.editorElement = el)}></div>
+          
+          <goat-tabs>
+
+              <goat-tab-panel>
+                <div class="editor" ref={el => (this.editorElement = el)}></div>
+              </goat-tab-panel>
+
+              <goat-tab-panel>
+
+                <goat-code-editor 
+                class='html-code-editor'
+                value={this.value}
+                language='html'
+                onGoat:change={(evt)=> {
+                  this.value = evt.detail.value;
+                }}
+                ></goat-code-editor>
+
+              </goat-tab-panel>
+
+              <goat-tabs-list>
+                  <goat-tab>WYSIWYG</goat-tab>
+                  <goat-tab>HTML</goat-tab>
+              </goat-tabs-list>
+
+          </goat-tabs>
+
+          
           {!this.editorInstance && (
             <div class="code-editor-loader">
               <goat-spinner />

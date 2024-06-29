@@ -170,7 +170,51 @@ $border-width: 0.125;
 
 }
 
-:host(.last-tab) .tab.type-contained {
+.tab.type-contained-bottom {
+
+  .native-button {
+    border-right: 1px solid var(--border-strong);
+    border-bottom: 2px solid transparent;
+
+    .tab-content {
+      border: 2px solid transparent;
+      border-bottom: 0;
+    }
+  }
+
+  .tab-background {
+    background: var(--layer-accent);
+  }
+
+  &.selected {
+    .native-button {
+      border-right-color: transparent;
+      border-bottom-color: var(--border-interactive);
+    }
+    .tab-background {
+      background: var(--layer);
+    }
+  }
+
+  &.has-focus:not(.active) {
+    .native-button {
+      border-bottom-color: v(--border-interactive);
+    }
+
+    .tab-content {
+      border-color: v(--border-interactive);
+    }
+  }
+
+  &.disabled {
+    .tab-background {
+      background: v(--button-disabled) !important;
+    }
+  }
+
+}
+
+:host(.last-tab) .tab.type-contained, :host(.last-tab) .tab.type-contained-bottom  {
   .native-button {
     border-right: 0;
   }
@@ -179,7 +223,7 @@ $border-width: 0.125;
 /**
   * Color Variants
   */
-@each $color in [ primary, secondary, success, error, info, warning, brand-primary, brand-secondary, custom-01, custom-02, custom-03] {
+@each $color in [primary, secondary, success, error, info, warning, brand-primary, brand-secondary, custom-01, custom-02, custom-03] {
   :host(.color-#{$color}) .tab {
     --tab-color: #{v(--color-#{$color})};
   }

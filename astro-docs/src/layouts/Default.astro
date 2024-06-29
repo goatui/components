@@ -145,7 +145,14 @@ const getTitle = (root?: boolean) => {
         });
 
         document.addEventListener('keydown', function(e) {
+
           if (e.key === '/') {
+            const path = e.composedPath();
+            for (const elm of path) {
+              if (elm.tagName === 'GOAT-INPUT' || elm.tagName === 'GOAT-CODE-EDITOR' || elm.tagName === 'GOAT-TEXTAREA') {
+                return;
+              }
+            }
             e.preventDefault();
             search.open = true;
             setTimeout(() => {
