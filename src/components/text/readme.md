@@ -26,7 +26,6 @@
  - [goat-cb-compound-expression](../condition-builder/cb-compound-expression)
  - [goat-condition-builder](../condition-builder/condition-builder)
  - [goat-footer-copyright](../footer/footer-copyright)
- - [goat-html-editor](../data-entry/html-editor)
  - [goat-modal](../modal/modal)
  - [goat-select](../data-entry/select)
  - [goat-table](../table)
@@ -38,7 +37,6 @@ graph TD;
   goat-cb-compound-expression --> goat-text
   goat-condition-builder --> goat-text
   goat-footer-copyright --> goat-text
-  goat-html-editor --> goat-text
   goat-modal --> goat-text
   goat-select --> goat-text
   goat-table --> goat-text

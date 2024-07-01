@@ -53,11 +53,13 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [goat-html-editor](../../data-entry/html-editor)
  - [goat-select](../../data-entry/select)
 
 ### Graph
 ```mermaid
 graph TD;
+  goat-html-editor --> goat-menu-item
   goat-select --> goat-menu-item
   style goat-menu-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
