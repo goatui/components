@@ -58,6 +58,16 @@ Type: `Promise<string>`
 
 
 
+### `openSelectList() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 ### `setBlur() => Promise<void>`
 
 Sets blur on the native `input` in `goat-input`. Use this method instead of the global

@@ -68,12 +68,9 @@ Type: `Promise<void>`
 ### Depends on
 
 - [goat-button](../../button)
-- [goat-tabs](../../tabs/tabs)
-- [goat-tab-panel](../../tabs/tab-panel)
 - [goat-spinner](../../spinner)
 - [goat-code-editor](../code-editor)
-- [goat-tabs-list](../../tabs/tabs-list)
-- [goat-tab](../../tabs/tab)
+- [goat-toggle](../toggle)
 - [goat-menu](../../menu/menu)
 - [goat-menu-item](../../menu/menu-item)
 
@@ -81,12 +78,9 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   goat-html-editor --> goat-button
-  goat-html-editor --> goat-tabs
-  goat-html-editor --> goat-tab-panel
   goat-html-editor --> goat-spinner
   goat-html-editor --> goat-code-editor
-  goat-html-editor --> goat-tabs-list
-  goat-html-editor --> goat-tab
+  goat-html-editor --> goat-toggle
   goat-html-editor --> goat-menu
   goat-html-editor --> goat-menu-item
   goat-button --> goat-icon
@@ -94,8 +88,6 @@ graph TD;
   goat-code-editor --> goat-tag
   goat-code-editor --> goat-spinner
   goat-tag --> goat-icon
-  goat-tab --> goat-icon
-  goat-tab --> goat-spinner
   goat-menu --> goat-empty-state
   goat-empty-state --> goat-svg
   goat-empty-state --> goat-button

@@ -1,8 +1,8 @@
 {
-  "timestamp": "2024-07-01T10:36:22",
+  "timestamp": "2024-07-01T17:56:37",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.17.2",
+    "version": "4.19.1",
     "typescriptVersion": "5.4.5"
   },
   "components": [
@@ -6556,24 +6556,18 @@
       "dependents": [],
       "dependencies": [
         "goat-button",
-        "goat-tabs",
-        "goat-tab-panel",
         "goat-spinner",
         "goat-code-editor",
-        "goat-tabs-list",
-        "goat-tab",
+        "goat-toggle",
         "goat-menu",
         "goat-menu-item"
       ],
       "dependencyGraph": {
         "goat-html-editor": [
           "goat-button",
-          "goat-tabs",
-          "goat-tab-panel",
           "goat-spinner",
           "goat-code-editor",
-          "goat-tabs-list",
-          "goat-tab",
+          "goat-toggle",
           "goat-menu",
           "goat-menu-item"
         ],
@@ -6587,10 +6581,6 @@
         ],
         "goat-tag": [
           "goat-icon"
-        ],
-        "goat-tab": [
-          "goat-icon",
-          "goat-spinner"
         ],
         "goat-menu": [
           "goat-empty-state"
@@ -10768,6 +10758,28 @@
           "docsTags": []
         },
         {
+          "name": "openSelectList",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "openSelectList() => Promise<void>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        },
+        {
           "name": "setBlur",
           "returns": {
             "type": "Promise<void>",
@@ -12002,9 +12014,7 @@
       "docs": "",
       "docsTags": [],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-html-editor"
-      ],
+      "dependents": [],
       "dependencies": [
         "goat-icon",
         "goat-spinner"
@@ -12013,9 +12023,6 @@
         "goat-tab": [
           "goat-icon",
           "goat-spinner"
-        ],
-        "goat-html-editor": [
-          "goat-tab"
         ]
       },
       "props": [
@@ -12314,15 +12321,9 @@
       "docs": "",
       "docsTags": [],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-html-editor"
-      ],
+      "dependents": [],
       "dependencies": [],
-      "dependencyGraph": {
-        "goat-html-editor": [
-          "goat-tab-panel"
-        ]
-      },
+      "dependencyGraph": {},
       "props": [
         {
           "name": "active",
@@ -12941,15 +12942,9 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-html-editor"
-      ],
+      "dependents": [],
       "dependencies": [],
-      "dependencyGraph": {
-        "goat-html-editor": [
-          "goat-tabs"
-        ]
-      },
+      "dependencyGraph": {},
       "props": [
         {
           "name": "layer",
@@ -13045,15 +13040,9 @@
       "docs": "",
       "docsTags": [],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-html-editor"
-      ],
+      "dependents": [],
       "dependencies": [],
-      "dependencyGraph": {
-        "goat-html-editor": [
-          "goat-tabs-list"
-        ]
-      },
+      "dependencyGraph": {},
       "props": [
         {
           "name": "managed",
@@ -14861,9 +14850,15 @@
         }
       ],
       "encapsulation": "shadow",
-      "dependents": [],
+      "dependents": [
+        "goat-html-editor"
+      ],
       "dependencies": [],
-      "dependencyGraph": {},
+      "dependencyGraph": {
+        "goat-html-editor": [
+          "goat-toggle"
+        ]
+      },
       "props": [
         {
           "name": "configAria",
