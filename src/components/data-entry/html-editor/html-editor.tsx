@@ -15,9 +15,13 @@ import { Editor } from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
 import Document from '@tiptap/extension-document';
 import Paragraph from '@tiptap/extension-paragraph';
+import TextStyle from '@tiptap/extension-text-style';
+import FontFamily from '@tiptap/extension-font-family';
+import Underline from '@tiptap/extension-underline';
+import Mention from '@tiptap/extension-mention';
 import Text from '@tiptap/extension-text';
 import * as beautify from 'js-beautify/js';
-
+import { computePosition, offset } from '@floating-ui/dom';
 
 /**
  * @name HTML Editor
@@ -30,7 +34,7 @@ import * as beautify from 'js-beautify/js';
 @Component({
   tag: 'goat-html-editor',
   styleUrl: 'html-editor.scss',
-  shadow: false,
+  shadow: true,
 })
 export class HtmlEditor implements ComponentInterface, InputComponentInterface {
   gid: string = getComponentIndex();
@@ -44,6 +48,8 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
    * The input field value.
    */
   @Prop({ mutable: true }) value: string;
+
+  @Prop({ reflect: true }) layer?: 'background' | '01' | '02';
 
   /**
    * If true, required icon is show. Defaults to `false`.
@@ -61,6 +67,8 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
 
   @Prop() lineNumbers: 'off' | 'on' = 'on';
 
+  @Prop() mentions: { label: string; value: string }[] = [];
+
   /**
    * Emitted when the value has changed..
    */
@@ -73,6 +81,9 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
 
   @State() hasFocus = false;
 
+  @State()
+  filteredMentionValues: string[] = [];
+
   @Watch('debounce')
   protected debounceChanged() {
     this.goatChange = debounceEvent(this.goatChange, this.debounce);
@@ -80,11 +91,7 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
 
   @Watch('disabled')
   disabledWatcher(newValue: boolean) {
-    if (newValue) {
-      this.editorInstance.enableReadOnlyMode('123');
-    } else {
-      this.editorInstance.disableReadOnlyMode('123');
-    }
+    this.editorInstance.setEditable(!newValue);
   }
 
   @Watch('readonly')
@@ -99,7 +106,11 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
 
   @Watch('value')
   valueWatcher(newValue: string) {
-    if (this.editorInstance.getHTML() !== this.value) {
+    if (
+      beautify.html(this.editorInstance.getHTML(), {
+        wrap_line_length: 120,
+      }) !== this.value
+    ) {
       this.editorInstance.commands.setContent(newValue);
     }
   }
@@ -147,10 +158,10 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
     setTimeout(() => this.initializeEditor(), 1000);
   }
 
-  copiedContent: any = 'testing';
+  copiedContent: any = '';
 
   private initializeEditor() {
-    //const CKEDITOR = window['CKEDITOR'];
+    const that = this;
 
     this.editorElement.innerHTML = '';
 
@@ -158,105 +169,166 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
     // Visit https://ckeditor.com/docs/ckeditor5/latest/features/index.html to browse all the features.
     this.editorInstance = new Editor({
       element: this.editorElement,
-      extensions: [StarterKit, Document, Paragraph, Text],
+      extensions: [
+        StarterKit,
+        Document,
+        Paragraph,
+        Text,
+        Underline,
+        TextStyle,
+        FontFamily,
+        Mention.configure({
+          HTMLAttributes: {
+            class: 'mention',
+          },
+          renderHTML({ options, node }) {
+            const item = that.getMentionItem(node.attrs.id);
+            return [
+              'a',
+              { ...options.HTMLAttributes },
+              `${options.suggestion.char}${item ? item.label : node.attrs.id}`,
+            ];
+          },
+          suggestion: {
+            allowSpaces: true,
+            items: function ({ query }) {
+              return that.mentions
+                .filter(item =>
+                  item.label.toLowerCase().startsWith(query.toLowerCase()),
+                )
+                .map(item => item.value)
+                .slice(0, 5);
+            },
+            render: function () {
+              return {
+                onStart: props => {
+                  that.mentionCommand = props.command;
+                  that.filteredMentionValues = props.items;
+                  computePosition(props.decorationNode, that.dropdownContent, {
+                    placement: 'bottom-start',
+                    // Try removing the middleware. The dropdown will
+                    // overflow the boundary's edge and get clipped!
+                    middleware: [offset(10)],
+                  }).then(({ x, y }) => {
+                    Object.assign(that.dropdownContent.style, {
+                      top: `${y}px`,
+                      left: `${x}px`,
+                    });
+                  });
+                },
+                onKeyDown(props) {
+                  if (props.event.key === 'Escape') {
+                    return true;
+                  }
+                },
+
+                onUpdate: props => {
+                  that.filteredMentionValues = props.items;
+                  computePosition(props.decorationNode, that.dropdownContent, {
+                    placement: 'bottom-start',
+                    // Try removing the middleware. The dropdown will
+                    // overflow the boundary's edge and get clipped!
+                    middleware: [offset(10)],
+                  }).then(({ x, y }) => {
+                    Object.assign(that.dropdownContent.style, {
+                      top: `${y}px`,
+                      left: `${x}px`,
+                    });
+                  });
+                },
+                onExit: () => {
+                  console.log('onExit');
+                  that.filteredMentionValues = [];
+                },
+              };
+            },
+          },
+        }),
+      ],
       content: this.value,
     });
 
     this.editorInstance.on('update', () => {
-      
       this.value = beautify.html(this.editorInstance.getHTML(), {
         wrap_line_length: 120,
       });
+
       this.goatChange.emit({ value: this.value });
     });
 
-    this.editorElement.addEventListener('click', (e) => {
-        if (this.editorElement == e.target)
-          this.editorInstance.commands.focus('end');
+    this.editorElement.addEventListener('click', e => {
+      // Focus the editor when the user clicks anywhere on the editor
+      if (this.editorElement == e.target)
+        this.editorInstance.commands.focus('end');
     });
-
   }
 
-  render() {
+  renderToolbar() {
     return (
-      <Host>
-        <div
-          class={{
-            'component': true,
-            'code-editor-component': true,
-            [this.theme]: true,
-            'disabled': this.disabled,
-            'readonly': this.readonly,
-            'has-focus': this.hasFocus,
-          }}
-        >
-          <div class="toolbar">
-            <goat-tooltip></goat-tooltip>
-            
-            <div class={'action-group'}>
-            <goat-button
-                icon="undo"
-                variant="ghost"
-                color="dark"
-                onGoat:click={() => {
-                  this.editorInstance.commands.undo();
-                }}
-              ></goat-button>
+      <div class="toolbar">
+        <div class={'action-group'}>
+          <goat-button
+            icon="undo"
+            variant="ghost"
+            color="dark"
+            darkModeColor="light"
+            onGoat:click={() => {
+              this.editorInstance.commands.undo();
+            }}
+          ></goat-button>
 
-            <goat-button
-                icon="redo"
-                variant="ghost"
-                color="dark"
-                onGoat:click={() => {
-                  this.editorInstance.commands.redo();
-                }}
-              ></goat-button>
+          <goat-button
+            icon="redo"
+            variant="ghost"
+            color="dark"
+            darkModeColor="light"
+            onGoat:click={() => {
+              this.editorInstance.commands.redo();
+            }}
+          ></goat-button>
+        </div>
 
-</div>
-
-<div class={'action-group'}>
-            <goat-button
+        {/*<div class={'action-group'}>
+              <goat-button
                 icon="cut"
                 variant="ghost"
                 color="dark"
                 onGoat:click={() => {
                   const from = this.editorInstance.state.selection.from;
                   const to = this.editorInstance.state.selection.to;
-                  this.copiedContent = this.editorInstance.state.doc.textBetween(from, to);
+                  this.copiedContent =
+                    this.editorInstance.state.doc.textBetween(from, to);
                   document.execCommand('cut');
-
                 }}
               ></goat-button>
 
-            <goat-button
+              <goat-button
                 icon="copy"
                 variant="ghost"
                 color="dark"
                 onGoat:click={() => {
                   const from = this.editorInstance.state.selection.from;
                   const to = this.editorInstance.state.selection.to;
-                  this.copiedContent = this.editorInstance.state.doc.textBetween(from, to);
-                 document.execCommand('copy');
+                  this.copiedContent =
+                    this.editorInstance.state.doc.textBetween(from, to);
+                  document.execCommand('copy');
                 }}
               ></goat-button>
 
-<goat-button
+              <goat-button
                 icon="paste"
                 variant="ghost"
                 color="dark"
                 onGoat:click={() => {
                   this.editorInstance.chain().focus().run();
-                  setTimeout(function() {
-                    document.execCommand('paste');
-                  }, 10)
-                 
+                  this.editorInstance.commands.insertContent(
+                    this.copiedContent,
+                  );
                 }}
               ></goat-button>
+            </div>*/}
 
-</div>
-
-
-              {/* <goat-button
+        {/* <goat-button
                 icon="text--align--left"
                 variant="outline"
                 color="secondary"
@@ -286,89 +358,134 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
                 }}
               ></goat-button> */}
 
-
-<div class={'action-group'}>
+        <div class={'action-group'}>
           <goat-button
-                icon="text--bold"
-                variant="ghost"
-                color="dark"
-                onGoat:click={() => {
-                  this.editorInstance.commands.toggleBold();
-                }}
-              ></goat-button>
+            icon="text--bold"
+            variant="ghost"
+            color="dark"
+            darkModeColor="light"
+            onGoat:click={() => {
+              this.editorInstance.chain().focus().toggleBold().run();
+            }}
+          ></goat-button>
 
-              <goat-button
-                icon="text--italic"
-                variant="ghost"
-                color="dark"
-                onGoat:click={() => {
-                  this.editorInstance.commands.toggleItalic();
-                }}
-              ></goat-button>
+          <goat-button
+            icon="text--italic"
+            variant="ghost"
+            color="dark"
+            darkModeColor="light"
+            onGoat:click={() => {
+              this.editorInstance.chain().focus().toggleItalic().run();
+            }}
+          ></goat-button>
 
-              </div>
+          <goat-button
+            icon="text--underline"
+            variant="ghost"
+            color="dark"
+            darkModeColor="light"
+            onGoat:click={() => {
+              this.editorInstance.chain().focus().toggleUnderline().run();
+            }}
+          ></goat-button>
+        </div>
 
-              <div class={'action-group'}>
+        <div class={'action-group'}>
+          <goat-button
+            icon="list--bulleted"
+            variant="ghost"
+            color="dark"
+            darkModeColor="light"
+            onGoat:click={() => {
+              this.editorInstance.chain().focus().toggleBulletList().run();
+            }}
+          ></goat-button>
 
+          <goat-button
+            icon="list--numbered"
+            variant="ghost"
+            color="dark"
+            darkModeColor="light"
+            onGoat:click={() => {
+              this.editorInstance.chain().focus().toggleOrderedList().run();
+            }}
+          ></goat-button>
+        </div>
+      </div>
+    );
+  }
 
-              <goat-button
-                icon="list--bulleted"
-                variant="ghost"
-                color="dark"
-                onGoat:click={() => {
-                  this.editorInstance.chain().focus().toggleBulletList().run()
-                }}
-              ></goat-button>
-
-<goat-button
-                icon="list--numbered"
-                variant="ghost"
-                color="dark"
-                onGoat:click={() => {
-                  this.editorInstance.chain().focus().toggleOrderedList().run()
-                }}
-              ></goat-button>
-              
-
-              </div>
-
-          </div>
-          
-          <goat-tabs>
-
-              <goat-tab-panel>
+  render() {
+    return (
+      <Host>
+        <div
+          class={{
+            'component': true,
+            'code-editor-component': true,
+            [this.theme]: true,
+            'disabled': this.disabled,
+            'readonly': this.readonly,
+            'has-focus': this.hasFocus,
+          }}
+        >
+          <goat-tabs type="contained-bottom">
+            <goat-tab-panel layer={this.layer}>
+              <div class="wysiwyg-container">
+                {this.renderToolbar()}
                 <div class="editor" ref={el => (this.editorElement = el)}></div>
-              </goat-tab-panel>
+              </div>
 
-              <goat-tab-panel>
+              {!this.editorInstance && (
+                <div class="editor-loader">
+                  <goat-spinner />
+                  Loading editor...
+                </div>
+              )}
+            </goat-tab-panel>
 
-                <goat-code-editor 
-                class='html-code-editor'
+            <goat-tab-panel>
+              <goat-code-editor
+                class="html-code-editor"
                 value={this.value}
-                language='html'
-                onGoat:change={(evt)=> {
+                readonly={this.readonly}
+                disabled={this.disabled}
+                language="html"
+                onGoat:change={evt => {
                   this.value = evt.detail.value;
                 }}
-                ></goat-code-editor>
+              ></goat-code-editor>
+            </goat-tab-panel>
 
-              </goat-tab-panel>
-
-              <goat-tabs-list>
-                  <goat-tab>WYSIWYG</goat-tab>
-                  <goat-tab>HTML</goat-tab>
-              </goat-tabs-list>
-
+            <goat-tabs-list class={'tabs-list'}>
+              <goat-tab>WYSIWYG</goat-tab>
+              <goat-tab>HTML</goat-tab>
+            </goat-tabs-list>
           </goat-tabs>
-
-          
-          {!this.editorInstance && (
-            <div class="code-editor-loader">
-              <goat-spinner />
-              Loading editor...
-            </div>
-          )}
         </div>
+
+        <goat-menu
+          class="mention-menu"
+          ref={elm => (this.dropdownContent = elm)}
+          onGoat:menu-item-click={evt => {
+            this.mentionCommand({ id: evt.detail.value });
+          }}
+        >
+          {this.filteredMentionValues.map(value => {
+            const item = this.getMentionItem(value);
+
+            return (
+              <goat-menu-item value={item.value}>{item.label}</goat-menu-item>
+            );
+          })}
+        </goat-menu>
       </Host>
     );
   }
+
+  getMentionItem(value: string) {
+    return this.mentions.find(item => item.value == value);
+  }
+
+  mentionCommand: any;
+  dropdownContent: HTMLElement;
 }

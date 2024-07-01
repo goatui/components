@@ -1,4 +1,12 @@
-import { Component, ComponentInterface, Element, h, Host, Listen, Prop } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  h,
+  Host,
+  Listen,
+  Prop,
+} from '@stencil/core';
 import { getComponentIndex } from '../../../utils/utils';
 import { GoatTabCustomEvent } from '../../../components';
 
@@ -23,7 +31,10 @@ export class Tabs implements ComponentInterface {
   gid: string = getComponentIndex();
   @Element() elm!: HTMLElement;
 
-  @Prop({ reflect: true }) type: 'contained' | 'contained-bottom' | 'default' = 'default';
+  @Prop({ reflect: true }) layer?: 'background' | '01' | '02';
+
+  @Prop({ reflect: true }) type: 'contained' | 'contained-bottom' | 'default' =
+    'default';
 
   @Listen('goat:tab-click')
   tabClick(evt: GoatTabCustomEvent<any>) {

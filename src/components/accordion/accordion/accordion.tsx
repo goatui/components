@@ -46,7 +46,7 @@ export class Accordion {
 
   render() {
     return (
-      <Host role="list">
+      <Host>
         <slot />
       </Host>
     );

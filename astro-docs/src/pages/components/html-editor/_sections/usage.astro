@@ -5,27 +5,55 @@ import Highlighter from '../../../../components/Highlighter.astro';
 <goat-card>
   <goat-card-content>
     <goat-checkbox id="disableEditor">Disable editor</goat-checkbox>
-    <goat-checkbox id="darkTheme">Dark Theme</goat-checkbox>
 
-    <goat-html-editor id="business-rule-editor" style="height: 300px"></goat-html-editor>
+    <goat-html-editor layer='01' id="html-editor" style="height: 300px"></goat-html-editor>
     <script is:inline>
-      document.getElementById('business-rule-editor').value = `<b>Hello world</b>`;
+      document.getElementById('html-editor').mentions = [
+        {
+          label: 'Jennifer Grey',
+          value: 'jennifer-grey'
+        },
+        {
+          label: 'Winona Ryder',
+          value: 'winona-ryder'
+        },
+        {
+          label: 'Axl Rose',
+          value: 'axl-rose'
+        },
+        {
+          label: 'Christina Applegate',
+          value: 'christina-applegate'
+        }
+      ];
+      document.getElementById('html-editor').value = `<p>Hi everyone! <strong>Don’t forget the daily stand up at 8 AM.</strong></p>
+<p></p>
+<p><span class="mention" data-type="mention" data-id="Jennifer Grey">@Jennifer Grey</span> Would you mind to share what
+    you’ve been working on lately? We fear not much happened since Dirty Dancing.</p>
+<p></p>
+<p><span class="mention" data-type="mention" data-id="Winona Ryder">@Winona Ryder</span> <span class="mention"
+        data-type="mention" data-id="Axl Rose">@Axl Rose</span> Let’s go through your most important points quickly.</p>
+<p></p>
+<p>I have a meeting with <span class="mention" data-type="mention" data-id="Christina Applegate">@Christina
+        Applegate</span> and don’t want to come late.</p>
+<p></p>
+<p>– Thanks, your big boss</p>`;
 
       document.querySelector('#disableEditor').addEventListener('goat:change', function (evt) {
-        document.getElementById('business-rule-editor').disabled = evt.target.value;
+        document.getElementById('html-editor').disabled = evt.target.value;
       });
       document.querySelector('#darkTheme').addEventListener('goat:change', function (evt) {
-        document.getElementById('business-rule-editor').theme = evt.target.value ? 'vs-dark' : 'vs-light';
+        document.getElementById('html-editor').theme = evt.target.value ? 'vs-dark' : 'vs-light';
       });
     </script>
   </goat-card-content>
   <goat-card-content class='no-padding'>
     <Highlighter lang={'html'}>
-    <goat-code-editor id="business-rule-editor" style="height: 300px"></goat-code-editor>
+    <goat-html-editor id="html-editor" style="height: 300px"></goat-html-editor>
     </Highlighter>
   </goat-card-content>
   <goat-card-content class='no-padding'>
-    <Highlighter lang={'javascript'} is:raw> document.getElementById('business-rule-editor').value =
+    <Highlighter lang={'javascript'} is:raw> document.getElementById('html-editor').value =
     "<b>Hello world</b>";
         </Highlighter>
   </goat-card-content>
