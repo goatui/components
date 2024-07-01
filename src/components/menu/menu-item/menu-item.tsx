@@ -1,4 +1,15 @@
-import { Component, Element, Event, EventEmitter, h, Host, Listen, Method, Prop, State } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  State,
+} from '@stencil/core';
 import { getComponentIndex } from '../../../utils/utils';
 
 @Component({
@@ -111,7 +122,7 @@ export class GoatMenu {
   };
 
   private keyDownHandler = evt => {
-    if (evt.key == ' ') {
+    if (evt.key == ' ' || evt.key == 'Enter') {
       evt.preventDefault();
       this.isActive = true;
       this.clickHandler(evt);

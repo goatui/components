@@ -164,6 +164,11 @@ export class Select implements ComponentInterface, InputComponentInterface {
     }
   }
 
+  @Method()
+  async openSelectList(): Promise<void> {
+    this.openList();
+  }
+
   /**
    * Sets blur on the native `input` in `goat-input`. Use this method instead of the global
    * `input.blur()`.

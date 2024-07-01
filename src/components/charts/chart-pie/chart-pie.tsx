@@ -6,7 +6,7 @@ import {
   Prop,
   Watch,
 } from '@stencil/core';
-import loadD3JS from '../../../3d-party/d3js';
+import { loadD3JS } from '../../../3d-party/d3js';
 import { debounce } from '../../../utils/utils';
 import { chartColors, convertToHex } from '../chart-colors';
 import { getColorScale, getPieData } from '../pie/pie';

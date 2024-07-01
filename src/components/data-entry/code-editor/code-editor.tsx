@@ -159,7 +159,7 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
   }
 
   componentDidLoad() {
-    setTimeout(() => this.initializeMonaco(), 1000);
+    this.initializeMonaco();
   }
 
   getTheme() {
@@ -182,7 +182,7 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
   private initializeMonaco() {
     //monaco.languages.typescript.javascriptDefaults.addExtraLib(this.extraLibs);
     if (!this.editorMonacoInstance && !this.isInViewport(this.elm)) {
-      setTimeout(() => this.initializeMonaco(), 1000);
+      setTimeout(() => this.initializeMonaco(), 300);
       return;
     }
     this.editorElement.innerHTML = '';

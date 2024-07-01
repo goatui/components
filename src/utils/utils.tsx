@@ -240,8 +240,14 @@ export async function createCacheFetch(name: string) {
     }
     response = await fetch(request.url, {
       method: 'GET',
-      mode: new URL(request.url).origin == window.location.origin ? 'no-cors' : 'cors',
-      credentials: new URL(request.url).origin == window.location.origin ? 'same-origin': 'omit',
+      mode:
+        new URL(request.url).origin == window.location.origin
+          ? 'no-cors'
+          : 'cors',
+      credentials:
+        new URL(request.url).origin == window.location.origin
+          ? 'same-origin'
+          : 'omit',
     });
     const result: string = await response.text();
     if (
@@ -260,4 +266,15 @@ export function secondsToHHMMSS(seconds) {
   const MM = `${Math.floor(seconds / 60) % 60}`.padStart(2, '0');
   const SS = `${Math.floor(seconds % 60)}`.padStart(2, '0');
   return [HH, MM, SS].join(':');
+}
+
+export async function waitUntil(condition: any) {
+  return await new Promise(resolve => {
+    const interval = setInterval(() => {
+      if (condition()) {
+        resolve(1);
+        clearInterval(interval);
+      }
+    }, 1000);
+  });
 }

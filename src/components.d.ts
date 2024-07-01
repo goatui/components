@@ -1019,6 +1019,7 @@ export namespace Components {
          */
         "name": string;
         "open": boolean;
+        "openSelectList": () => Promise<void>;
         /**
           * The input field placeholder.
          */
