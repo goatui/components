@@ -5,8 +5,8 @@ import Highlighter from '../../../../components/Highlighter.astro';
 <goat-card>
   <goat-card-content>
     <goat-checkbox id="disableEditor">Disable editor</goat-checkbox>
-
-    <goat-html-editor layer='01' id="html-editor" style="height: 300px"></goat-html-editor>
+    <goat-checkbox id="readonlyEditor">Read-only editor</goat-checkbox>
+    <goat-html-editor id="html-editor" style="height: 300px"></goat-html-editor>
     <script is:inline>
       document.getElementById('html-editor').mentions = [
         {
@@ -42,8 +42,8 @@ import Highlighter from '../../../../components/Highlighter.astro';
       document.querySelector('#disableEditor').addEventListener('goat:change', function (evt) {
         document.getElementById('html-editor').disabled = evt.target.value;
       });
-      document.querySelector('#darkTheme').addEventListener('goat:change', function (evt) {
-        document.getElementById('html-editor').theme = evt.target.value ? 'vs-dark' : 'vs-light';
+      document.querySelector('#readonlyEditor').addEventListener('goat:change', function (evt) {
+        document.getElementById('html-editor').readonly = evt.target.value;
       });
     </script>
   </goat-card-content>

@@ -34,18 +34,24 @@ const getTitle = (root?: boolean) => {
 
       <div slot='right'>
 
-        {!root &&
-          (
-            <goat-select id='site-search'
-                         class='hide-tablet-portrait-below'
-                         search='contains'
-                         layer='01'
-                         hide-dropdown-icon
-                         placeholder="Type '/' for search">
-              <goat-icon slot='start' name='search' size='1rem'></goat-icon>
-            </goat-select>
-          )
-        }
+
+        <goat-header-action
+          id='search-btn'
+          aria-label='Search'
+          icon='search'>
+        </goat-header-action>
+
+        <div id='search-header-container'>
+          <div id='search-container-overlay'></div>
+          <goat-select id='site-search'
+                       search='contains'
+                       layer='01'
+                       hide-dropdown-icon
+                       placeholder="Type '/' for search">
+            <goat-icon slot='start' name='search' size='1rem'></goat-icon>
+          </goat-select>
+        </div>
+
 
 
         <goat-header-action
@@ -75,7 +81,8 @@ const getTitle = (root?: boolean) => {
         <goat-header-action
           class='dir-switcher hide-tablet-portrait-below'
           aria-label='Direction switcher'
-        >LTR</goat-header-action>
+        >LTR
+        </goat-header-action>
 
         <goat-header-action
           id='theme-switcher'
@@ -93,17 +100,16 @@ const getTitle = (root?: boolean) => {
         <goat-header-action
           class='show-tablet-portrait-below'
           aria-label='Menu'
-          id="header-menu-btn"
+          id='header-menu-btn'
           icon='menu'></goat-header-action>
       </div>
-
 
 
     </goat-header>
 
   </nav>
 
-  <div id="header-menu">
+  <div id='header-menu'>
     <div class='header-menu-head'>
       <goat-button
         id='header-menu-close-btn'
@@ -115,7 +121,7 @@ const getTitle = (root?: boolean) => {
       ></goat-button>
     </div>
 
-    <goat-button  href='/components#' kind='block' variant='ghost' color='dark' dark-mode-color='light'>
+    <goat-button href='/components#' kind='block' variant='ghost' color='dark' dark-mode-color='light'>
       <goat-icon name='roadmap'></goat-icon>&nbsp;
       Components
     </goat-button>
@@ -123,7 +129,8 @@ const getTitle = (root?: boolean) => {
       <goat-icon name='blog'></goat-icon>&nbsp;
       Blog
     </goat-button>
-    <goat-button href='https://github.com/sponsors/shivajivarma' kind='block' variant='ghost' color='dark' dark-mode-color='light'>
+    <goat-button href='https://github.com/sponsors/shivajivarma' kind='block' variant='ghost' color='dark'
+                 dark-mode-color='light'>
       <goat-icon name='currency--rupee'></goat-icon>&nbsp;
       Sponsor
     </goat-button>
@@ -136,7 +143,25 @@ const getTitle = (root?: boolean) => {
 
   <script is:inline define:vars={{ searchItems }}>
     document.addEventListener('DOMContentLoaded', function() {
+      const searchBtn = document.querySelector('#search-btn');
+      const searchContainerOverlay = document.querySelector('#search-container-overlay');
       const search = document.querySelector('#site-search');
+
+      searchBtn.addEventListener('click', function() {
+        const searchContainer = document.querySelector('#search-header-container');
+        searchContainer.toggleAttribute('open');
+        setTimeout(() => {
+          search.openSelectList();
+        }, 300);
+      });
+
+
+      searchContainerOverlay.addEventListener('click', function() {
+        const searchContainer = document.querySelector('#search-header-container');
+        searchContainer.removeAttribute('open');
+      });
+
+
 
       if (search) {
         // prettier-ignore

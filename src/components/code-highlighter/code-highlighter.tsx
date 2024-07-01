@@ -9,7 +9,7 @@ import {
   State,
   Watch,
 } from '@stencil/core';
-import { loadPrism } from '../../3d-party/prism';
+import { loadPrism, loadPrismLanguage } from '../../3d-party/prism';
 import * as beautify from 'js-beautify/js';
 import { getComponentIndex } from '../../utils/utils';
 import { Language } from './constants';
@@ -86,19 +86,32 @@ export class CodeHighlighter implements ComponentInterface {
     }
   }
 
-  componentDidLoad() {
+  isInViewport(element: HTMLElement) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top !== 0 && rect.left !== 0 && rect.bottom !== 0 && rect.right !== 0
+    );
+  }
+
+  async initializePrism() {
+    if (!this.isInViewport(this.elm)) {
+      setTimeout(() => this.initializePrism(), 300);
+      return;
+    }
+
     // @ts-ignore
     const Prism = window['Prism'];
     const autoloader = Prism.plugins.autoloader;
     if (autoloader) {
-      if (!Prism.languages[this.language]) {
-        autoloader.loadLanguages([this.language], () => {
-          this.renderPrism();
-        });
-      }
+      await loadPrismLanguage(this.language);
+      this.renderPrism();
     } else {
       this.renderPrism();
     }
+  }
+
+  componentDidLoad() {
+    this.initializePrism();
   }
 
   decode(str: string) {

@@ -64,6 +64,19 @@ Type: `Promise<void>`
 
 
 
+## Dependencies
+
+### Used by
+
+ - [goat-html-editor](../html-editor)
+
+### Graph
+```mermaid
+graph TD;
+  goat-html-editor --> goat-toggle
+  style goat-toggle fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with love!*

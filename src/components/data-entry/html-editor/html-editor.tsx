@@ -13,13 +13,10 @@ import {
 import { debounceEvent, getComponentIndex } from '../../../utils/utils';
 import { Editor } from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
-import Document from '@tiptap/extension-document';
-import Paragraph from '@tiptap/extension-paragraph';
 import TextStyle from '@tiptap/extension-text-style';
 import FontFamily from '@tiptap/extension-font-family';
 import Underline from '@tiptap/extension-underline';
 import Mention from '@tiptap/extension-mention';
-import Text from '@tiptap/extension-text';
 import * as beautify from 'js-beautify/js';
 import { computePosition, offset } from '@floating-ui/dom';
 
@@ -91,12 +88,12 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
 
   @Watch('disabled')
   disabledWatcher(newValue: boolean) {
-    this.editorInstance.setEditable(!newValue);
+    this.editorInstance.setEditable(!newValue && !this.readonly);
   }
 
   @Watch('readonly')
   readonlyWatcher(newValue: string) {
-    this.editorInstance.updateOptions({ readOnly: newValue || this.disabled });
+    this.editorInstance.setEditable(!newValue && !this.disabled);
   }
 
   @Watch('theme')
@@ -149,9 +146,6 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
 
   async componentWillLoad() {
     this.debounceChanged();
-    /*if (!window['CKEDITOR']) {
-      await loadQuilljs();
-    }*/
   }
 
   componentDidLoad() {
@@ -171,9 +165,6 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
       element: this.editorElement,
       extensions: [
         StarterKit,
-        Document,
-        Paragraph,
-        Text,
         Underline,
         TextStyle,
         FontFamily,
@@ -264,34 +255,87 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
   }
 
   renderToolbar() {
+    const actionGroups = [
+      {
+        actions: [
+          {
+            icon: 'undo',
+            action: () => {
+              this.editorInstance.commands.undo();
+            },
+          },
+          {
+            icon: 'redo',
+            action: () => {
+              this.editorInstance.commands.redo();
+            },
+          },
+        ],
+      },
+      {
+        actions: [
+          {
+            icon: 'text--bold',
+            action: () => {
+              this.editorInstance.chain().focus().toggleBold().run();
+            },
+          },
+          {
+            icon: 'text--italic',
+            action: () => {
+              this.editorInstance.chain().focus().toggleItalic().run();
+            },
+          },
+          {
+            icon: 'text--underline',
+            action: () => {
+              this.editorInstance.chain().focus().toggleUnderline().run();
+            },
+          },
+        ],
+      },
+      {
+        actions: [
+          {
+            icon: 'list--bulleted',
+            action: () => {
+              this.editorInstance.chain().focus().toggleBulletList().run();
+            },
+          },
+          {
+            icon: 'list--numbered',
+            action: () => {
+              this.editorInstance.chain().focus().toggleOrderedList().run();
+            },
+          },
+        ],
+      },
+    ];
     return (
       <div class="toolbar">
-        <div class={'action-group'}>
-          <goat-button
-            icon="undo"
-            variant="ghost"
-            color="dark"
-            darkModeColor="light"
-            onGoat:click={() => {
-              this.editorInstance.commands.undo();
-            }}
-          ></goat-button>
-
-          <goat-button
-            icon="redo"
-            variant="ghost"
-            color="dark"
-            darkModeColor="light"
-            onGoat:click={() => {
-              this.editorInstance.commands.redo();
-            }}
-          ></goat-button>
-        </div>
+        {actionGroups.map(actionGroup => {
+          return (
+            <div class={'action-group'}>
+              {actionGroup.actions.map(action => {
+                return (
+                  <goat-button
+                    class={'action'}
+                    icon={action.icon}
+                    variant="light"
+                    color="dark"
+                    darkModeColor="light"
+                    onGoat:click={action.action}
+                  ></goat-button>
+                );
+              })}
+            </div>
+          );
+        })}
 
         {/*<div class={'action-group'}>
               <goat-button
                 icon="cut"
-                variant="ghost"
+                variant="light"
                 color="dark"
                 onGoat:click={() => {
                   const from = this.editorInstance.state.selection.from;
@@ -304,7 +348,7 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
 
               <goat-button
                 icon="copy"
-                variant="ghost"
+                variant="light"
                 color="dark"
                 onGoat:click={() => {
                   const from = this.editorInstance.state.selection.from;
@@ -317,7 +361,7 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
 
               <goat-button
                 icon="paste"
-                variant="ghost"
+                variant="light"
                 color="dark"
                 onGoat:click={() => {
                   this.editorInstance.chain().focus().run();
@@ -357,63 +401,12 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
                   //.editorInstance.dispatchCommand(FORMAT_ELEMENT_COMMAND, 'right');
                 }}
               ></goat-button> */}
-
-        <div class={'action-group'}>
-          <goat-button
-            icon="text--bold"
-            variant="ghost"
-            color="dark"
-            darkModeColor="light"
-            onGoat:click={() => {
-              this.editorInstance.chain().focus().toggleBold().run();
-            }}
-          ></goat-button>
-
-          <goat-button
-            icon="text--italic"
-            variant="ghost"
-            color="dark"
-            darkModeColor="light"
-            onGoat:click={() => {
-              this.editorInstance.chain().focus().toggleItalic().run();
-            }}
-          ></goat-button>
-
-          <goat-button
-            icon="text--underline"
-            variant="ghost"
-            color="dark"
-            darkModeColor="light"
-            onGoat:click={() => {
-              this.editorInstance.chain().focus().toggleUnderline().run();
-            }}
-          ></goat-button>
-        </div>
-
-        <div class={'action-group'}>
-          <goat-button
-            icon="list--bulleted"
-            variant="ghost"
-            color="dark"
-            darkModeColor="light"
-            onGoat:click={() => {
-              this.editorInstance.chain().focus().toggleBulletList().run();
-            }}
-          ></goat-button>
-
-          <goat-button
-            icon="list--numbered"
-            variant="ghost"
-            color="dark"
-            darkModeColor="light"
-            onGoat:click={() => {
-              this.editorInstance.chain().focus().toggleOrderedList().run();
-            }}
-          ></goat-button>
-        </div>
       </div>
     );
   }
+
+  @State()
+  showHtml: boolean = false;
 
   render() {
     return (
@@ -428,39 +421,44 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
             'has-focus': this.hasFocus,
           }}
         >
-          <goat-tabs type="contained-bottom">
-            <goat-tab-panel layer={this.layer}>
-              <div class="wysiwyg-container">
-                {this.renderToolbar()}
-                <div class="editor" ref={el => (this.editorElement = el)}></div>
-              </div>
+          <div class={{ 'wysiwyg-container': true, 'hidden': this.showHtml }}>
+            {!this.readonly && !this.disabled && this.renderToolbar()}
+            <div class="editor" ref={el => (this.editorElement = el)}></div>
+          </div>
 
-              {!this.editorInstance && (
-                <div class="editor-loader">
-                  <goat-spinner />
-                  Loading editor...
-                </div>
-              )}
-            </goat-tab-panel>
+          {!this.showHtml && !this.editorInstance && (
+            <div class="editor-loader">
+              <goat-spinner />
+              Loading editor...
+            </div>
+          )}
 
-            <goat-tab-panel>
-              <goat-code-editor
-                class="html-code-editor"
-                value={this.value}
-                readonly={this.readonly}
-                disabled={this.disabled}
-                language="html"
+          <goat-code-editor
+            class={{ 'html-code-editor': true, 'hidden': !this.showHtml }}
+            value={this.value}
+            readonly={this.readonly}
+            disabled={this.disabled}
+            language="html"
+            onGoat:change={evt => {
+              this.value = evt.detail.value;
+            }}
+          ></goat-code-editor>
+
+          <div class={'html-editor-footer'}>
+            <div class={'footer-left'}>
+              <goat-toggle
                 onGoat:change={evt => {
-                  this.value = evt.detail.value;
+                  this.showHtml = evt.target.value;
                 }}
-              ></goat-code-editor>
-            </goat-tab-panel>
+              >
+                HTML
+              </goat-toggle>
+            </div>
 
-            <goat-tabs-list class={'tabs-list'}>
-              <goat-tab>WYSIWYG</goat-tab>
-              <goat-tab>HTML</goat-tab>
-            </goat-tabs-list>
-          </goat-tabs>
+            <div class={'footer-right'}>
+              {this.editorInstance && this.editorInstance.getHTML()?.length}
+            </div>
+          </div>
         </div>
 
         <goat-menu
