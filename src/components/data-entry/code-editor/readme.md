@@ -63,6 +63,10 @@ Type: `Promise<void>`
 
 ## Dependencies
 
+### Used by
+
+ - [goat-html-editor](../html-editor)
+
 ### Depends on
 
 - [goat-tag](../../tag)
@@ -74,6 +78,7 @@ graph TD;
   goat-code-editor --> goat-tag
   goat-code-editor --> goat-spinner
   goat-tag --> goat-icon
+  goat-html-editor --> goat-code-editor
   style goat-code-editor fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

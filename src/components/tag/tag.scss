@@ -2,7 +2,7 @@
 
 $tag-background-color: var(--tag-background-color, v(--tag-background-gray));
 $tag-color: var(--tag-color, v(--tag-color-gray));
-$tag-hover-color: var(--tag-color, v(--tag-hover-gray));
+$tag-hover-color: var(--tag-hover-color, v(--tag-hover-gray));
 
 :host {
   display: inline-block;

@@ -119,7 +119,11 @@ export class Select implements ComponentInterface, InputComponentInterface {
    *    icon: 'person'
    *  }]
    */
-  @Prop() items: any = [];
+  @Prop() items: {
+    label: string | number;
+    value: string | number;
+    icon?: string;
+  }[] = [];
 
   @Prop() placements: string = 'bottom-start,top-start,bottom-end,top-end';
 
@@ -215,9 +219,9 @@ export class Select implements ComponentInterface, InputComponentInterface {
     else return [];
   }
 
-  private containsValue(value: string) {
+  private containsValue(value: string | number) {
     const values = this.getValues();
-    return values.includes(value);
+    return values.includes(value?.toString());
   }
 
   private addItem(selectItemValue) {
@@ -471,7 +475,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
               size="sm"
               filter={!this.disabled && !this.readonly}
               class="multi-select-value"
-              value={item.value}
+              value={item.value?.toString()}
             >
               {item.label}
             </goat-tag>
@@ -674,6 +678,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
       return (
         !this.searchString ||
         item.label
+          .toString()
           .toLocaleLowerCase()
           .includes(this.searchString.toLocaleLowerCase())
       );

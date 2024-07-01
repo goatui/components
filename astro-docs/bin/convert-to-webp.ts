@@ -6,14 +6,13 @@ for (const file of walkSync('../public/assets/img', {
   includeDirs: false,
   exts: ['.png'],
 })) {
-  console.log(file);
-  sharp.default(file.name).toFile(file.name.replace('.png', '.webp'), (err, info) => {
+  sharp.default(file.path).toFile(file.path.replace('.png', '.webp'), (err, info) => {
     console.log(err, info);
   });
 }
 
 /**
  * ```cmd
- * deno run -A public/assets/img/convert-to-webp.ts
+ * deno run -A bin/convert-to-webp.ts
  * ```
  */

@@ -36,6 +36,7 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [goat-html-editor](../../data-entry/html-editor)
  - [goat-select](../../data-entry/select)
 
 ### Depends on
@@ -50,6 +51,7 @@ graph TD;
   goat-empty-state --> goat-button
   goat-button --> goat-icon
   goat-button --> goat-spinner
+  goat-html-editor --> goat-menu
   goat-select --> goat-menu
   style goat-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```

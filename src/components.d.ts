@@ -643,7 +643,9 @@ export namespace Components {
          */
         "disabled": boolean;
         "getComponentId": () => Promise<string>;
+        "layer"?: 'background' | '01' | '02';
         "lineNumbers": 'off' | 'on';
+        "mentions": { label: string; value: string }[];
         /**
           * The input field name.
          */
@@ -1004,7 +1006,11 @@ export namespace Components {
         /**
           * [{   label: 'Shivaji Varma',   value: 'shivaji-varma',   icon: 'person' }]
          */
-        "items": any;
+        "items": {
+    label: string | number;
+    value: string | number;
+    icon?: string;
+  }[];
         "label": string;
         "layer"?: 'background' | '01' | '02';
         "multiple": boolean;
@@ -1198,6 +1204,7 @@ export namespace Components {
     }
     interface GoatTabPanel {
         "active": boolean;
+        "layer"?: 'background' | '01' | '02';
         "value": string;
     }
     /**
@@ -1244,6 +1251,7 @@ export namespace Components {
      * </goat-tabs>
      */
     interface GoatTabs {
+        "layer"?: 'background' | '01' | '02';
         "type": 'contained' | 'contained-bottom' | 'default';
     }
     interface GoatTabsList {
@@ -3444,7 +3452,9 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
+        "layer"?: 'background' | '01' | '02';
         "lineNumbers"?: 'off' | 'on';
+        "mentions"?: { label: string; value: string }[];
         /**
           * The input field name.
          */
@@ -3810,7 +3820,11 @@ declare namespace LocalJSX {
         /**
           * [{   label: 'Shivaji Varma',   value: 'shivaji-varma',   icon: 'person' }]
          */
-        "items"?: any;
+        "items"?: {
+    label: string | number;
+    value: string | number;
+    icon?: string;
+  }[];
         "label"?: string;
         "layer"?: 'background' | '01' | '02';
         "multiple"?: boolean;
@@ -3996,6 +4010,7 @@ declare namespace LocalJSX {
     }
     interface GoatTabPanel {
         "active"?: boolean;
+        "layer"?: 'background' | '01' | '02';
         "value"?: string;
     }
     /**
@@ -4046,6 +4061,7 @@ declare namespace LocalJSX {
      * </goat-tabs>
      */
     interface GoatTabs {
+        "layer"?: 'background' | '01' | '02';
         "type"?: 'contained' | 'contained-bottom' | 'default';
     }
     interface GoatTabsList {

@@ -105,7 +105,14 @@ const getTitle = (root?: boolean) => {
 
   <div id="header-menu">
     <div class='header-menu-head'>
-      <goat-button id='header-menu-close-btn' variant='ghost' icon='close--large' color='dark' dark-mode-color='light'></goat-button>
+      <goat-button
+        id='header-menu-close-btn'
+        variant='ghost'
+        icon='close--large'
+        color='dark'
+        dark-mode-color='light'
+        aria-label='Close menu'
+      ></goat-button>
     </div>
 
     <goat-button  href='/components#' kind='block' variant='ghost' color='dark' dark-mode-color='light'>
