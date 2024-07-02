@@ -139,6 +139,7 @@ export class Button implements ComponentInterface {
    * On click of button, a CustomEvent 'goat:click' will be triggered.
    */
   @Event({ eventName: 'goat:click' }) goatClick: EventEmitter;
+  @Event({ eventName: 'goat#click' }) goatClickDuplicate: EventEmitter;
 
   @State() hasFocus = false;
   @State() isActive = false;
@@ -218,6 +219,9 @@ export class Button implements ComponentInterface {
       this.goatClick.emit({
         element: this.elm,
       });
+      this.goatClickDuplicate.emit({
+        element: this.elm,
+      });
     } else {
       event.preventDefault();
       event.stopPropagation();
@@ -243,7 +247,7 @@ export class Button implements ComponentInterface {
         evt.preventDefault();
         this.isActive = true;
         this.clickHandler(evt);
-      } else if (this.href && (evt.key == 'Enter' || evt.key == ' ')){
+      } else if (this.href && (evt.key == 'Enter' || evt.key == ' ')) {
         evt.preventDefault();
         this.isActive = true;
         this.clickHandler(evt);

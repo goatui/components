@@ -31,6 +31,7 @@
 
 | Event        | Description                                                       | Type               |
 | ------------ | ----------------------------------------------------------------- | ------------------ |
+| `goat#click` |                                                                   | `CustomEvent<any>` |
 | `goat:click` | On click of button, a CustomEvent 'goat:click' will be triggered. | `CustomEvent<any>` |
 
 

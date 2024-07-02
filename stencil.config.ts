@@ -8,15 +8,15 @@ import { reactOutputTarget } from '@stencil/react-output-target';
 export const config: Config = {
   namespace: 'goatui',
   outputTargets: [
-    reactOutputTarget({
-      componentCorePackage: 'goatui',
-      proxiesFile: 'dist/generated/goatui-react/src/components.ts',
-    }),
     {
       type: 'dist',
       copy: [{ src: 'assets' }],
       esmLoaderPath: '../loader',
     },
+    reactOutputTarget({
+      componentCorePackage: '@goatui/components',
+      proxiesFile: 'dist/generated/goatui-react/index.ts',
+    }),
     {
       type: 'dist-custom-elements',
       externalRuntime: false,

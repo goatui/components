@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-01T18:56:38",
+  "timestamp": "2024-07-02T09:13:14",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.19.1",
@@ -713,7 +713,7 @@
         },
         {
           "name": "example",
-          "text": "<goat-button>\r\nButton CTA\r\n</goat-button>"
+          "text": "<goat-button>\nButton CTA\n</goat-button>"
         }
       ],
       "encapsulation": "shadow",
@@ -794,7 +794,7 @@
           "name": "color",
           "type": "\"brand-primary\" | \"brand-secondary\" | \"danger\" | \"dark\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\"",
           "complexType": {
-            "original": "| 'primary'\r\n    | 'secondary'\r\n    | 'success'\r\n    | 'danger'\r\n    | 'brand-primary'\r\n    | 'brand-secondary'\r\n    | 'dark'\r\n    | 'light'\r\n    | 'inverse'",
+            "original": "| 'primary'\n    | 'secondary'\n    | 'success'\n    | 'danger'\n    | 'brand-primary'\n    | 'brand-secondary'\n    | 'dark'\n    | 'light'\n    | 'inverse'",
             "resolved": "\"brand-primary\" | \"brand-secondary\" | \"danger\" | \"dark\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\"",
             "references": {}
           },
@@ -871,7 +871,7 @@
           "name": "darkModeColor",
           "type": "\"brand-primary\" | \"brand-secondary\" | \"danger\" | \"dark\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\"",
           "complexType": {
-            "original": "| 'primary'\r\n    | 'secondary'\r\n    | 'success'\r\n    | 'danger'\r\n    | 'brand-primary'\r\n    | 'brand-secondary'\r\n    | 'dark'\r\n    | 'light'\r\n    | 'inverse'",
+            "original": "| 'primary'\n    | 'secondary'\n    | 'success'\n    | 'danger'\n    | 'brand-primary'\n    | 'brand-secondary'\n    | 'dark'\n    | 'light'\n    | 'inverse'",
             "resolved": "\"brand-primary\" | \"brand-secondary\" | \"danger\" | \"dark\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\"",
             "references": {}
           },
@@ -997,7 +997,7 @@
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
-          "docs": "Icon which will displayed on button.\r\nPossible values are icon names.",
+          "docs": "Icon which will displayed on button.\nPossible values are icon names.",
           "docsTags": [],
           "values": [
             {
@@ -1067,7 +1067,7 @@
           "mutable": false,
           "attr": "kind",
           "reflectToAttr": true,
-          "docs": "Button kind.\r\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\r\n`\"default\"` is a long button.\r\n`\"simple\"` is a text-only button.\r\n`\"block\"` is a full-width button.",
+          "docs": "Button kind.\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\n`\"default\"` is a long button.\n`\"simple\"` is a text-only button.\n`\"block\"` is a full-width button.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -1142,7 +1142,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
-          "docs": "Button size.\r\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
+          "docs": "Button size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`, `\"xl\"`, `\"2xl\"`, `\"full\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -1231,14 +1231,14 @@
           "name": "variant",
           "type": "\"default\" | \"ghost\" | \"light\" | \"link\" | \"outline\"",
           "complexType": {
-            "original": "| 'default'\r\n    | 'outline'\r\n    | 'ghost'\r\n    | 'light'\r\n    | 'link'",
+            "original": "| 'default'\n    | 'outline'\n    | 'ghost'\n    | 'light'\n    | 'link'",
             "resolved": "\"default\" | \"ghost\" | \"light\" | \"link\" | \"outline\"",
             "references": {}
           },
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": true,
-          "docs": "Button variants.\r\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\r\n`\"default\"` is a filled button.\r\n`\"outline\"` is an outlined button.\r\n`\"ghost\"` is a transparent button.",
+          "docs": "Button variants.\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\n`\"default\"` is a filled button.\n`\"outline\"` is an outlined button.\n`\"ghost\"` is a transparent button.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -1287,7 +1287,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.blur()`.",
+          "docs": "Sets blur on the native `button` in `goat-button`. Use this method instead of the global\n`button.blur()`.",
           "docsTags": []
         },
         {
@@ -1309,7 +1309,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\r\n`button.focus()`.",
+          "docs": "Sets focus on the native `button` in `goat-button`. Use this method instead of the global\n`button.focus()`.",
           "docsTags": []
         },
         {
@@ -1336,6 +1336,20 @@
         }
       ],
       "events": [
+        {
+          "event": "goat#click",
+          "detail": "any",
+          "bubbles": true,
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        },
         {
           "event": "goat:click",
           "detail": "any",
@@ -1375,7 +1389,7 @@
         "tags": [
           "controls"
         ],
-        "example": "<goat-button>\r\nButton CTA\r\n</goat-button>"
+        "example": "<goat-button>\nButton CTA\n</goat-button>"
       }
     },
     {

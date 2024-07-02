@@ -1716,6 +1716,7 @@ declare global {
     };
     interface HTMLGoatButtonElementEventMap {
         "goat:click": any;
+        "goat#click": any;
     }
     /**
      * @name Button
@@ -2951,6 +2952,7 @@ declare namespace LocalJSX {
           * Button kind. Possible values are `"default"`, `"simple"`, `"block"`. Defaults to `"default"`. `"default"` is a long button. `"simple"` is a text-only button. `"block"` is a full-width button.
          */
         "kind"?: 'default' | 'simple' | 'block';
+        "onGoat#click"?: (event: GoatButtonCustomEvent<any>) => void;
         /**
           * On click of button, a CustomEvent 'goat:click' will be triggered.
          */
