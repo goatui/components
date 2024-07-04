@@ -67,9 +67,7 @@
     flex-direction: row-reverse;
 
     .close-icon {
-      --button-height: 3rem;
-      --button-ghost-color: var(--color-secondary-20);
-      --button-ghost-color-dark: var(--color-secondary-80);
+      --goat-button-height: 3rem;
       --goat-button-border-radius: 0;
     }
   }

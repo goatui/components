@@ -8,7 +8,7 @@ $border-width: 0.0625rem;
   slot::slotted(goat-button) {
     display: block;
     margin: 0;
-    --button-border-width: #{$border-width} 0 #{$border-width} #{$border-width};
+    --goat-button-border-width: #{$border-width} 0 #{$border-width} #{$border-width};
     --goat-button-border-radius: 0;
   }
 
@@ -17,12 +17,12 @@ $border-width: 0.0625rem;
   }
 
   slot::slotted(goat-button:last-child) {
-    --button-border-width: #{$border-width};
+    --goat-button-border-width: #{$border-width};
     --goat-button-border-radius: 0 var(--border-radius) var(--border-radius) 0;
   }
 
   slot::slotted(goat-button:only-child) {
     --goat-button-border-radius: var(--border-radius);
-    --button-border-width: #{$border-width};
+    --goat-button-border-width: #{$border-width};
   }
 }

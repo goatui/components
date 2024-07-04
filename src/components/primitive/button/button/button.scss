@@ -63,7 +63,7 @@ $inner-border-width: 0.0625;
       height: 100%;
       border-radius: var(--goat-button-border-radius);
       border: #{$inner-border-width}rem solid transparent;
-      padding: 0 calc(var(--button-padding, 1rem) - #{$inner-border-width}rem);
+      padding: 0 calc(var(--goat-button-padding, 1rem) - #{$inner-border-width}rem);
     }
 
     .slot-container {
@@ -124,9 +124,7 @@ $inner-border-width: 0.0625;
 
 
   &:not(.has-content).has-icon {
-    .button-content {
-      padding: 0 calc(var(--button-padding, 0.5rem) - #{$inner-border-width}rem);
-    }
+    --goat-button-padding: 0.5rem;
   }
 }
 
@@ -135,9 +133,7 @@ $inner-border-width: 0.0625;
   min-height: 2.5rem;
 
   &:not(.has-content).has-icon {
-    .button-content {
-      padding: 0 calc(var(--button-padding, 0.75rem) - #{$inner-border-width}rem);
-    }
+    --goat-button-padding: 0.75rem;
   }
 }
 
@@ -385,7 +381,7 @@ $inner-border-width: 0.0625;
 
   &:hover {
     .button-background {
-      background: var(--button-ghost-color, var(--color-secondary-10));
+      background: var(--background-hover);
     }
   }
 
@@ -395,7 +391,7 @@ $inner-border-width: 0.0625;
     }
 
     .button-background {
-      background: var(--color-secondary-30);
+      background: var(--background-active);
     }
   }
 
@@ -418,15 +414,6 @@ $inner-border-width: 0.0625;
     }
   }
 }
-
-:host-context([data-theme="dark"]) .button.variant-ghost {
-  &:hover {
-    .button-background {
-      background: var(--button-ghost-color-dark, var(--color-secondary-90));
-    }
-  }
-}
-
 
 /**
   * Color Variants

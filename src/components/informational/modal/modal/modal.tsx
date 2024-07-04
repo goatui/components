@@ -107,8 +107,8 @@ export class Modal {
                         <goat-button
                           title="Close"
                           class="close-icon cancel-button"
-                          color="secondary"
-                          dark-mode-color="light"
+                          color="black"
+                          darkModeColor="white"
                           icon="close--large"
                           variant="ghost"
                           onGoat-button-click={() => {

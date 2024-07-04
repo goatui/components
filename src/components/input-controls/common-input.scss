@@ -183,7 +183,7 @@
     cursor: pointer;
     height: 100%;
     --goat-button-height: 100%;
-    --button-padding: .625rem;
+    --goat-button-padding: .625rem;
 
     &:hover {
       --text-color: var(--text-secondary);
@@ -242,7 +242,7 @@
 .input-container {
   goat-button {
     height: 100%;
-    --button-height: 100%;
+    --goat-button-height: 100%;
     --goat-button-border-radius: 0;
   }
 }
