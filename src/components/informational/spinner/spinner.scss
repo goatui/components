@@ -8,7 +8,7 @@
 }
 
 .spinner {
-  color: var(--goat-spinner-color);
+  display: flex;
 }
 
 .spinner__background {
@@ -18,6 +18,7 @@
 }
 
 .spinner__svg {
+
   animation-duration: 690ms;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
@@ -27,12 +28,10 @@
 }
 
 .spinner__stroke {
+  color: var(--goat-spinner-color);
   stroke-dasharray: 360;
   stroke-linecap: butt;
   fill: rgba(0, 0, 0, 0);
-}
-
-.spinner__stroke {
   stroke: currentColor;
   stroke-dashoffset: 75;
 }
@@ -55,10 +54,11 @@
   80% {color:var(--color-secondary);}
 }
 
-:host(.rainbow) .spinner {
+:host(.rainbow) .spinner__stroke {
   color: var(--color-primary);
   animation-name: rainbow;
   animation-duration: 5s;
   animation-iteration-count: infinite;
 }
+
 

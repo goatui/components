@@ -81,9 +81,6 @@ export class CodeHighlighter implements ComponentInterface {
     }
 
     this.codeString = this.decode(this.codeString);
-    if (!window['Prism']) {
-      await loadPrism();
-    }
   }
 
   isInViewport(element: HTMLElement) {
@@ -94,6 +91,10 @@ export class CodeHighlighter implements ComponentInterface {
   }
 
   async initializePrism() {
+    if (!window['Prism']) {
+      await loadPrism();
+    }
+
     if (!this.isInViewport(this.elm)) {
       setTimeout(() => this.initializePrism(), 300);
       return;

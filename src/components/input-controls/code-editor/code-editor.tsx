@@ -147,10 +147,7 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
   private editorElement?: HTMLElement;
   @State() editorMonacoInstance: any;
 
-  async componentWillLoad() {
-    if (!window['monaco']) {
-      await loadMonaco();
-    }
+  componentWillLoad() {
     this.debounceChanged();
     observeThemeChange(() => {
       this.isDarkMode = isDarkMode();
@@ -179,7 +176,10 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
     );
   }
 
-  private initializeMonaco() {
+  async initializeMonaco() {
+    if (!window['monaco']) {
+      await loadMonaco();
+    }
     //monaco.languages.typescript.javascriptDefaults.addExtraLib(this.extraLibs);
     if (!this.editorMonacoInstance && !this.isInViewport(this.elm)) {
       setTimeout(() => this.initializeMonaco(), 300);

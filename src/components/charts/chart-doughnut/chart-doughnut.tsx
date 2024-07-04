@@ -224,7 +224,11 @@ export class ChartDoughnut implements ComponentInterface {
       });
   }
 
-  initializeChart() {
+  async initializeChart() {
+    if (!window['d3']) {
+      await loadD3JS();
+    }
+
     const d3 = window['d3'];
     const radius = this.getRadius();
     const pieData = getPieData(this.data);
@@ -277,12 +281,6 @@ export class ChartDoughnut implements ComponentInterface {
           const midAngle = d.startAngle + (d.endAngle - d.startAngle) / 2;
           return midAngle < Math.PI ? 'start' : 'end';
         });
-    }
-  }
-
-  async componentWillLoad() {
-    if (!window['d3']) {
-      await loadD3JS();
     }
   }
 

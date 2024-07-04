@@ -25,7 +25,7 @@ $border-width: 0.125;
     outline: none;
 
     .slot-container {
-      display: none;
+      display: flex;
     }
 
     .tab-content {
@@ -62,8 +62,8 @@ $border-width: 0.125;
     }
   }
 
-  &.has-content .slot-container {
-    display: flex;
+  &:not(.has-content) .slot-container {
+    display: none;
   }
 
   &.selected {

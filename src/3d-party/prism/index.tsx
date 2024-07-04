@@ -32,6 +32,8 @@ export async function loadPrism() {
       `https://cdn.jsdelivr.net/npm/prismjs@${VERSION}/plugins/autoloader/prism-autoloader.min.js`,
     );
   }
+
+  await waitUntil(() => !!window['Prism']);
 }
 
 let loadPrismLanguageCalled: any = {};

@@ -1,4 +1,5 @@
-import { Component, h, Host, Prop } from '@stencil/core';
+import { Component, Element, h, Host, Prop, State } from '@stencil/core';
+import { getComponentIndex } from '../../../utils/utils';
 
 enum SpinnerSize {
   SM = 0.75,
@@ -19,6 +20,10 @@ enum SpinnerSize {
   shadow: true,
 })
 export class Spinner {
+  @Element() elm!: HTMLElement;
+
+  gid: string = getComponentIndex();
+
   /**
    * The Icon size.
    * Possible values are: `"sm"`, `"md"`, `"lg"` and size in pixel. Defaults to `"md"`.
@@ -27,7 +32,9 @@ export class Spinner {
 
   @Prop() hideBackground: boolean = false;
 
-  @Prop() description: string = 'Loading';
+  @Prop() description: string = 'Loading...';
+
+  @State() slotHasContent = false;
 
   private getSize() {
     let size;
@@ -40,6 +47,10 @@ export class Spinner {
       size = parseInt(this.size.replace('rem', ''));
     else size = this.size;
     return size;
+  }
+
+  componentDidLoad() {
+    this.slotHasContent = !!this.elm.querySelector('[slot="start"]');
   }
 
   render() {
@@ -63,37 +74,43 @@ export class Spinner {
           }}
           title={this.description}
         >
-          <svg
-            viewBox={`0 0 ${2 * (radius + strokeWidth + 5 * this.getSize())} ${
-              2 * (radius + strokeWidth + 5 * this.getSize())
-            }`}
-            class="spinner__svg"
-          >
-            <title>{this.description}</title>
-            {!this.hideBackground && (
+          <div class={'spinner__container'}>
+            <svg
+              viewBox={`0 0 ${
+                2 * (radius + strokeWidth + 5 * this.getSize())
+              } ${2 * (radius + strokeWidth + 5 * this.getSize())}`}
+              class="spinner__svg"
+            >
+              <title>{this.description}</title>
+              {!this.hideBackground && (
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  class="spinner__background"
+                  r={radius}
+                  style={{
+                    strokeWidth: `${strokeWidth * this.getSize()}`,
+                  }}
+                ></circle>
+              )}
+
               <circle
                 cx="50%"
                 cy="50%"
-                class="spinner__background"
+                class="spinner__stroke"
                 r={radius}
                 style={{
                   strokeWidth: `${strokeWidth * this.getSize()}`,
+                  strokeDasharray: `${360 * this.getSize()}`,
+                  strokeDashoffset: `${strokeDashoffset}`,
                 }}
               ></circle>
-            )}
+            </svg>
+          </div>
 
-            <circle
-              cx="50%"
-              cy="50%"
-              class="spinner__stroke"
-              r={radius}
-              style={{
-                strokeWidth: `${strokeWidth * this.getSize()}`,
-                strokeDasharray: `${360 * this.getSize()}`,
-                strokeDashoffset: `${strokeDashoffset}`,
-              }}
-            ></circle>
-          </svg>
+          <div class="slot-container">
+            <slot />
+          </div>
         </div>
       </Host>
     );

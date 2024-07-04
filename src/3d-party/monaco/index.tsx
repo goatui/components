@@ -45,7 +45,9 @@ export default async function loadMonaco() {
       `https://cdn.jsdelivr.net/npm/monaco-editor@${VERSION}/min/vs/editor/editor.main.nls.js`,
     );
     await loadScript(
-      `https://cdn.jsdelivr.net/npm/monaco-editor@${VERSION}/min/vs/editor/editor.main.js`,
+      `https://cdn.jsdelivr.net/npm/monaco-editor@${VERSION}/min/vs/editor/editor.main.min.js`,
     );
   }
+
+  await waitUntil(() => !!window['monaco']);
 }
