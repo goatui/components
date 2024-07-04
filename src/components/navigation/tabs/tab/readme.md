@@ -11,6 +11,7 @@
 | ---------------- | ----------------- | ------------------------------------------------------------------------------ | ------------------------------------------------ | ----------- |
 | `disabled`       | `disabled`        | If true, the user cannot interact with the button. Defaults to `false`.        | `boolean`                                        | `false`     |
 | `disabledReason` | `disabled-reason` |                                                                                | `string`                                         | `''`        |
+| `href`           | `href`            | Hyperlink to navigate to on click.                                             | `string`                                         | `undefined` |
 | `icon`           | `icon`            | Icon which will displayed on button. Possible values are bootstrap icon names. | `string`                                         | `undefined` |
 | `label`          | `label`           |                                                                                | `string`                                         | `undefined` |
 | `selected`       | `selected`        | Button selection state.                                                        | `boolean`                                        | `false`     |
@@ -54,14 +55,14 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [goat-icon](../../../primitive/icon)
 - [goat-spinner](../../../informational/spinner)
+- [goat-icon](../../../primitive/icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  goat-tab --> goat-icon
   goat-tab --> goat-spinner
+  goat-tab --> goat-icon
   style goat-tab fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

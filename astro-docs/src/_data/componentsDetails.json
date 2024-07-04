@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-04T08:16:21",
+  "timestamp": "2024-07-04T09:21:01",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.19.1",
@@ -12176,13 +12176,13 @@
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
-        "goat-icon",
-        "goat-spinner"
+        "goat-spinner",
+        "goat-icon"
       ],
       "dependencyGraph": {
         "goat-tab": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ]
       },
       "props": [
@@ -12222,6 +12222,27 @@
           "docs": "",
           "docsTags": [],
           "default": "''",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "href",
+          "reflectToAttr": false,
+          "docs": "Hyperlink to navigate to on click.",
+          "docsTags": [],
           "values": [
             {
               "type": "string"
