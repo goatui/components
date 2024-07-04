@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-04T04:42:18",
+  "timestamp": "2024-07-04T08:16:21",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.19.1",
@@ -1352,53 +1352,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--goat-button-border-radius",
-          "annotation": "prop",
-          "docs": "Button border radius."
-        },
-        {
-          "name": "--goat-button-border-style",
-          "annotation": "prop",
-          "docs": "Button border style."
-        },
-        {
-          "name": "--goat-button-color",
-          "annotation": "prop",
-          "docs": "Button filling color."
-        },
-        {
-          "name": "--goat-button-color-active",
-          "annotation": "prop",
-          "docs": "Button filling color on active."
-        },
-        {
-          "name": "--goat-button-color-hover",
-          "annotation": "prop",
-          "docs": "Button filling color on hover."
-        },
-        {
-          "name": "--goat-button-color-light",
-          "annotation": "prop",
-          "docs": "Button filling color for light variant."
-        },
-        {
-          "name": "--goat-button-support-contrast-color",
-          "annotation": "prop",
-          "docs": "Button support color (text or border). Should be white or black based on weight of button filling color."
-        },
-        {
-          "name": "--goat-theme-button-border-radius",
-          "annotation": "prop",
-          "docs": "Theme level button border radius. (applies to all buttons)"
-        },
-        {
-          "name": "--goat-theme-button-border-style",
-          "annotation": "prop",
-          "docs": "Theme level button border style. (applies to all buttons)"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "listeners": [
@@ -3936,7 +3890,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -3958,7 +3912,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -12033,7 +11987,7 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "'Loading'",
+          "default": "'Loading...'",
           "values": [
             {
               "type": "string"
