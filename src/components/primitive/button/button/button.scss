@@ -26,14 +26,17 @@ $inner-border-width: 0.0625;
    * @prop --goat-theme-button-border-style: Theme level button border style. (applies to all buttons)
    */
   --goat-button-border-style: var(--goat-theme-button-border-style, solid);
+
+  --goat-button-height: auto;
+  height: var(--goat-button-height);
 }
 
 .button {
   position: relative;
   display: flex;
   align-items: center;
-  height: 100%;
   flex-direction: column;
+  height: var(--goat-button-height);
 
   .native-button {
     display: flex;
@@ -67,9 +70,6 @@ $inner-border-width: 0.0625;
       display: none;
     }
   }
-
-
-
 
 
   .button-background {
@@ -426,8 +426,6 @@ $inner-border-width: 0.0625;
     }
   }
 }
-
-
 
 
 /**

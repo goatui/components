@@ -12,5 +12,6 @@
 :host(:not(.simple)) .header-action {
   --goat-button-border-radius: 0;
   height: var(--header-height);
+  --goat-button-height: var(--header-height);
   margin-inline-end: 0;
 }

@@ -182,6 +182,7 @@
   .input-action {
     cursor: pointer;
     height: 100%;
+    --goat-button-height: 100%;
     --button-padding: .625rem;
 
     &:hover {

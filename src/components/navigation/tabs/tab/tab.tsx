@@ -42,6 +42,11 @@ export class Tab implements ComponentInterface {
   @Prop() value: string;
   @Prop() target: string;
 
+  /**
+   * Hyperlink to navigate to on click.
+   */
+  @Prop() href: string;
+
   @Prop({ reflect: true }) type: 'contained' | 'contained-bottom' | 'default' =
     'default';
 
@@ -86,11 +91,14 @@ export class Tab implements ComponentInterface {
     }
   }
 
-  private clickHandler = () => {
-    this.goatTabClick.emit({
-      value: this.value,
-      target: this.target,
-    });
+  #clickHandler = () => {
+    if (!this.disabled && !this.showLoader && !this.href) {
+      this.goatTabClick.emit({
+        element: this.elm,
+        value: this.value,
+        target: this.target,
+      });
+    }
   };
   private blurHandler = () => {
     this.hasFocus = false;
@@ -104,12 +112,25 @@ export class Tab implements ComponentInterface {
     this.isActive = true;
   };
 
-  private keyDownHandler = evt => {
-    if (evt.key == ' ') {
-      this.isActive = true;
-      this.clickHandler();
+  #keyDownHandler(evt: KeyboardEvent) {
+    if (!this.disabled && !this.showLoader) {
+      if (!this.href && evt.key == 'Enter') {
+        evt.preventDefault();
+        this.isActive = true;
+        this.#clickHandler();
+      } else if (this.href && (evt.key == 'Enter' || evt.key == ' ')) {
+        evt.preventDefault();
+        this.isActive = true;
+        this.#clickHandler();
+        window.open(this.href, '_blank');
+      }
     }
-  };
+  }
+
+  #getNativeElementTagName() {
+    if (this.href) return 'a';
+    else return 'button';
+  }
 
   componentWillLoad() {
     // If the ion-input has a tabindex attribute we get the value
@@ -133,6 +154,8 @@ export class Tab implements ComponentInterface {
   }
 
   render() {
+    const NativeElementTag = this.#getNativeElementTagName();
+
     return (
       <Host has-focus={this.hasFocus} active={this.isActive}>
         <div
@@ -148,15 +171,17 @@ export class Tab implements ComponentInterface {
           }}
         >
           <div class="tab-background" />
-          <button
+          <NativeElementTag
             class="native-button"
             tabindex={this.tabindex}
             ref={input => (this.nativeElement = input)}
+            href={this.href}
+            target={'_blank'}
             onBlur={this.blurHandler}
             onFocus={this.focusHandler}
-            onClick={this.clickHandler}
+            onClick={this.#clickHandler}
             onMouseDown={this.mouseDownHandler}
-            onKeyDown={this.keyDownHandler}
+            onKeyDown={this.#keyDownHandler}
             disabled={this.disabled}
             aria-describedby={
               this.disabled && this.disabledReason
@@ -170,22 +195,24 @@ export class Tab implements ComponentInterface {
                 <goat-spinner class="spinner inherit" size="1rem" />
               )}
 
-              {!this.showLoader && this.icon && this.renderIcon()}
+              {!this.showLoader && this.icon && (
+                <goat-icon name={this.icon} size="1rem" class="icon inherit" />
+              )}
 
               {!this.showLoader && (
                 <div class="slot-container">
                   <slot />
                 </div>
               )}
+
+              {!this.showLoader && this.href && (
+                <goat-icon name={'launch'} size="1rem" class="icon inherit" />
+              )}
             </div>
-          </button>
+          </NativeElementTag>
           {this.renderDisabledReason()}
         </div>
       </Host>
     );
   }
-
-  private renderIcon = () => {
-    return <goat-icon name={this.icon} size="1rem" class="icon inherit" />;
-  };
 }

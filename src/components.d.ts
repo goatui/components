@@ -1196,6 +1196,10 @@ export namespace Components {
         "disabled": boolean;
         "disabledReason": string;
         /**
+          * Hyperlink to navigate to on click.
+         */
+        "href": string;
+        /**
           * Icon which will displayed on button. Possible values are bootstrap icon names.
          */
         "icon": string;
@@ -4016,6 +4020,10 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         "disabledReason"?: string;
+        /**
+          * Hyperlink to navigate to on click.
+         */
+        "href"?: string;
         /**
           * Icon which will displayed on button. Possible values are bootstrap icon names.
          */
