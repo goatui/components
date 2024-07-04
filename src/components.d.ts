@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { CalendarViewType, EventType } from "./components/calendar/calendar/types";
-export { CalendarViewType, EventType } from "./components/calendar/calendar/types";
+import { CalendarViewType, EventType } from "./components/application/calendar/calendar/types";
+export { CalendarViewType, EventType } from "./components/application/calendar/calendar/types";
 export namespace Components {
     /**
      * @name Accordion
@@ -101,29 +101,34 @@ export namespace Components {
      * </goat-button>
      */
     interface GoatButton {
+        /**
+          * Button color. Possible values are `"primary"`, `"secondary"`, `"success"`, `"danger"`, `"white"`. Defaults to `"primary"`.
+         */
         "color": | 'primary'
     | 'secondary'
     | 'success'
     | 'danger'
-    | 'brand-primary'
-    | 'brand-secondary'
-    | 'dark'
-    | 'light'
-    | 'inverse';
+    | 'warning'
+    | 'white'
+    | 'black';
         "configAria": any;
+        /**
+          * Button color in dark mode. Possible values are `"primary"`, `"secondary"`, `"success"`, `"danger"`, `"white"`.
+         */
         "darkModeColor": | 'primary'
     | 'secondary'
     | 'success'
     | 'danger'
-    | 'brand-primary'
-    | 'brand-secondary'
-    | 'dark'
-    | 'light'
-    | 'inverse';
+    | 'warning'
+    | 'white'
+    | 'black';
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
+        /**
+          * If button is disabled, the reason why it is disabled.
+         */
         "disabledReason": string;
         /**
           * Hyperlink to navigate to on click.
@@ -134,11 +139,11 @@ export namespace Components {
          */
         "icon": string;
         /**
-          * Icon position.
+          * Icon alignment. Possible values are `"start"`, `"end"`. Defaults to `"end"`.
          */
         "iconAlign": 'start' | 'end';
         /**
-          * Icon size.
+          * Icon size. Possible values are `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
         "iconSize": 'sm' | 'md' | 'lg' | string;
         /**
@@ -158,18 +163,24 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         /**
-          * Show loader.
+          * If true, a loader will be displayed on button.
          */
         "showLoader": boolean;
         /**
           * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"2xl"`, `"full"`. Defaults to `"md"`.
          */
-        "size": 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
+        "size": 'sm' | 'md' | 'lg' | 'xl' | '2xl';
         /**
           * Sets or retrieves the window or frame at which to target content.
          */
         "target": string;
+        /**
+          * Triggers a click event on the native `button` in `goat-button`. Use this method instead of the global `button.click()`.
+         */
         "triggerClick": () => Promise<void>;
+        /**
+          * Button type. Possible values are `"button"`, `"submit"`, `"reset"`. Defaults to `"button"`.
+         */
         "type": 'button' | 'submit' | 'reset';
         /**
           * Button variants. Possible values are `"default"`, `"outline"`, `"ghost"`. Defaults to `"default"`. `"default"` is a filled button. `"outline"` is an outlined button. `"ghost"` is a transparent button.
@@ -1267,7 +1278,16 @@ export namespace Components {
      * @example <goat-tag class="color-red">Important</goat-tag>
      */
     interface GoatTag {
-        "color": 'gray' | 'blue' | 'green' | 'red' | 'yellow' | 'primary' | 'success' | 'info' | 'warning' | 'error';
+        "color": | 'gray'
+    | 'blue'
+    | 'green'
+    | 'red'
+    | 'yellow'
+    | 'primary'
+    | 'success'
+    | 'info'
+    | 'warning'
+    | 'error';
         "filter": boolean;
         "imageSrc": string;
         "selected": boolean;
@@ -1715,8 +1735,7 @@ declare global {
         new (): HTMLGoatBreadcrumbItemElement;
     };
     interface HTMLGoatButtonElementEventMap {
-        "goat:click": any;
-        "goat#click": any;
+        "goat-button-click": any;
     }
     /**
      * @name Button
@@ -2908,29 +2927,34 @@ declare namespace LocalJSX {
      * </goat-button>
      */
     interface GoatButton {
+        /**
+          * Button color. Possible values are `"primary"`, `"secondary"`, `"success"`, `"danger"`, `"white"`. Defaults to `"primary"`.
+         */
         "color"?: | 'primary'
     | 'secondary'
     | 'success'
     | 'danger'
-    | 'brand-primary'
-    | 'brand-secondary'
-    | 'dark'
-    | 'light'
-    | 'inverse';
+    | 'warning'
+    | 'white'
+    | 'black';
         "configAria"?: any;
+        /**
+          * Button color in dark mode. Possible values are `"primary"`, `"secondary"`, `"success"`, `"danger"`, `"white"`.
+         */
         "darkModeColor"?: | 'primary'
     | 'secondary'
     | 'success'
     | 'danger'
-    | 'brand-primary'
-    | 'brand-secondary'
-    | 'dark'
-    | 'light'
-    | 'inverse';
+    | 'warning'
+    | 'white'
+    | 'black';
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
+        /**
+          * If button is disabled, the reason why it is disabled.
+         */
         "disabledReason"?: string;
         /**
           * Hyperlink to navigate to on click.
@@ -2941,38 +2965,40 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
         /**
-          * Icon position.
+          * Icon alignment. Possible values are `"start"`, `"end"`. Defaults to `"end"`.
          */
         "iconAlign"?: 'start' | 'end';
         /**
-          * Icon size.
+          * Icon size. Possible values are `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
         "iconSize"?: 'sm' | 'md' | 'lg' | string;
         /**
           * Button kind. Possible values are `"default"`, `"simple"`, `"block"`. Defaults to `"default"`. `"default"` is a long button. `"simple"` is a text-only button. `"block"` is a full-width button.
          */
         "kind"?: 'default' | 'simple' | 'block';
-        "onGoat#click"?: (event: GoatButtonCustomEvent<any>) => void;
         /**
-          * On click of button, a CustomEvent 'goat:click' will be triggered.
+          * On click of button, a CustomEvent 'goat-button-click' will be triggered.
          */
-        "onGoat:click"?: (event: GoatButtonCustomEvent<any>) => void;
+        "onGoat-button-click"?: (event: GoatButtonCustomEvent<any>) => void;
         /**
           * Button selection state.
          */
         "selected"?: boolean;
         /**
-          * Show loader.
+          * If true, a loader will be displayed on button.
          */
         "showLoader"?: boolean;
         /**
           * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"2xl"`, `"full"`. Defaults to `"md"`.
          */
-        "size"?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
+        "size"?: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
         /**
           * Sets or retrieves the window or frame at which to target content.
          */
         "target"?: string;
+        /**
+          * Button type. Possible values are `"button"`, `"submit"`, `"reset"`. Defaults to `"button"`.
+         */
         "type"?: 'button' | 'submit' | 'reset';
         /**
           * Button variants. Possible values are `"default"`, `"outline"`, `"ghost"`. Defaults to `"default"`. `"default"` is a filled button. `"outline"` is an outlined button. `"ghost"` is a transparent button.
@@ -4079,7 +4105,16 @@ declare namespace LocalJSX {
      * @example <goat-tag class="color-red">Important</goat-tag>
      */
     interface GoatTag {
-        "color"?: 'gray' | 'blue' | 'green' | 'red' | 'yellow' | 'primary' | 'success' | 'info' | 'warning' | 'error';
+        "color"?: | 'gray'
+    | 'blue'
+    | 'green'
+    | 'red'
+    | 'yellow'
+    | 'primary'
+    | 'success'
+    | 'info'
+    | 'warning'
+    | 'error';
         "filter"?: boolean;
         "imageSrc"?: string;
         "onGoat:click"?: (event: GoatTagCustomEvent<any>) => void;

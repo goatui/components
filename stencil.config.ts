@@ -29,10 +29,6 @@ export const config: Config = {
       type: 'docs-custom',
       generator: (docs: JsonDocs) => {
         docs.components.forEach(component => {
-          delete component.dirPath;
-          delete component.readmePath;
-          delete component.usagesDir;
-
           // @ts-ignore
           const metadata: any = {};
 

@@ -1,0 +1,21 @@
+@import "../../../../globalStyles/commons";
+
+:host {
+  display: inline-block;
+  --list-max-height: 100%;
+  --list-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
+}
+
+.menu {
+  background: var(--layer);
+  box-sizing: border-box;
+  max-height: var(--list-max-height);
+  overflow-x: auto;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--list-shadow);
+}
+
+slot::slotted(goat-divider) {
+  --divider-color: var(--border-subtle);
+  --divider-padding: var(--spacing-03);
+}

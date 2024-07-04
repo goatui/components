@@ -1,0 +1,23 @@
+@import "../../../globalStyles/commons";
+
+:host {
+  display: block;
+  --container-padding: var(--spacing-09)
+}
+
+.container {
+  max-width: var(--container-xl);
+  margin: auto;
+  width: 100%;
+  padding: 0 var(--container-padding);
+}
+
+
+@include for-phone-only {
+  .container {
+    padding: 0 var(--spacing-05);
+  }
+  :host(.container-code) .container {
+    padding: 0;
+  }
+}

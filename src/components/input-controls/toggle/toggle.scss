@@ -1,0 +1,143 @@
+@import "../../../globalStyles/commons";
+
+:host {
+  display: inline-block;
+  color: var(--text-primary);
+}
+
+.toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  @include font-style(body-comptact-01);
+
+  &.has-content {
+    gap: var(--spacing-02);
+  }
+
+  .input-native {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .box {
+    position: relative;
+    background: var(--toggle-off);
+    border: 1px solid var(--border-strong-01);
+    border-radius: 100rem;
+    cursor: pointer;
+    display: flex;
+    transition: background-color 70ms cubic-bezier(.2, 0, 1, .9);
+    align-items: center;
+
+    .node {
+      display: block;
+      border-radius: 50%;
+      transition: all 70ms cubic-bezier(.2, 0, 1, .9);
+      background: white;
+    }
+  }
+
+
+  &.has-focus:not(.active) {
+    .box {
+      @include focus-ring;
+      border-color: var(--color-white);
+    }
+
+    &:not(.state-checked) .node {
+      border-color: var(--icon-01);
+    }
+  }
+
+}
+
+:host(.light) .box {
+  background-color: var(--field-02);
+}
+
+
+.toggle.state-checked {
+  .box {
+    background: var(--support-success);
+  }
+
+  &.active .box {
+    border-color: var(--color-white);
+  }
+
+  &.has-focus:not(.active) {
+    .box {
+      @include focus-ring;
+      border-color: var(--color-white);
+    }
+  }
+
+}
+
+
+/**
+ * SIZES
+ */
+.toggle {
+  .box {
+    width: var(--toggle-width);
+    height: calc(var(--toggle-width) / 2);
+    padding: 0 calc(var(--toggle-width) / 10);
+
+    .node {
+      height: calc(var(--toggle-width) / 2 - calc(var(--toggle-width) / 5));
+      width: calc(var(--toggle-width) / 2 - calc(var(--toggle-width) / 5));
+    }
+  }
+
+  &.state-checked .node {
+    margin-inline-start: calc(100% - calc(var(--toggle-width) / 2 - calc(var(--toggle-width) / 5)));
+  }
+}
+
+.toggle.size-md {
+  --toggle-width: 2.5rem;
+}
+
+.toggle.size-lg {
+  --toggle-width: 3rem;
+}
+
+
+.toggle.readonly {
+  cursor: default;
+  color: var(--text-primary) !important;
+
+  .box {
+    background: transparent !important;
+
+    .node {
+      border-color: var(--disabled-01) !important;
+      background: var(--icon-primary) !important;
+    }
+  }
+
+}
+
+.toggle.disabled {
+  cursor: not-allowed;
+  color: var(--text-disabled) !important;
+
+  .box {
+    background: var(--button-disabled) !important;
+
+    .node {
+      border-color: var(--disabled-01) !important;
+      background: var(--icon-on-color-disabled) !important;
+    }
+  }
+}
+
+

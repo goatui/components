@@ -15,6 +15,16 @@ const { componentDetails } = Astro.props;
   <goat-table id='comp-events' class='table-auto-height' layer="01" paginate='false'></goat-table>
 </div>
 
+<div class='api-section'>
+  <goat-text type='heading' heading-size='4'>Methods</goat-text>
+  <goat-table id='comp-methods' class='table-auto-height' layer="01" paginate='false'></goat-table>
+</div>
+
+<div class='api-section'>
+  <goat-text type='heading' heading-size='4'>CSS Custom Properties</goat-text>
+  <goat-table id='comp-css-custom-properties' class='table-auto-height' layer="01" paginate='false'></goat-table>
+</div>
+
 <script is:inline define:vars={{ componentDetails }} >
   const $compProperties = window.document.getElementById('comp-properties');
     // Columns
@@ -22,7 +32,6 @@ const { componentDetails } = Astro.props;
       'name': 'name',
       'label': 'Property',
       'width': 10,
-      'fixed': true,
       }, {
       'name': 'attr',
       'label': 'Attribute',
@@ -52,7 +61,6 @@ const { componentDetails } = Astro.props;
       'name': 'event',
       'label': 'Event',
       'width': 10,
-      'fixed': true,
       }, {
       'name': 'docs',
       'label': 'Description',
@@ -63,4 +71,31 @@ const { componentDetails } = Astro.props;
       }];
     // Data
     $compEvents.data = componentDetails.events;
+
+  const $compMethods = document.getElementById('comp-methods');
+  // Columns
+  $compMethods.columns = [{
+    'name': 'name',
+    'label': 'Name',
+    'width': 20,
+  }, {
+    'name': 'docs',
+    'label': 'Description',
+  }];
+  // Data
+  $compMethods.data = componentDetails.methods;
+
+  const $compCssCustomProperties = document.getElementById('comp-css-custom-properties');
+  // Columns
+  $compCssCustomProperties.columns = [{
+    'name': 'name',
+    'label': 'Name',
+    'width': 20,
+    'fixed': true,
+  }, {
+    'name': 'docs',
+    'label': 'Description',
+  }];
+  // Data
+  $compCssCustomProperties.data = componentDetails.styles;
 </script>

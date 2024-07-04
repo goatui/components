@@ -1,7 +1,7 @@
 @import "../../../globalStyles/commons";
 
 .arc-container path {
-  stroke: v(--color-light);
+  stroke: var(--color-light);
   stroke-width: 2px;
   transition: all 0.1s ease-out;
 }
@@ -9,13 +9,13 @@
 .item-polyline {
   fill: none;
   stroke-width: 1;
-  stroke: v(--text-primary);
+  stroke: var(--text-primary);
 }
 
 .item-label {
-  fill: v(--text-primary);
-  font-size: v(--label-01-font-size);
-  font-weight: v(--label-01-font-weight);
-  line-height: v(--label-01-line-height);
-  letter-spacing: v(--label-01-letter-spacing);
+  fill: var(--text-primary);
+  font-size: var(--label-01-font-size);
+  font-weight: var(--label-01-font-weight);
+  line-height: var(--label-01-line-height);
+  letter-spacing: var(--label-01-letter-spacing);
 }

@@ -1,0 +1,119 @@
+@import "../../../globalStyles/commons";
+
+
+:host {
+  display: block;
+  margin-bottom: var(--spacing-03);
+}
+
+.notification {
+  border-style: solid;
+  border-color: transparent;
+  display: flex;
+
+  .state-icon {
+    padding: var(--spacing-05) var(--spacing-04);
+    line-height: 0;
+  }
+
+  .content {
+    flex: 1;
+    padding: var(--spacing-04) 0;
+
+    .title {
+      @include font-style(text-md);
+      font-weight: var(--font-weight-bold);
+    }
+
+    .subtitle {
+      @include font-style(text-sm);
+    }
+  }
+
+
+  .close-button {
+    margin: 0;
+    --button-padding: var(--spacing-02);
+    padding: var(--spacing-02) 0;
+  }
+}
+
+:host(:not([dismissible])) .content {
+  padding-inline-end: var(--spacing-04);
+}
+
+
+@mixin alertState($color, $dark) {
+  @if $dark {
+    .alert {
+      background-color: var(--color-#{$color});
+
+      .content {
+        .message {
+          color: white;
+          --link-color: white;
+        }
+
+        .description {
+          color: var(--text-primary);
+        }
+      }
+    }
+  } @else {
+    .alert {
+      background-color: var(--color-#{$color}-20);
+
+      .content {
+        .message {
+          color: var(--color-#{$color}-70);
+          --link-color: var(--color-#{$color}-70);
+        }
+
+        .description {
+          color: var(--text-secondary);
+        }
+      }
+    }
+  }
+}
+
+@each $state in [info, success, warning, error] {
+
+  .notification.state-#{$state} {
+
+    &.high-contrast {
+      border-left-color: var(--support-#{$state}-inverse);
+      color: var(--text-inverse);
+      background: var(--background-inverse);
+      border-width: 0 0 0 3px;
+
+      .close-button {
+        .icon {
+          --icon-color: var(--text-inverse);
+        }
+      }
+
+      .state-icon {
+        color: var(--support-#{$state}-inverse);
+      }
+    }
+
+    &:not(.high-contrast) {
+      color: var(--color-neutral-100);
+      border-color: var(--support-#{$state});
+      background: var(--color-#{$state}-10);
+      border-width: 1px 1px 1px 3px;
+
+      .close-button {
+        .icon {
+          --icon-color: var(--color-neutral-100);
+        }
+      }
+
+      .state-icon {
+        color: var(--support-#{$state});
+      }
+    }
+  }
+
+}

@@ -1,0 +1,27 @@
+@import "../../../../globalStyles/commons";
+
+
+:host {
+  display: block;
+  --compound-type-line-color: var(--color-primary)
+}
+
+.condition-builder {
+
+  .condition-builder__predicates {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    .predicate-divider {
+      padding: 0 2rem;
+    }
+  }
+
+
+
+
+
+
+}
+

@@ -97,6 +97,9 @@ Secondary link color for lower contrast backgrounds
 @include defineVariableDeprecated(--button-disabled, getColor(gray, 30), getColor(gray, 70));
 @include defineVariableDeprecated(--icon-on-color-disabled, getColor(gray, 50), getColor(white, 0));
 
+@include defineVariableDeprecated(--button-secondary, getColor(gray, 80), getColor(gray, 60));
+@include defineVariableDeprecated(--button-secondary-hover, getColor(gray-hover, 80), getColor(gray-hover, 60));
+@include defineVariableDeprecated(--button-secondary-active, getColor(gray, 60), getColor(gray, 80));
 
 @include defineVariableDeprecated(--overlay, getColor(gray, 100, .5), getColor(gray, 100, .7));
 

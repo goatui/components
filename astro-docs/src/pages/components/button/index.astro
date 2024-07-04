@@ -18,25 +18,25 @@ const sections = [
   {
     'title': 'Usage',
     'Component': UsageSection,
-  },{
+  }, {
     'title': 'Kind',
     'Component': KindSection,
-  },{
+  }, {
     'title': 'Variants',
     'Component': VariantsSection,
-  },{
+  }, {
     'title': 'Colors',
     'Component': ColorsSection,
-  },{
+  }, {
     'title': 'Sizes',
     'Component': SizesSection,
-  },{
+  }, {
     'title': 'Icon',
     'Component': IconSection,
-  },{
+  }, {
     'title': 'States',
     'Component': StatesSection,
-  },{
+  }, {
     'title': 'Events',
     'Component': EventsSection,
   }];
@@ -52,10 +52,101 @@ const sections = [
       <OverviewPanel componentDetails={componentDetails} sections={sections} />
     </goat-tab-panel>
     <goat-tab-panel>
-      <goat-notification type='warning'>Work in progress</goat-notification>
+      <div class='playground-tab'>
+        <div class='playground-container' id='playground-controller'>
+          <div class='playground'>
+            <div class='demo-area' id='demo-area'></div>
+            <div class='demo-controls' id='demo-controls'>
+
+              <goat-select label='Variant' id='comp-variant' search='contains' placeholder='Select'
+                           clearable></goat-select>
+
+              <goat-select label='Color' id='comp-color' search='contains' placeholder='Select' clearable></goat-select>
+
+              <goat-select label='Size' id='comp-size' search='contains' placeholder='Select' clearable></goat-select>
+
+
+            </div>
+          </div>
+          <div class='code-editor-container'>
+            <goat-code-editor class='code-editor no-border' theme='vs-dark'></goat-code-editor>
+          </div>
+        </div>
+      </div>
     </goat-tab-panel>
     <goat-tab-panel>
       <ApiPanel componentDetails={componentDetails} />
     </goat-tab-panel>
   </goat-tabs>
 </Layout>
+
+<script is:inline define:vars={{ props: componentDetails.props }}>
+  class Playground {
+
+    constructor(elm) {
+      this.elm = elm;
+    }
+
+    init() {
+      const $codeEditor = this.elm.querySelector('.code-editor');
+      const $demoArea = this.elm.querySelector('.demo-area');
+
+      $codeEditor.value = `
+    <goat-button icon='arrow--right'>Button</goat-button>
+    `;
+      $codeEditor.addEventListener('goat:change', (e) => {
+        $demoArea.innerHTML = e.target.value;
+      });
+      $demoArea.innerHTML = $codeEditor.value;
+    }
+
+    resetFields() {
+      this.updateProperty('computed-color', false);
+    }
+
+    populateDropdown(elm, prop, value) {
+      elm.items = this.getPropertyValues(prop).map((item) => {
+        return {
+          label: item,
+          value: item,
+        };
+      });
+      elm.value = value;
+      elm.addEventListener('goat:change', (evt) => {
+        this.resetFields();
+        this.updateProperty(prop, evt.detail.value);
+      });
+    }
+
+    updateProperty(propertyName, propertyValue) {
+      const $codeEditor = this.elm.querySelector('.code-editor');
+      const $demoArea = this.elm.querySelector('.demo-area');
+      if (propertyValue === '' || propertyValue === false) {
+        $demoArea.children[0].removeAttribute(propertyName);
+      } else {
+        $demoArea.children[0].setAttribute(propertyName, propertyValue);
+      }
+      $codeEditor.value = $demoArea.innerHTML;
+    }
+
+    getPropertyValues (name) {
+      return props.find(prop => prop.name === name).values.map(value => value.value)
+    }
+  }
+
+
+  const playground = new Playground(document.getElementById('playground-controller'));
+  playground.init();
+
+
+  const $size = document.getElementById('comp-size');
+  playground.populateDropdown($size, 'size', 'md');
+
+  const $variant = document.getElementById('comp-variant');
+  playground.populateDropdown($variant, 'variant', 'default');
+
+  const $color = document.getElementById('comp-color');
+  playground.populateDropdown($color, 'color', 'primary');
+
+
+</script>

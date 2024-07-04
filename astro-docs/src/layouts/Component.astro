@@ -69,11 +69,11 @@ const {nextComponent, previousComponent} = getNextAndPrevious(componentDetails.t
       <slot/>
 
       <div class='previous-next-nav'>
-        <goat-button kind='simple' href={`/components/${previousComponent.tag.replace('goat-', '')}/`}>
-          <goat-icon name='arrow--left' ></goat-icon>&nbsp;Previous
+        <goat-button kind='simple' icon='arrow--left' icon-align='start' href={`/components/${previousComponent.tag.replace('goat-', '')}/`}>
+          Previous
         </goat-button>
-        <goat-button kind='simple' href={`/components/${nextComponent.tag.replace('goat-', '')}/`}>
-          Next&nbsp;<goat-icon name='arrow--right' ></goat-icon>
+        <goat-button kind='simple' icon='arrow--right' href={`/components/${nextComponent.tag.replace('goat-', '')}/`}>
+          Next
         </goat-button>
       </div>
     </div>

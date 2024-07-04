@@ -1,0 +1,68 @@
+@import "../../../../globalStyles/commons";
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-inline-start: var(--spacing-05);
+
+  .brand-link {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-03);
+    height: 100%;
+    padding: 0 var(--spacing-02);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .logo {
+    height: var(--header-brand-logo-height, 2rem);
+  }
+
+}
+
+.subtitle-divider {
+  height: 1.5rem;
+}
+
+.subtitle {
+  padding: 0 var(--spacing-02);
+}
+
+/*
+ * Colors
+ */
+.header-brand {
+  color: var(--header-brand-title-color);
+
+  .subtitle {
+    color: var(--header-brand-subtitle-color);
+  }
+}
+
+:host-context([color-is="dark"]):host {
+  --header-brand-title-color: var(--color-white);
+  --header-brand-subtitle-color: var(--color-gray-40);
+}
+
+:host-context([color-is="light"]):host {
+  --header-brand-title-color: var(--color-black);
+  --header-brand-subtitle-color: var(--color-gray-80);
+}
+
+@include for-phone-only {
+  .header-brand {
+    padding-inline-start: var(--spacing-04);
+  }
+}

@@ -41,11 +41,11 @@
 
 ### Depends on
 
-- [goat-checkbox](../data-entry/checkbox)
-- [goat-button](../button)
-- [goat-select](../data-entry/select)
-- [goat-text](../text)
-- [goat-empty-state](../empty-state)
+- [goat-checkbox](../input-controls/checkbox)
+- [goat-button](../primitive/button/button)
+- [goat-select](../input-controls/select)
+- [goat-text](../primitive/typography/text)
+- [goat-empty-state](../application/empty-state)
 
 ### Graph
 ```mermaid
@@ -55,8 +55,8 @@ graph TD;
   goat-table --> goat-select
   goat-table --> goat-text
   goat-table --> goat-empty-state
-  goat-button --> goat-icon
   goat-button --> goat-spinner
+  goat-button --> goat-icon
   goat-select --> goat-icon
   goat-select --> goat-tag
   goat-select --> goat-button

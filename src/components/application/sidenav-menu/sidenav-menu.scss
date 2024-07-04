@@ -1,0 +1,17 @@
+@import "../../../globalStyles/commons";
+
+:host {
+  display: inline-block;
+  --list-border-radius: var(--border-radius);
+  --list-max-height: inherit;
+}
+
+
+.menu {
+  background-color: var(--field-02);
+  padding: var(--spacing-02) 0;
+  border: 1px solid var(--color-neutral-200);
+  box-sizing: border-box;
+  border-radius: var(--list-border-radius);
+  box-shadow: var(--shadow-sm);
+}

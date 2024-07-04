@@ -34,7 +34,8 @@ Checkout the complete documentation over here -> https://goatui.com
 
   <!-- include your custom theme variable values, view variable names at https://cdn.jsdelivr.net/npm/@goatui/components@2.0.0-0/dist/goatui/assets/styles/theme.css -->
   <!--link rel="stylesheet" href="/custom-theme.css"></link-->
-  <script type='module' src='https://cdn.jsdelivr.net/npm/@goatui/components@2.0.0-0/dist/goatui/goatui.esm.js'></script>
+  <script type='module'
+          src='https://cdn.jsdelivr.net/npm/@goatui/components@2.0.0-0/dist/goatui/goatui.esm.js'></script>
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans+Condensed:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Serif:ital@0;1&display=swap');
@@ -57,70 +58,111 @@ Checkout the complete documentation over here -> https://goatui.com
 - 🔴 not ready (unstyled / no functions)
 - 🔵 planned (created, but empty files)
 
-## Form Inputs
-| Name                                                     | Component            | State |
-|----------------------------------------------------------|----------------------|-------|
-| Color picker                                             | goat-colorpicker     | 🔴    |
-| [Checkbox](https://goatui.com/components/checkbox)       | goat-checkbox        | 🟢    |
-| [Date picker](https://goatui.com/components/date-picker) | goat-date-picker     | 🟡    |
-| Date Time picker                                         | goat-datetime-picker | 🔴    |
-| Filepicker                                               | goat-filepicker      | 🔴    |
-| [Input](https://goatui.com/components/input)             | goat-input           | 🟢    |
-| Month picker                                             | goat-month-picker    | 🔴    |
-| [Number](https://goatui.com/components/number)           | goat-number          | 🟢    |
-| [Select](https://goatui.com/components/select)           | goat-select          | 🟢    |
-| [Textarea](https://goatui.com/components/textarea)       | goat-textarea        | 🟢    |
-| [Time picker](https://goatui.com/components/time-picker) | goat-time-picker     | 🟡    |
-| Week picker                                              | goat-week-picker     | 🔴    |
+## Input Controls
+
+Input controls are UI design elements that allow users to input information into the system. They are essential for
+collecting data and enabling user interactions. Some common examples of input controls include text fields, dropdown
+menus, checkboxes, and radio buttons.
+
+| Name                                                       | Component            | State |
+|------------------------------------------------------------|----------------------|-------|
+| [Code editor](https://goatui.com/components/code-editor)   | goat-card-editor     | 🟢    |
+| Color picker                                               | goat-color-picker    | 🔴    |
+| [Checkbox](https://goatui.com/components/checkbox)         | goat-checkbox        | 🟢    |
+| [Date picker](https://goatui.com/components/date-picker)   | goat-date-picker     | 🟡    |
+| Date Time picker                                           | goat-datetime-picker | 🔴    |
+| File picker                                                | goat-file-picker     | 🔴    |
+| [HTML editor](https://goatui.com/components/html-editor)   | goat-html-editor     | 🟢    |
+| [Input](https://goatui.com/components/input)               | goat-input           | 🟢    |
+| Month picker                                               | goat-month-picker    | 🔴    |
+| [Number](https://goatui.com/components/number)             | goat-number          | 🟢    |
+| [Select](https://goatui.com/components/select)             | goat-select          | 🟢    |
+| [Textarea](https://goatui.com/components/textarea)         | goat-textarea        | 🟢    |
+| [Time picker](https://goatui.com/components/time-picker)   | goat-time-picker     | 🟡    |
+| Week picker                                                | goat-week-picker     | 🔴    |
+| [Form control](https://goatui.com/components/form-control) | goat-form-control    | 🟡    |
+
+
+## Navigation
+
+Navigational components are UI elements that help users move around the app or website. They provide users with a clear
+and intuitive way to navigate through different sections and pages. Some common examples of navigational components
+include menus, tabs, and breadcrumbs.
+
+| Name                                                   | Component       | State |
+|--------------------------------------------------------|-----------------|-------|
+| [Breadcrumb](https://goatui.com/components/breadcrumb) | goat-breadcrumb | 🟢    |
+| [Dropdown](https://goatui.com/components/dropdown)     | goat-dropdown   | 🟡    |
+| [Menu](https://goatui.com/components/menu)             | goat-menu       | 🟡    |
+| [Tabs](https://goatui.com/components/tabs)             | goat-tabs       | 🟢    |
+
+## Informational
+
+Informational components are UI elements that provide information to users. They communicate important messages,
+updates, or instructions within the app or website. Some common examples of informational components include
+notifications, tooltips, and progress bars.
+
+| Name                                                       | Component         | State |
+|------------------------------------------------------------|-------------------|-------|
+| [Badge](https://goatui.com/components/badge)               | goat-badge        | 🟢    |
+| [Progress](https://goatui.com/components/progress)         | goat-progress     | 🟢    |
+| [Spinner](https://goatui.com/components/spinner)           | goat-spinner      | 🟢    |
+| [Toast](https://goatui.com/components/toast)               | goat-toast        | 🟢    |
+| [Tooltip](https://goatui.com/components/tooltip)           | goat-tooltip      | 🟢    |
+| [Notification](https://goatui.com/components/notification) | goat-notification | 🟢    |
+
+
+## Containers
+
+Containers are UI elements that group similar content together, making it easier for users to navigate and scan through
+the interface. Examples of common containers include cards, carousels, and accordions, which provide structure and
+organization to the content.
+
+| Name                                                 | Component      | State |
+|------------------------------------------------------|----------------|-------|
+| [Accordion](https://goatui.com/components/accordion) | goat-accordion | 🟢    |
+| Card                                                 | goat-card      | 🟡    |
 
 ## General
+
+These components are used for general purpose. They include
+
 | Name                                                                       | Component                 | State |
 |----------------------------------------------------------------------------|---------------------------|-------|
-| [Accordion](https://goatui.com/components/accordion)                       | goat-accordion            | 🟢    |
 | [Avatar](https://goatui.com/components/avatar)                             | goat-avatar               | 🟢    |
-| [Badge](https://goatui.com/components/badge)                               | goat-badge                | 🟢    |
-| [Breadcrumb](https://goatui.com/components/breadcrumb)                     | goat-breadcrumb           | 🟢    |
 | [Button](https://goatui.com/components/button)                             | goat-button               | 🟢    |
 | [Button Group](https://goatui.com/components/button-group)                 | goat-button-group         | 🟢    |
 | [Calendar](https://goatui.com/components/calendar)                         | goat-calendar             | 🟢    |
-| Card                                                                       | goat-card                 | 🟡    |
 | Card Select                                                                | goat-cardselect           | 🔴    |
-| [Code Editor](https://goatui.com/components/code-editor)                   | goat-card-editor          | 🟢    |
 | [Code Highlighter](https://goatui.com/components/code-highlighter)         | goat-card-highlighter     | 🟢    |
 | Column                                                                     | goat-col                  | 🔴    |
-| [Dropdown](https://goatui.com/components/dropdown)                         | goat-dropdown             | 🟡    |
 | [Empty State](https://goatui.com/components/empty-state)                   | goat-empty-state          | 🟡    |
 | [Flow Designer ](https://goatui.com/components/flow-designer)              | goat-flow-designer        | 🔵    |
-| [Form Control](https://goatui.com/components/form-control)                 | goat-form-control         | 🟡    |
 | Grid                                                                       | goat-grid                 | 🔴    |
 | Group                                                                      | goat-group                | 🔴    |
 | [Header](https://goatui.com/components/header)                             | goat-header               | 🟢    |
 | [Icon](https://goatui.com/components/icon)                                 | goat-icon                 | 🟢    |
 | [Link](https://goatui.com/components/link)                                 | goat-link                 | 🟢    |
 | [Modal](https://goatui.com/components/modal)                               | goat-modal                | 🟢    |
-| [Menu](https://goatui.com/components/menu)                                 | goat-menu                 | 🟡    |
 | [Notification](https://goatui.com/components/notification)                 | goat-notification         | 🟢    |
 | [Notification Manager](https://goatui.com/components/notification-manager) | goat-notification-manager | 🟡    |
 | Observer                                                                   | goat-observer             | 🔴    |
 | Pagination                                                                 | goat-pagination           | 🔴    |
-| [Progress](https://goatui.com/components/progress)                         | goat-progress             | 🟢    |
 | Radio Group                                                                | goat-radiogroup           | 🔴    |
 | Row                                                                        | goat-row                  | 🔴    |
 | [Slider](https://goatui.com/components/slider)                             | goat-slider               | 🟡    |
-| [Spinner](https://goatui.com/components/spinner)                           | goat-spinner              | 🟢    |
 | Spoiler                                                                    | goat-spoiler              | 🔴    |
 | Stepper                                                                    | goat-stepper              | 🔴    |
 | [Table](https://goatui.com/components/table)                               | goat-table                | 🟡    |
-| [Tabs](https://goatui.com/components/tabs)                                 | goat-tabs                 | 🟢    |
 | [Tag](https://goatui.com/components/tag) / Chip                            | goat-tag                  | 🟢    |
 | [Text](https://goatui.com/components/text)                                 | goat-text                 | 🟢    |
 | [Tree View](https://goatui.com/components/tree-view)                       | goat-tree-view            | 🟡    |
-| [Toast](https://goatui.com/components/toast)                               | goat-toast                | 🟢    |
 | [Toggle](https://goatui.com/components/toggle)                             | goat-toggle               | 🟢    |
-| [Tooltip](https://goatui.com/components/tooltip)                           | goat-tooltip              | 🟢    |
-
 
 ## Charts
+
+These components are used to display data in a graphical format. They include
+
 | Name                                                           | Component           | State |
 |----------------------------------------------------------------|---------------------|-------|
 | [Doughnut Chart](https://goatui.com/components/chart-doughnut) | goat-chart-doughnut | 🟢    |

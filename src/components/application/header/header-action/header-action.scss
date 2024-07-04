@@ -1,0 +1,16 @@
+@import "../../../../globalStyles/commons";
+
+:host {
+  display: block;
+}
+
+.header-action {
+  --button-padding: .75rem;
+  margin-inline-end: .5rem;
+}
+
+:host(:not(.simple)) .header-action {
+  --goat-button-border-radius: 0;
+  height: var(--header-height);
+  margin-inline-end: 0;
+}

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-02T09:13:14",
+  "timestamp": "2024-07-04T04:42:18",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.19.1",
@@ -7,8 +7,11 @@
   },
   "components": [
     {
-      "filePath": "src/components/accordion/accordion/accordion.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/containers/accordion/accordion",
+      "filePath": "src/components/containers/accordion/accordion/accordion.tsx",
       "fileName": "accordion.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/containers/accordion/accordion/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/containers/accordion/accordion/usage",
       "tag": "goat-accordion",
       "readme": "# goat-avatar\r\n\r\n\r\n\r",
       "overview": "",
@@ -25,7 +28,7 @@
         },
         {
           "name": "overview",
-          "text": " <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>\r\n <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>"
+          "text": " <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>\n <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>"
         },
         {
           "name": "category",
@@ -145,7 +148,7 @@
       "metadata": {
         "name": "Accordion",
         "description": "An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.",
-        "overview": " <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>\r\n <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>",
+        "overview": " <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>\n <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>",
         "category": "Data Display",
         "tags": [
           "display"
@@ -155,8 +158,11 @@
       }
     },
     {
-      "filePath": "src/components/accordion/accordion-item/accordion-item.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/containers/accordion/accordion-item",
+      "filePath": "src/components/containers/accordion/accordion-item/accordion-item.tsx",
       "fileName": "accordion-item.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/containers/accordion/accordion-item/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/containers/accordion/accordion-item/usage",
       "tag": "goat-accordion-item",
       "readme": "# goat-menu-item\n\n\n",
       "overview": "",
@@ -292,8 +298,11 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/avatar/avatar.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/primitive/avatar",
+      "filePath": "src/components/primitive/avatar/avatar.tsx",
       "fileName": "avatar.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/primitive/avatar/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/primitive/avatar/usage",
       "tag": "goat-avatar",
       "readme": "# goat-avatar\r\n\r\n\r\n\r",
       "overview": "",
@@ -410,8 +419,11 @@
       }
     },
     {
-      "filePath": "src/components/badge/badge.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/informational/badge",
+      "filePath": "src/components/informational/badge/badge.tsx",
       "fileName": "badge.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/informational/badge/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/informational/badge/usage",
       "tag": "goat-badge",
       "readme": "# goat-icon\r\n\r\n\r\n\r",
       "overview": "",
@@ -520,8 +532,11 @@
       }
     },
     {
-      "filePath": "src/components/breadcrumb/breadcrumb.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/navigation/breadcrumb",
+      "filePath": "src/components/navigation/breadcrumb/breadcrumb.tsx",
       "fileName": "breadcrumb.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/navigation/breadcrumb/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/navigation/breadcrumb/usage",
       "tag": "goat-breadcrumb",
       "readme": "# goat-heading\r\n\r\n\r\n\r",
       "overview": "",
@@ -571,10 +586,13 @@
       }
     },
     {
-      "filePath": "src/components/breadcrumb/breadcrumb-item/breadcrumb-item.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/navigation/breadcrumb/breadcrumb-item",
+      "filePath": "src/components/navigation/breadcrumb/breadcrumb-item/breadcrumb-item.tsx",
       "fileName": "breadcrumb-item.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/navigation/breadcrumb/breadcrumb-item/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/navigation/breadcrumb/breadcrumb-item/usage",
       "tag": "goat-breadcrumb-item",
-      "readme": "# goat-tab\r\n\r\n\r\n\r",
+      "readme": "# goat-tab\n\n\n",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -687,10 +705,13 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/button/button.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/primitive/button/button",
+      "filePath": "src/components/primitive/button/button/button.tsx",
       "fileName": "button.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/primitive/button/button/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/primitive/button/button/usage",
       "tag": "goat-button",
-      "readme": "# goat-button\r\n\r\n\r\n\r",
+      "readme": "# goat-button\n\n\n",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -735,13 +756,13 @@
         "goat-time-picker"
       ],
       "dependencies": [
-        "goat-icon",
-        "goat-spinner"
+        "goat-spinner",
+        "goat-icon"
       ],
       "dependencyGraph": {
         "goat-button": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ],
         "goat-calendar": [
           "goat-button"
@@ -792,41 +813,25 @@
       "props": [
         {
           "name": "color",
-          "type": "\"brand-primary\" | \"brand-secondary\" | \"danger\" | \"dark\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\"",
+          "type": "\"black\" | \"danger\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"white\"",
           "complexType": {
-            "original": "| 'primary'\n    | 'secondary'\n    | 'success'\n    | 'danger'\n    | 'brand-primary'\n    | 'brand-secondary'\n    | 'dark'\n    | 'light'\n    | 'inverse'",
-            "resolved": "\"brand-primary\" | \"brand-secondary\" | \"danger\" | \"dark\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\"",
+            "original": "| 'primary'\n    | 'secondary'\n    | 'success'\n    | 'danger'\n    | 'warning'\n    | 'white'\n    | 'black'",
+            "resolved": "\"black\" | \"danger\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"white\"",
             "references": {}
           },
           "mutable": false,
           "attr": "color",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "Button color.\nPossible values are `\"primary\"`, `\"secondary\"`, `\"success\"`, `\"danger\"`, `\"white\"`. Defaults to `\"primary\"`.",
           "docsTags": [],
           "default": "'primary'",
           "values": [
             {
-              "value": "brand-primary",
-              "type": "string"
-            },
-            {
-              "value": "brand-secondary",
+              "value": "black",
               "type": "string"
             },
             {
               "value": "danger",
-              "type": "string"
-            },
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "inverse",
-              "type": "string"
-            },
-            {
-              "value": "light",
               "type": "string"
             },
             {
@@ -839,6 +844,14 @@
             },
             {
               "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            },
+            {
+              "value": "white",
               "type": "string"
             }
           ],
@@ -869,40 +882,24 @@
         },
         {
           "name": "darkModeColor",
-          "type": "\"brand-primary\" | \"brand-secondary\" | \"danger\" | \"dark\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\"",
+          "type": "\"black\" | \"danger\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"white\"",
           "complexType": {
-            "original": "| 'primary'\n    | 'secondary'\n    | 'success'\n    | 'danger'\n    | 'brand-primary'\n    | 'brand-secondary'\n    | 'dark'\n    | 'light'\n    | 'inverse'",
-            "resolved": "\"brand-primary\" | \"brand-secondary\" | \"danger\" | \"dark\" | \"inverse\" | \"light\" | \"primary\" | \"secondary\" | \"success\"",
+            "original": "| 'primary'\n    | 'secondary'\n    | 'success'\n    | 'danger'\n    | 'warning'\n    | 'white'\n    | 'black'",
+            "resolved": "\"black\" | \"danger\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"white\"",
             "references": {}
           },
           "mutable": false,
           "attr": "dark-mode-color",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "Button color in dark mode.\nPossible values are `\"primary\"`, `\"secondary\"`, `\"success\"`, `\"danger\"`, `\"white\"`.",
           "docsTags": [],
           "values": [
             {
-              "value": "brand-primary",
-              "type": "string"
-            },
-            {
-              "value": "brand-secondary",
+              "value": "black",
               "type": "string"
             },
             {
               "value": "danger",
-              "type": "string"
-            },
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "inverse",
-              "type": "string"
-            },
-            {
-              "value": "light",
               "type": "string"
             },
             {
@@ -915,6 +912,14 @@
             },
             {
               "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            },
+            {
+              "value": "white",
               "type": "string"
             }
           ],
@@ -954,7 +959,7 @@
           "mutable": false,
           "attr": "disabled-reason",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "If button is disabled, the reason why it is disabled.",
           "docsTags": [],
           "default": "''",
           "values": [
@@ -1018,7 +1023,7 @@
           "mutable": false,
           "attr": "icon-align",
           "reflectToAttr": false,
-          "docs": "Icon position.",
+          "docs": "Icon alignment.\nPossible values are `\"start\"`, `\"end\"`. Defaults to `\"end\"`.",
           "docsTags": [],
           "default": "'end'",
           "values": [
@@ -1045,7 +1050,7 @@
           "mutable": false,
           "attr": "icon-size",
           "reflectToAttr": false,
-          "docs": "Icon size.",
+          "docs": "Icon size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -1120,7 +1125,7 @@
           "mutable": false,
           "attr": "show-loader",
           "reflectToAttr": false,
-          "docs": "Show loader.",
+          "docs": "If true, a loader will be displayed on button.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -1133,10 +1138,10 @@
         },
         {
           "name": "size",
-          "type": "\"2xl\" | \"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
+          "type": "\"2xl\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
           "complexType": {
-            "original": "'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full'",
-            "resolved": "\"2xl\" | \"full\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
+            "original": "'sm' | 'md' | 'lg' | 'xl' | '2xl'",
+            "resolved": "\"2xl\" | \"lg\" | \"md\" | \"sm\" | \"xl\"",
             "references": {}
           },
           "mutable": false,
@@ -1148,10 +1153,6 @@
           "values": [
             {
               "value": "2xl",
-              "type": "string"
-            },
-            {
-              "value": "full",
               "type": "string"
             },
             {
@@ -1207,7 +1208,7 @@
           "mutable": false,
           "attr": "type",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Button type.\nPossible values are `\"button\"`, `\"submit\"`, `\"reset\"`. Defaults to `\"button\"`.",
           "docsTags": [],
           "default": "'button'",
           "values": [
@@ -1331,13 +1332,13 @@
           },
           "signature": "triggerClick() => Promise<void>",
           "parameters": [],
-          "docs": "",
+          "docs": "Triggers a click event on the native `button` in `goat-button`. Use this method instead of the global\n`button.click()`.",
           "docsTags": []
         }
       ],
       "events": [
         {
-          "event": "goat#click",
+          "event": "goat-button-click",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -1347,25 +1348,57 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "",
-          "docsTags": []
-        },
-        {
-          "event": "goat:click",
-          "detail": "any",
-          "bubbles": true,
-          "complexType": {
-            "original": "any",
-            "resolved": "any",
-            "references": {}
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "On click of button, a CustomEvent 'goat:click' will be triggered.",
+          "docs": "On click of button, a CustomEvent 'goat-button-click' will be triggered.",
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--goat-button-border-radius",
+          "annotation": "prop",
+          "docs": "Button border radius."
+        },
+        {
+          "name": "--goat-button-border-style",
+          "annotation": "prop",
+          "docs": "Button border style."
+        },
+        {
+          "name": "--goat-button-color",
+          "annotation": "prop",
+          "docs": "Button filling color."
+        },
+        {
+          "name": "--goat-button-color-active",
+          "annotation": "prop",
+          "docs": "Button filling color on active."
+        },
+        {
+          "name": "--goat-button-color-hover",
+          "annotation": "prop",
+          "docs": "Button filling color on hover."
+        },
+        {
+          "name": "--goat-button-color-light",
+          "annotation": "prop",
+          "docs": "Button filling color for light variant."
+        },
+        {
+          "name": "--goat-button-support-contrast-color",
+          "annotation": "prop",
+          "docs": "Button support color (text or border). Should be white or black based on weight of button filling color."
+        },
+        {
+          "name": "--goat-theme-button-border-radius",
+          "annotation": "prop",
+          "docs": "Theme level button border radius. (applies to all buttons)"
+        },
+        {
+          "name": "--goat-theme-button-border-style",
+          "annotation": "prop",
+          "docs": "Theme level button border style. (applies to all buttons)"
+        }
+      ],
       "slots": [],
       "parts": [],
       "listeners": [
@@ -1393,10 +1426,13 @@
       }
     },
     {
-      "filePath": "src/components/button-group/button-group.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/primitive/button/button-group",
+      "filePath": "src/components/primitive/button/button-group/button-group.tsx",
       "fileName": "button-group.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/primitive/button/button-group/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/primitive/button/button-group/usage",
       "tag": "goat-button-group",
-      "readme": "# goat-button-group\r\n\r\n\r\n\r",
+      "readme": "# goat-button-group\n\n\n",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -1450,8 +1486,11 @@
       }
     },
     {
-      "filePath": "src/components/calendar/calendar/calendar.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/calendar/calendar",
+      "filePath": "src/components/application/calendar/calendar/calendar.tsx",
       "fileName": "calendar.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/calendar/calendar/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/calendar/calendar/usage",
       "tag": "goat-calendar",
       "readme": "# goat-avatar\r\n\r\n\r\n\r",
       "overview": "",
@@ -1499,8 +1538,8 @@
           "goat-calendar-month-view"
         ],
         "goat-button": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ],
         "goat-select": [
           "goat-icon",
@@ -1536,7 +1575,7 @@
               "CalendarViewType": {
                 "location": "import",
                 "path": "./types",
-                "id": "src/components/calendar/calendar/types.tsx::CalendarViewType"
+                "id": "src/components/application/calendar/calendar/types.tsx::CalendarViewType"
               }
             }
           },
@@ -1610,7 +1649,7 @@
               "EventType": {
                 "location": "import",
                 "path": "./types",
-                "id": "src/components/calendar/calendar/types.tsx::EventType"
+                "id": "src/components/application/calendar/calendar/types.tsx::EventType"
               }
             }
           },
@@ -1742,8 +1781,11 @@
       }
     },
     {
-      "filePath": "src/components/calendar/calendar/column-view/column-view.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/calendar/calendar/column-view",
+      "filePath": "src/components/application/calendar/calendar/column-view/column-view.tsx",
       "fileName": "column-view.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/calendar/calendar/column-view/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/calendar/calendar/column-view/usage",
       "tag": "goat-calendar-column-view",
       "readme": "# goat-calendar-column-view\n\n\n",
       "overview": "",
@@ -1942,8 +1984,11 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/calendar/calendar/column-view/column-view-background/column-view-background.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/calendar/calendar/column-view/column-view-background",
+      "filePath": "src/components/application/calendar/calendar/column-view/column-view-background/column-view-background.tsx",
       "fileName": "column-view-background.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/calendar/calendar/column-view/column-view-background/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/calendar/calendar/column-view/column-view-background/usage",
       "tag": "goat-calendar-column-view-background",
       "readme": "# goat-calendar-column-view-background\r\n\r\n\r\n\r",
       "overview": "",
@@ -2017,8 +2062,11 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/calendar/calendar/month-view/month-view.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/calendar/calendar/month-view",
+      "filePath": "src/components/application/calendar/calendar/month-view/month-view.tsx",
       "fileName": "month-view.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/calendar/calendar/month-view/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/calendar/calendar/month-view/usage",
       "tag": "goat-calendar-month-view",
       "readme": "# goat-calendar-column-view\n\n\n",
       "overview": "",
@@ -2168,8 +2216,11 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/calendar/calendar/month-view/month-view-background/month-view-background.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/calendar/calendar/month-view/month-view-background",
+      "filePath": "src/components/application/calendar/calendar/month-view/month-view-background/month-view-background.tsx",
       "fileName": "month-view-background.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/calendar/calendar/month-view/month-view-background/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/calendar/calendar/month-view/month-view-background/usage",
       "tag": "goat-calendar-month-view-background",
       "readme": "# goat-calendar-column-view-background\n\n\n",
       "overview": "",
@@ -2213,8 +2264,11 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/flow-designer/canvas/canvas.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/flow-designer/canvas",
+      "filePath": "src/components/application/flow-designer/canvas/canvas.tsx",
       "fileName": "canvas.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/flow-designer/canvas/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/flow-designer/canvas/usage",
       "tag": "goat-canvas",
       "readme": "# goat-flow-designer\r\n\r\n\r\n\r",
       "overview": "",
@@ -2350,8 +2404,11 @@
       }
     },
     {
-      "filePath": "src/components/card/card.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/containers/card",
+      "filePath": "src/components/containers/card/card.tsx",
       "fileName": "card.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/containers/card/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/containers/card/usage",
       "tag": "goat-card",
       "readme": "# goat-heading\r\n\r\n\r\n\r",
       "overview": "",
@@ -2415,8 +2472,11 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/condition-builder/cb-compound-expression/cb-compound-expression.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/condition-builder/cb-compound-expression",
+      "filePath": "src/components/application/condition-builder/cb-compound-expression/cb-compound-expression.tsx",
       "fileName": "cb-compound-expression.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/condition-builder/cb-compound-expression/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/condition-builder/cb-compound-expression/usage",
       "tag": "goat-cb-compound-expression",
       "readme": "# goat-icon\r\n\r\n\r\n\r",
       "overview": "",
@@ -2521,8 +2581,11 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/condition-builder/cb-divider/cb-divider.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/condition-builder/cb-divider",
+      "filePath": "src/components/application/condition-builder/cb-divider/cb-divider.tsx",
       "fileName": "cb-divider.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/condition-builder/cb-divider/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/condition-builder/cb-divider/usage",
       "tag": "goat-cb-divider",
       "readme": "# goat-icon\r\n\r\n\r\n\r",
       "overview": "",
@@ -2624,10 +2687,13 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/condition-builder/cb-expression/cb-expression.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/condition-builder/cb-expression",
+      "filePath": "src/components/application/condition-builder/cb-expression/cb-expression.tsx",
       "fileName": "cb-expression.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/condition-builder/cb-expression/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/condition-builder/cb-expression/usage",
       "tag": "goat-cb-expression",
-      "readme": "# goat-icon\r\n\r\n\r\n\r",
+      "readme": "# goat-icon\n\n\n",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -2654,8 +2720,8 @@
           "goat-icon"
         ],
         "goat-button": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ],
         "goat-menu": [
           "goat-empty-state"
@@ -2719,8 +2785,11 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/condition-builder/cb-predicate/cb-predicate.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/condition-builder/cb-predicate",
+      "filePath": "src/components/application/condition-builder/cb-predicate/cb-predicate.tsx",
       "fileName": "cb-predicate.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/condition-builder/cb-predicate/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/condition-builder/cb-predicate/usage",
       "tag": "goat-cb-predicate",
       "readme": "# goat-icon\r\n\r\n\r\n\r",
       "overview": "",
@@ -2801,8 +2870,11 @@
       "metadata": {}
     },
     {
+      "dirPath": "E:/git/goatui/components/src/components/charts/chart-doughnut",
       "filePath": "src/components/charts/chart-doughnut/chart-doughnut.tsx",
       "fileName": "chart-doughnut.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/charts/chart-doughnut/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/charts/chart-doughnut/usage",
       "tag": "goat-chart-doughnut",
       "readme": "# goat-heading\r\n\r\n\r\n\r",
       "overview": "",
@@ -2965,8 +3037,11 @@
       }
     },
     {
+      "dirPath": "E:/git/goatui/components/src/components/charts/chart-pie",
       "filePath": "src/components/charts/chart-pie/chart-pie.tsx",
       "fileName": "chart-pie.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/charts/chart-pie/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/charts/chart-pie/usage",
       "tag": "goat-chart-pie",
       "readme": "# goat-heading\r\n\r\n\r\n\r",
       "overview": "",
@@ -3129,8 +3204,11 @@
       }
     },
     {
-      "filePath": "src/components/data-entry/checkbox/checkbox.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/input-controls/checkbox",
+      "filePath": "src/components/input-controls/checkbox/checkbox.tsx",
       "fileName": "checkbox.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/input-controls/checkbox/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/input-controls/checkbox/usage",
       "tag": "goat-checkbox",
       "readme": "# goat-checkbox\r\n\r\n\r\n\r",
       "overview": "",
@@ -3569,8 +3647,11 @@
       }
     },
     {
-      "filePath": "src/components/data-entry/code-editor/code-editor.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/input-controls/code-editor",
+      "filePath": "src/components/input-controls/code-editor/code-editor.tsx",
       "fileName": "code-editor.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/input-controls/code-editor/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/input-controls/code-editor/usage",
       "tag": "goat-code-editor",
       "readme": "# goat-code-editor\r\n\r\n\r\n\r",
       "overview": "",
@@ -3914,8 +3995,11 @@
       }
     },
     {
-      "filePath": "src/components/code-highlighter/code-highlighter.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/code-highlighter",
+      "filePath": "src/components/application/code-highlighter/code-highlighter.tsx",
       "fileName": "code-highlighter.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/code-highlighter/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/code-highlighter/usage",
       "tag": "goat-code-highlighter",
       "readme": "# goat-code-editor\r\n\r\n\r\n\r",
       "overview": "",
@@ -3974,8 +4058,8 @@
           "goat-icon"
         ],
         "goat-button": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ]
       },
       "props": [
@@ -4127,8 +4211,11 @@
       }
     },
     {
-      "filePath": "src/components/condition-builder/condition-builder/condition-builder.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/condition-builder/condition-builder",
+      "filePath": "src/components/application/condition-builder/condition-builder/condition-builder.tsx",
       "fileName": "condition-builder.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/condition-builder/condition-builder/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/condition-builder/condition-builder/usage",
       "tag": "goat-condition-builder",
       "readme": "# goat-icon\r\n\r\n\r\n\r",
       "overview": "",
@@ -4186,8 +4273,8 @@
           "goat-icon"
         ],
         "goat-button": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ],
         "goat-menu": [
           "goat-empty-state"
@@ -4238,8 +4325,11 @@
       }
     },
     {
-      "filePath": "src/components/layout/container/container.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/containers/container",
+      "filePath": "src/components/containers/container/container.tsx",
       "fileName": "container.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/containers/container/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/containers/container/usage",
       "tag": "goat-container",
       "readme": "# goat-heading\r\n\r\n\r\n\r",
       "overview": "",
@@ -4283,8 +4373,11 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/current-time/current-time.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/current-time",
+      "filePath": "src/components/application/current-time/current-time.tsx",
       "fileName": "current-time.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/current-time/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/current-time/usage",
       "tag": "goat-current-time",
       "readme": "# goat-current-time\n\n\n",
       "overview": "",
@@ -4349,8 +4442,11 @@
       }
     },
     {
-      "filePath": "src/components/data-entry/date/date-picker/date-picker.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/input-controls/data-and-time/date/date-picker",
+      "filePath": "src/components/input-controls/data-and-time/date/date-picker/date-picker.tsx",
       "fileName": "date-picker.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/input-controls/data-and-time/date/date-picker/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/input-controls/data-and-time/date/date-picker/usage",
       "tag": "goat-date-picker",
       "readme": "# goat-date-picker\r\n\r\n\r\n\r",
       "overview": "",
@@ -4384,8 +4480,8 @@
           "goat-button"
         ],
         "goat-button": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ]
       },
       "props": [
@@ -4660,7 +4756,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
-          "docs": "The input field size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+          "docs": "The input field size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -4791,7 +4887,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -4813,7 +4909,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -4887,8 +4983,11 @@
       }
     },
     {
-      "filePath": "src/components/layout/divider/divider.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/containers/divider",
+      "filePath": "src/components/containers/divider/divider.tsx",
       "fileName": "divider.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/containers/divider/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/containers/divider/usage",
       "tag": "goat-divider",
       "readme": "# goat-heading\n\n\n",
       "overview": "",
@@ -4960,8 +5059,11 @@
       }
     },
     {
-      "filePath": "src/components/menu/dropdown/dropdown.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/navigation/dropdown",
+      "filePath": "src/components/navigation/dropdown/dropdown.tsx",
       "fileName": "dropdown.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/navigation/dropdown/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/navigation/dropdown/usage",
       "tag": "goat-dropdown",
       "readme": "# goat-dropdown\r\n\r\n\r\n\r",
       "overview": "",
@@ -5198,8 +5300,11 @@
       }
     },
     {
-      "filePath": "src/components/empty-state/empty-state.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/empty-state",
+      "filePath": "src/components/application/empty-state/empty-state.tsx",
       "fileName": "empty-state.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/empty-state/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/empty-state/usage",
       "tag": "goat-empty-state",
       "readme": "# goat-heading\r\n\r\n\r\n\r",
       "overview": "",
@@ -5244,8 +5349,8 @@
           "goat-button"
         ],
         "goat-button": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ],
         "goat-menu": [
           "goat-empty-state"
@@ -5448,8 +5553,11 @@
       }
     },
     {
-      "filePath": "src/components/flow-designer/flow-designer/flow-designer.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/flow-designer/flow-designer",
+      "filePath": "src/components/application/flow-designer/flow-designer/flow-designer.tsx",
       "fileName": "flow-designer.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/flow-designer/flow-designer/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/flow-designer/flow-designer/usage",
       "tag": "goat-flow-designer",
       "readme": "# goat-flow-designer\r\n\r\n\r\n\r",
       "overview": "",
@@ -5494,8 +5602,8 @@
           "goat-icon"
         ],
         "goat-button": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ]
       },
       "props": [
@@ -5586,8 +5694,11 @@
       }
     },
     {
-      "filePath": "src/components/footer/footer/footer.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/footer/footer",
+      "filePath": "src/components/application/footer/footer/footer.tsx",
       "fileName": "footer.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/footer/footer/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/footer/footer/usage",
       "tag": "goat-footer",
       "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
       "overview": "",
@@ -5686,8 +5797,11 @@
       }
     },
     {
-      "filePath": "src/components/footer/footer-copyright/footer-copyright.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/footer/footer-copyright",
+      "filePath": "src/components/application/footer/footer-copyright/footer-copyright.tsx",
       "fileName": "footer-copyright.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/footer/footer-copyright/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/footer/footer-copyright/usage",
       "tag": "goat-footer-copyright",
       "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
       "overview": "",
@@ -5781,8 +5895,11 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/footer/footer-links/footer-links.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/footer/footer-links",
+      "filePath": "src/components/application/footer/footer-links/footer-links.tsx",
       "fileName": "footer-links.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/footer/footer-links/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/footer/footer-links/usage",
       "tag": "goat-footer-links",
       "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
       "overview": "",
@@ -5831,8 +5948,11 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/data-entry/form-control/form-control.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/input-controls/form-control",
+      "filePath": "src/components/input-controls/form-control/form-control.tsx",
       "fileName": "form-control.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/input-controls/form-control/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/input-controls/form-control/usage",
       "tag": "goat-form-control",
       "readme": "# goat-field-group\r\n\r\n\r\n\r",
       "overview": "",
@@ -6077,8 +6197,11 @@
       }
     },
     {
-      "filePath": "src/components/header/header/header.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/header/header",
+      "filePath": "src/components/application/header/header/header.tsx",
       "fileName": "header.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/header/header/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/header/header/usage",
       "tag": "goat-header",
       "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
       "overview": "",
@@ -6184,8 +6307,11 @@
       }
     },
     {
-      "filePath": "src/components/header/header-action/header-action.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/header/header-action",
+      "filePath": "src/components/application/header/header-action/header-action.tsx",
       "fileName": "header-action.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/header/header-action/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/header/header-action/usage",
       "tag": "goat-header-action",
       "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
       "overview": "",
@@ -6202,8 +6328,8 @@
           "goat-button"
         ],
         "goat-button": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ]
       },
       "props": [
@@ -6390,8 +6516,11 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/header/header-brand/header-brand.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/header/header-brand",
+      "filePath": "src/components/application/header/header-brand/header-brand.tsx",
       "fileName": "header-brand.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/header/header-brand/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/header/header-brand/usage",
       "tag": "goat-header-brand",
       "readme": "# p4-top-navigation\r\n\r\n\r\n\r",
       "overview": "",
@@ -6533,8 +6662,11 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/data-entry/html-editor/html-editor.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/input-controls/html-editor",
+      "filePath": "src/components/input-controls/html-editor/html-editor.tsx",
       "fileName": "html-editor.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/input-controls/html-editor/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/input-controls/html-editor/usage",
       "tag": "goat-html-editor",
       "readme": "# goat-code-editor\r\n\r\n\r\n\r",
       "overview": "",
@@ -6586,8 +6718,8 @@
           "goat-menu-item"
         ],
         "goat-button": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ],
         "goat-code-editor": [
           "goat-tag",
@@ -6884,7 +7016,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -6906,7 +7038,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -6943,8 +7075,11 @@
       }
     },
     {
-      "filePath": "src/components/icon/icon.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/primitive/icon",
+      "filePath": "src/components/primitive/icon/icon.tsx",
       "fileName": "icon.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/primitive/icon/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/primitive/icon/usage",
       "tag": "goat-icon",
       "readme": "# goat-icon\r\n\r\n\r\n\r",
       "overview": "",
@@ -7077,8 +7212,11 @@
       }
     },
     {
-      "filePath": "src/components/image/image.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/primitive/image",
+      "filePath": "src/components/primitive/image/image.tsx",
       "fileName": "image.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/primitive/image/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/primitive/image/usage",
       "tag": "goat-image",
       "readme": "# goat-icon\r\n\r\n\r\n\r",
       "overview": "",
@@ -7163,8 +7301,11 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/data-entry/input/input/input.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/input-controls/input/input",
+      "filePath": "src/components/input-controls/input/input/input.tsx",
       "fileName": "input.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/input-controls/input/input/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/input-controls/input/input/usage",
       "tag": "goat-input",
       "readme": "# goat-input\r\n\r\n\r\n\r",
       "overview": "",
@@ -7204,8 +7345,8 @@
           "goat-button"
         ],
         "goat-button": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ],
         "goat-condition-builder": [
           "goat-input"
@@ -7838,8 +7979,11 @@
       }
     },
     {
-      "filePath": "src/components/link/link.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/primitive/link",
+      "filePath": "src/components/primitive/link/link.tsx",
       "fileName": "link.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/primitive/link/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/primitive/link/usage",
       "tag": "goat-link",
       "readme": "# goat-button\r\n\r\n\r\n\r",
       "overview": "",
@@ -7979,10 +8123,13 @@
       }
     },
     {
-      "filePath": "src/components/menu/menu/menu.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/navigation/menu/menu",
+      "filePath": "src/components/navigation/menu/menu/menu.tsx",
       "fileName": "menu.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/navigation/menu/menu/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/navigation/menu/menu/usage",
       "tag": "goat-menu",
-      "readme": "# goat-menu\r\n\r\n\r\n\r",
+      "readme": "# goat-menu\n\n\n",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -8025,8 +8172,8 @@
           "goat-button"
         ],
         "goat-button": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ],
         "goat-html-editor": [
           "goat-menu"
@@ -8255,10 +8402,13 @@
       }
     },
     {
-      "filePath": "src/components/menu/menu-item/menu-item.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/navigation/menu/menu-item",
+      "filePath": "src/components/navigation/menu/menu-item/menu-item.tsx",
       "fileName": "menu-item.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/navigation/menu/menu-item/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/navigation/menu/menu-item/usage",
       "tag": "goat-menu-item",
-      "readme": "# goat-menu-item\r\n\r\n\r\n\r",
+      "readme": "# goat-menu-item\n\n\n",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -8440,7 +8590,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -8462,7 +8612,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -8502,8 +8652,11 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/modal/modal/modal.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/informational/modal/modal",
+      "filePath": "src/components/informational/modal/modal/modal.tsx",
       "fileName": "modal.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/informational/modal/modal/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/informational/modal/modal/usage",
       "tag": "goat-modal",
       "readme": "# p4-modal\r\n\r\n\r\n\r",
       "overview": "",
@@ -8549,8 +8702,8 @@
           "goat-spinner"
         ],
         "goat-button": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ]
       },
       "props": [
@@ -8727,8 +8880,11 @@
       }
     },
     {
-      "filePath": "src/components/modal/modal-content/modal-content.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/informational/modal/modal-content",
+      "filePath": "src/components/informational/modal/modal-content/modal-content.tsx",
       "fileName": "modal-content.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/informational/modal/modal-content/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/informational/modal/modal-content/usage",
       "tag": "goat-modal-content",
       "readme": "# p4-modal\r\n\r\n\r\n\r",
       "overview": "",
@@ -8781,8 +8937,11 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/notification/notification.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/informational/notification",
+      "filePath": "src/components/informational/notification/notification.tsx",
       "fileName": "notification.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/informational/notification/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/informational/notification/usage",
       "tag": "goat-notification",
       "readme": "# goat-alert\r\n\r\n\r\n\r",
       "overview": "",
@@ -8824,8 +8983,8 @@
           "goat-icon"
         ],
         "goat-button": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ],
         "goat-notification-manager": [
           "goat-notification"
@@ -9010,8 +9169,11 @@
       }
     },
     {
-      "filePath": "src/components/notification-manager/notification-manager.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/informational/notification-manager",
+      "filePath": "src/components/informational/notification-manager/notification-manager.tsx",
       "fileName": "notification-manager.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/informational/notification-manager/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/informational/notification-manager/usage",
       "tag": "goat-notification-manager",
       "readme": "# goat-alert\r\n\r\n\r\n\r",
       "overview": "",
@@ -9064,8 +9226,8 @@
           "goat-icon"
         ],
         "goat-button": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ],
         "goat-code-highlighter": [
           "goat-notification-manager"
@@ -9161,8 +9323,11 @@
       }
     },
     {
-      "filePath": "src/components/data-entry/input/number/number.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/input-controls/input/number",
+      "filePath": "src/components/input-controls/input/number/number.tsx",
       "fileName": "number.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/input-controls/input/number/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/input-controls/input/number/usage",
       "tag": "goat-number",
       "readme": "# goat-input\r\n\r\n\r\n\r",
       "overview": "",
@@ -9202,8 +9367,8 @@
           "goat-button"
         ],
         "goat-button": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ],
         "goat-slider": [
           "goat-number"
@@ -9552,7 +9717,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
-          "docs": "The input field size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+          "docs": "The input field size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -9605,7 +9770,7 @@
           "mutable": false,
           "attr": "state",
           "reflectToAttr": true,
-          "docs": "The input state.\r\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+          "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -9737,7 +9902,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -9759,7 +9924,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -9837,8 +10002,11 @@
       }
     },
     {
-      "filePath": "src/components/progress/progress.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/informational/progress",
+      "filePath": "src/components/informational/progress/progress.tsx",
       "fileName": "progress.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/informational/progress/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/informational/progress/usage",
       "tag": "goat-progress",
       "readme": "# goat-spinner\r\n\r\n\r\n\r",
       "overview": "",
@@ -10042,8 +10210,11 @@
       }
     },
     {
-      "filePath": "src/components/data-entry/select/select.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/input-controls/select",
+      "filePath": "src/components/input-controls/select/select.tsx",
       "fileName": "select.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/input-controls/select/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/input-controls/select/usage",
       "tag": "goat-select",
       "readme": "# goat-select\r\n\r\n\r\n\r",
       "overview": "",
@@ -10105,8 +10276,8 @@
           "goat-icon"
         ],
         "goat-button": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ],
         "goat-menu": [
           "goat-empty-state"
@@ -10329,13 +10500,13 @@
           "name": "items",
           "type": "{ label: string | number; value: string | number; icon?: string; }[]",
           "complexType": {
-            "original": "{\r\n    label: string | number;\r\n    value: string | number;\r\n    icon?: string;\r\n  }[]",
+            "original": "{\n    label: string | number;\n    value: string | number;\n    icon?: string;\n  }[]",
             "resolved": "{ label: string | number; value: string | number; icon?: string; }[]",
             "references": {}
           },
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "[{\r\n  label: 'Shivaji Varma',\r\n  value: 'shivaji-varma',\r\n  icon: 'person'\r\n}]",
+          "docs": "[{\n  label: 'Shivaji Varma',\n  value: 'shivaji-varma',\n  icon: 'person'\n}]",
           "docsTags": [],
           "default": "[]",
           "values": [
@@ -10567,7 +10738,7 @@
           "mutable": false,
           "attr": "search",
           "reflectToAttr": false,
-          "docs": "Search type\r\nPossible values are `\"none\"`, `\"initial\"`, `\"contains\"`, `\"managed\"`. Defaults to `\"none\"`.",
+          "docs": "Search type\nPossible values are `\"none\"`, `\"initial\"`, `\"contains\"`, `\"managed\"`. Defaults to `\"none\"`.",
           "docsTags": [],
           "default": "'none'",
           "values": [
@@ -10624,7 +10795,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": true,
-          "docs": "The select input size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+          "docs": "The select input size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -10655,7 +10826,7 @@
           "mutable": false,
           "attr": "state",
           "reflectToAttr": true,
-          "docs": "The input state.\r\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+          "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -10812,7 +10983,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -10834,7 +11005,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\r\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `ion-input`. Use this method instead of the global\n`input.focus()`.",
           "docsTags": []
         }
       ],
@@ -10928,8 +11099,11 @@
       }
     },
     {
-      "filePath": "src/components/app-shell/sidenav/sidenav.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/sidenav",
+      "filePath": "src/components/application/sidenav/sidenav.tsx",
       "fileName": "sidenav.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/sidenav/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/sidenav/usage",
       "tag": "goat-sidenav",
       "readme": "# goat-menu\r\n\r\n\r\n\r",
       "overview": "",
@@ -10990,8 +11164,11 @@
       }
     },
     {
-      "filePath": "src/components/app-shell/sidenav-menu/sidenav-menu.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/sidenav-menu",
+      "filePath": "src/components/application/sidenav-menu/sidenav-menu.tsx",
       "fileName": "sidenav-menu.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/sidenav-menu/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/sidenav-menu/usage",
       "tag": "goat-sidenav-menu",
       "readme": "# goat-menu\r\n\r\n\r\n\r",
       "overview": "",
@@ -11012,8 +11189,8 @@
           "goat-button"
         ],
         "goat-button": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ]
       },
       "props": [
@@ -11147,8 +11324,11 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/app-shell/sidenav-menu-item/sidenav-menu-item.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/application/sidenav-menu-item",
+      "filePath": "src/components/application/sidenav-menu-item/sidenav-menu-item.tsx",
       "fileName": "sidenav-menu-item.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/application/sidenav-menu-item/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/application/sidenav-menu-item/usage",
       "tag": "goat-sidenav-menu-item",
       "readme": "# goat-menu-item\r\n\r\n\r\n\r",
       "overview": "",
@@ -11311,8 +11491,11 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/data-entry/slider/slider.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/input-controls/slider",
+      "filePath": "src/components/input-controls/slider/slider.tsx",
       "fileName": "slider.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/input-controls/slider/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/input-controls/slider/usage",
       "tag": "goat-slider",
       "readme": "# goat-select\r\n\r\n\r\n\r",
       "overview": "",
@@ -11359,8 +11542,8 @@
           "goat-button"
         ],
         "goat-button": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ]
       },
       "props": [
@@ -11770,8 +11953,11 @@
       }
     },
     {
-      "filePath": "src/components/spinner/spinner.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/informational/spinner",
+      "filePath": "src/components/informational/spinner/spinner.tsx",
       "fileName": "spinner.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/informational/spinner/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/informational/spinner/usage",
       "tag": "goat-spinner",
       "readme": "# goat-spinner\r\n\r\n\r\n\r",
       "overview": "",
@@ -11889,7 +12075,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "The Icon size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"` and size in pixel. Defaults to `\"md\"`.",
+          "docs": "The Icon size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"` and size in pixel. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -11921,8 +12107,11 @@
       }
     },
     {
-      "filePath": "src/components/svg/svg.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/primitive/svg",
+      "filePath": "src/components/primitive/svg/svg.tsx",
       "fileName": "svg.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/primitive/svg/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/primitive/svg/usage",
       "tag": "goat-svg",
       "readme": "# goat-icon\r\n\r\n\r\n\r",
       "overview": "",
@@ -12019,8 +12208,11 @@
       }
     },
     {
-      "filePath": "src/components/tabs/tab/tab.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/navigation/tabs/tab",
+      "filePath": "src/components/navigation/tabs/tab/tab.tsx",
       "fileName": "tab.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/navigation/tabs/tab/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/navigation/tabs/tab/usage",
       "tag": "goat-tab",
       "readme": "# goat-tab\r\n\r\n\r\n\r",
       "overview": "",
@@ -12095,7 +12287,7 @@
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
-          "docs": "Icon which will displayed on button.\r\nPossible values are bootstrap icon names.",
+          "docs": "Icon which will displayed on button.\nPossible values are bootstrap icon names.",
           "docsTags": [],
           "values": [
             {
@@ -12326,8 +12518,11 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/tabs/tab-panel/tab-panel.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/navigation/tabs/tab-panel",
+      "filePath": "src/components/navigation/tabs/tab-panel/tab-panel.tsx",
       "fileName": "tab-panel.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/navigation/tabs/tab-panel/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/navigation/tabs/tab-panel/usage",
       "tag": "goat-tab-panel",
       "readme": "# goat-tab\r\n\r\n\r\n\r",
       "overview": "",
@@ -12422,10 +12617,13 @@
       "metadata": {}
     },
     {
+      "dirPath": "E:/git/goatui/components/src/components/table",
       "filePath": "src/components/table/table.tsx",
       "fileName": "table.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/table/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/table/usage",
       "tag": "goat-table",
-      "readme": "# goat-table\r\n\r\n\r\n\r",
+      "readme": "# goat-table\n\n\n",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -12469,8 +12667,8 @@
           "goat-empty-state"
         ],
         "goat-button": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ],
         "goat-select": [
           "goat-icon",
@@ -12926,8 +13124,11 @@
       }
     },
     {
-      "filePath": "src/components/tabs/tabs/tabs.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/navigation/tabs/tabs",
+      "filePath": "src/components/navigation/tabs/tabs/tabs.tsx",
       "fileName": "tabs.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/navigation/tabs/tabs/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/navigation/tabs/tabs/usage",
       "tag": "goat-tabs",
       "readme": "# goat-tabs\r\n\r\n\r\n\r",
       "overview": "",
@@ -13045,8 +13246,11 @@
       }
     },
     {
-      "filePath": "src/components/tabs/tabs-list/tabs-list.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/navigation/tabs/tabs-list",
+      "filePath": "src/components/navigation/tabs/tabs-list/tabs-list.tsx",
       "fileName": "tabs-list.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/navigation/tabs/tabs-list/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/navigation/tabs/tabs-list/usage",
       "tag": "goat-tabs-list",
       "readme": "# goat-tabs\r\n\r\n\r\n\r",
       "overview": "",
@@ -13127,8 +13331,11 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/tag/tag.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/primitive/tag",
+      "filePath": "src/components/primitive/tag/tag.tsx",
       "fileName": "tag.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/primitive/tag/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/primitive/tag/usage",
       "tag": "goat-tag",
       "readme": "# goat-heading\r\n\r\n\r\n\r",
       "overview": "",
@@ -13196,7 +13403,7 @@
           "name": "color",
           "type": "\"blue\" | \"error\" | \"gray\" | \"green\" | \"info\" | \"primary\" | \"red\" | \"success\" | \"warning\" | \"yellow\"",
           "complexType": {
-            "original": "'gray' | 'blue' | 'green' | 'red' | 'yellow' | 'primary' | 'success' | 'info' | 'warning' | 'error'",
+            "original": "| 'gray'\n    | 'blue'\n    | 'green'\n    | 'red'\n    | 'yellow'\n    | 'primary'\n    | 'success'\n    | 'info'\n    | 'warning'\n    | 'error'",
             "resolved": "\"blue\" | \"error\" | \"gray\" | \"green\" | \"info\" | \"primary\" | \"red\" | \"success\" | \"warning\" | \"yellow\"",
             "references": {}
           },
@@ -13411,10 +13618,13 @@
       }
     },
     {
-      "filePath": "src/components/text/text.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/primitive/typography/text",
+      "filePath": "src/components/primitive/typography/text/text.tsx",
       "fileName": "text.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/primitive/typography/text/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/primitive/typography/text/usage",
       "tag": "goat-text",
-      "readme": "# goat-heading\r\n\r\n\r\n\r",
+      "readme": "# goat-heading\n\n\n",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -13743,8 +13953,11 @@
       }
     },
     {
-      "filePath": "src/components/data-entry/input/textarea/textarea.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/input-controls/input/textarea",
+      "filePath": "src/components/input-controls/input/textarea/textarea.tsx",
       "fileName": "textarea.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/input-controls/input/textarea/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/input-controls/input/textarea/usage",
       "tag": "goat-textarea",
       "readme": "# goat-textarea\r\n\r\n\r\n\r",
       "overview": "",
@@ -13782,8 +13995,8 @@
           "goat-button"
         ],
         "goat-button": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ]
       },
       "props": [
@@ -14347,8 +14560,11 @@
       }
     },
     {
-      "filePath": "src/components/data-entry/date/time-picker/time-picker.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/input-controls/data-and-time/date/time-picker",
+      "filePath": "src/components/input-controls/data-and-time/date/time-picker/time-picker.tsx",
       "fileName": "time-picker.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/input-controls/data-and-time/date/time-picker/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/input-controls/data-and-time/date/time-picker/usage",
       "tag": "goat-time-picker",
       "readme": "# goat-time-picker\r\n\r\n\r\n\r",
       "overview": "",
@@ -14386,8 +14602,8 @@
           "goat-button"
         ],
         "goat-button": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ]
       },
       "props": [
@@ -14721,8 +14937,11 @@
       }
     },
     {
-      "filePath": "src/components/toast/toast.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/informational/toast",
+      "filePath": "src/components/informational/toast/toast.tsx",
       "fileName": "toast.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/informational/toast/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/informational/toast/usage",
       "tag": "goat-toast",
       "readme": "# goat-alert\n\n\n",
       "overview": "",
@@ -14834,8 +15053,11 @@
       }
     },
     {
-      "filePath": "src/components/data-entry/toggle/toggle.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/input-controls/toggle",
+      "filePath": "src/components/input-controls/toggle/toggle.tsx",
       "fileName": "toggle.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/input-controls/toggle/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/input-controls/toggle/usage",
       "tag": "goat-toggle",
       "readme": "# goat-checkbox\r\n\r\n\r\n\r",
       "overview": "",
@@ -15218,10 +15440,13 @@
       }
     },
     {
-      "filePath": "src/components/tooltip/tooltip.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/informational/tooltip",
+      "filePath": "src/components/informational/tooltip/tooltip.tsx",
       "fileName": "tooltip.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/informational/tooltip/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/informational/tooltip/usage",
       "tag": "goat-tooltip",
-      "readme": "# goat-icon\r\n\r\n\r\n\r",
+      "readme": "# goat-icon\n\n\n",
       "overview": "",
       "usage": {},
       "docs": "",
@@ -15397,8 +15622,11 @@
       }
     },
     {
-      "filePath": "src/components/tree-view/tree-node/tree-node.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/navigation/tree-view/tree-node",
+      "filePath": "src/components/navigation/tree-view/tree-node/tree-node.tsx",
       "fileName": "tree-node.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/navigation/tree-view/tree-node/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/navigation/tree-view/tree-node/usage",
       "tag": "goat-tree-node",
       "readme": "# goat-menu\r\n\r\n\r\n\r",
       "overview": "",
@@ -15674,8 +15902,11 @@
       "metadata": {}
     },
     {
-      "filePath": "src/components/tree-view/tree-view/tree-view.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/navigation/tree-view/tree-view",
+      "filePath": "src/components/navigation/tree-view/tree-view/tree-view.tsx",
       "fileName": "tree-view.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/navigation/tree-view/tree-view/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/navigation/tree-view/tree-view/usage",
       "tag": "goat-tree-view",
       "readme": "# goat-menu\r\n\r\n\r\n\r",
       "overview": "",
@@ -15717,8 +15948,8 @@
           "goat-button"
         ],
         "goat-button": [
-          "goat-icon",
-          "goat-spinner"
+          "goat-spinner",
+          "goat-icon"
         ]
       },
       "props": [
@@ -15895,15 +16126,15 @@
     }
   ],
   "typeLibrary": {
-    "src/components/calendar/calendar/types.tsx::EventType": {
+    "src/components/application/calendar/calendar/types.tsx::EventType": {
       "declaration": "{\r\n  start: Date;\r\n  end: Date;\r\n  title: string;\r\n  color?: string;\r\n  [key: string]: any;\r\n}",
       "docstring": "",
-      "path": "src/components/calendar/calendar/types.tsx"
+      "path": "src/components/application/calendar/calendar/types.tsx"
     },
-    "src/components/calendar/calendar/types.tsx::CalendarViewType": {
+    "src/components/application/calendar/calendar/types.tsx::CalendarViewType": {
       "declaration": "{\r\n  label: string;\r\n  value: string;\r\n  type: string;\r\n  days?: number;\r\n}",
       "docstring": "",
-      "path": "src/components/calendar/calendar/types.tsx"
+      "path": "src/components/application/calendar/calendar/types.tsx"
     }
   },
   "categories": [

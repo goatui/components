@@ -1,0 +1,12 @@
+@import "../../../../globalStyles/commons";
+
+
+:host {
+  display: none;
+}
+
+:host([active]) {
+  display: block;
+  flex: 1;
+  overflow: auto;
+}

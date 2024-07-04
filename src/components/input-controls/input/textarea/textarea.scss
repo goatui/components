@@ -1,0 +1,31 @@
+@import "../../common-input";
+
+
+.textarea {
+  height: 100%;
+  align-items: flex-start;
+
+  .input-native {
+    height: 100%;
+    min-height: 2.5rem;
+    resize: vertical;
+    padding: var(--spacing-05);
+  }
+}
+
+.actions-container {
+  position: absolute;
+  right: 1rem;
+  top: 0.5rem;
+
+  goat-button {
+    --button-height: 2rem;
+  }
+}
+
+:host([size=md]) .input-container {
+  height: 100%;
+  min-height: 2.5rem;
+}
+
+

@@ -211,8 +211,8 @@ export class Table {
                   <goat-button
                     icon={icon}
                     class="col-action"
-                    color="dark"
-                    dark-mode-color="light"
+                    color="secondary"
+                    dark-mode-color="white"
                     variant="ghost"
                     onClick={() => {
                       if (this.sortBy === col.name) {
@@ -392,7 +392,7 @@ export class Table {
                 <goat-button
                   icon="arrow--left"
                   class="arrows"
-                  color="dark"
+                  color="secondary"
                   dark-mode-color="light"
                   variant="ghost"
                   disabled={this.page === 1}
@@ -406,7 +406,7 @@ export class Table {
                 />
                 <goat-button
                   icon="arrow--right"
-                  color="dark"
+                  color="secondary"
                   dark-mode-color="light"
                   variant="ghost"
                   class="arrows"

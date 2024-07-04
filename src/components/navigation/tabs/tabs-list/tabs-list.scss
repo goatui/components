@@ -1,0 +1,34 @@
+@import "../../../../globalStyles/commons";
+
+
+.tabs-list {
+  display: flex;
+  position: relative;
+
+  slot::slotted(goat-button) {
+    display: block;
+    margin: 0;
+    --button-border-width: 0.125rem;
+    --goat-button-border-radius: 0;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+  }
+
+  .tabs-container {
+    display: flex;
+    align-items: flex-end;
+    z-index: 1;
+  }
+}
+
+.tabs-list.type-default {
+  &:before {
+    border-bottom: 2px solid var(--border-subtle);
+  }
+}
