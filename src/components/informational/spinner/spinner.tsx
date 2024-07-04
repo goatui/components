@@ -28,7 +28,7 @@ export class Spinner {
    * The Icon size.
    * Possible values are: `"sm"`, `"md"`, `"lg"` and size in pixel. Defaults to `"md"`.
    */
-  @Prop() size: 'sm' | 'md' | 'lg' | string = 'md';
+  @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' | string = 'md';
 
   @Prop() hideBackground: boolean = false;
 
@@ -50,7 +50,7 @@ export class Spinner {
   }
 
   componentDidLoad() {
-    this.slotHasContent = !!this.elm.querySelector('[slot="start"]');
+    this.slotHasContent = !!this.elm.querySelector('[slot]');
   }
 
   render() {
@@ -67,14 +67,16 @@ export class Spinner {
     return (
       <Host>
         <div
-          class={'spinner'}
-          style={{
-            width: this.getSize() + 'rem',
-            height: this.getSize() + 'rem',
-          }}
+          class={{ 'spinner': true, 'has-content': this.slotHasContent }}
           title={this.description}
         >
-          <div class={'spinner__container'}>
+          <div
+            class={'spinner__container'}
+            style={{
+              width: this.getSize() + 'rem',
+              height: this.getSize() + 'rem',
+            }}
+          >
             <svg
               viewBox={`0 0 ${
                 2 * (radius + strokeWidth + 5 * this.getSize())

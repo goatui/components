@@ -48,7 +48,9 @@ $inner-border-width: 0.0625;
     z-index: var(--z-index-button);
     background: transparent;
     padding: 0;
-    border: var(--goat-button-border-width) var(--goat-button-border-style) transparent;
+    border-width: var(--goat-button-border-width);
+    border-style: var(--goat-button-border-style);
+    border-color: transparent;
     border-radius: var(--goat-button-border-radius);
     outline: none;
 

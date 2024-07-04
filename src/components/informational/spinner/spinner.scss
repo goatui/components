@@ -8,7 +8,14 @@
 }
 
 .spinner {
-  color: var(--goat-spinner-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+
+  &.has-content {
+    gap: 1rem;
+  }
 }
 
 .spinner__background {
@@ -27,14 +34,12 @@
 }
 
 .spinner__stroke {
+  color: var(--goat-spinner-color);
+  stroke: currentColor;
+  stroke-dashoffset: 75;
   stroke-dasharray: 360;
   stroke-linecap: butt;
   fill: rgba(0, 0, 0, 0);
-}
-
-.spinner__stroke {
-  stroke: currentColor;
-  stroke-dashoffset: 75;
 }
 
 @keyframes rotate {
@@ -55,7 +60,7 @@
   80% {color:var(--color-secondary);}
 }
 
-:host(.rainbow) .spinner {
+:host(.rainbow) .spinner__stroke {
   color: var(--color-primary);
   animation-name: rainbow;
   animation-duration: 5s;
