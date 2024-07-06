@@ -34,7 +34,7 @@ $tag-hover-color: var(--tag-hover-color, var(--tag-hover-gray));
     align-items: center;
   }
 
-  &.filter .tag-content {
+  &.dismissible .tag-content {
     padding-inline-end: .25rem;
   }
 

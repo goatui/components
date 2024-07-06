@@ -23,9 +23,9 @@
 
 ## Events
 
-| Event            | Description                                                        | Type               |
-| ---------------- | ------------------------------------------------------------------ | ------------------ |
-| `goat:tab-click` | On click of tab, a CustomEvent 'goat:tab-click' will be triggered. | `CustomEvent<any>` |
+| Event             | Description                                                        | Type               |
+| ----------------- | ------------------------------------------------------------------ | ------------------ |
+| `goat-tab--click` | On click of tab, a CustomEvent 'goat-tab-click' will be triggered. | `CustomEvent<any>` |
 
 
 ## Methods

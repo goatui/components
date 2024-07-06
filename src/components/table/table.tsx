@@ -111,11 +111,26 @@ export class Table {
   @State() private isSelectAllIntermediate: boolean = false;
   @State() private isHorizontallyScrolled: boolean = false;
 
-  @Event({ eventName: 'goat:table-cell-click' }) goatCellClick: EventEmitter;
-  @Event({ eventName: 'goat:table-select-change' })
+  /**
+   * Emitted when a table cell is clicked.
+   */
+  @Event({ eventName: 'goat-table--cell-click' }) goatCellClick: EventEmitter;
+
+  /**
+   * Emitted when the selection changes.
+   */
+  @Event({ eventName: 'goat-table--selection-change' })
   goatSelectChange: EventEmitter;
-  @Event({ eventName: 'goat:sort' }) goatSort: EventEmitter;
-  @Event({ eventName: 'goat:page' }) goatPage: EventEmitter;
+
+  /**
+   * Emitted when the table is sorted.
+   */
+  @Event({ eventName: 'goat-table--sort' }) goatSort: EventEmitter;
+
+  /**
+   * Emitted when the page changes.
+   */
+  @Event({ eventName: 'goat-table--page' }) goatPage: EventEmitter;
 
   onSelectAllClick = () => {
     let selectedRowKeys = [];
@@ -183,7 +198,7 @@ export class Table {
               layer={'01'}
               value={this.isSelectAll}
               intermediate={this.isSelectAllIntermediate}
-              onGoat:change={this.onSelectAllClick}
+              onGoat-checkbox--change={this.onSelectAllClick}
             />
           </div>
         </div>,
@@ -282,7 +297,7 @@ export class Table {
                 class="checkbox"
                 layer={getNextLayer(this.layer)}
                 value={this.selectedRowKeys.includes(row[this.keyField])}
-                onGoat:change={() => this.onRowSelectClick(row)}
+                onGoat-checkbox--change={() => this.onRowSelectClick(row)}
               />
             </div>
           </div>,
@@ -363,12 +378,12 @@ export class Table {
             <goat-select
               label="Items per page:"
               layer={getNextLayer(this.layer)}
-              inline
+              inline={true}
               class="select"
               items={SUPPORTED_PAGE_SIZES}
               placements="top-start"
               value={this.pageSize}
-              onGoat:change={e => {
+              onGoat-select--change={e => {
                 this.pageSize = e.detail.value;
                 this.goatPage.emit({
                   page: this.page,

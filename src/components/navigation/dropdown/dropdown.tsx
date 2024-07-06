@@ -54,7 +54,7 @@ export class Dropdown implements ComponentInterface {
   referenceElm: HTMLElement;
   dropdownButtonElm: HTMLElement;
 
-  @Event({ eventName: 'goat:dropdown-item-click' })
+  @Event({ eventName: 'goat-dropdown--item-click' })
   goatMenuItemClick: EventEmitter;
 
   @Listen('click', { target: 'window' })
@@ -90,7 +90,7 @@ export class Dropdown implements ComponentInterface {
       firstChild.setFocus();
   }
 
-  @Listen('goat:menu-item-click', { target: 'window' })
+  @Listen('goat-menu-item-click', { target: 'window' })
   listenMenuItemClick(evt) {
     if (isEventTriggerByElement(evt, this.elm)) {
       this.closeList();
@@ -154,7 +154,7 @@ export class Dropdown implements ComponentInterface {
             apply({ availableHeight }) {
               if (availableHeight < 10 * 16) return;
               menuElm.style.setProperty(
-                '--list-max-height',
+                '--goat-menu-max-height',
                 `${availableHeight}px`,
               );
             },

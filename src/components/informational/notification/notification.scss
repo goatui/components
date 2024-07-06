@@ -6,35 +6,79 @@
   margin-bottom: var(--spacing-03);
 }
 
+
+:host(:not([inline])) {
+  width: 18rem;
+}
+
 .notification {
   border-style: solid;
   border-color: transparent;
   display: flex;
 
   .state-icon {
-    padding: var(--spacing-05) var(--spacing-04);
+    padding: 0.875rem var(--spacing-04);
     line-height: 0;
   }
 
   .content {
     flex: 1;
-    padding: var(--spacing-04) 0;
+    padding-block: var(--spacing-04);
 
     .title {
-      @include font-style(text-md);
-      font-weight: var(--font-weight-bold);
+      @include font-style(heading-compact-01);
+      word-break: break-word;
     }
 
     .subtitle {
-      @include font-style(text-sm);
+      @include font-style(body-compact-01);
+      word-break: break-word;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-04);
+      padding-top: 1.5rem;
+
+      .action {
+        --goat-button-border-radius: none;
+      }
+    }
+  }
+
+
+  &.inline .content {
+    display: flex;
+    padding-block: 0;
+
+    .content-text {
+      flex: 1;
+      padding-block: var(--spacing-04);
+
+      .title, .subtitle {
+        display: inline;
+      }
+
+      .title slot::slotted(*), .subtitle slot::slotted(*) {
+        display: inline;
+      }
+
+
+    }
+
+    .actions {
+      padding-top: 0;
+      padding-inline-end: var(--spacing-03);
     }
   }
 
 
   .close-button {
     margin: 0;
-    --goat-button-padding: var(--spacing-02);
-    padding: var(--spacing-02) 0;
+    --goat-button-padding: .75rem;
+    --goat-button-height: 3rem;
+    --goat-button-border-radius: none;
   }
 }
 
@@ -89,7 +133,7 @@
 
       .close-button {
         .icon {
-          --icon-color: var(--text-inverse);
+          color: var(--text-inverse);
         }
       }
 

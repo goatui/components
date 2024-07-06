@@ -5,8 +5,9 @@ import ApiPanel from '../../../components/ApiPanel.astro';
 import OverviewPanel from '../../../components/OverviewPanel.astro';
 const componentDetails = getComponentDetails('goat-notification');
 
-import UsageSection from './_sections/usage.astro';
-import StatesSection from './_sections/states.astro';
+import UsageSection from './_sections/Usage.astro';
+import StatesSection from './_sections/States.astro';
+import HighContrastSection from './_sections/HighContrastSection.astro';
 
 const sections = [
   {
@@ -15,20 +16,28 @@ const sections = [
   }, {
     'title': 'States',
     'Component': StatesSection,
+  }, {
+    'title': 'High contrast',
+    'Component': HighContrastSection,
   }];
 ---
 <Layout componentDetails={componentDetails}>
+
+  <style is:inline>
+    .notification-container .demo-area-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+  </style>
+
   <goat-tabs class='page-tabs'>
     <goat-tabs-list>
       <goat-tab selected='true'>Overview</goat-tab>
-      <goat-tab>Playground</goat-tab>
       <goat-tab>API</goat-tab>
     </goat-tabs-list>
     <goat-tab-panel>
       <OverviewPanel componentDetails={componentDetails} sections={sections} />
-    </goat-tab-panel>
-    <goat-tab-panel>
-      <goat-notification type='warning'>Work in progress</goat-notification>
     </goat-tab-panel>
     <goat-tab-panel>
       <ApiPanel componentDetails={componentDetails} />

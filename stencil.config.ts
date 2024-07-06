@@ -40,52 +40,10 @@ export const config: Config = {
             }
           });
 
+          delete component.docsTags;
+
           // @ts-ignore
           component.metadata = metadata;
-        });
-
-        // @ts-ignore
-        docs.categories = [];
-
-        docs.components.forEach(component => {
-          // @ts-ignore
-          let categoryName = component.metadata.category;
-          if (!categoryName) {
-            categoryName = 'Up coming';
-          }
-
-          // @ts-ignore
-          let cat = docs.categories.find(
-            category => category.name === categoryName,
-          );
-          if (!cat) {
-            cat = {
-              // @ts-ignore
-              name: categoryName,
-              hide: false,
-              components: [],
-            };
-            // @ts-ignore
-            docs.categories.push(cat);
-          }
-          cat.components.push(component.tag);
-        });
-
-        const order = [
-          'Data Display',
-          'Feedback',
-          'Form Inputs',
-          'General',
-          'Layout',
-          'Navigation',
-          'Charts',
-          'Others',
-          'Up coming',
-        ];
-
-        // @ts-ignore
-        docs.categories.sort((a, b) => {
-          return order.indexOf(a.name) - order.indexOf(b.name);
         });
 
         fs.writeFileSync(

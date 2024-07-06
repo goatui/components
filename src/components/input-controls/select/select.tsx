@@ -142,14 +142,15 @@ export class Select implements ComponentInterface, InputComponentInterface {
   /**
    * Emitted when the value has changed.
    */
-  @Event({ eventName: 'goat:change' }) goatChange: EventEmitter;
+  @Event({ eventName: 'goat-select--change' }) goatChange: EventEmitter;
 
   /**
    * Emitted when a keyboard input occurred.
    */
-  @Event({ eventName: 'goat:search' }) goatSearch: EventEmitter;
+  @Event({ eventName: 'goat-select--search' }) goatSearch: EventEmitter;
 
-  @Event({ eventName: 'goat:search-enter' }) goatSearchEnter: EventEmitter;
+  @Event({ eventName: 'goat-select--enter' })
+  goatSearchEnter: EventEmitter;
 
   /**
    * Sets focus on the native `input` in `ion-input`. Use this method instead of the global
@@ -194,7 +195,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
     this.open = false;
   }
 
-  @Listen('goat:menu-item-click')
+  @Listen('goat-menu-item--click')
   menuItemClick(evt: GoatMenuItemCustomEvent<any>) {
     this.selectHandler(evt.detail.value);
   }
@@ -214,7 +215,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
   @State() position: string;
   private displayElement?: HTMLElement;
 
-  @Listen('goat:tag-dismiss')
+  @Listen('goat-tag-dismiss')
   tagDismissClick(evt: GoatTagCustomEvent<any>) {
     this.removeItem(evt.detail.value);
   }
@@ -427,7 +428,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
               apply({ availableHeight }) {
                 if (availableHeight < 10 * 16) return;
                 menuElm?.style.setProperty(
-                  '--list-max-height',
+                  '--goat-menu-max-height',
                   `${availableHeight}px`,
                 );
               },
@@ -478,7 +479,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
           return (
             <goat-tag
               size="sm"
-              filter={!this.disabled && !this.readonly}
+              dismissible={!this.disabled && !this.readonly}
               class="multi-select-value"
               value={item.value?.toString()}
             >
@@ -607,7 +608,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
 
   private getModeIcon() {
     if (this.showLoader) {
-      return <goat-spinner class="input-action loader" />;
+      return <goat-spinner class="loader" />;
     }
     if (!this.disabled && !this.readonly && !this.hideDropdownIcon)
       return (

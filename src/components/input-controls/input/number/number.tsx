@@ -109,22 +109,22 @@ export class Number implements ComponentInterface, InputComponentInterface {
   /**
    * Emitted when a keyboard input occurred.
    */
-  @Event({ eventName: 'goat:input' }) goatInput: EventEmitter;
+  @Event({ eventName: 'goat-number--input' }) goatInput: EventEmitter;
 
   /**
    * Emitted when the value has changed.
    */
-  @Event({ eventName: 'goat:change' }) goatChange: EventEmitter;
+  @Event({ eventName: 'goat-number--change' }) goatChange: EventEmitter;
 
   /**
    * Emitted when the input loses focus.
    */
-  @Event({ eventName: 'goat:blur' }) goatBlur: EventEmitter;
+  @Event({ eventName: 'goat-number--blur' }) goatBlur: EventEmitter;
 
   /**
    * Emitted when the input has focus.
    */
-  @Event({ eventName: 'goat:focus' }) goatFocus: EventEmitter;
+  @Event({ eventName: 'goat-number--focus' }) goatFocus: EventEmitter;
 
   @Element() elm!: HTMLElement;
   private nativeElement?: HTMLInputElement;
@@ -324,7 +324,7 @@ export class Number implements ComponentInterface, InputComponentInterface {
             kind={'simple'}
             icon="subtract"
             variant="ghost"
-            onGoat-button-click={evt => {
+            onGoat-button--click={evt => {
               this.decrease(evt);
             }}
           ></goat-button>
@@ -337,7 +337,7 @@ export class Number implements ComponentInterface, InputComponentInterface {
             kind={'simple'}
             icon="add"
             variant="ghost"
-            onGoat-button-click={evt => {
+            onGoat-button--click={evt => {
               this.increment(evt);
             }}
           ></goat-button>

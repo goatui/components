@@ -17,7 +17,7 @@ function myBusinessRuleFunction(){
   console.log(c);
 }`;
 
-      document.querySelector('#disableEditor').addEventListener('goat:change', function(evt) {
+      document.querySelector('#disableEditor').addEventListener('goat-checkbox--change', function(evt) {
         document.getElementById('business-rule-editor').disabled = evt.target.value;
       });
     </script>

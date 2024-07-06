@@ -46,7 +46,8 @@ export class Icon {
     else if (this.size === 'md') size = '1rem';
     else if (this.size === 'lg') size = '1.5rem';
     else if (this.size === 'xl') size = '1.75rem';
-    else if (!this.size.endsWith('px') && !this.size.endsWith('rem')) size = '1rem';
+    else if (!this.size.endsWith('px') && !this.size.endsWith('rem'))
+      size = '1rem';
     else size = this.size;
     return size;
   }
@@ -57,9 +58,9 @@ export class Icon {
     const svg = this.convertToDom(this.svg);
     let svgHtmlString = 'No icon found';
     if (svg.tagName === 'svg') {
+      svg.setAttribute('class', 'icon-svg');
       svg.setAttribute('width', this.getSize());
       svg.setAttribute('height', this.getSize());
-      svg.setAttribute('fill', 'currentColor');
       svgHtmlString = svg.outerHTML;
     }
 

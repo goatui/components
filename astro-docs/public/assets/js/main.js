@@ -5,7 +5,7 @@
   window.myConsole = {
     log: function (message, title) {
       window.dispatchEvent(
-        new CustomEvent('goat:notification', {
+        new CustomEvent('goat-notification', {
           detail: {
             title: title ? title : undefined,
             subtitle: `<pre>${message}</pre>`,
@@ -16,7 +16,7 @@
     },
     warn: function (message, title) {
       window.dispatchEvent(
-        new CustomEvent('goat:notification', {
+        new CustomEvent('goat-notification', {
           detail: {
             title: title ? title : undefined,
             subtitle: `<pre>${message}</pre>`,
@@ -72,15 +72,24 @@
     const $headerMenu = document.querySelector('#header-menu');
 
     const $headerMenuBtn = document.querySelector('#header-menu-btn');
-    $headerMenuBtn.addEventListener('goat:click', function () {
+    $headerMenuBtn.addEventListener('goat-button-click', function () {
       $headerMenu.classList.add('show');
+      $headerMenu.querySelectorAll('goat-menu-item')[0].setFocus();
       document.body.classList.add('stop-scroll');
     });
 
     const $headerMenuCloseBtn = document.querySelector('#header-menu-close-btn');
-    $headerMenuCloseBtn.addEventListener('goat:click', function () {
+    $headerMenuCloseBtn.addEventListener('goat-button-click', function () {
       $headerMenu.classList.remove('show');
       document.body.classList.remove('stop-scroll');
+    });
+
+    const $headerMenuItems = $headerMenu.querySelectorAll('goat-menu-item');
+    $headerMenuItems.forEach($item => {
+      $item.addEventListener('goat-menu-item-click', function () {
+        $headerMenu.classList.remove('show');
+        document.body.classList.remove('stop-scroll');
+      });
     });
   });
 })();

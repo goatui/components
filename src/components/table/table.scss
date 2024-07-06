@@ -4,9 +4,9 @@
   display: block;
   height: 100%;
   min-height: 20em;
-  --table-border-color: var(--border-subtle-selected-01);
-  --table-border: 1px solid var(--table-border-color);
-  --table-col-content-padding: var(--spacing-04) var(--spacing-05);
+  --goat-table-border-color: var(--border-subtle);
+  --goat-table-border: 1px solid var(--goat-table-border-color);
+  --goat-col-content-padding: var(--spacing-04) var(--spacing-05);
 }
 
 .table {
@@ -35,10 +35,10 @@
   }
 
   .pagination {
-    background: var(--layer-accent);
-    --input-background-color: var(--layer-accent);
+    background: var(--layer);
+    --input-background-color: var(--layer);
     display: flex;
-    border-top: 1px solid var(--table-border-color);
+    border-top: 1px solid var(--goat-table-border-color);
 
     .form-control {
       margin: 0;
@@ -48,8 +48,8 @@
       margin: 0;
       --input-border-radius: none;
       --input-border: none;
-      --input-border-inline-start: 1px solid var(--table-border-color);
-      --input-border-inline-end: 1px solid var(--table-border-color);
+      --input-border-inline-start: 1px solid var(--goat-table-border-color);
+      --input-border-inline-end: 1px solid var(--goat-table-border-color);
     }
 
     .page-sizes-select {
@@ -102,7 +102,7 @@
       height: 100%;
 
       .col-text {
-        padding: var(--table-col-content-padding);
+        padding: var(--goat-col-content-padding);
         flex: 1;
         overflow: hidden;
         white-space: nowrap;

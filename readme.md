@@ -102,14 +102,14 @@ Informational components are UI elements that provide information to users. They
 updates, or instructions within the app or website. Some common examples of informational components include
 notifications, tooltips, and progress bars.
 
-| Name                                                       | Component         | State |
-|------------------------------------------------------------|-------------------|-------|
-| [Badge](https://goatui.com/components/badge)               | goat-badge        | 🟢    |
-| [Progress](https://goatui.com/components/progress)         | goat-progress     | 🟢    |
-| [Spinner](https://goatui.com/components/spinner)           | goat-spinner      | 🟢    |
-| [Toast](https://goatui.com/components/toast)               | goat-toast        | 🟢    |
-| [Tooltip](https://goatui.com/components/tooltip)           | goat-tooltip      | 🟢    |
-| [Notification](https://goatui.com/components/notification) | goat-notification | 🟢    |
+| Name                                                                               | Component                 | State |
+|------------------------------------------------------------------------------------|---------------------------|-------|
+| [Badge](https://goatui.com/components/badge)                                       | goat-badge                | 🟢    |
+| [Progress](https://goatui.com/components/progress)                                 | goat-progress             | 🟢    |
+| [Spinner](https://goatui.com/components/spinner)                                   | goat-spinner              | 🟢    |
+| [Tooltip](https://goatui.com/components/tooltip)                                   | goat-tooltip              | 🟢    |
+| [Notification](https://goatui.com/components/notification)                         | goat-notification         | 🟢    |
+| [Notification Manager / Toast](https://goatui.com/components/notification-manager) | goat-notification-manager | 🟢    |
 
 
 ## Containers
@@ -144,7 +144,6 @@ These components are used for general purpose. They include
 | [Icon](https://goatui.com/components/icon)                                 | goat-icon                 | 🟢    |
 | [Link](https://goatui.com/components/link)                                 | goat-link                 | 🟢    |
 | [Modal](https://goatui.com/components/modal)                               | goat-modal                | 🟢    |
-| [Notification](https://goatui.com/components/notification)                 | goat-notification         | 🟢    |
 | [Notification Manager](https://goatui.com/components/notification-manager) | goat-notification-manager | 🟡    |
 | Observer                                                                   | goat-observer             | 🔴    |
 | Pagination                                                                 | goat-pagination           | 🔴    |

@@ -33,8 +33,14 @@ import {
 export class Calendar implements ComponentInterface {
   @Element() elm!: HTMLElement;
 
+  /**
+   * Calendar events.
+   */
   @Prop() events: EventType[] = [];
 
+  /**
+   * Available views.
+   */
   @Prop() availableViews: CalendarViewType[] = [
     {
       label: 'Day',
@@ -55,8 +61,14 @@ export class Calendar implements ComponentInterface {
     },
   ];
 
-  @Prop() view: string = 'week';
+  /**
+   * Calendar view.
+   */
+  @Prop() view: 'day' | 'week' | 'month' | string = 'week';
 
+  /**
+   * Event clickable.
+   */
   @Prop() eventClickable: boolean = true;
 
   /**
@@ -64,63 +76,74 @@ export class Calendar implements ComponentInterface {
    */
   @Prop() showLoader: boolean = false;
 
+  /**
+   * Timezone.
+   */
   @Prop() timezone: string;
 
+  /**
+   * Context date.
+   */
   @Prop({ mutable: true }) contextDate: Date;
 
-  @Event({ eventName: 'goat:calendar-event-click' })
+  /**
+   * Calendar event click.
+   */
+  @Event({ eventName: 'goat-calendar--event-click' })
   goatCalendarEventClick: EventEmitter;
 
-  currentTime: any;
-  currentView: CalendarViewType;
+  #currentTime: any;
+  #currentView: CalendarViewType;
 
-  @Listen('goat:column-view-date-click')
+  @Listen('internal-column-view-date-click')
   columnViewDateClick(evt: GoatCalendarColumnViewCustomEvent<any>) {
+    evt.stopPropagation();
+    evt.preventDefault();
     this.view = 'day';
     this.contextDate = evt.detail.date;
   }
 
-  @Listen('goat:column-view-event-click')
-  columnViewEventClick(evt: GoatCalendarColumnViewCustomEvent<any>) {
-    this.goatCalendarEventClick.emit(evt.detail.event);
-  }
-
-  @Listen('goat:month-view-event-click')
+  @Listen('internal-column-view-event-click')
+  @Listen('internal-month-view-event-click')
   monthViewEventClick(evt: GoatCalendarMonthViewCustomEvent<any>) {
-    this.goatCalendarEventClick.emit(evt.detail.event);
+    evt.stopPropagation();
+    evt.preventDefault();
+    this.goatCalendarEventClick.emit({
+      event: evt.detail.event,
+    });
   }
 
   async componentWillLoad() {
     if (this.timezone) {
-      this.currentTime = new Date(
+      this.#currentTime = new Date(
         new Date().toLocaleString('en', { timeZone: this.timezone }),
       );
     } else {
-      this.currentTime = new Date();
+      this.#currentTime = new Date();
     }
     if (!this.contextDate) {
-      this.contextDate = this.currentTime;
+      this.contextDate = this.#currentTime;
     }
   }
 
   async componentWillRender() {
-    this.currentView = this.availableViews.find(
+    this.#currentView = this.availableViews.find(
       view => view.value === this.view,
     );
   }
 
   previous() {
-    if (this.currentView.days) {
-      this.contextDate = addDays(this.contextDate, -1 * this.currentView.days);
-    } else if (this.currentView.type === 'month') {
+    if (this.#currentView.days) {
+      this.contextDate = addDays(this.contextDate, -1 * this.#currentView.days);
+    } else if (this.#currentView.type === 'month') {
       this.contextDate = addMonths(this.contextDate, -1);
     }
   }
 
   next() {
-    if (this.currentView.days) {
-      this.contextDate = addDays(this.contextDate, this.currentView.days);
-    } else if (this.currentView.type === 'month') {
+    if (this.#currentView.days) {
+      this.contextDate = addDays(this.contextDate, this.#currentView.days);
+    } else if (this.#currentView.type === 'month') {
       this.contextDate = addMonths(this.contextDate, 1);
     }
   }
@@ -134,7 +157,7 @@ export class Calendar implements ComponentInterface {
             size="sm"
             kind="simple"
             class="color-secondary"
-            onClick={() => (this.contextDate = this.currentTime)}
+            onClick={() => (this.contextDate = this.#currentTime)}
           >
             Today
           </goat-button>
@@ -165,7 +188,7 @@ export class Calendar implements ComponentInterface {
                 value: view.value,
               };
             })}
-            onGoat:change={event => {
+            onGoat-select--change={event => {
               this.view = event.detail.value;
             }}
           ></goat-select>
@@ -175,7 +198,7 @@ export class Calendar implements ComponentInterface {
   }
 
   renderCalendarView() {
-    if (!this.currentView) return 'Invalid view';
+    if (!this.#currentView) return 'Invalid view';
 
     const events = this.events.map(event => {
       return new CalendarEvent(
@@ -187,21 +210,21 @@ export class Calendar implements ComponentInterface {
       );
     });
 
-    if (this.currentView.type === 'column') {
+    if (this.#currentView.type === 'column') {
       return (
         <goat-calendar-column-view
-          view={this.currentView.value}
-          days={this.currentView.days}
-          currentTime={this.currentTime}
+          view={this.#currentView.value}
+          days={this.#currentView.days}
+          currentTime={this.#currentTime}
           contextDate={this.contextDate}
           eventClickable={this.eventClickable}
           events={events}
         />
       );
-    } else if (this.currentView.type === 'month') {
+    } else if (this.#currentView.type === 'month') {
       return (
         <goat-calendar-month-view
-          currentTime={this.currentTime}
+          currentTime={this.#currentTime}
           contextDate={this.contextDate}
           eventClickable={this.eventClickable}
           events={events}

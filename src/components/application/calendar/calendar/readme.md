@@ -7,22 +7,22 @@
 
 ## Properties
 
-| Property         | Attribute         | Description  | Type                 | Default                                                                                                                                                                                                                                                                     |
-| ---------------- | ----------------- | ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `availableViews` | --                |              | `CalendarViewType[]` | `[     {       label: 'Day',       value: 'day',       type: 'column',       days: 1,     },     {       label: 'Week',       value: 'week',       type: 'column',       days: 7,     },     {       label: 'Month',       value: 'month',       type: 'month',     },   ]` |
-| `contextDate`    | --                |              | `Date`               | `undefined`                                                                                                                                                                                                                                                                 |
-| `eventClickable` | `event-clickable` |              | `boolean`            | `true`                                                                                                                                                                                                                                                                      |
-| `events`         | --                |              | `EventType[]`        | `[]`                                                                                                                                                                                                                                                                        |
-| `showLoader`     | `show-loader`     | Show loader. | `boolean`            | `false`                                                                                                                                                                                                                                                                     |
-| `timezone`       | `timezone`        |              | `string`             | `undefined`                                                                                                                                                                                                                                                                 |
-| `view`           | `view`            |              | `string`             | `'week'`                                                                                                                                                                                                                                                                    |
+| Property         | Attribute         | Description      | Type                 | Default                                                                                                                                                                                                                                                                     |
+| ---------------- | ----------------- | ---------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `availableViews` | --                | Available views. | `CalendarViewType[]` | `[     {       label: 'Day',       value: 'day',       type: 'column',       days: 1,     },     {       label: 'Week',       value: 'week',       type: 'column',       days: 7,     },     {       label: 'Month',       value: 'month',       type: 'month',     },   ]` |
+| `contextDate`    | --                | Context date.    | `Date`               | `undefined`                                                                                                                                                                                                                                                                 |
+| `eventClickable` | `event-clickable` | Event clickable. | `boolean`            | `true`                                                                                                                                                                                                                                                                      |
+| `events`         | --                | Calendar events. | `EventType[]`        | `[]`                                                                                                                                                                                                                                                                        |
+| `showLoader`     | `show-loader`     | Show loader.     | `boolean`            | `false`                                                                                                                                                                                                                                                                     |
+| `timezone`       | `timezone`        | Timezone.        | `string`             | `undefined`                                                                                                                                                                                                                                                                 |
+| `view`           | `view`            | Calendar view.   | `string`             | `'week'`                                                                                                                                                                                                                                                                    |
 
 
 ## Events
 
-| Event                       | Description | Type               |
-| --------------------------- | ----------- | ------------------ |
-| `goat:calendar-event-click` |             | `CustomEvent<any>` |
+| Event                        | Description           | Type               |
+| ---------------------------- | --------------------- | ------------------ |
+| `goat-calendar--event-click` | Calendar event click. | `CustomEvent<any>` |
 
 
 ## Dependencies

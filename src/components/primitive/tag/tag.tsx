@@ -28,8 +28,15 @@ export class Tag implements ComponentInterface {
    */
   @Prop({ reflect: true }) size: 'sm' | 'md' = 'md';
 
-  @Prop({ reflect: true }) filter: boolean = false;
+  /**
+   * If true, the tag will have a close icon.
+   */
+  @Prop() dismissible: boolean = false;
 
+  /**
+   * Tag color.
+   * Possible values are: 'gray', 'blue', 'green', 'red', 'yellow', 'primary', 'success', 'info', 'warning', 'error'.
+   */
   @Prop({ reflect: true }) color:
     | 'gray'
     | 'blue'
@@ -42,15 +49,30 @@ export class Tag implements ComponentInterface {
     | 'warning'
     | 'error' = 'gray';
 
+  /**
+   * Tag value.
+   */
   @Prop({ reflect: true }) value: string = '';
 
+  /**
+   * If true, the tag will be selected.
+   */
   @Prop({ reflect: true }) selected: boolean = false;
 
-  @Prop() imageSrc: string = '';
+  /**
+   * Image source.
+   */
+  @Prop() imageSrc?: string;
 
-  @Event({ eventName: 'goat:click' }) goatClick: EventEmitter;
+  /**
+   * Emitted when the tag is clicked.
+   */
+  @Event({ eventName: 'goat-tag--click' }) goatClick: EventEmitter;
 
-  @Event({ eventName: 'goat:tag-dismiss' }) goatTagDismissClick: EventEmitter;
+  /**
+   * Emitted when the close icon is clicked.
+   */
+  @Event({ eventName: 'goat-tag--dismiss' }) goatTagDismissClick: EventEmitter;
 
   @Element() elm!: HTMLElement;
 
@@ -72,18 +94,16 @@ export class Tag implements ComponentInterface {
   }
 
   renderCloseButton() {
-    if (!this.filter) {
-      return;
-    }
-    return (
-      <button class="close-btn" onClick={() => this.dismissClickHandler()}>
-        <goat-icon
-          class="close-btn-icon inherit"
-          name="close"
-          size={this.getIconSize()}
-        ></goat-icon>
-      </button>
-    );
+    if (this.dismissible)
+      return (
+        <button class="close-btn" onClick={() => this.dismissClickHandler()}>
+          <goat-icon
+            class="close-btn-icon inherit"
+            name="close"
+            size={this.getIconSize()}
+          ></goat-icon>
+        </button>
+      );
   }
 
   renderImage() {
@@ -99,7 +119,7 @@ export class Tag implements ComponentInterface {
             tag: true,
             selected: this.selected,
             [`size-${this.size}`]: true,
-            filter: this.filter,
+            dismissible: this.dismissible,
             [`color-${this.color}`]: true,
           }}
         >

@@ -62,22 +62,22 @@ export class TimePicker {
   /**
    * Emitted when a keyboard input occurred.
    */
-  @Event({ eventName: 'goat:input' }) goatInput: EventEmitter;
+  @Event({ eventName: 'goat-time-picker--input' }) goatInput: EventEmitter;
 
   /**
    * Emitted when the value has changed.
    */
-  @Event({ eventName: 'goat:change' }) goatChange: EventEmitter;
+  @Event({ eventName: 'goat-time-picker--change' }) goatChange: EventEmitter;
 
   /**
    * Emitted when the input loses focus.
    */
-  @Event({ eventName: 'goat:blur' }) goatBlur: EventEmitter;
+  @Event({ eventName: 'goat-time-picker--blur' }) goatBlur: EventEmitter;
 
   /**
    * Emitted when the input has focus.
    */
-  @Event({ eventName: 'goat:focus' }) goatFocus: EventEmitter;
+  @Event({ eventName: 'goat-time-picker--focus' }) goatFocus: EventEmitter;
 
   @Element() elm!: HTMLElement;
   private nativeElement?: HTMLInputElement;
@@ -203,7 +203,7 @@ export class TimePicker {
             icon={'time'}
             variant="ghost"
             disabled={this.disabled}
-            onGoat-button-click={() => {
+            onGoat-button--click={() => {
               setTimeout(() => {
                 this.nativeElement.showPicker();
               });

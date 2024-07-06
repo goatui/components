@@ -13,23 +13,14 @@ const sections = [
     'Component': UsageSection,
   }];
 ---
-<style is:inline>
-  goat-tag {
-    margin-inline-end: .5rem;
-  }
-</style>
 <Layout componentDetails={componentDetails}>
   <goat-tabs class='page-tabs'>
     <goat-tabs-list>
       <goat-tab selected='true'>Overview</goat-tab>
-      <goat-tab>Playground</goat-tab>
       <goat-tab>API</goat-tab>
     </goat-tabs-list>
     <goat-tab-panel>
       <OverviewPanel componentDetails={componentDetails} sections={sections} />
-    </goat-tab-panel>
-    <goat-tab-panel>
-      <goat-notification type='warning'>Work in progress</goat-notification>
     </goat-tab-panel>
     <goat-tab-panel>
       <ApiPanel componentDetails={componentDetails} />

@@ -16,7 +16,7 @@ import {
 } from 'date-fns';
 import MonthEventManager from './MonthEventManager';
 import { BaseEvent } from '../event-management/BaseEvent';
-import { calculateMonthRange } from '../utils';
+import { calculateMonthRange, LONG_EVENT_PADDING } from '../utils';
 
 @Component({
   tag: 'goat-calendar-month-view',
@@ -38,10 +38,10 @@ export class CalendarMonthView implements ComponentInterface {
 
   weekDayEvents: any = [];
 
-  @Event({ eventName: 'goat:month-view-date-click' })
+  @Event({ eventName: 'internal-month-view-date-click' })
   goatMonthViewDateClick: EventEmitter;
 
-  @Event({ eventName: 'goat:month-view-event-click' })
+  @Event({ eventName: 'internal-month-view-event-click' })
   goatMonthViewEventClick: EventEmitter;
 
   async componentWillRender() {
@@ -117,8 +117,6 @@ export class CalendarMonthView implements ComponentInterface {
   }
 
   renderEvents() {
-    const eventPadding = 0.25;
-
     return this.weekDayEvents.map((eventDay, index) => {
       return (
         <div class="multi-day-section">
@@ -137,48 +135,46 @@ export class CalendarMonthView implements ComponentInterface {
                     <div class="row">
                       {nodes.map(node => {
                         const cls = ['event'];
-                        const eventColors = {
+                        const dateRangeStartDate = addDays(
+                          this.dateRange.startDate,
+                          index * 7,
+                        );
+                        const eventStyles = {
                           left: `${
-                            this.getDatePercent(node.start, {
-                              startDate: addDays(
-                                this.dateRange.startDate,
-                                index * 7,
-                              ),
-                            }) + eventPadding
+                            this.getDatePercent(
+                              node.start,
+                              dateRangeStartDate,
+                            ) + LONG_EVENT_PADDING
                           }%`,
                           width: `${
-                            this.getDatePercent(addDays(node.end, 1), {
-                              startDate: addDays(
-                                this.dateRange.startDate,
-                                index * 7,
-                              ),
-                            }) -
-                            this.getDatePercent(node.start, {
-                              startDate: addDays(
-                                this.dateRange.startDate,
-                                index * 7,
-                              ),
-                            }) -
-                            2 * eventPadding
+                            this.getDatePercent(
+                              addDays(node.end, 1),
+                              dateRangeStartDate,
+                            ) -
+                            this.getDatePercent(
+                              node.start,
+                              dateRangeStartDate,
+                            ) -
+                            2 * LONG_EVENT_PADDING
                           }%`,
                         };
                         if (node.color) {
-                          eventColors[
+                          eventStyles[
                             '--calendar-event-bg-color'
                           ] = `var(--color-${node.color}-20)`;
-                          eventColors[
+                          eventStyles[
                             '--calendar-event-bg-color--hover'
                           ] = `var(--color-${node.color}-40)`;
-                          eventColors[
+                          eventStyles[
                             '--calendar-event-border-color'
                           ] = `var(--color-${node.color})`;
-                          eventColors[
+                          eventStyles[
                             '--calendar-event-dark-bg-color'
                           ] = `var(--color-${node.color}-90)`;
-                          eventColors[
+                          eventStyles[
                             '--calendar-event-dark-bg-color--hover'
                           ] = `var(--color-${node.color}-70)`;
-                          eventColors[
+                          eventStyles[
                             '--calendar-event-dark-border-color'
                           ] = `var(--color-${node.color})-70`;
                         }
@@ -193,7 +189,7 @@ export class CalendarMonthView implements ComponentInterface {
                                 });
                               }
                             }}
-                            style={eventColors}
+                            style={eventStyles}
                           >
                             <div class="event-title">
                               {node.title || '(no title)'}
@@ -213,8 +209,8 @@ export class CalendarMonthView implements ComponentInterface {
     });
   }
 
-  getDatePercent(date, dateRange) {
-    const currentDay = differenceInDays(startOfDay(date), dateRange.startDate);
+  getDatePercent(date: Date, dateRangeStartDate: Date) {
+    const currentDay = differenceInDays(startOfDay(date), dateRangeStartDate);
     const percent = (currentDay / 7) * 100;
     if (percent < 0) return 0;
     if (percent > 100) return 100;

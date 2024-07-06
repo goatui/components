@@ -88,7 +88,7 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
       icon: 'file-earmark-person',
     },
   ];
-  $dropDown.addEventListener('goat:change', function(evt) {
+  $dropDown.addEventListener('goat-select--change', function(evt) {
     myConsole.log(JSON.stringify(evt.detail, null, 4));
   });
 </script>

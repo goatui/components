@@ -12,7 +12,7 @@ import { arrow, computePosition, flip, offset } from '@floating-ui/dom';
 /**
  * @name Tooltip
  * @description The Tooltip component is used to display additional information on hover.
- * @category Data Display
+ * @category Informational
  * @tag content
  * @img /assets/img/tooltip.webp
  * @imgDark /assets/img/tooltip-dark.webp
@@ -23,6 +23,8 @@ import { arrow, computePosition, flip, offset } from '@floating-ui/dom';
   shadow: true,
 })
 export class Tooltip {
+  @Element() elm!: HTMLElement;
+
   /**
    * The placements of the tooltip. It can be top, top-start, top-end, bottom, bottom-start, bottom-end, right, left.
    */
@@ -40,7 +42,6 @@ export class Tooltip {
   @Prop({ mutable: true, reflect: true }) managed: boolean = false;
 
   arrowEl: HTMLElement;
-  @Element() elm!: HTMLElement;
 
   @Listen('mouseover', { target: 'window' })
   windowMouseOver(evt) {
@@ -65,7 +66,7 @@ export class Tooltip {
     }
   }
 
-  @Listen('goat:tooltip', { target: 'window' })
+  @Listen('goat-tooltip-open', { target: 'window' })
   windowTooltipEventHandler(evt) {
     if (!this.managed) return;
 

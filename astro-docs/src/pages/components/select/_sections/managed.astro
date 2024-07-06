@@ -7,14 +7,14 @@ import Highlighter from '../../../../components/Highlighter.astro';
     <script is:inline>
       const $managed = document.getElementById('managed-selected');
       $managed.items = [];
-      $managed.addEventListener('goat:search', function (evt) {
+      $managed.addEventListener('goat-select--search', function (evt) {
         $managed.showLoader = true;
         fakeServerCall(evt.detail.value, function (items) {
           $managed.items = items;
           $managed.showLoader = false;
         });
       });
-      $managed.addEventListener('goat:change', function (evt) {
+      $managed.addEventListener('goat-select--change', function (evt) {
         myConsole.log(JSON.stringify(evt.detail, null, 4));
       });
 
@@ -44,14 +44,14 @@ import Highlighter from '../../../../components/Highlighter.astro';
     <Highlighter lang={'javascript'} is:raw>
 const $managed = document.getElementById('managed-selected');
 $managed.items = [];
-$managed.addEventListener('goat:search', function (evt) {
+$managed.addEventListener('goat-select--search', function (evt) {
   $managed.showLoader = true;
   fakeServerCall(evt.detail.value, function (items) {
     $managed.items = items;
     $managed.showLoader = false;
   });
 });
-$managed.addEventListener('goat:change', function (evt) {
+$managed.addEventListener('goat-select--change', function (evt) {
   myConsole.log(JSON.stringify(evt.detail, null, 4));
 });
 

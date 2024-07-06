@@ -6,7 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { CalendarViewType, EventType } from "./components/application/calendar/calendar/types";
+import { Language } from "./components/application/code-highlighter/constants";
 export { CalendarViewType, EventType } from "./components/application/calendar/calendar/types";
+export { Language } from "./components/application/code-highlighter/constants";
 export namespace Components {
     /**
      * @name Accordion
@@ -14,6 +16,7 @@ export namespace Components {
      * @overview  <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>
      *  <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>
      * @category Data Display
+     * @subcategory Accordion
      * @tags display
      * @img /assets/img/accordion.webp
      * @imgDark /assets/img/accordion-dark.webp
@@ -29,6 +32,17 @@ export namespace Components {
          */
         "size": 'sm' | 'md' | 'lg';
     }
+    /**
+     * @name Accordion Item
+     * @description An accordion item is single item in an accordion list. It contains a header and a content section that can be expanded or collapsed by the user.
+     * @overview  <p>The accordion item component is a single item in an accordion list. It contains a header and a content section that can be expanded or collapsed by the user. The accordion item can be used in conjunction with the accordion component to create a list of expandable items.</p>
+     * @category Data Display
+     * @subcategory Accordion
+     * @tags display
+     * @childComponent true
+     * @img /assets/img/accordion.webp
+     * @imgDark /assets/img/accordion-dark.webp
+     */
     interface GoatAccordionItem {
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
@@ -38,7 +52,6 @@ export namespace Components {
           * The menu item value.
          */
         "heading": string;
-        "icon": boolean;
         /**
           * Menu item selection state.
          */
@@ -62,12 +75,16 @@ export namespace Components {
     /**
      * @name Badge
      * @description The badge component is used to display a small amount of information to the user.
-     * @category Data Display
+     * @category Informational
      * @tag content
      * @example <goat-badge content="5"> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
      */
     interface GoatBadge {
-        "color": 'primary' | 'secondary' | 'success' | 'error' | 'warning';
+        "color": | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'error'
+    | 'warning';
         "content": string;
     }
     /**
@@ -93,7 +110,8 @@ export namespace Components {
     }
     /**
      * @name Button
-     * @description An interactive button with a range of presentation options.
+     * @description Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
+     * @overview  <p>Buttons are clickable elements that are used to trigger actions. They communicate calls to action to the user and allow users to interact with pages in a variety of ways. Button labels express what action will occur when the user interacts with it.</p>
      * @category General
      * @tags controls
      * @example <goat-button>
@@ -212,16 +230,34 @@ export namespace Components {
      * @imgDark /assets/img/calendar-dark.webp
      */
     interface GoatCalendar {
+        /**
+          * Available views.
+         */
         "availableViews": CalendarViewType[];
+        /**
+          * Context date.
+         */
         "contextDate": Date;
+        /**
+          * Event clickable.
+         */
         "eventClickable": boolean;
+        /**
+          * Calendar events.
+         */
         "events": EventType[];
         /**
           * Show loader.
          */
         "showLoader": boolean;
+        /**
+          * Timezone.
+         */
         "timezone": string;
-        "view": string;
+        /**
+          * Calendar view.
+         */
+        "view": 'day' | 'week' | 'month' | string;
     }
     interface GoatCalendarColumnView {
         "contextDate": Date;
@@ -374,6 +410,7 @@ export namespace Components {
         "getComponentId": () => Promise<string>;
         "language": 'javascript' | 'json' | 'html';
         "lineNumbers": 'off' | 'on';
+        "minimap": boolean;
         /**
           * The input field name.
          */
@@ -405,11 +442,26 @@ export namespace Components {
      * @imgDark /assets/img/code-highlighter-dark.webp
      */
     interface GoatCodeHighlighter {
+        /**
+          * Format the code snippet.
+         */
         "format": boolean;
         "hideCopy": boolean;
+        /**
+          * Display the code snippet inline.
+         */
         "inline": boolean;
-        "language": string;
+        /**
+          * The language of the code snippet.
+         */
+        "language": Language;
+        /**
+          * Display line numbers.
+         */
         "lineNumbers": boolean;
+        /**
+          * The code snippet to highlight.
+         */
         "value": string;
     }
     /**
@@ -845,7 +897,8 @@ export namespace Components {
     /**
      * @name Modal
      * @description Modals are used to display content in a layer above the app.
-     * @category Feedback
+     * @category Informational
+     * @subcategory Modal
      * @tags controls
      * @img /assets/img/modal.webp
      * @imgDark /assets/img/modal-dark.webp
@@ -858,30 +911,56 @@ export namespace Components {
         "size": 'sm' | 'md' | 'lg';
         "subheading": string;
     }
+    /**
+     * @name Modal Content
+     * @description The Modal Content component is used to display the content within a modal.
+     * @category Informational
+     * @subcategory Modal
+     * @tags controls
+     * @childComponent true
+     */
     interface GoatModalContent {
         "type": 'text' | 'borderless' | 'default';
     }
     /**
      * @name Notification
      * @description Notifications are messages that communicate information to the user.
-     * @category Feedback
+     * @category Informational
      * @tags notification
      * @example <goat-notification state="success">
      *      <div slot='title'>Successful saved the record</div>
      *    </goat-notification>
      */
     interface GoatNotification {
-        "actionLabel": string;
-        "actionName": string;
-        "actionable": boolean;
+        /**
+          * Action to be displayed on the notification
+         */
+        "action": string;
+        /**
+          * Whether the notification is dismissible
+         */
         "dismissible": boolean;
+        /**
+          * Whether to use high contrast mode
+         */
         "highContrast": boolean;
+        /**
+          * Whether the notification should be displayed inline
+         */
+        "inline": boolean;
+        /**
+          * Whether the notification is managed by the notification manager
+         */
+        "managed": boolean;
+        /**
+          * The state of the notification. Possible values are: 'success', 'error', 'info', 'warning'
+         */
         "state": 'success' | 'error' | 'info' | 'warning';
     }
     /**
      * @name Notification Manager
-     * @description Manages alert, toasts and notifications.
-     * @category Feedback
+     * @description The Notification Manager handles the organization and display of notifications within the application.
+     * @category Informational
      * @tags notification
      * @img /assets/img/notification-manager.webp
      * @imgDark /assets/img/notification-manager-dark.webp
@@ -968,7 +1047,7 @@ export namespace Components {
     /**
      * @name Progress
      * @description Progress indicators express an unspecified wait time or display the length of a process.
-     * @category Feedback
+     * @category Informational
      * @tags feedback, loading, progress, spinner
      * @example <goat-progress value="40" label="Progress" width="100%" helper-text="Optional helper text goes here..."></goat-progress>
      */
@@ -1164,7 +1243,7 @@ export namespace Components {
     /**
      * @name Spinner
      * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
-     * @category Feedback
+     * @category Informational
      * @tags feedback, loading, progress, spinner
      * @example <goat-spinner class="rainbow" size="2rem"></goat-spinner>
      */
@@ -1282,6 +1361,9 @@ export namespace Components {
      * @example <goat-tag class="color-red">Important</goat-tag>
      */
     interface GoatTag {
+        /**
+          * Tag color. Possible values are: 'gray', 'blue', 'green', 'red', 'yellow', 'primary', 'success', 'info', 'warning', 'error'.
+         */
         "color": | 'gray'
     | 'blue'
     | 'green'
@@ -1292,13 +1374,25 @@ export namespace Components {
     | 'info'
     | 'warning'
     | 'error';
-        "filter": boolean;
-        "imageSrc": string;
+        /**
+          * If true, the tag will have a close icon.
+         */
+        "dismissible": boolean;
+        /**
+          * Image source.
+         */
+        "imageSrc"?: string;
+        /**
+          * If true, the tag will be selected.
+         */
         "selected": boolean;
         /**
           * Text size.
          */
         "size": 'sm' | 'md';
+        /**
+          * Tag value.
+         */
         "value": string;
     }
     /**
@@ -1424,22 +1518,6 @@ export namespace Components {
         "value"?: string | number | null;
     }
     /**
-     * @name Toast
-     * @description Toasts are lightweight notifications.
-     * @category Feedback
-     * @example <goat-toast state="success" message="Successful saved the record"></goat-toast>
-     */
-    interface GoatToast {
-        /**
-          * Message to display in the toast.
-         */
-        "message": string;
-        /**
-          * Toast state. Possible values are `"success"`, `"error"`, `"info"`, `"warning"`. Defaults to `"info"`.
-         */
-        "state": 'success' | 'error' | 'info' | 'warning';
-    }
-    /**
      * @name Toggle
      * @description Captures boolean input with an optional indeterminate mode.
      * @category Form Inputs
@@ -1468,11 +1546,11 @@ export namespace Components {
         "required": boolean;
         "rounded": boolean;
         /**
-          * Sets blur on the native `input` in `goat-input`. Use this method instead of the global `input.blur()`.
+          * Sets blur on the native `input` in `goat-toggle`. Use this method instead of the global `input.blur()`.
          */
         "setBlur": () => Promise<void>;
         /**
-          * Sets focus on the native `input` in `goat-input`. Use this method instead of the global `input.focus()`.
+          * Sets focus on the native `input` in `goat-toggle`. Use this method instead of the global `input.focus()`.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -1487,7 +1565,7 @@ export namespace Components {
     /**
      * @name Tooltip
      * @description The Tooltip component is used to display additional information on hover.
-     * @category Data Display
+     * @category Informational
      * @tag content
      * @img /assets/img/tooltip.webp
      * @imgDark /assets/img/tooltip-dark.webp
@@ -1666,6 +1744,7 @@ declare global {
      * @overview  <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>
      *  <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>
      * @category Data Display
+     * @subcategory Accordion
      * @tags display
      * @img /assets/img/accordion.webp
      * @imgDark /assets/img/accordion-dark.webp
@@ -1677,8 +1756,19 @@ declare global {
         new (): HTMLGoatAccordionElement;
     };
     interface HTMLGoatAccordionItemElementEventMap {
-        "goat:accordion-item-click": any;
+        "goat-accordion-item--click": any;
     }
+    /**
+     * @name Accordion Item
+     * @description An accordion item is single item in an accordion list. It contains a header and a content section that can be expanded or collapsed by the user.
+     * @overview  <p>The accordion item component is a single item in an accordion list. It contains a header and a content section that can be expanded or collapsed by the user. The accordion item can be used in conjunction with the accordion component to create a list of expandable items.</p>
+     * @category Data Display
+     * @subcategory Accordion
+     * @tags display
+     * @childComponent true
+     * @img /assets/img/accordion.webp
+     * @imgDark /assets/img/accordion-dark.webp
+     */
     interface HTMLGoatAccordionItemElement extends Components.GoatAccordionItem, HTMLStencilElement {
         addEventListener<K extends keyof HTMLGoatAccordionItemElementEventMap>(type: K, listener: (this: HTMLGoatAccordionItemElement, ev: GoatAccordionItemCustomEvent<HTMLGoatAccordionItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1709,7 +1799,7 @@ declare global {
     /**
      * @name Badge
      * @description The badge component is used to display a small amount of information to the user.
-     * @category Data Display
+     * @category Informational
      * @tag content
      * @example <goat-badge content="5"> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
      */
@@ -1739,11 +1829,12 @@ declare global {
         new (): HTMLGoatBreadcrumbItemElement;
     };
     interface HTMLGoatButtonElementEventMap {
-        "goat-button-click": any;
+        "goat-button--click": any;
     }
     /**
      * @name Button
-     * @description An interactive button with a range of presentation options.
+     * @description Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
+     * @overview  <p>Buttons are clickable elements that are used to trigger actions. They communicate calls to action to the user and allow users to interact with pages in a variety of ways. Button labels express what action will occur when the user interacts with it.</p>
      * @category General
      * @tags controls
      * @example <goat-button>
@@ -1781,7 +1872,7 @@ declare global {
         new (): HTMLGoatButtonGroupElement;
     };
     interface HTMLGoatCalendarElementEventMap {
-        "goat:calendar-event-click": any;
+        "goat-calendar--event-click": any;
     }
     /**
      * @name Calendar
@@ -1806,8 +1897,8 @@ declare global {
         new (): HTMLGoatCalendarElement;
     };
     interface HTMLGoatCalendarColumnViewElementEventMap {
-        "goat:column-view-date-click": any;
-        "goat:column-view-event-click": any;
+        "internal-column-view-date-click": any;
+        "internal-column-view-event-click": any;
     }
     interface HTMLGoatCalendarColumnViewElement extends Components.GoatCalendarColumnView, HTMLStencilElement {
         addEventListener<K extends keyof HTMLGoatCalendarColumnViewElementEventMap>(type: K, listener: (this: HTMLGoatCalendarColumnViewElement, ev: GoatCalendarColumnViewCustomEvent<HTMLGoatCalendarColumnViewElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1830,8 +1921,8 @@ declare global {
         new (): HTMLGoatCalendarColumnViewBackgroundElement;
     };
     interface HTMLGoatCalendarMonthViewElementEventMap {
-        "goat:month-view-date-click": any;
-        "goat:month-view-event-click": any;
+        "internal-month-view-date-click": any;
+        "internal-month-view-event-click": any;
     }
     interface HTMLGoatCalendarMonthViewElement extends Components.GoatCalendarMonthView, HTMLStencilElement {
         addEventListener<K extends keyof HTMLGoatCalendarMonthViewElementEventMap>(type: K, listener: (this: HTMLGoatCalendarMonthViewElement, ev: GoatCalendarMonthViewCustomEvent<HTMLGoatCalendarMonthViewElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1924,9 +2015,9 @@ declare global {
         new (): HTMLGoatChartPieElement;
     };
     interface HTMLGoatCheckboxElementEventMap {
-        "goat:change": any;
-        "goat:blur": any;
-        "goat:focus": any;
+        "goat-checkbox--change": any;
+        "goat-checkbox--blur": any;
+        "goat-checkbox--focus": any;
     }
     /**
      * @name Checkbox
@@ -1950,7 +2041,7 @@ declare global {
         new (): HTMLGoatCheckboxElement;
     };
     interface HTMLGoatCodeEditorElementEventMap {
-        "goat:change": any;
+        "goat-code-editor--change": any;
     }
     /**
      * @name Code Editor
@@ -2020,10 +2111,10 @@ declare global {
         new (): HTMLGoatCurrentTimeElement;
     };
     interface HTMLGoatDatePickerElementEventMap {
-        "goat:input": any;
-        "goat:change": any;
-        "goat:blur": any;
-        "goat:focus": any;
+        "goat-date-picker--input": any;
+        "goat-date-picker--change": any;
+        "goat-date-picker--blur": any;
+        "goat-date-picker--focus": any;
     }
     /**
      * @name Date Picker
@@ -2058,7 +2149,7 @@ declare global {
         new (): HTMLGoatDividerElement;
     };
     interface HTMLGoatDropdownElementEventMap {
-        "goat:dropdown-item-click": any;
+        "goat-dropdown--item-click": any;
     }
     /**
      * @name Dropdown
@@ -2173,7 +2264,7 @@ declare global {
         new (): HTMLGoatHeaderBrandElement;
     };
     interface HTMLGoatHtmlEditorElementEventMap {
-        "goat:change": any;
+        "goat-html-editor--change": any;
     }
     /**
      * @name HTML Editor
@@ -2217,10 +2308,10 @@ declare global {
         new (): HTMLGoatImageElement;
     };
     interface HTMLGoatInputElementEventMap {
-        "goat:input": any;
-        "goat:change": any;
-        "goat:blur": any;
-        "goat:focus": any;
+        "goat-input--input": any;
+        "goat-input--change": any;
+        "goat-input--blur": any;
+        "goat-input--focus": any;
     }
     /**
      * @name Input
@@ -2269,7 +2360,7 @@ declare global {
         new (): HTMLGoatMenuElement;
     };
     interface HTMLGoatMenuItemElementEventMap {
-        "goat:menu-item-click": any;
+        "goat-menu-item--click": any;
     }
     interface HTMLGoatMenuItemElement extends Components.GoatMenuItem, HTMLStencilElement {
         addEventListener<K extends keyof HTMLGoatMenuItemElementEventMap>(type: K, listener: (this: HTMLGoatMenuItemElement, ev: GoatMenuItemCustomEvent<HTMLGoatMenuItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2286,12 +2377,13 @@ declare global {
         new (): HTMLGoatMenuItemElement;
     };
     interface HTMLGoatModalElementEventMap {
-        "goat:modal-close": any;
+        "goat-modal--close": any;
     }
     /**
      * @name Modal
      * @description Modals are used to display content in a layer above the app.
-     * @category Feedback
+     * @category Informational
+     * @subcategory Modal
      * @tags controls
      * @img /assets/img/modal.webp
      * @imgDark /assets/img/modal-dark.webp
@@ -2310,6 +2402,14 @@ declare global {
         prototype: HTMLGoatModalElement;
         new (): HTMLGoatModalElement;
     };
+    /**
+     * @name Modal Content
+     * @description The Modal Content component is used to display the content within a modal.
+     * @category Informational
+     * @subcategory Modal
+     * @tags controls
+     * @childComponent true
+     */
     interface HTMLGoatModalContentElement extends Components.GoatModalContent, HTMLStencilElement {
     }
     var HTMLGoatModalContentElement: {
@@ -2317,12 +2417,13 @@ declare global {
         new (): HTMLGoatModalContentElement;
     };
     interface HTMLGoatNotificationElementEventMap {
-        "goat:dismiss": any;
+        "goat-notification--dismiss": any;
+        "goat-notification--action-click": any;
     }
     /**
      * @name Notification
      * @description Notifications are messages that communicate information to the user.
-     * @category Feedback
+     * @category Informational
      * @tags notification
      * @example <goat-notification state="success">
      *      <div slot='title'>Successful saved the record</div>
@@ -2344,8 +2445,8 @@ declare global {
     };
     /**
      * @name Notification Manager
-     * @description Manages alert, toasts and notifications.
-     * @category Feedback
+     * @description The Notification Manager handles the organization and display of notifications within the application.
+     * @category Informational
      * @tags notification
      * @img /assets/img/notification-manager.webp
      * @imgDark /assets/img/notification-manager-dark.webp
@@ -2357,10 +2458,10 @@ declare global {
         new (): HTMLGoatNotificationManagerElement;
     };
     interface HTMLGoatNumberElementEventMap {
-        "goat:input": any;
-        "goat:change": any;
-        "goat:blur": any;
-        "goat:focus": any;
+        "goat-number--input": any;
+        "goat-number--change": any;
+        "goat-number--blur": any;
+        "goat-number--focus": any;
     }
     /**
      * @name Number
@@ -2386,7 +2487,7 @@ declare global {
     /**
      * @name Progress
      * @description Progress indicators express an unspecified wait time or display the length of a process.
-     * @category Feedback
+     * @category Informational
      * @tags feedback, loading, progress, spinner
      * @example <goat-progress value="40" label="Progress" width="100%" helper-text="Optional helper text goes here..."></goat-progress>
      */
@@ -2397,9 +2498,9 @@ declare global {
         new (): HTMLGoatProgressElement;
     };
     interface HTMLGoatSelectElementEventMap {
-        "goat:change": any;
-        "goat:search": any;
-        "goat:search-enter": any;
+        "goat-select--change": any;
+        "goat-select--search": any;
+        "goat-select--enter": any;
     }
     /**
      * @name Select
@@ -2458,9 +2559,8 @@ declare global {
         new (): HTMLGoatSidenavMenuItemElement;
     };
     interface HTMLGoatSliderElementEventMap {
-        "goat:change": any;
-        "goat:input": any;
-        "goat:tooltip": any;
+        "goat-slider--change": any;
+        "goat-slider--input": any;
     }
     /**
      * @name Slider
@@ -2487,7 +2587,7 @@ declare global {
     /**
      * @name Spinner
      * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
-     * @category Feedback
+     * @category Informational
      * @tags feedback, loading, progress, spinner
      * @example <goat-spinner class="rainbow" size="2rem"></goat-spinner>
      */
@@ -2510,7 +2610,7 @@ declare global {
         new (): HTMLGoatSvgElement;
     };
     interface HTMLGoatTabElementEventMap {
-        "goat:tab-click": any;
+        "goat-tab--click": any;
     }
     interface HTMLGoatTabElement extends Components.GoatTab, HTMLStencilElement {
         addEventListener<K extends keyof HTMLGoatTabElementEventMap>(type: K, listener: (this: HTMLGoatTabElement, ev: GoatTabCustomEvent<HTMLGoatTabElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2533,10 +2633,10 @@ declare global {
         new (): HTMLGoatTabPanelElement;
     };
     interface HTMLGoatTableElementEventMap {
-        "goat:table-cell-click": any;
-        "goat:table-select-change": any;
-        "goat:sort": any;
-        "goat:page": any;
+        "goat-table--cell-click": any;
+        "goat-table--selection-change": any;
+        "goat-table--sort": any;
+        "goat-table--page": any;
     }
     /**
      * @name Table
@@ -2584,8 +2684,8 @@ declare global {
         new (): HTMLGoatTabsListElement;
     };
     interface HTMLGoatTagElementEventMap {
-        "goat:click": any;
-        "goat:tag-dismiss": any;
+        "goat-tag--click": any;
+        "goat-tag--dismiss": any;
     }
     /**
      * @name Tag
@@ -2621,11 +2721,11 @@ declare global {
         new (): HTMLGoatTextElement;
     };
     interface HTMLGoatTextareaElementEventMap {
-        "goat:input": any;
-        "goat:change": any;
-        "goat:blur": any;
-        "goat:focus": any;
-        "goat:action-click": any;
+        "goat-textarea--input": any;
+        "goat-textarea--change": any;
+        "goat-textarea--blur": any;
+        "goat-textarea--focus": any;
+        "goat-textarea--action-click": any;
     }
     /**
      * @name Textarea
@@ -2649,10 +2749,10 @@ declare global {
         new (): HTMLGoatTextareaElement;
     };
     interface HTMLGoatTimePickerElementEventMap {
-        "goat:input": any;
-        "goat:change": any;
-        "goat:blur": any;
-        "goat:focus": any;
+        "goat-time-picker--input": any;
+        "goat-time-picker--change": any;
+        "goat-time-picker--blur": any;
+        "goat-time-picker--focus": any;
     }
     /**
      * @name Time Picker
@@ -2675,22 +2775,10 @@ declare global {
         prototype: HTMLGoatTimePickerElement;
         new (): HTMLGoatTimePickerElement;
     };
-    /**
-     * @name Toast
-     * @description Toasts are lightweight notifications.
-     * @category Feedback
-     * @example <goat-toast state="success" message="Successful saved the record"></goat-toast>
-     */
-    interface HTMLGoatToastElement extends Components.GoatToast, HTMLStencilElement {
-    }
-    var HTMLGoatToastElement: {
-        prototype: HTMLGoatToastElement;
-        new (): HTMLGoatToastElement;
-    };
     interface HTMLGoatToggleElementEventMap {
-        "goat:change": any;
-        "goat:blur": any;
-        "goat:focus": any;
+        "goat-toggle--change": any;
+        "goat-toggle--blur": any;
+        "goat-toggle--focus": any;
     }
     /**
      * @name Toggle
@@ -2716,7 +2804,7 @@ declare global {
     /**
      * @name Tooltip
      * @description The Tooltip component is used to display additional information on hover.
-     * @category Data Display
+     * @category Informational
      * @tag content
      * @img /assets/img/tooltip.webp
      * @imgDark /assets/img/tooltip-dark.webp
@@ -2728,7 +2816,7 @@ declare global {
         new (): HTMLGoatTooltipElement;
     };
     interface HTMLGoatTreeNodeElementEventMap {
-        "goat:tree-node-click": any;
+        "goat-tree-node--click": any;
     }
     interface HTMLGoatTreeNodeElement extends Components.GoatTreeNode, HTMLStencilElement {
         addEventListener<K extends keyof HTMLGoatTreeNodeElementEventMap>(type: K, listener: (this: HTMLGoatTreeNodeElement, ev: GoatTreeNodeCustomEvent<HTMLGoatTreeNodeElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2826,7 +2914,6 @@ declare global {
         "goat-text": HTMLGoatTextElement;
         "goat-textarea": HTMLGoatTextareaElement;
         "goat-time-picker": HTMLGoatTimePickerElement;
-        "goat-toast": HTMLGoatToastElement;
         "goat-toggle": HTMLGoatToggleElement;
         "goat-tooltip": HTMLGoatTooltipElement;
         "goat-tree-node": HTMLGoatTreeNodeElement;
@@ -2840,6 +2927,7 @@ declare namespace LocalJSX {
      * @overview  <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>
      *  <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>
      * @category Data Display
+     * @subcategory Accordion
      * @tags display
      * @img /assets/img/accordion.webp
      * @imgDark /assets/img/accordion-dark.webp
@@ -2855,6 +2943,17 @@ declare namespace LocalJSX {
          */
         "size"?: 'sm' | 'md' | 'lg';
     }
+    /**
+     * @name Accordion Item
+     * @description An accordion item is single item in an accordion list. It contains a header and a content section that can be expanded or collapsed by the user.
+     * @overview  <p>The accordion item component is a single item in an accordion list. It contains a header and a content section that can be expanded or collapsed by the user. The accordion item can be used in conjunction with the accordion component to create a list of expandable items.</p>
+     * @category Data Display
+     * @subcategory Accordion
+     * @tags display
+     * @childComponent true
+     * @img /assets/img/accordion.webp
+     * @imgDark /assets/img/accordion-dark.webp
+     */
     interface GoatAccordionItem {
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
@@ -2864,11 +2963,10 @@ declare namespace LocalJSX {
           * The menu item value.
          */
         "heading"?: string;
-        "icon"?: boolean;
         /**
           * Emitted when the menu item is clicked.
          */
-        "onGoat:accordion-item-click"?: (event: GoatAccordionItemCustomEvent<any>) => void;
+        "onGoat-accordion-item--click"?: (event: GoatAccordionItemCustomEvent<any>) => void;
         /**
           * Menu item selection state.
          */
@@ -2892,12 +2990,16 @@ declare namespace LocalJSX {
     /**
      * @name Badge
      * @description The badge component is used to display a small amount of information to the user.
-     * @category Data Display
+     * @category Informational
      * @tag content
      * @example <goat-badge content="5"> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
      */
     interface GoatBadge {
-        "color"?: 'primary' | 'secondary' | 'success' | 'error' | 'warning';
+        "color"?: | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'error'
+    | 'warning';
         "content"?: string;
     }
     /**
@@ -2923,7 +3025,8 @@ declare namespace LocalJSX {
     }
     /**
      * @name Button
-     * @description An interactive button with a range of presentation options.
+     * @description Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
+     * @overview  <p>Buttons are clickable elements that are used to trigger actions. They communicate calls to action to the user and allow users to interact with pages in a variety of ways. Button labels express what action will occur when the user interacts with it.</p>
      * @category General
      * @tags controls
      * @example <goat-button>
@@ -2981,9 +3084,9 @@ declare namespace LocalJSX {
          */
         "kind"?: 'default' | 'simple' | 'block';
         /**
-          * On click of button, a CustomEvent 'goat-button-click' will be triggered.
+          * On click of button, a CustomEvent 'goat-button--click' will be triggered.
          */
-        "onGoat-button-click"?: (event: GoatButtonCustomEvent<any>) => void;
+        "onGoat-button--click"?: (event: GoatButtonCustomEvent<any>) => void;
         /**
           * Button selection state.
          */
@@ -3034,17 +3137,38 @@ declare namespace LocalJSX {
      * @imgDark /assets/img/calendar-dark.webp
      */
     interface GoatCalendar {
+        /**
+          * Available views.
+         */
         "availableViews"?: CalendarViewType[];
+        /**
+          * Context date.
+         */
         "contextDate"?: Date;
+        /**
+          * Event clickable.
+         */
         "eventClickable"?: boolean;
+        /**
+          * Calendar events.
+         */
         "events"?: EventType[];
-        "onGoat:calendar-event-click"?: (event: GoatCalendarCustomEvent<any>) => void;
+        /**
+          * Calendar event click.
+         */
+        "onGoat-calendar--event-click"?: (event: GoatCalendarCustomEvent<any>) => void;
         /**
           * Show loader.
          */
         "showLoader"?: boolean;
+        /**
+          * Timezone.
+         */
         "timezone"?: string;
-        "view"?: string;
+        /**
+          * Calendar view.
+         */
+        "view"?: 'day' | 'week' | 'month' | string;
     }
     interface GoatCalendarColumnView {
         "contextDate"?: Date;
@@ -3052,8 +3176,8 @@ declare namespace LocalJSX {
         "days"?: number;
         "eventClickable"?: boolean;
         "events"?: any[];
-        "onGoat:column-view-date-click"?: (event: GoatCalendarColumnViewCustomEvent<any>) => void;
-        "onGoat:column-view-event-click"?: (event: GoatCalendarColumnViewCustomEvent<any>) => void;
+        "onInternal-column-view-date-click"?: (event: GoatCalendarColumnViewCustomEvent<any>) => void;
+        "onInternal-column-view-event-click"?: (event: GoatCalendarColumnViewCustomEvent<any>) => void;
         "view"?: string;
     }
     interface GoatCalendarColumnViewBackground {
@@ -3065,8 +3189,8 @@ declare namespace LocalJSX {
         "currentTime"?: Date;
         "eventClickable"?: boolean;
         "events"?: any[];
-        "onGoat:month-view-date-click"?: (event: GoatCalendarMonthViewCustomEvent<any>) => void;
-        "onGoat:month-view-event-click"?: (event: GoatCalendarMonthViewCustomEvent<any>) => void;
+        "onInternal-month-view-date-click"?: (event: GoatCalendarMonthViewCustomEvent<any>) => void;
+        "onInternal-month-view-event-click"?: (event: GoatCalendarMonthViewCustomEvent<any>) => void;
     }
     interface GoatCalendarMonthViewBackground {
         "columns"?: number;
@@ -3160,15 +3284,15 @@ declare namespace LocalJSX {
         /**
           * Emitted when the input loses focus.
          */
-        "onGoat:blur"?: (event: GoatCheckboxCustomEvent<any>) => void;
+        "onGoat-checkbox--blur"?: (event: GoatCheckboxCustomEvent<any>) => void;
         /**
-          * On change of input a CustomEvent 'goat:change' will be triggered. Event details contains parent event, oldValue, newValue of input.
+          * On change of input a CustomEvent 'goat-checkbox--change' will be triggered. Event details contains parent event, oldValue, newValue of input.
          */
-        "onGoat:change"?: (event: GoatCheckboxCustomEvent<any>) => void;
+        "onGoat-checkbox--change"?: (event: GoatCheckboxCustomEvent<any>) => void;
         /**
           * Emitted when the input has focus.
          */
-        "onGoat:focus"?: (event: GoatCheckboxCustomEvent<any>) => void;
+        "onGoat-checkbox--focus"?: (event: GoatCheckboxCustomEvent<any>) => void;
         "readonly"?: boolean;
         /**
           * If true, required icon is show. Defaults to `false`.
@@ -3203,6 +3327,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "language"?: 'javascript' | 'json' | 'html';
         "lineNumbers"?: 'off' | 'on';
+        "minimap"?: boolean;
         /**
           * The input field name.
          */
@@ -3210,7 +3335,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value has changed.
          */
-        "onGoat:change"?: (event: GoatCodeEditorCustomEvent<any>) => void;
+        "onGoat-code-editor--change"?: (event: GoatCodeEditorCustomEvent<any>) => void;
         "readonly"?: boolean;
         /**
           * If true, required icon is show. Defaults to `false`.
@@ -3230,11 +3355,26 @@ declare namespace LocalJSX {
      * @imgDark /assets/img/code-highlighter-dark.webp
      */
     interface GoatCodeHighlighter {
+        /**
+          * Format the code snippet.
+         */
         "format"?: boolean;
         "hideCopy"?: boolean;
+        /**
+          * Display the code snippet inline.
+         */
         "inline"?: boolean;
-        "language"?: string;
+        /**
+          * The language of the code snippet.
+         */
+        "language"?: Language;
+        /**
+          * Display line numbers.
+         */
         "lineNumbers"?: boolean;
+        /**
+          * The code snippet to highlight.
+         */
         "value"?: string;
     }
     /**
@@ -3287,19 +3427,19 @@ declare namespace LocalJSX {
         /**
           * Emitted when the input loses focus.
          */
-        "onGoat:blur"?: (event: GoatDatePickerCustomEvent<any>) => void;
+        "onGoat-date-picker--blur"?: (event: GoatDatePickerCustomEvent<any>) => void;
         /**
           * Emitted when the value has changed.
          */
-        "onGoat:change"?: (event: GoatDatePickerCustomEvent<any>) => void;
+        "onGoat-date-picker--change"?: (event: GoatDatePickerCustomEvent<any>) => void;
         /**
           * Emitted when the input has focus.
          */
-        "onGoat:focus"?: (event: GoatDatePickerCustomEvent<any>) => void;
+        "onGoat-date-picker--focus"?: (event: GoatDatePickerCustomEvent<any>) => void;
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onGoat:input"?: (event: GoatDatePickerCustomEvent<any>) => void;
+        "onGoat-date-picker--input"?: (event: GoatDatePickerCustomEvent<any>) => void;
         /**
           * The input field placeholder.
          */
@@ -3345,7 +3485,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         "managed"?: boolean;
-        "onGoat:dropdown-item-click"?: (event: GoatDropdownCustomEvent<any>) => void;
+        "onGoat-dropdown--item-click"?: (event: GoatDropdownCustomEvent<any>) => void;
         "open"?: boolean;
         "placements"?: string;
         /**
@@ -3495,7 +3635,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value has changed..
          */
-        "onGoat:change"?: (event: GoatHtmlEditorCustomEvent<any>) => void;
+        "onGoat-html-editor--change"?: (event: GoatHtmlEditorCustomEvent<any>) => void;
         "readonly"?: boolean;
         /**
           * If true, required icon is show. Defaults to `false`.
@@ -3564,19 +3704,19 @@ declare namespace LocalJSX {
         /**
           * Emitted when the input loses focus.
          */
-        "onGoat:blur"?: (event: GoatInputCustomEvent<any>) => void;
+        "onGoat-input--blur"?: (event: GoatInputCustomEvent<any>) => void;
         /**
           * Emitted when the value has changed.
          */
-        "onGoat:change"?: (event: GoatInputCustomEvent<any>) => void;
+        "onGoat-input--change"?: (event: GoatInputCustomEvent<any>) => void;
         /**
           * Emitted when the input has focus.
          */
-        "onGoat:focus"?: (event: GoatInputCustomEvent<any>) => void;
+        "onGoat-input--focus"?: (event: GoatInputCustomEvent<any>) => void;
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onGoat:input"?: (event: GoatInputCustomEvent<any>) => void;
+        "onGoat-input--input"?: (event: GoatInputCustomEvent<any>) => void;
         /**
           * The input field placeholder.
          */
@@ -3653,7 +3793,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the menu item is clicked.
          */
-        "onGoat:menu-item-click"?: (event: GoatMenuItemCustomEvent<any>) => void;
+        "onGoat-menu-item--click"?: (event: GoatMenuItemCustomEvent<any>) => void;
         /**
           * Menu item selection state.
          */
@@ -3670,7 +3810,8 @@ declare namespace LocalJSX {
     /**
      * @name Modal
      * @description Modals are used to display content in a layer above the app.
-     * @category Feedback
+     * @category Informational
+     * @subcategory Modal
      * @tags controls
      * @img /assets/img/modal.webp
      * @imgDark /assets/img/modal-dark.webp
@@ -3679,39 +3820,69 @@ declare namespace LocalJSX {
         "heading"?: string;
         "hideClose"?: boolean;
         /**
-          * On click of button, a CustomEvent 'goat:modal-close' will be triggered.
+          * On click of button, a CustomEvent 'goat-modal--close' will be triggered.
          */
-        "onGoat:modal-close"?: (event: GoatModalCustomEvent<any>) => void;
+        "onGoat-modal--close"?: (event: GoatModalCustomEvent<any>) => void;
         "open"?: boolean;
         "showLoader"?: boolean;
         "size"?: 'sm' | 'md' | 'lg';
         "subheading"?: string;
     }
+    /**
+     * @name Modal Content
+     * @description The Modal Content component is used to display the content within a modal.
+     * @category Informational
+     * @subcategory Modal
+     * @tags controls
+     * @childComponent true
+     */
     interface GoatModalContent {
         "type"?: 'text' | 'borderless' | 'default';
     }
     /**
      * @name Notification
      * @description Notifications are messages that communicate information to the user.
-     * @category Feedback
+     * @category Informational
      * @tags notification
      * @example <goat-notification state="success">
      *      <div slot='title'>Successful saved the record</div>
      *    </goat-notification>
      */
     interface GoatNotification {
-        "actionLabel"?: string;
-        "actionName"?: string;
-        "actionable"?: boolean;
+        /**
+          * Action to be displayed on the notification
+         */
+        "action"?: string;
+        /**
+          * Whether the notification is dismissible
+         */
         "dismissible"?: boolean;
+        /**
+          * Whether to use high contrast mode
+         */
         "highContrast"?: boolean;
-        "onGoat:dismiss"?: (event: GoatNotificationCustomEvent<any>) => void;
+        /**
+          * Whether the notification should be displayed inline
+         */
+        "inline"?: boolean;
+        /**
+          * Whether the notification is managed by the notification manager
+         */
+        "managed"?: boolean;
+        "onGoat-notification--action-click"?: (event: GoatNotificationCustomEvent<any>) => void;
+        /**
+          * Emitted when the notification is dismissed
+         */
+        "onGoat-notification--dismiss"?: (event: GoatNotificationCustomEvent<any>) => void;
+        /**
+          * The state of the notification. Possible values are: 'success', 'error', 'info', 'warning'
+         */
         "state"?: 'success' | 'error' | 'info' | 'warning';
     }
     /**
      * @name Notification Manager
-     * @description Manages alert, toasts and notifications.
-     * @category Feedback
+     * @description The Notification Manager handles the organization and display of notifications within the application.
+     * @category Informational
      * @tags notification
      * @img /assets/img/notification-manager.webp
      * @imgDark /assets/img/notification-manager-dark.webp
@@ -3761,19 +3932,19 @@ declare namespace LocalJSX {
         /**
           * Emitted when the input loses focus.
          */
-        "onGoat:blur"?: (event: GoatNumberCustomEvent<any>) => void;
+        "onGoat-number--blur"?: (event: GoatNumberCustomEvent<any>) => void;
         /**
           * Emitted when the value has changed.
          */
-        "onGoat:change"?: (event: GoatNumberCustomEvent<any>) => void;
+        "onGoat-number--change"?: (event: GoatNumberCustomEvent<any>) => void;
         /**
           * Emitted when the input has focus.
          */
-        "onGoat:focus"?: (event: GoatNumberCustomEvent<any>) => void;
+        "onGoat-number--focus"?: (event: GoatNumberCustomEvent<any>) => void;
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onGoat:input"?: (event: GoatNumberCustomEvent<any>) => void;
+        "onGoat-number--input"?: (event: GoatNumberCustomEvent<any>) => void;
         /**
           * The input field placeholder.
          */
@@ -3805,7 +3976,7 @@ declare namespace LocalJSX {
     /**
      * @name Progress
      * @description Progress indicators express an unspecified wait time or display the length of a process.
-     * @category Feedback
+     * @category Informational
      * @tags feedback, loading, progress, spinner
      * @example <goat-progress value="40" label="Progress" width="100%" helper-text="Optional helper text goes here..."></goat-progress>
      */
@@ -3868,12 +4039,12 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value has changed.
          */
-        "onGoat:change"?: (event: GoatSelectCustomEvent<any>) => void;
+        "onGoat-select--change"?: (event: GoatSelectCustomEvent<any>) => void;
+        "onGoat-select--enter"?: (event: GoatSelectCustomEvent<any>) => void;
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onGoat:search"?: (event: GoatSelectCustomEvent<any>) => void;
-        "onGoat:search-enter"?: (event: GoatSelectCustomEvent<any>) => void;
+        "onGoat-select--search"?: (event: GoatSelectCustomEvent<any>) => void;
         "open"?: boolean;
         /**
           * The input field placeholder.
@@ -3970,9 +4141,11 @@ declare namespace LocalJSX {
         /**
           * Emitted when the value has changed.
          */
-        "onGoat:change"?: (event: GoatSliderCustomEvent<any>) => void;
-        "onGoat:input"?: (event: GoatSliderCustomEvent<any>) => void;
-        "onGoat:tooltip"?: (event: GoatSliderCustomEvent<any>) => void;
+        "onGoat-slider--change"?: (event: GoatSliderCustomEvent<any>) => void;
+        /**
+          * Emitted when a keyboard input occurred.
+         */
+        "onGoat-slider--input"?: (event: GoatSliderCustomEvent<any>) => void;
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -3989,7 +4162,7 @@ declare namespace LocalJSX {
     /**
      * @name Spinner
      * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
-     * @category Feedback
+     * @category Informational
      * @tags feedback, loading, progress, spinner
      * @example <goat-spinner class="rainbow" size="2rem"></goat-spinner>
      */
@@ -4030,9 +4203,9 @@ declare namespace LocalJSX {
         "icon"?: string;
         "label"?: string;
         /**
-          * On click of tab, a CustomEvent 'goat:tab-click' will be triggered.
+          * On click of tab, a CustomEvent 'goat-tab-click' will be triggered.
          */
-        "onGoat:tab-click"?: (event: GoatTabCustomEvent<any>) => void;
+        "onGoat-tab--click"?: (event: GoatTabCustomEvent<any>) => void;
         /**
           * Button selection state.
          */
@@ -4071,10 +4244,22 @@ declare namespace LocalJSX {
         "keyField"?: string;
         "layer"?: 'background' | '01' | '02';
         "managed"?: boolean;
-        "onGoat:page"?: (event: GoatTableCustomEvent<any>) => void;
-        "onGoat:sort"?: (event: GoatTableCustomEvent<any>) => void;
-        "onGoat:table-cell-click"?: (event: GoatTableCustomEvent<any>) => void;
-        "onGoat:table-select-change"?: (event: GoatTableCustomEvent<any>) => void;
+        /**
+          * Emitted when a table cell is clicked.
+         */
+        "onGoat-table--cell-click"?: (event: GoatTableCustomEvent<any>) => void;
+        /**
+          * Emitted when the page changes.
+         */
+        "onGoat-table--page"?: (event: GoatTableCustomEvent<any>) => void;
+        /**
+          * Emitted when the selection changes.
+         */
+        "onGoat-table--selection-change"?: (event: GoatTableCustomEvent<any>) => void;
+        /**
+          * Emitted when the table is sorted.
+         */
+        "onGoat-table--sort"?: (event: GoatTableCustomEvent<any>) => void;
         "page"?: number;
         "pageSize"?: number;
         "paginate"?: boolean;
@@ -4113,6 +4298,9 @@ declare namespace LocalJSX {
      * @example <goat-tag class="color-red">Important</goat-tag>
      */
     interface GoatTag {
+        /**
+          * Tag color. Possible values are: 'gray', 'blue', 'green', 'red', 'yellow', 'primary', 'success', 'info', 'warning', 'error'.
+         */
         "color"?: | 'gray'
     | 'blue'
     | 'green'
@@ -4123,15 +4311,33 @@ declare namespace LocalJSX {
     | 'info'
     | 'warning'
     | 'error';
-        "filter"?: boolean;
+        /**
+          * If true, the tag will have a close icon.
+         */
+        "dismissible"?: boolean;
+        /**
+          * Image source.
+         */
         "imageSrc"?: string;
-        "onGoat:click"?: (event: GoatTagCustomEvent<any>) => void;
-        "onGoat:tag-dismiss"?: (event: GoatTagCustomEvent<any>) => void;
+        /**
+          * Emitted when the tag is clicked.
+         */
+        "onGoat-tag--click"?: (event: GoatTagCustomEvent<any>) => void;
+        /**
+          * Emitted when the close icon is clicked.
+         */
+        "onGoat-tag--dismiss"?: (event: GoatTagCustomEvent<any>) => void;
+        /**
+          * If true, the tag will be selected.
+         */
         "selected"?: boolean;
         /**
           * Text size.
          */
         "size"?: 'sm' | 'md';
+        /**
+          * Tag value.
+         */
         "value"?: string;
     }
     /**
@@ -4182,23 +4388,23 @@ declare namespace LocalJSX {
         /**
           * Emitted when the action button is clicked.
          */
-        "onGoat:action-click"?: (event: GoatTextareaCustomEvent<any>) => void;
+        "onGoat-textarea--action-click"?: (event: GoatTextareaCustomEvent<any>) => void;
         /**
           * Emitted when the input loses focus.
          */
-        "onGoat:blur"?: (event: GoatTextareaCustomEvent<any>) => void;
+        "onGoat-textarea--blur"?: (event: GoatTextareaCustomEvent<any>) => void;
         /**
           * Emitted when the value has changed..
          */
-        "onGoat:change"?: (event: GoatTextareaCustomEvent<any>) => void;
+        "onGoat-textarea--change"?: (event: GoatTextareaCustomEvent<any>) => void;
         /**
           * Emitted when the input has focus.
          */
-        "onGoat:focus"?: (event: GoatTextareaCustomEvent<any>) => void;
+        "onGoat-textarea--focus"?: (event: GoatTextareaCustomEvent<any>) => void;
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onGoat:input"?: (event: GoatTextareaCustomEvent<any>) => void;
+        "onGoat-textarea--input"?: (event: GoatTextareaCustomEvent<any>) => void;
         /**
           * The input field placeholder.
          */
@@ -4244,19 +4450,19 @@ declare namespace LocalJSX {
         /**
           * Emitted when the input loses focus.
          */
-        "onGoat:blur"?: (event: GoatTimePickerCustomEvent<any>) => void;
+        "onGoat-time-picker--blur"?: (event: GoatTimePickerCustomEvent<any>) => void;
         /**
           * Emitted when the value has changed.
          */
-        "onGoat:change"?: (event: GoatTimePickerCustomEvent<any>) => void;
+        "onGoat-time-picker--change"?: (event: GoatTimePickerCustomEvent<any>) => void;
         /**
           * Emitted when the input has focus.
          */
-        "onGoat:focus"?: (event: GoatTimePickerCustomEvent<any>) => void;
+        "onGoat-time-picker--focus"?: (event: GoatTimePickerCustomEvent<any>) => void;
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onGoat:input"?: (event: GoatTimePickerCustomEvent<any>) => void;
+        "onGoat-time-picker--input"?: (event: GoatTimePickerCustomEvent<any>) => void;
         /**
           * The input field placeholder.
          */
@@ -4273,22 +4479,6 @@ declare namespace LocalJSX {
           * The input field value.
          */
         "value"?: string | number | null;
-    }
-    /**
-     * @name Toast
-     * @description Toasts are lightweight notifications.
-     * @category Feedback
-     * @example <goat-toast state="success" message="Successful saved the record"></goat-toast>
-     */
-    interface GoatToast {
-        /**
-          * Message to display in the toast.
-         */
-        "message"?: string;
-        /**
-          * Toast state. Possible values are `"success"`, `"error"`, `"info"`, `"warning"`. Defaults to `"info"`.
-         */
-        "state"?: 'success' | 'error' | 'info' | 'warning';
     }
     /**
      * @name Toggle
@@ -4314,15 +4504,15 @@ declare namespace LocalJSX {
         /**
           * Emitted when the input loses focus.
          */
-        "onGoat:blur"?: (event: GoatToggleCustomEvent<any>) => void;
+        "onGoat-toggle--blur"?: (event: GoatToggleCustomEvent<any>) => void;
         /**
-          * On change of input a CustomEvent 'goat:change' will be triggered. Event details contains parent event, oldValue, newValue of input.
+          * On change of input a CustomEvent 'goat-change' will be triggered. Event details contains parent event, oldValue, newValue of input.
          */
-        "onGoat:change"?: (event: GoatToggleCustomEvent<any>) => void;
+        "onGoat-toggle--change"?: (event: GoatToggleCustomEvent<any>) => void;
         /**
           * Emitted when the input has focus.
          */
-        "onGoat:focus"?: (event: GoatToggleCustomEvent<any>) => void;
+        "onGoat-toggle--focus"?: (event: GoatToggleCustomEvent<any>) => void;
         "readonly"?: boolean;
         /**
           * If true, required icon is show. Defaults to `false`.
@@ -4341,7 +4531,7 @@ declare namespace LocalJSX {
     /**
      * @name Tooltip
      * @description The Tooltip component is used to display additional information on hover.
-     * @category Data Display
+     * @category Informational
      * @tag content
      * @img /assets/img/tooltip.webp
      * @imgDark /assets/img/tooltip-dark.webp
@@ -4379,7 +4569,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the menu item is clicked.
          */
-        "onGoat:tree-node-click"?: (event: GoatTreeNodeCustomEvent<any>) => void;
+        "onGoat-tree-node--click"?: (event: GoatTreeNodeCustomEvent<any>) => void;
         /**
           * Menu item selection state.
          */
@@ -4470,7 +4660,6 @@ declare namespace LocalJSX {
         "goat-text": GoatText;
         "goat-textarea": GoatTextarea;
         "goat-time-picker": GoatTimePicker;
-        "goat-toast": GoatToast;
         "goat-toggle": GoatToggle;
         "goat-tooltip": GoatTooltip;
         "goat-tree-node": GoatTreeNode;
@@ -4487,11 +4676,23 @@ declare module "@stencil/core" {
              * @overview  <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>
              *  <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>
              * @category Data Display
+             * @subcategory Accordion
              * @tags display
              * @img /assets/img/accordion.webp
              * @imgDark /assets/img/accordion-dark.webp
              */
             "goat-accordion": LocalJSX.GoatAccordion & JSXBase.HTMLAttributes<HTMLGoatAccordionElement>;
+            /**
+             * @name Accordion Item
+             * @description An accordion item is single item in an accordion list. It contains a header and a content section that can be expanded or collapsed by the user.
+             * @overview  <p>The accordion item component is a single item in an accordion list. It contains a header and a content section that can be expanded or collapsed by the user. The accordion item can be used in conjunction with the accordion component to create a list of expandable items.</p>
+             * @category Data Display
+             * @subcategory Accordion
+             * @tags display
+             * @childComponent true
+             * @img /assets/img/accordion.webp
+             * @imgDark /assets/img/accordion-dark.webp
+             */
             "goat-accordion-item": LocalJSX.GoatAccordionItem & JSXBase.HTMLAttributes<HTMLGoatAccordionItemElement>;
             /**
              * @name Avatar
@@ -4504,7 +4705,7 @@ declare module "@stencil/core" {
             /**
              * @name Badge
              * @description The badge component is used to display a small amount of information to the user.
-             * @category Data Display
+             * @category Informational
              * @tag content
              * @example <goat-badge content="5"> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
              */
@@ -4520,7 +4721,8 @@ declare module "@stencil/core" {
             "goat-breadcrumb-item": LocalJSX.GoatBreadcrumbItem & JSXBase.HTMLAttributes<HTMLGoatBreadcrumbItemElement>;
             /**
              * @name Button
-             * @description An interactive button with a range of presentation options.
+             * @description Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
+             * @overview  <p>Buttons are clickable elements that are used to trigger actions. They communicate calls to action to the user and allow users to interact with pages in a variety of ways. Button labels express what action will occur when the user interacts with it.</p>
              * @category General
              * @tags controls
              * @example <goat-button>
@@ -4737,17 +4939,26 @@ declare module "@stencil/core" {
             /**
              * @name Modal
              * @description Modals are used to display content in a layer above the app.
-             * @category Feedback
+             * @category Informational
+             * @subcategory Modal
              * @tags controls
              * @img /assets/img/modal.webp
              * @imgDark /assets/img/modal-dark.webp
              */
             "goat-modal": LocalJSX.GoatModal & JSXBase.HTMLAttributes<HTMLGoatModalElement>;
+            /**
+             * @name Modal Content
+             * @description The Modal Content component is used to display the content within a modal.
+             * @category Informational
+             * @subcategory Modal
+             * @tags controls
+             * @childComponent true
+             */
             "goat-modal-content": LocalJSX.GoatModalContent & JSXBase.HTMLAttributes<HTMLGoatModalContentElement>;
             /**
              * @name Notification
              * @description Notifications are messages that communicate information to the user.
-             * @category Feedback
+             * @category Informational
              * @tags notification
              * @example <goat-notification state="success">
              *      <div slot='title'>Successful saved the record</div>
@@ -4756,8 +4967,8 @@ declare module "@stencil/core" {
             "goat-notification": LocalJSX.GoatNotification & JSXBase.HTMLAttributes<HTMLGoatNotificationElement>;
             /**
              * @name Notification Manager
-             * @description Manages alert, toasts and notifications.
-             * @category Feedback
+             * @description The Notification Manager handles the organization and display of notifications within the application.
+             * @category Informational
              * @tags notification
              * @img /assets/img/notification-manager.webp
              * @imgDark /assets/img/notification-manager-dark.webp
@@ -4774,7 +4985,7 @@ declare module "@stencil/core" {
             /**
              * @name Progress
              * @description Progress indicators express an unspecified wait time or display the length of a process.
-             * @category Feedback
+             * @category Informational
              * @tags feedback, loading, progress, spinner
              * @example <goat-progress value="40" label="Progress" width="100%" helper-text="Optional helper text goes here..."></goat-progress>
              */
@@ -4808,7 +5019,7 @@ declare module "@stencil/core" {
             /**
              * @name Spinner
              * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
-             * @category Feedback
+             * @category Informational
              * @tags feedback, loading, progress, spinner
              * @example <goat-spinner class="rainbow" size="2rem"></goat-spinner>
              */
@@ -4876,13 +5087,6 @@ declare module "@stencil/core" {
              */
             "goat-time-picker": LocalJSX.GoatTimePicker & JSXBase.HTMLAttributes<HTMLGoatTimePickerElement>;
             /**
-             * @name Toast
-             * @description Toasts are lightweight notifications.
-             * @category Feedback
-             * @example <goat-toast state="success" message="Successful saved the record"></goat-toast>
-             */
-            "goat-toast": LocalJSX.GoatToast & JSXBase.HTMLAttributes<HTMLGoatToastElement>;
-            /**
              * @name Toggle
              * @description Captures boolean input with an optional indeterminate mode.
              * @category Form Inputs
@@ -4893,7 +5097,7 @@ declare module "@stencil/core" {
             /**
              * @name Tooltip
              * @description The Tooltip component is used to display additional information on hover.
-             * @category Data Display
+             * @category Informational
              * @tag content
              * @img /assets/img/tooltip.webp
              * @imgDark /assets/img/tooltip-dark.webp

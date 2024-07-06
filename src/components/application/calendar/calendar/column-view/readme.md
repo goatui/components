@@ -19,10 +19,10 @@
 
 ## Events
 
-| Event                          | Description | Type               |
-| ------------------------------ | ----------- | ------------------ |
-| `goat:column-view-date-click`  |             | `CustomEvent<any>` |
-| `goat:column-view-event-click` |             | `CustomEvent<any>` |
+| Event                              | Description | Type               |
+| ---------------------------------- | ----------- | ------------------ |
+| `internal-column-view-date-click`  |             | `CustomEvent<any>` |
+| `internal-column-view-event-click` |             | `CustomEvent<any>` |
 
 
 ## Dependencies

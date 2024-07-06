@@ -14,7 +14,7 @@ import { isDarkMode, observeThemeChange } from '../../../utils/utils';
 /**
  * @name Notification
  * @description Notifications are messages that communicate information to the user.
- * @category Feedback
+ * @category Informational
  * @tags notification
  * @example <goat-notification state="success">
  *               <div slot='title'>Successful saved the record</div>
@@ -28,20 +28,47 @@ import { isDarkMode, observeThemeChange } from '../../../utils/utils';
 export class Notification implements ComponentInterface {
   @Element() elm!: HTMLElement;
 
-  @Prop() state: 'success' | 'error' | 'info' | 'warning' = 'info';
+  /**
+   * Whether the notification should be displayed inline
+   */
+  @Prop({ reflect: true }) inline: boolean = false;
 
+  /**
+   * The state of the notification.
+   * Possible values are: 'success', 'error', 'info', 'warning'
+   */
+  @Prop({ reflect: true }) state: 'success' | 'error' | 'info' | 'warning' =
+    'info';
+
+  /**
+   * Whether to use high contrast mode
+   */
   @Prop() highContrast: boolean = false;
 
+  /**
+   * Whether the notification is dismissible
+   */
   @Prop() dismissible: boolean = false;
 
-  @Prop() actionable: boolean = true;
-  @Prop() actionName: string = 'dismiss';
-  @Prop() actionLabel: string = 'Dismiss';
+  /**
+   * Action to be displayed on the notification
+   */
+  @Prop() action: string;
 
-  @Event({ eventName: 'goat:dismiss' }) goatDismiss: EventEmitter;
+  /**
+   * Whether the notification is managed by the notification manager
+   */
+  @Prop() managed: boolean = false;
+
+  /**
+   * Emitted when the notification is dismissed
+   */
+  @Event({ eventName: 'goat-notification--dismiss' }) goatDismiss: EventEmitter;
+
+  @Event({ eventName: 'goat-notification--action-click' })
+  goatActionClick: EventEmitter;
 
   @State() hidden: boolean = false;
-
   @State() isDarkMode: boolean = isDarkMode();
 
   componentWillLoad() {
@@ -56,6 +83,7 @@ export class Notification implements ComponentInterface {
         <div
           class={{
             'notification': true,
+            'inline': this.inline,
             'high-contrast': this.highContrast,
             [`state-${this.state}`]: true,
           }}
@@ -63,45 +91,65 @@ export class Notification implements ComponentInterface {
         >
           <div class="state-icon">{this.renderStateIcon()}</div>
           <div class="content">
-            <div class="title">
-              <slot name="title" />
-              <slot />
+            <div class="content-text">
+              <div class="title">
+                <slot name="title" />
+                <slot />
+              </div>
+              <div class="subtitle">
+                <slot name="subtitle" />
+              </div>
             </div>
-            <div class="subtitle">
-              <slot name="subtitle" />
-            </div>
+            {this.#renderActions()}
           </div>
-          {this.renderAction()}
-          {this.renderCloseButton()}
+
+          {this.#renderCloseButtons()}
         </div>
       </Host>
     );
   }
 
-  renderAction() {
-    if (this.actionable)
+  #renderActions() {
+    if (this.action) {
       return (
-        <div class="action">
-          <slot name="action" />
+        <div class="actions">
+          <goat-button
+            size="sm"
+            class="action"
+            kind="simple"
+            variant={this.inline ? 'ghost' : 'outline'}
+            color={!this.highContrast || this.isDarkMode ? 'primary' : 'white'}
+            onGoat-button--click={() => {
+              this.goatActionClick.emit();
+            }}
+          >
+            {this.action}
+          </goat-button>
         </div>
       );
+    }
   }
 
-  renderCloseButton() {
+  #renderCloseButtons() {
     if (this.dismissible) {
       return (
         <div class="close-button-container">
           <goat-button
-            class="close-button color-secondary"
+            class="close-button"
             aria-label="Close alert"
-            variant="link"
             kind="simple"
-            onGoat-button-click={evt => {
-              this.hidden = true;
+            variant="ghost"
+            color="black"
+            onGoat-button--click={evt => {
+              evt.preventDefault();
+              evt.stopPropagation();
+              if (!this.managed) {
+                this.hidden = true;
+              }
               this.goatDismiss.emit(evt);
             }}
           >
-            <goat-icon class="icon" size="1.5rem" name="close" />
+            <goat-icon class="icon" size="1.25rem" name="close" />
           </goat-button>
         </div>
       );
@@ -110,13 +158,25 @@ export class Notification implements ComponentInterface {
 
   renderStateIcon() {
     if (this.state === 'success') {
-      return <goat-icon class="inherit" name="checkmark--filled" />;
+      return (
+        <goat-icon class="inherit" size={'1.25rem'} name="checkmark--filled" />
+      );
     } else if (this.state === 'error') {
-      return <goat-icon class="inherit" name="error--filled" />;
+      return (
+        <goat-icon class="inherit" size={'1.25rem'} name="error--filled" />
+      );
     } else if (this.state === 'info') {
-      return <goat-icon class="inherit" name="information--filled" />;
+      return (
+        <goat-icon
+          class="inherit"
+          size={'1.25rem'}
+          name="information--filled"
+        />
+      );
     } else if (this.state === 'warning') {
-      return <goat-icon class="inherit" name="warning--filled" />;
+      return (
+        <goat-icon class="inherit" size={'1.25rem'} name="warning--filled" />
+      );
     }
   }
 }

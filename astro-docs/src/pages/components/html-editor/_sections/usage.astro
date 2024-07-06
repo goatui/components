@@ -39,10 +39,10 @@ import Highlighter from '../../../../components/Highlighter.astro';
 <p></p>
 <p>– Thanks, your big boss</p>`;
 
-      document.querySelector('#disableEditor').addEventListener('goat:change', function (evt) {
+      document.querySelector('#disableEditor').addEventListener('goat-checkbox--change', function (evt) {
         document.getElementById('html-editor').disabled = evt.target.value;
       });
-      document.querySelector('#readonlyEditor').addEventListener('goat:change', function (evt) {
+      document.querySelector('#readonlyEditor').addEventListener('goat-checkbox--change', function (evt) {
         document.getElementById('html-editor').readonly = evt.target.value;
       });
     </script>

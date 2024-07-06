@@ -18,11 +18,9 @@ import { getComponentIndex } from '../../../../utils/utils';
   shadow: true,
 })
 export class GoatMenu {
+  @Element() elm!: HTMLElement;
+
   gid: string = getComponentIndex();
-
-  private nativeElement?: HTMLElement;
-
-  private tabindex?: string | number = 1;
 
   /**
    * The menu item value.
@@ -54,10 +52,16 @@ export class GoatMenu {
   /**
    * Emitted when the menu item is clicked.
    */
-  @Event({ eventName: 'goat:menu-item-click' }) goatMenuItemClick: EventEmitter;
+  @Event({ eventName: 'goat-menu-item--click' })
+  goatMenuItemClick: EventEmitter;
 
   @State() startSlotHasContent = false;
   @State() endSlotHasContent = false;
+  @State() hasFocus = false;
+  @State() isActive = false;
+
+  private nativeElement?: HTMLElement;
+  private tabindex?: string | number = 1;
 
   /**
    * Sets focus on the native `input` in `goat-input`. Use this method instead of the global
@@ -90,44 +94,6 @@ export class GoatMenu {
   windowKeyUp(evt) {
     if (this.isActive && evt.key == ' ') this.isActive = false;
   }
-
-  @State() hasFocus = false;
-  @State() isActive = false;
-  @Element() elm!: HTMLElement;
-
-  private clickHandler = event => {
-    if (!this.disabled) {
-      this.setFocus();
-      this.goatMenuItemClick.emit({
-        value: this.value || this.elm.innerText,
-      });
-      if (this.href) window.open(this.href, this.target);
-    } else {
-      event.preventDefault();
-      event.stopPropagation();
-      return;
-    }
-  };
-
-  private blurHandler = () => {
-    this.hasFocus = false;
-  };
-
-  private focusHandler = () => {
-    this.hasFocus = true;
-  };
-
-  private mouseDownHandler = () => {
-    this.isActive = true;
-  };
-
-  private keyDownHandler = evt => {
-    if (evt.key == ' ' || evt.key == 'Enter') {
-      evt.preventDefault();
-      this.isActive = true;
-      this.clickHandler(evt);
-    }
-  };
 
   getNativeElementTagName() {
     if (this.href) return 'a';
@@ -187,5 +153,39 @@ export class GoatMenu {
         </NativeElementTag>
       </Host>
     );
+  };
+
+  private clickHandler = event => {
+    if (!this.disabled) {
+      this.setFocus();
+      this.goatMenuItemClick.emit({
+        value: this.value || this.elm.innerText,
+      });
+      if (this.href) window.open(this.href, this.target);
+    } else {
+      event.preventDefault();
+      event.stopPropagation();
+      return;
+    }
+  };
+
+  private blurHandler = () => {
+    this.hasFocus = false;
+  };
+
+  private focusHandler = () => {
+    this.hasFocus = true;
+  };
+
+  private mouseDownHandler = () => {
+    this.isActive = true;
+  };
+
+  private keyDownHandler = evt => {
+    if (evt.key == ' ' || evt.key == 'Enter') {
+      evt.preventDefault();
+      this.isActive = true;
+      this.clickHandler(evt);
+    }
   };
 }

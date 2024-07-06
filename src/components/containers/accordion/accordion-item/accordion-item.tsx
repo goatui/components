@@ -10,6 +10,18 @@ import {
 } from '@stencil/core';
 import { getComponentIndex } from '../../../../utils/utils';
 
+/**
+ * @name Accordion Item
+ * @description An accordion item is single item in an accordion list. It contains a header and a content section that can be expanded or collapsed by the user.
+ * @overview
+ *  <p>The accordion item component is a single item in an accordion list. It contains a header and a content section that can be expanded or collapsed by the user. The accordion item can be used in conjunction with the accordion component to create a list of expandable items.</p>
+ * @category Data Display
+ * @subcategory Accordion
+ * @tags display
+ * @childComponent true
+ * @img /assets/img/accordion.webp
+ * @imgDark /assets/img/accordion-dark.webp
+ */
 @Component({
   tag: 'goat-accordion-item',
   styleUrl: 'accordion-item.scss',
@@ -21,7 +33,7 @@ export class GoatAccordionItem {
   /**
    * The menu item value.
    */
-  @Prop() heading: string = 'Heading';
+  @Prop() heading: string;
 
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
@@ -33,14 +45,12 @@ export class GoatAccordionItem {
    */
   @Prop({ reflect: true, mutable: true }) open: boolean = false;
 
-  @Prop({ reflect: true }) icon: boolean = false;
-
   @State() hasFocus = false;
 
   /**
    * Emitted when the menu item is clicked.
    */
-  @Event({ eventName: 'goat:accordion-item-click' })
+  @Event({ eventName: 'goat-accordion-item--click' })
   goatAccordionItemClick: EventEmitter;
 
   @State() startSlotHasContent = false;

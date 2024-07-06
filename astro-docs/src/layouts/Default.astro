@@ -53,7 +53,6 @@ const getTitle = (root?: boolean) => {
         </div>
 
 
-
         <goat-header-action
           class='hide-tablet-portrait-below'
           href='/components#'>
@@ -116,24 +115,27 @@ const getTitle = (root?: boolean) => {
         variant='ghost'
         icon='close--large'
         color='secondary'
+        size='lg'
         dark-mode-color='white'
         aria-label='Close menu'
       ></goat-button>
     </div>
 
-    <goat-button href='/components#' kind='block' variant='ghost' color='secondary' dark-mode-color='white'>
-      <goat-icon name='roadmap'></goat-icon>&nbsp;
-      Components
-    </goat-button>
-    <goat-button href='/blog#' kind='block' variant='ghost' color='secondary' dark-mode-color='white'>
-      <goat-icon name='blog'></goat-icon>&nbsp;
-      Blog
-    </goat-button>
-    <goat-button href='https://github.com/sponsors/shivajivarma' kind='block' variant='ghost' color='secondary'
-                 dark-mode-color='white'>
-      <goat-icon name='currency--rupee'></goat-icon>&nbsp;
-      Sponsor
-    </goat-button>
+    <goat-menu class='header-menu-list no-border'>
+      <goat-menu-item href='/components#'>
+        <goat-icon name='roadmap'></goat-icon>&nbsp;
+        Components
+      </goat-menu-item>
+      <goat-menu-item href='/blog#'>
+        <goat-icon name='blog'></goat-icon>&nbsp;
+        Blog
+      </goat-menu-item>
+      <goat-menu-item href='https://github.com/sponsors/shivajivarma' target='_blank'
+                      icon='roadmap'>
+        <goat-icon name='currency--rupee'></goat-icon>&nbsp;
+        Sponsor
+      </goat-menu-item>
+    </goat-menu>
   </div>
 
   <main class={classes}>
@@ -162,16 +164,15 @@ const getTitle = (root?: boolean) => {
       });
 
 
-
       if (search) {
         // prettier-ignore
         search.items = searchItems;
         search.items = search.items.filter(item => !!item.label);
-        search.addEventListener('goat:change', function(e) {
+        search.addEventListener('goat-select--change', function(e) {
           window.location.href = '/components/' + e.detail.value;
         });
 
-        search.addEventListener('goat:search-enter', function(e) {
+        search.addEventListener('goat-select--search-enter', function(e) {
           if (e.detail.currentItems.length > 0)
             window.location.href = '/components/' + e.detail.currentItems[0].value;
         });

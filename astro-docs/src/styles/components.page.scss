@@ -152,7 +152,7 @@
 #search-container {
   position: sticky;
   top: 100px;
-  z-index: 100;
+  z-index: 1000;
 
   &.scrolled {
     padding: 1rem;

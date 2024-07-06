@@ -87,22 +87,22 @@ export class DatePicker implements ComponentInterface {
   /**
    * Emitted when a keyboard input occurred.
    */
-  @Event({ eventName: 'goat:input' }) goatInput: EventEmitter;
+  @Event({ eventName: 'goat-date-picker--input' }) goatInput: EventEmitter;
 
   /**
    * Emitted when the value has changed.
    */
-  @Event({ eventName: 'goat:change' }) goatChange: EventEmitter;
+  @Event({ eventName: 'goat-date-picker--change' }) goatChange: EventEmitter;
 
   /**
    * Emitted when the input loses focus.
    */
-  @Event({ eventName: 'goat:blur' }) goatBlur: EventEmitter;
+  @Event({ eventName: 'goat-date-picker--blur' }) goatBlur: EventEmitter;
 
   /**
    * Emitted when the input has focus.
    */
-  @Event({ eventName: 'goat:focus' }) goatFocus: EventEmitter;
+  @Event({ eventName: 'goat-date-picker--focus' }) goatFocus: EventEmitter;
 
   @Element() elm!: HTMLElement;
   private nativeElement?: HTMLInputElement;
@@ -253,7 +253,7 @@ export class DatePicker implements ComponentInterface {
                 icon={'calendar'}
                 variant="ghost"
                 disabled={this.disabled}
-                onGoat-button-click={() => {
+                onGoat-button--click={() => {
                   setTimeout(() => {
                     this.nativeElement.showPicker();
                   });

@@ -4,9 +4,9 @@ import Highlighter from '../../../../components/Highlighter.astro';
 <goat-card>
   <goat-card-content class='no-padding'>
     <Highlighter lang='javascript' is:raw>
-      const $list = document.querySelector('.menu');
-      $list.addEventListener('goat:menu-item-click', function(evt) {
-        console.log(JSON.stringify(evt.detail.value, null, 4));
+      const treeView = document.querySelector('#tree-view');
+      treeView.addEventListener('goat-tree-node--click', function(evt) {
+      myConsole.log(JSON.stringify(evt.detail.value, null, 4), 'goat-tree-node-click');
       });
     </Highlighter>
   </goat-card-content>

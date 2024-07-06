@@ -3,7 +3,7 @@ import { Component, h, Host, Prop } from '@stencil/core';
 /**
  * @name Progress
  * @description Progress indicators express an unspecified wait time or display the length of a process.
- * @category Feedback
+ * @category Informational
  * @tags feedback, loading, progress, spinner
  * @example <goat-progress value="40" label="Progress" width="100%" helper-text="Optional helper text goes here..."></goat-progress>
  */
@@ -37,9 +37,16 @@ export class Progress {
 
   getRenderIcon() {
     if (this.status === 'success') {
-      return <goat-icon class={'progress-icon'} name={'checkmark--filled'}></goat-icon>;
+      return (
+        <goat-icon
+          class={'progress-icon'}
+          name={'checkmark--filled'}
+        ></goat-icon>
+      );
     } else if (this.status === 'error') {
-      return <goat-icon class={'progress-icon'} name={'error--filled'}></goat-icon>;
+      return (
+        <goat-icon class={'progress-icon'} name={'error--filled'}></goat-icon>
+      );
     }
   }
 
@@ -61,7 +68,14 @@ export class Progress {
             </div>
           )}
           <div class="progress-track">
-            <div class="progress-bar" role="progressbar" style={{ width: `${this.value}%` }} aria-valuenow={this.value} aria-valuemin="0" aria-valuemax="100"></div>
+            <div
+              class="progress-bar"
+              role="progressbar"
+              style={{ width: `${this.value}%` }}
+              aria-valuenow={this.value}
+              aria-valuemin="0"
+              aria-valuemax="100"
+            ></div>
           </div>
           <div class="progress-helper">{this.helperText}</div>
         </div>

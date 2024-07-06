@@ -17,6 +17,7 @@ import {
   DRAG_EVENT_TYPES,
   DRAG_STOP_EVENT_TYPES,
   getComponentIndex,
+  isInViewport,
   secondsToHHMMSS,
   throttle,
 } from '../../../utils/utils';
@@ -82,9 +83,12 @@ export class Slider implements ComponentInterface, InputComponentInterface {
   /**
    * Emitted when the value has changed.
    */
-  @Event({ eventName: 'goat:change' }) goatChange: EventEmitter;
-  @Event({ eventName: 'goat:input' }) goatInput: EventEmitter;
-  @Event({ eventName: 'goat:tooltip' }) goatTooltipOpen: EventEmitter;
+  @Event({ eventName: 'goat-slider--change' }) goatChange: EventEmitter;
+
+  /**
+   * Emitted when a keyboard input occurred.
+   */
+  @Event({ eventName: 'goat-slider--input' }) goatInput: EventEmitter;
 
   /**
    * Sets focus on the native `input` in `ion-input`. Use this method instead of the global
@@ -211,16 +215,24 @@ export class Slider implements ComponentInterface, InputComponentInterface {
     });
   };
 
+  openTooltip = (target, open) => {
+    document.dispatchEvent(
+      new CustomEvent('goat-tooltip-open', {
+        detail: {
+          target: target,
+          open: open,
+        },
+      }),
+    );
+  };
+
   _onDrag = event => {
     // Do nothing if component is disabled
     if (this.disabled || this.readonly) {
       return;
     }
 
-    this.goatTooltipOpen.emit({
-      target: this.thumbElement,
-      open: true,
-    });
+    this.openTooltip(this.thumbElement, true);
 
     this.updateByPosition(event.clientX);
   };
@@ -264,10 +276,7 @@ export class Slider implements ComponentInterface, InputComponentInterface {
 
   private blurHandler = () => {
     this.hasFocus = false;
-    this.goatTooltipOpen.emit({
-      target: this.thumbElement,
-      open: false,
-    });
+    this.openTooltip(this.thumbElement, false);
   };
 
   private focusHandler = () => {
@@ -285,19 +294,12 @@ export class Slider implements ComponentInterface, InputComponentInterface {
 
   private computeSliderWidth() {
     //monaco.languages.typescript.javascriptDefaults.addExtraLib(this.extraLibs);
-    if (this.slideElementWidth == null && !this.isInViewport(this.elm)) {
+    if (this.slideElementWidth == null && !isInViewport(this.elm)) {
       setTimeout(() => this.computeSliderWidth(), 80);
       return;
     }
 
     this.slideElementWidth = this.slideElement.getBoundingClientRect().width;
-  }
-
-  isInViewport(element: HTMLElement) {
-    const rect = element.getBoundingClientRect();
-    return (
-      rect.top !== 0 && rect.left !== 0 && rect.bottom !== 0 && rect.right !== 0
-    );
   }
 
   render() {
@@ -323,17 +325,11 @@ export class Slider implements ComponentInterface, InputComponentInterface {
                 onFocus={this.focusHandler}
                 ref={elm => (this.thumbElement = elm)}
                 onMouseOver={_e => {
-                  this.goatTooltipOpen.emit({
-                    target: this.thumbElement,
-                    open: true,
-                  });
+                  this.openTooltip(this.thumbElement, true);
                 }}
                 onMouseLeave={_e => {
                   if (!this.hasFocus)
-                    this.goatTooltipOpen.emit({
-                      target: this.thumbElement,
-                      open: false,
-                    });
+                    this.openTooltip(this.thumbElement, false);
                 }}
                 tooltip-target={`slider-tooltip-${this.gid}`}
                 tabIndex={0}
@@ -368,12 +364,12 @@ export class Slider implements ComponentInterface, InputComponentInterface {
                 value={this.value}
                 size="sm"
                 hide-actions={true}
-                onGoat:change={e => {
+                onGoat-change={e => {
                   e.stopPropagation();
                   this.value = e.target.value;
                   this.updateValue();
                 }}
-                onGoat:input={e => {
+                onGoat-input={e => {
                   e.stopPropagation();
                 }}
               ></goat-number>

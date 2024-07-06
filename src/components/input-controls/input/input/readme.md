@@ -34,12 +34,12 @@
 
 ## Events
 
-| Event         | Description                             | Type               |
-| ------------- | --------------------------------------- | ------------------ |
-| `goat:blur`   | Emitted when the input loses focus.     | `CustomEvent<any>` |
-| `goat:change` | Emitted when the value has changed.     | `CustomEvent<any>` |
-| `goat:focus`  | Emitted when the input has focus.       | `CustomEvent<any>` |
-| `goat:input`  | Emitted when a keyboard input occurred. | `CustomEvent<any>` |
+| Event                | Description                             | Type               |
+| -------------------- | --------------------------------------- | ------------------ |
+| `goat-input--blur`   | Emitted when the input loses focus.     | `CustomEvent<any>` |
+| `goat-input--change` | Emitted when the value has changed.     | `CustomEvent<any>` |
+| `goat-input--focus`  | Emitted when the input has focus.       | `CustomEvent<any>` |
+| `goat-input--input`  | Emitted when a keyboard input occurred. | `CustomEvent<any>` |
 
 
 ## Methods

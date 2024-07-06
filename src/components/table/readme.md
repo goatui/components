@@ -29,12 +29,12 @@
 
 ## Events
 
-| Event                      | Description | Type               |
-| -------------------------- | ----------- | ------------------ |
-| `goat:page`                |             | `CustomEvent<any>` |
-| `goat:sort`                |             | `CustomEvent<any>` |
-| `goat:table-cell-click`    |             | `CustomEvent<any>` |
-| `goat:table-select-change` |             | `CustomEvent<any>` |
+| Event                          | Description                           | Type               |
+| ------------------------------ | ------------------------------------- | ------------------ |
+| `goat-table--cell-click`       | Emitted when a table cell is clicked. | `CustomEvent<any>` |
+| `goat-table--page`             | Emitted when the page changes.        | `CustomEvent<any>` |
+| `goat-table--selection-change` | Emitted when the selection changes.   | `CustomEvent<any>` |
+| `goat-table--sort`             | Emitted when the table is sorted.     | `CustomEvent<any>` |
 
 
 ## Dependencies

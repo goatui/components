@@ -24,3 +24,48 @@ export function getNextAndPrevious(target: string) {
     previousComponent: getComponentDetails(prevElement),
   };
 }
+
+export function getCategoriesTree() {
+  const categoriesTree: any[] = [];
+
+  componentsDetails.components.forEach(component => {
+    let categoryName = component.metadata.category;
+    let subCategoryName = component.metadata.subcategory;
+    if (!categoryName) {
+      categoryName = 'Up coming';
+    }
+
+    let cat = categoriesTree.find((category: any) => category.name === categoryName);
+    if (!cat) {
+      cat = {
+        name: categoryName,
+        hide: false,
+        children: [],
+      };
+      categoriesTree.push(cat);
+    }
+
+    if (subCategoryName) {
+      let subCat = cat.children.find((subcategory: any) => subcategory.name === subCategoryName);
+      if (!subCat) {
+        subCat = {
+          name: subCategoryName,
+          children: [],
+        };
+        cat.children.push(subCat);
+      }
+      subCat.children.push(component.tag);
+      return;
+    }
+
+    cat.children.push(component.tag);
+  });
+
+  const order = ['Data Display', 'Feedback', 'Form Inputs', 'General', 'Layout', 'Navigation', 'Charts', 'Others', 'Up coming'];
+
+  categoriesTree.sort((a, b) => {
+    return order.indexOf(a.name) - order.indexOf(b.name);
+  });
+
+  return categoriesTree;
+}

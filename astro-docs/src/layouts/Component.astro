@@ -7,36 +7,52 @@ interface Props {
 const {componentDetails} = Astro.props;
 
 import Layout from './Default.astro';
-import componentsDetails from '../_data/componentsDetails.json';
 import '../styles/component.layout.scss';
-import { getComponentDetails, getNextAndPrevious } from '../_data/getComponentDetails';
+import { getCategoriesTree, getComponentDetails, getNextAndPrevious } from '../_data/getComponentDetails';
 import Footer from '../components/Footer.astro';
 
 const title = componentDetails.metadata.name;
 const description = componentDetails.metadata.description;
 const {nextComponent, previousComponent} = getNextAndPrevious(componentDetails.tag);
+
+
+
 ---
 
 <Layout title={title} description={description} classes='layer-01'>
 
-  <div class='sidenav m-hide'>
+  <div class='sidenav m-hide layer-background'>
 
     <div class='sidenav-components'>
 
-      <goat-tree-view class='layer-background' value={title} selected-node={title}>
-        <goat-tree-node class='layer-background' label="Overview" href='/components'></goat-tree-node>
+      <goat-tree-view layer='01' value={title} selected-node={title}>
+        <goat-tree-node  label="Overview" href='/components'></goat-tree-node>
 
         {
-          componentsDetails.categories.map((category) => {
+          getCategoriesTree().map((category) => {
             if (!category.hide) {
-              return <goat-tree-node label={category.name}>
+              return <goat-tree-node label={category.name}  value={category.name + 'group'}>
                 {
-                  category.components.map((componentName) => {
-                    const component = getComponentDetails(componentName);
-                    if (component.metadata.name) {
-                      return <goat-tree-node class='layer-background'
-                                             label={component.metadata.name}
-                                             href={`/components/${component.tag.replace('goat-', '')}/`}></goat-tree-node>
+
+                  category.children.map((componentName) => {
+                    if (typeof componentName === 'string') {
+                      const component = getComponentDetails(componentName);
+                      if (component.metadata.name) {
+                        return <goat-tree-node label={component.metadata.name} value={component.metadata.name}
+                                          href={`/components/${component.tag.replace('goat-', '')}/`}></goat-tree-node>
+                      }
+                    } else if (componentName.children) {
+                      return <goat-tree-node label={componentName.name}  value={componentName.name + 'group'}>
+                        {
+                          componentName.children.map((componentName) => {
+                            const component = getComponentDetails(componentName);
+                            if (component.metadata.name) {
+                              return <goat-tree-node label={component.metadata.name}  value={component.metadata.name}
+                                                href={`/components/${component.tag.replace('goat-', '')}/`}></goat-tree-node>
+                            }
+                          })
+                        }
+                      </goat-tree-node>
                     }
                   })
                 }

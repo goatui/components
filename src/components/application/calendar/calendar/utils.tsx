@@ -5,7 +5,10 @@ import { endOfMonth, endOfWeek, startOfMonth, startOfWeek } from 'date-fns/esm';
  * @param date Context date for which range need to calculated.
  * @param weekStartsOn A numeric value. The index of the first day of the week (0 - Sunday)
  */
-export function calculateMonthRange(date, weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 = 1) {
+export function calculateMonthRange(
+  date,
+  weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 = 1,
+) {
   const startDate = startOfWeek(startOfMonth(date), { weekStartsOn });
   const endDate = endOfWeek(endOfMonth(date), { weekStartsOn });
   return {
@@ -18,7 +21,10 @@ export function calculateMonthRange(date, weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 
 /*
  *
  */
-export function calculateWeekRange(date, weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 = 1) {
+export function calculateWeekRange(
+  date,
+  weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6 = 1,
+) {
   const startDate = startOfWeek(date, { weekStartsOn });
   const endDate = endOfWeek(date, { weekStartsOn });
   return {
@@ -27,3 +33,5 @@ export function calculateWeekRange(date, weekStartsOn: 0 | 1 | 2 | 3 | 4 | 5 | 6
     totalDays: 7,
   };
 }
+
+export const LONG_EVENT_PADDING = 0.25;

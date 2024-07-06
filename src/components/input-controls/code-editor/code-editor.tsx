@@ -15,6 +15,7 @@ import {
   debounceEvent,
   getComponentIndex,
   isDarkMode,
+  isInViewport,
   observeThemeChange,
 } from '../../../utils/utils';
 import loadMonaco from '../../../3d-party/monaco';
@@ -61,12 +62,14 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
 
   @Prop() lineNumbers: 'off' | 'on' = 'on';
 
+  @Prop() minimap: boolean = false;
+
   @State() isDarkMode: boolean = isDarkMode();
 
   /**
    * Emitted when the value has changed.
    */
-  @Event({ eventName: 'goat:change' }) goatChange: EventEmitter;
+  @Event({ eventName: 'goat-code-editor--change' }) goatChange: EventEmitter;
 
   /**
    * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
@@ -169,19 +172,12 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
     return theme;
   }
 
-  isInViewport(element: HTMLElement) {
-    const rect = element.getBoundingClientRect();
-    return (
-      rect.top !== 0 && rect.left !== 0 && rect.bottom !== 0 && rect.right !== 0
-    );
-  }
-
   async initializeMonaco() {
     if (!window['monaco']) {
       await loadMonaco();
     }
     //monaco.languages.typescript.javascriptDefaults.addExtraLib(this.extraLibs);
-    if (!this.editorMonacoInstance && !this.isInViewport(this.elm)) {
+    if (!this.editorMonacoInstance && !isInViewport(this.elm)) {
       setTimeout(() => this.initializeMonaco(), 300);
       return;
     }
@@ -193,6 +189,9 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
         value: this.value,
         lineNumbers: this.lineNumbers,
         language: this.language,
+        minimap: {
+          enabled: this.minimap,
+        },
         theme: this.getTheme(),
         readOnly: this.disabled || this.readonly,
       },

@@ -36,7 +36,7 @@ export class Tabs implements ComponentInterface {
   @Prop({ reflect: true }) type: 'contained' | 'contained-bottom' | 'default' =
     'default';
 
-  @Listen('goat:tab-click')
+  @Listen('goat-tab--click')
   tabClick(evt: GoatTabCustomEvent<any>) {
     evt.stopPropagation();
     if (evt.detail.target) {

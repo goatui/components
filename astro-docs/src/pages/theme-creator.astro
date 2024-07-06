@@ -122,7 +122,7 @@ import Layout from '../layouts/Base.astro';
     });
 
     const $outputCode = document.getElementById('output-code');
-    $generate.addEventListener('goat:click', () => {
+    $generate.addEventListener('goat-button--click', () => {
       const input = $inputHex.value;
       const variable = '--color-' + $dropDown.value;
       const color = new Values(input);

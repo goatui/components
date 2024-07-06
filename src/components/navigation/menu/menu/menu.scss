@@ -1,19 +1,38 @@
 @import "../../../../globalStyles/commons";
 
+
 :host {
   display: inline-block;
-  --list-max-height: 100%;
-  --list-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
+  /**
+    * @prop --goat-menu-background: Background color of the menu
+   */
+  --goat-menu-background: var(--layer);
+
+  /**
+    * @prop --goat-menu-max-height: Maximum height of the menu
+   */
+  --goat-menu-max-height: 100%;
+
+  /**
+    * @prop --goat-menu-shadow: Shadow of the menu
+   */
+  --goat-menu-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
 }
 
 .menu {
-  background: var(--layer);
+  background: var(--goat-menu-background);
   box-sizing: border-box;
-  max-height: var(--list-max-height);
+  max-height: var(--goat-menu-max-height);
   overflow-x: auto;
   border: 1px solid var(--border-subtle);
-  box-shadow: var(--list-shadow);
+  box-shadow: var(--goat-menu-shadow);
 }
+
+:host(.no-border) .menu {
+  border: none;
+  box-shadow: none;
+}
+
 
 slot::slotted(goat-divider) {
   --divider-color: var(--border-subtle);

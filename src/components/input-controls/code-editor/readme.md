@@ -13,6 +13,7 @@
 | `disabled`    | `disabled`     | If true, the user cannot interact with the button. Defaults to `false`.                                | `boolean`                          | `false`                    |
 | `language`    | `language`     |                                                                                                        | `"html" \| "javascript" \| "json"` | `'javascript'`             |
 | `lineNumbers` | `line-numbers` |                                                                                                        | `"off" \| "on"`                    | `'on'`                     |
+| `minimap`     | `minimap`      |                                                                                                        | `boolean`                          | `false`                    |
 | `name`        | `name`         | The input field name.                                                                                  | `string`                           | ``goat-input-${this.gid}`` |
 | `readonly`    | `readonly`     |                                                                                                        | `boolean`                          | `false`                    |
 | `required`    | `required`     | If true, required icon is show. Defaults to `false`.                                                   | `boolean`                          | `false`                    |
@@ -21,9 +22,9 @@
 
 ## Events
 
-| Event         | Description                         | Type               |
-| ------------- | ----------------------------------- | ------------------ |
-| `goat:change` | Emitted when the value has changed. | `CustomEvent<any>` |
+| Event                      | Description                         | Type               |
+| -------------------------- | ----------------------------------- | ------------------ |
+| `goat-code-editor--change` | Emitted when the value has changed. | `CustomEvent<any>` |
 
 
 ## Methods

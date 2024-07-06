@@ -21,9 +21,9 @@
 
 ## Events
 
-| Event                  | Description                            | Type               |
-| ---------------------- | -------------------------------------- | ------------------ |
-| `goat:tree-node-click` | Emitted when the menu item is clicked. | `CustomEvent<any>` |
+| Event                   | Description                            | Type               |
+| ----------------------- | -------------------------------------- | ------------------ |
+| `goat-tree-node--click` | Emitted when the menu item is clicked. | `CustomEvent<any>` |
 
 
 ## Methods

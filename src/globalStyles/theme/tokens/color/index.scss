@@ -105,6 +105,7 @@ Secondary link color for lower contrast backgrounds
 @include defineVariableDeprecated(--overlay, getColor(gray, 100, .5), getColor(gray, 100, .7));
 
 @include defineVariableDeprecated(--code-bg-primary, getColor(purple, 10), getColor(purple, 100));
+@include defineVariableDeprecated(--code-editor-bg-primary, getColor(red, 10), getColor(purple, 100));
 
 
 @each $color in [gray, blue, green, red, yellow, primary, success, info, warning, error] {

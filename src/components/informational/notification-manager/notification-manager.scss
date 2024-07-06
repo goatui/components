@@ -1,17 +1,28 @@
 @import "../../../globalStyles/commons";
 
-@keyframes reveal {
+@keyframes revealTop {
   0% {
     opacity: 0;
-    transform: translateY(1rem)
+    transform: translateY(-1rem);
+    max-height: 0;
+  }
+  100% {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@keyframes hide {
-  100% {
+@keyframes revealBottom {
+  0% {
     opacity: 0;
-    transform: translateY(-1rem);
-    visibility: hidden;
+    transform: translateY(1rem);
+    max-height: 0;
+  }
+  100% {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -35,20 +46,26 @@
   margin: var(--spacing-04);
 
   .notification {
-    animation: reveal 0.5s ease-in;
     pointer-events: auto;
+    height: auto;
+    max-height: 500px;
+    transition: all 0.5s ease-out;
   }
 
   .notification.hidden {
-    display: none;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
   }
-
 }
 
 :host([position="bottom-right"]) {
   bottom: 0;
   right: 0;
 
+  .notification {
+    animation: revealBottom 0.5s ease-in;
+  }
   .notification-manager {
     align-items: flex-end;
   }
@@ -58,6 +75,9 @@
   bottom: 0;
   left: 0;
 
+  .notification {
+    animation: revealBottom 0.5s ease-in;
+  }
   .notification-manager {
     align-items: flex-start;
   }
@@ -67,6 +87,9 @@
   top: 0;
   left: 0;
 
+  .notification {
+    animation: revealTop 0.5s ease-in;
+  }
   .notification-manager {
     align-items: flex-start;
   }
@@ -76,6 +99,9 @@
   top: 0;
   right: 0;
 
+  .notification {
+    animation: revealTop 0.5s ease-in;
+  }
   .notification-manager {
     align-items: flex-end;
   }

@@ -12,6 +12,11 @@
   stroke: var(--text-primary);
 }
 
+.title, .label {
+  fill: var(--text-primary);
+  @include font-style(text-md);
+}
+
 .item-label {
   fill: var(--text-primary);
   font-size: var(--label-01-font-size);

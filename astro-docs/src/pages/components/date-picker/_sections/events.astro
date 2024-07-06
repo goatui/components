@@ -12,21 +12,21 @@ import Highlighter from '../../../../components/Highlighter.astro';
     <goat-date-picker id='date-field' placeholder='Type here'></goat-date-picker>
 
     <script is:inline>
-      document.querySelector('#date-field').addEventListener('goat:input', function(event) {
-        myConsole.log('goat:input :: ' + event.target.value);
+      document.querySelector('#date-field').addEventListener('goat-date-picker--input', function(event) {
+        myConsole.log('goat-date-picker--input :: ' + event.target.value);
       });
-      document.querySelector('#date-field').addEventListener('goat:change', function(event) {
-        myConsole.warn('goat:change :: ' + event.target.value);
+      document.querySelector('#date-field').addEventListener('goat-date-picker--change', function(event) {
+        myConsole.warn('goat-date-picker--change :: ' + event.target.value);
       });
     </script>
   </goat-card-content>
   <goat-card-content class='no-padding'>
     <Highlighter lang='javascript' is:raw>
-      document.querySelector('#date-field').addEventListener('goat:input', function (event) {
-      myConsole.log('goat:input :: ' + event.target.value);
+      document.querySelector('#date-field').addEventListener('goat-date-picker--input', function (event) {
+      myConsole.log('goat-date-picker--input :: ' + event.target.value);
     });
-      document.querySelector('#date-field').addEventListener('goat:change', function (event) {
-      myConsole.warn('goat:change :: ' + event.target.value);
+      document.querySelector('#date-field').addEventListener('goat-date-picker--change', function (event) {
+      myConsole.warn('goat-date-picker--change :: ' + event.target.value);
     });
     </Highlighter>
   </goat-card-content>

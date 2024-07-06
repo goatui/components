@@ -10,7 +10,7 @@ import Highlighter from '../../../../components/Highlighter.astro';
   <goat-card-content>
     <goat-checkbox id='change-checkbox-field'>Change Event?</goat-checkbox>
     <script is:inline>
-      document.querySelector('#change-checkbox-field').addEventListener('goat:change', function(event) {
+      document.querySelector('#change-checkbox-field').addEventListener('goat-checkbox--change', function(event) {
         myConsole.log('Input changed to :: ' + event.target.value);
       });
     </script>
@@ -18,7 +18,7 @@ import Highlighter from '../../../../components/Highlighter.astro';
   <!-- prettier-ignore -->
   <goat-card-content class='no-padding'>
     <Highlighter lang='javascript' is:raw>
-      document.querySelector('#change-checkbox-field').addEventListener('goat:change',
+      document.querySelector('#change-checkbox-field').addEventListener('goat-checkbox--change',
       function(event) {
       console.log('Input changed to :: ' + event.target.value);
       });

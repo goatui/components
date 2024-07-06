@@ -11,8 +11,20 @@ import {
 } from '@stencil/core';
 import { loadPrism, loadPrismLanguage } from '../../../3d-party/prism';
 import * as beautify from 'js-beautify/js';
-import { getComponentIndex } from '../../../utils/utils';
+import { getComponentIndex, isInViewport } from '../../../utils/utils';
 import { Language } from './constants';
+
+const locale: {
+  loading: string;
+  copyToClipboard: string;
+  copied: string;
+  copiedCode: string;
+} = {
+  loading: 'Loading code...',
+  copyToClipboard: 'Copy to clipboard',
+  copied: 'Copied',
+  copiedCode: 'Copied code',
+};
 
 /**
  * @name Code Highlighter
@@ -30,14 +42,29 @@ import { Language } from './constants';
 export class CodeHighlighter implements ComponentInterface {
   gid: string = getComponentIndex();
 
-  @Prop({ reflect: true }) language: string = Language.javascript;
+  /**
+   * The language of the code snippet.
+   */
+  @Prop({ reflect: true }) language: Language = 'javascript';
 
+  /**
+   * Display line numbers.
+   */
   @Prop({ reflect: true }) lineNumbers: boolean = false;
 
+  /**
+   * The code snippet to highlight.
+   */
   @Prop() value: string = '';
 
+  /**
+   * Format the code snippet.
+   */
   @Prop({ reflect: true, mutable: true }) format: boolean;
 
+  /**
+   * Display the code snippet inline.
+   */
   @Prop({ reflect: true }) inline: boolean = false;
 
   @Prop() hideCopy: boolean = false;
@@ -54,17 +81,17 @@ export class CodeHighlighter implements ComponentInterface {
     if (this.value) {
       this.codeString = this.value;
     }
-    this.renderPrism();
+    this.#renderPrism();
   }
 
   @Watch('language')
   languageWatcher() {
-    this.renderPrism();
+    this.#renderPrism();
   }
 
   @Watch('lineNumbers')
   themeWatcher() {
-    this.renderPrism();
+    this.#renderPrism();
   }
 
   @Element() elm!: HTMLElement;
@@ -83,19 +110,12 @@ export class CodeHighlighter implements ComponentInterface {
     this.codeString = this.decode(this.codeString);
   }
 
-  isInViewport(element: HTMLElement) {
-    const rect = element.getBoundingClientRect();
-    return (
-      rect.top !== 0 && rect.left !== 0 && rect.bottom !== 0 && rect.right !== 0
-    );
-  }
-
   async initializePrism() {
     if (!window['Prism']) {
       await loadPrism();
     }
 
-    if (!this.isInViewport(this.elm)) {
+    if (!isInViewport(this.elm)) {
       setTimeout(() => this.initializePrism(), 300);
       return;
     }
@@ -105,9 +125,9 @@ export class CodeHighlighter implements ComponentInterface {
     const autoloader = Prism.plugins.autoloader;
     if (autoloader) {
       await loadPrismLanguage(this.language);
-      this.renderPrism();
+      this.#renderPrism();
     } else {
-      this.renderPrism();
+      this.#renderPrism();
     }
   }
 
@@ -119,7 +139,7 @@ export class CodeHighlighter implements ComponentInterface {
     return str.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
   }
 
-  private renderPrism() {
+  #renderPrism() {
     if (
       (this.format && this.language === 'javascript') ||
       this.language === 'html' ||
@@ -142,14 +162,14 @@ export class CodeHighlighter implements ComponentInterface {
           });
           break;
       }
-      this.populateCode();
+      this.#populateCode();
     } else {
       this.parsedCodeString = this.codeString;
-      this.populateCode();
+      this.#populateCode();
     }
   }
 
-  private populateCode() {
+  #populateCode() {
     // @ts-ignore
     const Prism = window['Prism'];
     const formatted = Prism.highlight(
@@ -166,7 +186,7 @@ export class CodeHighlighter implements ComponentInterface {
     this.compiledCode = formatted + lineNumbersWrapper;
   }
 
-  async handleCopyClick() {
+  async #handleCopyClick() {
     const textToCopy = this.parsedCodeString;
     // Navigator clipboard api needs a secure context (https)
     // Use the 'out of viewport hidden text area' trick
@@ -195,36 +215,34 @@ export class CodeHighlighter implements ComponentInterface {
     }, 3000);
   }
 
-  render() {
-    let HighlighterTab = 'pre';
-    if (this.inline) HighlighterTab = 'div';
-    let copiedText = 'Copy to clipboard';
-    if (this.copyState === 'copied') copiedText = 'Copied to clipboard';
+  #renderHighlighter() {
+    if (this.inline) {
+      return <div class="highlighter" innerHTML={this.compiledCode} />;
+    } else {
+      return (
+        <pre class="highlighter line-numbers" innerHTML={this.compiledCode} />
+      );
+    }
+  }
 
+  render() {
     return (
       <Host>
         {this.compiledCode !== null && (
           <div
             class="code-highlighter"
             on-click={async () => {
-              if (this.inline) await this.handleCopyClick();
+              if (this.inline) await this.#handleCopyClick();
             }}
           >
             <div class="scroll-wrapper">
-              <goat-notification-manager
-                position="top-right"
-                name={'code-highlighter-' + this.gid}
-              ></goat-notification-manager>
               <div
                 class={{
                   'line-numbers-wrapper': true,
                   'line-numbers': this.lineNumbers,
                 }}
               >
-                <HighlighterTab
-                  class="highlighter line-numbers"
-                  innerHTML={this.compiledCode}
-                />
+                {this.#renderHighlighter()}
               </div>
             </div>
             {!this.hideCopy && this.copyState === 'idle' && !this.inline && (
@@ -237,8 +255,8 @@ export class CodeHighlighter implements ComponentInterface {
                   aria-label="Copy to clipboard"
                   icon={'copy'}
                   tooltip-target={'copy-to-tooltip' + this.gid}
-                  onGoat-button-click={async () => {
-                    await this.handleCopyClick();
+                  onGoat-button--click={async () => {
+                    await this.#handleCopyClick();
                   }}
                 ></goat-button>
               </Fragment>
@@ -250,17 +268,19 @@ export class CodeHighlighter implements ComponentInterface {
                   size="sm"
                   color={'success'}
                   variant={'default'}
-                  aria-label="Copied code"
-                  title="Copied code"
+                  aria-label={locale.copiedCode}
+                  title={locale.copiedCode}
                   icon={'checkmark'}
                 >
-                  Copied
+                  {locale.copied}
                 </goat-button>
               </div>
             )}
             {!this.hideCopy && this.inline && (
               <goat-tooltip id={'copy-to-clipboard-' + this.gid}>
-                {copiedText}
+                {this.copyState === 'copied'
+                  ? locale.copied
+                  : locale.copyToClipboard}
               </goat-tooltip>
             )}
 
@@ -271,8 +291,7 @@ export class CodeHighlighter implements ComponentInterface {
         )}
         {this.compiledCode === null && (
           <div class="code-loader">
-            <goat-spinner />
-            Loading code...
+            <goat-spinner>{locale.loading}</goat-spinner>
           </div>
         )}
       </Host>

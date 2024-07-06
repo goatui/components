@@ -79,11 +79,11 @@ import dataSource from '../data-source.json';
       $table.data = dataSource;
 
       // Events
-      $table.addEventListener('goat:table-cell-click', function(evt) {
+      $table.addEventListener('goat-table--cell-click', function(evt) {
         document.getElementById('record').innerText = JSON.stringify(evt.detail.record, null, 3);
         document.getElementById('column').innerText = evt.detail.column.label;
       });
-      $table.addEventListener('goat:table-select-change', function(evt) {
+      $table.addEventListener('goat-table--selection-change', function(evt) {
         document.getElementById('selected-rows').innerText = JSON.stringify(evt.detail.value, null, 4);
       });
     </script>
@@ -146,11 +146,11 @@ import dataSource from '../data-source.json';
       $table.data = JSON.stringify(dataSource.slice(0, 3), null, 2);
 
       // Events
-      $table.addEventListener('goat:table-cell-click', function(evt) {
+      $table.addEventListener('goat-table--cell-click', function(evt) {
         document.getElementById('record').innerText = JSON.stringify(evt.detail.record, null, 3);
         document.getElementById('column').innerText = evt.detail.column.label;
       });
-      $table.addEventListener('goat:table-select-change', function(evt) {
+      $table.addEventListener('goat-table--selection-change', function(evt) {
         document.getElementById('selected-rows').innerText = JSON.stringify(evt.detail.value, null, 4);
       });
     </script>`}

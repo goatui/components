@@ -12,7 +12,8 @@ import {
 /**
  * @name Modal
  * @description  Modals are used to display content in a layer above the app.
- * @category Feedback
+ * @category Informational
+ * @subcategory Modal
  * @tags controls
  * @img /assets/img/modal.webp
  * @imgDark /assets/img/modal-dark.webp
@@ -47,9 +48,9 @@ export class Modal {
   @Prop({ reflect: true }) showLoader: boolean = false;
 
   /**
-   * On click of button, a CustomEvent 'goat:modal-close' will be triggered.
+   * On click of button, a CustomEvent 'goat-modal--close' will be triggered.
    */
-  @Event({ eventName: 'goat:modal-close' }) goatModalClose: EventEmitter;
+  @Event({ eventName: 'goat-modal--close' }) goatModalClose: EventEmitter;
 
   @Watch('open')
   watchHandler(newValue: boolean) {
@@ -111,7 +112,7 @@ export class Modal {
                           darkModeColor="white"
                           icon="close--large"
                           variant="ghost"
-                          onGoat-button-click={() => {
+                          onGoat-button--click={() => {
                             this.goatModalClose.emit();
                           }}
                         ></goat-button>

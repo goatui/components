@@ -18,9 +18,9 @@
 
 ## Events
 
-| Event                      | Description | Type               |
-| -------------------------- | ----------- | ------------------ |
-| `goat:dropdown-item-click` |             | `CustomEvent<any>` |
+| Event                       | Description | Type               |
+| --------------------------- | ----------- | ------------------ |
+| `goat-dropdown--item-click` |             | `CustomEvent<any>` |
 
 
 ## Methods

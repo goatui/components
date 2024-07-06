@@ -30,6 +30,11 @@
     border: var(--code-editor-border);
     border-radius: var(--code-editor-border-radius);
     overflow: hidden;
+
+    .monaco-editor {
+      --vscode-editor-background: var(--code-bg-primary);
+      --vscode-editorGutter-background: var(--code-bg-primary);
+    }
   }
 
 }
@@ -57,6 +62,7 @@
 .code-editor-component.has-focus .editor {
   @include focus-ring;
   border-color: transparent;
+
 }
 
 @each $state in [success, warning, error] {

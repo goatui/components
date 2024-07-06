@@ -22,11 +22,11 @@
 
 ## Events
 
-| Event         | Description                                                                                                                         | Type               |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `goat:blur`   | Emitted when the input loses focus.                                                                                                 | `CustomEvent<any>` |
-| `goat:change` | On change of input a CustomEvent 'goat:change' will be triggered. Event details contains parent event, oldValue, newValue of input. | `CustomEvent<any>` |
-| `goat:focus`  | Emitted when the input has focus.                                                                                                   | `CustomEvent<any>` |
+| Event                 | Description                                                                                                                         | Type               |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `goat-toggle--blur`   | Emitted when the input loses focus.                                                                                                 | `CustomEvent<any>` |
+| `goat-toggle--change` | On change of input a CustomEvent 'goat-change' will be triggered. Event details contains parent event, oldValue, newValue of input. | `CustomEvent<any>` |
+| `goat-toggle--focus`  | Emitted when the input has focus.                                                                                                   | `CustomEvent<any>` |
 
 
 ## Methods
@@ -43,7 +43,7 @@ Type: `Promise<string>`
 
 ### `setBlur() => Promise<void>`
 
-Sets blur on the native `input` in `goat-input`. Use this method instead of the global
+Sets blur on the native `input` in `goat-toggle`. Use this method instead of the global
 `input.blur()`.
 
 #### Returns
@@ -54,7 +54,7 @@ Type: `Promise<void>`
 
 ### `setFocus() => Promise<void>`
 
-Sets focus on the native `input` in `goat-input`. Use this method instead of the global
+Sets focus on the native `input` in `goat-toggle`. Use this method instead of the global
 `input.focus()`.
 
 #### Returns

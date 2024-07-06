@@ -25,11 +25,10 @@
 
 ## Events
 
-| Event          | Description                         | Type               |
-| -------------- | ----------------------------------- | ------------------ |
-| `goat:change`  | Emitted when the value has changed. | `CustomEvent<any>` |
-| `goat:input`   |                                     | `CustomEvent<any>` |
-| `goat:tooltip` |                                     | `CustomEvent<any>` |
+| Event                 | Description                             | Type               |
+| --------------------- | --------------------------------------- | ------------------ |
+| `goat-slider--change` | Emitted when the value has changed.     | `CustomEvent<any>` |
+| `goat-slider--input`  | Emitted when a keyboard input occurred. | `CustomEvent<any>` |
 
 
 ## Methods

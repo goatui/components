@@ -56,9 +56,9 @@ export class Tab implements ComponentInterface {
   @Prop() showLoader: boolean = false;
 
   /**
-   * On click of tab, a CustomEvent 'goat:tab-click' will be triggered.
+   * On click of tab, a CustomEvent 'goat-tab-click' will be triggered.
    */
-  @Event({ eventName: 'goat:tab-click' }) goatTabClick: EventEmitter;
+  @Event({ eventName: 'goat-tab--click' }) goatTabClick: EventEmitter;
 
   @State() hasFocus = false;
   @State() isActive = false;

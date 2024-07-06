@@ -19,9 +19,9 @@
 
 ## Events
 
-| Event              | Description                                                             | Type               |
-| ------------------ | ----------------------------------------------------------------------- | ------------------ |
-| `goat:modal-close` | On click of button, a CustomEvent 'goat:modal-close' will be triggered. | `CustomEvent<any>` |
+| Event               | Description                                                              | Type               |
+| ------------------- | ------------------------------------------------------------------------ | ------------------ |
+| `goat-modal--close` | On click of button, a CustomEvent 'goat-modal--close' will be triggered. | `CustomEvent<any>` |
 
 
 ## Dependencies

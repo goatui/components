@@ -59,7 +59,8 @@ export class GoatTreeNode {
   /**
    * Emitted when the menu item is clicked.
    */
-  @Event({ eventName: 'goat:tree-node-click' }) goatTreeNodeClick: EventEmitter;
+  @Event({ eventName: 'goat-tree-node--click' })
+  goatTreeNodeClick: EventEmitter;
 
   @State() hasChildNodes = false;
 

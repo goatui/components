@@ -108,22 +108,22 @@ export class Input implements ComponentInterface, InputComponentInterface {
   /**
    * Emitted when a keyboard input occurred.
    */
-  @Event({ eventName: 'goat:input' }) goatInput: EventEmitter;
+  @Event({ eventName: 'goat-input--input' }) goatInput: EventEmitter;
 
   /**
    * Emitted when the value has changed.
    */
-  @Event({ eventName: 'goat:change' }) goatChange: EventEmitter;
+  @Event({ eventName: 'goat-input--change' }) goatChange: EventEmitter;
 
   /**
    * Emitted when the input loses focus.
    */
-  @Event({ eventName: 'goat:blur' }) goatBlur: EventEmitter;
+  @Event({ eventName: 'goat-input--blur' }) goatBlur: EventEmitter;
 
   /**
    * Emitted when the input has focus.
    */
-  @Event({ eventName: 'goat:focus' }) goatFocus: EventEmitter;
+  @Event({ eventName: 'goat-input--focus' }) goatFocus: EventEmitter;
 
   @Element() elm!: HTMLElement;
   private nativeElement?: HTMLInputElement;
@@ -305,7 +305,7 @@ export class Input implements ComponentInterface, InputComponentInterface {
             kind={'simple'}
             icon={this.passwordVisible ? 'view--off' : 'view'}
             variant="ghost"
-            onGoat-button-click={() => {
+            onGoat-button--click={() => {
               this.passwordVisible = !this.passwordVisible;
             }}
           ></goat-button>

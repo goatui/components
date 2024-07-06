@@ -17,10 +17,10 @@
 
 ## Events
 
-| Event                         | Description | Type               |
-| ----------------------------- | ----------- | ------------------ |
-| `goat:month-view-date-click`  |             | `CustomEvent<any>` |
-| `goat:month-view-event-click` |             | `CustomEvent<any>` |
+| Event                             | Description | Type               |
+| --------------------------------- | ----------- | ------------------ |
+| `internal-month-view-date-click`  |             | `CustomEvent<any>` |
+| `internal-month-view-event-click` |             | `CustomEvent<any>` |
 
 
 ## Dependencies

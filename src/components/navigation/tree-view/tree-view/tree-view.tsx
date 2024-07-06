@@ -48,7 +48,7 @@ export class TreeView implements ComponentInterface {
     }
   }
 
-  @Listen('goat:tree-node-click')
+  @Listen('goat-tree-node-click')
   treeNodeClick(evt: GoatTreeNodeCustomEvent<any>) {
     this.selectedNode = evt.detail.id;
     this.subscribers.forEach(cb => cb(evt.detail.value));

@@ -39,11 +39,11 @@
 
 ## Events
 
-| Event               | Description                             | Type               |
-| ------------------- | --------------------------------------- | ------------------ |
-| `goat:change`       | Emitted when the value has changed.     | `CustomEvent<any>` |
-| `goat:search`       | Emitted when a keyboard input occurred. | `CustomEvent<any>` |
-| `goat:search-enter` |                                         | `CustomEvent<any>` |
+| Event                 | Description                             | Type               |
+| --------------------- | --------------------------------------- | ------------------ |
+| `goat-select--change` | Emitted when the value has changed.     | `CustomEvent<any>` |
+| `goat-select--enter`  |                                         | `CustomEvent<any>` |
+| `goat-select--search` | Emitted when a keyboard input occurred. | `CustomEvent<any>` |
 
 
 ## Methods

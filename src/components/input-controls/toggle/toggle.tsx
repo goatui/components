@@ -1,4 +1,16 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Listen, Method, Prop, State } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  State,
+} from '@stencil/core';
 import { getComponentIndex } from '../../../utils/utils';
 
 /**
@@ -54,19 +66,19 @@ export class Toggle implements ComponentInterface, InputComponentInterface {
   @Prop({ reflect: true, mutable: true }) configAria: any = {};
 
   /**
-   * On change of input a CustomEvent 'goat:change' will be triggered. Event details contains parent event, oldValue, newValue of input.
+   * On change of input a CustomEvent 'goat-change' will be triggered. Event details contains parent event, oldValue, newValue of input.
    */
-  @Event({ eventName: 'goat:change' }) goatChange: EventEmitter;
+  @Event({ eventName: 'goat-toggle--change' }) goatChange: EventEmitter;
 
   /**
    * Emitted when the input loses focus.
    */
-  @Event({ eventName: 'goat:blur' }) goatBlur: EventEmitter;
+  @Event({ eventName: 'goat-toggle--blur' }) goatBlur: EventEmitter;
 
   /**
    * Emitted when the input has focus.
    */
-  @Event({ eventName: 'goat:focus' }) goatFocus: EventEmitter;
+  @Event({ eventName: 'goat-toggle--focus' }) goatFocus: EventEmitter;
 
   @Method()
   async getComponentId() {
@@ -74,7 +86,7 @@ export class Toggle implements ComponentInterface, InputComponentInterface {
   }
 
   /**
-   * Sets focus on the native `input` in `goat-input`. Use this method instead of the global
+   * Sets focus on the native `input` in `goat-toggle`. Use this method instead of the global
    * `input.focus()`.
    */
   @Method()
@@ -85,7 +97,7 @@ export class Toggle implements ComponentInterface, InputComponentInterface {
   }
 
   /**
-   * Sets blur on the native `input` in `goat-input`. Use this method instead of the global
+   * Sets blur on the native `input` in `goat-toggle`. Use this method instead of the global
    * `input.blur()`.
    */
   @Method()
@@ -197,7 +209,7 @@ export class Toggle implements ComponentInterface, InputComponentInterface {
             aria-checked={this.value + ''}
             {...this.configAria}
           >
-            <div class="node"/>
+            <div class="node" />
           </div>
 
           <input

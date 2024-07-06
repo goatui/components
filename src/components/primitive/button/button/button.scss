@@ -27,6 +27,9 @@ $inner-border-width: 0.0625;
    */
   --goat-button-border-style: var(--goat-theme-button-border-style, solid);
 
+  /**
+    * @prop --goat-button-padding: Button padding.
+   */
   --goat-button-height: auto;
   height: var(--goat-button-height);
 }
@@ -321,11 +324,11 @@ $inner-border-width: 0.0625;
   &:hover {
     .native-button {
       color: var(--internal-button-support-contrast-color);
-      border-color: var(--internal-button-color-hover);
+      border-color: var(--internal-button-color);
     }
 
     .button-background {
-      background: var(--internal-button-color-hover);
+      background: var(--internal-button-color);
     }
   }
 

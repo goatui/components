@@ -25,7 +25,6 @@
  - [goat-select](../../input-controls/select)
  - [goat-tab](../../navigation/tabs/tab)
  - [goat-tag](../tag)
- - [goat-toast](../../informational/toast)
  - [goat-tree-node](../../navigation/tree-view/tree-node)
 
 ### Graph
@@ -39,7 +38,6 @@ graph TD;
   goat-select --> goat-icon
   goat-tab --> goat-icon
   goat-tag --> goat-icon
-  goat-toast --> goat-icon
   goat-tree-node --> goat-icon
   style goat-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```

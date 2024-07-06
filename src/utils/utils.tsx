@@ -26,7 +26,7 @@ export const generateUniqueId = () => {
   return `${Date.now()}Math.random().toString(16).substr(2)`;
 };
 
-export const isOutOfViewport = (bounding: DOMRect) => {
+export function isOutOfViewport(bounding: DOMRect) {
   // Check if it's out of the viewport on each side
   const out: any = {};
   out.top = bounding.top < 0;
@@ -40,7 +40,14 @@ export const isOutOfViewport = (bounding: DOMRect) => {
   out.any = out.top || out.left || out.bottom || out.right;
   out.all = out.top && out.left && out.bottom && out.right;
   return out;
-};
+}
+
+export function isInViewport(element: HTMLElement) {
+  const rect = element.getBoundingClientRect();
+  return (
+    rect.top !== 0 || rect.left !== 0 || rect.bottom !== 0 || rect.right !== 0
+  );
+}
 
 export const observeThemeChange = (() => {
   let callbacks = [];

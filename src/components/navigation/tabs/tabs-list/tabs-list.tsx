@@ -22,7 +22,7 @@ export class TabsList implements ComponentInterface {
 
   @Element() elm!: HTMLElement;
 
-  @Listen('goat:tab-click')
+  @Listen('goat-tab-click')
   tabClick(evt: GoatTabCustomEvent<any>) {
     if (!this.managed) {
       this.deselectAllTabs();

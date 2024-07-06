@@ -297,7 +297,7 @@ export class FlowDesigner {
                 size="sm"
                 icon="plus"
                 variant="outline"
-                onGoat-button-click={() => {
+                onGoat-button--click={() => {
                   this.zoom = this.zoom + 0.1;
                 }}
               ></goat-button>
@@ -305,7 +305,7 @@ export class FlowDesigner {
                 size="sm"
                 icon="dash"
                 variant="outline"
-                onGoat-button-click={() => {
+                onGoat-button--click={() => {
                   this.zoom = this.zoom - 0.1;
                 }}
               ></goat-button>

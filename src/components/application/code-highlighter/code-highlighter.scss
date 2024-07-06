@@ -6,12 +6,16 @@
 :host {
   display: block;
   height: 100%;
-  --code-highlighter-background: var(--code-bg-primary);
+
+  /**
+    * @prop --goat-code-highlighter-background: Code Highlighter background color
+    */
+  --goat-code-highlighter-background: var(--code-bg-primary);
 }
 
 .code-loader {
   height: 10rem;
-  background-color: var(--field-01);
+  background-color: var(--goat-code-highlighter-background);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,17 +25,15 @@
 .code-highlighter {
   position: relative;
   height: 100%;
-  background-color: var(--code-highlighter-background);
+  background-color: var(--goat-code-highlighter-background);
   color: var(--text-primary);
   .scroll-wrapper {
     height: 100%;
-    overflow-y: auto;
+    overflow: auto;
 
     .line-numbers-wrapper {
-      display: inline-block;
       padding: var(--spacing-05);
       padding-inline-end: 3rem;
-      height: 100%;
       position: relative;
       @include font-style(code-02);
 
@@ -48,7 +50,7 @@
 
   .copy-btn {
     position: absolute;
-    background-color: var(--code-highlighter-background);
+    background-color: var(--goat-code-highlighter-background);
     top: 0.675rem;
     right: var(--spacing-03);
   }

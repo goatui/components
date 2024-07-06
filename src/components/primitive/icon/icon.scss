@@ -6,9 +6,8 @@
 
 .icon {
   line-height: 0;
-  color: var(--icon-color, var(--text-primary));
-}
 
-:host(.inherit) .icon {
-  color: inherit;
+  .icon-svg {
+    fill: currentColor;
+  }
 }

@@ -7,11 +7,11 @@ import Highlighter from '../../../../components/Highlighter.astro';
   <goat-button disabled id='disabled-btn'>Disabled Button</goat-button>
 
   <script is:inline>
-    document.querySelector('#click-me-btn').addEventListener('goat:click', (event) => {
-      myConsole.log('Button clicked', 'goat:click');
+    document.querySelector('#click-me-btn').addEventListener('goat-button--click', (event) => {
+      myConsole.log('Button clicked', 'goat-button--click');
     });
-    document.querySelector('#disabled-btn').addEventListener('goat:click', (event) => {
-      myConsole.log('Button clicked', 'goat:click'); // this will not be fired
+    document.querySelector('#disabled-btn').addEventListener('goat-button--click', (event) => {
+      myConsole.log('Button clicked', 'goat-button--click'); // this will not be fired
     });
   </script>
 </HighlighterCard>

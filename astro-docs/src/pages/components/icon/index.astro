@@ -71,7 +71,7 @@ const sections = [
       $codeEditor.value = `
     <goat-icon name='alarm' size='2rem'></goat-icon>
     `;
-      $codeEditor.addEventListener('goat:change', (e) => {
+      $codeEditor.addEventListener('goat-code-editor--change', (e) => {
         $demoArea.innerHTML = e.target.value;
       });
       $demoArea.innerHTML = $codeEditor.value;
@@ -85,7 +85,7 @@ const sections = [
         };
       });
       elm.value = value;
-      elm.addEventListener('goat:change', (evt) => {
+      elm.addEventListener('goat-select--change', (evt) => {
         this.updateProperty(prop, evt.detail.value);
       });
     }
@@ -118,13 +118,13 @@ const sections = [
     });
   });
   $dropDown.value = 'alarm';
-  $dropDown.addEventListener('goat:change', function(evt) {
+  $dropDown.addEventListener('goat-select--change', function(evt) {
     playground.updateProperty('name', evt.detail.value);
   });
 
   const $size = document.getElementById('comp-size');
   $size.value = '2rem';
-  $size.addEventListener('goat:change', function(evt) {
+  $size.addEventListener('goat-select--change', function(evt) {
     playground.updateProperty('size', evt.target.value);
   });
 </script>

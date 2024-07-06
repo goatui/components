@@ -7,21 +7,22 @@
 
 ## Properties
 
-| Property       | Attribute       | Description | Type                                          | Default     |
-| -------------- | --------------- | ----------- | --------------------------------------------- | ----------- |
-| `actionLabel`  | `action-label`  |             | `string`                                      | `'Dismiss'` |
-| `actionName`   | `action-name`   |             | `string`                                      | `'dismiss'` |
-| `actionable`   | `actionable`    |             | `boolean`                                     | `true`      |
-| `dismissible`  | `dismissible`   |             | `boolean`                                     | `false`     |
-| `highContrast` | `high-contrast` |             | `boolean`                                     | `false`     |
-| `state`        | `state`         |             | `"error" \| "info" \| "success" \| "warning"` | `'info'`    |
+| Property       | Attribute       | Description                                                                               | Type                                          | Default     |
+| -------------- | --------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------- | ----------- |
+| `action`       | `action`        | Action to be displayed on the notification                                                | `string`                                      | `undefined` |
+| `dismissible`  | `dismissible`   | Whether the notification is dismissible                                                   | `boolean`                                     | `false`     |
+| `highContrast` | `high-contrast` | Whether to use high contrast mode                                                         | `boolean`                                     | `false`     |
+| `inline`       | `inline`        | Whether the notification should be displayed inline                                       | `boolean`                                     | `false`     |
+| `managed`      | `managed`       | Whether the notification is managed by the notification manager                           | `boolean`                                     | `false`     |
+| `state`        | `state`         | The state of the notification. Possible values are: 'success', 'error', 'info', 'warning' | `"error" \| "info" \| "success" \| "warning"` | `'info'`    |
 
 
 ## Events
 
-| Event          | Description | Type               |
-| -------------- | ----------- | ------------------ |
-| `goat:dismiss` |             | `CustomEvent<any>` |
+| Event                             | Description                                | Type               |
+| --------------------------------- | ------------------------------------------ | ------------------ |
+| `goat-notification--action-click` |                                            | `CustomEvent<any>` |
+| `goat-notification--dismiss`      | Emitted when the notification is dismissed | `CustomEvent<any>` |
 
 
 ## Dependencies
@@ -32,14 +33,14 @@
 
 ### Depends on
 
-- [goat-button](../../primitive/button/button)
 - [goat-icon](../../primitive/icon)
+- [goat-button](../../primitive/button/button)
 
 ### Graph
 ```mermaid
 graph TD;
-  goat-notification --> goat-button
   goat-notification --> goat-icon
+  goat-notification --> goat-button
   goat-button --> goat-spinner
   goat-button --> goat-icon
   goat-notification-manager --> goat-notification

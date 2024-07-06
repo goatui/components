@@ -3,7 +3,7 @@ import { Component, h, Host, Prop } from '@stencil/core';
 /**
  * @name Badge
  * @description The badge component is used to display a small amount of information to the user.
- * @category Data Display
+ * @category Informational
  * @tag content
  * @example <goat-badge content="5"> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
  */
@@ -15,7 +15,12 @@ import { Component, h, Host, Prop } from '@stencil/core';
 export class Badge {
   @Prop() content: string;
 
-  @Prop({ reflect: true }) color: 'primary' | 'secondary' | 'success' | 'error' | 'warning' = 'error';
+  @Prop({ reflect: true }) color:
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'error'
+    | 'warning' = 'error';
 
   render() {
     return (

@@ -33,7 +33,9 @@ const PREDEFINED_BUTTON_COLORS = [
 
 /**
  * @name Button
- * @description An interactive button with a range of presentation options.
+ * @description Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.
+ * @overview
+ *  <p>Buttons are clickable elements that are used to trigger actions. They communicate calls to action to the user and allow users to interact with pages in a variety of ways. Button labels express what action will occur when the user interacts with it.</p>
  * @category General
  * @tags controls
  * @example <goat-button>
@@ -162,9 +164,9 @@ export class Button implements ComponentInterface {
   @Prop() target: string = '_self';
 
   /**
-   * On click of button, a CustomEvent 'goat-button-click' will be triggered.
+   * On click of button, a CustomEvent 'goat-button--click' will be triggered.
    */
-  @Event({ eventName: 'goat-button-click' }) clickEmitter: EventEmitter;
+  @Event({ eventName: 'goat-button--click' }) clickEmitter: EventEmitter;
 
   /**
    * Sets focus on the native `button` in `goat-button`. Use this method instead of the global

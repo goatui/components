@@ -10,7 +10,7 @@ enum SpinnerSize {
 /**
  * @name Spinner
  * @description Spinners provide a visual cue that an action is processing awaiting a course of change or a result.
- * @category Feedback
+ * @category Informational
  * @tags feedback, loading, progress, spinner
  * @example <goat-spinner class="rainbow" size="2rem"></goat-spinner>
  */
@@ -49,8 +49,8 @@ export class Spinner {
     return size;
   }
 
-  componentDidLoad() {
-    this.slotHasContent = !!this.elm.querySelector('[slot]');
+  componentWillLoad() {
+    this.slotHasContent = this.elm.hasChildNodes();
   }
 
   render() {
@@ -71,7 +71,7 @@ export class Spinner {
           title={this.description}
         >
           <div
-            class={'spinner__container'}
+            class="spinner__container"
             style={{
               width: this.getSize() + 'rem',
               height: this.getSize() + 'rem',

@@ -29,9 +29,9 @@
 
 ## Events
 
-| Event               | Description                                                              | Type               |
-| ------------------- | ------------------------------------------------------------------------ | ------------------ |
-| `goat-button-click` | On click of button, a CustomEvent 'goat-button-click' will be triggered. | `CustomEvent<any>` |
+| Event                | Description                                                               | Type               |
+| -------------------- | ------------------------------------------------------------------------- | ------------------ |
+| `goat-button--click` | On click of button, a CustomEvent 'goat-button--click' will be triggered. | `CustomEvent<any>` |
 
 
 ## Methods

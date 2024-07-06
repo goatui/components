@@ -1,4 +1,16 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Method,
+  Prop,
+  State,
+  Watch,
+} from '@stencil/core';
 import { debounceEvent, getComponentIndex } from '../../../../utils/utils';
 
 /**
@@ -61,7 +73,8 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
    * The input state.
    * Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
    */
-  @Prop({ reflect: true }) state: 'success' | 'error' | 'warning' | 'default' = 'default';
+  @Prop({ reflect: true }) state: 'success' | 'error' | 'warning' | 'default' =
+    'default';
 
   /**
    * If true, required icon is show. Defaults to `false`.
@@ -83,27 +96,28 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
   /**
    * Emitted when a keyboard input occurred.
    */
-  @Event({ eventName: 'goat:input' }) goatInput: EventEmitter;
+  @Event({ eventName: 'goat-textarea--input' }) goatInput: EventEmitter;
 
   /**
    * Emitted when the value has changed..
    */
-  @Event({ eventName: 'goat:change' }) goatChange: EventEmitter;
+  @Event({ eventName: 'goat-textarea--change' }) goatChange: EventEmitter;
 
   /**
    * Emitted when the input loses focus.
    */
-  @Event({ eventName: 'goat:blur' }) goatBlur: EventEmitter;
+  @Event({ eventName: 'goat-textarea--blur' }) goatBlur: EventEmitter;
 
   /**
    * Emitted when the input has focus.
    */
-  @Event({ eventName: 'goat:focus' }) goatFocus: EventEmitter;
+  @Event({ eventName: 'goat-textarea--focus' }) goatFocus: EventEmitter;
 
   /**
    * Emitted when the action button is clicked.
    */
-  @Event({ eventName: 'goat:action-click' }) goatActionClick: EventEmitter;
+  @Event({ eventName: 'goat-textarea--action-click' })
+  goatActionClick: EventEmitter;
 
   /**
    * Sets focus on the native `textarea` in `goat-textarea`. Use this method instead of the global
@@ -206,9 +220,11 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
   }
 
   renderHelper() {
-    if (this.invalid) return <div class="helper invalid">{this.invalidText}</div>;
+    if (this.invalid)
+      return <div class="helper invalid">{this.invalidText}</div>;
     else if (this.warn) return <div class="helper warn">{this.warnText}</div>;
-    else if (this.helperText || this.helperText === '') return <div class="helper text">{this.helperText}</div>;
+    else if (this.helperText || this.helperText === '')
+      return <div class="helper text">{this.helperText}</div>;
   }
 
   getLabel() {
@@ -254,7 +270,15 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
         />
 
         <div class={'actions-container'}>
-          {this.clearable && this.hasValue() && <goat-button class="clear input-action" color={'secondary'} variant="ghost" icon="close" onClick={this.clearInput} />}
+          {this.clearable && this.hasValue() && (
+            <goat-button
+              class="clear input-action"
+              color={'secondary'}
+              variant="ghost"
+              icon="close"
+              onClick={this.clearInput}
+            />
+          )}
         </div>
 
         <div class="slot-container end">
@@ -266,10 +290,21 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
 
   render() {
     return (
-      <Host has-focus={this.hasFocus} has-value={this.hasValue()} invalid={this.invalid} warn={this.warn}>
+      <Host
+        has-focus={this.hasFocus}
+        has-value={this.hasValue()}
+        invalid={this.invalid}
+        warn={this.warn}
+      >
         <div class={{ 'form-control': true, 'inline': this.inline }}>
           {this.label && this.getLabel()}
-          <div class="field">{this.skeleton ? <div class="input-container-skeleton" /> : this.renderInput()}</div>
+          <div class="field">
+            {this.skeleton ? (
+              <div class="input-container-skeleton" />
+            ) : (
+              this.renderInput()
+            )}
+          </div>
           {this.renderHelper()}
         </div>
       </Host>

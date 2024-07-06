@@ -3,7 +3,11 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
 import NotificationContent from './notification-content.astro';
 ---
 <HighlighterCard lang={'html'}>
-  <goat-notification dismissible>
+  <goat-notification inline dismissible action='View Changelog'>
+    <NotificationContent />
+  </goat-notification>
+
+  <goat-notification dismissible action='View Changelog'>
     <NotificationContent />
   </goat-notification>
 </HighlighterCard>

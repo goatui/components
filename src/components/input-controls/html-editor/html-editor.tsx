@@ -69,7 +69,7 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
   /**
    * Emitted when the value has changed..
    */
-  @Event({ eventName: 'goat:change' }) goatChange: EventEmitter;
+  @Event({ eventName: 'goat-html-editor--change' }) goatChange: EventEmitter;
 
   /**
    * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
@@ -321,10 +321,9 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
                   <goat-button
                     class={'action'}
                     icon={action.icon}
-                    variant="light"
-                    color="secondary"
-                    darkModeColor="white"
-                    onGoat-button-click={action.action}
+                    color="white"
+                    darkModeColor="secondary"
+                    onGoat-button--click={action.action}
                   ></goat-button>
                 );
               })}
@@ -439,7 +438,7 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
             readonly={this.readonly}
             disabled={this.disabled}
             language="html"
-            onGoat:change={evt => {
+            onGoat-code-editor--change={evt => {
               this.value = evt.detail.value;
             }}
           ></goat-code-editor>
@@ -447,7 +446,7 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
           <div class={'html-editor-footer'}>
             <div class={'footer-left'}>
               <goat-toggle
-                onGoat:change={evt => {
+                onGoat-change={evt => {
                   this.showHtml = evt.target.value;
                 }}
               >

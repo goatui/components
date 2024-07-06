@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-04T11:35:59",
+  "timestamp": "2024-07-06T21:04:58",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.19.1",
@@ -17,36 +17,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Accordion"
-        },
-        {
-          "name": "description",
-          "text": "An accordion is a vertically stacked list of headers that reveal or hide associated sections of content."
-        },
-        {
-          "name": "overview",
-          "text": " <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>\n <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>"
-        },
-        {
-          "name": "category",
-          "text": "Data Display"
-        },
-        {
-          "name": "tags",
-          "text": "display"
-        },
-        {
-          "name": "img",
-          "text": "/assets/img/accordion.webp"
-        },
-        {
-          "name": "imgDark",
-          "text": "/assets/img/accordion-dark.webp"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -140,7 +110,7 @@
       "parts": [],
       "listeners": [
         {
-          "event": "goat:accordion-item-click",
+          "event": "goat-accordion-item-click",
           "capture": false,
           "passive": false
         }
@@ -150,6 +120,7 @@
         "description": "An accordion is a vertically stacked list of headers that reveal or hide associated sections of content.",
         "overview": " <p>The accordion component delivers large amounts of content in a small space through progressive disclosure. The header title give the user a high level overview of the content allowing the user to decide which sections to read.</p>\n <p>Accordions can make information processing and discovering more effective. However, it does hide content from users and it’s important to account for a user not noticing or reading all of the included content. If a user is likely to read all of the content then don’t use an accordion as it adds the burden of an extra click; instead use a full scrolling page with normal headers.</p>",
         "category": "Data Display",
+        "subcategory": "Accordion",
         "tags": [
           "display"
         ],
@@ -168,7 +139,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -215,32 +185,9 @@
           "reflectToAttr": false,
           "docs": "The menu item value.",
           "docsTags": [],
-          "default": "'Heading'",
           "values": [
             {
               "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "icon",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "icon",
-          "reflectToAttr": true,
-          "docs": "",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
             }
           ],
           "optional": false,
@@ -272,7 +219,7 @@
       "methods": [],
       "events": [
         {
-          "event": "goat:accordion-item-click",
+          "event": "goat-accordion-item--click",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -295,7 +242,19 @@
         }
       ],
       "listeners": [],
-      "metadata": {}
+      "metadata": {
+        "name": "Accordion Item",
+        "description": "An accordion item is single item in an accordion list. It contains a header and a content section that can be expanded or collapsed by the user.",
+        "overview": " <p>The accordion item component is a single item in an accordion list. It contains a header and a content section that can be expanded or collapsed by the user. The accordion item can be used in conjunction with the accordion component to create a list of expandable items.</p>",
+        "category": "Data Display",
+        "subcategory": "Accordion",
+        "tags": [
+          "display"
+        ],
+        "childComponent": "true",
+        "img": "/assets/img/accordion.webp",
+        "imgDark": "/assets/img/accordion-dark.webp"
+      }
     },
     {
       "dirPath": "E:/git/goatui/components/src/components/primitive/avatar",
@@ -308,28 +267,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Avatar"
-        },
-        {
-          "name": "description",
-          "text": "The Avatar component is used to represent user, and displays the profile picture, initials or fallback icon."
-        },
-        {
-          "name": "category",
-          "text": "Data Display"
-        },
-        {
-          "name": "tags",
-          "text": "display"
-        },
-        {
-          "name": "example",
-          "text": "<goat-avatar size=\"5rem\" name=\"Shivaji Varma\" src=\"/assets/img/avatar.webp\"></goat-avatar>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -429,28 +366,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Badge"
-        },
-        {
-          "name": "description",
-          "text": "The badge component is used to display a small amount of information to the user."
-        },
-        {
-          "name": "category",
-          "text": "Data Display"
-        },
-        {
-          "name": "tag",
-          "text": "content"
-        },
-        {
-          "name": "example",
-          "text": "<goat-badge content=\"5\"> <goat-icon name=\"notification\" size=\"lg\"></goat-icon></goat-badge>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -460,7 +375,7 @@
           "name": "color",
           "type": "\"error\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
           "complexType": {
-            "original": "'primary' | 'secondary' | 'success' | 'error' | 'warning'",
+            "original": "| 'primary'\n    | 'secondary'\n    | 'success'\n    | 'error'\n    | 'warning'",
             "resolved": "\"error\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
             "references": {}
           },
@@ -526,7 +441,7 @@
       "metadata": {
         "name": "Badge",
         "description": "The badge component is used to display a small amount of information to the user.",
-        "category": "Data Display",
+        "category": "Informational",
         "tag": "content",
         "example": "<goat-badge content=\"5\"> <goat-icon name=\"notification\" size=\"lg\"></goat-icon></goat-badge>"
       }
@@ -542,28 +457,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Breadcrumb"
-        },
-        {
-          "name": "description",
-          "text": "A breadcrumb is a secondary navigation scheme that reveals the user's location in a website or web application."
-        },
-        {
-          "name": "category",
-          "text": "Navigation"
-        },
-        {
-          "name": "tags",
-          "text": "navigation"
-        },
-        {
-          "name": "example",
-          "text": "<goat-breadcrumb><goat-breadcrumb-item href=\"#\">Home</goat-breadcrumb-item><goat-breadcrumb-item href=\"#\" active>Page</goat-breadcrumb-item></goat-breadcrumb>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -596,7 +489,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -715,28 +607,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Button"
-        },
-        {
-          "name": "description",
-          "text": "An interactive button with a range of presentation options."
-        },
-        {
-          "name": "category",
-          "text": "General"
-        },
-        {
-          "name": "tags",
-          "text": "controls"
-        },
-        {
-          "name": "example",
-          "text": "<goat-button>\nButton CTA\n</goat-button>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [
         "goat-calendar",
@@ -1338,7 +1208,7 @@
       ],
       "events": [
         {
-          "event": "goat-button-click",
+          "event": "goat-button--click",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -1348,7 +1218,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "On click of button, a CustomEvent 'goat-button-click' will be triggered.",
+          "docs": "On click of button, a CustomEvent 'goat-button--click' will be triggered.",
           "docsTags": []
         }
       ],
@@ -1371,7 +1241,8 @@
       ],
       "metadata": {
         "name": "Button",
-        "description": "An interactive button with a range of presentation options.",
+        "description": "Buttons are used to initialize an action. Button labels express what action will occur when the user interacts with it.",
+        "overview": " <p>Buttons are clickable elements that are used to trigger actions. They communicate calls to action to the user and allow users to interact with pages in a variety of ways. Button labels express what action will occur when the user interacts with it.</p>",
         "category": "General",
         "tags": [
           "controls"
@@ -1390,28 +1261,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Button Group"
-        },
-        {
-          "name": "description",
-          "text": "Group a series of buttons together on a single line with the button group, and super-power."
-        },
-        {
-          "name": "category",
-          "text": "General"
-        },
-        {
-          "name": "tags",
-          "text": "controls"
-        },
-        {
-          "name": "example",
-          "text": "<goat-button-group>\n<goat-button block icon=\"home\"></goat-button>\n<goat-button block icon=\"alarm\"></goat-button>\n</goat-button-group>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [
         "goat-flow-designer"
@@ -1450,32 +1299,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Calendar"
-        },
-        {
-          "name": "description",
-          "text": "The calendar component is used to display information in a daily, weekly, monthly, or category view."
-        },
-        {
-          "name": "category",
-          "text": "Data Display"
-        },
-        {
-          "name": "tags",
-          "text": "calendar"
-        },
-        {
-          "name": "img",
-          "text": "/assets/img/calendar.webp"
-        },
-        {
-          "name": "imgDark",
-          "text": "/assets/img/calendar-dark.webp"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -1535,7 +1358,7 @@
           },
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Available views.",
           "docsTags": [],
           "default": "[\n    {\n      label: 'Day',\n      value: 'day',\n      type: 'column',\n      days: 1,\n    },\n    {\n      label: 'Week',\n      value: 'week',\n      type: 'column',\n      days: 7,\n    },\n    {\n      label: 'Month',\n      value: 'month',\n      type: 'month',\n    },\n  ]",
           "values": [
@@ -1561,7 +1384,7 @@
           },
           "mutable": true,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Context date.",
           "docsTags": [],
           "values": [
             {
@@ -1582,7 +1405,7 @@
           "mutable": false,
           "attr": "event-clickable",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Event clickable.",
           "docsTags": [],
           "default": "true",
           "values": [
@@ -1609,7 +1432,7 @@
           },
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Calendar events.",
           "docsTags": [],
           "default": "[]",
           "values": [
@@ -1653,7 +1476,7 @@
           "mutable": false,
           "attr": "timezone",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Timezone.",
           "docsTags": [],
           "values": [
             {
@@ -1667,14 +1490,14 @@
           "name": "view",
           "type": "string",
           "complexType": {
-            "original": "string",
+            "original": "'day' | 'week' | 'month' | string",
             "resolved": "string",
             "references": {}
           },
           "mutable": false,
           "attr": "view",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Calendar view.",
           "docsTags": [],
           "default": "'week'",
           "values": [
@@ -1689,7 +1512,7 @@
       "methods": [],
       "events": [
         {
-          "event": "goat:calendar-event-click",
+          "event": "goat-calendar--event-click",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -1699,7 +1522,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Calendar event click.",
           "docsTags": []
         }
       ],
@@ -1708,17 +1531,17 @@
       "parts": [],
       "listeners": [
         {
-          "event": "goat:column-view-date-click",
+          "event": "internal-column-view-date-click",
           "capture": false,
           "passive": false
         },
         {
-          "event": "goat:column-view-event-click",
+          "event": "internal-column-view-event-click",
           "capture": false,
           "passive": false
         },
         {
-          "event": "goat:month-view-event-click",
+          "event": "internal-month-view-event-click",
           "capture": false,
           "passive": false
         }
@@ -1745,7 +1568,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [
         "goat-calendar"
@@ -1903,7 +1725,7 @@
       "methods": [],
       "events": [
         {
-          "event": "goat:column-view-date-click",
+          "event": "internal-column-view-date-click",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -1917,7 +1739,7 @@
           "docsTags": []
         },
         {
-          "event": "goat:column-view-event-click",
+          "event": "internal-column-view-event-click",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -1948,7 +1770,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [
         "goat-calendar-column-view"
@@ -2026,7 +1847,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [
         "goat-calendar"
@@ -2135,7 +1955,7 @@
       "methods": [],
       "events": [
         {
-          "event": "goat:month-view-date-click",
+          "event": "internal-month-view-date-click",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -2149,7 +1969,7 @@
           "docsTags": []
         },
         {
-          "event": "goat:month-view-event-click",
+          "event": "internal-month-view-event-click",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -2180,7 +2000,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -2228,24 +2047,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Canvas"
-        },
-        {
-          "name": "category",
-          "text": "Up coming"
-        },
-        {
-          "name": "description",
-          "text": "Canvas for drawing lines and shapes on."
-        },
-        {
-          "name": "img",
-          "text": "/assets/img/canvas.webp"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [
         "goat-flow-designer"
@@ -2368,7 +2169,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -2436,7 +2236,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -2545,7 +2344,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [
         "goat-cb-compound-expression",
@@ -2651,7 +2449,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -2749,7 +2546,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -2834,32 +2630,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Chart Doughnut"
-        },
-        {
-          "name": "description",
-          "text": "A doughnut chart is a circular chart with a blank center. The chart is similar to a pie chart with the center cut out. The area in the center can be used to display information."
-        },
-        {
-          "name": "category",
-          "text": "Charts"
-        },
-        {
-          "name": "tag",
-          "text": "chart"
-        },
-        {
-          "name": "img",
-          "text": "/assets/img/chart-doughnut.webp"
-        },
-        {
-          "name": "imgDark",
-          "text": "/assets/img/chart-doughnut-dark.webp"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -3001,32 +2771,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Chart Pie"
-        },
-        {
-          "name": "description",
-          "text": "A pie chart (also known as a circle chart) is a circular statistical graphic that visually represents numerical proportions. It is commonly used to illustrate how parts relate to the whole for a specific categorical variable."
-        },
-        {
-          "name": "category",
-          "text": "Charts"
-        },
-        {
-          "name": "tag",
-          "text": "chart"
-        },
-        {
-          "name": "img",
-          "text": "/assets/img/chart-pie.webp"
-        },
-        {
-          "name": "imgDark",
-          "text": "/assets/img/chart-pie-dark.webp"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -3168,28 +2912,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Checkbox"
-        },
-        {
-          "name": "description",
-          "text": "Captures boolean input with an optional indeterminate mode."
-        },
-        {
-          "name": "category",
-          "text": "Form Inputs"
-        },
-        {
-          "name": "tags",
-          "text": "input, form"
-        },
-        {
-          "name": "example",
-          "text": "<goat-checkbox value='true'>Want ice cream?</goat-checkbox>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [
         "goat-table"
@@ -3530,7 +3252,7 @@
       ],
       "events": [
         {
-          "event": "goat:blur",
+          "event": "goat-checkbox--blur",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -3544,7 +3266,7 @@
           "docsTags": []
         },
         {
-          "event": "goat:change",
+          "event": "goat-checkbox--change",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -3554,11 +3276,11 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "On change of input a CustomEvent 'goat:change' will be triggered. Event details contains parent event, oldValue, newValue of input.",
+          "docs": "On change of input a CustomEvent 'goat-checkbox--change' will be triggered. Event details contains parent event, oldValue, newValue of input.",
           "docsTags": []
         },
         {
-          "event": "goat:focus",
+          "event": "goat-checkbox--focus",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -3611,32 +3333,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Code Editor"
-        },
-        {
-          "name": "description",
-          "text": "A browser based code editor."
-        },
-        {
-          "name": "category",
-          "text": "Form Inputs"
-        },
-        {
-          "name": "tags",
-          "text": "input, form"
-        },
-        {
-          "name": "img",
-          "text": "/assets/img/code-editor.webp"
-        },
-        {
-          "name": "imgDark",
-          "text": "/assets/img/code-editor-dark.webp"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [
         "goat-html-editor"
@@ -3755,6 +3451,28 @@
             {
               "value": "on",
               "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "minimap",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "minimap",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
             }
           ],
           "optional": false,
@@ -3918,7 +3636,7 @@
       ],
       "events": [
         {
-          "event": "goat:change",
+          "event": "goat-code-editor--change",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -3959,57 +3677,18 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Code Highlighter"
-        },
-        {
-          "name": "description",
-          "text": "A browser based code highlighter."
-        },
-        {
-          "name": "category",
-          "text": "Data Display"
-        },
-        {
-          "name": "tag",
-          "text": "display, code"
-        },
-        {
-          "name": "img",
-          "text": "/assets/img/code-highlighter.webp"
-        },
-        {
-          "name": "imgDark",
-          "text": "/assets/img/code-highlighter-dark.webp"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
-        "goat-notification-manager",
         "goat-button",
         "goat-tooltip",
         "goat-spinner"
       ],
       "dependencyGraph": {
         "goat-code-highlighter": [
-          "goat-notification-manager",
           "goat-button",
           "goat-tooltip",
           "goat-spinner"
-        ],
-        "goat-notification-manager": [
-          "goat-toast",
-          "goat-notification"
-        ],
-        "goat-toast": [
-          "goat-icon"
-        ],
-        "goat-notification": [
-          "goat-button",
-          "goat-icon"
         ],
         "goat-button": [
           "goat-spinner",
@@ -4028,7 +3707,7 @@
           "mutable": true,
           "attr": "format",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "Format the code snippet.",
           "docsTags": [],
           "values": [
             {
@@ -4071,7 +3750,7 @@
           "mutable": false,
           "attr": "inline",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "Display the code snippet inline.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -4084,20 +3763,487 @@
         },
         {
           "name": "language",
-          "type": "string",
+          "type": "\"json\" | \"http\" | \"html\" | \"q\" | \"d\" | \"r\" | \"c\" | \"markup\" | \"css\" | \"clike\" | \"javascript\" | \"abap\" | \"actionscript\" | \"ada\" | \"apacheconf\" | \"apl\" | \"applescript\" | \"arduino\" | \"arff\" | \"asciidoc\" | \"asm6502\" | \"aspnet\" | \"autohotkey\" | \"autoit\" | \"bash\" | \"basic\" | \"batch\" | \"bison\" | \"brainfuck\" | \"bro\" | \"csharp\" | \"cpp\" | \"coffeescript\" | \"clojure\" | \"crystal\" | \"csp\" | \"css-extras\" | \"dart\" | \"diff\" | \"django\" | \"docker\" | \"eiffel\" | \"elixir\" | \"elm\" | \"erb\" | \"erlang\" | \"fsharp\" | \"flow\" | \"fortran\" | \"gedcom\" | \"gherkin\" | \"git\" | \"glsl\" | \"go\" | \"graphql\" | \"groovy\" | \"haml\" | \"handlebars\" | \"haskell\" | \"haxe\" | \"hpkp\" | \"hsts\" | \"ichigojam\" | \"icon\" | \"inform7\" | \"ini\" | \"io\" | \"j\" | \"java\" | \"jolie\" | \"jsx\" | \"julia\" | \"keyman\" | \"kotlin\" | \"latex\" | \"less\" | \"lilypond\" | \"liquid\" | \"lisp\" | \"livescript\" | \"lolcode\" | \"lua\" | \"makefile\" | \"markdown\" | \"markup-templating\" | \"matlab\" | \"mel\" | \"mizar\" | \"monkey\" | \"n4js\" | \"nasm\" | \"nginx\" | \"nim\" | \"nix\" | \"nsis\" | \"objectivec\" | \"ocaml\" | \"opencl\" | \"oz\" | \"parigp\" | \"parser\" | \"pascal\" | \"perl\" | \"php\" | \"php-extras\" | \"plsql\" | \"powershell\" | \"processing\" | \"prolog\" | \"properties\" | \"protobuf\" | \"pug\" | \"puppet\" | \"pure\" | \"python\" | \"qore\"",
           "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
+            "original": "Language",
+            "resolved": "\"json\" | \"http\" | \"html\" | \"q\" | \"d\" | \"r\" | \"c\" | \"markup\" | \"css\" | \"clike\" | \"javascript\" | \"abap\" | \"actionscript\" | \"ada\" | \"apacheconf\" | \"apl\" | \"applescript\" | \"arduino\" | \"arff\" | \"asciidoc\" | \"asm6502\" | \"aspnet\" | \"autohotkey\" | \"autoit\" | \"bash\" | \"basic\" | \"batch\" | \"bison\" | \"brainfuck\" | \"bro\" | \"csharp\" | \"cpp\" | \"coffeescript\" | \"clojure\" | \"crystal\" | \"csp\" | \"css-extras\" | \"dart\" | \"diff\" | \"django\" | \"docker\" | \"eiffel\" | \"elixir\" | \"elm\" | \"erb\" | \"erlang\" | \"fsharp\" | \"flow\" | \"fortran\" | \"gedcom\" | \"gherkin\" | \"git\" | \"glsl\" | \"go\" | \"graphql\" | \"groovy\" | \"haml\" | \"handlebars\" | \"haskell\" | \"haxe\" | \"hpkp\" | \"hsts\" | \"ichigojam\" | \"icon\" | \"inform7\" | \"ini\" | \"io\" | \"j\" | \"java\" | \"jolie\" | \"jsx\" | \"julia\" | \"keyman\" | \"kotlin\" | \"latex\" | \"less\" | \"lilypond\" | \"liquid\" | \"lisp\" | \"livescript\" | \"lolcode\" | \"lua\" | \"makefile\" | \"markdown\" | \"markup-templating\" | \"matlab\" | \"mel\" | \"mizar\" | \"monkey\" | \"n4js\" | \"nasm\" | \"nginx\" | \"nim\" | \"nix\" | \"nsis\" | \"objectivec\" | \"ocaml\" | \"opencl\" | \"oz\" | \"parigp\" | \"parser\" | \"pascal\" | \"perl\" | \"php\" | \"php-extras\" | \"plsql\" | \"powershell\" | \"processing\" | \"prolog\" | \"properties\" | \"protobuf\" | \"pug\" | \"puppet\" | \"pure\" | \"python\" | \"qore\"",
+            "references": {
+              "Language": {
+                "location": "import",
+                "path": "./constants",
+                "id": "src/components/application/code-highlighter/constants.ts::Language"
+              }
+            }
           },
           "mutable": false,
           "attr": "language",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "The language of the code snippet.",
           "docsTags": [],
-          "default": "Language.javascript",
+          "default": "'javascript'",
           "values": [
             {
+              "value": "json",
+              "type": "string"
+            },
+            {
+              "value": "http",
+              "type": "string"
+            },
+            {
+              "value": "html",
+              "type": "string"
+            },
+            {
+              "value": "q",
+              "type": "string"
+            },
+            {
+              "value": "d",
+              "type": "string"
+            },
+            {
+              "value": "r",
+              "type": "string"
+            },
+            {
+              "value": "c",
+              "type": "string"
+            },
+            {
+              "value": "markup",
+              "type": "string"
+            },
+            {
+              "value": "css",
+              "type": "string"
+            },
+            {
+              "value": "clike",
+              "type": "string"
+            },
+            {
+              "value": "javascript",
+              "type": "string"
+            },
+            {
+              "value": "abap",
+              "type": "string"
+            },
+            {
+              "value": "actionscript",
+              "type": "string"
+            },
+            {
+              "value": "ada",
+              "type": "string"
+            },
+            {
+              "value": "apacheconf",
+              "type": "string"
+            },
+            {
+              "value": "apl",
+              "type": "string"
+            },
+            {
+              "value": "applescript",
+              "type": "string"
+            },
+            {
+              "value": "arduino",
+              "type": "string"
+            },
+            {
+              "value": "arff",
+              "type": "string"
+            },
+            {
+              "value": "asciidoc",
+              "type": "string"
+            },
+            {
+              "value": "asm6502",
+              "type": "string"
+            },
+            {
+              "value": "aspnet",
+              "type": "string"
+            },
+            {
+              "value": "autohotkey",
+              "type": "string"
+            },
+            {
+              "value": "autoit",
+              "type": "string"
+            },
+            {
+              "value": "bash",
+              "type": "string"
+            },
+            {
+              "value": "basic",
+              "type": "string"
+            },
+            {
+              "value": "batch",
+              "type": "string"
+            },
+            {
+              "value": "bison",
+              "type": "string"
+            },
+            {
+              "value": "brainfuck",
+              "type": "string"
+            },
+            {
+              "value": "bro",
+              "type": "string"
+            },
+            {
+              "value": "csharp",
+              "type": "string"
+            },
+            {
+              "value": "cpp",
+              "type": "string"
+            },
+            {
+              "value": "coffeescript",
+              "type": "string"
+            },
+            {
+              "value": "clojure",
+              "type": "string"
+            },
+            {
+              "value": "crystal",
+              "type": "string"
+            },
+            {
+              "value": "csp",
+              "type": "string"
+            },
+            {
+              "value": "css-extras",
+              "type": "string"
+            },
+            {
+              "value": "dart",
+              "type": "string"
+            },
+            {
+              "value": "diff",
+              "type": "string"
+            },
+            {
+              "value": "django",
+              "type": "string"
+            },
+            {
+              "value": "docker",
+              "type": "string"
+            },
+            {
+              "value": "eiffel",
+              "type": "string"
+            },
+            {
+              "value": "elixir",
+              "type": "string"
+            },
+            {
+              "value": "elm",
+              "type": "string"
+            },
+            {
+              "value": "erb",
+              "type": "string"
+            },
+            {
+              "value": "erlang",
+              "type": "string"
+            },
+            {
+              "value": "fsharp",
+              "type": "string"
+            },
+            {
+              "value": "flow",
+              "type": "string"
+            },
+            {
+              "value": "fortran",
+              "type": "string"
+            },
+            {
+              "value": "gedcom",
+              "type": "string"
+            },
+            {
+              "value": "gherkin",
+              "type": "string"
+            },
+            {
+              "value": "git",
+              "type": "string"
+            },
+            {
+              "value": "glsl",
+              "type": "string"
+            },
+            {
+              "value": "go",
+              "type": "string"
+            },
+            {
+              "value": "graphql",
+              "type": "string"
+            },
+            {
+              "value": "groovy",
+              "type": "string"
+            },
+            {
+              "value": "haml",
+              "type": "string"
+            },
+            {
+              "value": "handlebars",
+              "type": "string"
+            },
+            {
+              "value": "haskell",
+              "type": "string"
+            },
+            {
+              "value": "haxe",
+              "type": "string"
+            },
+            {
+              "value": "hpkp",
+              "type": "string"
+            },
+            {
+              "value": "hsts",
+              "type": "string"
+            },
+            {
+              "value": "ichigojam",
+              "type": "string"
+            },
+            {
+              "value": "icon",
+              "type": "string"
+            },
+            {
+              "value": "inform7",
+              "type": "string"
+            },
+            {
+              "value": "ini",
+              "type": "string"
+            },
+            {
+              "value": "io",
+              "type": "string"
+            },
+            {
+              "value": "j",
+              "type": "string"
+            },
+            {
+              "value": "java",
+              "type": "string"
+            },
+            {
+              "value": "jolie",
+              "type": "string"
+            },
+            {
+              "value": "jsx",
+              "type": "string"
+            },
+            {
+              "value": "julia",
+              "type": "string"
+            },
+            {
+              "value": "keyman",
+              "type": "string"
+            },
+            {
+              "value": "kotlin",
+              "type": "string"
+            },
+            {
+              "value": "latex",
+              "type": "string"
+            },
+            {
+              "value": "less",
+              "type": "string"
+            },
+            {
+              "value": "lilypond",
+              "type": "string"
+            },
+            {
+              "value": "liquid",
+              "type": "string"
+            },
+            {
+              "value": "lisp",
+              "type": "string"
+            },
+            {
+              "value": "livescript",
+              "type": "string"
+            },
+            {
+              "value": "lolcode",
+              "type": "string"
+            },
+            {
+              "value": "lua",
+              "type": "string"
+            },
+            {
+              "value": "makefile",
+              "type": "string"
+            },
+            {
+              "value": "markdown",
+              "type": "string"
+            },
+            {
+              "value": "markup-templating",
+              "type": "string"
+            },
+            {
+              "value": "matlab",
+              "type": "string"
+            },
+            {
+              "value": "mel",
+              "type": "string"
+            },
+            {
+              "value": "mizar",
+              "type": "string"
+            },
+            {
+              "value": "monkey",
+              "type": "string"
+            },
+            {
+              "value": "n4js",
+              "type": "string"
+            },
+            {
+              "value": "nasm",
+              "type": "string"
+            },
+            {
+              "value": "nginx",
+              "type": "string"
+            },
+            {
+              "value": "nim",
+              "type": "string"
+            },
+            {
+              "value": "nix",
+              "type": "string"
+            },
+            {
+              "value": "nsis",
+              "type": "string"
+            },
+            {
+              "value": "objectivec",
+              "type": "string"
+            },
+            {
+              "value": "ocaml",
+              "type": "string"
+            },
+            {
+              "value": "opencl",
+              "type": "string"
+            },
+            {
+              "value": "oz",
+              "type": "string"
+            },
+            {
+              "value": "parigp",
+              "type": "string"
+            },
+            {
+              "value": "parser",
+              "type": "string"
+            },
+            {
+              "value": "pascal",
+              "type": "string"
+            },
+            {
+              "value": "perl",
+              "type": "string"
+            },
+            {
+              "value": "php",
+              "type": "string"
+            },
+            {
+              "value": "php-extras",
+              "type": "string"
+            },
+            {
+              "value": "plsql",
+              "type": "string"
+            },
+            {
+              "value": "powershell",
+              "type": "string"
+            },
+            {
+              "value": "processing",
+              "type": "string"
+            },
+            {
+              "value": "prolog",
+              "type": "string"
+            },
+            {
+              "value": "properties",
+              "type": "string"
+            },
+            {
+              "value": "protobuf",
+              "type": "string"
+            },
+            {
+              "value": "pug",
+              "type": "string"
+            },
+            {
+              "value": "puppet",
+              "type": "string"
+            },
+            {
+              "value": "pure",
+              "type": "string"
+            },
+            {
+              "value": "python",
+              "type": "string"
+            },
+            {
+              "value": "qore",
               "type": "string"
             }
           ],
@@ -4115,7 +4261,7 @@
           "mutable": false,
           "attr": "line-numbers",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "Display line numbers.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -4137,7 +4283,7 @@
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "The code snippet to highlight.",
           "docsTags": [],
           "default": "''",
           "values": [
@@ -4175,28 +4321,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Condition Builder"
-        },
-        {
-          "name": "description",
-          "text": "A condition builder is a component that allows users to build a condition using a set of rules."
-        },
-        {
-          "name": "category",
-          "text": "Up coming"
-        },
-        {
-          "name": "tag",
-          "text": "content"
-        },
-        {
-          "name": "img",
-          "text": "/assets/img/condition-builder.webp"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -4289,7 +4413,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -4337,24 +4460,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Current Time"
-        },
-        {
-          "name": "description",
-          "text": "Displays the current time in a given timezone."
-        },
-        {
-          "name": "category",
-          "text": "Others"
-        },
-        {
-          "name": "example",
-          "text": "<goat-current-time></goat-current-time>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -4406,24 +4511,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Date Picker"
-        },
-        {
-          "name": "category",
-          "text": "Form Inputs"
-        },
-        {
-          "name": "description",
-          "text": "Captures date input."
-        },
-        {
-          "name": "example",
-          "text": "<goat-date-picker value='true'></goat-date-picker>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -4869,7 +4956,7 @@
       ],
       "events": [
         {
-          "event": "goat:blur",
+          "event": "goat-date-picker--blur",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -4883,7 +4970,7 @@
           "docsTags": []
         },
         {
-          "event": "goat:change",
+          "event": "goat-date-picker--change",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -4897,7 +4984,7 @@
           "docsTags": []
         },
         {
-          "event": "goat:focus",
+          "event": "goat-date-picker--focus",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -4911,7 +4998,7 @@
           "docsTags": []
         },
         {
-          "event": "goat:input",
+          "event": "goat-date-picker--input",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -4947,24 +5034,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Divider"
-        },
-        {
-          "name": "description",
-          "text": "A divider can be used to segment content vertically or horizontally."
-        },
-        {
-          "name": "category",
-          "text": "Layout"
-        },
-        {
-          "name": "example",
-          "text": "<goat-divider style=\"width: 12rem;\">or</goat-divider>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [
         "goat-header-brand"
@@ -5023,28 +5092,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Dropdown"
-        },
-        {
-          "name": "description",
-          "text": "Enables native inputs to be used within a Form field."
-        },
-        {
-          "name": "category",
-          "text": "Navigation"
-        },
-        {
-          "name": "img",
-          "text": "/assets/img/dropdown.webp"
-        },
-        {
-          "name": "imgDark",
-          "text": "/assets/img/dropdown-dark.webp"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -5196,7 +5243,7 @@
       ],
       "events": [
         {
-          "event": "goat:dropdown-item-click",
+          "event": "goat-dropdown--item-click",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -5221,7 +5268,7 @@
           "passive": false
         },
         {
-          "event": "goat:menu-item-click",
+          "event": "goat-menu-item-click",
           "target": "window",
           "capture": false,
           "passive": false
@@ -5264,28 +5311,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Empty State"
-        },
-        {
-          "name": "description",
-          "text": "A message that displays when there is no information to display."
-        },
-        {
-          "name": "category",
-          "text": "Data Display"
-        },
-        {
-          "name": "img",
-          "text": "/assets/img/empty-state.webp"
-        },
-        {
-          "name": "imgDark",
-          "text": "/assets/img/empty-state-dark.webp"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [
         "goat-menu",
@@ -5517,24 +5542,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Flow Designer"
-        },
-        {
-          "name": "category",
-          "text": "Up coming"
-        },
-        {
-          "name": "description",
-          "text": "Flow Designer is a component that allows users to create and edit flows."
-        },
-        {
-          "name": "img",
-          "text": "/assets/img/flow-designer.webp"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -5658,32 +5665,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Footer"
-        },
-        {
-          "name": "description",
-          "text": "The footer component provides a container for displaying additional navigation information about a site."
-        },
-        {
-          "name": "overview",
-          "text": "<p>The footer is one of the most underestimated sections of a website being located at the very bottom of every page, however, it can be used as a way to try to convince users to stay on your website if they haven’t found the information they’ve been looking for inside the main content area.</p>"
-        },
-        {
-          "name": "category",
-          "text": "Navigation"
-        },
-        {
-          "name": "img",
-          "text": "/assets/img/footer.webp"
-        },
-        {
-          "name": "imgDark",
-          "text": "/assets/img/footer-dark.webp"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -5761,7 +5742,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -5859,7 +5839,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -5912,28 +5891,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Form Control"
-        },
-        {
-          "name": "description",
-          "text": "The Form Control component adds a label and caption for its child control."
-        },
-        {
-          "name": "category",
-          "text": "Form Inputs"
-        },
-        {
-          "name": "tags",
-          "text": "form"
-        },
-        {
-          "name": "example",
-          "text": "<goat-form-control label='Full Name' required>\n<goat-input type='text'></goat-input>\n</goat-form-control>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -6161,28 +6118,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Header"
-        },
-        {
-          "name": "description",
-          "text": "Header component is used to display a header with a brand, navigation, and actions."
-        },
-        {
-          "name": "category",
-          "text": "Navigation"
-        },
-        {
-          "name": "img",
-          "text": "/assets/img/header.webp"
-        },
-        {
-          "name": "imgDark",
-          "text": "/assets/img/header-dark.webp"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -6271,7 +6206,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -6480,7 +6414,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -6626,32 +6559,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "HTML Editor"
-        },
-        {
-          "name": "description",
-          "text": "HTML Editor component is a WYSIWYG editor that allows users to edit HTML content."
-        },
-        {
-          "name": "category",
-          "text": "Up coming"
-        },
-        {
-          "name": "tags",
-          "text": "input, form"
-        },
-        {
-          "name": "img",
-          "text": "/assets/img/html-editor.webp"
-        },
-        {
-          "name": "imgDark",
-          "text": "/assets/img/html-editor-dark.webp"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -6998,7 +6905,7 @@
       ],
       "events": [
         {
-          "event": "goat:change",
+          "event": "goat-html-editor--change",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -7039,28 +6946,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Icon"
-        },
-        {
-          "name": "description",
-          "text": "Icons are visual symbols used to represent ideas, objects, or actions."
-        },
-        {
-          "name": "overview",
-          "text": "Icons are visual symbols used to represent ideas, objects, or actions. They communicate messages at a glance, afford interactivity, and draw attention to important information."
-        },
-        {
-          "name": "category",
-          "text": "General"
-        },
-        {
-          "name": "example",
-          "text": "<goat-icon name=\"home\" size=\"2rem\"></goat-icon>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [
         "goat-accordion-item",
@@ -7071,7 +6956,6 @@
         "goat-select",
         "goat-tab",
         "goat-tag",
-        "goat-toast",
         "goat-tree-node"
       ],
       "dependencies": [],
@@ -7098,9 +6982,6 @@
           "goat-icon"
         ],
         "goat-tag": [
-          "goat-icon"
-        ],
-        "goat-toast": [
           "goat-icon"
         ],
         "goat-tree-node": [
@@ -7176,7 +7057,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -7265,28 +7145,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Input"
-        },
-        {
-          "name": "description",
-          "text": "Enables native inputs to be used within a Form field."
-        },
-        {
-          "name": "category",
-          "text": "Form Inputs"
-        },
-        {
-          "name": "tags",
-          "text": "input, form"
-        },
-        {
-          "name": "example",
-          "text": "<goat-input placeholder=\"Enter your name\"></goat-input>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [
         "goat-condition-builder"
@@ -7861,7 +7719,7 @@
       ],
       "events": [
         {
-          "event": "goat:blur",
+          "event": "goat-input--blur",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -7875,7 +7733,7 @@
           "docsTags": []
         },
         {
-          "event": "goat:change",
+          "event": "goat-input--change",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -7889,7 +7747,7 @@
           "docsTags": []
         },
         {
-          "event": "goat:focus",
+          "event": "goat-input--focus",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -7903,7 +7761,7 @@
           "docsTags": []
         },
         {
-          "event": "goat:input",
+          "event": "goat-input--input",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -7943,24 +7801,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Link"
-        },
-        {
-          "name": "description",
-          "text": "Links allow users to click their way from page to page."
-        },
-        {
-          "name": "category",
-          "text": "Navigation"
-        },
-        {
-          "name": "example",
-          "text": "<goat-link href=\"#\">Link</goat-link>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [
         "goat-breadcrumb-item",
@@ -8087,28 +7927,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Menu"
-        },
-        {
-          "name": "description",
-          "text": "Menus display a list of choices on temporary surfaces."
-        },
-        {
-          "name": "category",
-          "text": "Navigation"
-        },
-        {
-          "name": "img",
-          "text": "/assets/img/menu.webp"
-        },
-        {
-          "name": "imgDark",
-          "text": "/assets/img/menu-dark.webp"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [
         "goat-html-editor",
@@ -8366,7 +8184,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [
         "goat-html-editor",
@@ -8572,7 +8389,7 @@
       ],
       "events": [
         {
-          "event": "goat:menu-item-click",
+          "event": "goat-menu-item--click",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -8612,36 +8429,10 @@
       "readmePath": "E:/git/goatui/components/src/components/informational/modal/modal/readme.md",
       "usagesDir": "E:/git/goatui/components/src/components/informational/modal/modal/usage",
       "tag": "goat-modal",
-      "readme": "# p4-modal\r\n\r\n\r\n\r",
+      "readme": "# p4-modal\n\n\n",
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Modal"
-        },
-        {
-          "name": "description",
-          "text": "Modals are used to display content in a layer above the app."
-        },
-        {
-          "name": "category",
-          "text": "Feedback"
-        },
-        {
-          "name": "tags",
-          "text": "controls"
-        },
-        {
-          "name": "img",
-          "text": "/assets/img/modal.webp"
-        },
-        {
-          "name": "imgDark",
-          "text": "/assets/img/modal-dark.webp"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -8804,7 +8595,7 @@
       "methods": [],
       "events": [
         {
-          "event": "goat:modal-close",
+          "event": "goat-modal--close",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -8814,7 +8605,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "On click of button, a CustomEvent 'goat:modal-close' will be triggered.",
+          "docs": "On click of button, a CustomEvent 'goat-modal--close' will be triggered.",
           "docsTags": []
         }
       ],
@@ -8825,7 +8616,8 @@
       "metadata": {
         "name": "Modal",
         "description": "Modals are used to display content in a layer above the app.",
-        "category": "Feedback",
+        "category": "Informational",
+        "subcategory": "Modal",
         "tags": [
           "controls"
         ],
@@ -8844,7 +8636,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -8888,7 +8679,16 @@
       "slots": [],
       "parts": [],
       "listeners": [],
-      "metadata": {}
+      "metadata": {
+        "name": "Modal Content",
+        "description": "The Modal Content component is used to display the content within a modal.",
+        "category": "Informational",
+        "subcategory": "Modal",
+        "tags": [
+          "controls"
+        ],
+        "childComponent": "true"
+      }
     },
     {
       "dirPath": "E:/git/goatui/components/src/components/informational/notification",
@@ -8897,44 +8697,22 @@
       "readmePath": "E:/git/goatui/components/src/components/informational/notification/readme.md",
       "usagesDir": "E:/git/goatui/components/src/components/informational/notification/usage",
       "tag": "goat-notification",
-      "readme": "# goat-alert\r\n\r\n\r\n\r",
+      "readme": "# goat-alert\n\n\n",
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Notification"
-        },
-        {
-          "name": "description",
-          "text": "Notifications are messages that communicate information to the user."
-        },
-        {
-          "name": "category",
-          "text": "Feedback"
-        },
-        {
-          "name": "tags",
-          "text": "notification"
-        },
-        {
-          "name": "example",
-          "text": "<goat-notification state=\"success\">\n     <div slot='title'>Successful saved the record</div>\n   </goat-notification>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [
         "goat-notification-manager"
       ],
       "dependencies": [
-        "goat-button",
-        "goat-icon"
+        "goat-icon",
+        "goat-button"
       ],
       "dependencyGraph": {
         "goat-notification": [
-          "goat-button",
-          "goat-icon"
+          "goat-icon",
+          "goat-button"
         ],
         "goat-button": [
           "goat-spinner",
@@ -8946,7 +8724,7 @@
       },
       "props": [
         {
-          "name": "actionLabel",
+          "name": "action",
           "type": "string",
           "complexType": {
             "original": "string",
@@ -8954,58 +8732,13 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "action-label",
+          "attr": "action",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Action to be displayed on the notification",
           "docsTags": [],
-          "default": "'Dismiss'",
           "values": [
             {
               "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "actionName",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "action-name",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "default": "'dismiss'",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "actionable",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "actionable",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "default": "true",
-          "values": [
-            {
-              "type": "boolean"
             }
           ],
           "optional": false,
@@ -9022,7 +8755,7 @@
           "mutable": false,
           "attr": "dismissible",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Whether the notification is dismissible",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -9044,7 +8777,51 @@
           "mutable": false,
           "attr": "high-contrast",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Whether to use high contrast mode",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "inline",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "inline",
+          "reflectToAttr": true,
+          "docs": "Whether the notification should be displayed inline",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "managed",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "managed",
+          "reflectToAttr": false,
+          "docs": "Whether the notification is managed by the notification manager",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -9065,8 +8842,8 @@
           },
           "mutable": false,
           "attr": "state",
-          "reflectToAttr": false,
-          "docs": "",
+          "reflectToAttr": true,
+          "docs": "The state of the notification.\nPossible values are: 'success', 'error', 'info', 'warning'",
           "docsTags": [],
           "default": "'info'",
           "values": [
@@ -9094,7 +8871,7 @@
       "methods": [],
       "events": [
         {
-          "event": "goat:dismiss",
+          "event": "goat-notification--action-click",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -9106,6 +8883,20 @@
           "composed": true,
           "docs": "",
           "docsTags": []
+        },
+        {
+          "event": "goat-notification--dismiss",
+          "detail": "any",
+          "bubbles": true,
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the notification is dismissed",
+          "docsTags": []
         }
       ],
       "styles": [],
@@ -9115,7 +8906,7 @@
       "metadata": {
         "name": "Notification",
         "description": "Notifications are messages that communicate information to the user.",
-        "category": "Feedback",
+        "category": "Informational",
         "tags": [
           "notification"
         ],
@@ -9133,58 +8924,22 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Notification Manager"
-        },
-        {
-          "name": "description",
-          "text": "Manages alert, toasts and notifications."
-        },
-        {
-          "name": "category",
-          "text": "Feedback"
-        },
-        {
-          "name": "tags",
-          "text": "notification"
-        },
-        {
-          "name": "img",
-          "text": "/assets/img/notification-manager.webp"
-        },
-        {
-          "name": "imgDark",
-          "text": "/assets/img/notification-manager-dark.webp"
-        }
-      ],
       "encapsulation": "shadow",
-      "dependents": [
-        "goat-code-highlighter"
-      ],
+      "dependents": [],
       "dependencies": [
-        "goat-toast",
         "goat-notification"
       ],
       "dependencyGraph": {
         "goat-notification-manager": [
-          "goat-toast",
           "goat-notification"
         ],
-        "goat-toast": [
-          "goat-icon"
-        ],
         "goat-notification": [
-          "goat-button",
-          "goat-icon"
+          "goat-icon",
+          "goat-button"
         ],
         "goat-button": [
           "goat-spinner",
           "goat-icon"
-        ],
-        "goat-code-highlighter": [
-          "goat-notification-manager"
         ]
       },
       "props": [
@@ -9253,13 +9008,7 @@
       "parts": [],
       "listeners": [
         {
-          "event": "goat:toast",
-          "target": "window",
-          "capture": false,
-          "passive": false
-        },
-        {
-          "event": "goat:notification",
+          "event": "goat-notification",
           "target": "window",
           "capture": false,
           "passive": false
@@ -9267,8 +9016,8 @@
       ],
       "metadata": {
         "name": "Notification Manager",
-        "description": "Manages alert, toasts and notifications.",
-        "category": "Feedback",
+        "description": "The Notification Manager handles the organization and display of notifications within the application.",
+        "category": "Informational",
         "tags": [
           "notification"
         ],
@@ -9287,28 +9036,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Number"
-        },
-        {
-          "name": "description",
-          "text": "Number input lets users enter a numeric value and incrementally increase or decrease the value with a two-segment control."
-        },
-        {
-          "name": "category",
-          "text": "Form Inputs"
-        },
-        {
-          "name": "tags",
-          "text": "input, form"
-        },
-        {
-          "name": "example",
-          "text": "<goat-number value=\"100\"></goat-input>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [
         "goat-slider"
@@ -9884,7 +9611,7 @@
       ],
       "events": [
         {
-          "event": "goat:blur",
+          "event": "goat-number--blur",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -9898,7 +9625,7 @@
           "docsTags": []
         },
         {
-          "event": "goat:change",
+          "event": "goat-number--change",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -9912,7 +9639,7 @@
           "docsTags": []
         },
         {
-          "event": "goat:focus",
+          "event": "goat-number--focus",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -9926,7 +9653,7 @@
           "docsTags": []
         },
         {
-          "event": "goat:input",
+          "event": "goat-number--input",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -9966,28 +9693,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Progress"
-        },
-        {
-          "name": "description",
-          "text": "Progress indicators express an unspecified wait time or display the length of a process."
-        },
-        {
-          "name": "category",
-          "text": "Feedback"
-        },
-        {
-          "name": "tags",
-          "text": "feedback, loading, progress, spinner"
-        },
-        {
-          "name": "example",
-          "text": "<goat-progress value=\"40\" label=\"Progress\" width=\"100%\" helper-text=\"Optional helper text goes here...\"></goat-progress>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -10074,7 +9779,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "\r\nPossible values are: `\"sm\"` and `\"md\"` in pixel. Defaults to `\"md\"`.",
+          "docs": "\nPossible values are: `\"sm\"` and `\"md\"` in pixel. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -10153,7 +9858,7 @@
       "metadata": {
         "name": "Progress",
         "description": "Progress indicators express an unspecified wait time or display the length of a process.",
-        "category": "Feedback",
+        "category": "Informational",
         "tags": [
           "feedback",
           " loading",
@@ -10174,32 +9879,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Select"
-        },
-        {
-          "name": "description",
-          "text": "Allows the user to select one or more options using a dropdown."
-        },
-        {
-          "name": "category",
-          "text": "Form Inputs"
-        },
-        {
-          "name": "tags",
-          "text": "input, form"
-        },
-        {
-          "name": "img",
-          "text": "/assets/img/select.webp"
-        },
-        {
-          "name": "imgDark",
-          "text": "/assets/img/select-dark.webp"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [
         "goat-calendar",
@@ -10965,7 +10644,7 @@
       ],
       "events": [
         {
-          "event": "goat:change",
+          "event": "goat-select--change",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -10979,21 +10658,7 @@
           "docsTags": []
         },
         {
-          "event": "goat:search",
-          "detail": "any",
-          "bubbles": true,
-          "complexType": {
-            "original": "any",
-            "resolved": "any",
-            "references": {}
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "Emitted when a keyboard input occurred.",
-          "docsTags": []
-        },
-        {
-          "event": "goat:search-enter",
+          "event": "goat-select--enter",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -11004,6 +10669,20 @@
           "cancelable": true,
           "composed": true,
           "docs": "",
+          "docsTags": []
+        },
+        {
+          "event": "goat-select--search",
+          "detail": "any",
+          "bubbles": true,
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when a keyboard input occurred.",
           "docsTags": []
         }
       ],
@@ -11018,12 +10697,12 @@
           "passive": false
         },
         {
-          "event": "goat:menu-item-click",
+          "event": "goat-menu-item-click",
           "capture": false,
           "passive": false
         },
         {
-          "event": "goat:tag-dismiss",
+          "event": "goat-tag-dismiss",
           "capture": false,
           "passive": false
         },
@@ -11063,20 +10742,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name1",
-          "text": "Side Navigation"
-        },
-        {
-          "name": "description1",
-          "text": "The side navigation component provides an easy way to navigate through your website / application."
-        },
-        {
-          "name": "img1",
-          "text": "/assets/img/sidenav.webp"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -11128,7 +10793,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -11288,7 +10952,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -11455,32 +11118,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Slider"
-        },
-        {
-          "name": "description",
-          "text": "Sliders allow users to make selections from a range of values."
-        },
-        {
-          "name": "category",
-          "text": "Form Inputs"
-        },
-        {
-          "name": "tags",
-          "text": "input, form"
-        },
-        {
-          "name": "img",
-          "text": "/assets/img/slider.webp"
-        },
-        {
-          "name": "imgDark",
-          "text": "/assets/img/slider-dark.webp"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -11841,7 +11478,7 @@
       ],
       "events": [
         {
-          "event": "goat:change",
+          "event": "goat-slider--change",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -11855,7 +11492,7 @@
           "docsTags": []
         },
         {
-          "event": "goat:input",
+          "event": "goat-slider--input",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -11865,21 +11502,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "",
-          "docsTags": []
-        },
-        {
-          "event": "goat:tooltip",
-          "detail": "any",
-          "bubbles": true,
-          "complexType": {
-            "original": "any",
-            "resolved": "any",
-            "references": {}
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "",
+          "docs": "Emitted when a keyboard input occurred.",
           "docsTags": []
         }
       ],
@@ -11917,28 +11540,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Spinner"
-        },
-        {
-          "name": "description",
-          "text": "Spinners provide a visual cue that an action is processing awaiting a course of change or a result."
-        },
-        {
-          "name": "category",
-          "text": "Feedback"
-        },
-        {
-          "name": "tags",
-          "text": "feedback, loading, progress, spinner"
-        },
-        {
-          "name": "example",
-          "text": "<goat-spinner class=\"rainbow\" size=\"2rem\"></goat-spinner>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [
         "goat-button",
@@ -12028,7 +11629,7 @@
           },
           "mutable": false,
           "attr": "size",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "The Icon size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"` and size in pixel. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
@@ -12050,7 +11651,7 @@
       "metadata": {
         "name": "Spinner",
         "description": "Spinners provide a visual cue that an action is processing awaiting a course of change or a result.",
-        "category": "Feedback",
+        "category": "Informational",
         "tags": [
           "feedback",
           " loading",
@@ -12071,24 +11672,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "SVG"
-        },
-        {
-          "name": "description",
-          "text": "Render SVG content from an external source."
-        },
-        {
-          "name": "category",
-          "text": "Data Display"
-        },
-        {
-          "name": "example",
-          "text": "<goat-svg src=\"https://icons.getbootstrap.com/assets/icons/bug.svg\" size=\"2rem\"></goat-svg>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [
         "goat-empty-state",
@@ -12172,7 +11755,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -12459,7 +12041,7 @@
       ],
       "events": [
         {
-          "event": "goat:tab-click",
+          "event": "goat-tab--click",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -12469,7 +12051,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "On click of tab, a CustomEvent 'goat:tab-click' will be triggered.",
+          "docs": "On click of tab, a CustomEvent 'goat-tab-click' will be triggered.",
           "docsTags": []
         }
       ],
@@ -12503,7 +12085,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -12602,28 +12183,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Table"
-        },
-        {
-          "name": "description",
-          "text": "A configurable component for displaying tabular data."
-        },
-        {
-          "name": "category",
-          "text": "Data Display"
-        },
-        {
-          "name": "img",
-          "text": "/assets/img/table.webp"
-        },
-        {
-          "name": "imgDark",
-          "text": "/assets/img/table-dark.webp"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -13030,7 +12589,7 @@
       "methods": [],
       "events": [
         {
-          "event": "goat:page",
+          "event": "goat-table--cell-click",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -13040,11 +12599,11 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Emitted when a table cell is clicked.",
           "docsTags": []
         },
         {
-          "event": "goat:sort",
+          "event": "goat-table--page",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -13054,11 +12613,11 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Emitted when the page changes.",
           "docsTags": []
         },
         {
-          "event": "goat:table-cell-click",
+          "event": "goat-table--selection-change",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -13068,11 +12627,11 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Emitted when the selection changes.",
           "docsTags": []
         },
         {
-          "event": "goat:table-select-change",
+          "event": "goat-table--sort",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -13082,7 +12641,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Emitted when the table is sorted.",
           "docsTags": []
         }
       ],
@@ -13109,28 +12668,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Tabs"
-        },
-        {
-          "name": "description",
-          "text": "The tabs component is used to display multiple panels of content in a container."
-        },
-        {
-          "name": "category",
-          "text": "Navigation"
-        },
-        {
-          "name": "tags",
-          "text": "navigation"
-        },
-        {
-          "name": "example",
-          "text": "<goat-tabs>\n<goat-tabs-list>\n<goat-tab selected >Tab 1</goat-tab>\n<goat-tab>Tab 2</goat-tab>\n</goat-tabs-list>\n</goat-tabs>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -13205,7 +12742,7 @@
       "parts": [],
       "listeners": [
         {
-          "event": "goat:tab-click",
+          "event": "goat-tab-click",
           "capture": false,
           "passive": false
         }
@@ -13231,7 +12768,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -13298,7 +12834,7 @@
       "parts": [],
       "listeners": [
         {
-          "event": "goat:tab-click",
+          "event": "goat-tab-click",
           "capture": false,
           "passive": false
         }
@@ -13316,28 +12852,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Tag"
-        },
-        {
-          "name": "description",
-          "text": "Use tags to label, categorize, or organize items using keywords that describe them."
-        },
-        {
-          "name": "category",
-          "text": "Data Display"
-        },
-        {
-          "name": "tag",
-          "text": "controls"
-        },
-        {
-          "name": "example",
-          "text": "<goat-tag class=\"color-red\">Important</goat-tag>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [
         "goat-cb-compound-expression",
@@ -13385,7 +12899,7 @@
           "mutable": false,
           "attr": "color",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "Tag color.\nPossible values are: 'gray', 'blue', 'green', 'red', 'yellow', 'primary', 'success', 'info', 'warning', 'error'.",
           "docsTags": [],
           "default": "'gray'",
           "values": [
@@ -13434,7 +12948,7 @@
           "required": false
         },
         {
-          "name": "filter",
+          "name": "dismissible",
           "type": "boolean",
           "complexType": {
             "original": "boolean",
@@ -13442,9 +12956,9 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "filter",
-          "reflectToAttr": true,
-          "docs": "",
+          "attr": "dismissible",
+          "reflectToAttr": false,
+          "docs": "If true, the tag will have a close icon.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -13466,15 +12980,14 @@
           "mutable": false,
           "attr": "image-src",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Image source.",
           "docsTags": [],
-          "default": "''",
           "values": [
             {
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -13488,7 +13001,7 @@
           "mutable": false,
           "attr": "selected",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "If true, the tag will be selected.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -13537,7 +13050,7 @@
           "mutable": false,
           "attr": "value",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "Tag value.",
           "docsTags": [],
           "default": "''",
           "values": [
@@ -13552,7 +13065,7 @@
       "methods": [],
       "events": [
         {
-          "event": "goat:click",
+          "event": "goat-tag--click",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -13562,11 +13075,11 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Emitted when the tag is clicked.",
           "docsTags": []
         },
         {
-          "event": "goat:tag-dismiss",
+          "event": "goat-tag--dismiss",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -13576,7 +13089,7 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Emitted when the close icon is clicked.",
           "docsTags": []
         }
       ],
@@ -13603,24 +13116,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Text"
-        },
-        {
-          "name": "description",
-          "text": "Typography are used for rendering headlines, paragraphs and captions."
-        },
-        {
-          "name": "category",
-          "text": "General"
-        },
-        {
-          "name": "example",
-          "text": "<goat-text type=\"heading\" level=\"1\">Heading</goat-typography>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [
         "goat-breadcrumb-item",
@@ -13938,28 +13433,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Textarea"
-        },
-        {
-          "name": "description",
-          "text": "Enables native inputs to be used within a Form field."
-        },
-        {
-          "name": "category",
-          "text": "Form Inputs"
-        },
-        {
-          "name": "tags",
-          "text": "input, form"
-        },
-        {
-          "name": "example",
-          "text": "<goat-textarea placeholder=\"Enter some description over here\"></goat-textarea>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -14290,7 +13763,7 @@
           "mutable": false,
           "attr": "state",
           "reflectToAttr": true,
-          "docs": "The input state.\r\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
+          "docs": "The input state.\nPossible values are: `\"success\"`, `\"error\"`, `\"warning\"`, 'default'. Defaults to `\"default\"`.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -14421,7 +13894,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `textarea` in `goat-textarea`. Use this method instead of the global\r\n`textarea.blur()`.",
+          "docs": "Sets blur on the native `textarea` in `goat-textarea`. Use this method instead of the global\n`textarea.blur()`.",
           "docsTags": []
         },
         {
@@ -14443,13 +13916,13 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `textarea` in `goat-textarea`. Use this method instead of the global\r\n`textarea.focus()`.",
+          "docs": "Sets focus on the native `textarea` in `goat-textarea`. Use this method instead of the global\n`textarea.focus()`.",
           "docsTags": []
         }
       ],
       "events": [
         {
-          "event": "goat:action-click",
+          "event": "goat-textarea--action-click",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -14463,7 +13936,7 @@
           "docsTags": []
         },
         {
-          "event": "goat:blur",
+          "event": "goat-textarea--blur",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -14477,7 +13950,7 @@
           "docsTags": []
         },
         {
-          "event": "goat:change",
+          "event": "goat-textarea--change",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -14491,7 +13964,7 @@
           "docsTags": []
         },
         {
-          "event": "goat:focus",
+          "event": "goat-textarea--focus",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -14505,7 +13978,7 @@
           "docsTags": []
         },
         {
-          "event": "goat:input",
+          "event": "goat-textarea--input",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -14545,28 +14018,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Time Picker"
-        },
-        {
-          "name": "description",
-          "text": "Captures time input."
-        },
-        {
-          "name": "category",
-          "text": "Form Inputs"
-        },
-        {
-          "name": "tags",
-          "text": "input, form"
-        },
-        {
-          "name": "example",
-          "text": "<goat-time-picker value='true'></goat-time-picker>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -14840,7 +14291,7 @@
       ],
       "events": [
         {
-          "event": "goat:blur",
+          "event": "goat-time-picker--blur",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -14854,7 +14305,7 @@
           "docsTags": []
         },
         {
-          "event": "goat:change",
+          "event": "goat-time-picker--change",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -14868,7 +14319,7 @@
           "docsTags": []
         },
         {
-          "event": "goat:focus",
+          "event": "goat-time-picker--focus",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -14882,7 +14333,7 @@
           "docsTags": []
         },
         {
-          "event": "goat:input",
+          "event": "goat-time-picker--input",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -14912,122 +14363,6 @@
       }
     },
     {
-      "dirPath": "E:/git/goatui/components/src/components/informational/toast",
-      "filePath": "src/components/informational/toast/toast.tsx",
-      "fileName": "toast.tsx",
-      "readmePath": "E:/git/goatui/components/src/components/informational/toast/readme.md",
-      "usagesDir": "E:/git/goatui/components/src/components/informational/toast/usage",
-      "tag": "goat-toast",
-      "readme": "# goat-alert\n\n\n",
-      "overview": "",
-      "usage": {},
-      "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Toast"
-        },
-        {
-          "name": "description",
-          "text": "Toasts are lightweight notifications."
-        },
-        {
-          "name": "category",
-          "text": "Feedback"
-        },
-        {
-          "name": "example",
-          "text": "<goat-toast state=\"success\" message=\"Successful saved the record\"></goat-toast>"
-        }
-      ],
-      "encapsulation": "shadow",
-      "dependents": [
-        "goat-notification-manager"
-      ],
-      "dependencies": [
-        "goat-icon"
-      ],
-      "dependencyGraph": {
-        "goat-toast": [
-          "goat-icon"
-        ],
-        "goat-notification-manager": [
-          "goat-toast"
-        ]
-      },
-      "props": [
-        {
-          "name": "message",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "message",
-          "reflectToAttr": false,
-          "docs": "Message to display in the toast.",
-          "docsTags": [],
-          "default": "''",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "state",
-          "type": "\"error\" | \"info\" | \"success\" | \"warning\"",
-          "complexType": {
-            "original": "'success' | 'error' | 'info' | 'warning'",
-            "resolved": "\"error\" | \"info\" | \"success\" | \"warning\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "state",
-          "reflectToAttr": true,
-          "docs": "Toast state.\nPossible values are `\"success\"`, `\"error\"`, `\"info\"`, `\"warning\"`. Defaults to `\"info\"`.",
-          "docsTags": [],
-          "default": "'info'",
-          "values": [
-            {
-              "value": "error",
-              "type": "string"
-            },
-            {
-              "value": "info",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        }
-      ],
-      "methods": [],
-      "events": [],
-      "styles": [],
-      "slots": [],
-      "parts": [],
-      "listeners": [],
-      "metadata": {
-        "name": "Toast",
-        "description": "Toasts are lightweight notifications.",
-        "category": "Feedback",
-        "example": "<goat-toast state=\"success\" message=\"Successful saved the record\"></goat-toast>"
-      }
-    },
-    {
       "dirPath": "E:/git/goatui/components/src/components/input-controls/toggle",
       "filePath": "src/components/input-controls/toggle/toggle.tsx",
       "fileName": "toggle.tsx",
@@ -15038,28 +14373,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Toggle"
-        },
-        {
-          "name": "description",
-          "text": "Captures boolean input with an optional indeterminate mode."
-        },
-        {
-          "name": "category",
-          "text": "Form Inputs"
-        },
-        {
-          "name": "tags",
-          "text": "input, form"
-        },
-        {
-          "name": "example",
-          "text": "<goat-toggle value='true'>Want ice cream?</goat-toggle>"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [
         "goat-html-editor"
@@ -15235,7 +14548,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "The button size.\r\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
+          "docs": "The button size.\nPossible values are: `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
           "docsTags": [],
           "default": "'md'",
           "values": [
@@ -15316,7 +14629,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.blur()`.",
+          "docs": "Sets blur on the native `input` in `goat-toggle`. Use this method instead of the global\n`input.blur()`.",
           "docsTags": []
         },
         {
@@ -15338,13 +14651,13 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input` in `goat-input`. Use this method instead of the global\r\n`input.focus()`.",
+          "docs": "Sets focus on the native `input` in `goat-toggle`. Use this method instead of the global\n`input.focus()`.",
           "docsTags": []
         }
       ],
       "events": [
         {
-          "event": "goat:blur",
+          "event": "goat-toggle--blur",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -15358,7 +14671,7 @@
           "docsTags": []
         },
         {
-          "event": "goat:change",
+          "event": "goat-toggle--change",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -15368,11 +14681,11 @@
           },
           "cancelable": true,
           "composed": true,
-          "docs": "On change of input a CustomEvent 'goat:change' will be triggered. Event details contains parent event, oldValue, newValue of input.",
+          "docs": "On change of input a CustomEvent 'goat-change' will be triggered. Event details contains parent event, oldValue, newValue of input.",
           "docsTags": []
         },
         {
-          "event": "goat:focus",
+          "event": "goat-toggle--focus",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -15425,32 +14738,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "Tooltip"
-        },
-        {
-          "name": "description",
-          "text": "The Tooltip component is used to display additional information on hover."
-        },
-        {
-          "name": "category",
-          "text": "Data Display"
-        },
-        {
-          "name": "tag",
-          "text": "content"
-        },
-        {
-          "name": "img",
-          "text": "/assets/img/tooltip.webp"
-        },
-        {
-          "name": "imgDark",
-          "text": "/assets/img/tooltip-dark.webp"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [
         "goat-code-highlighter",
@@ -15581,7 +14868,7 @@
           "passive": true
         },
         {
-          "event": "goat:tooltip",
+          "event": "goat-tooltip-open",
           "target": "window",
           "capture": false,
           "passive": false
@@ -15590,7 +14877,7 @@
       "metadata": {
         "name": "Tooltip",
         "description": "The Tooltip component is used to display additional information on hover.",
-        "category": "Data Display",
+        "category": "Informational",
         "tag": "content",
         "img": "/assets/img/tooltip.webp",
         "imgDark": "/assets/img/tooltip-dark.webp"
@@ -15603,11 +14890,10 @@
       "readmePath": "E:/git/goatui/components/src/components/navigation/tree-view/tree-node/readme.md",
       "usagesDir": "E:/git/goatui/components/src/components/navigation/tree-view/tree-node/usage",
       "tag": "goat-tree-node",
-      "readme": "# goat-menu\r\n\r\n\r\n\r",
+      "readme": "# goat-menu\n\n\n",
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -15843,7 +15129,7 @@
       ],
       "events": [
         {
-          "event": "goat:tree-node-click",
+          "event": "goat-tree-node--click",
           "detail": "any",
           "bubbles": true,
           "complexType": {
@@ -15887,28 +15173,6 @@
       "overview": "",
       "usage": {},
       "docs": "",
-      "docsTags": [
-        {
-          "name": "name",
-          "text": "TreeView"
-        },
-        {
-          "name": "description",
-          "text": "A tree view is a hierarchical structure that provides nested levels of navigation."
-        },
-        {
-          "name": "category",
-          "text": "Navigation"
-        },
-        {
-          "name": "img",
-          "text": "/assets/img/tree-view.webp"
-        },
-        {
-          "name": "imgDark",
-          "text": "/assets/img/tree-view-dark.webp"
-        }
-      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -16080,7 +15344,7 @@
       "parts": [],
       "listeners": [
         {
-          "event": "goat:tree-node-click",
+          "event": "goat-tree-node-click",
           "capture": false,
           "passive": false
         },
@@ -16110,135 +15374,11 @@
       "declaration": "{\r\n  label: string;\r\n  value: string;\r\n  type: string;\r\n  days?: number;\r\n}",
       "docstring": "",
       "path": "src/components/application/calendar/calendar/types.tsx"
+    },
+    "src/components/application/code-highlighter/constants.ts::Language": {
+      "declaration": "export type Language =\n  | 'markup'\n  | 'html'\n  | 'css'\n  | 'clike'\n  | 'javascript'\n  | 'abap'\n  | 'actionscript'\n  | 'ada'\n  | 'apacheconf'\n  | 'apl'\n  | 'applescript'\n  | 'arduino'\n  | 'arff'\n  | 'asciidoc'\n  | 'asm6502'\n  | 'aspnet'\n  | 'autohotkey'\n  | 'autoit'\n  | 'bash'\n  | 'basic'\n  | 'batch'\n  | 'bison'\n  | 'brainfuck'\n  | 'bro'\n  | 'c'\n  | 'csharp'\n  | 'cpp'\n  | 'coffeescript'\n  | 'clojure'\n  | 'crystal'\n  | 'csp'\n  | 'css-extras'\n  | 'd'\n  | 'dart'\n  | 'diff'\n  | 'django'\n  | 'docker'\n  | 'eiffel'\n  | 'elixir'\n  | 'elm'\n  | 'erb'\n  | 'erlang'\n  | 'fsharp'\n  | 'flow'\n  | 'fortran'\n  | 'gedcom'\n  | 'gherkin'\n  | 'git'\n  | 'glsl'\n  | 'go'\n  | 'graphql'\n  | 'groovy'\n  | 'haml'\n  | 'handlebars'\n  | 'haskell'\n  | 'haxe'\n  | 'http'\n  | 'hpkp'\n  | 'hsts'\n  | 'ichigojam'\n  | 'icon'\n  | 'inform7'\n  | 'ini'\n  | 'io'\n  | 'j'\n  | 'java'\n  | 'jolie'\n  | 'json'\n  | 'jsx'\n  | 'julia'\n  | 'keyman'\n  | 'kotlin'\n  | 'latex'\n  | 'less'\n  | 'lilypond'\n  | 'liquid'\n  | 'lisp'\n  | 'livescript'\n  | 'lolcode'\n  | 'lua'\n  | 'makefile'\n  | 'markdown'\n  | 'markup-templating'\n  | 'matlab'\n  | 'mel'\n  | 'mizar'\n  | 'monkey'\n  | 'n4js'\n  | 'nasm'\n  | 'nginx'\n  | 'nim'\n  | 'nix'\n  | 'nsis'\n  | 'objectivec'\n  | 'ocaml'\n  | 'opencl'\n  | 'oz'\n  | 'parigp'\n  | 'parser'\n  | 'pascal'\n  | 'perl'\n  | 'php'\n  | 'php-extras'\n  | 'plsql'\n  | 'powershell'\n  | 'processing'\n  | 'prolog'\n  | 'properties'\n  | 'protobuf'\n  | 'pug'\n  | 'puppet'\n  | 'pure'\n  | 'python'\n  | 'q'\n  | 'qore'\n  | 'r';",
+      "docstring": "",
+      "path": "src/components/application/code-highlighter/constants.ts"
     }
-  },
-  "categories": [
-    {
-      "name": "Data Display",
-      "hide": false,
-      "components": [
-        "goat-accordion",
-        "goat-avatar",
-        "goat-badge",
-        "goat-calendar",
-        "goat-code-highlighter",
-        "goat-empty-state",
-        "goat-svg",
-        "goat-table",
-        "goat-tag",
-        "goat-tooltip"
-      ]
-    },
-    {
-      "name": "Feedback",
-      "hide": false,
-      "components": [
-        "goat-modal",
-        "goat-notification",
-        "goat-notification-manager",
-        "goat-progress",
-        "goat-spinner",
-        "goat-toast"
-      ]
-    },
-    {
-      "name": "Form Inputs",
-      "hide": false,
-      "components": [
-        "goat-checkbox",
-        "goat-code-editor",
-        "goat-date-picker",
-        "goat-form-control",
-        "goat-input",
-        "goat-number",
-        "goat-select",
-        "goat-slider",
-        "goat-textarea",
-        "goat-time-picker",
-        "goat-toggle"
-      ]
-    },
-    {
-      "name": "General",
-      "hide": false,
-      "components": [
-        "goat-button",
-        "goat-button-group",
-        "goat-icon",
-        "goat-text"
-      ]
-    },
-    {
-      "name": "Layout",
-      "hide": false,
-      "components": [
-        "goat-divider"
-      ]
-    },
-    {
-      "name": "Navigation",
-      "hide": false,
-      "components": [
-        "goat-breadcrumb",
-        "goat-dropdown",
-        "goat-footer",
-        "goat-header",
-        "goat-link",
-        "goat-menu",
-        "goat-tabs",
-        "goat-tree-view"
-      ]
-    },
-    {
-      "name": "Charts",
-      "hide": false,
-      "components": [
-        "goat-chart-doughnut",
-        "goat-chart-pie"
-      ]
-    },
-    {
-      "name": "Others",
-      "hide": false,
-      "components": [
-        "goat-current-time"
-      ]
-    },
-    {
-      "name": "Up coming",
-      "hide": false,
-      "components": [
-        "goat-accordion-item",
-        "goat-breadcrumb-item",
-        "goat-calendar-column-view",
-        "goat-calendar-column-view-background",
-        "goat-calendar-month-view",
-        "goat-calendar-month-view-background",
-        "goat-canvas",
-        "goat-card",
-        "goat-cb-compound-expression",
-        "goat-cb-divider",
-        "goat-cb-expression",
-        "goat-cb-predicate",
-        "goat-condition-builder",
-        "goat-container",
-        "goat-flow-designer",
-        "goat-footer-copyright",
-        "goat-footer-links",
-        "goat-header-action",
-        "goat-header-brand",
-        "goat-html-editor",
-        "goat-image",
-        "goat-menu-item",
-        "goat-modal-content",
-        "goat-sidenav",
-        "goat-sidenav-menu",
-        "goat-sidenav-menu-item",
-        "goat-tab",
-        "goat-tab-panel",
-        "goat-tabs-list",
-        "goat-tree-node"
-      ]
-    }
-  ]
+  }
 }
