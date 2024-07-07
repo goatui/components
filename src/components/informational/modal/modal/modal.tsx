@@ -72,7 +72,14 @@ export class Modal {
             aria-modal="true"
           >
             <div class="modal-overlay" />
-            <div class="modal--wrapper">
+            <div
+              class="modal--wrapper"
+              onClick={event => {
+                //@ts-ignore
+                if (event.target.classList.contains('modal--wrapper'))
+                  this.goatModalClose.emit();
+              }}
+            >
               <div
                 class={{
                   'modal': true,
