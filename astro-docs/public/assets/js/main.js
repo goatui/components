@@ -72,21 +72,21 @@
     const $headerMenu = document.querySelector('#header-menu');
 
     const $headerMenuBtn = document.querySelector('#header-menu-btn');
-    $headerMenuBtn.addEventListener('goat-button-click', function () {
+    $headerMenuBtn.addEventListener('goat-button--click', function () {
       $headerMenu.classList.add('show');
       $headerMenu.querySelectorAll('goat-menu-item')[0].setFocus();
       document.body.classList.add('stop-scroll');
     });
 
     const $headerMenuCloseBtn = document.querySelector('#header-menu-close-btn');
-    $headerMenuCloseBtn.addEventListener('goat-button-click', function () {
+    $headerMenuCloseBtn.addEventListener('goat-button--click', function () {
       $headerMenu.classList.remove('show');
       document.body.classList.remove('stop-scroll');
     });
 
     const $headerMenuItems = $headerMenu.querySelectorAll('goat-menu-item');
     $headerMenuItems.forEach($item => {
-      $item.addEventListener('goat-menu-item-click', function () {
+      $item.addEventListener('goat-menu-item--click', function () {
         $headerMenu.classList.remove('show');
         document.body.classList.remove('stop-scroll');
       });
