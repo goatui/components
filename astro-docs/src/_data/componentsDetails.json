@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-07T05:19:00",
+  "timestamp": "2024-07-07T06:45:21",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.19.1",
@@ -11205,71 +11205,23 @@
           "required": false
         },
         {
-          "name": "format",
-          "type": "\"number\" | \"time\"",
+          "name": "formatter",
+          "type": "(value: string | number) => string",
           "complexType": {
-            "original": "'number' | 'time'",
-            "resolved": "\"number\" | \"time\"",
+            "original": "(value: string | number) => string",
+            "resolved": "(value: string | number) => string",
             "references": {}
           },
           "mutable": false,
-          "attr": "format",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "function to format the value of the input",
           "docsTags": [],
-          "default": "'number'",
           "values": [
             {
-              "value": "number",
-              "type": "string"
+              "type": "(value: string"
             },
             {
-              "value": "time",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "hideInput",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "hide-input",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "hideLabels",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "hide-labels",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
+              "type": "number) => string"
             }
           ],
           "optional": false,
@@ -11380,6 +11332,50 @@
           "values": [
             {
               "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "showOnlySlider",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-only-slider",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "step",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "step",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "1",
+          "values": [
+            {
+              "type": "number"
             }
           ],
           "optional": false,
