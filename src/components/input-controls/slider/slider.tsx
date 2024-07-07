@@ -18,7 +18,6 @@ import {
   DRAG_STOP_EVENT_TYPES,
   getComponentIndex,
   isInViewport,
-  secondsToHHMMSS,
   throttle,
 } from '../../../utils/utils';
 
@@ -47,16 +46,19 @@ export class Slider implements ComponentInterface, InputComponentInterface {
 
   @Prop() max: number = 100;
 
-  @Prop() hideLabels: boolean = false;
+  @Prop() showOnlySlider: boolean = false;
 
-  @Prop() hideInput: boolean = false;
-
-  @Prop() format: 'number' | 'time' = 'number';
+  /**
+   * function to format the value of the input
+   */
+  @Prop() formatter: (value: string | number) => string;
 
   /**
    * The input field value.
    */
   @Prop({ mutable: true }) value?: number = 0;
+
+  @Prop({ mutable: true }) step: number = 1;
 
   /**
    * If true, required icon is show. Defaults to `false`.
@@ -130,6 +132,8 @@ export class Slider implements ComponentInterface, InputComponentInterface {
 
   @Element() elm!: HTMLElement;
   private nativeElement?: HTMLInputElement;
+
+  private inputValue: number;
   @State() hasFocus = false;
   @State() needsOnRelease = false;
   private displayElement?: HTMLElement;
@@ -145,6 +149,18 @@ export class Slider implements ComponentInterface, InputComponentInterface {
         this.elm.removeAttribute(name);
       }
     });
+
+    this.inputValue = this.value;
+  }
+
+  componentDidLoad() {
+    this.#computeSliderWidth();
+
+    const resizeObserver = new ResizeObserver(() => {
+      this.#computeSliderWidth();
+    });
+
+    resizeObserver.observe(this.elm);
   }
 
   onWheel = event => {
@@ -163,9 +179,7 @@ export class Slider implements ComponentInterface, InputComponentInterface {
       delta = -event.detail / 3;
     }
 
-    this.value = parseInt(String(this.value)) + delta;
-
-    this.updateValue();
+    this.updateValue(parseInt(String(this.value)) + delta * this.step);
   };
 
   onDragStart = event => {
@@ -194,7 +208,7 @@ export class Slider implements ComponentInterface, InputComponentInterface {
    * Unregisters "drag" and "drag stop" event handlers and calls sets the flag
    * indicating that the `onRelease` callback should be called.
    */
-  onDragStop = () => {
+  onDragStop = event => {
     // Do nothing if component is disabled
     if (this.disabled || this.readonly) {
       return;
@@ -210,13 +224,18 @@ export class Slider implements ComponentInterface, InputComponentInterface {
       this.elm?.ownerDocument.removeEventListener(element, this.onDrag);
     });
 
-    this.goatChange.emit({
-      value: this.value,
-    });
+    let clientX: number;
+    if (event.type === 'touchend') {
+      clientX = event.changedTouches[0].clientX;
+    } else {
+      clientX = event.clientX;
+    }
+
+    this.updateByPosition(clientX);
   };
 
   openTooltip = (target, open) => {
-    document.dispatchEvent(
+    window.dispatchEvent(
       new CustomEvent('goat-tooltip-open', {
         detail: {
           target: target,
@@ -234,20 +253,31 @@ export class Slider implements ComponentInterface, InputComponentInterface {
 
     this.openTooltip(this.thumbElement, true);
 
-    this.updateByPosition(event.clientX);
+    let clientX: number;
+    if (event.type === 'touchstart' || event.type === 'touchmove') {
+      clientX = event.touches[0].clientX;
+    } else {
+      clientX = event.clientX;
+    }
+
+    this.updateByPosition(clientX);
   };
 
-  updateByPosition = current => {
+  updateByPosition(current) {
     const start = this.slideElement.getBoundingClientRect().left;
     const total = this.slideElement.getBoundingClientRect().width;
-    this.value = parseInt(
+    const value = parseInt(
       String(((current - start) / total) * (this.max - this.min)),
     );
+    this.updateValue(value);
+    this.inputValue = this.value;
+  }
 
-    this.updateValue();
-  };
+  updateValue = newValue => {
+    const oldValue = this.value;
 
-  updateValue = () => {
+    this.value = Math.round(newValue / this.step) * this.step;
+
     if (this.value == null || this.value < this.min) {
       this.value = this.min;
     } else if (this.value > this.max) {
@@ -257,6 +287,12 @@ export class Slider implements ComponentInterface, InputComponentInterface {
     this.goatInput.emit({
       value: this.value,
     });
+
+    if (oldValue !== this.value) {
+      this.goatChange.emit({
+        value: this.value,
+      });
+    }
   };
 
   onDrag = throttle(this._onDrag, 1, {
@@ -283,19 +319,14 @@ export class Slider implements ComponentInterface, InputComponentInterface {
     this.hasFocus = true;
   };
 
-  private getFormattedValue(value) {
-    if (this.format === 'time') return secondsToHHMMSS(value);
+  private getFormattedValue(value: string | number) {
+    if (this.formatter) return this.formatter(value);
     return value;
   }
 
-  componentDidLoad() {
-    setTimeout(() => this.computeSliderWidth(), 1);
-  }
-
-  private computeSliderWidth() {
-    //monaco.languages.typescript.javascriptDefaults.addExtraLib(this.extraLibs);
+  #computeSliderWidth() {
     if (this.slideElementWidth == null && !isInViewport(this.elm)) {
-      setTimeout(() => this.computeSliderWidth(), 80);
+      setTimeout(() => this.#computeSliderWidth(), 100);
       return;
     }
 
@@ -307,7 +338,7 @@ export class Slider implements ComponentInterface, InputComponentInterface {
       <Host has-value={this.hasValue()} has-focus={this.hasFocus}>
         <div class="slider-container">
           <div class="slider-wrapper">
-            {!this.hideLabels && (
+            {!this.showOnlySlider && (
               <div class="slider-range-label">
                 <span>{this.getFormattedValue(this.min)}</span>
               </div>
@@ -316,12 +347,12 @@ export class Slider implements ComponentInterface, InputComponentInterface {
               class={{ 'slider': true, 'has-focus': this.hasFocus }}
               ref={elm => (this.slideElement = elm)}
               onMouseDown={this.onDragStart}
-              onTouchStart={this.onDragStart}
               onWheel={this.onWheel}
             >
               <div
                 class="slider__thumb"
                 onBlur={this.blurHandler}
+                onTouchStart={this.onDragStart}
                 onFocus={this.focusHandler}
                 ref={elm => (this.thumbElement = elm)}
                 onMouseOver={_e => {
@@ -336,7 +367,8 @@ export class Slider implements ComponentInterface, InputComponentInterface {
                 style={{
                   left: `${
                     (this.value * (this.slideElementWidth | 0)) /
-                    (this.max - this.min)
+                      (this.max - this.min) -
+                    8
                   }px`,
                 }}
               ></div>
@@ -351,23 +383,22 @@ export class Slider implements ComponentInterface, InputComponentInterface {
                 }}
               ></div>
             </div>
-            {!this.hideLabels && (
+            {!this.showOnlySlider && (
               <div class="slider-range-label">
                 <span>{this.getFormattedValue(this.max)}</span>
               </div>
             )}
           </div>
-          {!this.hideInput ? (
+          {!this.showOnlySlider ? (
             <div class="slide-input">
               <goat-number
                 class="input"
-                value={this.value}
+                value={this.inputValue}
                 size="sm"
                 hide-actions={true}
-                onGoat-change={e => {
+                onGoat-number--input={e => {
                   e.stopPropagation();
-                  this.value = e.target.value;
-                  this.updateValue();
+                  this.updateValue(e.target.value);
                 }}
                 onGoat-input={e => {
                   e.stopPropagation();

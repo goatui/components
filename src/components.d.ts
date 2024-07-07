@@ -1209,10 +1209,11 @@ export namespace Components {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled": boolean;
-        "format": 'number' | 'time';
+        /**
+          * function to format the value of the input
+         */
+        "formatter": (value: string | number) => string;
         "getComponentId": () => Promise<string>;
-        "hideInput": boolean;
-        "hideLabels": boolean;
         "max": number;
         "min": number;
         /**
@@ -1235,6 +1236,8 @@ export namespace Components {
           * Sets focus on the native `input` in `ion-input`. Use this method instead of the global `input.focus()`.
          */
         "setFocus": () => Promise<void>;
+        "showOnlySlider": boolean;
+        "step": number;
         /**
           * The input field value.
          */
@@ -4129,9 +4132,10 @@ declare namespace LocalJSX {
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
         "disabled"?: boolean;
-        "format"?: 'number' | 'time';
-        "hideInput"?: boolean;
-        "hideLabels"?: boolean;
+        /**
+          * function to format the value of the input
+         */
+        "formatter"?: (value: string | number) => string;
         "max"?: number;
         "min"?: number;
         /**
@@ -4154,6 +4158,8 @@ declare namespace LocalJSX {
           * If true, required icon is show. Defaults to `false`.
          */
         "required"?: boolean;
+        "showOnlySlider"?: boolean;
+        "step"?: number;
         /**
           * The input field value.
          */

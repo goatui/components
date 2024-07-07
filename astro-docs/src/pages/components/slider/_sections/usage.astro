@@ -2,15 +2,15 @@
 import HighlighterCard from '../../../../components/HighlighterCard.astro';
 ---
 <HighlighterCard lang={'html'}>
-  <goat-slider id='slider' value='30'></goat-slider>
+  <goat-slider id='slider' value='30' step='2'></goat-slider>
 </HighlighterCard>
 
 <script is:inline>
   const slider = document.querySelector('#slider');
-  slider.addEventListener('goat:change', e => {
-    myConsole.log(JSON.stringify({ event: 'goat:change', detail: e.detail }, null, 4));
+  slider.addEventListener('goat-slider--change', e => {
+    myConsole.warn(JSON.stringify(e.detail, null, 4), e.type);
   });
-  slider.addEventListener('goat:input', e => {
-    myConsole.log(JSON.stringify({ event: 'goat:input', detail: e.detail }, null, 4));
+  slider.addEventListener('goat-slider--input', e => {
+    myConsole.log(JSON.stringify(e.detail, null, 4), e.type);
   });
 </script>
