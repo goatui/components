@@ -58,6 +58,7 @@
 
       .title, .subtitle {
         display: inline;
+        padding-inline-end: .25rem;
       }
 
       .title slot::slotted(*), .subtitle slot::slotted(*) {
