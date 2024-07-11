@@ -1,5 +1,6 @@
 import { Component, h, Host, Prop, State, Watch } from '@stencil/core';
 import { fetchIcon } from './datasource';
+import { getSVGHTMLString } from '../../../utils/utils';
 
 /**
  * @name Icon
@@ -14,66 +15,58 @@ import { fetchIcon } from './datasource';
   shadow: true,
 })
 export class Icon {
+  /**
+   * The identifier for the icon.
+   * This name corresponds to a specific SVG asset in the icon set.
+   */
   @Prop({ reflect: true }) name: string;
 
   /**
-   * The Icon size.
+   * The size of the icon.
+   * This can be specified in pixels (px) or rem units to control the icon's dimensions.
+   * If a number is provided, it will be treated as rem units. For example, '16px', '2rem', or 2 would be valid values.
    */
-  @Prop({ reflect: true }) size: string;
+  @Prop() size: string;
 
-  @State() svg: string = '';
-
-  async fetchSvg(name: string) {
-    if (this.name) this.svg = await fetchIcon(name);
-  }
+  @State() svg: string;
 
   @Watch('name')
   async handleNameChange(newValue: string) {
-    this.svg = await fetchIcon(newValue);
+    await this.fetchSvg(newValue);
+  }
+
+  async fetchSvg(name: string) {
+    if (this.name) {
+      const svgXml = await fetchIcon(name);
+      this.svg = getSVGHTMLString(svgXml);
+    } else {
+      this.svg = '';
+    }
   }
 
   async componentWillLoad() {
-    setTimeout(() => {
-      this.fetchSvg(this.name);
-    });
-  }
-
-  private getSize() {
-    let size;
-    if (!this.size) size = '1rem';
-    else if (this.size === 'xs') size = '0.5rem';
-    else if (this.size === 'sm') size = '0.75rem';
-    else if (this.size === 'md') size = '1rem';
-    else if (this.size === 'lg') size = '1.5rem';
-    else if (this.size === 'xl') size = '1.75rem';
-    else if (!this.size.endsWith('px') && !this.size.endsWith('rem'))
-      size = '1rem';
-    else size = this.size;
-    return size;
+    this.fetchSvg(this.name);
   }
 
   render() {
-    if (this.svg === '') return <Host></Host>;
-
-    const svg = this.convertToDom(this.svg);
-    let svgHtmlString = 'No icon found';
-    if (svg.tagName === 'svg') {
-      svg.setAttribute('class', 'icon-svg');
-      svg.setAttribute('width', this.getSize());
-      svg.setAttribute('height', this.getSize());
-      svgHtmlString = svg.outerHTML;
+    const style = {};
+    if (this.size !== undefined) {
+      if (this.size === 'xs') style['--goat-icon-size'] = '0.5rem';
+      else if (this.size === 'sm') style['--goat-icon-size'] = '0.75rem';
+      else if (this.size === 'md') style['--goat-icon-size'] = '1rem';
+      else if (this.size === 'lg') style['--goat-icon-size'] = '1.5rem';
+      else if (this.size === 'xl') style['--goat-icon-size'] = '1.75rem';
+      else if (this.size.endsWith('px') || this.size.endsWith('rem'))
+        style['--goat-icon-size'] = this.size;
+      else if (!isNaN(Number(this.size))) {
+        style['--goat-icon-size'] = `${this.size}rem`;
+      }
     }
 
     return (
       <Host>
-        <div innerHTML={svgHtmlString} class={{ icon: true }}></div>
+        <div innerHTML={this.svg} class={{ icon: true }} style={style}></div>
       </Host>
     );
-  }
-
-  convertToDom(svg: string) {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(svg, 'image/svg+xml');
-    return doc.documentElement;
   }
 }

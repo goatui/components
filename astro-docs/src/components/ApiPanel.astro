@@ -7,70 +7,79 @@ const { componentDetails } = Astro.props;
 ---
 <div class='api-section'>
   <goat-text type='heading' heading-size='4'>Properties</goat-text>
-  <goat-table id='comp-properties' class='table-auto-height' layer="01" paginate='false'></goat-table>
+  <goat-table id='comp-properties' class='table-auto-height' layer='01' paginate='false'></goat-table>
 </div>
 
 <div class='api-section'>
   <goat-text type='heading' heading-size='4'>Events</goat-text>
-  <goat-table id='comp-events' class='table-auto-height' layer="01" paginate='false'></goat-table>
+  <goat-table id='comp-events' class='table-auto-height' layer='01' paginate='false'></goat-table>
 </div>
 
 <div class='api-section'>
   <goat-text type='heading' heading-size='4'>Methods</goat-text>
-  <goat-table id='comp-methods' class='table-auto-height' layer="01" paginate='false'></goat-table>
+  <goat-table id='comp-methods' class='table-auto-height' layer='01' paginate='false'></goat-table>
 </div>
 
 <div class='api-section'>
   <goat-text type='heading' heading-size='4'>CSS Custom Properties</goat-text>
-  <goat-table id='comp-css-custom-properties' class='table-auto-height' layer="01" paginate='false'></goat-table>
+  <goat-table id='comp-css-custom-properties' class='table-auto-height' layer='01' paginate='false'></goat-table>
 </div>
 
-<script is:inline define:vars={{ componentDetails }} >
+<script is:inline define:vars={{ componentDetails }}>
   const $compProperties = window.document.getElementById('comp-properties');
-    // Columns
-    $compProperties.columns = [{
-      'name': 'name',
-      'label': 'Property',
-      'width': 10,
-      }, {
-      'name': 'attr',
-      'label': 'Attribute',
-      'width': 10,
-      }, {
-      'name': 'docs',
-      'label': 'Description',
-      'width': 25,
-      template: function(row, column) {
-        if (row[column.name])
-          return `<div title='${row[column.name]}'>${row[column.name].replaceAll('\n', '<br/>')}</div>`;
-        return '';
-        },
-      }, {
-      'name': 'type',
-      'label': 'Type',
-      }, {
-      'name': 'default',
-      'label': 'Default',
-      }];
-    // Data
-    $compProperties.data = componentDetails.props;
+  // Columns
+  $compProperties.columns = [{
+    'name': 'name',
+    'label': 'Property',
+    'width': 10,
+  }, {
+    'name': 'attr',
+    'label': 'Attribute',
+    'width': 10,
+  }, {
+    'name': 'docs',
+    'label': 'Description',
+    'width': 28,
+    template: function(row, column) {
+      if (row[column.name])
+        return `<div class='col-text' title='${row[column.name]}'>${row[column.name].split('\n').map((i) => `<goat-text>${i}</goat-text>`).join('')}</div>`;
+      return '';
+    },
+  }, {
+    'name': 'type',
+    'label': 'Type',
+    'width': 18,
+    template: function(row, column) {
+      if (row[column.name] && row[column.name].includes("|")) {
+        const types = row[column.name].split("|");
+        const typesHtml = types.map(type => `<goat-tag color='secondary'>${type}</goat-tag>`).join('');
+        return `<div class='col-text' style='display: flex; flex-wrap: wrap; gap:.5rem'>${typesHtml}</div>`;
+      }
+      return `<div class='col-text'>${row[column.name]}</div>`;
+    },
+  }, {
+    'name': 'default',
+    'label': 'Default',
+  }];
+  // Data
+  $compProperties.data = componentDetails.props;
 
-    const $compEvents = document.getElementById('comp-events');
-    // Columns
-    $compEvents.columns = [{
-      'name': 'event',
-      'label': 'Event',
-      'width': 15,
-      }, {
-      'name': 'docs',
-      'label': 'Description',
-      'width': 25,
-      }, {
-      'name': 'detail',
-      'label': 'Type',
-      }];
-    // Data
-    $compEvents.data = componentDetails.events;
+  const $compEvents = document.getElementById('comp-events');
+  // Columns
+  $compEvents.columns = [{
+    'name': 'event',
+    'label': 'Event',
+    'width': 15,
+  }, {
+    'name': 'docs',
+    'label': 'Description',
+    'width': 25,
+  }, {
+    'name': 'detail',
+    'label': 'Type',
+  }];
+  // Data
+  $compEvents.data = componentDetails.events;
 
   const $compMethods = document.getElementById('comp-methods');
   // Columns

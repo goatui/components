@@ -48,7 +48,23 @@ export class Tabs implements ComponentInterface {
     const tabs = this.getTabs();
     for (let i = 0; i < tabs.length; i++) {
       const tab: any = tabs[i];
-      tab.selected = target === tab.target;
+      tab.selected = false;
+      tab.classList.remove('previous-tab', 'next-tab');
+    }
+    for (let i = 0; i < tabs.length; i++) {
+      const tab: any = tabs[i];
+      if (target === tab.target) {
+        tab.selected = true;
+
+        if (tabs[i - 1]) {
+          // @ts-ignore
+          tabs[i - 1].classList.add('previous-tab');
+        }
+        if (tabs[i + 1]) {
+          // @ts-ignore
+          tabs[i + 1].classList.add('next-tab');
+        }
+      }
     }
     const tabPanels = this.getTabPanels();
     for (let i = 0; i < tabPanels.length; i++) {

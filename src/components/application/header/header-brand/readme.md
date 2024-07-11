@@ -11,9 +11,9 @@
 | ---------- | ----------- | ----------- | -------- | ----------------- |
 | `color`    | `color`     |             | `string` | `'brand-primary'` |
 | `href`     | `href`      |             | `string` | `'#'`             |
-| `logo`     | `logo`      |             | `string` | `''`              |
-| `name`     | `name`      |             | `string` | `''`              |
-| `subTitle` | `sub-title` |             | `string` | `''`              |
+| `logo`     | `logo`      |             | `string` | `undefined`       |
+| `name`     | `name`      |             | `string` | `undefined`       |
+| `subTitle` | `sub-title` |             | `string` | `undefined`       |
 
 
 ## Dependencies

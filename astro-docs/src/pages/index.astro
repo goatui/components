@@ -37,7 +37,8 @@ function jumpingSentence(sentence: string) {
       <BannerLogo />
 
       <div class='title' set:html={
-        jumpingSentence('Rapidly build web applications') + '<br/>' + jumpingSentence('with GOAT UI')
+        `<goat-text type='fluid-heading' heading-size='6' heading-level='1'>Rapidly build web applications</goat-text> <br/>
+<goat-text type='fluid-heading' heading-size='6' heading-level='1' inline>with</goat-text> ` + jumpingSentence('goat/ui')
       }></div>
 
       <goat-text class='' type='heading' heading-size='3' heading-level='2'>A light weight web component library</goat-text>
@@ -45,7 +46,7 @@ function jumpingSentence(sentence: string) {
         <goat-button href='#getting-started' size='lg' color='black' dark-mode-color='white' icon='arrow--right'>Get
           Started
         </goat-button>
-        <goat-button href='/components/' size='lg' color='brand-primary' kind='simple'>Browse Components</goat-button>
+        <goat-button href='/components/' size='lg' color='primary' variant='simple'>Browse Components</goat-button>
       </div>
     </div>
 
@@ -53,7 +54,6 @@ function jumpingSentence(sentence: string) {
     <div class='social-icons'>
       <goat-button
         icon='logo--github'
-        icon-size='lg'
         variant='ghost'
         color='black'
         dark-mode-color='white'
@@ -62,7 +62,6 @@ function jumpingSentence(sentence: string) {
         href={`https://www.github.com/${site.github_username}`}
       ></goat-button>
       <goat-button
-        icon-size='lg'
         icon='logo--x'
         color='black'
         dark-mode-color='white'
@@ -202,11 +201,11 @@ function jumpingSentence(sentence: string) {
 
     <div class='sections'>
       <goat-container>
-        <goat-button color='brand-primary' href='/components/' size='lg' kind='block' icon='arrow--right'>Browse
+        <goat-button color='primary' href='/components/' size='lg' variant='block' icon='arrow--right'>Browse
           Components
         </goat-button>
         <br />
-        <goat-button color='brand-secondary' href='/theme-creator/' size='lg' kind='block' icon='arrow--right'>Theme
+        <goat-button color='secondary' href='/theme-creator/' size='lg' variant='block' icon='arrow--right'>Theme
           Creator
         </goat-button>
       </goat-container>
@@ -248,14 +247,12 @@ function jumpingSentence(sentence: string) {
 
       document.querySelectorAll('.jumping-text').forEach((elm, index) => {
 
-        if (elm.textContent.toLowerCase() === 'i') {
-          setTimeout(() => {
-            elm.classList.add('hover');
-            setTimeout(function() {
-              elm.classList.remove('hover');
-            }, 1800);
-          }, 1000 + (20 * index));
-        }
+        setTimeout(() => {
+          elm.classList.add('hover');
+          setTimeout(function() {
+            elm.classList.remove('hover');
+          }, 1800);
+        }, 1000 + (20 * index));
 
 
         elm.addEventListener('mouseover', () => {

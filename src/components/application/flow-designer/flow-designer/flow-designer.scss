@@ -62,17 +62,17 @@
   .new-activity {
     pointer-events: auto;
     position: absolute;
-    background: var(--color-neutral-30);
+    background: v(--color-neutral-30);
     border-radius: 100%;
     line-height: 0;
     box-sizing: border-box;
-    border: 2px solid var(--color-neutral-30);
+    border: 2px solid v(--color-neutral-30);
     display: flex;
     align-items: center;
     justify-content: center;
 
     &:hover {
-      border-color: var(--color-primary);
+      border-color: v(--color-primary);
       cursor: pointer;
     }
   }
@@ -130,7 +130,7 @@
 
     &:hover {
       .activity-icon {
-        border-color: var(--color-primary);
+        border-color: v(--color-primary);
       }
       cursor: pointer;
     }

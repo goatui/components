@@ -42,8 +42,8 @@
   height: 100vh;
   min-height: 750px;
   padding-top: var(--header-height);
-  background: var(--color-custom-01);
-  border-bottom: 1px solid var(--color-custom-01-70);
+  border-bottom: 1px solid var(--border-strong-01);
+  background: var(--color-light);
 }
 
 .banner-content {
@@ -72,7 +72,7 @@
 
 .banner-logo path,
 .banner-logo circle {
-  stroke: var(--color-brand-primary);
+  stroke: var(--color-dark);
 }
 
 @include for-phone-only {
@@ -106,7 +106,7 @@ goat-text[type='code'] {
     margin-bottom: 0;
   }
   goat-link {
-    --link-color-visited: var(--color-brand-primary);
+    --link-color-visited: var(--color-primary);
   }
 }
 
@@ -126,7 +126,7 @@ goat-text[type='code'] {
     transform-origin: bottom left;
     transform: rotate(-90deg);
     bottom: 2rem;
-    left: 2rem;
+    left: 3rem;
     text-align: left;
   }
 
@@ -134,10 +134,15 @@ goat-text[type='code'] {
     display: flex;
     align-items: center;
     gap: .5rem;
+
     position: absolute;
     bottom: 2rem;
     right: 0.5rem;
     flex-direction: column;
+
+    goat-button {
+      --goat-button-icon-size: 1.5rem;
+    }
   }
 
   .made-in-india:before {
@@ -187,7 +192,6 @@ goat-text[type='code'] {
 }
 .jumping-text {
   position:relative;
-  text-shadow: -20px 10px 10px rgba(0, 0, 0, .3), 0 20px 50px rgba(0, 0, 0, .3);
   font-weight: 900;
   letter-spacing: -2px;
   font-size: 40px;

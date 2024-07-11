@@ -11,7 +11,7 @@
   /**
    * @prop --goat-accordion-item-heading-background-hover - Background color of the accordion item header on hover
    */
-  --goat-accordion-item-heading-background-hover: var(--layer-hover-01);
+  --goat-accordion-item-heading-background-hover: var(--layer-hover);
 
   /**
    * @prop --goat-accordion-item-title-align - Alignment of the accordion title
@@ -25,9 +25,9 @@
     cursor: pointer;
     width: 100%;
     border-radius: 0;
-    color: var(--text-primary);
+    color: v(--text-primary);
     border: 0;
-    padding: 0 var(--spacing-05);
+    padding: 0 v(--spacing-05);
     background: var(--goat-accordion-item-heading-background);
 
     display: flex;

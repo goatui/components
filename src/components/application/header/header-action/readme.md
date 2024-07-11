@@ -18,6 +18,25 @@
 | `target`     | `target`      | Sets or retrieves the window or frame at which to target content.                                       | `string`                                          | `'_self'`   |
 
 
+## Methods
+
+### `setColor(color: string) => Promise<void>`
+
+
+
+#### Parameters
+
+| Name    | Type     | Description |
+| ------- | -------- | ----------- |
+| `color` | `string` |             |
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on

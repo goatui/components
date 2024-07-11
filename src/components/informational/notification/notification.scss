@@ -91,7 +91,7 @@
 @mixin alertState($color, $dark) {
   @if $dark {
     .alert {
-      background-color: var(--color-#{$color});
+      background-color: v(--color-#{$color});
 
       .content {
         .message {
@@ -106,12 +106,12 @@
     }
   } @else {
     .alert {
-      background-color: var(--color-#{$color}-20);
+      background-color: v(--color-#{$color}-20);
 
       .content {
         .message {
-          color: var(--color-#{$color}-70);
-          --link-color: var(--color-#{$color}-70);
+          color: v(--color-#{$color}-70);
+          --link-color: #{v(--color-#{$color}-70)};
         }
 
         .description {
@@ -144,14 +144,14 @@
     }
 
     &:not(.high-contrast) {
-      color: var(--color-neutral-100);
-      border-color: var(--support-#{$state});
-      background: var(--color-#{$state}-10);
+      color: v(--color-neutral-100);
+      border-color: v(--support-#{$state});
+      background: v(--color-#{$state}-10);
       border-width: 1px 1px 1px 3px;
 
       .close-button {
         .icon {
-          --icon-color: var(--color-neutral-100);
+          --icon-color: v(--color-neutral-100);
         }
       }
 

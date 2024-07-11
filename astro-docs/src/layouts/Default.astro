@@ -17,19 +17,28 @@ const searchItems = componentsDetails.components.map(component => ({
   label: component.metadata.name,
   value: component.tag.replace('goat-', ''),
 }));
-
-const getTitle = (root?: boolean) => {
-  return (!root) ? title : '';
-};
 ---
 
 <Layout title={title} description={description} keywords={keywords}>
 
   <nav class='top-nav'>
-    <goat-header color='custom-01' class={`actions-separated ${!root ? 'border' : ''}`}>
+    <goat-header color='white' dark-mode-color='black' class={`actions-separated ${!root ? 'border' : ''}`}>
       <div slot='left'>
-        <goat-header-brand logo='/assets/img/logo.svg' href='/#' name={site.title}
-                           sub-title={getTitle(root)}></goat-header-brand>
+        <goat-header-brand logo='/assets/img/logo.svg' href='/#' name={site.title}></goat-header-brand>
+
+
+        <goat-header-action
+          class='hide-tablet-portrait-below'
+          href='/components#'>
+          Docs
+        </goat-header-action>
+
+        <goat-header-action
+          class='hide-tablet-portrait-below'
+          href='/components#'>
+          Components
+        </goat-header-action>
+
       </div>
 
       <div slot='right'>
@@ -53,22 +62,12 @@ const getTitle = (root?: boolean) => {
         </div>
 
 
-        <goat-header-action
-          class='hide-tablet-portrait-below'
-          href='/components#'>
-          Components
-        </goat-header-action>
 
-        <goat-header-action
-          class='hide-tablet-portrait-below'
-          href='/blog#'>
-          Blog
-        </goat-header-action>
 
         <goat-button
-          color='brand-primary'
+          color='primary'
           size='sm'
-          kind='simple'
+          variant='simple'
           target='_blank'
           class='hide-tablet-portrait-below sponsor-btn'
           href='https://github.com/sponsors/shivajivarma'>

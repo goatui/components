@@ -54,9 +54,9 @@
   "devDependencies": {
     "@floating-ui/dom": "^1.5.3",
     "@stencil/angular-output-target": "^0.8.4",
-    "@stencil/core": "^4.11.0",
+    "@stencil/core": "^4.19.2",
     "@stencil/react-output-target": "^0.5.3",
-    "@stencil/sass": "^3.0.8",
+    "@stencil/sass": "^3.0.12",
     "@stencil/vue-output-target": "^0.8.8",
     "@tiptap/core": "^2.1.12",
     "@tiptap/extension-font-family": "^2.4.0",
@@ -78,7 +78,6 @@
     "puppeteer": "^22.12.1",
     "rollup-plugin-dotenv": "^0.5.0",
     "sass": "^1.70.0",
-    "tippy.js": "^6.3.7",
     "turndown": "^7.2.0"
   },
   "engines": {

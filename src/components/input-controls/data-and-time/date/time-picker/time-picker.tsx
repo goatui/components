@@ -198,10 +198,9 @@ export class TimePicker {
 
           <goat-button
             class="input-action"
-            kind={'simple'}
             color={'secondary'}
             icon={'time'}
-            variant="ghost"
+            variant="ghost.simple"
             disabled={this.disabled}
             onGoat-button--click={() => {
               setTimeout(() => {

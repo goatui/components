@@ -1,7 +1,5 @@
 @import "../../../../globalStyles/commons";
 
-$inner-border-width: 0.0625;
-
 /**
  * @prop --goat-button-color: Button filling color.
  * @prop --goat-button-color-light: Button filling color for light variant.
@@ -13,7 +11,7 @@ $inner-border-width: 0.0625;
   display: inline-block;
 
 
-  --goat-button-border-width: var(--goat-theme-button-border-width, 0.0625rem);
+  --goat-button-border-width: var(--goat-theme-button-border-width);
 
   /**
    * @prop --goat-button-border-radius: Button border radius.
@@ -31,6 +29,8 @@ $inner-border-width: 0.0625;
     * @prop --goat-button-padding: Button padding.
    */
   --goat-button-height: auto;
+
+  --goat-button-icon-size: 1rem;
   height: var(--goat-button-height);
 }
 
@@ -40,6 +40,7 @@ $inner-border-width: 0.0625;
   align-items: center;
   flex-direction: column;
   height: var(--goat-button-height);
+  --internal-button-inner-padding: 0.0625rem;
 
   .native-button {
     display: flex;
@@ -51,11 +52,14 @@ $inner-border-width: 0.0625;
     z-index: var(--z-index-button);
     background: transparent;
     padding: 0;
-    border-width: var(--goat-button-border-width);
+    border-width: var(--goat-button-border-width, var(--internal-button-border-width,  0.0625rem));
     border-style: var(--goat-button-border-style);
     border-color: transparent;
     border-radius: var(--goat-button-border-radius);
     outline: none;
+    --goat-spinner-color: currentColor;
+    --goat-icon-size: var(--goat-button-icon-size);
+
 
     .button-content {
       width: 100%;
@@ -67,12 +71,18 @@ $inner-border-width: 0.0625;
       flex-direction: row;
       height: 100%;
       border-radius: var(--goat-button-border-radius);
-      border: #{$inner-border-width}rem solid transparent;
-      padding: 0 calc(var(--goat-button-padding, 1rem) - #{$inner-border-width}rem);
+      border: var(--internal-button-inner-padding) solid transparent;
+      padding: 0 calc(var(--goat-button-padding, 1rem) - var(--internal-button-inner-padding));
     }
 
     .slot-container {
       display: none;
+    }
+  }
+
+  &.has-focus:not(.active) .native-button {
+    .button-content {
+      border-color: v(--color-light);
     }
   }
 
@@ -85,6 +95,17 @@ $inner-border-width: 0.0625;
 
     border-radius: var(--goat-button-border-radius);
     pointer-events: none;
+  }
+
+  .button-neo-background {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    border-radius: var(--goat-button-border-radius);
+    pointer-events: none;
+    transform: translateX(0.25rem) translateY(0.25rem);
   }
 
   &.disabled .native-button {
@@ -162,21 +183,14 @@ $inner-border-width: 0.0625;
   }
 }
 
-/*
- * TYPES
- */
-.button.type-simple {
+
+.button.variant-simple {
   &.has-content .slot-container {
     padding-right: 0;
   }
 }
 
-:host([kind="block"]) {
-  display: block;
-  width: 100%;
-}
-
-.button.type-block {
+.button.variant-block {
   .native-button {
     width: 100%;
   }
@@ -221,6 +235,7 @@ $inner-border-width: 0.0625;
   }
 
   &.active, &.selected {
+
     .native-button {
       border-color: var(--internal-button-color-active);
     }
@@ -232,10 +247,10 @@ $inner-border-width: 0.0625;
 
   &.has-focus:not(.active) .native-button {
     .button-content {
-      border-color: var(--color-white);
+      border-color: v(--color-white);
     }
 
-    border-color: var(--internal-button-color-focus, var(--color-primary));
+    border-color: var(--internal-button-color-focus, v(--color-primary));
   }
 
   &.disabled {
@@ -249,7 +264,7 @@ $inner-border-width: 0.0625;
     }
 
     &.has-focus:not(.active) .native-button {
-      border-color: var(--color-neutral) !important;
+      border-color: v(--color-neutral) !important;
     }
   }
 }
@@ -289,10 +304,10 @@ $inner-border-width: 0.0625;
 
   &.has-focus:not(.active) .native-button {
     .button-content {
-      border-color: var(--color-white);
+      border-color: v(--color-white);
     }
 
-    border-color: var(--internal-button-color-focus, var(--color-primary));
+    border-color: var(--internal-button-color-focus, v(--color-primary));
   }
 
   &.disabled {
@@ -306,7 +321,7 @@ $inner-border-width: 0.0625;
     }
 
     &.has-focus:not(.active) .native-button {
-      border-color: var(--color-neutral) !important;
+      border-color: v(--color-neutral) !important;
     }
   }
 }
@@ -346,7 +361,7 @@ $inner-border-width: 0.0625;
   &.has-focus:not(.active) {
     .native-button {
       color: var(--internal-button-support-contrast-color);
-      border-color: var(--internal-button-color-focus, var(--color-primary));
+      border-color: var(--internal-button-color-focus, v(--color-primary));
     }
 
     .button-background {
@@ -354,7 +369,7 @@ $inner-border-width: 0.0625;
     }
 
     .button-content {
-      border-color: var(--color-white);
+      border-color: v(--color-white);
     }
   }
 
@@ -369,7 +384,7 @@ $inner-border-width: 0.0625;
     }
 
     &.has-focus:not(.active) .native-button {
-      border-color: var(--color-neutral) !important;
+      border-color: v(--color-neutral) !important;
     }
   }
 }
@@ -401,7 +416,7 @@ $inner-border-width: 0.0625;
   }
 
   &.has-focus:not(.active) .native-button {
-    border-color: var(--internal-button-color-focus, var(--color-primary));
+    border-color: var(--internal-button-color-focus, v(--color-primary));
   }
 
   &.disabled {
@@ -415,7 +430,75 @@ $inner-border-width: 0.0625;
     }
 
     &.has-focus:not(.active) .native-button {
-      border-color: var(--internal-button-color-focus, var(--color-neutral)) !important;
+      border-color: var(--internal-button-color-focus, v(--color-neutral)) !important;
+    }
+  }
+}
+
+.button.variant-neo {
+
+  margin-inline-end: .25rem;
+  margin-block-end: .25rem;
+
+  --internal-button-border-width: 0.125rem;
+  --internal-button-inner-padding: 0.125rem;
+
+  .native-button {
+    color: v(--color-dark);
+    border-color: v(--color-dark);
+  }
+
+  .button-neo-background {
+    background: v(--color-dark);
+  }
+
+  .button-background {
+    background: var(--internal-button-color-neo);
+  }
+
+  &:hover {
+    .native-button, .button-background {
+      transform: translateY(-0.125rem);
+    }
+  }
+
+  &.active  {
+    .native-button, .button-background {
+      transform: translateX(0.25rem) translateY(0.25rem);
+    }
+  }
+
+  &.active, &.selected {
+
+    .native-button {
+      border-color: v(--color-dark);
+    }
+  }
+
+  &.has-focus:not(.active) {
+    .native-button {
+      .button-content {
+        border-color: v(--color-light);
+      }
+    }
+
+    .button-background {
+      border: calc(1.5 * var(--internal-button-border-width)) solid v(--color-dark);
+    }
+  }
+
+  &.disabled {
+    .native-button {
+      color: var(--disabled-03);
+      border-color: var(--text-disabled) !important;
+    }
+
+    .button-background {
+      background: var(--text-disabled) !important;
+    }
+
+    &.has-focus:not(.active) .native-button {
+      border-color: v(--color-neutral) !important;
     }
   }
 }
@@ -427,65 +510,66 @@ $inner-border-width: 0.0625;
 
 }
 
-:host([computed-color="primary"]) .button {
-  --internal-button-color: var(--goat-button-color, var(--color-primary));
-  --internal-button-color-light: var(--goat-button-color-light, var(--color-primary-10));
-  --internal-button-color-hover: var(--goat-button-color-hover, var(--color-primary-hover-60));
-  --internal-button-color-active: var(--goat-button-color-active, var(--color-primary-80));
+.button.color-primary {
+  --internal-button-color: var(--goat-button-color, #{v(--color-primary)});
+  --internal-button-color-light: var(--goat-button-color-light, #{v(--color-primary-10)});
+  --internal-button-color-neo: var(--goat-button-color-neo, #{v(--color-primary-50)});
+  --internal-button-color-hover: var(--goat-button-color-hover, #{v(--color-primary-hover-60)});
+  --internal-button-color-active: var(--goat-button-color-active, #{v(--color-primary-80)});
 }
 
-:host([computed-color="success"]) .button {
-  --internal-button-color: var(--goat-button-color, var(--color-success));
-  --internal-button-color-light: var(--goat-button-color-light, var(--color-success-10));
-  --internal-button-color-hover: var(--goat-button-color-hover, var(--color-success-70));
-  --internal-button-color-active: var(--goat-button-color-active, var(--color-success-80));
+.button.color-success {
+  --internal-button-color: var(--goat-button-color, #{v(--color-success)});
+  --internal-button-color-light: var(--goat-button-color-light, #{v(--color-success-10)});
+  --internal-button-color-neo: var(--goat-button-color-neo, #{v(--color-success-50)});
+  --internal-button-color-hover: var(--goat-button-color-hover, #{v(--color-success-70)});
+  --internal-button-color-active: var(--goat-button-color-active, #{v(--color-success-80)});
 }
 
-:host([computed-color="info"]) .button {
-  --internal-button-color: var(--goat-button-color, var(--color-info));
-  --internal-button-color-light: var(--goat-button-color-light, var(--color-info-10));
-  --internal-button-color-hover: var(--goat-button-color-hover, var(--color-info-hover-60));
-  --internal-button-color-active: var(--goat-button-color-active, var(--color-info-80));
+.button.color-info {
+  --internal-button-color: var(--goat-button-color, #{v(--color-info)});
+  --internal-button-color-light: var(--goat-button-color-light, #{v(--color-info-10)});
+  --internal-button-color-neo: var(--goat-button-color-neo, #{v(--color-info-50)});
+  --internal-button-color-hover: var(--goat-button-color-hover, #{v(--color-info-hover-60)});
+  --internal-button-color-active: var(--goat-button-color-active, #{v(--color-info-80)});
 }
 
-:host([computed-color="warning"]) .button {
-  --internal-button-color: var(--goat-button-color, var(--color-warning));
-  --internal-button-color-light: var(--goat-button-color-light, var(--color-warning-10));
-  --internal-button-color-hover: var(--goat-button-color-hover, var(--color-warning-70));
-  --internal-button-color-active: var(--goat-button-color-active, var(--color-warning-80));
+.button.color-warning {
+  --internal-button-color: var(--goat-button-color, #{v(--color-warning)});
+  --internal-button-color-light: var(--goat-button-color-light, #{v(--color-warning-10)});
+  --internal-button-color-neo: var(--goat-button-color-neo, #{v(--color-warning-50)});
+  --internal-button-color-hover: var(--goat-button-color-hover, #{v(--color-warning-70)});
+  --internal-button-color-active: var(--goat-button-color-active, #{v(--color-warning-80)});
 }
 
-:host([computed-color="error"]) .button {
-  --internal-button-color: var(--goat-button-color, var(--color-error));
-  --internal-button-color-light: var(--goat-button-color-light, var(--color-error-10));
-  --internal-button-color-hover: var(--goat-button-color-hover, var(--color-error-70));
-  --internal-button-color-active: var(--goat-button-color-active, var(--color-error-80));
+.button.color-error, .button.color-danger  {
+  --internal-button-color: var(--goat-button-color, #{v(--color-error)});
+  --internal-button-color-light: var(--goat-button-color-light, #{v(--color-error-10)});
+  --internal-button-color-neo: var(--goat-button-color-neo, #{v(--color-error-50)});
+  --internal-button-color-hover: var(--goat-button-color-hover, #{v(--color-error-70)});
+  --internal-button-color-active: var(--goat-button-color-active, #{v(--color-error-80)});
 }
 
-:host([computed-color="danger"]) .button {
-  --internal-button-color: var(--goat-button-color, var(--color-error));
-  --internal-button-color-light: var(--goat-button-color-light, var(--color-error-10));
-  --internal-button-color-hover: var(--goat-button-color-hover, var(--color-error-70));
-  --internal-button-color-active: var(--goat-button-color-active, var(--color-error-80));
+.button.color-white {
+  --internal-button-color: var(--goat-button-color, #{v(--color-white)});
+  --internal-button-color-light: var(--goat-button-color-light, #{v(--color-white)});
+  --internal-button-color-neo: var(--goat-button-color-neo, #{v(--color-white)});
+  --internal-button-color-hover: var(--goat-button-color-hover, #{v(--color-gray-10)});
+  --internal-button-color-active: var(--goat-button-color-active, #{v(--color-gray-70)});
 }
 
-:host([computed-color="white"]) .button {
-  --internal-button-color: var(--goat-button-color, var(--color-white));
-  --internal-button-color-light: var(--goat-button-color-light, var(--color-white));
-  --internal-button-color-hover: var(--goat-button-color-hover, var(--color-gray-10));
-  --internal-button-color-active: var(--goat-button-color-active, var(--color-gray-70));
+.button.color-black {
+  --internal-button-color: var(--goat-button-color, #{v(--color-black)});
+  --internal-button-color-light: var(--goat-button-color-light, #{v(--color-gray-10)});
+  --internal-button-color-neo: var(--goat-button-color-neo, #{v(--color-black)});
+  --internal-button-color-hover: var(--goat-button-color-hover, #{v(--color-gray-70)});
+  --internal-button-color-active: var(--goat-button-color-active, #{v(--color-gray-90)});
 }
 
-:host([computed-color="black"]) .button {
-  --internal-button-color: var(--goat-button-color, var(--color-black));
-  --internal-button-color-light: var(--goat-button-color-light, var(--color-gray-10));
-  --internal-button-color-hover: var(--goat-button-color-hover, var(--color-gray-70));
-  --internal-button-color-active: var(--goat-button-color-active, var(--color-gray-90));
-}
-
-:host([computed-color="secondary"]) .button {
-  --internal-button-color: var(--goat-button-color, var(--color-secondary));
-  --internal-button-color-light: var(--goat-button-color-light, var(--color-white));
+.button.color-secondary {
+  --internal-button-color: var(--goat-button-color, #{v(--color-secondary)});
+  --internal-button-color-light: var(--goat-button-color-light, #{v(--color-white)});
+  --internal-button-color-neo: var(--goat-button-color-neo, #{v(--color-secondary)});
   --internal-button-color-hover: var(--goat-button-color-hover, var(--button-secondary-hover));
   --internal-button-color-active: var(--goat-button-color-active, var(--button-secondary-active));
 }

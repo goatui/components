@@ -4,9 +4,9 @@
   display: block;
   height: 100%;
   min-height: 20em;
-  --goat-table-border-color: var(--border-subtle);
+  --goat-table-border-color: #{v(--border-subtle)};
   --goat-table-border: 1px solid var(--goat-table-border-color);
-  --goat-col-content-padding: var(--spacing-04) var(--spacing-05);
+  --goat-col-content-padding: #{v(--spacing-04)} #{v(--spacing-05)};
 }
 
 .table {
@@ -53,11 +53,11 @@
     }
 
     .page-sizes-select {
-      margin-inline-start: var(--spacing-03);
+      margin-inline-start: v(--spacing-03);
     }
 
     .pagination-item-count {
-      margin-inline-start: var(--spacing-04);
+      margin-inline-start: v(--spacing-04);
       flex: 1;
       display: flex;
       align-items: center;
@@ -71,7 +71,7 @@
 
   &.horizontal-scrolled {
     .fixed-columns:after {
-      box-shadow: 10px 0 20px -20px var(--border-color) inset;
+      box-shadow: 10px 0 20px -20px #{v(--border-color)} inset;
       content: " ";
       height: 100%;
       position: absolute;
@@ -149,7 +149,7 @@
 }
 
 .header {
-  z-index: var(--z-index-table-header);
+  z-index: v(--z-index-table-header);
   @include font-style(heading-compact-01);
   position: sticky;
   top: 0;
@@ -186,16 +186,25 @@
       .col-content {
         border: 2px solid transparent;
         border-bottom: 1px solid transparent;
+
+        .col-text {
+          overflow: initial;
+          white-space: initial;
+          text-overflow: initial;
+          text-wrap: wrap;
+        }
       }
 
 
       &:focus {
         outline: none;
-        border-bottom-color: var(--color-primary);
+        border-bottom-color: v(--color-primary);
         z-index: 1;
 
         .col-content {
-          border-color: var(--color-primary);
+          border-color: v(--color-primary);
+
+
         }
       }
     }
@@ -214,15 +223,6 @@
 
 }
 
-:host(.show-full-content) .body .col-text {
-  overflow: initial;
-  white-space: initial;
-  text-overflow: initial;
-}
-
-:host-context([data-theme=dark]) {
-
-}
 
 .empty-data {
   text-align: center;
@@ -234,5 +234,5 @@
   left: 0;
   border-radius: 3px;
   height: max-content;
-  color: var(--color-neutral-600);
+  color: v(--color-neutral-600);
 }

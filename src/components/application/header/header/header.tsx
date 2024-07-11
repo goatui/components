@@ -1,5 +1,10 @@
 import { Component, Element, h, Host, Prop, State, Watch } from '@stencil/core';
-import { isLightOrDark, observeThemeChange } from '../../../../utils/utils';
+import {
+  hasSlot,
+  isDarkMode,
+  isLightOrDark,
+  observeThemeChange,
+} from '../../../../utils/utils';
 
 /**
  * @name Header
@@ -14,55 +19,101 @@ import { isLightOrDark, observeThemeChange } from '../../../../utils/utils';
   shadow: true,
 })
 export class Header {
-  @Element() elm!: HTMLElement;
+  @Element() host!: HTMLElement;
 
   @Prop() float: boolean = false;
 
-  @Prop({ reflect: true }) color:
-    | 'light'
-    | 'dark'
-    | 'brand-primary'
-    | 'brand-secondary' = 'light';
+  /**
+   * Defines the primary color of the header. This can be set to predefined color names to apply specific color themes.
+   */
+  @Prop() color:
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'warning'
+    | 'white'
+    | 'black'
+    | string = 'white';
+
+  /**
+   * Color variant for dark mode, applicable when [data-theme="dark"] is set.
+   */
+  @Prop() darkModeColor?:
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'warning'
+    | 'white'
+    | 'black'
+    | string;
 
   @Watch('color')
   colorChanged() {
-    this.computeColorLightOrDark();
+    this.#computedColor();
   }
 
-  computeColorLightOrDark() {
-    const color = getComputedStyle(document.documentElement).getPropertyValue(
-      `--color-${this.color}`,
-    );
-    this.colorType = isLightOrDark(color);
-  }
-
+  /**
+   * States
+   */
+  @State() computedColor: string;
   @State() centerSlotHasContent = false;
+
+  #computeColorLightOrDark() {
+    const color = getComputedStyle(document.documentElement).getPropertyValue(
+      `--color-${this.computedColor}`,
+    );
+    return isLightOrDark(color);
+  }
+
+  #computedColor() {
+    this.computedColor = this.color;
+    if (isDarkMode() && this.darkModeColor) {
+      this.computedColor = this.darkModeColor;
+    }
+    this.host.querySelectorAll('goat-header-action').forEach(el => {
+      el.setColor(this.computedColor);
+    });
+  }
+
+  #getColumnType() {
+    return this.centerSlotHasContent ? 'three-column' : 'two-column';
+  }
+
+  #computeCenterSlotHasContent() {
+    this.centerSlotHasContent = hasSlot(this.host, 'center');
+  }
 
   componentWillLoad() {
     this.colorChanged();
-    this.centerSlotHasContent = !!this.elm.querySelector('[slot="center"]');
+    this.#computeCenterSlotHasContent();
     observeThemeChange(() => {
       this.colorChanged();
     });
   }
 
-  @State() colorType: string = 'unknown';
-
   render() {
-    let columnType = 'three-column';
-    if (!this.centerSlotHasContent) columnType = 'two-column';
     return (
-      <Host color-is={this.colorType}>
+      <Host color-is={this.#computeColorLightOrDark()}>
         <div class="header-container">
           <header
-            class={{ header: true, float: this.float, [columnType]: true }}
+            class={{
+              header: true,
+              float: this.float,
+              [`color-${this.computedColor}`]: true,
+              [this.#getColumnType()]: true,
+            }}
           >
             <div class="left-section section">
               <slot name="left" />
             </div>
             {this.centerSlotHasContent && (
               <div class="center-section section">
-                <slot name="center" />
+                <slot
+                  name="center"
+                  onSlotchange={() => this.#computeCenterSlotHasContent()}
+                />
               </div>
             )}
             <div class="right-section section">

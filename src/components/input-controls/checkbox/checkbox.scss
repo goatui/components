@@ -3,7 +3,7 @@
 
 :host {
   display: inline-block;
-  color: var(--text-primary);
+  color: v(--text-primary);
   --checkbox-size: 1rem;
 }
 
@@ -15,7 +15,7 @@
   cursor: pointer;
 
   &.has-content {
-    gap: var(--spacing-03);
+    gap: v(--spacing-03);
   }
 
 
@@ -33,7 +33,7 @@
   .box {
     position: relative;
     background: var(--input-background-color, var(--field));
-    border: 1px solid var(--icon-primary);
+    border: 1px solid v(--icon-primary);
     border-radius: 2px;
     display: flex;
     align-items: center;
@@ -74,27 +74,27 @@
     }
 
     &:not(.state-checked) .box:before {
-      border-color: var(--icon-01);
+      border-color: v(--icon-01);
     }
   }
 
   .label {
-    color: var(--text-primary);
+    color: v(--text-primary);
   }
 
 }
 
 .checkbox.state-checked {
   .box {
-    background: var(--icon-primary);
+    background: v(--icon-primary);
     border-color: transparent;
   }
 
   .tick {
     width: 33%;
     height: 67%;
-    border-right: 2px solid var(--icon-inverse);
-    border-bottom: 2px solid var(--icon-inverse);
+    border-right: 2px solid v(--icon-inverse);
+    border-bottom: 2px solid v(--icon-inverse);
     transform: rotate(45deg);
     transform-origin: 0 100%;
     top: -15%;
@@ -102,13 +102,13 @@
   }
 
   &.active .box {
-    border-color: var(--color-white);
+    border-color: v(--color-white);
   }
 
   &.has-focus:not(.active) {
     .box {
       @include focus-ring;
-      border-color: var(--color-white);
+      border-color: v(--color-white);
     }
   }
 
@@ -116,7 +116,7 @@
 
 .checkbox.state-intermediate {
   .box {
-    background: var(--icon-primary);
+    background: v(--icon-primary);
     border-color: transparent;
   }
 
@@ -124,19 +124,19 @@
     width: 67%;
     height: 0;
     margin: auto;
-    border-right: 2px solid var(--icon-inverse);
-    border-bottom: 2px solid var(--icon-inverse);
+    border-right: 2px solid v(--icon-inverse);
+    border-bottom: 2px solid v(--icon-inverse);
     transform-origin: 0 100%;
   }
 
   &.active .box {
-    border-color: var(--color-white);
+    border-color: v(--color-white);
   }
 
   &.has-focus:not(.active) {
     .box {
       @include focus-ring;
-      border-color: var(--color-white);
+      border-color: v(--color-white);
     }
   }
 
@@ -167,15 +167,15 @@
 @each $state in [success, warning, error] {
   :host-context(.input-state-#{$state}) {
     .checkbox .box {
-      border-color: var(--color-#{$state});
+      border-color: v(--color-#{$state});
     }
   }
 }
 
 .checkbox.readonly {
   cursor: default;
-  color: var(--text-primary) !important;
-  border-color: var(--text-disabled) !important;
+  color: v(--text-primary) !important;
+  border-color: v(--text-disabled) !important;
 
   &.state-checked .box {
     background: var(--text-disabled) !important;

@@ -14,9 +14,11 @@ import {
 } from '@stencil/core';
 import {
   getComponentIndex,
+  hasSlot,
   isDarkMode,
   isLightOrDark,
   observeThemeChange,
+  throttle,
 } from '../../../../utils/utils';
 
 const PREDEFINED_BUTTON_COLORS = [
@@ -48,9 +50,13 @@ const PREDEFINED_BUTTON_COLORS = [
   shadow: true,
 })
 export class Button implements ComponentInterface {
-  @Element() elm!: HTMLElement;
+  @Element() host!: HTMLElement;
 
-  gid: string = getComponentIndex();
+  private gid: string = getComponentIndex();
+  private nativeElement: HTMLButtonElement;
+  private tabindex?: string | number;
+  private buttonElm?: HTMLDivElement;
+  private handleClickWithThrottle: () => void;
 
   /**
    * Button size.
@@ -59,33 +65,38 @@ export class Button implements ComponentInterface {
   @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' | 'xl' | '2xl' = 'md';
 
   /**
-   * Button kind.
-   * Possible values are `"default"`, `"simple"`, `"block"`. Defaults to `"default"`.
-   * `"default"` is a long button.
-   * `"simple"` is a text-only button.
-   * `"block"` is a full-width button.
-   */
-  @Prop({ reflect: true }) kind: 'default' | 'simple' | 'block' = 'default';
-
-  /**
-   * Button type.
-   * Possible values are `"button"`, `"submit"`, `"reset"`. Defaults to `"button"`.
+   *  Button type based on which actions are performed when the button is clicked.
    */
   @Prop() type: 'button' | 'submit' | 'reset' = 'button';
 
   /**
-   * Button variants.
-   * Possible values are `"default"`, `"outline"`, `"ghost"`. Defaults to `"default"`.
+   * The visual style of the button.
+   *
+   *  Possible variant values:
    * `"default"` is a filled button.
    * `"outline"` is an outlined button.
    * `"ghost"` is a transparent button.
+   * `"light"` is a light color button.
+   *
+   * Possible sub-variant values:
+   * `"simple"` is a simple button without default padding at end.
+   * `"block"` is a full-width button that spans the full width of its container.
+   *
+   *
+   *  Mix and match the `variant` and `sub-variant` to create a variety of buttons.
+   *  `"default.simple"`, `"outline.block"` etc.
    */
   @Prop({ reflect: true }) variant:
     | 'default'
     | 'outline'
     | 'ghost'
     | 'light'
-    | 'link' = 'default';
+    | 'neo'
+    | 'default.simple'
+    | 'outline.simple'
+    | 'ghost.simple'
+    | 'light.simple'
+    | 'neo.simple' = 'default';
 
   /**
    * Button selection state.
@@ -103,8 +114,7 @@ export class Button implements ComponentInterface {
   @Prop() disabledReason: string = '';
 
   /**
-   * Button color.
-   * Possible values are `"primary"`, `"secondary"`, `"success"`, `"danger"`, `"white"`. Defaults to `"primary"`.
+   * Defines the primary color of the button. This can be set to predefined color names to apply specific color themes.
    */
   @Prop({ reflect: true }) color:
     | 'primary'
@@ -116,10 +126,9 @@ export class Button implements ComponentInterface {
     | 'black' = 'primary';
 
   /**
-   * Button color in dark mode.
-   * Possible values are `"primary"`, `"secondary"`, `"success"`, `"danger"`, `"white"`.
+   * Color variant for dark mode, applicable when [data-theme="dark"] is set.
    */
-  @Prop({ reflect: true }) darkModeColor:
+  @Prop({ reflect: true }) darkModeColor?:
     | 'primary'
     | 'secondary'
     | 'success'
@@ -132,19 +141,13 @@ export class Button implements ComponentInterface {
    * Icon which will displayed on button.
    * Possible values are icon names.
    */
-  @Prop() icon: string;
+  @Prop() icon?: string;
 
   /**
    * Icon alignment.
    * Possible values are `"start"`, `"end"`. Defaults to `"end"`.
    */
   @Prop() iconAlign: 'start' | 'end' = 'end';
-
-  /**
-   * Icon size.
-   * Possible values are `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
-   */
-  @Prop() iconSize: 'sm' | 'md' | 'lg' | string = 'md';
 
   /**
    * If true, a loader will be displayed on button.
@@ -164,9 +167,19 @@ export class Button implements ComponentInterface {
   @Prop() target: string = '_self';
 
   /**
-   * On click of button, a CustomEvent 'goat-button--click' will be triggered.
+   * If true, the button will be in a toggled state.
    */
-  @Event({ eventName: 'goat-button--click' }) clickEmitter: EventEmitter;
+  @Prop() toggle: boolean = false;
+
+  /**
+   * Sets the delay for throttle in milliseconds. Defaults to 200 milliseconds.
+   */
+  @Prop() throttleDelay = 200;
+
+  /**
+   * Triggered when the button is clicked.
+   */
+  @Event({ eventName: 'goat-button--click' }) clickEvent: EventEmitter<void>;
 
   /**
    * Sets focus on the native `button` in `goat-button`. Use this method instead of the global
@@ -174,10 +187,8 @@ export class Button implements ComponentInterface {
    */
   @Method()
   async setFocus() {
-    if (this.nativeElement) {
-      this.nativeElement.focus();
-      this.hasFocus = true;
-    }
+    this.nativeElement.focus();
+    this.hasFocus = true;
   }
 
   /**
@@ -186,10 +197,8 @@ export class Button implements ComponentInterface {
    */
   @Method()
   async setBlur() {
-    if (this.nativeElement) {
-      this.nativeElement.blur();
-      this.hasFocus = false;
-    }
+    this.nativeElement.blur();
+    this.hasFocus = false;
   }
 
   /**
@@ -198,9 +207,7 @@ export class Button implements ComponentInterface {
    */
   @Method()
   async triggerClick() {
-    if (this.nativeElement) {
-      this.nativeElement.click();
-    }
+    this.nativeElement.click();
   }
 
   /**
@@ -211,124 +218,123 @@ export class Button implements ComponentInterface {
   @State() hasHover = false;
   @State() slotHasContent = false;
   @State() computedColor: string;
-  @State() theme: 'light' | 'dark';
-
-  private tabindex?: string | number;
-  private nativeElement?: HTMLButtonElement;
-  private buttonElm?: HTMLDivElement;
 
   @Watch('color')
   @Watch('darkModeColor')
   colorChanged() {
-    this.computedColor = this.#getComputedColor();
+    this.#computedColor();
+  }
+
+  connectedCallback() {
+    this.handleClickWithThrottle = throttle(
+      this.handleClick,
+      this.throttleDelay,
+      {
+        leading: true,
+        trailing: false,
+      },
+    );
   }
 
   @Listen('mouseup', { target: 'window' })
   windowMouseUp() {
-    if (this.isActive) this.isActive = false;
+    if (this.isActive && !this.toggle) this.isActive = false;
   }
 
   @Listen('keyup', { target: 'window' })
   windowKeyUp(evt: { key: string }) {
-    if (this.isActive && evt.key == ' ') this.isActive = false;
-  }
-
-  #getIconSize() {
-    if (this.iconSize) return this.iconSize;
-    else return '1rem';
+    if (this.isActive && !this.toggle && evt.key == ' ') this.isActive = false;
   }
 
   #renderIcon(iconName: string) {
-    return (
-      <goat-icon
-        name={iconName}
-        size={this.#getIconSize()}
-        class="icon inherit"
-      />
-    );
+    return <goat-icon name={iconName} class="icon inherit" />;
   }
 
-  #clickHandler = (event: KeyboardEvent) => {
-    if (!this.disabled && !this.showLoader) {
-      this.clickEmitter.emit({
-        element: this.elm,
-      });
-    } else {
-      event.preventDefault();
-      event.stopPropagation();
-      return;
-    }
+  handleClick = () => {
+    this.clickEvent.emit();
   };
 
-  #blurHandler = () => {
+  #onClick(evt: MouseEvent) {
+    if (!this.disabled && !this.showLoader) {
+      this.handleClickWithThrottle();
+    } else {
+      evt.preventDefault();
+      evt.stopPropagation();
+      evt.stopImmediatePropagation();
+    }
+  }
+
+  #onBlur = () => {
     this.hasFocus = false;
   };
 
-  #focusHandler = () => {
+  #onFocus = () => {
     this.hasFocus = true;
   };
 
-  #mouseOverHandler = () => {
+  #onMouseOver = () => {
     this.hasHover = true;
   };
 
-  #mouseOutHandler = () => {
+  #onMouseOut = () => {
     this.hasHover = false;
   };
 
-  #mouseDownHandler = () => {
-    this.isActive = true;
+  #onMouseDown = () => {
+    this.isActive = this.toggle ? !this.isActive : true;
   };
 
-  #keyDownHandler = (evt: KeyboardEvent) => {
+  #onKeyDown = (evt: KeyboardEvent) => {
     if (!this.disabled && !this.showLoader) {
-      if (!this.href && evt.key == 'Enter') {
+      if (!this.href && (evt.key == 'Enter' || evt.key == ' ')) {
         evt.preventDefault();
-        this.isActive = true;
-        this.#clickHandler(evt);
+        this.isActive = this.toggle ? !this.isActive : true;
+        this.clickEvent.emit();
       } else if (this.href && (evt.key == 'Enter' || evt.key == ' ')) {
         evt.preventDefault();
         this.isActive = true;
-        this.#clickHandler(evt);
+        this.clickEvent.emit();
         window.open(this.href, this.target);
       }
     }
   };
 
-  componentWillLoad() {
-    if (this.elm) {
-      // If the goat-button has a tabindex attribute we get the value
-      // and pass it down to the native input, then remove it from the
-      // goat-button to avoid causing tabbing twice on the same element
-      if (this.elm.hasAttribute('tabindex')) {
-        const tabindex = this.elm.getAttribute('tabindex');
-        this.tabindex = tabindex !== null ? tabindex : undefined;
-        this.elm.removeAttribute('tabindex');
+  #onKeyUp = (evt: KeyboardEvent) => {
+    if (!this.disabled && !this.showLoader && !this.toggle) {
+      if (evt.key == 'Enter' || evt.key == ' ') {
+        this.isActive = false;
       }
-      if (this.elm.getAttributeNames)
-        this.elm.getAttributeNames().forEach((name: string) => {
-          if (name.includes('aria-')) {
-            this.configAria[name] = this.elm.getAttribute(name);
-            this.elm.removeAttribute(name);
-          }
-        });
-      this.slotHasContent = this.elm.hasChildNodes();
     }
-    this.colorChanged();
-    this.theme = isDarkMode() ? 'dark' : 'light';
+  };
+
+  componentWillLoad() {
+    // If the goat-button has a tabindex attribute we get the value
+    // and pass it down to the native input, then remove it from the
+    // goat-button to avoid causing tabbing twice on the same element
+    if (this.host.hasAttribute('tabindex')) {
+      const tabindex = this.host.getAttribute('tabindex');
+      this.tabindex = tabindex !== null ? tabindex : undefined;
+      this.host.removeAttribute('tabindex');
+    }
+    if (this.host.getAttributeNames)
+      this.host.getAttributeNames().forEach((name: string) => {
+        if (name.includes('aria-')) {
+          this.configAria[name] = this.host.getAttribute(name);
+          this.host.removeAttribute(name);
+        }
+      });
+    this.slotHasContent = hasSlot(this.host);
+    this.#computedColor();
     observeThemeChange(() => {
-      this.theme = isDarkMode() ? 'dark' : 'light';
-      this.colorChanged();
+      this.#computedColor();
     });
   }
 
-  #getComputedColor() {
-    if (isDarkMode()) {
-      if (this.darkModeColor) {
-        return this.darkModeColor;
-      }
+  #computedColor() {
+    this.computedColor = this.color;
+    if (isDarkMode() && this.darkModeColor) {
+      this.computedColor = this.darkModeColor;
     }
-    return this.color;
   }
 
   #renderDisabledReason() {
@@ -354,50 +360,73 @@ export class Button implements ComponentInterface {
       color = getComputedStyle(this.buttonElm).getPropertyValue(
         `--internal-button-color-hover`,
       );
-    if (this.isActive)
+    if (this.isActive || this.selected)
       color = getComputedStyle(this.buttonElm).getPropertyValue(
         `--internal-button-color-active`,
       );
     return isLightOrDark(color);
   }
 
-  #getStyles() {
-    if (!PREDEFINED_BUTTON_COLORS.includes(this.computedColor)) {
-      return {
-        '--internal-button-color': `var(--color-${this.computedColor})`,
-        '--internal-button-color-light': `var(--color-${this.computedColor}-10)`,
-        '--internal-button-color-hover': `var(--color-${this.computedColor}-70, var(--color-${this.computedColor}-hover-60))`,
-        '--internal-button-color-active': `var(--color-${this.computedColor}-80)`,
-      };
-    }
-  }
-
   componentDidRender() {
-    if (this.#computeColorLightOrDark() == 'dark')
+    if (this.#computeColorLightOrDark() == 'dark') {
       this.buttonElm.style.setProperty(
         '--internal-button-support-contrast-color',
         `var(--goat-button-support-contrast-color, white)`,
       );
-    else
+    } else {
       this.buttonElm.style.setProperty(
         '--internal-button-support-contrast-color',
         `var(--goat-button-support-contrast-color, black)`,
       );
+    }
   }
 
   render() {
     const NativeElementTag = this.#getNativeElementTagName();
 
+    const variants = this.variant?.split('.');
+    if (
+      ['default', 'outline', 'ghost', 'light', 'neo'].includes(variants[0]) ==
+      false
+    ) {
+      variants.unshift('default');
+    }
+
+    const [variant, subVariant] = variants as [string, string?];
+
+    const hostStyle = {};
+    if (subVariant == 'block') {
+      hostStyle['display'] = `block`;
+      hostStyle['width'] = `100%`;
+    }
+
+    const style = {};
+    if (!PREDEFINED_BUTTON_COLORS.includes(this.computedColor)) {
+      style['--internal-button-color'] = `var(--color-${this.computedColor})`;
+      style[
+        '--internal-button-color-light'
+      ] = `var(--color-${this.computedColor}-10)`;
+      style[
+        '--internal-button-color-neo'
+      ] = `var(--color-${this.computedColor}-50)`;
+      style[
+        '--internal-button-color-hover'
+      ] = `var(--color-${this.computedColor}-70, var(--color-${this.computedColor}-hover-60))`;
+      style[
+        '--internal-button-color-active'
+      ] = `var(--color-${this.computedColor}-80)`;
+    }
+
     return (
-      <Host active={this.isActive} computed-color={this.computedColor}>
+      <Host active={this.isActive} style={hostStyle}>
         <div
-          style={this.#getStyles()}
+          style={style}
           ref={(elm: HTMLDivElement) => (this.buttonElm = elm)}
           class={{
             'button': true,
-            [`size-${this.size || 'md'}`]: true,
-            [`type-${this.kind}`]: true,
-            [`variant-${this.variant}`]: true,
+            [`size-${this.size}`]: true,
+            [`variant-${variant}`]: true,
+            [`variant-${subVariant}`]: !!subVariant,
             [`color-${this.computedColor}`]: true,
             'hover': this.hasHover,
             'disabled': this.disabled,
@@ -410,6 +439,7 @@ export class Button implements ComponentInterface {
             [`color-is-${this.#computeColorLightOrDark()}`]: true,
           }}
         >
+          <div class="button-neo-background" />
           <div class="button-background" />
           <NativeElementTag
             class="native-button"
@@ -418,13 +448,14 @@ export class Button implements ComponentInterface {
             target={this.target}
             type={this.type}
             ref={(elm: HTMLButtonElement) => (this.nativeElement = elm)}
-            onBlur={this.#blurHandler}
-            onFocus={this.#focusHandler}
-            onMouseOver={this.#mouseOverHandler}
-            onMouseOut={this.#mouseOutHandler}
-            onClick={this.#clickHandler}
-            onMouseDown={this.#mouseDownHandler}
-            onKeyDown={this.#keyDownHandler}
+            onBlur={() => this.#onBlur()}
+            onFocus={() => this.#onFocus()}
+            onMouseOver={() => this.#onMouseOver()}
+            onMouseOut={() => this.#onMouseOut()}
+            onClick={evt => this.#onClick(evt)}
+            onMouseDown={() => this.#onMouseDown()}
+            onKeyDown={evt => this.#onKeyDown(evt)}
+            onKeyUp={evt => this.#onKeyUp(evt)}
             role="button"
             aria-describedby={
               this.disabled && this.disabledReason
@@ -448,7 +479,6 @@ export class Button implements ComponentInterface {
                 <goat-spinner
                   hideBackground={true}
                   class="spinner loader inherit"
-                  size={this.#getIconSize()}
                 />
               )}
 

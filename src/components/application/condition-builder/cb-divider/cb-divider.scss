@@ -5,7 +5,7 @@
   display: block;
   height: 100%;
   width: 100%;
-  --line-color: var(--color-primary);
+  --line-color: #{v(--color-primary)};
 }
 
 .divider {

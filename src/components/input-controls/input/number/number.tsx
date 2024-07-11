@@ -90,11 +90,6 @@ export class Number implements ComponentInterface, InputComponentInterface {
   @Prop({ reflect: true }) required: boolean = false;
 
   /**
-   * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
-   */
-  @Prop() clearable = false;
-
-  /**
    * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
    */
   @Prop() debounce = 300;
@@ -151,12 +146,6 @@ export class Number implements ComponentInterface, InputComponentInterface {
     }
   };
 
-  private keyDownHandler = (ev: KeyboardEvent) => {
-    if (ev.key === 'Escape' && this.clearable) {
-      this.clearInput(ev);
-    }
-  };
-
   private blurHandler = (ev: FocusEvent) => {
     this.hasFocus = false;
     this.goatBlur.emit(ev);
@@ -165,11 +154,6 @@ export class Number implements ComponentInterface, InputComponentInterface {
   private focusHandler = (ev: FocusEvent) => {
     this.hasFocus = true;
     this.goatFocus.emit(ev);
-  };
-
-  private clearInput = (evt: Event) => {
-    this.nativeElement.value = null;
-    this.inputHandler(evt);
   };
 
   @Method()
@@ -299,7 +283,6 @@ export class Number implements ComponentInterface, InputComponentInterface {
           tabIndex={this.tabindex}
           readOnly={this.readonly}
           required={this.required}
-          onKeyDown={this.keyDownHandler}
           onInput={this.inputHandler}
           onBlur={this.blurHandler}
           onFocus={this.focusHandler}
@@ -307,23 +290,14 @@ export class Number implements ComponentInterface, InputComponentInterface {
           {...this.configAria}
         />
 
-        {this.clearable && this.hasValue() && (
-          <goat-button
-            class="clear input-action"
-            color={'secondary'}
-            variant="ghost"
-            icon="close"
-            onClick={this.clearInput}
-          />
-        )}
-
         {!this.readonly && !this.disabled && !this.hideActions && (
           <goat-button
             class="input-action"
             color={'secondary'}
-            kind={'simple'}
             icon="subtract"
-            variant="ghost"
+            size={this.size}
+            aria-label="Decrease"
+            variant="ghost.simple"
             onGoat-button--click={evt => {
               this.decrease(evt);
             }}
@@ -334,9 +308,9 @@ export class Number implements ComponentInterface, InputComponentInterface {
           <goat-button
             class="input-action"
             color={'secondary'}
-            kind={'simple'}
             icon="add"
-            variant="ghost"
+            size={this.size}
+            variant="ghost.simple"
             onGoat-button--click={evt => {
               this.increment(evt);
             }}

@@ -12,7 +12,7 @@ $header-background-dark: var(--header-background-dark, var(--header-background))
 
 .footer.variant-simple {
   display: flex;
-  background: var(--layer-01);
+  background: var(--layer);
 
   align-items: center;
   min-height: $footer-height;

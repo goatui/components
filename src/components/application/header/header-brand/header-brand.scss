@@ -10,6 +10,7 @@
   align-items: center;
   height: 100%;
   padding-inline-start: var(--spacing-05);
+  padding-inline-end: var(--spacing-04);
 
   .brand-link {
     height: 100%;
@@ -23,22 +24,25 @@
     gap: var(--spacing-03);
     height: 100%;
     padding: 0 var(--spacing-02);
-    font-weight: var(--font-weight-bold);
+    @include font-style(heading-compact-01);
+    font-size: 1rem;
   }
 
   .logo {
     height: var(--header-brand-logo-height, 2rem);
   }
 
+  .subtitle-divider {
+    height: 1.5rem;
+  }
+
+  .subtitle {
+    padding: 0 var(--spacing-02);
+  }
+
+
 }
 
-.subtitle-divider {
-  height: 1.5rem;
-}
-
-.subtitle {
-  padding: 0 var(--spacing-02);
-}
 
 /*
  * Colors
@@ -49,16 +53,20 @@
   .subtitle {
     color: var(--header-brand-subtitle-color);
   }
+
+  .subtitle-divider {
+    --goat-divider-color: var(--header-brand-subtitle-color);
+  }
 }
 
-:host-context([color-is="dark"]):host {
-  --header-brand-title-color: var(--color-white);
-  --header-brand-subtitle-color: var(--color-gray-40);
+:host-context(goat-header[color-is="dark"]):host {
+  --header-brand-title-color: #{v(--color-white)};
+  --header-brand-subtitle-color: #{v(--color-gray-30)};
 }
 
-:host-context([color-is="light"]):host {
-  --header-brand-title-color: var(--color-black);
-  --header-brand-subtitle-color: var(--color-gray-80);
+:host-context(goat-header[color-is="light"]):host {
+  --header-brand-title-color: #{v(--color-black)};
+  --header-brand-subtitle-color: #{v(--color-gray-70)};
 }
 
 @include for-phone-only {

@@ -5,13 +5,6 @@
   display: flex;
   position: relative;
 
-  slot::slotted(goat-button) {
-    display: block;
-    margin: 0;
-    --goat-button-border-width: 0.125rem;
-    --goat-button-border-radius: 0;
-  }
-
   &:before {
     content: '';
     position: absolute;
@@ -29,6 +22,6 @@
 
 .tabs-list.type-default {
   &:before {
-    border-bottom: 2px solid var(--border-subtle);
+    border-bottom: 2px solid v(--border-subtle);
   }
 }

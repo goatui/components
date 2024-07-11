@@ -18,8 +18,8 @@ $border-width: 0.125;
     height: 100%;
     background: transparent;
     cursor: pointer;
-    color: var(--text-secondary);
-    z-index: var(--z-index-button);
+    color: v(--text-secondary);
+    z-index: v(--z-index-button);
     padding: 0;
     border: none;
     outline: none;
@@ -34,7 +34,7 @@ $border-width: 0.125;
       align-items: center;
       flex-direction: row;
       height: 100%;
-      gap: var(--spacing-02);
+      gap: v(--spacing-02);
       padding: 0 1rem;
       @include font-style(body-compact-01);
     }
@@ -51,15 +51,15 @@ $border-width: 0.125;
 
   &:hover {
     .native-button {
-      color: var(--text-primary);
-      border-bottom-color: var(--border-strong-01);
+      color: v(--text-primary);
+      border-bottom-color: var(--border-strong);
     }
   }
 
   &.disabled {
     .native-button {
       cursor: not-allowed;
-      color: var(--text-disabled);
+      color: v(--text-disabled);
     }
   }
 
@@ -69,7 +69,7 @@ $border-width: 0.125;
 
   &.selected {
     .native-button {
-      color: var(--text-primary);
+      color: v(--text-primary);
     }
 
     .tab-content {
@@ -100,24 +100,24 @@ $border-width: 0.125;
 
   &.selected {
     .native-button {
-      border-bottom-color: var(--border-interactive);
+      border-bottom-color: v(--border-interactive);
     }
   }
 
 
   &.has-focus:not(.active) {
     .native-button {
-      border-bottom-color: var(--border-interactive);
+      border-bottom-color: v(--border-interactive);
     }
 
     .tab-content {
-      border-color: var(--border-interactive);
+      border-color: v(--border-interactive);
     }
   }
 
   &.disabled {
     .native-button {
-      border-bottom-color: var(--border-disabled) !important;
+      border-bottom-color: v(--border-disabled) !important;
     }
 
     &.has-focus:not(.active) .tab-content {
@@ -192,6 +192,7 @@ $border-width: 0.125;
       border-right-color: transparent;
       border-bottom-color: var(--border-interactive);
     }
+
     .tab-background {
       background: var(--layer);
     }
@@ -215,17 +216,20 @@ $border-width: 0.125;
 
 }
 
-:host(.last-tab) .tab.type-contained, :host(.last-tab) .tab.type-contained-bottom  {
-  .native-button {
-    border-right: 0;
+:host(.last-tab), :host(.previous-tab) {
+  .tab.type-contained, .tab.type-contained-bottom {
+    .native-button {
+      border-right: 0;
+    }
+  }
+
+  /**
+    * Color Variants
+    */
+  @each $color in [primary, secondary, success, error, info, warning, brand-primary, brand-secondary, custom-01, custom-02, custom-03] {
+    :host(.color-#{$color}) .tab {
+      --tab-color: #{v(--color-#{$color})};
+    }
   }
 }
 
-/**
-  * Color Variants
-  */
-@each $color in [primary, secondary, success, error, info, warning, brand-primary, brand-secondary, custom-01, custom-02, custom-03] {
-  :host(.color-#{$color}) .tab {
-    --tab-color: var(--color-#{$color});
-  }
-}

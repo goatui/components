@@ -248,10 +248,9 @@ export class DatePicker implements ComponentInterface {
 
               <goat-button
                 class="input-action"
-                kind={'simple'}
                 color={'secondary'}
                 icon={'calendar'}
-                variant="ghost"
+                variant="ghost.simple"
                 disabled={this.disabled}
                 onGoat-button--click={() => {
                   setTimeout(() => {

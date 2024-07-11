@@ -55,23 +55,15 @@ $header-height: var(--header-height, 3rem);
     border-radius: var(--border-radius);
     border: 1px solid var(--layer-accent-01);
     box-shadow: var(--shadow-md);
+    overflow: clip;
   }
 }
 
 /**
   * Color Variants
   */
-@each $color in [primary, secondary, success, info, warning, error, brand-primary, brand-secondary, custom-01, custom-02, custom-03] {
-  :host([color="#{$color}"]) .header {
-    background: var(--color-#{$color});
+@each $color in [primary, secondary, success, info, warning, error,white, black, brand-primary, brand-secondary] {
+  .header.color-#{$color} {
+    background: v(--color-#{$color});
   }
-}
-
-:host([color="light"]) .header {
-  background: var(--color-white);
-}
-
-
-:host([color="dark"]) .header {
-  background: var(--color-black);
 }

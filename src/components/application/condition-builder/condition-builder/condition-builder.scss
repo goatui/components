@@ -3,7 +3,7 @@
 
 :host {
   display: block;
-  --compound-type-line-color: var(--color-primary)
+  --compound-type-line-color: #{v(--color-primary)};
 }
 
 .condition-builder {

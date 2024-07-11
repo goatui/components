@@ -134,7 +134,7 @@ export class Modal {
                   {this.showLoader && (
                     <div class="modal__loading">
                       <div class="modal__loading-background"></div>
-                      <goat-spinner size="lg"></goat-spinner>
+                      <goat-spinner size="2rem"></goat-spinner>
                     </div>
                   )}
                 </div>

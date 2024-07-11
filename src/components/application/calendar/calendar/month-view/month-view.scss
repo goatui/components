@@ -5,7 +5,7 @@
   height: 100%;
   --calendar-border-color: var(--field-01);
   --scale-size: 3rem;
-  --scale-color: var(--layer-accent-01)
+  --scale-color: var(--layer-accent)
 }
 
 .scale {
@@ -157,10 +157,10 @@
           position: absolute;
           font-size: .5rem;
           font-weight: 600;
-          color: var(--color-primary);
+          color: v(--color-primary);
           top: -6px;
           left: -3rem;
-          background: var(--color-primary-10);
+          background: v(--color-primary-10);
           padding: 2px;
           border-radius: 3px;
         }
@@ -168,21 +168,21 @@
         .dash-line {
           position: absolute;
           left: 0;
-          border-bottom: 1px dashed var(--color-primary);
+          border-bottom: 1px dashed v(--color-primary);
         }
 
         .dot {
           border-radius: 100%;
           width: 0.5rem;
           height: 0.5rem;
-          background: var(--color-primary);
+          background: v(--color-primary);
           display: block;
           position: absolute;
           top: -0.25rem;
         }
 
         .line {
-          border-bottom: 2px solid var(--color-primary);
+          border-bottom: 2px solid v(--color-primary);
           position: absolute;
           top: -1px;
         }
@@ -194,11 +194,11 @@
 .event {
   background: var(--calendar-event-bg-color);
   border-inline-start: .25rem solid var(--calendar-event-border-color);
-  color: var(--color-black);
+  color: v(--color-black);
 
   &.clickable {
     &:hover {
-      color: var(--color-white);
+      color: v(--color-white);
       background: var(--calendar-event-bg-color--hover);
     }
   }
@@ -209,7 +209,7 @@
     background: var(--field-01);
 
     .column-header {
-      border-top-color: var(--color-primary);
+      border-top-color: v(--color-primary);
     }
   }
 }
@@ -217,11 +217,11 @@
 :host-context([data-theme="dark"]) {
   .event {
     background: var(--calendar-event-dark-bg-color);
-    color: var(--color-white);
+    color: v(--color-white);
 
     &.clickable {
       &:hover {
-        color: var(--color-black);
+        color: v(--color-black);
         background: var(--calendar-event-dark-bg-color--hover);
       }
     }

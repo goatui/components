@@ -2,12 +2,22 @@
 
 :host {
   display: inline-block;
+  line-height: 0;
 }
 
 .icon {
+  display: block;
   line-height: 0;
 
-  .icon-svg {
+  /**
+    * @prop --goat-icon-size - The size of the icon (height and width)
+    */
+  height: var(--goat-icon-size, 1.5rem);
+  width: var(--goat-icon-size, 1.5rem);
+
+  svg {
     fill: currentColor;
+    height: 100%;
+    width: 100%;
   }
 }

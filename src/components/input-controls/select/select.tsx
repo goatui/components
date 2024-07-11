@@ -583,8 +583,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
                   <goat-button
                     class="clear input-action"
                     color={'secondary'}
-                    kind={'simple'}
-                    variant="ghost"
+                    variant="ghost.simple"
                     icon="close"
                     onClick={this.clearInput}
                   />

@@ -1,4 +1,4 @@
-import { Component, Element, h, Prop, State } from '@stencil/core';
+import { Component, Element, h, Method, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'goat-header-action',
@@ -37,6 +37,14 @@ export class HeaderAction {
 
   @Prop({ reflect: true, mutable: true }) configAria: any = {};
 
+  /*
+   * @internal
+   */
+  @Method()
+  async setColor(color: string) {
+    this.color = color;
+  }
+
   @Element() elm!: HTMLElement;
 
   @State() slotHasContent = false;
@@ -44,10 +52,7 @@ export class HeaderAction {
   @State() color: any;
 
   componentWillLoad() {
-    this.color = this.elm.closest('goat-header').getAttribute('color');
-
     this.slotHasContent = this.elm.hasChildNodes();
-
     if (this.elm.getAttributeNames)
       this.elm.getAttributeNames().forEach((name: string) => {
         if (name.includes('aria-')) {
@@ -62,10 +67,8 @@ export class HeaderAction {
       <goat-button
         class="header-action"
         color={this.color}
-        variant={'default'}
-        kind={'simple'}
+        variant={'default.simple'}
         icon={this.icon}
-        iconSize={'1.25rem'}
         href={this.href}
         selected={this.selected}
         configAria={this.configAria}

@@ -5,7 +5,7 @@
   position: relative;
 
   .dropdown-content {
-    z-index: var(--z-index-dropdown-content);
+    z-index: v(--z-index-dropdown-content);
     position: absolute;
     width: max-content;
     line-height: 0;
@@ -35,25 +35,25 @@
   }
 
   &.bottom-right .dropdown-content {
-    top: calc(100% + var(--spacing-02));
+    top: calc(100% + #{v(--spacing-02)});
     left: 0;
     transform-origin: top;
   }
 
   &.bottom-left .dropdown-content {
-    top: calc(100% + var(--spacing-02));
+    top: calc(100% + #{v(--spacing-02)});
     right: 0;
     transform-origin: top;
   }
 
   &.top-right .dropdown-content {
-    bottom: calc(100% + var(--spacing-02));
+    bottom: calc(100% + #{v(--spacing-02)});
     left: 0;
     transform-origin: bottom;
   }
 
   &.top-left .dropdown-content {
-    bottom: calc(100% + var(--spacing-02));
+    bottom: calc(100% + #{v(--spacing-02)});
     right: 0;
     transform-origin: bottom;
   }
@@ -84,7 +84,7 @@
       width: 100%;
       height: 100%;
       flex-wrap: wrap;
-      column-gap: var(--spacing-03);
+      column-gap: v(--spacing-03);
     }
   }
 
@@ -105,11 +105,11 @@
   }
 
   .selected-items {
-    background: var(--background);
-    border: 1px solid var(--border-strong-01);
-    box-shadow: var(--shadow-sm);
+    background: v(--background);
+    border: 1px solid var(--border-strong);
+    box-shadow: v(--shadow-sm);
     padding: .5rem;
-    border-radius: var(--border-radius);
+    border-radius: v(--border-radius);
     margin-bottom: 0.5rem;
   }
 
@@ -132,19 +132,19 @@
     height: 100%;
     display: flex;
     align-items: center;
-    color: var(--text-placeholder);
-    padding-inline: var(--spacing-05);
+    color: v(--text-placeholder);
+    padding-inline: v(--spacing-05);
   }
 
   .display-value-container {
     display: flex;
     align-items: center;
-    gap: var(--spacing-02);
+    gap: v(--spacing-02);
   }
 
   &:not(.multiple) .input-container.has-value {
     .display-value {
-      color: var(--text-primary);
+      color: v(--text-primary);
     }
   }
 

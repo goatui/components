@@ -1,9 +1,16 @@
 ---
 import HighlighterCard from '../../../../components/HighlighterCard.astro';
 ---
-<goat-text type='body' expressive>Here are several predefined button styles, each serving its own semantic purpose.
+<goat-text type='body' expressive>Buttons come in different colors to indicate the action or the type of button. The
+  following example shows the different colors available for the button component.
 </goat-text>
 
+<style is:inline>
+  .color-dark-theme-bg {
+    background: var(--color-primary-20);
+    padding: 1rem;
+  }
+</style>
 <HighlighterCard lang={'html'}>
   <div class='component-container'>
     <goat-button color='primary'>Primary</goat-button>
@@ -13,52 +20,39 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
     <goat-button color='danger'>Danger</goat-button>
   </div>
 
-  <div class='component-container' style='background: var(--color-primary-20);  padding: 1rem;'>
+  <goat-text>Switch your button color in dark theme using <goat-code-highlighter inline>dark-mode-color</goat-code-highlighter> attribute</goat-text>
+  <div class='component-container color-dark-theme-bg'>
     <goat-button color='white'>White</goat-button>
     <goat-button color='black'>Black</goat-button>
     <goat-button color='black' dark-mode-color='white'>Inverse</goat-button>
   </div>
-</HighlighterCard>
 
-<br />
-
-<goat-text type='heading' heading-size='3'>Custom branding</goat-text>
-<goat-text type='body' expressive>Custom branding is possible by overriding the CSS variables. The following example
-  shows how to change the color of the button to the primary brand color.
-</goat-text>
-<goat-text type='body' expressive>Button text color will be adjusted to white or black based on it brightness of
-  branding.
-</goat-text>
-
-
-<HighlighterCard lang={'html'}>
-
-  <div class='component-container'>
-    <goat-button variant='default' color='brand-primary' icon='arrow--right'>Default</goat-button>
-    <goat-button variant='light' color='brand-primary' icon='arrow--right'>Light</goat-button>
-    <goat-button variant='outline' color='brand-primary' icon='arrow--right'>Outline</goat-button>
-    <goat-button variant='ghost' color='brand-primary' icon='arrow--right'>Ghost</goat-button>
-  </div>
-
+  <!-- Custom color : give any name to css variable and use it as button color -->
   <style is:inline>
     :root {
-      --color-custom-02: #ced83b;
-      --color-custom-02-10: #ffffff;
-      --color-custom-02-20: #f5f7d8;
-      --color-custom-02-30: #ebefb1;
-      --color-custom-02-40: #e2e889;
-      --color-custom-02-50: #d8e062;
-      --color-custom-02-60: #ced83b;
-      --color-custom-02-70: #a5ad2f;
-      --color-custom-02-80: #7c8223;
-      --color-custom-02-90: #525618;
-      --color-custom-02-100: #292b0c;
+      /* --color-custom is equivalent to --color-custom-60 */
+      --color-custom: #8a3ffc;
+      --color-custom-10: #f6f2ff;
+      --color-custom-20: #e8daff;
+      --color-custom-30: #d4bbff;
+      --color-custom-40: #be95ff;
+      --color-custom-50: #a56eff;
+      --color-custom-60: #8a3ffc;
+      --color-purple: #8a3ffc;
+      --color-custom-70: #6929c4;
+      --color-custom-80: #491d8b;
+      --color-custom-90: #31135e;
+      --color-custom-100: #1c0f30;
     }
   </style>
+
+  <goat-text>Custom color</goat-text>
   <div class='component-container'>
-    <goat-button variant='default' color='custom-02' icon='arrow--right'>Default</goat-button>
-    <goat-button variant='light' color='custom-02' icon='arrow--right'>Light</goat-button>
-    <goat-button variant='outline' color='custom-02' icon='arrow--right'>Outline</goat-button>
-    <goat-button variant='ghost' color='custom-02' icon='arrow--right'>Ghost</goat-button>
+    <goat-button variant='default' color='custom' icon='arrow--right'>Default</goat-button>
+    <goat-button variant='light' color='custom' icon='arrow--right'>Light</goat-button>
+    <goat-button variant='outline' color='custom' icon='arrow--right'>Outline</goat-button>
+    <goat-button variant='ghost' color='custom' icon='arrow--right'>Ghost</goat-button>
+    <goat-button variant='neo' color='custom' icon='arrow--right'>Neo-Brutalism</goat-button>
   </div>
+
 </HighlighterCard>

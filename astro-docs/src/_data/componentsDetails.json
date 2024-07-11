@@ -1,8 +1,8 @@
 {
-  "timestamp": "2024-07-07T07:17:51",
+  "timestamp": "2024-07-11T04:05:47",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.19.1",
+    "version": "4.19.2",
     "typescriptVersion": "5.4.5"
   },
   "components": [
@@ -443,7 +443,7 @@
         "description": "The badge component is used to display a small amount of information to the user.",
         "category": "Informational",
         "tag": "content",
-        "example": "<goat-badge content=\"5\"> <goat-icon name=\"notification\" size=\"lg\"></goat-icon></goat-badge>"
+        "example": "<goat-badge content=\"5\"> <goat-icon name=\"notification\" size=\"2rem\"></goat-icon></goat-badge>"
       }
     },
     {
@@ -692,7 +692,7 @@
           "mutable": false,
           "attr": "color",
           "reflectToAttr": true,
-          "docs": "Button color.\nPossible values are `\"primary\"`, `\"secondary\"`, `\"success\"`, `\"danger\"`, `\"white\"`. Defaults to `\"primary\"`.",
+          "docs": "Defines the primary color of the button. This can be set to predefined color names to apply specific color themes.",
           "docsTags": [],
           "default": "'primary'",
           "values": [
@@ -761,7 +761,7 @@
           "mutable": false,
           "attr": "dark-mode-color",
           "reflectToAttr": true,
-          "docs": "Button color in dark mode.\nPossible values are `\"primary\"`, `\"secondary\"`, `\"success\"`, `\"danger\"`, `\"white\"`.",
+          "docs": "Color variant for dark mode, applicable when [data-theme=\"dark\"] is set.",
           "docsTags": [],
           "values": [
             {
@@ -793,7 +793,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -879,7 +879,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -903,59 +903,6 @@
             },
             {
               "value": "start",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "iconSize",
-          "type": "string",
-          "complexType": {
-            "original": "'sm' | 'md' | 'lg' | string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "icon-size",
-          "reflectToAttr": false,
-          "docs": "Icon size.\nPossible values are `\"sm\"`, `\"md\"`, `\"lg\"`. Defaults to `\"md\"`.",
-          "docsTags": [],
-          "default": "'md'",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "kind",
-          "type": "\"block\" | \"default\" | \"simple\"",
-          "complexType": {
-            "original": "'default' | 'simple' | 'block'",
-            "resolved": "\"block\" | \"default\" | \"simple\"",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "kind",
-          "reflectToAttr": true,
-          "docs": "Button kind.\nPossible values are `\"default\"`, `\"simple\"`, `\"block\"`. Defaults to `\"default\"`.\n`\"default\"` is a long button.\n`\"simple\"` is a text-only button.\n`\"block\"` is a full-width button.",
-          "docsTags": [],
-          "default": "'default'",
-          "values": [
-            {
-              "value": "block",
-              "type": "string"
-            },
-            {
-              "value": "default",
-              "type": "string"
-            },
-            {
-              "value": "simple",
               "type": "string"
             }
           ],
@@ -1068,6 +1015,50 @@
           "required": false
         },
         {
+          "name": "throttleDelay",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "throttle-delay",
+          "reflectToAttr": false,
+          "docs": "Sets the delay for throttle in milliseconds. Defaults to 200 milliseconds.",
+          "docsTags": [],
+          "default": "200",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "toggle",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "toggle",
+          "reflectToAttr": false,
+          "docs": "If true, the button will be in a toggled state.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "type",
           "type": "\"button\" | \"reset\" | \"submit\"",
           "complexType": {
@@ -1078,7 +1069,7 @@
           "mutable": false,
           "attr": "type",
           "reflectToAttr": false,
-          "docs": "Button type.\nPossible values are `\"button\"`, `\"submit\"`, `\"reset\"`. Defaults to `\"button\"`.",
+          "docs": "Button type based on which actions are performed when the button is clicked.",
           "docsTags": [],
           "default": "'button'",
           "values": [
@@ -1100,16 +1091,16 @@
         },
         {
           "name": "variant",
-          "type": "\"default\" | \"ghost\" | \"light\" | \"link\" | \"outline\"",
+          "type": "\"default\" | \"default.simple\" | \"ghost\" | \"ghost.simple\" | \"light\" | \"light.simple\" | \"neo\" | \"neo.simple\" | \"outline\" | \"outline.simple\"",
           "complexType": {
-            "original": "| 'default'\n    | 'outline'\n    | 'ghost'\n    | 'light'\n    | 'link'",
-            "resolved": "\"default\" | \"ghost\" | \"light\" | \"link\" | \"outline\"",
+            "original": "| 'default'\n    | 'outline'\n    | 'ghost'\n    | 'light'\n    | 'neo'\n    | 'default.simple'\n    | 'outline.simple'\n    | 'ghost.simple'\n    | 'light.simple'\n    | 'neo.simple'",
+            "resolved": "\"default\" | \"default.simple\" | \"ghost\" | \"ghost.simple\" | \"light\" | \"light.simple\" | \"neo\" | \"neo.simple\" | \"outline\" | \"outline.simple\"",
             "references": {}
           },
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": true,
-          "docs": "Button variants.\nPossible values are `\"default\"`, `\"outline\"`, `\"ghost\"`. Defaults to `\"default\"`.\n`\"default\"` is a filled button.\n`\"outline\"` is an outlined button.\n`\"ghost\"` is a transparent button.",
+          "docs": "The visual style of the button.\n\n Possible variant values:\n`\"default\"` is a filled button.\n`\"outline\"` is an outlined button.\n`\"ghost\"` is a transparent button.\n`\"light\"` is a light color button.\n\nPossible sub-variant values:\n`\"simple\"` is a simple button without default padding at end.\n`\"block\"` is a full-width button that spans the full width of its container.\n\n\n Mix and match the `variant` and `sub-variant` to create a variety of buttons.\n `\"default.simple\"`, `\"outline.block\"` etc.",
           "docsTags": [],
           "default": "'default'",
           "values": [
@@ -1118,7 +1109,15 @@
               "type": "string"
             },
             {
+              "value": "default.simple",
+              "type": "string"
+            },
+            {
               "value": "ghost",
+              "type": "string"
+            },
+            {
+              "value": "ghost.simple",
               "type": "string"
             },
             {
@@ -1126,11 +1125,23 @@
               "type": "string"
             },
             {
-              "value": "link",
+              "value": "light.simple",
+              "type": "string"
+            },
+            {
+              "value": "neo",
+              "type": "string"
+            },
+            {
+              "value": "neo.simple",
               "type": "string"
             },
             {
               "value": "outline",
+              "type": "string"
+            },
+            {
+              "value": "outline.simple",
               "type": "string"
             }
           ],
@@ -1209,16 +1220,16 @@
       "events": [
         {
           "event": "goat-button--click",
-          "detail": "any",
+          "detail": "void",
           "bubbles": true,
           "complexType": {
-            "original": "any",
-            "resolved": "any",
+            "original": "void",
+            "resolved": "void",
             "references": {}
           },
           "cancelable": true,
           "composed": true,
-          "docs": "On click of button, a CustomEvent 'goat-button--click' will be triggered.",
+          "docs": "Triggered when the button is clicked.",
           "docsTags": []
         }
       ],
@@ -3728,7 +3739,7 @@
           "mutable": false,
           "attr": "hide-copy",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Hide the copy button.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -5411,10 +5422,10 @@
         },
         {
           "name": "actionVariant",
-          "type": "\"default\" | \"ghost\" | \"link\" | \"outline\"",
+          "type": "\"default\" | \"ghost\" | \"outline\"",
           "complexType": {
-            "original": "'default' | 'outline' | 'ghost' | 'link'",
-            "resolved": "\"default\" | \"ghost\" | \"link\" | \"outline\"",
+            "original": "'default' | 'outline' | 'ghost'",
+            "resolved": "\"default\" | \"ghost\" | \"outline\"",
             "references": {}
           },
           "mutable": false,
@@ -5430,10 +5441,6 @@
             },
             {
               "value": "ghost",
-              "type": "string"
-            },
-            {
-              "value": "link",
               "type": "string"
             },
             {
@@ -6125,37 +6132,45 @@
       "props": [
         {
           "name": "color",
-          "type": "\"brand-primary\" | \"brand-secondary\" | \"dark\" | \"light\"",
+          "type": "string",
           "complexType": {
-            "original": "| 'light'\n    | 'dark'\n    | 'brand-primary'\n    | 'brand-secondary'",
-            "resolved": "\"brand-primary\" | \"brand-secondary\" | \"dark\" | \"light\"",
+            "original": "| 'primary'\n    | 'secondary'\n    | 'success'\n    | 'danger'\n    | 'warning'\n    | 'white'\n    | 'black'\n    | string",
+            "resolved": "string",
             "references": {}
           },
           "mutable": false,
           "attr": "color",
-          "reflectToAttr": true,
-          "docs": "",
+          "reflectToAttr": false,
+          "docs": "Defines the primary color of the header. This can be set to predefined color names to apply specific color themes.",
           "docsTags": [],
-          "default": "'light'",
+          "default": "'white'",
           "values": [
             {
-              "value": "brand-primary",
-              "type": "string"
-            },
-            {
-              "value": "brand-secondary",
-              "type": "string"
-            },
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "light",
               "type": "string"
             }
           ],
           "optional": false,
+          "required": false
+        },
+        {
+          "name": "darkModeColor",
+          "type": "string",
+          "complexType": {
+            "original": "| 'primary'\n    | 'secondary'\n    | 'success'\n    | 'danger'\n    | 'warning'\n    | 'white'\n    | 'black'\n    | string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "dark-mode-color",
+          "reflectToAttr": false,
+          "docs": "Color variant for dark mode, applicable when [data-theme=\"dark\"] is set.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
           "required": false
         },
         {
@@ -6395,7 +6410,42 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setColor",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(color: string) => Promise<void>",
+            "parameters": [
+              {
+                "name": "color",
+                "type": "string",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setColor(color: string) => Promise<void>",
+          "parameters": [
+            {
+              "name": "color",
+              "type": "string",
+              "docs": ""
+            }
+          ],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [],
       "styles": [],
       "slots": [],
@@ -6486,7 +6536,6 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "''",
           "values": [
             {
               "type": "string"
@@ -6508,7 +6557,6 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "''",
           "values": [
             {
               "type": "string"
@@ -6530,7 +6578,6 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
-          "default": "''",
           "values": [
             {
               "type": "string"
@@ -7000,7 +7047,7 @@
           "mutable": false,
           "attr": "name",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "The identifier for the icon.\nThis name corresponds to a specific SVG asset in the icon set.",
           "docsTags": [],
           "values": [
             {
@@ -7020,8 +7067,8 @@
           },
           "mutable": false,
           "attr": "size",
-          "reflectToAttr": true,
-          "docs": "The Icon size.",
+          "reflectToAttr": false,
+          "docs": "The size of the icon.\nThis can be specified in pixels (px) or rem units to control the icon's dimensions.\nIf a number is provided, it will be treated as rem units. For example, '16px', '2rem', or 2 would be valid values.",
           "docsTags": [],
           "values": [
             {
@@ -7187,28 +7234,6 @@
             {
               "value": "on",
               "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "clearable",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "clearable",
-          "reflectToAttr": false,
-          "docs": "If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
             }
           ],
           "optional": false,
@@ -9078,28 +9103,6 @@
             {
               "value": "on",
               "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "clearable",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "clearable",
-          "reflectToAttr": false,
-          "docs": "If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
             }
           ],
           "optional": false,

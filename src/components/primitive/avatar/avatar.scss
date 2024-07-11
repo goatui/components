@@ -8,7 +8,7 @@
 .avatar-container {
   display: flex;
   align-items: center;
-  gap: var(--spacing-02);
+  gap: v(--spacing-02);
   line-height: 0;
 }
 
@@ -18,7 +18,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  color: var(--field-01);
+  color: v(--field-01);
 
   .image {
     width: 100%;
@@ -35,20 +35,20 @@
 }
 
 .avatar.avatar-initials {
-  background: var(--avatar-bg-color, var(--color-brand-primary));
+  background: var(--avatar-bg-color, v(--color-brand-primary));
 }
 
 .avatar.avatar-image {
-  background: var(--color-brand-primary-30);
+  background: v(--color-brand-primary-30);
 }
 
 :host(.inverted) {
   .avatar {
-    color: var(--color-brand-primary);
+    color: v(--color-brand-primary);
   }
 
   .avatar.avatar-initials {
-    background: var(--avatar-bg-color, var(--color-white));
+    background: var(--avatar-bg-color, v(--color-white));
   }
 
 }

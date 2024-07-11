@@ -116,8 +116,7 @@ export class Notification implements ComponentInterface {
           <goat-button
             size="sm"
             class="action"
-            kind="simple"
-            variant={this.inline ? 'ghost' : 'outline'}
+            variant={this.inline ? 'ghost.simple' : 'outline.simple'}
             color={!this.highContrast || this.isDarkMode ? 'primary' : 'white'}
             onGoat-button--click={() => {
               this.goatActionClick.emit();
@@ -137,8 +136,7 @@ export class Notification implements ComponentInterface {
           <goat-button
             class="close-button"
             aria-label="Close alert"
-            kind="simple"
-            variant="ghost"
+            variant="ghost.simple"
             color="black"
             onGoat-button--click={evt => {
               evt.preventDefault();

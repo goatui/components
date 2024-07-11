@@ -10,14 +10,14 @@
 
 .badge-content {
   position: absolute;
-  z-index: var(--z-index-badge);
-  color: var(--color-white);
+  z-index: v(--z-index-badge);
+  color: v(--color-white);
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--badge-color, var(--color-neutral));
+  background-color: var(--badge-color, v(--color-neutral));
   border-radius: 12px;
-  padding: var(--spacing-01) var(--spacing-02);
+  padding: v(--spacing-01) var(--spacing-02);
   @include font-style(code-01);
 
   &.has-content {

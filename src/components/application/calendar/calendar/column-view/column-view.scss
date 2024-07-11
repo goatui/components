@@ -3,9 +3,9 @@
 :host {
   display: block;
   height: 100%;
-  --calendar-border-color: var(--field-01);
+  --calendar-border-color: var(--field);
   --scale-size: 4rem;
-  --scale-color: var(--layer-accent-01)
+  --scale-color: var(--layer-accent)
 }
 
 .scale {
@@ -19,7 +19,7 @@
 
   .view-header {
     display: flex;
-    background: var(--layer-accent-01);
+    background: var(--layer-accent);
 
     .columns {
       display: flex;
@@ -40,10 +40,10 @@
 
         &.today {
           .column-content {
-            border-top-color: var(--color-primary);
+            border-top-color: v(--color-primary);
 
             .date {
-              color: var(--color-primary);
+              color: v(--color-primary);
             }
           }
         }
@@ -72,7 +72,7 @@
   }
 
   .multi-day-section-wrapper {
-    background: var(--layer-accent-01);
+    background: var(--layer-accent);
 
     .multi-day-section-scroll {
       overflow-y: scroll;
@@ -206,10 +206,10 @@
           position: absolute;
           font-size: .5rem;
           font-weight: 600;
-          color: var(--color-primary);
+          color: v(--color-primary);
           top: -6px;
           left: -3rem;
-          background: var(--color-primary-10);
+          background: v(--color-primary-10);
           padding: 2px;
           border-radius: 3px;
         }
@@ -217,21 +217,21 @@
         .dash-line {
           position: absolute;
           left: 0;
-          border-bottom: 1px dashed var(--color-primary);
+          border-bottom: 1px dashed v(--color-primary);
         }
 
         .dot {
           border-radius: 100%;
           width: 0.5rem;
           height: 0.5rem;
-          background: var(--color-primary);
+          background: v(--color-primary);
           display: block;
           position: absolute;
           top: -0.25rem;
         }
 
         .line {
-          border-bottom: 2px solid var(--color-primary);
+          border-bottom: 2px solid v(--color-primary);
           position: absolute;
           top: -1px;
         }
@@ -248,7 +248,7 @@
 .calendar-column-view {
   .date {
     &:hover {
-      background: var(--color-brand-primary-10);
+      background: v(--color-brand-primary-10);
     }
   }
 }
@@ -278,7 +278,7 @@
   .calendar-column-view {
     .date {
       &:hover {
-        background: var(--color-brand-primary-90);
+        background: v(--color-brand-primary-90);
       }
     }
   }

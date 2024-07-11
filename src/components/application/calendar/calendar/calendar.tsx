@@ -153,9 +153,8 @@ export class Calendar implements ComponentInterface {
       <div class="calendar-header-classic">
         <div class="header-left">
           <goat-button
-            variant="outline"
+            variant="outline.simple"
             size="sm"
-            kind="simple"
             class="color-secondary"
             onClick={() => (this.contextDate = this.#currentTime)}
           >

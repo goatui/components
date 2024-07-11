@@ -4,8 +4,8 @@
 :host {
   display: block;
   height: 100%;
-  --code-editor-border: 1px solid var(--border-strong-01);
-  --code-editor-border-radius: var(--border-radius);
+  --code-editor-border: 1px solid #{v(--border-strong-01)};
+  --code-editor-border-radius: #{v(--border-radius)};
 }
 
 .code-editor-loader {
@@ -17,7 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-02);
+  gap: v(--spacing-02);
 }
 
 .code-editor-component {
@@ -30,11 +30,6 @@
     border: var(--code-editor-border);
     border-radius: var(--code-editor-border-radius);
     overflow: hidden;
-
-    .monaco-editor {
-      --vscode-editor-background: var(--code-bg-primary);
-      --vscode-editorGutter-background: var(--code-bg-primary);
-    }
   }
 
 }
@@ -43,7 +38,7 @@
   position: absolute;
   right: 9rem;
   z-index: 1;
-  top: var(--spacing-05);
+  top: v(--spacing-05);
 }
 
 :host(.no-border) {
@@ -69,7 +64,7 @@
   :host-context(.input-state-#{$state}) {
     .code-editor-component {
       .editor {
-        border-color: var(--support-#{$state});
+        border-color: v(--support-#{$state});
       }
 
       &.has-focus {

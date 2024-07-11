@@ -77,7 +77,7 @@ export namespace Components {
      * @description The badge component is used to display a small amount of information to the user.
      * @category Informational
      * @tag content
-     * @example <goat-badge content="5"> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
+     * @example <goat-badge content="5"> <goat-icon name="notification" size="2rem"></goat-icon></goat-badge>
      */
     interface GoatBadge {
         "color": | 'primary'
@@ -120,7 +120,7 @@ export namespace Components {
      */
     interface GoatButton {
         /**
-          * Button color. Possible values are `"primary"`, `"secondary"`, `"success"`, `"danger"`, `"white"`. Defaults to `"primary"`.
+          * Defines the primary color of the button. This can be set to predefined color names to apply specific color themes.
          */
         "color": | 'primary'
     | 'secondary'
@@ -131,9 +131,9 @@ export namespace Components {
     | 'black';
         "configAria": any;
         /**
-          * Button color in dark mode. Possible values are `"primary"`, `"secondary"`, `"success"`, `"danger"`, `"white"`.
+          * Color variant for dark mode, applicable when [data-theme="dark"] is set.
          */
-        "darkModeColor": | 'primary'
+        "darkModeColor"?: | 'primary'
     | 'secondary'
     | 'success'
     | 'danger'
@@ -155,19 +155,11 @@ export namespace Components {
         /**
           * Icon which will displayed on button. Possible values are icon names.
          */
-        "icon": string;
+        "icon"?: string;
         /**
           * Icon alignment. Possible values are `"start"`, `"end"`. Defaults to `"end"`.
          */
         "iconAlign": 'start' | 'end';
-        /**
-          * Icon size. Possible values are `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
-         */
-        "iconSize": 'sm' | 'md' | 'lg' | string;
-        /**
-          * Button kind. Possible values are `"default"`, `"simple"`, `"block"`. Defaults to `"default"`. `"default"` is a long button. `"simple"` is a text-only button. `"block"` is a full-width button.
-         */
-        "kind": 'default' | 'simple' | 'block';
         /**
           * Button selection state.
          */
@@ -193,21 +185,34 @@ export namespace Components {
          */
         "target": string;
         /**
+          * Sets the delay for throttle in milliseconds. Defaults to 200 milliseconds.
+         */
+        "throttleDelay": number;
+        /**
+          * If true, the button will be in a toggled state.
+         */
+        "toggle": boolean;
+        /**
           * Triggers a click event on the native `button` in `goat-button`. Use this method instead of the global `button.click()`.
          */
         "triggerClick": () => Promise<void>;
         /**
-          * Button type. Possible values are `"button"`, `"submit"`, `"reset"`. Defaults to `"button"`.
+          * Button type based on which actions are performed when the button is clicked.
          */
         "type": 'button' | 'submit' | 'reset';
         /**
-          * Button variants. Possible values are `"default"`, `"outline"`, `"ghost"`. Defaults to `"default"`. `"default"` is a filled button. `"outline"` is an outlined button. `"ghost"` is a transparent button.
+          * The visual style of the button.   Possible variant values: `"default"` is a filled button. `"outline"` is an outlined button. `"ghost"` is a transparent button. `"light"` is a light color button.  Possible sub-variant values: `"simple"` is a simple button without default padding at end. `"block"` is a full-width button that spans the full width of its container.    Mix and match the `variant` and `sub-variant` to create a variety of buttons.  `"default.simple"`, `"outline.block"` etc.
          */
         "variant": | 'default'
     | 'outline'
     | 'ghost'
     | 'light'
-    | 'link';
+    | 'neo'
+    | 'default.simple'
+    | 'outline.simple'
+    | 'ghost.simple'
+    | 'light.simple'
+    | 'neo.simple';
     }
     /**
      * @name Button Group
@@ -446,6 +451,9 @@ export namespace Components {
           * Format the code snippet.
          */
         "format": boolean;
+        /**
+          * Hide the copy button.
+         */
         "hideCopy": boolean;
         /**
           * Display the code snippet inline.
@@ -584,7 +592,7 @@ export namespace Components {
         "action": string;
         "actionDisabled": boolean;
         "actionUrl": string;
-        "actionVariant": 'default' | 'outline' | 'ghost' | 'link';
+        "actionVariant": 'default' | 'outline' | 'ghost';
         "description": string;
         "headline": string;
         "illustration": 'no-document';
@@ -651,10 +659,28 @@ export namespace Components {
      * @imgDark /assets/img/header-dark.webp
      */
     interface GoatHeader {
-        "color": | 'light'
-    | 'dark'
-    | 'brand-primary'
-    | 'brand-secondary';
+        /**
+          * Defines the primary color of the header. This can be set to predefined color names to apply specific color themes.
+         */
+        "color": | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'warning'
+    | 'white'
+    | 'black'
+    | string;
+        /**
+          * Color variant for dark mode, applicable when [data-theme="dark"] is set.
+         */
+        "darkModeColor"?: | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'warning'
+    | 'white'
+    | 'black'
+    | string;
         "float": boolean;
     }
     interface GoatHeaderAction {
@@ -672,6 +698,7 @@ export namespace Components {
           * Button selection state.
          */
         "selected": boolean;
+        "setColor": (color: string) => Promise<void>;
         /**
           * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"xxl"`, `"none"`. Defaults to `"md"`.
          */
@@ -740,9 +767,12 @@ export namespace Components {
      * @example <goat-icon name="home" size="2rem"></goat-icon>
      */
     interface GoatIcon {
+        /**
+          * The identifier for the icon. This name corresponds to a specific SVG asset in the icon set.
+         */
         "name": string;
         /**
-          * The Icon size.
+          * The size of the icon. This can be specified in pixels (px) or rem units to control the icon's dimensions. If a number is provided, it will be treated as rem units. For example, '16px', '2rem', or 2 would be valid values.
          */
         "size": string;
     }
@@ -763,10 +793,6 @@ export namespace Components {
           * Indicates whether the value of the control can be automatically completed by the browser.
          */
         "autocomplete": 'on' | 'off';
-        /**
-          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
-         */
-        "clearable": boolean;
         "configAria": any;
         /**
           * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
@@ -984,10 +1010,6 @@ export namespace Components {
           * Indicates whether the value of the control can be automatically completed by the browser.
          */
         "autocomplete": 'on' | 'off';
-        /**
-          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
-         */
-        "clearable": boolean;
         "configAria": any;
         /**
           * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
@@ -1804,7 +1826,7 @@ declare global {
      * @description The badge component is used to display a small amount of information to the user.
      * @category Informational
      * @tag content
-     * @example <goat-badge content="5"> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
+     * @example <goat-badge content="5"> <goat-icon name="notification" size="2rem"></goat-icon></goat-badge>
      */
     interface HTMLGoatBadgeElement extends Components.GoatBadge, HTMLStencilElement {
     }
@@ -1832,7 +1854,7 @@ declare global {
         new (): HTMLGoatBreadcrumbItemElement;
     };
     interface HTMLGoatButtonElementEventMap {
-        "goat-button--click": any;
+        "goat-button--click": void;
     }
     /**
      * @name Button
@@ -2995,7 +3017,7 @@ declare namespace LocalJSX {
      * @description The badge component is used to display a small amount of information to the user.
      * @category Informational
      * @tag content
-     * @example <goat-badge content="5"> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
+     * @example <goat-badge content="5"> <goat-icon name="notification" size="2rem"></goat-icon></goat-badge>
      */
     interface GoatBadge {
         "color"?: | 'primary'
@@ -3038,7 +3060,7 @@ declare namespace LocalJSX {
      */
     interface GoatButton {
         /**
-          * Button color. Possible values are `"primary"`, `"secondary"`, `"success"`, `"danger"`, `"white"`. Defaults to `"primary"`.
+          * Defines the primary color of the button. This can be set to predefined color names to apply specific color themes.
          */
         "color"?: | 'primary'
     | 'secondary'
@@ -3049,7 +3071,7 @@ declare namespace LocalJSX {
     | 'black';
         "configAria"?: any;
         /**
-          * Button color in dark mode. Possible values are `"primary"`, `"secondary"`, `"success"`, `"danger"`, `"white"`.
+          * Color variant for dark mode, applicable when [data-theme="dark"] is set.
          */
         "darkModeColor"?: | 'primary'
     | 'secondary'
@@ -3079,17 +3101,9 @@ declare namespace LocalJSX {
          */
         "iconAlign"?: 'start' | 'end';
         /**
-          * Icon size. Possible values are `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+          * Triggered when the button is clicked.
          */
-        "iconSize"?: 'sm' | 'md' | 'lg' | string;
-        /**
-          * Button kind. Possible values are `"default"`, `"simple"`, `"block"`. Defaults to `"default"`. `"default"` is a long button. `"simple"` is a text-only button. `"block"` is a full-width button.
-         */
-        "kind"?: 'default' | 'simple' | 'block';
-        /**
-          * On click of button, a CustomEvent 'goat-button--click' will be triggered.
-         */
-        "onGoat-button--click"?: (event: GoatButtonCustomEvent<any>) => void;
+        "onGoat-button--click"?: (event: GoatButtonCustomEvent<void>) => void;
         /**
           * Button selection state.
          */
@@ -3107,17 +3121,30 @@ declare namespace LocalJSX {
          */
         "target"?: string;
         /**
-          * Button type. Possible values are `"button"`, `"submit"`, `"reset"`. Defaults to `"button"`.
+          * Sets the delay for throttle in milliseconds. Defaults to 200 milliseconds.
+         */
+        "throttleDelay"?: number;
+        /**
+          * If true, the button will be in a toggled state.
+         */
+        "toggle"?: boolean;
+        /**
+          * Button type based on which actions are performed when the button is clicked.
          */
         "type"?: 'button' | 'submit' | 'reset';
         /**
-          * Button variants. Possible values are `"default"`, `"outline"`, `"ghost"`. Defaults to `"default"`. `"default"` is a filled button. `"outline"` is an outlined button. `"ghost"` is a transparent button.
+          * The visual style of the button.   Possible variant values: `"default"` is a filled button. `"outline"` is an outlined button. `"ghost"` is a transparent button. `"light"` is a light color button.  Possible sub-variant values: `"simple"` is a simple button without default padding at end. `"block"` is a full-width button that spans the full width of its container.    Mix and match the `variant` and `sub-variant` to create a variety of buttons.  `"default.simple"`, `"outline.block"` etc.
          */
         "variant"?: | 'default'
     | 'outline'
     | 'ghost'
     | 'light'
-    | 'link';
+    | 'neo'
+    | 'default.simple'
+    | 'outline.simple'
+    | 'ghost.simple'
+    | 'light.simple'
+    | 'neo.simple';
     }
     /**
      * @name Button Group
@@ -3362,6 +3389,9 @@ declare namespace LocalJSX {
           * Format the code snippet.
          */
         "format"?: boolean;
+        /**
+          * Hide the copy button.
+         */
         "hideCopy"?: boolean;
         /**
           * Display the code snippet inline.
@@ -3507,7 +3537,7 @@ declare namespace LocalJSX {
         "action"?: string;
         "actionDisabled"?: boolean;
         "actionUrl"?: string;
-        "actionVariant"?: 'default' | 'outline' | 'ghost' | 'link';
+        "actionVariant"?: 'default' | 'outline' | 'ghost';
         "description"?: string;
         "headline"?: string;
         "illustration"?: 'no-document';
@@ -3574,10 +3604,28 @@ declare namespace LocalJSX {
      * @imgDark /assets/img/header-dark.webp
      */
     interface GoatHeader {
-        "color"?: | 'light'
-    | 'dark'
-    | 'brand-primary'
-    | 'brand-secondary';
+        /**
+          * Defines the primary color of the header. This can be set to predefined color names to apply specific color themes.
+         */
+        "color"?: | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'warning'
+    | 'white'
+    | 'black'
+    | string;
+        /**
+          * Color variant for dark mode, applicable when [data-theme="dark"] is set.
+         */
+        "darkModeColor"?: | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'warning'
+    | 'white'
+    | 'black'
+    | string;
         "float"?: boolean;
     }
     interface GoatHeaderAction {
@@ -3658,9 +3706,12 @@ declare namespace LocalJSX {
      * @example <goat-icon name="home" size="2rem"></goat-icon>
      */
     interface GoatIcon {
+        /**
+          * The identifier for the icon. This name corresponds to a specific SVG asset in the icon set.
+         */
         "name"?: string;
         /**
-          * The Icon size.
+          * The size of the icon. This can be specified in pixels (px) or rem units to control the icon's dimensions. If a number is provided, it will be treated as rem units. For example, '16px', '2rem', or 2 would be valid values.
          */
         "size"?: string;
     }
@@ -3681,10 +3732,6 @@ declare namespace LocalJSX {
           * Indicates whether the value of the control can be automatically completed by the browser.
          */
         "autocomplete"?: 'on' | 'off';
-        /**
-          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
-         */
-        "clearable"?: boolean;
         "configAria"?: any;
         /**
           * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
@@ -3909,10 +3956,6 @@ declare namespace LocalJSX {
           * Indicates whether the value of the control can be automatically completed by the browser.
          */
         "autocomplete"?: 'on' | 'off';
-        /**
-          * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
-         */
-        "clearable"?: boolean;
         "configAria"?: any;
         /**
           * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
@@ -4713,7 +4756,7 @@ declare module "@stencil/core" {
              * @description The badge component is used to display a small amount of information to the user.
              * @category Informational
              * @tag content
-             * @example <goat-badge content="5"> <goat-icon name="notification" size="lg"></goat-icon></goat-badge>
+             * @example <goat-badge content="5"> <goat-icon name="notification" size="2rem"></goat-icon></goat-badge>
              */
             "goat-badge": LocalJSX.GoatBadge & JSXBase.HTMLAttributes<HTMLGoatBadgeElement>;
             /**

@@ -2,16 +2,20 @@
 
 :host {
   display: block;
+  height: var(--header-height)
 }
 
 .header-action {
   --goat-button-padding: .75rem;
   margin-inline-end: .5rem;
+  --goat-button-height: 100%;
+  --goat-button-border-radius: 0;
 }
 
-:host(:not(.simple)) .header-action {
-  --goat-button-border-radius: 0;
-  height: var(--header-height);
-  --goat-button-height: var(--header-height);
+:host-context(goat-header[float]) {
+  height: calc(var(--header-height) - 2px);
+}
+
+:host-context(:not(goat-header[float])) .header-action {
   margin-inline-end: 0;
 }

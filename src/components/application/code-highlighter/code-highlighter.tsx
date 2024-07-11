@@ -40,6 +40,8 @@ const locale: {
   shadow: true,
 })
 export class CodeHighlighter implements ComponentInterface {
+  @Element() host!: HTMLElement;
+
   gid: string = getComponentIndex();
 
   /**
@@ -67,10 +69,12 @@ export class CodeHighlighter implements ComponentInterface {
    */
   @Prop({ reflect: true }) inline: boolean = false;
 
+  /**
+   * Hide the copy button.
+   */
   @Prop() hideCopy: boolean = false;
 
   @State() compiledCode: string = null;
-
   @State() copyState: 'idle' | 'copied' = 'idle';
 
   private codeString: string = '';
@@ -94,15 +98,16 @@ export class CodeHighlighter implements ComponentInterface {
     this.#renderPrism();
   }
 
-  @Element() elm!: HTMLElement;
-
   async componentWillLoad() {
     this.codeString = '';
     if (this.value) {
       this.codeString = this.value;
-    } else if (this.elm.querySelector('code')) {
-      this.codeString = this.elm.querySelector('code').innerHTML;
+    } else if (this.host.querySelector('code')) {
+      this.codeString = this.host.querySelector('code').innerHTML;
+    } else if (this.host.hasChildNodes()) {
+      this.codeString = this.host.innerText;
     }
+
     if (typeof this.format === 'undefined') {
       this.format = !this.inline;
     }
@@ -115,7 +120,7 @@ export class CodeHighlighter implements ComponentInterface {
       await loadPrism();
     }
 
-    if (!isInViewport(this.elm)) {
+    if (!isInViewport(this.host)) {
       setTimeout(() => this.initializePrism(), 300);
       return;
     }

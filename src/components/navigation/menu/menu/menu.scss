@@ -24,7 +24,7 @@
   box-sizing: border-box;
   max-height: var(--goat-menu-max-height);
   overflow-x: auto;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid #{v(--border-subtle)};
   box-shadow: var(--goat-menu-shadow);
 }
 
@@ -35,6 +35,6 @@
 
 
 slot::slotted(goat-divider) {
-  --divider-color: var(--border-subtle);
-  --divider-padding: var(--spacing-03);
+  --goat-divider-color: #{v(--border-subtle)};
+  --goat-divider-padding: #{v(--spacing-03)};
 }

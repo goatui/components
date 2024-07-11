@@ -2,8 +2,12 @@
 import HighlighterCard from '../../../../components/HighlighterCard.astro';
 ---
 
-<goat-text type='body' expressive>Here are several predefined button styles, each serving its own semantic purpose.
+<goat-text expressive>Here are several predefined button styles, each serving its own semantic purpose.
 </goat-text>
+
+<goat-text expressive>Mix and match the `variant` and `sub-variant` to create a variety of buttons.</goat-text>
+<goat-text>`"simple"` is a simple button without default padding at end.</goat-text>
+<goat-text>`"block"` is a full-width button that spans the full width of its container.</goat-text>
 
 <HighlighterCard lang={'html'}>
 
@@ -14,5 +18,20 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
   <goat-button variant='outline'>Outline</goat-button>
 
   <goat-button variant='ghost'>Ghost</goat-button>
+
+  <goat-button variant='neo'>Neo-Brutalism
+  </goat-button>
+
+  <br />
+  <br />
+
+  <div class='component-container'>
+    <goat-button variant='light.simple'>Light & Simple</goat-button>
+  </div>
+
+  <div class='component-container'>
+    <goat-button variant='block'>Default & Block</goat-button>
+  </div>
+
 
 </HighlighterCard>

@@ -89,11 +89,6 @@ export class Input implements ComponentInterface, InputComponentInterface {
   @Prop({ reflect: true }) required: boolean = false;
 
   /**
-   * If `true`, a clear icon will appear in the input when there is a value. Clicking it clears the input.
-   */
-  @Prop() clearable = false;
-
-  /**
    * Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.
    */
   @Prop() debounce = 300;
@@ -146,12 +141,6 @@ export class Input implements ComponentInterface, InputComponentInterface {
     }
   };
 
-  private keyDownHandler = (ev: KeyboardEvent) => {
-    if (ev.key === 'Escape' && this.clearable) {
-      this.clearInput(ev);
-    }
-  };
-
   private blurHandler = (ev: FocusEvent) => {
     this.hasFocus = false;
     this.goatBlur.emit(ev);
@@ -160,11 +149,6 @@ export class Input implements ComponentInterface, InputComponentInterface {
   private focusHandler = (ev: FocusEvent) => {
     this.hasFocus = true;
     this.goatFocus.emit(ev);
-  };
-
-  private clearInput = (evt: Event) => {
-    this.nativeElement.value = '';
-    this.inputHandler(evt);
   };
 
   @Method()
@@ -281,7 +265,6 @@ export class Input implements ComponentInterface, InputComponentInterface {
           tabIndex={this.tabindex}
           readOnly={this.readonly}
           required={this.required}
-          onKeyDown={this.keyDownHandler}
           onInput={evt => this.inputHandler(evt)}
           onBlur={this.blurHandler}
           onFocus={this.focusHandler}
@@ -289,22 +272,11 @@ export class Input implements ComponentInterface, InputComponentInterface {
           {...this.configAria}
         />
 
-        {this.clearable && this.hasValue() && (
-          <goat-button
-            class="clear input-action"
-            color={'secondary'}
-            variant="ghost"
-            icon="close"
-            onClick={this.clearInput}
-          />
-        )}
-
         {this.type === 'password' && !this.hideActions && (
           <goat-button
             color={'secondary'}
-            kind={'simple'}
             icon={this.passwordVisible ? 'view--off' : 'view'}
-            variant="ghost"
+            variant="ghost.simple"
             onGoat-button--click={() => {
               this.passwordVisible = !this.passwordVisible;
             }}

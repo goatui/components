@@ -22,10 +22,6 @@ export const getComponentIndex = (() => {
   };
 })();
 
-export const generateUniqueId = () => {
-  return `${Date.now()}Math.random().toString(16).substr(2)`;
-};
-
 export function isOutOfViewport(bounding: DOMRect) {
   // Check if it's out of the viewport on each side
   const out: any = {};
@@ -268,11 +264,42 @@ export async function createCacheFetch(name: string) {
   };
 }
 
-export function secondsToHHMMSS(seconds) {
-  const HH = `${Math.floor(seconds / 3600)}`.padStart(2, '0');
-  const MM = `${Math.floor(seconds / 60) % 60}`.padStart(2, '0');
-  const SS = `${Math.floor(seconds % 60)}`.padStart(2, '0');
-  return [HH, MM, SS].join(':');
+export const hasSlot = (el: HTMLElement, name?: string) => {
+  // Look for a named slot
+  if (name) {
+    return el.querySelector(`:scope > [slot="${name}"]`) !== null;
+  }
+
+  // Look for a default slot
+  const nodeList = Array.from(el.childNodes);
+  return nodeList.some(node => {
+    if (node.nodeType === node.TEXT_NODE && node.textContent!.trim() !== '') {
+      return true;
+    }
+
+    if (node.nodeType === node.ELEMENT_NODE) {
+      const el = node as HTMLElement;
+      if (!el.hasAttribute('slot')) {
+        return true;
+      }
+    }
+
+    return false;
+  });
+};
+
+export function getSVGHTMLString(svgXml: string): string {
+  try {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(svgXml, 'image/svg+xml');
+    if (doc.documentElement.tagName === 'svg') {
+      // @ts-ignore
+      return doc.documentElement.outerHTML;
+    }
+  } catch (e) {
+    console.error(e);
+    throw new Error(`Error parsing SVG: ${e}`);
+  }
 }
 
 export async function waitUntil(condition: any) {

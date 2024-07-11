@@ -4,14 +4,14 @@
 :host {
   display: block;
   width: 100%;
-  margin-bottom: var(--spacing-03);
-  --input-border-radius: var(--border-radius);
-  --input-border: 1px solid var(--border-strong);
-  color: var(--text-primary);
+  margin-bottom: v(--spacing-03);
+  --input-border-radius: #{v(--border-radius)};
+  --input-border: 1px solid #{v(--border-strong)};
+  color: v(--text-primary);
 }
 
 :host(.form-field) {
-  margin-bottom: var(--spacing-07);
+  margin-bottom: v(--spacing-07);
 }
 
 :host([inline]) {
@@ -26,40 +26,40 @@
 
   .label {
     @include font-style(label-01);
-    margin-bottom: var(--spacing-03);
+    margin-bottom: v(--spacing-03);
 
-    color: var(--text-secondary);
+    color: v(--text-secondary);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 
     .required {
-      color: var(--danger-02);
-      padding-right: var(--spacing-01);
+      color: v(--danger-02);
+      padding-right: v(--spacing-01);
     }
 
     &.skeleton {
-      height: var(--spacing-04);
-      width: var(--spacing-10);
+      height: v(--spacing-04);
+      width: v(--spacing-10);
     }
   }
 
 
   .helper {
-    min-height: var(--spacing-05);
-    margin-block-start: var(--spacing-02);
+    min-height: v(--spacing-05);
+    margin-block-start: v(--spacing-02);
     @include font-style(helper-text-01);
 
     &.text {
-      color: var(--text-helper);
+      color: v(--text-helper);
     }
 
     &.invalid {
-      color: var(--support-error-inverse);
+      color: v(--support-error-inverse);
     }
 
     &.warn {
-      color: var(--support-warning-inverse);
+      color: v(--support-warning-inverse);
     }
   }
 
@@ -69,7 +69,7 @@
 
     .label {
       margin-bottom: 0;
-      margin-inline-end: var(--spacing-04);
+      margin-inline-end: v(--spacing-04);
     }
   }
 
@@ -77,7 +77,7 @@
     position: relative;
     padding: 0;
     border: none;
-    background: var(--layer-hover-01);
+    background: var(--layer-hover);
     box-shadow: none;
     pointer-events: none;
 
@@ -85,7 +85,7 @@
       position: absolute;
       -webkit-animation: 3000ms ease-in-out skeleton infinite;
       animation: 3000ms ease-in-out skeleton infinite;
-      background: var(--color-neutral-30);
+      background: v(--color-neutral-30);
       block-size: 100%;
       content: "";
       inline-size: 100%;
@@ -108,7 +108,7 @@
   border-radius: var(--input-border-radius);
   overflow: hidden;
   cursor: text;
-  font-weight: var(--font-weight-regular);
+  font-weight: v(--font-weight-regular);
 
   .input {
     flex: 1;
@@ -117,7 +117,7 @@
     background: none;
     width: 100%;
     cursor: inherit;
-    color: var(--text-primary);
+    color: v(--text-primary);
     padding: 0 var(--spacing-05);
 
     /*
@@ -147,23 +147,23 @@
   }
 
   .slot-container.start {
-    margin-inline-start: var(--spacing-05);
+    margin-inline-start: v(--spacing-05);
   }
 
   .slot-container.end {
     margin-inline-end: 1rem;
-    margin-inline-start: var(--spacing-03);
+    margin-inline-start: v(--spacing-03);
   }
 
   &.start-slot-has-content {
     .input {
-      padding-inline-start: var(--spacing-03);
+      padding-inline-start: v(--spacing-03);
     }
   }
 
   &.end-slot-has-content {
     .input {
-      padding-inline-end: var(--spacing-03);
+      padding-inline-end: v(--spacing-03);
     }
   }
 
@@ -186,7 +186,7 @@
     --goat-button-padding: .625rem;
 
     &:hover {
-      --text-color: var(--text-secondary);
+      --text-color: v(--text-secondary);
     }
   }
 
@@ -205,7 +205,7 @@
 
 :host([success]), :host-context([success]) {
   .input-container {
-    border-color: var(--color-success);
+    border-color: v(--color-success);
   }
 }
 

@@ -4,7 +4,7 @@
   position: absolute;
   display: inline-block;
   transform: scale(0);
-  z-index: var(--z-index-tooltip);
+  z-index: v(--z-index-tooltip);
 }
 
 :host([open]) {

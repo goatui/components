@@ -177,7 +177,7 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
       await loadMonaco();
     }
     //monaco.languages.typescript.javascriptDefaults.addExtraLib(this.extraLibs);
-    if (!this.editorMonacoInstance && !isInViewport(this.elm)) {
+    if (!isInViewport(this.elm)) {
       setTimeout(() => this.initializeMonaco(), 300);
       return;
     }

@@ -3,8 +3,16 @@
 :host {
   color: var(--text-secondary);
   display: block;
-  --divider-color: var(--border-strong-01);
-  --divider-padding: var(--spacing-05);
+
+  /**
+   * @prop --goat-divider-color: Color of the divider
+   */
+  --goat-divider-color: #{v(--border-strong-01)};
+
+  /**
+   * @prop --goat-divider-padding: Padding of the divider
+   */
+  --goat-divider-padding: #{v(--spacing-05)};
 }
 
 .divider {
@@ -14,12 +22,13 @@
 
   &:not(.vertical) {
     width: 100%;
-    padding: var(--divider-padding) 0;
+    padding: var(--goat-divider-padding) 0;
     align-items: center;
     justify-content: center;
+
     .line {
       width: 100%;
-      border-top: 1px solid var(--divider-color);
+      border-top: 1px solid var(--goat-divider-color);
     }
 
     &.has-content .slot-container {
@@ -29,13 +38,14 @@
 
   &.vertical {
     height: 100%;
-    padding: 0 var(--divider-padding);
+    padding: 0 var(--goat-divider-padding);
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     .line {
       height: 100%;
-      border-right: 1px solid var(--divider-color);
+      border-right: 1px solid var(--goat-divider-color);
     }
 
     &.has-content .slot-container {
