@@ -5,21 +5,25 @@
   margin-bottom: var(--spacing-03);
 }
 
-
-.text {
-  &.inline {
-    display: inline-block;
-  }
-}
-
 .native-element {
   margin: 0;
 }
 
-:host([inline]) {
+:host([inline]), :host([type=code]) {
   display: inline-block;
   margin-bottom: 0;
+
+  .text {
+    display: inline-block;
+  }
 }
+:host([type=code]) {
+  background: v(--border-subtle);
+  padding-inline: .25rem;
+  border-radius: v(--border-radius);
+}
+
+
 
 
 /* *

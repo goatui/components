@@ -17,6 +17,8 @@
     * @prop --goat-menu-shadow: Shadow of the menu
    */
   --goat-menu-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
+
+  min-width: 10rem;
 }
 
 .menu {
@@ -26,15 +28,10 @@
   overflow-x: auto;
   border: 1px solid #{v(--border-subtle)};
   box-shadow: var(--goat-menu-shadow);
+  padding-block: v(--spacing-02);
 }
 
 :host(.no-border) .menu {
   border: none;
   box-shadow: none;
-}
-
-
-slot::slotted(goat-divider) {
-  --goat-divider-color: #{v(--border-subtle)};
-  --goat-divider-padding: #{v(--spacing-03)};
 }

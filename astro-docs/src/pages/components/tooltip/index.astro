@@ -5,7 +5,7 @@ import ApiPanel from '../../../components/ApiPanel.astro';
 const componentDetails = getComponentDetails('goat-tooltip');
 
 import UsageSection from './_sections/Usage.astro';
-import PlacementsSection from './_sections/Placements.astro';
+import SharedSection from './_sections/Shared.astro';
 import OverviewPanel from '../../../components/OverviewPanel.astro';
 
 const sections = [
@@ -13,8 +13,8 @@ const sections = [
     'title': 'Usage',
     'Component': UsageSection,
   }, {
-    'title': 'Placements',
-    'Component': PlacementsSection,
+    'title': 'Shared Tooltip',
+    'Component': SharedSection,
   }];
 ---
 <Layout componentDetails={componentDetails}>

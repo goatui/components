@@ -12,6 +12,13 @@ import {
 } from '@stencil/core';
 import { getComponentIndex } from '../../../../utils/utils';
 
+/**
+ * @name Menu Item
+ * @description Menu items display a list of choices on temporary surfaces.
+ * @category Navigation
+ * @subcategory Menu
+ * @childComponent true
+ */
 @Component({
   tag: 'goat-menu-item',
   styleUrl: 'menu-item.scss',
@@ -27,10 +34,22 @@ export class GoatMenu {
    */
   @Prop({ mutable: true }) value?: string | number | null;
 
+  @Prop() color:
+    | 'default'
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'warning'
+    | 'white'
+    | 'black' = 'default';
+
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
    */
   @Prop({ reflect: true }) disabled: boolean = false;
+
+  @Prop({ reflect: true }) selectable: boolean = false;
 
   /**
    * Menu item selection state.
@@ -109,7 +128,6 @@ export class GoatMenu {
       this.tabindex = tabindex !== null ? tabindex : undefined;
       this.elm.removeAttribute('tabindex');
     }
-    this.startSlotHasContent = !!this.elm.querySelector('[slot="start"]');
     this.endSlotHasContent = !!this.elm.querySelector('[slot="end"]');
   }
 
@@ -128,7 +146,7 @@ export class GoatMenu {
             'active': this.isActive,
             'disabled': this.disabled,
             'has-focus': this.hasFocus,
-            'start-slot-has-content': this.startSlotHasContent,
+            [`color-${this.color}`]: true,
             'end-slot-has-content': this.endSlotHasContent,
           }}
           tabindex={this.tabindex}
@@ -139,9 +157,13 @@ export class GoatMenu {
           onKeyDown={this.keyDownHandler}
           aria-disabled={this.disabled}
         >
-          <div class="item-section slot-start">
-            <slot name="start" />
-          </div>
+          {this.selectable && (
+            <div class="item-section start">
+              {this.selected && (
+                <goat-icon name="checkmark" class="checkmark" />
+              )}
+            </div>
+          )}
 
           <div class="item-section slot-main">
             <slot />

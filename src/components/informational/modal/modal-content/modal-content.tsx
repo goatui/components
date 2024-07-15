@@ -5,7 +5,6 @@ import { Component, h, Host, Prop } from '@stencil/core';
  * @description The Modal Content component is used to display the content within a modal.
  * @category Informational
  * @subcategory Modal
- * @tags controls
  * @childComponent true
  */
 @Component({

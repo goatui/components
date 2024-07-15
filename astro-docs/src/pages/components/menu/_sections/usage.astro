@@ -2,12 +2,30 @@
 import HighlighterCard from '../../../../components/HighlighterCard.astro';
 ---
 <HighlighterCard lang={'html'}>
-  <goat-menu style='width: 200px'>
-    <goat-menu-item>New</goat-menu-item>
-    <goat-menu-item>Open</goat-menu-item>
-    <goat-menu-item>Save</goat-menu-item>
-    <goat-menu-item disabled>Disabled</goat-menu-item>
-    <divider></divider>
-    <goat-menu-item value='print'>Print (with value)</goat-menu-item>
+  <goat-menu class="menu">
+    <goat-menu-item value="cut">
+      Cut
+      <span slot="end">⌘X</span>
+    </goat-menu-item>
+    <goat-menu-item value="copy">
+      Copy
+      <span slot="end">⌘C</span>
+    </goat-menu-item>
+    <goat-menu-item value="paste">
+      Paste
+      <span slot="end">⌘X</span>
+    </goat-menu-item>
+    <goat-menu-divider></goat-menu-divider>
+    <goat-menu-item value="bold" selected>
+      Bold
+    </goat-menu-item>
+    <goat-menu-item value="italic">
+      Italic
+    </goat-menu-item>
+    <goat-menu-divider></goat-menu-divider>
+    <goat-menu-item value="delete" color='danger'>
+      Delete
+      <goat-icon name='delete' slot="end"></goat-icon>
+    </goat-menu-item>
   </goat-menu>
 </HighlighterCard>

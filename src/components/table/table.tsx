@@ -155,16 +155,9 @@ export class Table {
     this.onSelectChange(selectedRowKeys);
   };
 
-  onCellMouseOver = throttle(
-    (row: any, column: any) => {
-      this.hoveredCell = { row, column };
-    },
-    30,
-    {
-      leading: true,
-      trailing: false,
-    },
-  );
+  onCellMouseOver = throttle((row: any, column: any) => {
+    this.hoveredCell = { row, column };
+  }, 30);
 
   onSelectChange(selectedRowKeys: any) {
     this.selectedRowKeys = selectedRowKeys;

@@ -229,10 +229,6 @@ export class Button implements ComponentInterface {
     this.handleClickWithThrottle = throttle(
       this.handleClick,
       this.throttleDelay,
-      {
-        leading: true,
-        trailing: false,
-      },
     );
   }
 

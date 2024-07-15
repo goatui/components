@@ -1,64 +1,25 @@
 ---
 import HighlighterCard from '../../../../components/HighlighterCard.astro';
-import Highlighter from '../../../../components/Highlighter.astro';
+import MenuItems from './menu-items.astro';
 ---
 
 <HighlighterCard lang='html'>
-  <goat-button dropdown-target='data-dropdown' color='secondary' variant='ghost' icon='overflow-menu--vertical'></goat-button>
+  <goat-dropdown>
+    <goat-button icon='overflow-menu--vertical'></goat-button>
 
-  <goat-dropdown id='data-dropdown'>
-    <goat-menu slot='dropdown-content' class='menu' style='width: 200px'>
-      <goat-menu-item value='cut'>
-        <goat-icon name='scissors' slot='start'></goat-icon>
-        Cut
-        <span slot='end'>⌘X</span>
-      </goat-menu-item>
-      <goat-menu-item value='copy'>
-        <goat-icon name='files' slot='start'></goat-icon>
-        Copy
-        <span slot='end'>⌘C</span>
-      </goat-menu-item>
-      <goat-menu-item value='paste'>
-        <goat-icon name='clipboard' slot='start'></goat-icon>
-        Paste
-        <span slot='end'>⌘X</span>
-      </goat-menu-item>
-      <goat-divider></goat-divider>
-      <goat-menu-item value='delete'>
-        <goat-icon name='trash' slot='start'></goat-icon>
-        Delete
-        <span slot='end'>←</span>
-      </goat-menu-item>
-    </goat-menu>
+    <div slot='dropdown-menu'>
+      <MenuItems/>
+    </div>
   </goat-dropdown>
 </HighlighterCard>
 
 <HighlighterCard lang='html'>
-  <goat-dropdown id='dropdown' placements='bottom-start'>
+  <goat-dropdown id='dropdown' placements='bottom-end'>
     <goat-button color='secondary' variant='ghost' icon='overflow-menu--vertical'></goat-button>
-    <goat-menu slot='dropdown-content' class='menu' style='width: 200px'>
-      <goat-menu-item value='cut'>
-        <goat-icon name='scissors' slot='start'></goat-icon>
-        Cut
-        <span slot='end'>⌘X</span>
-      </goat-menu-item>
-      <goat-menu-item value='copy'>
-        <goat-icon name='files' slot='start'></goat-icon>
-        Copy
-        <span slot='end'>⌘C</span>
-      </goat-menu-item>
-      <goat-menu-item value='paste'>
-        <goat-icon name='clipboard' slot='start'></goat-icon>
-        Paste
-        <span slot='end'>⌘X</span>
-      </goat-menu-item>
-      <goat-divider></goat-divider>
-      <goat-menu-item value='delete'>
-        <goat-icon name='trash' slot='start'></goat-icon>
-        Delete
-        <span slot='end'>←</span>
-      </goat-menu-item>
-    </goat-menu>
+
+    <div slot='dropdown-menu'>
+      <MenuItems/>
+    </div>
   </goat-dropdown>
 </HighlighterCard>
 

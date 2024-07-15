@@ -10,12 +10,7 @@ import {
   Method,
   Prop,
 } from '@stencil/core';
-import {
-  getComponentIndex,
-  isEventTriggerByElement,
-  throttle,
-} from '../../../utils/utils';
-import { computePosition, flip, offset, size } from '@floating-ui/dom';
+import { getComponentIndex } from '../../../utils/utils';
 
 /**
  * @name Dropdown
@@ -30,7 +25,15 @@ import { computePosition, flip, offset, size } from '@floating-ui/dom';
   shadow: true,
 })
 export class Dropdown implements ComponentInterface {
+  @Element() host!: HTMLElement;
+
   gid: string = getComponentIndex();
+
+  menuRef: HTMLGoatMenuElement;
+  popoverElm: any;
+  triggerSlotRef: HTMLSlotElement;
+  triggerRef: HTMLElement | HTMLGoatButtonElement;
+
   /**
    * The button size.
    * Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
@@ -39,7 +42,7 @@ export class Dropdown implements ComponentInterface {
 
   @Prop({ mutable: true, reflect: true }) open: boolean = false;
 
-  @Prop({ mutable: true, reflect: true }) managed: boolean = false;
+  @Prop({ reflect: true }) managed: boolean = false;
 
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
@@ -49,215 +52,77 @@ export class Dropdown implements ComponentInterface {
   @Prop({ reflect: true }) placements: string =
     'bottom-start,top-start,bottom-end,top-end';
 
-  @Element() elm!: HTMLElement;
-
-  referenceElm: HTMLElement;
-  dropdownButtonElm: HTMLElement;
+  @Prop({ reflect: true }) trigger: 'click' | 'hover' | 'manual' = 'click';
 
   @Event({ eventName: 'goat-dropdown--item-click' })
-  goatMenuItemClick: EventEmitter;
-
-  @Listen('click', { target: 'window' })
-  windowClick(evt) {
-    if (this.managed) return;
-
-    const path = evt.path || evt.composedPath();
-    for (const elm of path) {
-      if (elm == this.elm) return;
-    }
-    let target: HTMLElement;
-    for (const elm of path) {
-      if (elm.hasAttribute && elm.hasAttribute('dropdown-target')) target = elm;
-    }
-    if (
-      target &&
-      target.getAttribute('dropdown-target') === this.elm.getAttribute('id')
-    ) {
-      this.referenceElm = target;
-      this.toggleList();
-    } else {
-      this.open = false;
-    }
-  }
+  goatDropdownItemClick: EventEmitter;
 
   @Method()
   async setFocus() {
-    const firstChild = this.elm.children[0];
-
-    // @ts-ignore
-    if (firstChild && firstChild.setFocus)
-      // @ts-ignore
-      firstChild.setFocus();
+    this.setFocusOnTrigger();
   }
 
-  @Listen('goat-menu-item-click', { target: 'window' })
-  listenMenuItemClick(evt) {
-    if (isEventTriggerByElement(evt, this.elm)) {
-      this.closeList();
-    }
-    this.open = false;
-  }
-
-  @Listen('keydown', { target: 'window' })
-  listenKeyDown(evt: KeyboardEvent) {
-    if (isEventTriggerByElement(evt, this.elm)) {
-      if (evt.key === 'Escape') {
-        this.closeList();
-      }
-    }
+  setFocusOnTrigger() {
+    (this.triggerRef as HTMLGoatButtonElement).setFocus
+      ? (this.triggerRef as HTMLGoatButtonElement).setFocus()
+      : this.triggerRef.focus();
   }
 
   private closeList = () => {
-    if (!this.disabled && this.open) {
-      this.open = false;
-      setTimeout(() => {
-        if (this.referenceElm && this.open) {
-          // @ts-ignore
-          if (this.referenceElm.setFocus) this.referenceElm.setFocus();
-          else this.referenceElm.focus();
-        }
-      }, 80);
-    }
+    this.popoverElm.hide();
   };
 
-  private openList = () => {
-    if (!this.disabled && !this.open) {
-      this.open = true;
-      setTimeout(() => {
-        this.getMenuElement()?.setFocus();
-      }, 300);
-    }
-  };
-
-  componentDidUpdate() {
-    if (this.open)
-      // @ts-ignore
-      this._fixPosition();
+  @Listen('goat-popover--open')
+  openHandler() {
+    this.menuRef.setFocus();
   }
 
-  _fixPosition = throttle(
-    callBack => {
-      const positions = this.placements.split(',');
-      const placement: any = positions[0];
-      const fallbackPlacements: any = positions.splice(1);
-      const dropdownContent: any =
-        this.elm.shadowRoot.querySelector('.dropdown-content');
-      const menuElm: any = this.getMenuElement();
-
-      computePosition(this.referenceElm, dropdownContent, {
-        placement: placement,
-        // Try removing the middleware. The dropdown will
-        // overflow the boundary's edge and get clipped!
-        middleware: [
-          offset(10),
-          size({
-            apply({ availableHeight }) {
-              if (availableHeight < 10 * 16) return;
-              menuElm.style.setProperty(
-                '--goat-menu-max-height',
-                `${availableHeight}px`,
-              );
-            },
-            padding: 5,
-          }),
-          flip({
-            fallbackPlacements: fallbackPlacements,
-          }),
-        ],
-      }).then(({ x, y }) => {
-        Object.assign(dropdownContent.style, {
-          top: `${y}px`,
-          left: `${x}px`,
-        });
-        if (callBack) callBack();
-      });
-    },
-    80,
-    {
-      leading: true,
-      trailing: false,
-    },
-  );
-
-  @Listen('scroll', { target: 'window' })
-  fixPosition() {
-    if (this.open) {
-      this._fixPosition();
-    }
-  }
-
-  @Listen('resize', { target: 'window' })
-  resizeHandler() {
-    this.fixPosition();
-  }
-
-  componentWillLoad() {
-    if (!this.elm.getAttribute('id')) {
-      this.elm.setAttribute('id', `dropdown-${this.gid}`);
-    }
-  }
-
-  private toggleList() {
-    if (this.open) this.closeList();
-    else this.openList();
-  }
-
-  private keyDownHandler = evt => {
-    const $menuElm = this.getMenuElement();
-    if (evt.key === 'Enter') {
-      evt.preventDefault();
-      this.toggleList();
-    } else if (evt.key === 'ArrowDown') {
-      if (this.open) {
-        evt.preventDefault();
-        $menuElm?.setFocus();
+  componentDidLoad() {
+    this.triggerRef = this.triggerSlotRef.assignedElements()[0] as HTMLElement;
+    if (this.triggerRef.nodeName === 'SLOT') {
+      const assignedElements = (
+        this.triggerRef as HTMLSlotElement
+      ).assignedElements();
+      if (assignedElements.length) {
+        this.triggerRef = assignedElements[0] as HTMLSlotElement;
       }
-    } else if (evt.key === 'ArrowUp') {
-      if (this.open) {
-        evt.preventDefault();
-        $menuElm?.setFocus(); // focus on previous item
-      }
-    } else if (evt.key === 'Escape') {
-      if (this.open) {
+    }
+
+    this.host.addEventListener('goat-menu-item--click', (evt: CustomEvent) => {
+      this.goatDropdownItemClick.emit(evt.detail);
+      this.setFocusOnTrigger();
+      this.closeList();
+    });
+
+    this.host.addEventListener('keydown', evt => {
+      if (evt.key === 'Escape') {
         evt.preventDefault();
         this.closeList();
       }
-    }
-  };
-
-  private getMenuElement() {
-    return this.elm.querySelector('goat-menu');
+    });
   }
 
   render() {
     return (
       <Host>
-        <div
+        <goat-popover
+          trigger={this.trigger}
+          tip={'tab'}
+          placements={this.placements}
+          offset={0}
           class={{
             dropdown: true,
-            open: this.open,
           }}
+          ref={elm => (this.popoverElm = elm)}
         >
-          <button
-            class="dropdown-button"
-            onKeyDown={this.keyDownHandler}
-            tabindex="-1"
-            dropdown-target={`dropdown-${this.gid}`}
-            ref={el => (this.dropdownButtonElm = el)}
-            disabled={this.disabled}
-            onClick={_evt => {
-              this.referenceElm = this.dropdownButtonElm;
-              this.toggleList();
-            }}
-          >
-            <div class="slot-container">
-              <slot />
-            </div>
-          </button>
-          <div class="dropdown-content">
-            <slot name="dropdown-content" />
-          </div>
-        </div>
+          <slot ref={el => (this.triggerSlotRef = el as HTMLSlotElement)} />
+
+          <goat-popover-content class="dropdown-content">
+            <goat-menu ref={elm => (this.menuRef = elm)} size={this.size}>
+              <slot name="dropdown-menu" />
+            </goat-menu>
+          </goat-popover-content>
+        </goat-popover>
       </Host>
     );
   }

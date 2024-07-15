@@ -76,8 +76,6 @@ export class Input implements ComponentInterface, InputComponentInterface {
    */
   @Prop({ reflect: true }) disabled: boolean = false;
 
-  @Prop({ reflect: true }) hideActions: boolean = false;
-
   /**
    * If true, the user read the value cannot modify it. Defaults to `false`.
    */
@@ -272,15 +270,20 @@ export class Input implements ComponentInterface, InputComponentInterface {
           {...this.configAria}
         />
 
-        {this.type === 'password' && !this.hideActions && (
-          <goat-button
-            color={'secondary'}
-            icon={this.passwordVisible ? 'view--off' : 'view'}
-            variant="ghost.simple"
-            onGoat-button--click={() => {
-              this.passwordVisible = !this.passwordVisible;
-            }}
-          ></goat-button>
+        {this.type === 'password' && (
+          <goat-tooltip
+            content={this.passwordVisible ? 'Show password' : 'Hide password'}
+          >
+            <goat-button
+              color={'secondary'}
+              icon={this.passwordVisible ? 'view--off' : 'view'}
+              variant="ghost.simple"
+              size={this.size}
+              onGoat-button--click={() => {
+                this.passwordVisible = !this.passwordVisible;
+              }}
+            ></goat-button>
+          </goat-tooltip>
         )}
 
         <div class="slot-container end">

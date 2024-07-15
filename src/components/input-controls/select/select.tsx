@@ -15,6 +15,7 @@ import {
 import {
   debounceEvent,
   getComponentIndex,
+  remToPx,
   throttle,
 } from '../../../utils/utils';
 import { computePosition, flip, offset, size } from '@floating-ui/dom';
@@ -154,7 +155,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
 
   /**
    * Sets focus on the native `input` in `ion-input`. Use this method instead of the global
-   * `input.focus()`.
+   * `input.focus()`.t
    */
   @Method()
   async setFocus(): Promise<void> {
@@ -426,7 +427,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
             offset(10),
             size({
               apply({ availableHeight }) {
-                if (availableHeight < 10 * 16) return;
+                if (availableHeight < remToPx(10)) return;
                 menuElm?.style.setProperty(
                   '--goat-menu-max-height',
                   `${availableHeight}px`,
@@ -583,6 +584,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
                   <goat-button
                     class="clear input-action"
                     color={'secondary'}
+                    size={this.size}
                     variant="ghost.simple"
                     icon="close"
                     onClick={this.clearInput}

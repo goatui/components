@@ -20,7 +20,7 @@
 ### Depends on
 
 - [goat-text](../../../primitive/typography/text)
-- [goat-link](../../../primitive/link)
+- [goat-link](../../../link)
 
 ### Graph
 ```mermaid

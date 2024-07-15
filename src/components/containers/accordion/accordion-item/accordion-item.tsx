@@ -17,10 +17,7 @@ import { getComponentIndex } from '../../../../utils/utils';
  *  <p>The accordion item component is a single item in an accordion list. It contains a header and a content section that can be expanded or collapsed by the user. The accordion item can be used in conjunction with the accordion component to create a list of expandable items.</p>
  * @category Data Display
  * @subcategory Accordion
- * @tags display
  * @childComponent true
- * @img /assets/img/accordion.webp
- * @imgDark /assets/img/accordion-dark.webp
  */
 @Component({
   tag: 'goat-accordion-item',

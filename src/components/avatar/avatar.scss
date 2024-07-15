@@ -1,0 +1,54 @@
+@import "../../globalStyles/commons";
+
+:host {
+  display: inline-block;
+  pointer-events: none;
+}
+
+.avatar-container {
+  display: flex;
+  align-items: center;
+  gap: v(--spacing-02);
+  line-height: 0;
+}
+
+.avatar {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: v(--field-01);
+
+  .image {
+    width: 100%;
+    height: 100%;
+  }
+
+  @include font-style(text-md);
+}
+
+:host(.square) {
+  .avatar {
+    border-radius: 10px;
+  }
+}
+
+.avatar.avatar-initials {
+  background: var(--avatar-bg-color, v(--color-brand-primary));
+}
+
+.avatar.avatar-image {
+  background: v(--color-brand-primary-30);
+}
+
+:host(.inverted) {
+  .avatar {
+    color: v(--color-brand-primary);
+  }
+
+  .avatar.avatar-initials {
+    background: var(--avatar-bg-color, v(--color-white));
+  }
+
+}

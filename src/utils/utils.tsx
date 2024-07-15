@@ -90,24 +90,29 @@ export function isEventNotTriggerByElement(event, element) {
   return false;
 }
 
-export function throttle(fn, threshhold, scope) {
-  threshhold || (threshhold = 250);
-  var last, deferTimer;
-  return function () {
-    var context = scope || this;
+export function throttle(
+  func: Function,
+  delay: number,
+  options = { leading: true, trailing: true },
+) {
+  let timerId: any;
+  let lastExec = 0;
 
-    var now = +new Date(),
-      args = arguments;
-    if (last && now < last + threshhold) {
-      // hold on to it
-      clearTimeout(deferTimer);
-      deferTimer = setTimeout(function () {
-        last = now;
-        fn.apply(context, args);
-      }, threshhold);
-    } else {
-      last = now;
-      fn.apply(context, args);
+  return function (...args: any[]) {
+    const context = this;
+    const now = Date.now();
+
+    const shouldCallNow = options.leading && now - lastExec >= delay;
+
+    if (shouldCallNow) {
+      func.apply(context, args);
+      lastExec = now;
+    } else if (options.trailing && !timerId) {
+      timerId = setTimeout(() => {
+        func.apply(context, args);
+        lastExec = Date.now();
+        timerId = null;
+      }, delay);
     }
   };
 }
@@ -302,13 +307,25 @@ export function getSVGHTMLString(svgXml: string): string {
   }
 }
 
-export async function waitUntil(condition: any) {
+export async function waitUntil(condition: any, timeout = 300) {
   return await new Promise(resolve => {
     const interval = setInterval(() => {
       if (condition()) {
         resolve(1);
         clearInterval(interval);
       }
-    }, 1000);
+    }, timeout);
   });
+}
+
+export function remToPx(rem: number | string): number {
+  if (typeof rem === 'number')
+    return (
+      rem * parseFloat(getComputedStyle(document.documentElement).fontSize)
+    );
+  else if (typeof rem === 'string' && rem.endsWith('rem'))
+    return (
+      parseFloat(rem) *
+      parseFloat(getComputedStyle(document.documentElement).fontSize)
+    );
 }

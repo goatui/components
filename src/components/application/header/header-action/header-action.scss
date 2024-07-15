@@ -2,7 +2,7 @@
 
 :host {
   display: block;
-  height: var(--header-height)
+  height: var(--goat-header-height)
 }
 
 .header-action {
@@ -13,7 +13,7 @@
 }
 
 :host-context(goat-header[float]) {
-  height: calc(var(--header-height) - 2px);
+  height: calc(var(--goat-header-height) - 2px);
 }
 
 :host-context(:not(goat-header[float])) .header-action {

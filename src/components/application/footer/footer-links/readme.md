@@ -16,7 +16,7 @@
 
 ### Depends on
 
-- [goat-link](../../../primitive/link)
+- [goat-link](../../../link)
 
 ### Graph
 ```mermaid

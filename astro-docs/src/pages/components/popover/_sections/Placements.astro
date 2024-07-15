@@ -1,0 +1,71 @@
+---
+import Highlighter from '../../../../components/Highlighter.astro';
+import HighlighterCard from '../../../../components/HighlighterCard.astro';
+---
+<goat-text type='body'>
+  The popover can be positioned relative to the trigger element. Possible positions are:
+  <goat-text type='code'>top</goat-text>
+  ,
+  <goat-text type='code'>right</goat-text>
+  ,
+  <goat-text type='code'>left</goat-text>
+  ,
+  <goat-text type='code'>bottom</goat-text>
+  .
+
+  Also you can use the following modifiers: <goat-text type='code'>start</goat-text> and <goat-text type='code'>end</goat-text> to align the popover.
+
+
+</goat-text>
+<goat-text type='body'>
+  You can also use the <code class='language-html'>positions</code> attribute to set all preferred position of the
+  dropdown. On scroll, the dropdown will be repositioned to the
+  closest position.
+</goat-text>
+
+
+<style is:inline>
+  .demo-placement-container .demo-area {
+    height: 500px;
+    overflow: auto;
+  }
+
+  .demo-placement-container .demo-area-inner {
+    height: 300%;
+    width: 300%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+</style>
+
+<HighlighterCard lang='html' cssClasses='demo-placement-container'>
+
+
+  <goat-popover trigger='manual' open placements='top-start,bottom-end'>
+    <goat-icon name='settings' style='cursor: pointer'></goat-icon>
+
+    <goat-popover-content>
+      <goat-input label='Name' layer='01'></goat-input>
+      <goat-input label='Email' layer='01'></goat-input>
+      <goat-button>Submit</goat-button>
+    </goat-popover-content>
+
+    <div slot='start'></div>
+  </goat-popover>
+
+
+</HighlighterCard>
+
+
+<script is:inline>
+
+  const $demoPlacementArea = document.querySelector('.demo-placement-container .demo-area');
+
+  setTimeout(() => {
+    $demoPlacementArea.scroll($demoPlacementArea.scrollWidth/ 3, $demoPlacementArea.scrollHeight/ 3);
+  }, 1000);
+
+</script>
+

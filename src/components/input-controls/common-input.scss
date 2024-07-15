@@ -96,7 +96,6 @@
 }
 
 .input-container {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -182,6 +181,7 @@
   .input-action {
     cursor: pointer;
     height: 100%;
+    --goat-popover-height: 100%;
     --goat-button-height: 100%;
     --goat-button-padding: .625rem;
 
@@ -242,6 +242,7 @@
 .input-container {
   goat-button {
     height: 100%;
+    --goat-popover-height: 100%;
     --goat-button-height: 100%;
     --goat-button-border-radius: 0;
   }

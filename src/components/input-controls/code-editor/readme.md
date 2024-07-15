@@ -70,8 +70,8 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [goat-tag](../../primitive/tag)
-- [goat-spinner](../../informational/spinner)
+- [goat-tag](../../tag)
+- [goat-spinner](../../spinner)
 
 ### Graph
 ```mermaid

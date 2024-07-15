@@ -19,8 +19,8 @@
 ### Depends on
 
 - [goat-canvas](../canvas)
-- [goat-icon](../../../primitive/icon)
-- [goat-tag](../../../primitive/tag)
+- [goat-icon](../../../icon)
+- [goat-tag](../../../tag)
 - [goat-button-group](../../../primitive/button/button-group)
 - [goat-button](../../../primitive/button/button)
 

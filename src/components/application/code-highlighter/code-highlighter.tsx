@@ -252,18 +252,22 @@ export class CodeHighlighter implements ComponentInterface {
             </div>
             {!this.hideCopy && this.copyState === 'idle' && !this.inline && (
               <Fragment>
-                <goat-button
-                  class="copy-btn icon-only"
-                  size="sm"
-                  color={'secondary'}
-                  variant={'ghost'}
-                  aria-label="Copy to clipboard"
-                  icon={'copy'}
-                  tooltip-target={'copy-to-tooltip' + this.gid}
-                  onGoat-button--click={async () => {
-                    await this.#handleCopyClick();
-                  }}
-                ></goat-button>
+                <goat-tooltip
+                  class={'copy-btn'}
+                  content={locale.copyToClipboard}
+                >
+                  <goat-button
+                    class="icon-only"
+                    size="sm"
+                    color={'secondary'}
+                    variant={'ghost'}
+                    aria-label="Copy to clipboard"
+                    icon={'copy'}
+                    onGoat-button--click={async () => {
+                      await this.#handleCopyClick();
+                    }}
+                  ></goat-button>
+                </goat-tooltip>
               </Fragment>
             )}
             {!this.hideCopy && this.copyState === 'copied' && !this.inline && (
@@ -281,17 +285,6 @@ export class CodeHighlighter implements ComponentInterface {
                 </goat-button>
               </div>
             )}
-            {!this.hideCopy && this.inline && (
-              <goat-tooltip id={'copy-to-clipboard-' + this.gid}>
-                {this.copyState === 'copied'
-                  ? locale.copied
-                  : locale.copyToClipboard}
-              </goat-tooltip>
-            )}
-
-            <goat-tooltip id={'copy-to-tooltip' + this.gid} placements="bottom">
-              Save the record
-            </goat-tooltip>
           </div>
         )}
         {this.compiledCode === null && (

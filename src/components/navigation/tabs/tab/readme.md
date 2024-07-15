@@ -55,8 +55,8 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [goat-spinner](../../../informational/spinner)
-- [goat-icon](../../../primitive/icon)
+- [goat-spinner](../../../spinner)
+- [goat-icon](../../../icon)
 
 ### Graph
 ```mermaid

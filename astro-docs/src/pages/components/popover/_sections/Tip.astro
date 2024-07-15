@@ -1,0 +1,53 @@
+---
+import HighlighterCard from '../../../../components/HighlighterCard.astro';
+import Highlighter from '../../../../components/Highlighter.astro';
+---
+
+<style is:inline>
+  .demo-tip-container .demo-area {
+    height: 500px;
+    overflow: auto;
+  }
+
+  .demo-tip-container .demo-area-inner {
+    height: 300%;
+    width: 300%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+</style>
+
+<goat-text type='body'>
+  Popover support different types of tips. You can use the <goat-text type='code'>tip</goat-text> attribute to set the tip type.
+  The possible values are: <goat-text type='code'>tab</goat-text>, <goat-text type='code'>caret</goat-text>, <goat-text type='code'>none</goat-text>.
+</goat-text>
+
+<HighlighterCard lang='html' cssClasses='demo-tip-container'>
+
+
+  <goat-popover id='popover' trigger='click' tip='tab' open>
+    <goat-icon name='settings' style='cursor: pointer'></goat-icon>
+
+    <goat-popover-content>
+      <goat-input label='Name' layer='01'></goat-input>
+      <goat-input label='Email' layer='01'></goat-input>
+      <goat-button>Submit</goat-button>
+    </goat-popover-content>
+
+    <div slot='start'></div>
+  </goat-popover>
+
+
+</HighlighterCard>
+
+<script is:inline>
+
+  const $demoTipArea = document.querySelector('.demo-tip-container .demo-area');
+
+  setTimeout(() => {
+    $demoTipArea.scroll($demoTipArea.scrollWidth/ 3, $demoTipArea.scrollHeight/ 3);
+  }, 1000);
+
+</script>

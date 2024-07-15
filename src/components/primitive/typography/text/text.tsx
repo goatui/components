@@ -1,4 +1,11 @@
-import { Component, ComponentInterface, Element, h, Host, Prop } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  h,
+  Host,
+  Prop,
+} from '@stencil/core';
 
 /**
  * @name Text
@@ -12,7 +19,16 @@ import { Component, ComponentInterface, Element, h, Host, Prop } from '@stencil/
   shadow: true,
 })
 export class Text implements ComponentInterface {
-  @Prop({ reflect: true }) type: 'code' | 'helper-text' | 'label' | 'legal' | 'heading' | 'body' | 'body-compact' | 'heading-compact' | 'fluid-heading' = 'body';
+  @Prop({ reflect: true }) type:
+    | 'code'
+    | 'helper-text'
+    | 'label'
+    | 'legal'
+    | 'heading'
+    | 'body'
+    | 'body-compact'
+    | 'heading-compact'
+    | 'fluid-heading' = 'body';
 
   @Prop({ reflect: true }) expressive: boolean = false;
 
@@ -24,7 +40,14 @@ export class Text implements ComponentInterface {
 
   @Prop({ reflect: true, mutable: true }) configAria: any = {};
 
-  @Prop({ reflect: true }) color: 'primary' | 'secondary' | 'tertiary' | 'helper' | 'error' | 'on-color' | 'inverse' = 'primary';
+  @Prop({ reflect: true }) color:
+    | 'primary'
+    | 'secondary'
+    | 'tertiary'
+    | 'helper'
+    | 'error'
+    | 'on-color'
+    | 'inverse' = 'primary';
 
   @Element() elm!: HTMLElement;
 

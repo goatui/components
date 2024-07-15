@@ -28,7 +28,7 @@
   /**
     * @prop --goat-button-padding: Button padding.
    */
-  --goat-button-height: auto;
+  --goat-button-height: unset;
 
   --goat-button-icon-size: 1rem;
   height: var(--goat-button-height);
@@ -39,7 +39,6 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: var(--goat-button-height);
   --internal-button-inner-padding: 0.0625rem;
 
   .native-button {
@@ -52,7 +51,7 @@
     z-index: var(--z-index-button);
     background: transparent;
     padding: 0;
-    border-width: var(--goat-button-border-width, var(--internal-button-border-width,  0.0625rem));
+    border-width: var(--goat-button-border-width, var(--internal-button-border-width, 0.0625rem));
     border-style: var(--goat-button-border-style);
     border-color: transparent;
     border-radius: var(--goat-button-border-radius);
@@ -98,14 +97,7 @@
   }
 
   .button-neo-background {
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-
-    border-radius: var(--goat-button-border-radius);
-    pointer-events: none;
-    transform: translateX(0.25rem) translateY(0.25rem);
+    display: none;
   }
 
   &.disabled .native-button {
@@ -146,7 +138,7 @@
   * SIZES
   */
 .button.size-sm, .button.size-small {
-  min-height: 2rem;
+  min-height: var(--goat-button-height, 2rem);
 
 
   &:not(.has-content).has-icon {
@@ -156,7 +148,7 @@
 
 
 .button.size-md, .button.size-medium {
-  min-height: 2.5rem;
+  min-height: var(--goat-button-height, 2.5rem);
 
   &:not(.has-content).has-icon {
     --goat-button-padding: 0.75rem;
@@ -164,11 +156,11 @@
 }
 
 .button.size-lg, .button.size-large {
-  min-height: 3rem;
+  min-height: var(--goat-button-height, 3rem);
 }
 
 .button.size-xl {
-  min-height: 4rem;
+  min-height: var(--goat-button-height, 4rem);
 
   .button-content {
     padding-bottom: 1rem;
@@ -450,6 +442,14 @@
 
   .button-neo-background {
     background: v(--color-dark);
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    border-radius: var(--goat-button-border-radius);
+    pointer-events: none;
+    transform: translateX(0.25rem) translateY(0.25rem);
   }
 
   .button-background {
@@ -462,7 +462,7 @@
     }
   }
 
-  &.active  {
+  &.active {
     .native-button, .button-background {
       transform: translateX(0.25rem) translateY(0.25rem);
     }
@@ -542,7 +542,7 @@
   --internal-button-color-active: var(--goat-button-color-active, #{v(--color-warning-80)});
 }
 
-.button.color-error, .button.color-danger  {
+.button.color-error, .button.color-danger {
   --internal-button-color: var(--goat-button-color, #{v(--color-error)});
   --internal-button-color-light: var(--goat-button-color-light, #{v(--color-error-10)});
   --internal-button-color-neo: var(--goat-button-color-neo, #{v(--color-error-50)});

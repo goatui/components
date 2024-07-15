@@ -7,7 +7,7 @@ import {
   Prop,
   State,
 } from '@stencil/core';
-import { loadScript } from '../../../../utils/utils';
+import { loadScript, remToPx } from '../../../../utils/utils';
 
 /**
  * @name Flow Designer
@@ -120,7 +120,7 @@ export class FlowDesigner {
             <h1
               class="activity-title"
               style={{
-                'font-size': 16 * this.zoom + 'px',
+                'font-size': remToPx(this.zoom) + 'px',
               }}
             >
               {activity.title}
@@ -271,7 +271,7 @@ export class FlowDesigner {
                       <h1
                         class="activity-title"
                         style={{
-                          'font-size': 16 * this.zoom + 'px',
+                          'font-size': remToPx(this.zoom) + 'px',
                         }}
                       >
                         Send status update

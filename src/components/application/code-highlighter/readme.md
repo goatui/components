@@ -21,16 +21,18 @@
 
 ### Depends on
 
+- [goat-tooltip](../../informational/popover/tooltip)
 - [goat-button](../../primitive/button/button)
-- [goat-tooltip](../../informational/tooltip)
-- [goat-spinner](../../informational/spinner)
+- [goat-spinner](../../spinner)
 
 ### Graph
 ```mermaid
 graph TD;
-  goat-code-highlighter --> goat-button
   goat-code-highlighter --> goat-tooltip
+  goat-code-highlighter --> goat-button
   goat-code-highlighter --> goat-spinner
+  goat-tooltip --> goat-popover
+  goat-tooltip --> goat-popover-content
   goat-button --> goat-spinner
   goat-button --> goat-icon
   style goat-code-highlighter fill:#f9f,stroke:#333,stroke-width:4px

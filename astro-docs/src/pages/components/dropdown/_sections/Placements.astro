@@ -1,5 +1,6 @@
 ---
 import Highlighter from '../../../../components/Highlighter.astro';
+import MenuItems from './menu-items.astro';
 ---
 <goat-text type='body'>
   The dropdown can be positioned relative to the trigger element. Possible positions are: <code class='language-html'>top-start</code>,
@@ -15,73 +16,32 @@ import Highlighter from '../../../../components/Highlighter.astro';
 <goat-card>
   <goat-card-content>
     <div class='component-container'>
-      <goat-dropdown id='dropdown' item-variant='icon' placements='bottom-start,top-start'
-                     style='padding-inline-end: var(--spacing-05)'>
-        <goat-button icon='home' variant='outline' aria-label='House'> Open</goat-button>
-        <goat-menu slot='dropdown-content' class='menu' style='width: 200px'>
-          <goat-menu-item value='cut'>
-            <goat-icon name='cut' slot='start'></goat-icon>
-            Cut
-            <span slot='end'>⌘X</span>
-          </goat-menu-item>
-          <goat-menu-item value='copy'>
-            <goat-icon name='copy' slot='start'></goat-icon>
-            Copy
-            <span slot='end'>⌘C</span>
-          </goat-menu-item>
-          <goat-menu-item value='paste'>
-            <goat-icon name='paste' slot='start'></goat-icon>
-            Paste
-            <span slot='end'>⌘X</span>
-          </goat-menu-item>
-          <goat-divider></goat-divider>
-          <goat-menu-item value='delete'>
-            <goat-icon name='trash-can' slot='start'></goat-icon>
-            Delete
-            <span slot='end'>←</span>
-          </goat-menu-item>
-        </goat-menu>
+      <goat-dropdown id='dropdown' item-variant='icon' placements='bottom-start,top-start'>
+        <goat-button icon='home' variant='outline'>Open</goat-button>
+        <div slot='dropdown-menu'>
+          <MenuItems/>
+        </div>
       </goat-dropdown>
 
       <goat-dropdown id='dropdown' item-variant='icon' placements='top-end,bottom-end'>
-        <goat-button icon='trash-can' color='danger' aria-label='House'></goat-button>
+        <goat-button icon='trash-can' color='danger' aria-label='Trash Can'></goat-button>
 
-        <goat-menu slot='dropdown-content' class='menu' style='width: 200px'>
-          <goat-menu-item value='cut'>
-            <goat-icon name='scissors' slot='start'></goat-icon>
-            Cut
-            <span slot='end'>⌘X</span>
-          </goat-menu-item>
-          <goat-menu-item value='copy'>
-            <goat-icon name='files' slot='start'></goat-icon>
-            Copy
-            <span slot='end'>⌘C</span>
-          </goat-menu-item>
-          <goat-menu-item value='paste'>
-            <goat-icon name='clipboard' slot='start'></goat-icon>
-            Paste
-            <span slot='end'>⌘X</span>
-          </goat-menu-item>
-          <goat-divider></goat-divider>
-          <goat-menu-item value='delete'>
-            <goat-icon name='trash' slot='start'></goat-icon>
-            Delete
-            <span slot='end'>←</span>
-          </goat-menu-item>
-        </goat-menu>
+        <div slot='dropdown-menu'>
+          <MenuItems/>
+        </div>
       </goat-dropdown>
     </div>
   </goat-card-content>
   <goat-card-content class='no-padding'>
     <Highlighter lang='html'>
       <goat-dropdown id='dropdown' item-variant='icon' placements='top-start,bottom-start'>
-        <goat-button icon='home' variant='ghost' aria-label='House'> Open</goat-button>
-        <goat-menu slot='dropdown-content' class='menu' style='width: 200px'> ...</goat-menu>
+        <goat-button icon='home' variant='outline'>Open</goat-button>
+        <div slot='dropdown-menu'>...</div>
       </goat-dropdown>
 
       <goat-dropdown id='dropdown' item-variant='icon' placements='top-end,bottom-end'>
-        <goat-button icon='trash--can' color='danger' aria-label='House'></goat-button>
-        <goat-menu slot='dropdown-content' class='menu' style='width: 200px'> ...</goat-menu>
+        <goat-button icon='trash-can' color='danger' aria-label='Trash Can'></goat-button>
+        <div slot='dropdown-menu'>...</div>
       </goat-dropdown>
 
     </Highlighter>

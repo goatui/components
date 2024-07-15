@@ -202,6 +202,7 @@ export class TimePicker {
             icon={'time'}
             variant="ghost.simple"
             disabled={this.disabled}
+            size={this.size}
             onGoat-button--click={() => {
               setTimeout(() => {
                 this.nativeElement.showPicker();

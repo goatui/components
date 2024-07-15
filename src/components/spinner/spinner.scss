@@ -1,0 +1,79 @@
+@import "../../globalStyles/commons";
+
+:host {
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.has-content {
+    gap: 0.5rem;
+  }
+}
+
+.spinner__container {
+  line-height: 0;
+}
+
+.spinner__background {
+  stroke: var(--layer-accent);
+  stroke-linecap: butt;
+  fill: rgba(0, 0, 0, 0);
+}
+
+.spinner__svg {
+  animation-duration: 690ms;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: rotate;
+  animation-timing-function: linear;
+  pointer-events: none;
+}
+
+.spinner__stroke {
+  /*
+
+   */
+  color: var(--goat-spinner-color, v(--color-primary));
+  stroke: currentColor;
+  stroke-dashoffset: 75;
+  stroke-dasharray: 360;
+  stroke-linecap: butt;
+  fill: rgba(0, 0, 0, 0);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+@keyframes rainbow {
+  0%   {color:v(--color-primary);}
+  20%  {color:v(--color-success);}
+  40%  {color:v(--color-warning);}
+  60%  {color:v(--color-error);}
+  80% {color:v(--color-secondary);}
+}
+
+:host(.rainbow) .spinner__stroke {
+  color: v(--color-primary);
+  animation-name: rainbow;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+slot::slotted(*) {
+  @include font-style(label-01);
+  color: var(text-secondary);
+}
+

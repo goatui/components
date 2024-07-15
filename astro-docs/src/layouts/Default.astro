@@ -22,7 +22,7 @@ const searchItems = componentsDetails.components.map(component => ({
 <Layout title={title} description={description} keywords={keywords}>
 
   <nav class='top-nav'>
-    <goat-header color='white' dark-mode-color='black' class={`actions-separated ${!root ? 'border' : ''}`}>
+    <goat-header color='white' dark-mode-color='black' class={`header ${!root ? 'border' : ''}`}>
       <div slot='left'>
         <goat-header-brand logo='/assets/img/logo.svg' href='/#' name={site.title}></goat-header-brand>
 
@@ -122,16 +122,16 @@ const searchItems = componentsDetails.components.map(component => ({
 
     <goat-menu class='header-menu-list no-border'>
       <goat-menu-item href='/components#'>
-        <goat-icon name='roadmap'></goat-icon>&nbsp;
+        <goat-icon name='roadmap' slot="start" size="sm"></goat-icon>&nbsp;
         Components
       </goat-menu-item>
       <goat-menu-item href='/blog#'>
-        <goat-icon name='blog'></goat-icon>&nbsp;
+        <goat-icon name='blog' slot="start" size="sm"></goat-icon>&nbsp;
         Blog
       </goat-menu-item>
       <goat-menu-item href='https://github.com/sponsors/shivajivarma' target='_blank'
                       icon='roadmap'>
-        <goat-icon name='currency--rupee'></goat-icon>&nbsp;
+        <goat-icon name='currency--rupee' slot="start" size="sm"></goat-icon>&nbsp;
         Sponsor
       </goat-menu-item>
     </goat-menu>
@@ -171,7 +171,7 @@ const searchItems = componentsDetails.components.map(component => ({
           window.location.href = '/components/' + e.detail.value;
         });
 
-        search.addEventListener('goat-select--search-enter', function(e) {
+        search.addEventListener('goat-select--enter', function(e) {
           if (e.detail.currentItems.length > 0)
             window.location.href = '/components/' + e.detail.currentItems[0].value;
         });

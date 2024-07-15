@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-11T04:18:45",
+  "timestamp": "2024-07-13T11:15:41",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.19.2",
@@ -248,12 +248,7 @@
         "overview": " <p>The accordion item component is a single item in an accordion list. It contains a header and a content section that can be expanded or collapsed by the user. The accordion item can be used in conjunction with the accordion component to create a list of expandable items.</p>",
         "category": "Data Display",
         "subcategory": "Accordion",
-        "tags": [
-          "display"
-        ],
-        "childComponent": "true",
-        "img": "/assets/img/accordion.webp",
-        "imgDark": "/assets/img/accordion-dark.webp"
+        "childComponent": "true"
       }
     },
     {
@@ -3691,15 +3686,19 @@
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
-        "goat-button",
         "goat-tooltip",
+        "goat-button",
         "goat-spinner"
       ],
       "dependencyGraph": {
         "goat-code-highlighter": [
-          "goat-button",
           "goat-tooltip",
+          "goat-button",
           "goat-spinner"
+        ],
+        "goat-tooltip": [
+          "goat-popover",
+          "goat-popover-content"
         ],
         "goat-button": [
           "goat-spinner",
@@ -5105,8 +5104,16 @@
       "docs": "",
       "encapsulation": "shadow",
       "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "dependencies": [
+        "goat-popover",
+        "goat-popover-content"
+      ],
+      "dependencyGraph": {
+        "goat-dropdown": [
+          "goat-popover",
+          "goat-popover-content"
+        ]
+      },
       "props": [
         {
           "name": "disabled",
@@ -5138,7 +5145,7 @@
             "resolved": "boolean",
             "references": {}
           },
-          "mutable": true,
+          "mutable": false,
           "attr": "managed",
           "reflectToAttr": true,
           "docs": "",
@@ -5226,6 +5233,37 @@
           ],
           "optional": false,
           "required": false
+        },
+        {
+          "name": "trigger",
+          "type": "\"click\" | \"hover\" | \"manual\"",
+          "complexType": {
+            "original": "'click' | 'hover' | 'manual'",
+            "resolved": "\"click\" | \"hover\" | \"manual\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "trigger",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "'click'",
+          "values": [
+            {
+              "value": "click",
+              "type": "string"
+            },
+            {
+              "value": "hover",
+              "type": "string"
+            },
+            {
+              "value": "manual",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
         }
       ],
       "methods": [
@@ -5289,18 +5327,6 @@
           "target": "window",
           "capture": false,
           "passive": false
-        },
-        {
-          "event": "scroll",
-          "target": "window",
-          "capture": false,
-          "passive": true
-        },
-        {
-          "event": "resize",
-          "target": "window",
-          "capture": false,
-          "passive": true
         }
       ],
       "metadata": {
@@ -6143,7 +6169,7 @@
           "reflectToAttr": false,
           "docs": "Defines the primary color of the header. This can be set to predefined color names to apply specific color themes.",
           "docsTags": [],
-          "default": "'white'",
+          "default": "'black'",
           "values": [
             {
               "type": "string"
@@ -8194,6 +8220,7 @@
         "name": "Menu",
         "description": "Menus display a list of choices on temporary surfaces.",
         "category": "Navigation",
+        "subcategory": "Menu",
         "img": "/assets/img/menu.webp",
         "imgDark": "/assets/img/menu-dark.webp"
       }
@@ -8445,7 +8472,13 @@
           "passive": false
         }
       ],
-      "metadata": {}
+      "metadata": {
+        "name": "Menu Item",
+        "description": "Menu items display a list of choices on temporary surfaces.",
+        "category": "Navigation",
+        "subcategory": "Menu",
+        "childComponent": "true"
+      }
     },
     {
       "dirPath": "E:/git/goatui/components/src/components/informational/modal/modal",
@@ -8709,9 +8742,6 @@
         "description": "The Modal Content component is used to display the content within a modal.",
         "category": "Informational",
         "subcategory": "Modal",
-        "tags": [
-          "controls"
-        ],
         "childComponent": "true"
       }
     },
@@ -9683,6 +9713,362 @@
           " form"
         ],
         "example": "<goat-number value=\"100\"></goat-input>"
+      }
+    },
+    {
+      "dirPath": "E:/git/goatui/components/src/components/informational/popover/popover",
+      "filePath": "src/components/informational/popover/popover/popover.tsx",
+      "fileName": "popover.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/informational/popover/popover/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/informational/popover/popover/usage",
+      "tag": "goat-popover",
+      "readme": "# goat-dropdown\r\n\r\n\r\n\r",
+      "overview": "",
+      "usage": {},
+      "docs": "",
+      "encapsulation": "shadow",
+      "dependents": [
+        "goat-dropdown",
+        "goat-tooltip"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "goat-dropdown": [
+          "goat-popover"
+        ],
+        "goat-tooltip": [
+          "goat-popover"
+        ]
+      },
+      "props": [
+        {
+          "name": "dismissTimeout",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "dismiss-timeout",
+          "reflectToAttr": false,
+          "docs": "Time in milliseconds to wait before hiding the popover when the trigger is set to `\"hover\"`.",
+          "docsTags": [],
+          "default": "300",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "offset",
+          "reflectToAttr": false,
+          "docs": "The offset of the popover relative to the trigger element.\nThis value is used to adjust the position of the popover along the axis of the trigger element.",
+          "docsTags": [],
+          "default": "4",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "open",
+          "reflectToAttr": true,
+          "docs": "Controls the visibility of the popover when the `trigger` property is set to `\"manual\"`.\nWhen `true`, the popover is visible.\nWhen `false`, the popover is hidden.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "placements",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "placements",
+          "reflectToAttr": false,
+          "docs": "The placement of the popover relative to the trigger element.\nPossible values are:\n- `\"top\"`: The popover is placed above the trigger element.\n- `\"top-start\"`: The popover is placed above the trigger element, aligned to the start.\n- `\"top-end\"`: The popover is placed above the trigger element, aligned to the end.\n- `\"right\"`: The popover is placed to the right of the trigger element.\n- `\"right-start\"`: The popover is placed to the right of the trigger element, aligned to the start.\n- `\"right-end\"`: The popover is placed to the right of the trigger element, aligned to the end.\n- `\"bottom\"`: The popover is placed below the trigger element.\n- `\"bottom-start\"`: The popover is placed below the trigger element, aligned to the start.\n- `\"bottom-end\"`: The popover is placed below the trigger element, aligned to the end.\n- `\"left\"`: The popover is placed to the left of the trigger element.\n- `\"left-start\"`: The popover is placed to the left of the trigger element, aligned to the start.\n- `\"left-end\"`: The popover is placed to the left of the trigger element, aligned to the end.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "timeout",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "timeout",
+          "reflectToAttr": false,
+          "docs": "Time in milliseconds to wait before showing the popover when the trigger is set to `\"hover\"`.",
+          "docsTags": [],
+          "default": "300",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "tip",
+          "type": "\"caret\" | \"none\" | \"tab\"",
+          "complexType": {
+            "original": "'caret' | 'tab' | 'none'",
+            "resolved": "\"caret\" | \"none\" | \"tab\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "tip",
+          "reflectToAttr": true,
+          "docs": "The tip of the popover.\nPossible values are:\n- `\"caret\"`: A triangle tip.\n- `\"tab\"`: A tab tip.\n- `\"none\"`: No tip.",
+          "docsTags": [],
+          "default": "'caret'",
+          "values": [
+            {
+              "value": "caret",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "tab",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "trigger",
+          "type": "\"click\" | \"hover\" | \"manual\"",
+          "complexType": {
+            "original": "'click' | 'hover' | 'manual'",
+            "resolved": "\"click\" | \"hover\" | \"manual\"",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "trigger",
+          "reflectToAttr": false,
+          "docs": "Determines how the popover is triggered.\nPossible values are:\n- `\"click\"`: The popover is shown or hidden when the trigger element is clicked.\n- `\"hover\"`: The popover is shown when the mouse hovers over the trigger element and hidden when it leaves.\n- `\"manual\"`: The visibility of the popover must be manually controlled through the `open` property.",
+          "docsTags": [],
+          "default": "'hover'",
+          "values": [
+            {
+              "value": "click",
+              "type": "string"
+            },
+            {
+              "value": "hover",
+              "type": "string"
+            },
+            {
+              "value": "manual",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "hide",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "hide() => Promise<void>",
+          "parameters": [],
+          "docs": "Hides the popover. This method is useful when the trigger is set to `\"manual\"`.",
+          "docsTags": []
+        },
+        {
+          "name": "show",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(target?: HTMLElement) => Promise<void>",
+            "parameters": [
+              {
+                "name": "target",
+                "type": "HTMLElement",
+                "docs": ""
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "HTMLElement": {
+                "location": "global",
+                "id": "global::HTMLElement"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "show(target?: HTMLElement) => Promise<void>",
+          "parameters": [
+            {
+              "name": "target",
+              "type": "HTMLElement",
+              "docs": ""
+            }
+          ],
+          "docs": "Shows the popover.\nThis method is particularly useful when the trigger mode is set to `\"manual\"`.\nIt allows for programmatic control over the visibility of the popover, making it visible regardless of the trigger mode.\nOptionally, a target HTMLElement can be provided to dynamically set the trigger element for the popover.",
+          "docsTags": []
+        }
+      ],
+      "events": [
+        {
+          "event": "goat-popover--close",
+          "detail": "any",
+          "bubbles": true,
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the popover is closed.",
+          "docsTags": []
+        },
+        {
+          "event": "goat-popover--open",
+          "detail": "any",
+          "bubbles": true,
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the popover is opened.",
+          "docsTags": []
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "listeners": [
+        {
+          "event": "resize",
+          "target": "window",
+          "capture": false,
+          "passive": true
+        },
+        {
+          "event": "click",
+          "target": "window",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "metadata": {
+        "name": "Popover",
+        "description": "The Popover component is used to display additional information.",
+        "category": "Informational",
+        "subcategory": "Popover",
+        "img": "/assets/img/dropdown.webp",
+        "imgDark": "/assets/img/dropdown-dark.webp"
+      }
+    },
+    {
+      "dirPath": "E:/git/goatui/components/src/components/informational/popover/popover-content",
+      "filePath": "src/components/informational/popover/popover-content/popover-content.tsx",
+      "fileName": "popover-content.tsx",
+      "readmePath": "E:/git/goatui/components/src/components/informational/popover/popover-content/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/informational/popover/popover-content/usage",
+      "tag": "goat-popover-content",
+      "readme": "# goat-dropdown\r\n\r\n\r\n\r",
+      "overview": "",
+      "usage": {},
+      "docs": "",
+      "encapsulation": "shadow",
+      "dependents": [
+        "goat-dropdown",
+        "goat-tooltip"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "goat-dropdown": [
+          "goat-popover-content"
+        ],
+        "goat-tooltip": [
+          "goat-popover-content"
+        ]
+      },
+      "props": [],
+      "methods": [],
+      "events": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "listeners": [],
+      "metadata": {
+        "name": "PopoverContent",
+        "description": "The PopoverContent component is used to display additional information.",
+        "category": "Informational",
+        "subcategory": "Popover",
+        "childComponent": "true"
       }
     },
     {
@@ -11138,6 +11524,10 @@
         "goat-button": [
           "goat-spinner",
           "goat-icon"
+        ],
+        "goat-tooltip": [
+          "goat-popover",
+          "goat-popover-content"
         ]
       },
       "props": [
@@ -13154,7 +13544,7 @@
           "name": "color",
           "type": "\"error\" | \"helper\" | \"inverse\" | \"on-color\" | \"primary\" | \"secondary\" | \"tertiary\"",
           "complexType": {
-            "original": "'primary' | 'secondary' | 'tertiary' | 'helper' | 'error' | 'on-color' | 'inverse'",
+            "original": "| 'primary'\n    | 'secondary'\n    | 'tertiary'\n    | 'helper'\n    | 'error'\n    | 'on-color'\n    | 'inverse'",
             "resolved": "\"error\" | \"helper\" | \"inverse\" | \"on-color\" | \"primary\" | \"secondary\" | \"tertiary\"",
             "references": {}
           },
@@ -13356,7 +13746,7 @@
           "name": "type",
           "type": "\"body\" | \"body-compact\" | \"code\" | \"fluid-heading\" | \"heading\" | \"heading-compact\" | \"helper-text\" | \"label\" | \"legal\"",
           "complexType": {
-            "original": "'code' | 'helper-text' | 'label' | 'legal' | 'heading' | 'body' | 'body-compact' | 'heading-compact' | 'fluid-heading'",
+            "original": "| 'code'\n    | 'helper-text'\n    | 'label'\n    | 'legal'\n    | 'heading'\n    | 'body'\n    | 'body-compact'\n    | 'heading-compact'\n    | 'fluid-heading'",
             "resolved": "\"body\" | \"body-compact\" | \"code\" | \"fluid-heading\" | \"heading\" | \"heading-compact\" | \"helper-text\" | \"label\" | \"legal\"",
             "references": {}
           },
@@ -14727,11 +15117,11 @@
       }
     },
     {
-      "dirPath": "E:/git/goatui/components/src/components/informational/tooltip",
-      "filePath": "src/components/informational/tooltip/tooltip.tsx",
+      "dirPath": "E:/git/goatui/components/src/components/informational/popover/tooltip",
+      "filePath": "src/components/informational/popover/tooltip/tooltip.tsx",
       "fileName": "tooltip.tsx",
-      "readmePath": "E:/git/goatui/components/src/components/informational/tooltip/readme.md",
-      "usagesDir": "E:/git/goatui/components/src/components/informational/tooltip/usage",
+      "readmePath": "E:/git/goatui/components/src/components/informational/popover/tooltip/readme.md",
+      "usagesDir": "E:/git/goatui/components/src/components/informational/popover/tooltip/usage",
       "tag": "goat-tooltip",
       "readme": "# goat-icon\n\n\n",
       "overview": "",
@@ -14742,8 +15132,15 @@
         "goat-code-highlighter",
         "goat-slider"
       ],
-      "dependencies": [],
+      "dependencies": [
+        "goat-popover",
+        "goat-popover-content"
+      ],
       "dependencyGraph": {
+        "goat-tooltip": [
+          "goat-popover",
+          "goat-popover-content"
+        ],
         "goat-code-highlighter": [
           "goat-tooltip"
         ],
@@ -14753,44 +15150,22 @@
       },
       "props": [
         {
-          "name": "managed",
-          "type": "boolean",
+          "name": "content",
+          "type": "string",
           "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
+            "original": "string",
+            "resolved": "string",
             "references": {}
           },
           "mutable": true,
-          "attr": "managed",
-          "reflectToAttr": true,
-          "docs": "If true, the tooltip will be managed by the parent component.",
+          "attr": "content",
+          "reflectToAttr": false,
+          "docs": "The content of the tooltip.",
           "docsTags": [],
-          "default": "false",
+          "default": "''",
           "values": [
             {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "open",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": true,
-          "attr": "open",
-          "reflectToAttr": true,
-          "docs": "If true, the tooltip will be visible.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
+              "type": "string"
             }
           ],
           "optional": false,
@@ -14807,9 +15182,9 @@
           "mutable": false,
           "attr": "placements",
           "reflectToAttr": false,
-          "docs": "The placements of the tooltip. It can be top, top-start, top-end, bottom, bottom-start, bottom-end, right, left.",
+          "docs": "The placement of the popover relative to the trigger element.\nPossible values are:\n- `\"top\"`: The popover is placed above the trigger element.\n- `\"right\"`: The popover is placed to the right of the trigger element.\n- `\"bottom\"`: The popover is placed below the trigger element.\n- `\"left\"`: The popover is placed to the left of the trigger element.",
           "docsTags": [],
-          "default": "'top,top-start,top-end,bottom,bottom-start,bottom-end,right,left'",
+          "default": "'top,right,bottom,left'",
           "values": [
             {
               "type": "string"
@@ -14817,44 +15192,36 @@
           ],
           "optional": false,
           "required": false
-        }
-      ],
-      "methods": [
+        },
         {
-          "name": "openTooltip",
-          "returns": {
-            "type": "Promise<void>",
-            "docs": ""
-          },
+          "name": "trigger",
+          "type": "\"hover\" | \"manual\"",
           "complexType": {
-            "signature": "(target: any) => Promise<void>",
-            "parameters": [
-              {
-                "name": "target",
-                "type": "any",
-                "docs": ""
-              }
-            ],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              }
-            },
-            "return": "Promise<void>"
+            "original": "'hover' | 'manual'",
+            "resolved": "\"hover\" | \"manual\"",
+            "references": {}
           },
-          "signature": "openTooltip(target: any) => Promise<void>",
-          "parameters": [
+          "mutable": false,
+          "attr": "trigger",
+          "reflectToAttr": true,
+          "docs": "If true, the tooltip will be managed by the parent component.",
+          "docsTags": [],
+          "default": "'hover'",
+          "values": [
             {
-              "name": "target",
-              "type": "any",
-              "docs": ""
+              "value": "hover",
+              "type": "string"
+            },
+            {
+              "value": "manual",
+              "type": "string"
             }
           ],
-          "docs": "",
-          "docsTags": []
+          "optional": false,
+          "required": false
         }
       ],
+      "methods": [],
       "events": [],
       "styles": [],
       "slots": [],
@@ -14865,12 +15232,6 @@
           "target": "window",
           "capture": false,
           "passive": true
-        },
-        {
-          "event": "goat-tooltip-open",
-          "target": "window",
-          "capture": false,
-          "passive": false
         }
       ],
       "metadata": {

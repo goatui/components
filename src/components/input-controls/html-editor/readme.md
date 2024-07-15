@@ -68,7 +68,7 @@ Type: `Promise<void>`
 ### Depends on
 
 - [goat-button](../../primitive/button/button)
-- [goat-spinner](../../informational/spinner)
+- [goat-spinner](../../spinner)
 - [goat-code-editor](../code-editor)
 - [goat-toggle](../toggle)
 - [goat-menu](../../navigation/menu/menu)

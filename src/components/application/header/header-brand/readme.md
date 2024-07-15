@@ -20,9 +20,9 @@
 
 ### Depends on
 
-- [goat-link](../../../primitive/link)
-- [goat-svg](../../../primitive/svg)
-- [goat-divider](../../../containers/divider)
+- [goat-link](../../../link)
+- [goat-svg](../../../svg)
+- [goat-divider](../../../divider)
 
 ### Graph
 ```mermaid

@@ -83,7 +83,7 @@ Type: `Promise<void>`
  - [goat-html-editor](../../../input-controls/html-editor)
  - [goat-input](../../../input-controls/input/input)
  - [goat-modal](../../../informational/modal/modal)
- - [goat-notification](../../../informational/notification)
+ - [goat-notification](../../../notification)
  - [goat-number](../../../input-controls/input/number)
  - [goat-select](../../../input-controls/select)
  - [goat-table](../../../table)
@@ -92,8 +92,8 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [goat-spinner](../../../informational/spinner)
-- [goat-icon](../../icon)
+- [goat-spinner](../../../spinner)
+- [goat-icon](../../../icon)
 
 ### Graph
 ```mermaid

@@ -4,6 +4,7 @@
   display: block;
 }
 
+$border-width: 2px;
 
 .menu-item {
 
@@ -12,18 +13,22 @@
 
   cursor: pointer;
   @include font-style(body-compact-01);
-  padding-inline: v(--spacing-05);
+  padding-inline: calc(#{v(--spacing-05)} - #{$border-width});
   box-sizing: border-box;
   display: flex;
   align-items: center;
   gap: v(--spacing-02);
   color: v(--text-secondary);
 
-  border: 1px solid transparent;
+  border: $border-width solid transparent;
 
   .item-section {
     display: flex;
     align-items: center;
+
+    &.start {
+      width: 1.5rem;
+    }
   }
 
   .slot-main {
@@ -39,11 +44,6 @@
   }
 
 }
-
-slot::slotted(*) {
-  --icon-color: v(--icon-secondary);
-}
-
 
 :host-context([size="sm"]) {
   .menu-item {
@@ -73,15 +73,41 @@ slot::slotted(*) {
     }
   }
 
-  &.active, &.selected {
+  &.active {
     background: var(--selected-ui);
+  }
+}
+@each $color in [primary, secondary, success, info, warning, error, white, black] {
+  .menu-item.color-#{$color} {
+    &:hover {
+      background: v(--color-#{$color});
+      color: white;
+
+      .slot-end {
+        color: white;
+      }
+    }
+  }
+}
+
+.menu-item.color-danger {
+  &:hover {
+    background: v(--color-error);
+    color: white;
+
+    .slot-end {
+      color: white;
+    }
   }
 }
 
 .menu-item.has-focus:not(.active) {
   outline: none;
-  border: 1px solid v(--color-primary);
+  border-color: v(--color-primary);
 }
+
+
+
 
 .menu-item.disabled {
   cursor: not-allowed;
@@ -99,12 +125,6 @@ slot::slotted(*) {
   }
 }
 
-
-.menu-item:not(.start-slot-has-content) {
-  .slot-start {
-    display: none;
-  }
-}
 
 .menu-item:not(.end-slot-has-content) {
   .slot-end {

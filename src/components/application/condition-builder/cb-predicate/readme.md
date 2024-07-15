@@ -18,7 +18,7 @@
 ### Depends on
 
 - [goat-cb-divider](../cb-divider)
-- [goat-tag](../../../primitive/tag)
+- [goat-tag](../../../tag)
 
 ### Graph
 ```mermaid

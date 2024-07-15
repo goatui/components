@@ -102,10 +102,10 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [goat-icon](../../primitive/icon)
-- [goat-tag](../../primitive/tag)
+- [goat-icon](../../icon)
+- [goat-tag](../../tag)
 - [goat-button](../../primitive/button/button)
-- [goat-spinner](../../informational/spinner)
+- [goat-spinner](../../spinner)
 - [goat-menu](../../navigation/menu/menu)
 - [goat-text](../../primitive/typography/text)
 - [goat-menu-item](../../navigation/menu/menu-item)

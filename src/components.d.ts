@@ -38,10 +38,7 @@ export namespace Components {
      * @overview  <p>The accordion item component is a single item in an accordion list. It contains a header and a content section that can be expanded or collapsed by the user. The accordion item can be used in conjunction with the accordion component to create a list of expandable items.</p>
      * @category Data Display
      * @subcategory Accordion
-     * @tags display
      * @childComponent true
-     * @img /assets/img/accordion.webp
-     * @imgDark /assets/img/accordion-dark.webp
      */
     interface GoatAccordionItem {
         /**
@@ -580,6 +577,7 @@ export namespace Components {
           * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
         "size": 'sm' | 'md' | 'lg';
+        "trigger": 'click' | 'hover' | 'manual';
     }
     /**
      * @name Empty State
@@ -804,7 +802,6 @@ export namespace Components {
         "disabled": boolean;
         "getComponentId": () => Promise<string>;
         "helperText": string;
-        "hideActions": boolean;
         "inline": boolean;
         "invalid": boolean;
         "invalidText": string;
@@ -870,6 +867,7 @@ export namespace Components {
      * @name Menu
      * @description Menus display a list of choices on temporary surfaces.
      * @category Navigation
+     * @subcategory Menu
      * @img /assets/img/menu.webp
      * @imgDark /assets/img/menu-dark.webp
      */
@@ -889,7 +887,32 @@ export namespace Components {
         "size": 'sm' | 'md' | 'lg';
         "value"?: string | number;
     }
+    /**
+     * @name MenuDivider
+     * @description A divider to separate menu items.
+     * @category Layout
+     * @subcategory Menu
+     * @childComponents true
+     * @example <goat-divider style="width: 12rem;">or</goat-divider>
+     */
+    interface GoatMenuDivider {
+    }
+    /**
+     * @name Menu Item
+     * @description Menu items display a list of choices on temporary surfaces.
+     * @category Navigation
+     * @subcategory Menu
+     * @childComponent true
+     */
     interface GoatMenuItem {
+        "color": | 'default'
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'warning'
+    | 'white'
+    | 'black';
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -899,6 +922,7 @@ export namespace Components {
          */
         "href": string;
         "layer"?: 'background' | '01' | '02';
+        "selectable": boolean;
         /**
           * Menu item selection state.
          */
@@ -942,7 +966,6 @@ export namespace Components {
      * @description The Modal Content component is used to display the content within a modal.
      * @category Informational
      * @subcategory Modal
-     * @tags controls
      * @childComponent true
      */
     interface GoatModalContent {
@@ -1067,6 +1090,61 @@ export namespace Components {
         "warnText": string;
     }
     /**
+     * @name Popover
+     * @description The Popover component is used to display additional information.
+     * @category Informational
+     * @subcategory Popover
+     * @img /assets/img/dropdown.webp
+     * @imgDark /assets/img/dropdown-dark.webp
+     */
+    interface GoatPopover {
+        /**
+          * Time in milliseconds to wait before hiding the popover when the trigger is set to `"hover"`.
+         */
+        "dismissTimeout": number;
+        /**
+          * Hides the popover. This method is useful when the trigger is set to `"manual"`.
+         */
+        "hide": () => Promise<void>;
+        /**
+          * The offset of the popover relative to the trigger element. This value is used to adjust the position of the popover along the axis of the trigger element.
+         */
+        "offset": number;
+        /**
+          * Determines whether the popover is open.
+         */
+        "open": boolean;
+        /**
+          * Time in milliseconds to wait before showing the popover when the trigger is set to `"hover"`.
+         */
+        "openTimeout": number;
+        /**
+          * The placement of the popover relative to the trigger element. Possible values are: - `"top"`: The popover is placed above the trigger element. - `"top-start"`: The popover is placed above the trigger element, aligned to the start. - `"top-end"`: The popover is placed above the trigger element, aligned to the end. - `"right"`: The popover is placed to the right of the trigger element. - `"right-start"`: The popover is placed to the right of the trigger element, aligned to the start. - `"right-end"`: The popover is placed to the right of the trigger element, aligned to the end. - `"bottom"`: The popover is placed below the trigger element. - `"bottom-start"`: The popover is placed below the trigger element, aligned to the start. - `"bottom-end"`: The popover is placed below the trigger element, aligned to the end. - `"left"`: The popover is placed to the left of the trigger element. - `"left-start"`: The popover is placed to the left of the trigger element, aligned to the start. - `"left-end"`: The popover is placed to the left of the trigger element, aligned to the end.
+         */
+        "placements": string;
+        /**
+          * Shows the popover. This method is particularly useful when the trigger mode is set to `"manual"`. It allows for programmatic control over the visibility of the popover, making it visible regardless of the trigger mode. Optionally, a target HTMLElement can be provided to dynamically set the trigger element for the popover.
+         */
+        "show": (target?: HTMLElement) => Promise<void>;
+        /**
+          * The tip of the popover. Possible values are: - `"caret"`: A triangle tip. - `"tab"`: A tab tip. - `"none"`: No tip.
+         */
+        "tip": 'caret' | 'tab' | 'none';
+        /**
+          * Determines how the popover is triggered. Possible values are: - `"click"`: The popover is shown or hidden when the trigger element is clicked. - `"hover"`: The popover is shown when the mouse hovers over the trigger element and hidden when it leaves. - `"manual"`: The visibility of the popover must be manually controlled through the `open` property.
+         */
+        "trigger": 'click' | 'hover' | 'manual';
+    }
+    /**
+     * @name Popover Content
+     * @description The PopoverContent component is used to display additional information.
+     * @category Informational
+     * @subcategory Popover
+     * @childComponent true
+     */
+    interface GoatPopoverContent {
+    }
+    /**
      * @name Progress
      * @description Progress indicators express an unspecified wait time or display the length of a process.
      * @category Informational
@@ -1154,7 +1232,7 @@ export namespace Components {
          */
         "setBlur": () => Promise<void>;
         /**
-          * Sets focus on the native `input` in `ion-input`. Use this method instead of the global `input.focus()`.
+          * Sets focus on the native `input` in `ion-input`. Use this method instead of the global `input.focus()`.t
          */
         "setFocus": () => Promise<void>;
         "showLoader": boolean;
@@ -1427,13 +1505,27 @@ export namespace Components {
      * @example <goat-text type="heading" level="1">Heading</goat-typography>
      */
     interface GoatText {
-        "color": 'primary' | 'secondary' | 'tertiary' | 'helper' | 'error' | 'on-color' | 'inverse';
+        "color": | 'primary'
+    | 'secondary'
+    | 'tertiary'
+    | 'helper'
+    | 'error'
+    | 'on-color'
+    | 'inverse';
         "configAria": any;
         "expressive": boolean;
         "headingLevel": 1 | 2 | 3 | 4 | 5 | 6;
         "headingSize": 1 | 2 | 3 | 4 | 5 | 6 | 7;
         "inline": boolean;
-        "type": 'code' | 'helper-text' | 'label' | 'legal' | 'heading' | 'body' | 'body-compact' | 'heading-compact' | 'fluid-heading';
+        "type": | 'code'
+    | 'helper-text'
+    | 'label'
+    | 'legal'
+    | 'heading'
+    | 'body'
+    | 'body-compact'
+    | 'heading-compact'
+    | 'fluid-heading';
     }
     /**
      * @name Textarea
@@ -1486,6 +1578,10 @@ export namespace Components {
           * Sets focus on the native `textarea` in `goat-textarea`. Use this method instead of the global `textarea.focus()`.
          */
         "setFocus": () => Promise<void>;
+        /**
+          * The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size": 'sm' | 'md' | 'lg';
         "skeleton": boolean;
         /**
           * The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
@@ -1597,18 +1693,17 @@ export namespace Components {
      */
     interface GoatTooltip {
         /**
-          * If true, the tooltip will be managed by the parent component.
+          * The content of the tooltip.
          */
-        "managed": boolean;
+        "content": string;
         /**
-          * If true, the tooltip will be visible.
-         */
-        "open": boolean;
-        "openTooltip": (target: any) => Promise<void>;
-        /**
-          * The placements of the tooltip. It can be top, top-start, top-end, bottom, bottom-start, bottom-end, right, left.
+          * The placement of the popover relative to the trigger element. Possible values are: - `"top"`: The popover is placed above the trigger element. - `"right"`: The popover is placed to the right of the trigger element. - `"bottom"`: The popover is placed below the trigger element. - `"left"`: The popover is placed to the left of the trigger element.
          */
         "placements": string;
+        /**
+          * If true, the tooltip will be managed by the parent component.
+         */
+        "trigger": 'hover' | 'manual';
     }
     interface GoatTreeNode {
         /**
@@ -1722,6 +1817,10 @@ export interface GoatNumberCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLGoatNumberElement;
 }
+export interface GoatPopoverCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatPopoverElement;
+}
 export interface GoatSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLGoatSelectElement;
@@ -1789,10 +1888,7 @@ declare global {
      * @overview  <p>The accordion item component is a single item in an accordion list. It contains a header and a content section that can be expanded or collapsed by the user. The accordion item can be used in conjunction with the accordion component to create a list of expandable items.</p>
      * @category Data Display
      * @subcategory Accordion
-     * @tags display
      * @childComponent true
-     * @img /assets/img/accordion.webp
-     * @imgDark /assets/img/accordion-dark.webp
      */
     interface HTMLGoatAccordionItemElement extends Components.GoatAccordionItem, HTMLStencilElement {
         addEventListener<K extends keyof HTMLGoatAccordionItemElementEventMap>(type: K, listener: (this: HTMLGoatAccordionItemElement, ev: GoatAccordionItemCustomEvent<HTMLGoatAccordionItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2375,6 +2471,7 @@ declare global {
      * @name Menu
      * @description Menus display a list of choices on temporary surfaces.
      * @category Navigation
+     * @subcategory Menu
      * @img /assets/img/menu.webp
      * @imgDark /assets/img/menu-dark.webp
      */
@@ -2384,9 +2481,30 @@ declare global {
         prototype: HTMLGoatMenuElement;
         new (): HTMLGoatMenuElement;
     };
+    /**
+     * @name MenuDivider
+     * @description A divider to separate menu items.
+     * @category Layout
+     * @subcategory Menu
+     * @childComponents true
+     * @example <goat-divider style="width: 12rem;">or</goat-divider>
+     */
+    interface HTMLGoatMenuDividerElement extends Components.GoatMenuDivider, HTMLStencilElement {
+    }
+    var HTMLGoatMenuDividerElement: {
+        prototype: HTMLGoatMenuDividerElement;
+        new (): HTMLGoatMenuDividerElement;
+    };
     interface HTMLGoatMenuItemElementEventMap {
         "goat-menu-item--click": any;
     }
+    /**
+     * @name Menu Item
+     * @description Menu items display a list of choices on temporary surfaces.
+     * @category Navigation
+     * @subcategory Menu
+     * @childComponent true
+     */
     interface HTMLGoatMenuItemElement extends Components.GoatMenuItem, HTMLStencilElement {
         addEventListener<K extends keyof HTMLGoatMenuItemElementEventMap>(type: K, listener: (this: HTMLGoatMenuItemElement, ev: GoatMenuItemCustomEvent<HTMLGoatMenuItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2432,7 +2550,6 @@ declare global {
      * @description The Modal Content component is used to display the content within a modal.
      * @category Informational
      * @subcategory Modal
-     * @tags controls
      * @childComponent true
      */
     interface HTMLGoatModalContentElement extends Components.GoatModalContent, HTMLStencilElement {
@@ -2508,6 +2625,45 @@ declare global {
     var HTMLGoatNumberElement: {
         prototype: HTMLGoatNumberElement;
         new (): HTMLGoatNumberElement;
+    };
+    interface HTMLGoatPopoverElementEventMap {
+        "goat-popover--open": any;
+        "goat-popover--close": any;
+    }
+    /**
+     * @name Popover
+     * @description The Popover component is used to display additional information.
+     * @category Informational
+     * @subcategory Popover
+     * @img /assets/img/dropdown.webp
+     * @imgDark /assets/img/dropdown-dark.webp
+     */
+    interface HTMLGoatPopoverElement extends Components.GoatPopover, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatPopoverElementEventMap>(type: K, listener: (this: HTMLGoatPopoverElement, ev: GoatPopoverCustomEvent<HTMLGoatPopoverElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatPopoverElementEventMap>(type: K, listener: (this: HTMLGoatPopoverElement, ev: GoatPopoverCustomEvent<HTMLGoatPopoverElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGoatPopoverElement: {
+        prototype: HTMLGoatPopoverElement;
+        new (): HTMLGoatPopoverElement;
+    };
+    /**
+     * @name Popover Content
+     * @description The PopoverContent component is used to display additional information.
+     * @category Informational
+     * @subcategory Popover
+     * @childComponent true
+     */
+    interface HTMLGoatPopoverContentElement extends Components.GoatPopoverContent, HTMLStencilElement {
+    }
+    var HTMLGoatPopoverContentElement: {
+        prototype: HTMLGoatPopoverContentElement;
+        new (): HTMLGoatPopoverContentElement;
     };
     /**
      * @name Progress
@@ -2916,12 +3072,15 @@ declare global {
         "goat-input": HTMLGoatInputElement;
         "goat-link": HTMLGoatLinkElement;
         "goat-menu": HTMLGoatMenuElement;
+        "goat-menu-divider": HTMLGoatMenuDividerElement;
         "goat-menu-item": HTMLGoatMenuItemElement;
         "goat-modal": HTMLGoatModalElement;
         "goat-modal-content": HTMLGoatModalContentElement;
         "goat-notification": HTMLGoatNotificationElement;
         "goat-notification-manager": HTMLGoatNotificationManagerElement;
         "goat-number": HTMLGoatNumberElement;
+        "goat-popover": HTMLGoatPopoverElement;
+        "goat-popover-content": HTMLGoatPopoverContentElement;
         "goat-progress": HTMLGoatProgressElement;
         "goat-select": HTMLGoatSelectElement;
         "goat-sidenav": HTMLGoatSidenavElement;
@@ -2974,10 +3133,7 @@ declare namespace LocalJSX {
      * @overview  <p>The accordion item component is a single item in an accordion list. It contains a header and a content section that can be expanded or collapsed by the user. The accordion item can be used in conjunction with the accordion component to create a list of expandable items.</p>
      * @category Data Display
      * @subcategory Accordion
-     * @tags display
      * @childComponent true
-     * @img /assets/img/accordion.webp
-     * @imgDark /assets/img/accordion-dark.webp
      */
     interface GoatAccordionItem {
         /**
@@ -3525,6 +3681,7 @@ declare namespace LocalJSX {
           * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
          */
         "size"?: 'sm' | 'md' | 'lg';
+        "trigger"?: 'click' | 'hover' | 'manual';
     }
     /**
      * @name Empty State
@@ -3742,7 +3899,6 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         "helperText"?: string;
-        "hideActions"?: boolean;
         "inline"?: boolean;
         "invalid"?: boolean;
         "invalidText"?: string;
@@ -3815,6 +3971,7 @@ declare namespace LocalJSX {
      * @name Menu
      * @description Menus display a list of choices on temporary surfaces.
      * @category Navigation
+     * @subcategory Menu
      * @img /assets/img/menu.webp
      * @imgDark /assets/img/menu-dark.webp
      */
@@ -3830,7 +3987,32 @@ declare namespace LocalJSX {
         "size"?: 'sm' | 'md' | 'lg';
         "value"?: string | number;
     }
+    /**
+     * @name MenuDivider
+     * @description A divider to separate menu items.
+     * @category Layout
+     * @subcategory Menu
+     * @childComponents true
+     * @example <goat-divider style="width: 12rem;">or</goat-divider>
+     */
+    interface GoatMenuDivider {
+    }
+    /**
+     * @name Menu Item
+     * @description Menu items display a list of choices on temporary surfaces.
+     * @category Navigation
+     * @subcategory Menu
+     * @childComponent true
+     */
     interface GoatMenuItem {
+        "color"?: | 'default'
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'warning'
+    | 'white'
+    | 'black';
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
          */
@@ -3844,6 +4026,7 @@ declare namespace LocalJSX {
           * Emitted when the menu item is clicked.
          */
         "onGoat-menu-item--click"?: (event: GoatMenuItemCustomEvent<any>) => void;
+        "selectable"?: boolean;
         /**
           * Menu item selection state.
          */
@@ -3883,7 +4066,6 @@ declare namespace LocalJSX {
      * @description The Modal Content component is used to display the content within a modal.
      * @category Informational
      * @subcategory Modal
-     * @tags controls
      * @childComponent true
      */
     interface GoatModalContent {
@@ -4018,6 +4200,61 @@ declare namespace LocalJSX {
         "value"?: number | null;
         "warn"?: boolean;
         "warnText"?: string;
+    }
+    /**
+     * @name Popover
+     * @description The Popover component is used to display additional information.
+     * @category Informational
+     * @subcategory Popover
+     * @img /assets/img/dropdown.webp
+     * @imgDark /assets/img/dropdown-dark.webp
+     */
+    interface GoatPopover {
+        /**
+          * Time in milliseconds to wait before hiding the popover when the trigger is set to `"hover"`.
+         */
+        "dismissTimeout"?: number;
+        /**
+          * The offset of the popover relative to the trigger element. This value is used to adjust the position of the popover along the axis of the trigger element.
+         */
+        "offset"?: number;
+        /**
+          * Emitted when the popover is closed.
+         */
+        "onGoat-popover--close"?: (event: GoatPopoverCustomEvent<any>) => void;
+        /**
+          * Emitted when the popover is opened.
+         */
+        "onGoat-popover--open"?: (event: GoatPopoverCustomEvent<any>) => void;
+        /**
+          * Determines whether the popover is open.
+         */
+        "open"?: boolean;
+        /**
+          * Time in milliseconds to wait before showing the popover when the trigger is set to `"hover"`.
+         */
+        "openTimeout"?: number;
+        /**
+          * The placement of the popover relative to the trigger element. Possible values are: - `"top"`: The popover is placed above the trigger element. - `"top-start"`: The popover is placed above the trigger element, aligned to the start. - `"top-end"`: The popover is placed above the trigger element, aligned to the end. - `"right"`: The popover is placed to the right of the trigger element. - `"right-start"`: The popover is placed to the right of the trigger element, aligned to the start. - `"right-end"`: The popover is placed to the right of the trigger element, aligned to the end. - `"bottom"`: The popover is placed below the trigger element. - `"bottom-start"`: The popover is placed below the trigger element, aligned to the start. - `"bottom-end"`: The popover is placed below the trigger element, aligned to the end. - `"left"`: The popover is placed to the left of the trigger element. - `"left-start"`: The popover is placed to the left of the trigger element, aligned to the start. - `"left-end"`: The popover is placed to the left of the trigger element, aligned to the end.
+         */
+        "placements"?: string;
+        /**
+          * The tip of the popover. Possible values are: - `"caret"`: A triangle tip. - `"tab"`: A tab tip. - `"none"`: No tip.
+         */
+        "tip"?: 'caret' | 'tab' | 'none';
+        /**
+          * Determines how the popover is triggered. Possible values are: - `"click"`: The popover is shown or hidden when the trigger element is clicked. - `"hover"`: The popover is shown when the mouse hovers over the trigger element and hidden when it leaves. - `"manual"`: The visibility of the popover must be manually controlled through the `open` property.
+         */
+        "trigger"?: 'click' | 'hover' | 'manual';
+    }
+    /**
+     * @name Popover Content
+     * @description The PopoverContent component is used to display additional information.
+     * @category Informational
+     * @subcategory Popover
+     * @childComponent true
+     */
+    interface GoatPopoverContent {
     }
     /**
      * @name Progress
@@ -4396,13 +4633,27 @@ declare namespace LocalJSX {
      * @example <goat-text type="heading" level="1">Heading</goat-typography>
      */
     interface GoatText {
-        "color"?: 'primary' | 'secondary' | 'tertiary' | 'helper' | 'error' | 'on-color' | 'inverse';
+        "color"?: | 'primary'
+    | 'secondary'
+    | 'tertiary'
+    | 'helper'
+    | 'error'
+    | 'on-color'
+    | 'inverse';
         "configAria"?: any;
         "expressive"?: boolean;
         "headingLevel"?: 1 | 2 | 3 | 4 | 5 | 6;
         "headingSize"?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
         "inline"?: boolean;
-        "type"?: 'code' | 'helper-text' | 'label' | 'legal' | 'heading' | 'body' | 'body-compact' | 'heading-compact' | 'fluid-heading';
+        "type"?: | 'code'
+    | 'helper-text'
+    | 'label'
+    | 'legal'
+    | 'heading'
+    | 'body'
+    | 'body-compact'
+    | 'heading-compact'
+    | 'fluid-heading';
     }
     /**
      * @name Textarea
@@ -4466,6 +4717,10 @@ declare namespace LocalJSX {
           * If true, required icon is show. Defaults to `false`.
          */
         "required"?: boolean;
+        /**
+          * The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size"?: 'sm' | 'md' | 'lg';
         "skeleton"?: boolean;
         /**
           * The input state. Possible values are: `"success"`, `"error"`, `"warning"`, 'default'. Defaults to `"default"`.
@@ -4587,17 +4842,17 @@ declare namespace LocalJSX {
      */
     interface GoatTooltip {
         /**
-          * If true, the tooltip will be managed by the parent component.
+          * The content of the tooltip.
          */
-        "managed"?: boolean;
+        "content"?: string;
         /**
-          * If true, the tooltip will be visible.
-         */
-        "open"?: boolean;
-        /**
-          * The placements of the tooltip. It can be top, top-start, top-end, bottom, bottom-start, bottom-end, right, left.
+          * The placement of the popover relative to the trigger element. Possible values are: - `"top"`: The popover is placed above the trigger element. - `"right"`: The popover is placed to the right of the trigger element. - `"bottom"`: The popover is placed below the trigger element. - `"left"`: The popover is placed to the left of the trigger element.
          */
         "placements"?: string;
+        /**
+          * If true, the tooltip will be managed by the parent component.
+         */
+        "trigger"?: 'hover' | 'manual';
     }
     interface GoatTreeNode {
         /**
@@ -4686,12 +4941,15 @@ declare namespace LocalJSX {
         "goat-input": GoatInput;
         "goat-link": GoatLink;
         "goat-menu": GoatMenu;
+        "goat-menu-divider": GoatMenuDivider;
         "goat-menu-item": GoatMenuItem;
         "goat-modal": GoatModal;
         "goat-modal-content": GoatModalContent;
         "goat-notification": GoatNotification;
         "goat-notification-manager": GoatNotificationManager;
         "goat-number": GoatNumber;
+        "goat-popover": GoatPopover;
+        "goat-popover-content": GoatPopoverContent;
         "goat-progress": GoatProgress;
         "goat-select": GoatSelect;
         "goat-sidenav": GoatSidenav;
@@ -4737,10 +4995,7 @@ declare module "@stencil/core" {
              * @overview  <p>The accordion item component is a single item in an accordion list. It contains a header and a content section that can be expanded or collapsed by the user. The accordion item can be used in conjunction with the accordion component to create a list of expandable items.</p>
              * @category Data Display
              * @subcategory Accordion
-             * @tags display
              * @childComponent true
-             * @img /assets/img/accordion.webp
-             * @imgDark /assets/img/accordion-dark.webp
              */
             "goat-accordion-item": LocalJSX.GoatAccordionItem & JSXBase.HTMLAttributes<HTMLGoatAccordionItemElement>;
             /**
@@ -4980,10 +5235,27 @@ declare module "@stencil/core" {
              * @name Menu
              * @description Menus display a list of choices on temporary surfaces.
              * @category Navigation
+             * @subcategory Menu
              * @img /assets/img/menu.webp
              * @imgDark /assets/img/menu-dark.webp
              */
             "goat-menu": LocalJSX.GoatMenu & JSXBase.HTMLAttributes<HTMLGoatMenuElement>;
+            /**
+             * @name MenuDivider
+             * @description A divider to separate menu items.
+             * @category Layout
+             * @subcategory Menu
+             * @childComponents true
+             * @example <goat-divider style="width: 12rem;">or</goat-divider>
+             */
+            "goat-menu-divider": LocalJSX.GoatMenuDivider & JSXBase.HTMLAttributes<HTMLGoatMenuDividerElement>;
+            /**
+             * @name Menu Item
+             * @description Menu items display a list of choices on temporary surfaces.
+             * @category Navigation
+             * @subcategory Menu
+             * @childComponent true
+             */
             "goat-menu-item": LocalJSX.GoatMenuItem & JSXBase.HTMLAttributes<HTMLGoatMenuItemElement>;
             /**
              * @name Modal
@@ -5000,7 +5272,6 @@ declare module "@stencil/core" {
              * @description The Modal Content component is used to display the content within a modal.
              * @category Informational
              * @subcategory Modal
-             * @tags controls
              * @childComponent true
              */
             "goat-modal-content": LocalJSX.GoatModalContent & JSXBase.HTMLAttributes<HTMLGoatModalContentElement>;
@@ -5031,6 +5302,23 @@ declare module "@stencil/core" {
              * @example <goat-number value="100"></goat-input>
              */
             "goat-number": LocalJSX.GoatNumber & JSXBase.HTMLAttributes<HTMLGoatNumberElement>;
+            /**
+             * @name Popover
+             * @description The Popover component is used to display additional information.
+             * @category Informational
+             * @subcategory Popover
+             * @img /assets/img/dropdown.webp
+             * @imgDark /assets/img/dropdown-dark.webp
+             */
+            "goat-popover": LocalJSX.GoatPopover & JSXBase.HTMLAttributes<HTMLGoatPopoverElement>;
+            /**
+             * @name Popover Content
+             * @description The PopoverContent component is used to display additional information.
+             * @category Informational
+             * @subcategory Popover
+             * @childComponent true
+             */
+            "goat-popover-content": LocalJSX.GoatPopoverContent & JSXBase.HTMLAttributes<HTMLGoatPopoverContentElement>;
             /**
              * @name Progress
              * @description Progress indicators express an unspecified wait time or display the length of a process.

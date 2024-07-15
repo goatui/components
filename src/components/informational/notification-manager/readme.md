@@ -17,7 +17,7 @@
 
 ### Depends on
 
-- [goat-notification](../notification)
+- [goat-notification](../../notification)
 
 ### Graph
 ```mermaid

@@ -34,7 +34,7 @@ export class Header {
     | 'warning'
     | 'white'
     | 'black'
-    | string = 'white';
+    | string = 'black';
 
   /**
    * Color variant for dark mode, applicable when [data-theme="dark"] is set.
@@ -96,15 +96,15 @@ export class Header {
   render() {
     return (
       <Host color-is={this.#computeColorLightOrDark()}>
-        <div class="header-container">
-          <header
-            class={{
-              header: true,
-              float: this.float,
-              [`color-${this.computedColor}`]: true,
-              [this.#getColumnType()]: true,
-            }}
-          >
+        <header
+          class={{
+            header: true,
+            float: this.float,
+            [`color-${this.computedColor}`]: true,
+            [this.#getColumnType()]: true,
+          }}
+        >
+          <div class="header-container">
             <div class="left-section section">
               <slot name="left" />
             </div>
@@ -119,8 +119,8 @@ export class Header {
             <div class="right-section section">
               <slot name="right" />
             </div>
-          </header>
-        </div>
+          </div>
+        </header>
       </Host>
     );
   }

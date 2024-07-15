@@ -30,7 +30,7 @@
 
 - [goat-text](../../../primitive/typography/text)
 - [goat-button](../../../primitive/button/button)
-- [goat-spinner](../../spinner)
+- [goat-spinner](../../../spinner)
 
 ### Graph
 ```mermaid

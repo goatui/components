@@ -16,11 +16,12 @@ $spacing: (
   "13": 80 * $base-space,
 );
 
-$container-spacing: (
-  sm: 40,
-  md: 48,
-  lg: 64,
-  xl: 80,
+$container-sizing: (
+  sm: 320,
+  md: 672,
+  lg: 1056,
+  xl: 1312,
+  max: 1584
 );
 
 $spacing-css-variables: ();
@@ -31,8 +32,8 @@ $spacing-css-variables: ();
   $spacing-css-variables: map-merge($spacing-css-variables, $map);
 }
 
-@each $key, $value in $container-spacing {
+@each $key, $value in $container-sizing {
   $map: ();
-  $map: map-merge($map, (--container-#{$key}: #{$value}rem));
+  $map: map-merge($map, (--container-#{$key}: #{$value}px));
   $spacing-css-variables: map-merge($spacing-css-variables, $map);
 }

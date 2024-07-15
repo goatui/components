@@ -29,7 +29,7 @@
 
 ### Depends on
 
-- [goat-svg](../../primitive/svg)
+- [goat-svg](../../svg)
 - [goat-button](../../primitive/button/button)
 
 ### Graph

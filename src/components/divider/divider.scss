@@ -1,0 +1,64 @@
+@import "../../globalStyles/commons";
+
+:host {
+  color: var(--text-secondary);
+  display: block;
+
+  /**
+   * @prop --goat-divider-color: Color of the divider
+   */
+  --goat-divider-color: #{v(--border-strong-01)};
+
+  /**
+   * @prop --goat-divider-padding: Padding of the divider
+   */
+  --goat-divider-padding: #{v(--spacing-05)};
+}
+
+.divider {
+  display: flex;
+  margin: 0;
+  @include font-style(body-compact-01);
+
+  &:not(.vertical) {
+    width: 100%;
+    padding: var(--goat-divider-padding) 0;
+    align-items: center;
+    justify-content: center;
+
+    .line {
+      width: 100%;
+      border-top: 1px solid var(--goat-divider-color);
+    }
+
+    &.has-content .slot-container {
+      padding: 0 var(--spacing-04);
+    }
+  }
+
+  &.vertical {
+    height: 100%;
+    padding: 0 var(--goat-divider-padding);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .line {
+      height: 100%;
+      border-right: 1px solid var(--goat-divider-color);
+    }
+
+    &.has-content .slot-container {
+      padding: var(--spacing-03) 0;
+    }
+  }
+
+}
+
+:host(:not([vertical])) {
+  width: auto;
+}
+
+:host([vertical]) {
+  height: auto;
+}

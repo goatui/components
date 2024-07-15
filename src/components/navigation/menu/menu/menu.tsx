@@ -12,6 +12,7 @@ import {
  * @name Menu
  * @description Menus display a list of choices on temporary surfaces.
  * @category Navigation
+ * @subcategory Menu
  * @img /assets/img/menu.webp
  * @imgDark /assets/img/menu-dark.webp
  */
@@ -21,7 +22,7 @@ import {
   shadow: true,
 })
 export class Menu implements ComponentInterface {
-  @Element() elm!: HTMLElement;
+  @Element() host!: HTMLElement;
 
   @Prop() showLoader: boolean = false;
 
@@ -51,7 +52,7 @@ export class Menu implements ComponentInterface {
       if (elm.tagName === 'GOAT-MENU-ITEM') {
         menuItem = elm;
       }
-      if (elm !== this.elm) continue;
+      if (elm !== this.host) continue;
       if (evt.key === 'ArrowDown') {
         evt.preventDefault();
         this.focusNextItem(menuItem);
@@ -72,11 +73,39 @@ export class Menu implements ComponentInterface {
     firstMenuItem?.setFocus();
   }
 
-  private getFirstItem() {
-    return this.elm.querySelector('goat-menu-item');
+  getFirstItem() {
+    let firstItem: any = this.host.querySelector('goat-menu-item');
+    if (!firstItem) {
+      if (
+        this.host.childNodes.length &&
+        this.host.childNodes[0].nodeName === 'SLOT'
+      ) {
+        const assignedElement = (
+          this.host.childNodes[0] as HTMLSlotElement
+        ).assignedElements()[0];
+        firstItem = assignedElement.querySelector('goat-menu-item');
+      }
+    }
+    return firstItem;
   }
 
-  private focusNextItem(currentItem) {
+  getLastItem() {
+    let lastItem: any = this.host.querySelector('goat-menu-item:last-child');
+    if (!lastItem) {
+      if (
+        this.host.childNodes.length &&
+        this.host.childNodes[0].nodeName === 'SLOT'
+      ) {
+        const assignedElement = (
+          this.host.childNodes[0] as HTMLSlotElement
+        ).assignedElements()[0];
+        lastItem = assignedElement.querySelector('goat-menu-item:last-child');
+      }
+    }
+    return lastItem;
+  }
+
+  focusNextItem(currentItem) {
     let nextItem: any = currentItem.nextElementSibling;
     do {
       if (
@@ -88,7 +117,7 @@ export class Menu implements ComponentInterface {
         return;
       }
       if (!nextItem) {
-        nextItem = this.elm.querySelector('goat-menu-item');
+        nextItem = this.getFirstItem();
       } else {
         nextItem = nextItem.nextElementSibling;
       }
@@ -107,7 +136,7 @@ export class Menu implements ComponentInterface {
         return;
       }
       if (!previousItem) {
-        previousItem = this.elm.querySelector('goat-menu-item:last-child');
+        previousItem = this.getLastItem();
       } else {
         previousItem = previousItem.previousElementSibling;
       }

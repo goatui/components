@@ -38,6 +38,12 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
    */
   @Prop() placeholder: string;
 
+  /**
+   * The input field size.
+   * Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+   */
+  @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' = 'md';
+
   @Prop() label: string;
 
   @Prop() helperText: string;
@@ -275,6 +281,7 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
               class="clear input-action"
               color={'secondary'}
               variant="ghost"
+              size={this.size}
               icon="close"
               onClick={this.clearInput}
             />

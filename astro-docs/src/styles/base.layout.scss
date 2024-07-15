@@ -8,6 +8,7 @@
 /* width */
 ::-webkit-scrollbar {
   width: 0.5rem;
+  height: 0.5rem;
 }
 
 /* Track */
@@ -173,6 +174,11 @@ figure {
 
 .sections-wrapper .section:last-child {
   padding-bottom: 0;
+}
+
+main {
+  position: relative;
+  z-index: 0;
 }
 
 .main-content {

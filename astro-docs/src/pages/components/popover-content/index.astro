@@ -1,0 +1,16 @@
+---
+import Layout from '../../../layouts/Component.astro';
+import { getComponentDetails } from '../../../_data/getComponentDetails.ts';
+import ApiPanel from '../../../components/ApiPanel.astro';
+const componentDetails = getComponentDetails('goat-popover-content');
+---
+<Layout componentDetails={componentDetails}>
+  <goat-tabs class='page-tabs'>
+    <goat-tabs-list>
+      <goat-tab>API</goat-tab>
+    </goat-tabs-list>
+    <goat-tab-panel>
+      <ApiPanel componentDetails={componentDetails} />
+    </goat-tab-panel>
+  </goat-tabs>
+</Layout>

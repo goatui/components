@@ -5,8 +5,8 @@ import Highlighter from '../../../../components/Highlighter.astro';
 
 <HighlighterCard lang='html' cssClasses={'demo-canvas'}>
 
-  <goat-button icon="save" variant="outline"  tooltip-target='save-tooltip'></goat-button>
-
-  <goat-tooltip id='save-tooltip'>Save the record</goat-tooltip>
+  <goat-tooltip id='save-tooltip' content='Save the record'>
+    <goat-button icon='save' variant='outline'></goat-button>
+  </goat-tooltip>
 
 </HighlighterCard>

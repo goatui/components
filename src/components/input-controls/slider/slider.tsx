@@ -295,10 +295,7 @@ export class Slider implements ComponentInterface, InputComponentInterface {
     }
   };
 
-  onDrag = throttle(this._onDrag, 1, {
-    leading: true,
-    trailing: false,
-  });
+  onDrag = throttle(this._onDrag, 1);
 
   connectedCallback() {
     this.debounceChanged();
@@ -410,7 +407,7 @@ export class Slider implements ComponentInterface, InputComponentInterface {
         <goat-tooltip
           id={`slider-tooltip-${this.gid}`}
           placements="top,bottom"
-          managed={true}
+          trigger={'manual'}
         >
           {this.getFormattedValue(this.value)}
         </goat-tooltip>
