@@ -177,9 +177,16 @@ export class Button implements ComponentInterface {
   @Prop() throttleDelay = 200;
 
   /**
+   * The `appendData` property allows you to attach additional data to the button component. This data can be of any type, making it versatile for various use cases. It's particularly useful for passing extra context or information that can be accessed in event handlers or other component logic.
+   */
+  @Prop() appendData: any;
+
+  /**
    * Triggered when the button is clicked.
    */
-  @Event({ eventName: 'goat-button--click' }) clickEvent: EventEmitter<void>;
+  @Event({ eventName: 'goat-button--click' }) clickEvent: EventEmitter<{
+    appendData: any;
+  }>;
 
   /**
    * Sets focus on the native `button` in `goat-button`. Use this method instead of the global
@@ -247,7 +254,9 @@ export class Button implements ComponentInterface {
   }
 
   handleClick = () => {
-    this.clickEvent.emit();
+    this.clickEvent.emit({
+      appendData: this.appendData,
+    });
   };
 
   #onClick(evt: MouseEvent) {
@@ -285,11 +294,11 @@ export class Button implements ComponentInterface {
       if (!this.href && (evt.key == 'Enter' || evt.key == ' ')) {
         evt.preventDefault();
         this.isActive = this.toggle ? !this.isActive : true;
-        this.clickEvent.emit();
+        this.handleClickWithThrottle();
       } else if (this.href && (evt.key == 'Enter' || evt.key == ' ')) {
         evt.preventDefault();
         this.isActive = true;
-        this.clickEvent.emit();
+        this.handleClickWithThrottle();
         window.open(this.href, this.target);
       }
     }
