@@ -117,6 +117,10 @@ export namespace Components {
      */
     interface GoatButton {
         /**
+          * The `appendData` property allows you to attach additional data to the button component. This data can be of any type, making it versatile for various use cases. It's particularly useful for passing extra context or information that can be accessed in event handlers or other component logic.
+         */
+        "appendData": any;
+        /**
           * Defines the primary color of the button. This can be set to predefined color names to apply specific color themes.
          */
         "color": | 'primary'
@@ -1959,7 +1963,9 @@ declare global {
         new (): HTMLGoatBreadcrumbItemElement;
     };
     interface HTMLGoatButtonElementEventMap {
-        "goat-button--click": void;
+        "goat-button--click": {
+    appendData: any;
+  };
     }
     /**
      * @name Button
@@ -3241,6 +3247,10 @@ declare namespace LocalJSX {
      */
     interface GoatButton {
         /**
+          * The `appendData` property allows you to attach additional data to the button component. This data can be of any type, making it versatile for various use cases. It's particularly useful for passing extra context or information that can be accessed in event handlers or other component logic.
+         */
+        "appendData"?: any;
+        /**
           * Defines the primary color of the button. This can be set to predefined color names to apply specific color themes.
          */
         "color"?: | 'primary'
@@ -3284,7 +3294,9 @@ declare namespace LocalJSX {
         /**
           * Triggered when the button is clicked.
          */
-        "onGoat-button--click"?: (event: GoatButtonCustomEvent<void>) => void;
+        "onGoat-button--click"?: (event: GoatButtonCustomEvent<{
+    appendData: any;
+  }>) => void;
         /**
           * Button selection state.
          */

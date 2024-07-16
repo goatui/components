@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-16T16:37:04",
+  "timestamp": "2024-07-16T18:39:50",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.19.2",
@@ -677,6 +677,27 @@
       },
       "props": [
         {
+          "name": "appendData",
+          "type": "any",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "append-data",
+          "reflectToAttr": false,
+          "docs": "The `appendData` property allows you to attach additional data to the button component. This data can be of any type, making it versatile for various use cases. It's particularly useful for passing extra context or information that can be accessed in event handlers or other component logic.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "color",
           "type": "\"black\" | \"danger\" | \"primary\" | \"secondary\" | \"success\" | \"warning\" | \"white\"",
           "complexType": {
@@ -1215,11 +1236,11 @@
       "events": [
         {
           "event": "goat-button--click",
-          "detail": "void",
+          "detail": "{ appendData: any; }",
           "bubbles": true,
           "complexType": {
-            "original": "void",
-            "resolved": "void",
+            "original": "{\n    appendData: any;\n  }",
+            "resolved": "{ appendData: any; }",
             "references": {}
           },
           "cancelable": true,
