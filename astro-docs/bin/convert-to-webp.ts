@@ -13,6 +13,6 @@ for (const file of walkSync('../public/assets/img', {
 
 /**
  * ```cmd
- * deno run -A bin/convert-to-webp.ts
+ * deno run -A convert-to-webp.ts
  * ```
  */
