@@ -13,6 +13,13 @@
 | `size`   | `size`    | The size of the icon. This can be specified in pixels (px) or rem units to control the icon's dimensions. If a number is provided, it will be treated as rem units. For example, '16px', '2rem', or 2 would be valid values. | `string` | `undefined` |
 
 
+## CSS Custom Properties
+
+| Name                                                         | Description |
+| ------------------------------------------------------------ | ----------- |
+| `--goat-icon-size - The size of the icon (height and width)` |             |
+
+
 ## Dependencies
 
 ### Used by
@@ -20,6 +27,7 @@
  - [goat-accordion-item](../containers/accordion/accordion-item)
  - [goat-button](../primitive/button/button)
  - [goat-flow-designer](../application/flow-designer/flow-designer)
+ - [goat-menu-item](../navigation/menu/menu-item)
  - [goat-notification](../notification)
  - [goat-progress](../progress)
  - [goat-select](../input-controls/select)
@@ -33,6 +41,7 @@ graph TD;
   goat-accordion-item --> goat-icon
   goat-button --> goat-icon
   goat-flow-designer --> goat-icon
+  goat-menu-item --> goat-icon
   goat-notification --> goat-icon
   goat-progress --> goat-icon
   goat-select --> goat-icon

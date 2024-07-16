@@ -91,6 +91,7 @@ graph TD;
   goat-menu --> goat-empty-state
   goat-empty-state --> goat-svg
   goat-empty-state --> goat-button
+  goat-menu-item --> goat-icon
   style goat-html-editor fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

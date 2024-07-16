@@ -82,7 +82,7 @@ Type: `Promise<void>`
 ### `setFocus() => Promise<void>`
 
 Sets focus on the native `input` in `ion-input`. Use this method instead of the global
-`input.focus()`.
+`input.focus()`.t
 
 #### Returns
 
@@ -126,6 +126,7 @@ graph TD;
   goat-menu --> goat-empty-state
   goat-empty-state --> goat-svg
   goat-empty-state --> goat-button
+  goat-menu-item --> goat-icon
   goat-calendar --> goat-select
   goat-cb-expression --> goat-select
   goat-condition-builder --> goat-select

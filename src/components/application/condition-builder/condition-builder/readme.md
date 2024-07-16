@@ -43,7 +43,11 @@ graph TD;
   goat-menu --> goat-empty-state
   goat-empty-state --> goat-svg
   goat-empty-state --> goat-button
+  goat-menu-item --> goat-icon
+  goat-input --> goat-tooltip
   goat-input --> goat-button
+  goat-tooltip --> goat-popover
+  goat-tooltip --> goat-popover-content
   style goat-condition-builder fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

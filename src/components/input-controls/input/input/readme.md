@@ -14,7 +14,6 @@
 | `debounce`     | `debounce`     | Set the amount of time, in milliseconds, to wait to trigger the `goatChange` event after each keystroke.               | `number`                                   | `300`                      |
 | `disabled`     | `disabled`     | If true, the user cannot interact with the button. Defaults to `false`.                                                | `boolean`                                  | `false`                    |
 | `helperText`   | `helper-text`  |                                                                                                                        | `string`                                   | `undefined`                |
-| `hideActions`  | `hide-actions` |                                                                                                                        | `boolean`                                  | `false`                    |
 | `inline`       | `inline`       |                                                                                                                        | `boolean`                                  | `false`                    |
 | `invalid`      | `invalid`      |                                                                                                                        | `boolean`                                  | `false`                    |
 | `invalidText`  | `invalid-text` |                                                                                                                        | `string`                                   | `undefined`                |
@@ -84,12 +83,16 @@ Type: `Promise<void>`
 
 ### Depends on
 
+- [goat-tooltip](../../../informational/popover/tooltip)
 - [goat-button](../../../primitive/button/button)
 
 ### Graph
 ```mermaid
 graph TD;
+  goat-input --> goat-tooltip
   goat-input --> goat-button
+  goat-tooltip --> goat-popover
+  goat-tooltip --> goat-popover-content
   goat-button --> goat-spinner
   goat-button --> goat-icon
   goat-condition-builder --> goat-input

@@ -54,6 +54,7 @@ graph TD;
   goat-menu --> goat-empty-state
   goat-empty-state --> goat-svg
   goat-empty-state --> goat-button
+  goat-menu-item --> goat-icon
   goat-calendar-column-view --> goat-calendar-column-view-background
   style goat-calendar fill:#f9f,stroke:#333,stroke-width:4px
 ```
