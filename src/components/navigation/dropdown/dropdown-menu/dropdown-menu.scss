@@ -30,7 +30,7 @@
 .dropdown-content {
   --goat-menu-max-height: var(--goat-dropdown-menu-max-height);
   position: relative;
-  width: max-content;
+  width: 100%;
   filter: var(--popover-content-shadow, none);
   --goat-menu-shadow: none;
 }
