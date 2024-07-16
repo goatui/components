@@ -1,6 +1,6 @@
 ---
 import Highlighter from '../../../../components/Highlighter.astro';
-import MenuItems from './menu-items.astro';
+import MenuItems from './dropdown-menu.astro';
 ---
 <goat-text type='body'>
   The dropdown can be positioned relative to the trigger element. Possible positions are: <code class='language-html'>top-start</code>,
@@ -18,17 +18,14 @@ import MenuItems from './menu-items.astro';
     <div class='component-container'>
       <goat-dropdown id='dropdown' item-variant='icon' placements='bottom-start,top-start'>
         <goat-button icon='home' variant='outline'>Open</goat-button>
-        <div slot='dropdown-menu'>
-          <MenuItems/>
-        </div>
+
+        <MenuItems/>
       </goat-dropdown>
 
       <goat-dropdown id='dropdown' item-variant='icon' placements='top-end,bottom-end'>
         <goat-button icon='trash-can' color='danger' aria-label='Trash Can'></goat-button>
 
-        <div slot='dropdown-menu'>
-          <MenuItems/>
-        </div>
+        <MenuItems/>
       </goat-dropdown>
     </div>
   </goat-card-content>
@@ -36,12 +33,12 @@ import MenuItems from './menu-items.astro';
     <Highlighter lang='html'>
       <goat-dropdown id='dropdown' item-variant='icon' placements='top-start,bottom-start'>
         <goat-button icon='home' variant='outline'>Open</goat-button>
-        <div slot='dropdown-menu'>...</div>
+        <goat-dropdown-menu>...</goat-dropdown-menu>
       </goat-dropdown>
 
       <goat-dropdown id='dropdown' item-variant='icon' placements='top-end,bottom-end'>
         <goat-button icon='trash-can' color='danger' aria-label='Trash Can'></goat-button>
-        <div slot='dropdown-menu'>...</div>
+        <goat-dropdown-menu>...</goat-dropdown-menu>
       </goat-dropdown>
 
     </Highlighter>

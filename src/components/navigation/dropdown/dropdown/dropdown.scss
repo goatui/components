@@ -1,0 +1,16 @@
+@import "../../../../globalStyles/commons";
+
+:host {
+  display: inline-block;
+  --dropdown-height: inherit;
+  height: var(--dropdown-height);
+}
+
+.dropdown {
+  display: inline-block;
+  height: var(--dropdown-height);
+
+  goat-menu {
+    --goat-menu-shadow: none;
+  }
+}

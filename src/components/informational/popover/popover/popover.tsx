@@ -31,6 +31,7 @@ export class Popover implements ComponentInterface {
 
   gid: string = getComponentIndex();
   slotRef: HTMLSlotElement;
+  popoverController: PopoverController;
 
   /**
    * Determines how the popover is triggered.
@@ -98,23 +99,15 @@ export class Popover implements ComponentInterface {
    * Emitted when the popover is closed.
    */
   @Event({ eventName: 'goat-popover--close' }) closeEvent: EventEmitter;
-  popoverHandler: PopoverController;
-  triggers: HTMLElement[] = [];
 
   @Listen('resize', { target: 'window' })
   resizeHandler() {
-    this.popoverHandler.computePositionThrottle('resize');
+    this.popoverController.computePositionThrottle('resize');
   }
 
   @Listen('click', { target: 'window' })
   windowClickHandler(evt) {
-    if ((this.trigger === 'click' || this.trigger == 'hover') && this.open) {
-      const path = evt.path || evt.composedPath();
-      for (const elm of path) {
-        if (elm == this.host || this.triggers.find(t => t == elm)) return;
-      }
-      this.hidePopover();
-    }
+    this.popoverController.windowClickHandler(evt);
   }
 
   /**
@@ -126,8 +119,8 @@ export class Popover implements ComponentInterface {
   @Method()
   async show(target?: HTMLElement) {
     if (target) {
-      this.popoverHandler.registerTarget(target);
-      this.popoverHandler.setTriggerRef(target);
+      this.popoverController.registerTarget(target);
+      this.popoverController.setTriggerRef(target);
     }
     this.showPopover();
   }
@@ -147,29 +140,37 @@ export class Popover implements ComponentInterface {
   }
 
   componentDidUpdate() {
-    this.popoverHandler.setOpen(this.open);
+    this.popoverController.setOpen(this.open);
     if (this.open) {
-      this.popoverHandler.computePositionThrottle('onUpdate');
+      this.popoverController.computePositionThrottle('onUpdate');
     }
   }
 
   async componentDidLoad() {
     const contentRef = this.host.querySelector('goat-popover-content');
+
+    if (!contentRef) {
+      throw new Error(
+        'The goat-popover component requires a goat-popover-content component to be present.',
+      );
+    }
+
     const arrowRef = contentRef.shadowRoot.querySelector(
       '.arrow',
     ) as HTMLElement;
 
-    this.popoverHandler = new PopoverController(
+    this.popoverController = new PopoverController(
+      this.host,
       this.trigger,
       this.open,
       contentRef,
       this.tip === 'tab' ? 0 : this.offset,
       this.tip === 'tab' ? 8 : 0,
-      this.openTimeout,
-      this.dismissTimeout,
       this.showPopover,
       this.hidePopover,
       this.placements,
+      this.openTimeout,
+      this.dismissTimeout,
       this.tip == 'caret' ? arrowRef : null,
     );
 
@@ -187,15 +188,15 @@ export class Popover implements ComponentInterface {
     }
 
     if (triggerRef) {
-      this.popoverHandler.registerTarget(triggerRef);
-      this.popoverHandler.setTriggerRef(triggerRef);
+      this.popoverController.registerTarget(triggerRef);
+      this.popoverController.setTriggerRef(triggerRef);
     }
 
     if (this.open) {
       const triggerObserver = new IntersectionObserver(
         entries => {
           if (entries[0].isIntersecting) {
-            this.popoverHandler.computePositionThrottle('onLoad');
+            this.popoverController.computePositionThrottle('onLoad');
             triggerObserver.disconnect();
           }
         },
@@ -208,7 +209,7 @@ export class Popover implements ComponentInterface {
   }
 
   disconnectedCallback() {
-    this.popoverHandler.destroy();
+    this.popoverController.destroy();
   }
 
   hidePopover = () => {

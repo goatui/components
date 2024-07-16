@@ -463,7 +463,7 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
         <goat-menu
           class="mention-menu"
           ref={elm => (this.dropdownContent = elm)}
-          onGoat:menu-item-click={evt => {
+          onGoat-menu-item--click={evt => {
             this.mentionCommand({ id: evt.detail.value });
           }}
         >

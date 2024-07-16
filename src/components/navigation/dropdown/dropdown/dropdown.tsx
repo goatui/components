@@ -10,7 +10,7 @@ import {
   Method,
   Prop,
 } from '@stencil/core';
-import { getComponentIndex } from '../../../utils/utils';
+import PopoverController from '../../../informational/popover/popover/PopoverController';
 
 /**
  * @name Dropdown
@@ -27,18 +27,10 @@ import { getComponentIndex } from '../../../utils/utils';
 export class Dropdown implements ComponentInterface {
   @Element() host!: HTMLElement;
 
-  gid: string = getComponentIndex();
-
-  menuRef: HTMLGoatMenuElement;
-  popoverElm: any;
-  triggerSlotRef: HTMLSlotElement;
+  slotRef: HTMLSlotElement;
+  menuRef: HTMLGoatDropdownMenuElement;
   triggerRef: HTMLElement | HTMLGoatButtonElement;
-
-  /**
-   * The button size.
-   * Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
-   */
-  @Prop() size: 'sm' | 'md' | 'lg' = 'md';
+  popoverController: PopoverController;
 
   @Prop({ mutable: true, reflect: true }) open: boolean = false;
 
@@ -57,6 +49,16 @@ export class Dropdown implements ComponentInterface {
   @Event({ eventName: 'goat-dropdown--item-click' })
   goatDropdownItemClick: EventEmitter;
 
+  /**
+   * Emitted when the dropdown is opened.
+   */
+  @Event({ eventName: 'goat-dropdown--open' }) openEvent: EventEmitter;
+
+  /**
+   * Emitted when the dropdown is closed.
+   */
+  @Event({ eventName: 'goat-dropdown--close' }) closeEvent: EventEmitter;
+
   @Method()
   async setFocus() {
     this.setFocusOnTrigger();
@@ -68,17 +70,64 @@ export class Dropdown implements ComponentInterface {
       : this.triggerRef.focus();
   }
 
-  private closeList = () => {
-    this.popoverElm.hide();
+  @Listen('resize', { target: 'window' })
+  resizeHandler() {
+    this.popoverController.computePositionThrottle('resize');
+  }
+
+  @Listen('click', { target: 'window' })
+  windowClickHandler(evt) {
+    this.popoverController.windowClickHandler(evt);
+  }
+
+  disconnectedCallback() {
+    this.popoverController.destroy();
+  }
+
+  hidePopover = () => {
+    this.open = false;
+    this.closeEvent.emit();
   };
 
-  @Listen('goat-popover--open')
-  openHandler() {
-    this.menuRef.setFocus();
+  showPopover = () => {
+    this.open = true;
+    setTimeout(() => {
+      this.menuRef.setFocus();
+      this.openEvent.emit();
+    });
+  };
+
+  componentDidUpdate() {
+    this.popoverController.setOpen(this.open);
+    if (this.open) {
+      this.popoverController.computePositionThrottle('onUpdate');
+    }
   }
 
   componentDidLoad() {
-    this.triggerRef = this.triggerSlotRef.assignedElements()[0] as HTMLElement;
+    const contentRef = this.host.querySelector('goat-dropdown-menu');
+
+    if (!contentRef) {
+      throw new Error(
+        'goat-dropdown: The dropdown component must have a goat-dropdown-menu child component',
+      );
+    }
+
+    this.menuRef = contentRef;
+
+    this.popoverController = new PopoverController(
+      this.host,
+      this.trigger,
+      this.open,
+      contentRef,
+      0,
+      0,
+      this.showPopover,
+      this.hidePopover,
+      this.placements,
+    );
+
+    this.triggerRef = this.slotRef.assignedElements()[0] as HTMLElement;
     if (this.triggerRef.nodeName === 'SLOT') {
       const assignedElements = (
         this.triggerRef as HTMLSlotElement
@@ -88,16 +137,19 @@ export class Dropdown implements ComponentInterface {
       }
     }
 
+    this.popoverController.registerTarget(this.triggerRef);
+    this.popoverController.setTriggerRef(this.triggerRef);
+
     this.host.addEventListener('goat-menu-item--click', (evt: CustomEvent) => {
       this.goatDropdownItemClick.emit(evt.detail);
       this.setFocusOnTrigger();
-      this.closeList();
+      this.popoverController.hidePopover();
     });
 
     this.host.addEventListener('keydown', evt => {
       if (evt.key === 'Escape') {
         evt.preventDefault();
-        this.closeList();
+        this.popoverController.hidePopover();
       }
     });
   }
@@ -105,24 +157,14 @@ export class Dropdown implements ComponentInterface {
   render() {
     return (
       <Host>
-        <goat-popover
-          trigger={this.trigger}
-          tip={'tab'}
-          placements={this.placements}
-          offset={0}
+        <div
           class={{
             dropdown: true,
+            open: this.open,
           }}
-          ref={elm => (this.popoverElm = elm)}
         >
-          <slot ref={el => (this.triggerSlotRef = el as HTMLSlotElement)} />
-
-          <goat-popover-content class="dropdown-content">
-            <goat-menu ref={elm => (this.menuRef = elm)} size={this.size}>
-              <slot name="dropdown-menu" />
-            </goat-menu>
-          </goat-popover-content>
-        </goat-popover>
+          <slot ref={el => (this.slotRef = el as HTMLSlotElement)} />
+        </div>
       </Host>
     );
   }

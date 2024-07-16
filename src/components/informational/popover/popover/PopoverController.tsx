@@ -8,6 +8,7 @@ import {
 } from '@floating-ui/dom';
 
 export default class PopoverController {
+  host: HTMLElement;
   trigger: 'hover' | 'click' | 'manual';
   contentRef: HTMLElement;
   arrowRef?: HTMLElement;
@@ -26,18 +27,20 @@ export default class PopoverController {
   observer: IntersectionObserver;
 
   constructor(
+    host: HTMLElement,
     trigger: 'hover' | 'click' | 'manual' = 'hover',
     open: boolean,
     contentRef: HTMLElement,
     offset: number = 0,
     contentPadding: number = 0,
-    openTimeout: number = 200,
-    dismissTimeout: number = 300,
     show: () => void,
     hide: () => void,
     placements?: string,
+    openTimeout: number = 200,
+    dismissTimeout: number = 300,
     arrowRef?: HTMLElement,
   ) {
+    this.host = host;
     this.open = open;
     this.trigger = trigger;
     this.contentRef = contentRef;
@@ -81,7 +84,7 @@ export default class PopoverController {
           if (this.triggerRef.matches(':hover')) {
             this.showCallback();
           }
-        }, 1000); //this.timeout);
+        }, this.openTimeout);
       } else {
         this.showCallback();
       }
@@ -124,13 +127,11 @@ export default class PopoverController {
 
   mouseleaveHandler = (event: any) => {
     const eventPath = event.path ? event.path : event.composedPath();
-    const tooltip = eventPath.filter(
-      node => node.nodeName === 'GOAT-POPOVER',
-    )[0];
-    if (tooltip) {
+    const popoverHost = eventPath.filter(node => node === this.host)[0];
+    if (popoverHost) {
       const mouseLeaveHandler = (() => {
         const hoverElements = document.querySelectorAll(':hover');
-        const index = [].indexOf.call(hoverElements, tooltip);
+        const index = [].indexOf.call(hoverElements, popoverHost);
         if (index < 0) {
           this.hidePopover();
         }
@@ -207,7 +208,7 @@ export default class PopoverController {
       middleware.push(flip({ fallbackPlacements }));
     }
 
-    middleware.push(arrow({ element: this.arrowRef }));
+    if (this.arrowRef) middleware.push(arrow({ element: this.arrowRef }));
 
     computePosition(this.triggerRef, this.contentRef, {
       placement,
@@ -282,6 +283,16 @@ export default class PopoverController {
     leading: true,
     trailing: true,
   });
+
+  windowClickHandler = (evt: any) => {
+    if ((this.trigger === 'click' || this.trigger == 'hover') && this.open) {
+      const path = evt.path || evt.composedPath();
+      for (const elm of path) {
+        if (elm == this.host || this.triggers.find(t => t == elm)) return;
+      }
+      this.hidePopover();
+    }
+  };
 
   destroy() {
     this.observer.disconnect();

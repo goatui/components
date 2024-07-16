@@ -240,9 +240,13 @@
  * Sizes
  */
 .input-container {
+
+  goat-tooltip {
+    --goat-tooltip-height: 100%;
+  }
+
   goat-button {
     height: 100%;
-    --goat-popover-height: 100%;
     --goat-button-height: 100%;
     --goat-button-border-radius: 0;
   }

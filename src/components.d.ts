@@ -573,11 +573,20 @@ export namespace Components {
         "open": boolean;
         "placements": string;
         "setFocus": () => Promise<void>;
-        /**
-          * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
-         */
-        "size": 'sm' | 'md' | 'lg';
         "trigger": 'click' | 'hover' | 'manual';
+    }
+    /**
+     * @name Dropdown Menu
+     * @description The Dropdown Menu component is used to display a list of options.
+     * @category Informational
+     * @subcategory Dropdown
+     * @childComponent true
+     */
+    interface GoatDropdownMenu {
+        /**
+          * Sets focus on first menu item. Use this method instead of the global `element.focus()`.
+         */
+        "setFocus": () => Promise<void>;
     }
     /**
      * @name Empty State
@@ -2271,6 +2280,8 @@ declare global {
     };
     interface HTMLGoatDropdownElementEventMap {
         "goat-dropdown--item-click": any;
+        "goat-dropdown--open": any;
+        "goat-dropdown--close": any;
     }
     /**
      * @name Dropdown
@@ -2292,6 +2303,19 @@ declare global {
     var HTMLGoatDropdownElement: {
         prototype: HTMLGoatDropdownElement;
         new (): HTMLGoatDropdownElement;
+    };
+    /**
+     * @name Dropdown Menu
+     * @description The Dropdown Menu component is used to display a list of options.
+     * @category Informational
+     * @subcategory Dropdown
+     * @childComponent true
+     */
+    interface HTMLGoatDropdownMenuElement extends Components.GoatDropdownMenu, HTMLStencilElement {
+    }
+    var HTMLGoatDropdownMenuElement: {
+        prototype: HTMLGoatDropdownMenuElement;
+        new (): HTMLGoatDropdownMenuElement;
     };
     /**
      * @name Empty State
@@ -3057,6 +3081,7 @@ declare global {
         "goat-date-picker": HTMLGoatDatePickerElement;
         "goat-divider": HTMLGoatDividerElement;
         "goat-dropdown": HTMLGoatDropdownElement;
+        "goat-dropdown-menu": HTMLGoatDropdownMenuElement;
         "goat-empty-state": HTMLGoatEmptyStateElement;
         "goat-flow-designer": HTMLGoatFlowDesignerElement;
         "goat-footer": HTMLGoatFooterElement;
@@ -3674,14 +3699,27 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         "managed"?: boolean;
+        /**
+          * Emitted when the dropdown is closed.
+         */
+        "onGoat-dropdown--close"?: (event: GoatDropdownCustomEvent<any>) => void;
         "onGoat-dropdown--item-click"?: (event: GoatDropdownCustomEvent<any>) => void;
+        /**
+          * Emitted when the dropdown is opened.
+         */
+        "onGoat-dropdown--open"?: (event: GoatDropdownCustomEvent<any>) => void;
         "open"?: boolean;
         "placements"?: string;
-        /**
-          * The button size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
-         */
-        "size"?: 'sm' | 'md' | 'lg';
         "trigger"?: 'click' | 'hover' | 'manual';
+    }
+    /**
+     * @name Dropdown Menu
+     * @description The Dropdown Menu component is used to display a list of options.
+     * @category Informational
+     * @subcategory Dropdown
+     * @childComponent true
+     */
+    interface GoatDropdownMenu {
     }
     /**
      * @name Empty State
@@ -4926,6 +4964,7 @@ declare namespace LocalJSX {
         "goat-date-picker": GoatDatePicker;
         "goat-divider": GoatDivider;
         "goat-dropdown": GoatDropdown;
+        "goat-dropdown-menu": GoatDropdownMenu;
         "goat-empty-state": GoatEmptyState;
         "goat-flow-designer": GoatFlowDesigner;
         "goat-footer": GoatFooter;
@@ -5152,6 +5191,14 @@ declare module "@stencil/core" {
              * @imgDark /assets/img/dropdown-dark.webp
              */
             "goat-dropdown": LocalJSX.GoatDropdown & JSXBase.HTMLAttributes<HTMLGoatDropdownElement>;
+            /**
+             * @name Dropdown Menu
+             * @description The Dropdown Menu component is used to display a list of options.
+             * @category Informational
+             * @subcategory Dropdown
+             * @childComponent true
+             */
+            "goat-dropdown-menu": LocalJSX.GoatDropdownMenu & JSXBase.HTMLAttributes<HTMLGoatDropdownMenuElement>;
             /**
              * @name Empty State
              * @description A message that displays when there is no information to display.

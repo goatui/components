@@ -41,8 +41,8 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [goat-popover](../../informational/popover/popover)
-- [goat-popover-content](../../informational/popover/popover-content)
+- [goat-popover](../../../informational/popover/popover)
+- [goat-popover-content](../../../informational/popover/popover-content)
 
 ### Graph
 ```mermaid

@@ -2,7 +2,7 @@
 
 :host {
   display: inline-block;
-  --goat-tooltip-height: 100%;
+  --goat-tooltip-height: inherit;
   height: var(--goat-tooltip-height);
 }
 

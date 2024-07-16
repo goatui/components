@@ -80,10 +80,13 @@ export class Menu implements ComponentInterface {
         this.host.childNodes.length &&
         this.host.childNodes[0].nodeName === 'SLOT'
       ) {
-        const assignedElement = (
+        firstItem = (
           this.host.childNodes[0] as HTMLSlotElement
         ).assignedElements()[0];
-        firstItem = assignedElement.querySelector('goat-menu-item');
+
+        if (!firstItem) {
+          throw new Error('goat-menu: No menu items found');
+        }
       }
     }
     return firstItem;
@@ -96,10 +99,13 @@ export class Menu implements ComponentInterface {
         this.host.childNodes.length &&
         this.host.childNodes[0].nodeName === 'SLOT'
       ) {
-        const assignedElement = (
-          this.host.childNodes[0] as HTMLSlotElement
-        ).assignedElements()[0];
-        lastItem = assignedElement.querySelector('goat-menu-item:last-child');
+        lastItem = (this.host.childNodes[0] as HTMLSlotElement)
+          .assignedElements()
+          .slice(-1)[0];
+
+        if (!lastItem) {
+          throw new Error('goat-menu: No menu items found');
+        }
       }
     }
     return lastItem;
