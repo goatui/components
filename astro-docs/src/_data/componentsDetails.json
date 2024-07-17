@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-17T03:18:36",
+  "timestamp": "2024-07-17T13:16:59",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.19.2",
@@ -8746,6 +8746,28 @@
           "required": false
         },
         {
+          "name": "managed",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "managed",
+          "reflectToAttr": false,
+          "docs": "Specify whether the Modal is managed by the parent component",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "open",
           "type": "boolean",
           "complexType": {
@@ -8756,7 +8778,7 @@
           "mutable": false,
           "attr": "open",
           "reflectToAttr": true,
-          "docs": "",
+          "docs": "Specify whether the Modal is currently open",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -11278,7 +11300,7 @@
           "passive": false
         },
         {
-          "event": "goat-tag-dismiss",
+          "event": "goat-tag--dismiss",
           "capture": false,
           "passive": false
         },
