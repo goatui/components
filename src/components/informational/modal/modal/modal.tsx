@@ -67,7 +67,10 @@ export class Modal {
   }
 
   closeModal() {
-    if (!this.managed) this.goatModalClose.emit();
+    if (!this.managed) {
+      this.open = false;
+    }
+    this.goatModalClose.emit();
   }
 
   render() {
