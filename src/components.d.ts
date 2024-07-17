@@ -969,6 +969,13 @@ export namespace Components {
     interface GoatModal {
         "heading": string;
         "hideClose": boolean;
+        /**
+          * Specify whether the Modal is managed by the parent component
+         */
+        "managed": boolean;
+        /**
+          * Specify whether the Modal is currently open
+         */
         "open": boolean;
         "showLoader": boolean;
         "size": 'sm' | 'md' | 'lg';
@@ -4103,9 +4110,16 @@ declare namespace LocalJSX {
         "heading"?: string;
         "hideClose"?: boolean;
         /**
+          * Specify whether the Modal is managed by the parent component
+         */
+        "managed"?: boolean;
+        /**
           * On click of button, a CustomEvent 'goat-modal--close' will be triggered.
          */
         "onGoat-modal--close"?: (event: GoatModalCustomEvent<any>) => void;
+        /**
+          * Specify whether the Modal is currently open
+         */
         "open"?: boolean;
         "showLoader"?: boolean;
         "size"?: 'sm' | 'md' | 'lg';

@@ -26,10 +26,15 @@ import {
 export class Modal {
   @Element() elm!: HTMLElement;
 
-  /*
+  /**
    * Specify whether the Modal is currently open
    */
   @Prop({ reflect: true }) open: boolean = false;
+
+  /**
+   * Specify whether the Modal is managed by the parent component
+   */
+  @Prop() managed: boolean = false;
 
   /*
    * Specify the content of the modal heading.
@@ -75,8 +80,12 @@ export class Modal {
             <div
               class="modal--wrapper"
               onClick={event => {
-                //@ts-ignore
-                if (event.target.classList.contains('modal--wrapper'))
+                if (
+                  !this.managed &&
+                  (event.target as HTMLElement).classList.contains(
+                    'modal--wrapper',
+                  )
+                )
                   this.goatModalClose.emit();
               }}
             >

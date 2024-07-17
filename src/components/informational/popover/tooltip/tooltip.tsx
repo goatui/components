@@ -78,6 +78,7 @@ export class Tooltip {
 
           <goat-popover-content class="tooltip-content">
             {this.content}
+            <slot name="content"></slot>
           </goat-popover-content>
         </goat-popover>
       </Host>

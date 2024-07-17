@@ -216,7 +216,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
   @State() position: string;
   private displayElement?: HTMLElement;
 
-  @Listen('goat-tag-dismiss')
+  @Listen('goat-tag--dismiss')
   tagDismissClick(evt: GoatTagCustomEvent<any>) {
     this.removeItem(evt.detail.value);
   }
@@ -267,6 +267,8 @@ export class Select implements ComponentInterface, InputComponentInterface {
 
   private selectHandler = selectItemValue => {
     if (!this.disabled && !this.readonly) {
+      this.searchString = '';
+
       if (this.multiple) this.toggleItem(selectItemValue);
       else this.addItem(selectItemValue);
     }
