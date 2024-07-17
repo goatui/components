@@ -24,7 +24,7 @@ export class Tooltip {
    * - `"bottom"`: The popover is placed below the trigger element.
    * - `"left"`: The popover is placed to the left of the trigger element.
    */
-  @Prop() placements: string = 'top,right,bottom,left';
+  @Prop() placements: string = 'top,bottom,right,left';
 
   /**
    * If true, the tooltip will be managed by the parent component.

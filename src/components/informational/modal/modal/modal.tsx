@@ -66,6 +66,10 @@ export class Modal {
     }
   }
 
+  closeModal() {
+    if (!this.managed) this.goatModalClose.emit();
+  }
+
   render() {
     if (this.open)
       return (
@@ -81,12 +85,11 @@ export class Modal {
               class="modal--wrapper"
               onClick={event => {
                 if (
-                  !this.managed &&
                   (event.target as HTMLElement).classList.contains(
                     'modal--wrapper',
                   )
                 )
-                  this.goatModalClose.emit();
+                  this.closeModal();
               }}
             >
               <div
@@ -129,7 +132,7 @@ export class Modal {
                           icon="close--large"
                           variant="ghost"
                           onGoat-button--click={() => {
-                            this.goatModalClose.emit();
+                            this.closeModal();
                           }}
                         ></goat-button>
                       )}
