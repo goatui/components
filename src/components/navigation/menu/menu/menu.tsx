@@ -80,9 +80,13 @@ export class Menu implements ComponentInterface {
         this.host.childNodes.length &&
         this.host.childNodes[0].nodeName === 'SLOT'
       ) {
-        firstItem = (
-          this.host.childNodes[0] as HTMLSlotElement
-        ).assignedElements()[0];
+        for (let i = 0; i < this.host.childNodes[0].childNodes.length; i++) {
+          const item = this.host.childNodes[0].childNodes[i] as HTMLElement;
+          if (item.tagName === 'GOAT-MENU-ITEM') {
+            firstItem = item;
+            break;
+          }
+        }
 
         if (!firstItem) {
           throw new Error('goat-menu: No menu items found');
@@ -99,9 +103,17 @@ export class Menu implements ComponentInterface {
         this.host.childNodes.length &&
         this.host.childNodes[0].nodeName === 'SLOT'
       ) {
-        lastItem = (this.host.childNodes[0] as HTMLSlotElement)
-          .assignedElements()
-          .slice(-1)[0];
+        for (
+          let i = this.host.childNodes[0].childNodes.length - 1;
+          i >= 0;
+          i--
+        ) {
+          const item = this.host.childNodes[0].childNodes[i] as HTMLElement;
+          if (item.tagName === 'GOAT-MENU-ITEM') {
+            lastItem = item;
+            break;
+          }
+        }
 
         if (!lastItem) {
           throw new Error('goat-menu: No menu items found');
@@ -111,7 +123,7 @@ export class Menu implements ComponentInterface {
     return lastItem;
   }
 
-  focusNextItem(currentItem) {
+  focusNextItem(currentItem: HTMLElement) {
     let nextItem: any = currentItem.nextElementSibling;
     do {
       if (
@@ -130,7 +142,7 @@ export class Menu implements ComponentInterface {
     } while (nextItem !== currentItem);
   }
 
-  private focusPreviousItem(currentItem) {
+  private focusPreviousItem(currentItem: HTMLElement) {
     let previousItem: any = currentItem.previousElementSibling;
     do {
       if (
