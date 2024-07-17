@@ -80,8 +80,11 @@ export class Menu implements ComponentInterface {
         this.host.childNodes.length &&
         this.host.childNodes[0].nodeName === 'SLOT'
       ) {
-        for (let i = 0; i < this.host.childNodes[0].childNodes.length; i++) {
-          const item = this.host.childNodes[0].childNodes[i] as HTMLElement;
+        const assignedElements = (
+          this.host.childNodes[0] as HTMLSlotElement
+        ).assignedElements();
+        for (let i = 0; i < assignedElements.length; i++) {
+          const item = assignedElements[i] as HTMLElement;
           if (item.tagName === 'GOAT-MENU-ITEM') {
             firstItem = item;
             break;
@@ -103,12 +106,11 @@ export class Menu implements ComponentInterface {
         this.host.childNodes.length &&
         this.host.childNodes[0].nodeName === 'SLOT'
       ) {
-        for (
-          let i = this.host.childNodes[0].childNodes.length - 1;
-          i >= 0;
-          i--
-        ) {
-          const item = this.host.childNodes[0].childNodes[i] as HTMLElement;
+        const assignedElements = (
+          this.host.childNodes[0] as HTMLSlotElement
+        ).assignedElements();
+        for (let i = assignedElements.length - 1; i >= 0; i--) {
+          const item = assignedElements[i] as HTMLElement;
           if (item.tagName === 'GOAT-MENU-ITEM') {
             lastItem = item;
             break;

@@ -17,7 +17,7 @@
    * @prop --goat-button-border-radius: Button border radius.
    * @prop --goat-theme-button-border-radius: Theme level button border radius. (applies to all buttons)
    */
-  --goat-button-border-radius: var(--goat-theme-button-border-radius, var(--border-radius));
+  --goat-button-border-radius: var(--goat-theme-button-border-radius, #{v(--border-radius)});
 
   /**
    * @prop --goat-button-border-style: Button border style.
