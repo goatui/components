@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-17T13:16:59",
+  "timestamp": "2024-07-17T13:53:53",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.19.2",
@@ -15431,7 +15431,7 @@
           "reflectToAttr": false,
           "docs": "The placement of the popover relative to the trigger element.\nPossible values are:\n- `\"top\"`: The popover is placed above the trigger element.\n- `\"right\"`: The popover is placed to the right of the trigger element.\n- `\"bottom\"`: The popover is placed below the trigger element.\n- `\"left\"`: The popover is placed to the left of the trigger element.",
           "docsTags": [],
-          "default": "'top,right,bottom,left'",
+          "default": "'top,bottom,right,left'",
           "values": [
             {
               "type": "string"
