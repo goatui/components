@@ -6,7 +6,7 @@
 }
 
 :host {
-  font-family: var(--font-family-base);
+  font-family: v(--font-family-base);
 }
 
 ::selection {
@@ -39,43 +39,42 @@
 }
 
 :host, :host([layer="background"]) {
-  --field: var(--field-01);
-  --layer: var(--layer-01);
-  --layer-hover: var(--layer-hover-01);
-  --layer-accent: var(--layer-accent-01);
-  --layer-selected: var(--layer-selected-01);
-  --layer-selected-hover: var(--layer-selected-hover-01);
+  --field: #{v(--field-01)};
+  --layer:  #{v(--layer-01)};
+  --layer-hover:  #{v(--layer-hover-01)};
+  --layer-accent:  #{v(--layer-accent-01)};
+  --layer-selected:  #{v(--layer-selected-01)};
+  --layer-selected-hover:  #{v(--layer-selected-hover-01)};
 
-  --field-hover: var(--field-hover-01);
-  --border-strong: var(--border-strong-01);
-  --border-subtle: var(--border-subtle-00);
-
+  --field-hover:  #{v(--field-hover-01)};
+  --border-strong:  #{v(--border-strong-01)};
+  --border-subtle:  #{v(--border-subtle-00)};
 }
 
 :host([layer="01"]) {
-  --field: var(--field-02);
-  --layer: var(--layer-02);
-  --layer-hover: var(--layer-hover-02);
-  --layer-accent: var(--layer-accent-02);
-  --layer-selected: var(--layer-selected-02);
-  --layer-selected-hover: var(--layer-selected-hover-02);
+  --field:  #{v(--field-02)};
+  --layer:  #{v(--layer-02)};
+  --layer-hover:  #{v(--layer-hover-02)};
+  --layer-accent:  #{v(--layer-accent-02)};
+  --layer-selected:  #{v(--layer-selected-02)};
+  --layer-selected-hover:  #{v(--layer-selected-hover-02)};
 
-  --field-hover: var(--field-hover-02);
-  --border-strong: var(--border-strong-02);
-  --border-subtle: var(--border-subtle-01);
+  --field-hover:  #{v(--field-hover-02)};
+  --border-strong:  #{v(--border-strong-02)};
+  --border-subtle:  #{v(--border-subtle-01)};
 }
 
 :host([layer="02"]) {
-  --field: var(--field-03);
-  --layer: var(--layer-03);
-  --layer-hover: var(--layer-hover-03);
-  --layer-accent: var(--layer-accent-03);
-  --layer-selected: var(--layer-selected-03);
-  --layer-selected-hover: var(--layer-selected-hover-03);
+  --field:  #{v(--field-03)};
+  --layer:  #{v(--layer-03)};
+  --layer-hover:  #{v(--layer-hover-03)};
+  --layer-accent:  #{v(--layer-accent-03)};
+  --layer-selected:  #{v(--layer-selected-03)};
+  --layer-selected-hover:  #{v(--layer-selected-hover-03)};
 
-  --field-hover: var(--field-hover-03);
-  --border-strong: var(--border-strong-03);
-  --border-subtle: var(--border-subtle-02);
+  --field-hover:  #{v(--field-hover-03)};
+  --border-strong:  #{v(--border-strong-03)};
+  --border-subtle:  #{v(--border-subtle-02)};
 }
 
 
@@ -100,14 +99,14 @@
   position: relative;
   padding: 0;
   border: none;
-  background: var(--skeleton-background);
+  background:  #{v(--skeleton-background)};
   box-shadow: none;
   pointer-events: none;
 
   &::before {
     position: absolute;
     animation: 3000ms ease-in-out skeleton infinite;
-    background: var(--skeleton-element);
+    background:  #{v(--skeleton-element)};
     block-size: 100%;
     content: "";
     inline-size: 100%;

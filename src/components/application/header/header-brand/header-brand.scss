@@ -9,8 +9,8 @@
   display: flex;
   align-items: center;
   height: 100%;
-  padding-inline-start: var(--spacing-05);
-  padding-inline-end: var(--spacing-04);
+  padding-inline-start: v(--spacing-05);
+  padding-inline-end: v(--spacing-04);
 
   .brand-link {
     height: 100%;
@@ -21,9 +21,9 @@
   .brand {
     display: flex;
     align-items: center;
-    gap: var(--spacing-03);
+    gap: v(--spacing-03);
     height: 100%;
-    padding: 0 var(--spacing-02);
+    padding: 0 v(--spacing-02);
     @include font-style(heading-compact-01);
     font-size: 1rem;
   }
@@ -37,7 +37,7 @@
   }
 
   .subtitle {
-    padding: 0 var(--spacing-02);
+    padding: 0 v(--spacing-02);
   }
 
 
@@ -71,6 +71,6 @@
 
 @include for-phone-only {
   .header-brand {
-    padding-inline-start: var(--spacing-04);
+    padding-inline-start: v(--spacing-04);
   }
 }

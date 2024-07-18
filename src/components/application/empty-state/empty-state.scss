@@ -55,14 +55,14 @@
 
   .title {
     @include font-style(text-md);
-    font-weight: var(--font-weight-semi-bold);
-    margin-bottom: var(--spacing-02);
+    font-weight: v(--font-weight-semi-bold);
+    margin-bottom: v(--spacing-02);
     color: var(--text-color, var(--text-primary))
   }
 
   .description {
     @include font-style(text-sm);
-    margin-bottom: var(--spacing-04);
+    margin-bottom: v(--spacing-04);
     color: var(--text-color, var(--text-secondary))
   }
 }

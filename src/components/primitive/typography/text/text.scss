@@ -2,7 +2,7 @@
 
 :host {
   display: block;
-  margin-bottom: var(--spacing-03);
+  margin-bottom: v(--spacing-03);
 }
 
 .native-element {
@@ -31,7 +31,7 @@
  */
 
 :host([type="heading"]) {
-  margin-bottom: var(--spacing-05);
+  margin-bottom: v(--spacing-05);
 
   .text {
     @for $i from 1 through 7 {
@@ -50,7 +50,7 @@
  */
 
 :host([type="fluid-heading"]) {
-  margin-bottom: var(--spacing-05);
+  margin-bottom: v(--spacing-05);
 }
 
 @include for-phone-only {
