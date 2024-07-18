@@ -197,9 +197,11 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
       },
     );
 
-    this.editorMonacoInstance.onDidChangeModelContent(() => {
-      this.value = this.editorMonacoInstance.getValue();
-      this.goatChange.emit({ value: this.value });
+    this.editorMonacoInstance.onDidChangeModelContent(e => {
+      if (!e.isFlush) {
+        this.value = this.editorMonacoInstance.getValue();
+        this.goatChange.emit({ value: this.value });
+      }
     });
 
     this.editorMonacoInstance.onDidFocusEditorText(() => {

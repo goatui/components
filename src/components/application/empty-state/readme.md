@@ -22,15 +22,15 @@
 
 ### Used by
 
- - [goat-menu](../../navigation/menu/menu)
+ - [goat-menu](../../menu/menu)
  - [goat-sidenav-menu](../sidenav-menu)
  - [goat-table](../../table)
- - [goat-tree-view](../../navigation/tree-view/tree-view)
+ - [goat-tree-view](../../tree-view/tree-view)
 
 ### Depends on
 
 - [goat-svg](../../svg)
-- [goat-button](../../primitive/button/button)
+- [goat-button](../../button/button)
 
 ### Graph
 ```mermaid

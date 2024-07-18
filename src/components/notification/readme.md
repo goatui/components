@@ -29,12 +29,12 @@
 
 ### Used by
 
- - [goat-notification-manager](../informational/notification-manager)
+ - [goat-notification-manager](../notification-manager)
 
 ### Depends on
 
 - [goat-icon](../icon)
-- [goat-button](../primitive/button/button)
+- [goat-button](../button/button)
 
 ### Graph
 ```mermaid

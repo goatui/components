@@ -20,14 +20,14 @@ Fields on $layer-02
 /*
 Hover color for $field-01
  */
-@include defineVariableDeprecated(--field-hover-01, getColor(gray, 10), getColor(gray, 90));
+@include defineVariableDeprecated(--field-hover-01, getColor(gray-hover, 10), getColor(gray-hover, 90));
 
 /*
 Hover color for $field-02
  */
-@include defineVariableDeprecated(--field-hover-02, getColor(gray, 10), getColor(gray, 80));
+@include defineVariableDeprecated(--field-hover-02, getColor(gray-hover, 10), getColor(gray-hover, 80));
 
 /*
 Hover color for $field-03
  */
-@include defineVariableDeprecated(--field-hover-03, getColor(gray, 10), getColor(gray, 70));
+@include defineVariableDeprecated(--field-hover-03, getColor(gray-hover, 10), getColor(gray-hover, 70));

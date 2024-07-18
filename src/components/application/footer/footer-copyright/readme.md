@@ -18,7 +18,7 @@
 
 ### Depends on
 
-- [goat-text](../../../primitive/typography/text)
+- [goat-text](../../../typography/text)
 - [goat-link](../../../link)
 
 ### Graph

@@ -18,7 +18,7 @@
 
 - [goat-select](../../../input-controls/select)
 - [goat-input](../../../input-controls/input/input)
-- [goat-text](../../../primitive/typography/text)
+- [goat-text](../../../typography/text)
 - [goat-cb-divider](../cb-divider)
 - [goat-tag](../../../tag)
 

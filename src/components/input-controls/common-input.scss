@@ -179,15 +179,15 @@
   }
 
   .input-action {
-    cursor: pointer;
     height: 100%;
     --goat-popover-height: 100%;
     --goat-button-height: 100%;
     --goat-button-padding: .625rem;
+  }
 
-    &:hover {
-      --text-color: v(--text-secondary);
-    }
+  .clear-action {
+    height: auto;
+    --goat-popover-height: 100%;
   }
 
   slot::slotted(*) {
@@ -241,7 +241,7 @@
  */
 .input-container {
 
-  goat-tooltip {
+ /* goat-tooltip {
     --goat-tooltip-height: 100%;
   }
 
@@ -249,7 +249,7 @@
     height: 100%;
     --goat-button-height: 100%;
     --goat-button-border-radius: 0;
-  }
+  }*/
 }
 
 :host([size="sm"]) :is(.input-container, .input-container-skeleton) {

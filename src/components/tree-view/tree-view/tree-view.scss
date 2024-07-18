@@ -1,0 +1,9 @@
+@import "../../../globalStyles/commons";
+
+:host {
+  display: block;
+}
+
+.tree-view {
+  background-color: var(--layer);
+}

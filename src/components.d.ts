@@ -180,7 +180,7 @@ export namespace Components {
         /**
           * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"2xl"`, `"full"`. Defaults to `"md"`.
          */
-        "size": 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+        "size": 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
         /**
           * Sets or retrieves the window or frame at which to target content.
          */
@@ -3315,7 +3315,7 @@ declare namespace LocalJSX {
         /**
           * Button size. Possible values are `"sm"`, `"md"`, `"lg"`, `"xl"`, `"2xl"`, `"full"`. Defaults to `"md"`.
          */
-        "size"?: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+        "size"?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
         /**
           * Sets or retrieves the window or frame at which to target content.
          */

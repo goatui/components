@@ -104,11 +104,11 @@ Type: `Promise<void>`
 
 - [goat-icon](../../icon)
 - [goat-tag](../../tag)
-- [goat-button](../../primitive/button/button)
+- [goat-button](../../button/button)
 - [goat-spinner](../../spinner)
-- [goat-menu](../../navigation/menu/menu)
-- [goat-text](../../primitive/typography/text)
-- [goat-menu-item](../../navigation/menu/menu-item)
+- [goat-menu](../../menu/menu)
+- [goat-text](../../typography/text)
+- [goat-menu-item](../../menu/menu-item)
 
 ### Graph
 ```mermaid

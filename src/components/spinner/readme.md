@@ -18,13 +18,13 @@
 
 ### Used by
 
- - [goat-button](../primitive/button/button)
+ - [goat-button](../button/button)
  - [goat-code-editor](../input-controls/code-editor)
  - [goat-code-highlighter](../application/code-highlighter)
  - [goat-html-editor](../input-controls/html-editor)
  - [goat-modal](../informational/modal/modal)
  - [goat-select](../input-controls/select)
- - [goat-tab](../navigation/tabs/tab)
+ - [goat-tab](../tabs/tab)
 
 ### Graph
 ```mermaid

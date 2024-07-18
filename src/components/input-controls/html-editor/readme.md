@@ -67,12 +67,12 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [goat-button](../../primitive/button/button)
+- [goat-button](../../button/button)
 - [goat-spinner](../../spinner)
 - [goat-code-editor](../code-editor)
 - [goat-toggle](../toggle)
-- [goat-menu](../../navigation/menu/menu)
-- [goat-menu-item](../../navigation/menu/menu-item)
+- [goat-menu](../../menu/menu)
+- [goat-menu-item](../../menu/menu-item)
 
 ### Graph
 ```mermaid

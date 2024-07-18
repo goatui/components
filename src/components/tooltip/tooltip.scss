@@ -1,0 +1,21 @@
+@import "../../globalStyles/commons";
+
+:host {
+  display: inline-block;
+  --goat-tooltip-height: inherit;
+  height: var(--goat-tooltip-height);
+}
+
+.popover {
+  --goat-popover-height: var(--goat-tooltip-height);
+}
+
+.tooltip-content {
+  @include font-style(label-01);
+  color: var(--text-inverse);
+  max-width: 18rem;
+  --popover-content-background: var(--background-inverse);
+  --popover-content-padding: var(--spacing-03) var(--spacing-05);
+  --popover-content-border-radius: 0;
+  --popover-content-caret-size: 0.5rem;
+}

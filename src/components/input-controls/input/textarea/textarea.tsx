@@ -278,7 +278,7 @@ export class Textarea implements ComponentInterface, InputComponentInterface {
         <div class={'actions-container'}>
           {this.clearable && this.hasValue() && (
             <goat-button
-              class="clear input-action"
+              class="clear clear-action"
               color={'secondary'}
               variant="ghost"
               size={this.size}

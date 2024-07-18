@@ -17,16 +17,16 @@
 
 ### Used by
 
- - [goat-accordion-item](../containers/accordion/accordion-item)
- - [goat-button](../primitive/button/button)
+ - [goat-accordion-item](../accordion/accordion-item)
+ - [goat-button](../button/button)
  - [goat-flow-designer](../application/flow-designer/flow-designer)
- - [goat-menu-item](../navigation/menu/menu-item)
+ - [goat-menu-item](../menu/menu-item)
  - [goat-notification](../notification)
  - [goat-progress](../progress)
  - [goat-select](../input-controls/select)
- - [goat-tab](../navigation/tabs/tab)
+ - [goat-tab](../tabs/tab)
  - [goat-tag](../tag)
- - [goat-tree-node](../navigation/tree-view/tree-node)
+ - [goat-tree-node](../tree-view/tree-node)
 
 ### Graph
 ```mermaid

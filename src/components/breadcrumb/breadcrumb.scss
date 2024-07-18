@@ -1,0 +1,28 @@
+@import "../../globalStyles/commons";
+
+:host {
+  display: block;
+  margin-bottom: v(--spacing-02);
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+}
+
+slot::slotted(*) {
+  &::before {
+    display: inline-block;
+    padding-right: v(--spacing-03);
+    padding-left: v(--spacing-03);
+    color: v(--border-strong-01);
+    content: "/";
+  }
+}
+
+slot::slotted(*:first-child) {
+  &::before {
+    display: none;
+  }
+}
+

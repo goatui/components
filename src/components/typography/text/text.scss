@@ -1,0 +1,163 @@
+@import "../../../globalStyles/commons";
+
+:host {
+  display: block;
+  margin-bottom: v(--spacing-03);
+}
+
+.native-element {
+  margin: 0;
+}
+
+:host([inline]), :host([type=code]) {
+  display: inline-block;
+  margin-bottom: 0;
+
+  .text {
+    display: inline-block;
+  }
+}
+:host([type=code]) {
+  background: v(--border-subtle);
+  padding-inline: .25rem;
+  border-radius: v(--border-radius);
+}
+
+
+
+
+/* *
+ * heading styles
+ */
+
+:host([type="heading"]) {
+  margin-bottom: v(--spacing-05);
+
+  .text {
+    @for $i from 1 through 7 {
+      &.heading-size-#{$i} {
+        .native-element {
+          @include font-style(heading-0#{$i}, text);
+        }
+      }
+    }
+  }
+}
+
+
+/* *
+ * fluid-heading styles
+ */
+
+:host([type="fluid-heading"]) {
+  margin-bottom: v(--spacing-05);
+}
+
+@include for-phone-only {
+  :host([type="fluid-heading"]) .text {
+    @for $i from 3 through 6 {
+      &.heading-size-#{$i} {
+        .native-element {
+          @include font-style(fluid-heading-0#{$i}-sm, text);
+        }
+      }
+    }
+  }
+}
+
+@include for-tablet-portrait-up {
+  :host([type="fluid-heading"]) .text {
+    @for $i from 3 through 6 {
+      &.heading-size-#{$i} {
+        .native-element {
+          @include font-style(fluid-heading-0#{$i}-md, text);
+        }
+      }
+    }
+  }
+}
+
+@include for-tablet-landscape-up {
+  :host([type="fluid-heading"]) .text {
+    @for $i from 3 through 6 {
+      &.heading-size-#{$i} {
+        .native-element {
+          @include font-style(fluid-heading-0#{$i}-lg, text);
+        }
+      }
+    }
+  }
+}
+
+@include for-desktop-up {
+  :host([type="fluid-heading"]) .text {
+    @for $i from 3 through 6 {
+      &.heading-size-#{$i} {
+        .native-element {
+          @include font-style(fluid-heading-0#{$i}-xl, text);
+        }
+      }
+    }
+  }
+}
+
+@include for-big-desktop-up {
+  :host([type="fluid-heading"]) .text {
+    @for $i from 3 through 6 {
+      &.heading-size-#{$i} {
+        .native-element {
+          @include font-style(fluid-heading-0#{$i}-max, text);
+        }
+      }
+    }
+  }
+}
+
+
+/* *
+ * Other styles
+ */
+
+$types: "body", "body-compact", "code", "helper", "legal", "label";
+
+@each $type in $types {
+  :host([type="#{$type}"]) {
+    .native-element {
+      @include font-style(#{$type}-01, text);
+    }
+
+    .expressive .native-element {
+      @include font-style(#{$type}-02, text);
+    }
+  }
+}
+
+:host([type='code']) .native-element {
+  word-break: break-word;
+}
+
+
+:host {
+  color: var(--text-color, var(--text-primary));
+
+  &:host([color="secondary"]) {
+    color: var(--text-secondary);
+  }
+
+  &:host([color="tertiary"]), &:host([color="helper"]) {
+    color: var(--text-helper);
+  }
+
+  &:host([color="error"]) {
+    color: var(--text-error);
+  }
+
+  &:host([color="inverse"]) {
+    color: var(--text-inverse);
+  }
+}
+
+
+:host(.inherit) {
+  color: inherit;
+}

@@ -42,9 +42,9 @@
 ### Depends on
 
 - [goat-checkbox](../input-controls/checkbox)
-- [goat-button](../primitive/button/button)
+- [goat-button](../button/button)
 - [goat-select](../input-controls/select)
-- [goat-text](../primitive/typography/text)
+- [goat-text](../typography/text)
 - [goat-empty-state](../application/empty-state)
 
 ### Graph

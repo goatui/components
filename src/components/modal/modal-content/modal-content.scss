@@ -1,0 +1,13 @@
+@import "../../../globalStyles/commons";
+
+:host {
+  display: block;
+}
+
+:host([type='text']) .modal-content {
+  padding: 0 20% 0 var(--spacing-05);
+}
+
+:host([type='default']) .modal-content {
+  padding: 0 var(--spacing-05);
+}

@@ -22,7 +22,7 @@
 ### Depends on
 
 - [goat-tooltip](../../informational/popover/tooltip)
-- [goat-button](../../primitive/button/button)
+- [goat-button](../../button/button)
 - [goat-spinner](../../spinner)
 
 ### Graph
