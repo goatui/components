@@ -16,6 +16,7 @@ export const config: Config = {
     reactOutputTarget({
       componentCorePackage: '@goatui/components',
       proxiesFile: 'dist/generated/goatui-react/index.ts',
+      includeImportCustomElements: true,
     }),
     {
       type: 'dist-custom-elements',

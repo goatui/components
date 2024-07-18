@@ -98,14 +98,12 @@
 .input-container {
   display: flex;
   align-items: center;
-  justify-content: center;
 
   background-color: var(--input-background-color, var(--field));
   border: var(--input-border);
   border-inline-start: var(--input-border-inline-start, var(--input-border));
   border-inline-end: var(--input-border-inline-end, var(--input-border));
   border-radius: var(--input-border-radius);
-  overflow: hidden;
   cursor: text;
   font-weight: v(--font-weight-regular);
 

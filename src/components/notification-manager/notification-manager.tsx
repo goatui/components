@@ -106,7 +106,7 @@ export class NotificationManager implements ComponentInterface {
         action={notification.action}
         managed={true}
         dismissible={notification.dismissible}
-        onGoat-notification-dismiss={() => {
+        onGoat-notification--dismiss={() => {
           notification.hide = true;
           this.notifications = [...this.notifications];
         }}

@@ -372,7 +372,7 @@ export class Select implements ComponentInterface, InputComponentInterface {
           return (
             <div class="display-value-container">
               {item.icon && <goat-icon name={item.icon} size="sm" />}
-              {item.label}
+              <span class="item-label">{item.label}</span>
             </div>
           );
         }
