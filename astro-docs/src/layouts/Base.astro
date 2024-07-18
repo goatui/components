@@ -61,9 +61,15 @@ const pageTitle = title ? `${title}  &middot; ${site.title}` : `${site.title} &m
   <!-- GoatUI scripts -->
   <script type='module' src={envProps.script}></script>
 
-  <script type='module'>
+  <script type='module' define:vars={{ envProps }}>
     if (!window.customElements.get('goat-button')) {
-      import("https://cdn.jsdelivr.net/npm/@goatui/components@2.16.0/dist/goatui/goatui.esm.js");
+      import(envProps.fallbackScript);
+
+      var fileref = document.createElement("link");
+      fileref.rel = "stylesheet";
+      fileref.type = "text/css";
+      fileref.href = envProps.fallbackThemeCss;
+      document.getElementsByTagName("head")[0].appendChild(fileref)
       console.warn("USING FALLBACK GOATUI");
     }
   </script>

@@ -12,19 +12,29 @@ function releaseToDocs(cb) {
     result.prod = {
       script: `https://cdn.jsdelivr.net/npm/@goatui/components@${packageJson.version}/dist/goatui/goatui.esm.js`,
       themeCss: `https://cdn.jsdelivr.net/npm/@goatui/components@${packageJson.version}/dist/goatui/assets/styles/theme.css`,
+      fallbackScript: result.prod.script,
+      fallbackThemeCss: result.prod.themeCss,
       version: packageJson.version,
     };
     result.dev.version = packageJson.version;
-    fs.writeFile('astro-docs/src/_data/site.json', JSON.stringify(result, null, 2), 'utf8', function (err) {
-      if (err) return console.log(err);
-      cb('site.json config updated');
-    });
+    fs.writeFile(
+      'astro-docs/src/_data/site.json',
+      JSON.stringify(result, null, 2),
+      'utf8',
+      function (err) {
+        if (err) return console.log(err);
+        cb('site.json config updated');
+      },
+    );
   });
   fs.readFile('readme.md', 'utf8', function (err, data) {
     if (err) {
       return console.log(err);
     }
-    let result = data.replace(new RegExp(/@goatui\/components@[0-9]+[.][0-9]+[.][0-9]+\/dist/, 'g'), `@goatui/components@${packageJson.version}/dist`);
+    let result = data.replace(
+      new RegExp(/@goatui\/components@[0-9]+[.][0-9]+[.][0-9]+\/dist/, 'g'),
+      `@goatui/components@${packageJson.version}/dist`,
+    );
     fs.writeFile('readme.md', result, 'utf8', function (err) {
       if (err) return console.log(err);
       cb('Readme.md updated');
