@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-18T06:29:32",
+  "timestamp": "2024-07-18T06:34:09",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.19.2",
@@ -5355,6 +5355,7 @@
         "name": "Dropdown",
         "description": "Enables native inputs to be used within a Form field.",
         "category": "Navigation",
+        "subcategory": "Dropdown",
         "img": "/assets/img/dropdown.webp",
         "imgDark": "/assets/img/dropdown-dark.webp"
       }
@@ -5424,7 +5425,7 @@
       "metadata": {
         "name": "Dropdown Menu",
         "description": "The Dropdown Menu component is used to display a list of options.",
-        "category": "Informational",
+        "category": "Navigation",
         "subcategory": "Dropdown",
         "childComponent": "true"
       }

@@ -12,13 +12,13 @@
   "github_project": "components",
   "npm_package": "@goatui/components",
   "prod": {
-    "script": "https://cdn.jsdelivr.net/npm/@goatui/components@2.17.6/dist/goatui/goatui.esm.js",
-    "themeCss": "https://cdn.jsdelivr.net/npm/@goatui/components@2.17.6/dist/goatui/assets/styles/theme.css",
-    "version": "2.17.6"
+    "script": "https://cdn.jsdelivr.net/npm/@goatui/components@2.17.7/dist/goatui/goatui.esm.js",
+    "themeCss": "https://cdn.jsdelivr.net/npm/@goatui/components@2.17.7/dist/goatui/assets/styles/theme.css",
+    "version": "2.17.7"
   },
   "dev": {
     "script": "/assets/goatui-dev/build/goatui.esm.js",
     "themeCss": "/assets/goatui-dev/build/assets/styles/theme.css",
-    "version": "2.17.6"
+    "version": "2.17.7"
   }
 }
