@@ -18,9 +18,9 @@
 
 ### Used by
 
- - [goat-code-highlighter](../../../application/code-highlighter)
- - [goat-input](../../../input-controls/input/input)
- - [goat-slider](../../../input-controls/slider)
+ - [goat-code-highlighter](../application/code-highlighter)
+ - [goat-input](../input-controls/input/input)
+ - [goat-slider](../input-controls/slider)
 
 ### Depends on
 

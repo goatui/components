@@ -29,9 +29,9 @@
 
 ### Depends on
 
-- [goat-text](../../../primitive/typography/text)
-- [goat-button](../../../primitive/button/button)
-- [goat-spinner](../../../spinner)
+- [goat-text](../../typography/text)
+- [goat-button](../../button/button)
+- [goat-spinner](../../spinner)
 
 ### Graph
 ```mermaid

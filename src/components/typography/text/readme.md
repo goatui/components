@@ -26,7 +26,7 @@
  - [goat-cb-compound-expression](../../application/condition-builder/cb-compound-expression)
  - [goat-condition-builder](../../application/condition-builder/condition-builder)
  - [goat-footer-copyright](../../application/footer/footer-copyright)
- - [goat-modal](../../../informational/modal/modal)
+ - [goat-modal](../../modal/modal)
  - [goat-select](../../input-controls/select)
  - [goat-table](../../table)
 

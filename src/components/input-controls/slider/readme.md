@@ -71,7 +71,7 @@ Type: `Promise<void>`
 ### Depends on
 
 - [goat-number](../input/number)
-- [goat-tooltip](../../informational/popover/tooltip)
+- [goat-tooltip](../../tooltip)
 
 ### Graph
 ```mermaid

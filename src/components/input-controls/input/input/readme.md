@@ -83,7 +83,7 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [goat-tooltip](../../../informational/popover/tooltip)
+- [goat-tooltip](../../../tooltip)
 - [goat-button](../../../button/button)
 
 ### Graph
