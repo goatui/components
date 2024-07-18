@@ -11,7 +11,7 @@ import { getComponentIndex } from '../../../utils/utils';
 /**
  * @name Dropdown Menu
  * @description The Dropdown Menu component is used to display a list of options.
- * @category Informational
+ * @category Navigation
  * @subcategory Dropdown
  * @childComponent true
  */

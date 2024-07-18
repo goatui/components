@@ -565,6 +565,7 @@ export namespace Components {
      * @name Dropdown
      * @description Enables native inputs to be used within a Form field.
      * @category Navigation
+     * @subcategory Dropdown
      * @img /assets/img/dropdown.webp
      * @imgDark /assets/img/dropdown-dark.webp
      */
@@ -582,7 +583,7 @@ export namespace Components {
     /**
      * @name Dropdown Menu
      * @description The Dropdown Menu component is used to display a list of options.
-     * @category Informational
+     * @category Navigation
      * @subcategory Dropdown
      * @childComponent true
      */
@@ -2300,6 +2301,7 @@ declare global {
      * @name Dropdown
      * @description Enables native inputs to be used within a Form field.
      * @category Navigation
+     * @subcategory Dropdown
      * @img /assets/img/dropdown.webp
      * @imgDark /assets/img/dropdown-dark.webp
      */
@@ -2320,7 +2322,7 @@ declare global {
     /**
      * @name Dropdown Menu
      * @description The Dropdown Menu component is used to display a list of options.
-     * @category Informational
+     * @category Navigation
      * @subcategory Dropdown
      * @childComponent true
      */
@@ -3709,6 +3711,7 @@ declare namespace LocalJSX {
      * @name Dropdown
      * @description Enables native inputs to be used within a Form field.
      * @category Navigation
+     * @subcategory Dropdown
      * @img /assets/img/dropdown.webp
      * @imgDark /assets/img/dropdown-dark.webp
      */
@@ -3734,7 +3737,7 @@ declare namespace LocalJSX {
     /**
      * @name Dropdown Menu
      * @description The Dropdown Menu component is used to display a list of options.
-     * @category Informational
+     * @category Navigation
      * @subcategory Dropdown
      * @childComponent true
      */
@@ -5213,6 +5216,7 @@ declare module "@stencil/core" {
              * @name Dropdown
              * @description Enables native inputs to be used within a Form field.
              * @category Navigation
+             * @subcategory Dropdown
              * @img /assets/img/dropdown.webp
              * @imgDark /assets/img/dropdown-dark.webp
              */
@@ -5220,7 +5224,7 @@ declare module "@stencil/core" {
             /**
              * @name Dropdown Menu
              * @description The Dropdown Menu component is used to display a list of options.
-             * @category Informational
+             * @category Navigation
              * @subcategory Dropdown
              * @childComponent true
              */

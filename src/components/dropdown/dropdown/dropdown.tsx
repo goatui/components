@@ -16,6 +16,7 @@ import PopoverController from '../../popover/popover/PopoverController';
  * @name Dropdown
  * @description Enables native inputs to be used within a Form field.
  * @category Navigation
+ * @subcategory Dropdown
  * @img /assets/img/dropdown.webp
  * @imgDark /assets/img/dropdown-dark.webp
  */
