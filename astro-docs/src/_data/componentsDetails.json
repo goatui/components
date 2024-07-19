@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-18T13:12:37",
+  "timestamp": "2024-07-19T08:00:22",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.19.2",
@@ -9283,6 +9283,12 @@
       "listeners": [
         {
           "event": "goat-notification",
+          "target": "window",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "goat-notification-dismiss",
           "target": "window",
           "capture": false,
           "passive": false
