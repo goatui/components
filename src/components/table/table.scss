@@ -219,7 +219,7 @@
 
 }
 
-:host-context(.no-warp-column) {
+:host-context(.no-wrap-column) {
   .row .col .col-content .col-text {
     text-wrap: nowrap;
   }
