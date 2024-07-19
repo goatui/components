@@ -219,6 +219,12 @@
 
 }
 
+:host-context(.no-warp-column) {
+  .row .col .col-content .col-text {
+    text-wrap: nowrap;
+  }
+}
+
 
 .empty-data {
   text-align: center;
