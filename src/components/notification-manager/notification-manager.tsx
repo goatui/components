@@ -27,6 +27,7 @@ type Notification = {
   title: string;
   subtitle?: string;
   action?: string;
+  width?: string;
   state: string;
   hide: boolean;
   timeout: number;
@@ -80,10 +81,15 @@ export class NotificationManager implements ComponentInterface {
         action: evt.detail.action,
         dismissible: evt.detail.dismissible,
         timeout: evt.detail.timeout,
+        width: evt.detail.width,
       };
       this.notifications = this.notifications
         .concat([notification])
         .filter(n => !n.hide);
+
+      if (evt.detail.callback) {
+        evt.detail.callback(notification.id);
+      }
 
       if (!notification.dismissible)
         setTimeout(() => {
@@ -91,6 +97,15 @@ export class NotificationManager implements ComponentInterface {
           this.notifications = [...this.notifications];
         }, notification.timeout || 5000);
     }
+  }
+
+  @Listen('goat-notification-dismiss', { target: 'window' })
+  listenNotificationDismiss(evt: CustomEvent) {
+    const notifications = this.notifications.filter(n =>
+      evt.detail.notifications.includes(n.id),
+    );
+    notifications.forEach(n => (n.hide = true));
+    this.notifications = [...this.notifications];
   }
 
   componentWillLoad() {
@@ -106,6 +121,7 @@ export class NotificationManager implements ComponentInterface {
         action={notification.action}
         managed={true}
         dismissible={notification.dismissible}
+        style={{ width: notification.width }}
         onGoat-notification--dismiss={() => {
           notification.hide = true;
           this.notifications = [...this.notifications];

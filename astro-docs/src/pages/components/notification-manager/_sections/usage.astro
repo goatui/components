@@ -17,6 +17,7 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
 
   .demo-container .application::before {
     content: 'application container';
+    pointer-events: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -45,9 +46,17 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
     justify-content: center;
     background-color: var(--layer-01);
   }
+
+  #clear-btn {
+    margin-top: 3rem;
+  }
 </style>
 
+
+
 <HighlighterCard lang='html' cssClasses='demo-container'>
+
+  <goat-button id='clear-btn'>Clear</goat-button>
 
   <div class='application'>
     <goat-notification-manager name='application-manager' position='bottom-right'></goat-notification-manager>
@@ -63,6 +72,7 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
 
   <script is:inline>
     let count = 1;
+    let notifications = [];
     document.getElementById('notification-btn').addEventListener('click', () => {
       window.dispatchEvent(
         new CustomEvent('goat-notification', {
@@ -72,9 +82,26 @@ import HighlighterCard from '../../../../components/HighlighterCard.astro';
             title: 'This is automatic closing notification ' + count++,
             state: 'success',
             subtitle: `This is a subtitle for the notification message ${count - 1}`,
+            callback: function(notificationId) {
+              notifications.push(notificationId);
+            }
           },
         }),
       );
+    });
+
+    document.getElementById('clear-btn').addEventListener('click', () => {
+      window.dispatchEvent(
+        new CustomEvent('goat-notification-dismiss', {
+          bubbles: true,
+          detail: {
+            target: 'application-manager',
+            notifications: notifications,
+          },
+        }),
+      );
+
+      notifications = [];
     });
 
     document.getElementById('notification-btn-dismissible').addEventListener('click', () => {
