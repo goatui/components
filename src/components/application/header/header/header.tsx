@@ -58,6 +58,7 @@ export class Header {
    * States
    */
   @State() computedColor: string;
+  @State() themeMode: 'light' | 'dark' = 'light';
   @State() centerSlotHasContent = false;
 
   #computeColorLightOrDark() {
@@ -89,6 +90,7 @@ export class Header {
     this.colorChanged();
     this.#computeCenterSlotHasContent();
     observeThemeChange(() => {
+      this.themeMode = isDarkMode() ? 'dark' : 'light';
       this.colorChanged();
     });
   }
