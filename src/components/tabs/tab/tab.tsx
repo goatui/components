@@ -19,7 +19,11 @@ import { getComponentIndex } from '../../../utils/utils';
   shadow: true,
 })
 export class Tab implements ComponentInterface {
+  @Element() host!: HTMLElement;
+
   gid: string = getComponentIndex();
+  private tabindex?: string | number;
+  private nativeElement?: HTMLButtonElement;
 
   /**
    * Button selection state.
@@ -32,6 +36,7 @@ export class Tab implements ComponentInterface {
   @Prop({ reflect: true }) disabled: boolean = false;
 
   @Prop() disabledReason: string = '';
+
   /**
    * Icon which will displayed on button.
    * Possible values are bootstrap icon names.
@@ -39,7 +44,9 @@ export class Tab implements ComponentInterface {
   @Prop() icon: string;
 
   @Prop() label: string;
+
   @Prop() value: string;
+
   @Prop() target: string;
 
   /**
@@ -63,9 +70,6 @@ export class Tab implements ComponentInterface {
   @State() hasFocus = false;
   @State() isActive = false;
   @State() slotHasContent = false;
-  @Element() elm!: HTMLElement;
-  private tabindex?: string | number;
-  private nativeElement?: HTMLButtonElement;
 
   @Listen('mouseup', { target: 'window' })
   windowMouseUp() {
@@ -94,7 +98,7 @@ export class Tab implements ComponentInterface {
   #clickHandler = () => {
     if (!this.disabled && !this.showLoader && !this.href) {
       this.goatTabClick.emit({
-        element: this.elm,
+        element: this.host,
         value: this.value,
         target: this.target,
       });
@@ -136,12 +140,12 @@ export class Tab implements ComponentInterface {
     // If the ion-input has a tabindex attribute we get the value
     // and pass it down to the native input, then remove it from the
     // goat-input to avoid causing tabbing twice on the same element
-    if (this.elm.hasAttribute('tabindex')) {
-      const tabindex = this.elm.getAttribute('tabindex');
+    if (this.host.hasAttribute('tabindex')) {
+      const tabindex = this.host.getAttribute('tabindex');
       this.tabindex = tabindex !== null ? tabindex : undefined;
-      this.elm.removeAttribute('tabindex');
+      this.host.removeAttribute('tabindex');
     }
-    this.slotHasContent = this.elm.hasChildNodes();
+    this.slotHasContent = this.host.hasChildNodes();
   }
 
   private renderDisabledReason() {
@@ -174,7 +178,7 @@ export class Tab implements ComponentInterface {
           <NativeElementTag
             class="native-button"
             tabindex={this.tabindex}
-            ref={input => (this.nativeElement = input)}
+            ref={elm => (this.nativeElement = elm)}
             href={this.href}
             target={'_blank'}
             onBlur={this.blurHandler}
