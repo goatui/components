@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type      | Default |
-| ---------- | ---------- | ----------- | --------- | ------- |
-| `vertical` | `vertical` |             | `boolean` | `false` |
+| Property | Attribute | Description | Type                                              | Default  |
+| -------- | --------- | ----------- | ------------------------------------------------- | -------- |
+| `size`   | `size`    |             | `"full" \| "lg" \| "max" \| "md" \| "sm" \| "xl"` | `'full'` |
 
 
 ----------------------------------------------

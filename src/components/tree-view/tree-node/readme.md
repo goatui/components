@@ -16,6 +16,7 @@
 | `label`        | `label`         |                                                                         | `string`           | `''`        |
 | `level`        | `level`         |                                                                         | `number`           | `0`         |
 | `selectedNode` | `selected-node` | Menu item selection state.                                              | `string`           | `undefined` |
+| `target`       | `target`        | Sets or retrieves the window or frame at which to target content.       | `string`           | `'_self'`   |
 | `value`        | `value`         | The menu item value.                                                    | `number \| string` | `undefined` |
 
 

@@ -13,7 +13,7 @@
 | `configAria`   | `config-aria`   |             | `any`                                                                                                                            | `{}`        |
 | `expressive`   | `expressive`    |             | `boolean`                                                                                                                        | `false`     |
 | `headingLevel` | `heading-level` |             | `1 \| 2 \| 3 \| 4 \| 5 \| 6`                                                                                                     | `undefined` |
-| `headingSize`  | `heading-size`  |             | `1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 7`                                                                                                | `7`         |
+| `headingSize`  | `heading-size`  |             | `1 \| 2 \| 3 \| 4 \| 5 \| 6 \| 7`                                                                                                | `undefined` |
 | `inline`       | `inline`        |             | `boolean`                                                                                                                        | `false`     |
 | `type`         | `type`          |             | `"body" \| "body-compact" \| "code" \| "fluid-heading" \| "heading" \| "heading-compact" \| "helper-text" \| "label" \| "legal"` | `'body'`    |
 
