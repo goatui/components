@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-27T13:17:21",
+  "timestamp": "2024-07-27T18:09:25",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.19.2",
@@ -16037,7 +16037,7 @@
       "parts": [],
       "listeners": [
         {
-          "event": "goat-tree-node-click",
+          "event": "goat-tree-node--click",
           "capture": false,
           "passive": false
         },
