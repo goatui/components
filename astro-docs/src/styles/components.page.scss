@@ -3,9 +3,18 @@
 @import "device-utils.scss";
 
 :root {
-  --header-height: 3rem;
+  --header-height: 4rem;
+  --header-brand-logo-height: 3rem;
 }
 
+.header {
+  --goat-header-height: var(--header-height);
+  --goat-header-width: var(--container-max);
+}
+
+main {
+  min-height: calc(100vh - var(--header-height));
+}
 
 .top-nav {
   box-shadow: var(--shadow-sm);

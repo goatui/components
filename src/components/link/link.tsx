@@ -28,7 +28,7 @@ export class Link implements ComponentInterface {
   /**
    * Hyperlink to navigate to on click.
    */
-  @Prop() href: string;
+  @Prop({ reflect: true }) href: string;
 
   /**
    * Sets or retrieves the window or frame at which to target content.

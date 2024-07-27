@@ -1,4 +1,11 @@
-import { Component, ComponentInterface, Element, h, Host, Prop, State } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  h,
+  Host,
+  Prop,
+} from '@stencil/core';
 
 @Component({
   tag: 'goat-container',
@@ -6,26 +13,24 @@ import { Component, ComponentInterface, Element, h, Host, Prop, State } from '@s
   shadow: true,
 })
 export class Container implements ComponentInterface {
-  @Prop({ reflect: true }) vertical: boolean = false;
+  @Element() host!: HTMLElement;
 
-  @State() slotHasContent = false;
-  @Element() elm!: HTMLElement;
-
-  componentWillLoad() {
-    this.slotHasContent = this.elm.hasChildNodes();
-  }
+  @Prop({ reflect: true })
+  size: 'max' | 'xl' | 'lg' | 'md' | 'sm' | 'full' = 'full';
 
   render() {
     return (
       <Host>
         <div
           class={{
-            'container': true,
-            'has-content': this.slotHasContent,
+            'container-wrapper': true,
+            [`size-${this.size}`]: true,
           }}
         >
-          <div class="slot-container">
-            <slot />
+          <div class="container">
+            <div class="content">
+              <slot />
+            </div>
           </div>
         </div>
       </Host>

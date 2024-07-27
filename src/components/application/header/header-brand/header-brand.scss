@@ -9,13 +9,17 @@
   display: flex;
   align-items: center;
   height: 100%;
-  padding-inline-start: v(--spacing-05);
+  padding-inline-start: v(--spacing-04);
   padding-inline-end: v(--spacing-04);
 
   .brand-link {
     height: 100%;
     display: flex;
     align-items: center;
+    --goat-button-height: 100%;
+    --goat-button-border-radius: 0;
+    --goat-button-padding: 0;
+    --goat-button-color-hover: white;
   }
 
   .brand {

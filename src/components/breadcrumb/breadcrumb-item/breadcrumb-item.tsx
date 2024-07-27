@@ -9,7 +9,7 @@ export class BreadcrumbItem implements ComponentInterface {
   /**
    * Hyperlink to navigate to on click.
    */
-  @Prop() href: string;
+  @Prop({ reflect: true }) href: string;
 
   /**
    * Sets or retrieves the window or frame at which to target content.
@@ -22,7 +22,11 @@ export class BreadcrumbItem implements ComponentInterface {
 
   render() {
     return (
-      <Host itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <Host
+        itemprop="itemListElement"
+        itemscope
+        itemtype="http://schema.org/ListItem"
+      >
         {this.active ? (
           <goat-text type="body-compact" expressive={false} inline={true}>
             <span itemProp="name">

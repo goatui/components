@@ -138,9 +138,13 @@ const searchItems = componentsDetails.components.map(component => ({
   </div>
 
   <main class={classes}>
-
     <slot />
   </main>
+
+  <div slot="page-end">
+    <!-- Scripts -->
+    <script src='/assets/js/main.js' is:inline></script>
+  </div>
 
   <script is:inline define:vars={{ searchItems }}>
     document.addEventListener('DOMContentLoaded', function() {

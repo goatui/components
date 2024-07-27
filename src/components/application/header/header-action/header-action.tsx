@@ -28,7 +28,7 @@ export class HeaderAction {
   /**
    * Hyperlink to navigate to on click.
    */
-  @Prop() href: string;
+  @Prop({ reflect: true }) href: string;
 
   /**
    * Button selection state.

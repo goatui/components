@@ -14,73 +14,76 @@ const description = 'The overview page is the first page you see when you visit 
 <Layout title={title} description={description} classes='layer-01'>
 
   <div class='main-content'>
-    <div class='page-container'>
+    <div class='page-wrapper'>
+      <goat-container size='max' class='section'>
 
-      <goat-breadcrumb>
-        <goat-breadcrumb-item href='/'>Home</goat-breadcrumb-item>
-        {title != 'Overview' ?
-          <goat-breadcrumb-item href='/components/'>Components</goat-breadcrumb-item> : ''}
-        <goat-breadcrumb-item active>{title}</goat-breadcrumb-item>
-      </goat-breadcrumb>
+        <goat-breadcrumb>
+          <goat-breadcrumb-item href='/'>Home</goat-breadcrumb-item>
+          {title != 'Overview' ?
+            <goat-breadcrumb-item href='/components/'>Components</goat-breadcrumb-item> : ''}
+          <goat-breadcrumb-item active>{title}</goat-breadcrumb-item>
+        </goat-breadcrumb>
 
-      <div class='comp-header'>
-        <goat-text class='comp-title heading-scrollable' type='heading' heading-size='6'>{title}</goat-text>
-      </div>
+        <div class='comp-header'>
+          <goat-text class='comp-title heading-scrollable' type='heading' heading-size='6'>{title}</goat-text>
+        </div>
 
 
-      <div id='search-container'>
-        <goat-input id='component-search' layer='01' placeholder='Search'>
-          <goat-icon slot='start' size='1rem' name='search'></goat-icon>
-        </goat-input>
-      </div>
+        <div id='search-container'>
+          <goat-input id='component-search' layer='01' placeholder='Search'>
+            <goat-icon slot='start' size='1rem' name='search'></goat-icon>
+          </goat-input>
+        </div>
 
-      <div class='categories'>{
-        getCategoriesTree().map((category) => {
-          return (
-            <goat-link href={`/components/?filter=${category.name.toLowerCase().replace(' ', '-')}`} class='no-style'>
-              <goat-tag id={`tag-${category.name.toLowerCase().replace(' ', '-')}`}
-                        color='blue'
-                        class='category'>{category.name}
-                <goat-icon class='selected-icon inherit' name='checkmark'></goat-icon>
-              </goat-tag>
-            </goat-link>);
-        })
-      }</div>
-
-      <div class='filters hidden'>
-        <goat-link href='/components'>
-          Remove filter
-        </goat-link>
-      </div>
-
-      <div class='cards'>
-        {
-          componentsDetails.components.map((component) => {
-            if (component.metadata.name && !component.metadata.childComponent && component.metadata.category != 'Up coming') {
-              return (
-                <ComponentCard component={component}></ComponentCard>);
-            }
+        <div class='categories'>{
+          getCategoriesTree().map((category) => {
+            return (
+              <goat-link href={`/components/?filter=${category.name.toLowerCase().replace(' ', '-')}`} class='no-style'>
+                <goat-tag id={`tag-${category.name.toLowerCase().replace(' ', '-')}`}
+                          color='blue'
+                          class='category'>{category.name}
+                  <goat-icon class='selected-icon inherit' name='checkmark'></goat-icon>
+                </goat-tag>
+              </goat-link>);
           })
-        }
-      </div>
+        }</div>
 
-      <goat-text class='up-coming-title' type='heading' heading-size='4'>Upcoming</goat-text>
+        <div class='filters hidden'>
+          <goat-link href='/components'>
+            Remove filter
+          </goat-link>
+        </div>
 
-      <div class='cards up-coming'>
-        {
-          componentsDetails.components.map((component) => {
-            if (component.metadata.name && !component.metadata.childComponent && component.metadata.category == 'Up coming') {
-              return (
-                <ComponentCard component={component} />);
-            }
-          })
-        }
-      </div>
+        <div class='cards'>
+          {
+            componentsDetails.components.map((component) => {
+              if (component.metadata.name && !component.metadata.childComponent && component.metadata.category != 'Up coming') {
+                return (
+                  <ComponentCard component={component}></ComponentCard>);
+              }
+            })
+          }
+        </div>
 
-      <script is:inline src='/assets/js/components.page.js'></script>
+        <goat-text class='up-coming-title' type='heading' heading-size='4'>Upcoming</goat-text>
+
+        <div class='cards up-coming'>
+          {
+            componentsDetails.components.map((component) => {
+              if (component.metadata.name && !component.metadata.childComponent && component.metadata.category == 'Up coming') {
+                return (
+                  <ComponentCard component={component} />);
+              }
+            })
+          }
+        </div>
+
+        <script is:inline src='/assets/js/components.page.js'></script>
+      </goat-container>
+
     </div>
 
-    <Footer/>
+    <Footer />
 
   </div>
 

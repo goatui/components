@@ -80,8 +80,9 @@ const pageTitle = title ? `${title}  &middot; ${site.title}` : `${site.title} &m
 
 <goat-notification-manager position='bottom-right'></goat-notification-manager>
 
-<!-- Scripts -->
-<script src='/assets/js/main.js' is:inline></script>
+<slot name='page-end'/>
+
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async is:inline src='https://www.googletagmanager.com/gtag/js?id=G-YVVYZC1HFF'></script>
 <script is:inline>

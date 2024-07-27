@@ -76,6 +76,7 @@ export class Header {
     this.host.querySelectorAll('goat-header-action').forEach(el => {
       el.setColor(this.computedColor);
     });
+    this.host.querySelector('goat-header-brand')?.setColor(this.computedColor);
   }
 
   #getColumnType() {

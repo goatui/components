@@ -12,6 +12,15 @@ import {
 } from '@stencil/core';
 import { getComponentIndex } from '../../../utils/utils';
 
+/**
+ * @name TreeNode
+ * @description A tree node is a hierarchical structure that provides nested levels of navigation.
+ * @category Navigation
+ * @subcategory Tree View
+ * @childComponent true
+ * @img /assets/img/tree-view.webp
+ * @imgDark /assets/img/tree-view-dark.webp
+ */
 @Component({
   tag: 'goat-tree-node',
   styleUrl: 'tree-node.scss',
@@ -40,7 +49,12 @@ export class GoatTreeNode {
   /**
    * Hyperlink to navigate to on click.
    */
-  @Prop() href: string;
+  @Prop({ reflect: true }) href: string;
+
+  /**
+   * Sets or retrieves the window or frame at which to target content.
+   */
+  @Prop() target: string = '_self';
 
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
@@ -100,14 +114,18 @@ export class GoatTreeNode {
   @State() isActive = false;
   @Element() elm!: HTMLElement;
 
+  handleClick = () => {
+    this.goatTreeNodeClick.emit({
+      value: this.value || this.label,
+      expand: this.expanded,
+      id: this.gid,
+    });
+  };
+
   private clickHandler = event => {
     if (!this.disabled) {
       this.expanded = !this.expanded;
-      this.goatTreeNodeClick.emit({
-        value: this.value || this.label,
-        expand: this.expanded,
-        id: this.gid,
-      });
+      this.handleClick();
     } else {
       event.preventDefault();
       event.stopPropagation();
@@ -135,9 +153,19 @@ export class GoatTreeNode {
 
   private keyDownHandler = evt => {
     if (evt.key == ' ' || evt.key == 'Enter') {
-      evt.preventDefault();
-      this.isActive = true;
-      this.clickHandler(evt);
+      if (this.hasChildNodes) {
+        evt.preventDefault();
+        this.clickHandler(evt);
+      } else if (!this.href) {
+        evt.preventDefault();
+        this.isActive = true;
+        this.handleClick();
+      } else {
+        evt.preventDefault();
+        this.isActive = true;
+        this.handleClick();
+        window.open(this.href, this.target);
+      }
     } else if (evt.key === 'ArrowLeft') {
       evt.preventDefault();
       this.expanded = false;
@@ -184,48 +212,56 @@ export class GoatTreeNode {
     });
   }
 
+  #getNativeElementTagName() {
+    if (this.href) return 'a';
+    else return 'div';
+  }
+
   render = () => {
+    const NativeElementTag = this.#getNativeElementTagName();
+    const styles = {
+      paddingInlineStart: `calc(${this.level + 1}rem - 0.125rem)`,
+    };
+
     return (
       <Host active={this.isActive} has-focus={this.hasFocus}>
         <div class="tree-node">
-          <a class="link" href={this.href}>
-            <div
-              class={{
-                'tree-node-content': true,
-                'selected': this.isSelected(),
-                'active': this.isActive,
-                'disabled': this.disabled,
-                'has-focus': this.hasFocus,
-              }}
-              style={{
-                paddingInlineStart: `calc(${this.level + 1}rem - 0.125rem)`,
-              }}
-              onClick={this.clickHandler}
-              onMouseDown={this.mouseDownHandler}
-              onKeyDown={this.keyDownHandler}
-              aria-disabled={this.disabled}
-              onBlur={this.blurHandler}
-              onFocus={this.focusHandler}
-              tabindex={this.tabindex}
-              ref={el => (this.nativeElement = el as HTMLElement)}
-            >
-              {this.hasChildNodes && (
-                <goat-icon
-                  name="caret--right"
-                  class={{ 'expand-icon': true, 'expanded': this.expanded }}
-                  size="1rem"
-                />
-              )}
+          <NativeElementTag
+            class={{
+              'tree-node-content': true,
+              'selected': this.isSelected(),
+              'active': this.isActive,
+              'disabled': this.disabled,
+              'has-focus': this.hasFocus,
+            }}
+            style={styles}
+            href={this.href}
+            target={this.target}
+            onClick={this.clickHandler}
+            onMouseDown={this.mouseDownHandler}
+            onKeyDown={this.keyDownHandler}
+            aria-disabled={this.disabled}
+            onBlur={this.blurHandler}
+            onFocus={this.focusHandler}
+            tabindex={this.tabindex}
+            ref={el => (this.nativeElement = el as HTMLElement)}
+          >
+            {this.hasChildNodes && (
+              <goat-icon
+                name="caret--right"
+                class={{ 'expand-icon': true, 'expanded': this.expanded }}
+                size="1rem"
+              />
+            )}
 
-              {!this.hasChildNodes && <div class="icon-space" />}
+            {!this.hasChildNodes && <div class="icon-space" />}
 
-              {this.icon && (
-                <goat-icon name={this.icon} class={'icon'} size="1rem" />
-              )}
+            {this.icon && (
+              <goat-icon name={this.icon} class={'icon'} size="1rem" />
+            )}
 
-              <span class="tree-node-label">{this.label}</span>
-            </div>
-          </a>
+            <span class="tree-node-label">{this.label}</span>
+          </NativeElementTag>
 
           <div
             class={{

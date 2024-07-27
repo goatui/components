@@ -209,11 +209,13 @@ export namespace Components {
     | 'ghost'
     | 'light'
     | 'neo'
+    | 'link'
     | 'default.simple'
     | 'outline.simple'
     | 'ghost.simple'
     | 'light.simple'
-    | 'neo.simple';
+    | 'neo.simple'
+    | 'link.simple';
     }
     /**
      * @name Button Group
@@ -484,7 +486,7 @@ export namespace Components {
         "content": string;
     }
     interface GoatContainer {
-        "vertical": boolean;
+        "size": 'max' | 'xl' | 'lg' | 'md' | 'sm' | 'full';
     }
     /**
      * @name Current Time
@@ -721,10 +723,10 @@ export namespace Components {
         "target": string;
     }
     interface GoatHeaderBrand {
-        "color": string;
         "href": string;
         "logo": string;
         "name": string;
+        "setColor": (color: string) => Promise<void>;
         "subTitle": string;
     }
     /**
@@ -1726,6 +1728,15 @@ export namespace Components {
          */
         "trigger": 'hover' | 'manual';
     }
+    /**
+     * @name TreeNode
+     * @description A tree node is a hierarchical structure that provides nested levels of navigation.
+     * @category Navigation
+     * @subcategory Tree View
+     * @childComponent true
+     * @img /assets/img/tree-view.webp
+     * @imgDark /assets/img/tree-view-dark.webp
+     */
     interface GoatTreeNode {
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
@@ -1755,6 +1766,10 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         /**
+          * Sets or retrieves the window or frame at which to target content.
+         */
+        "target": string;
+        /**
           * The menu item value.
          */
         "value"?: string | number | null;
@@ -1763,6 +1778,7 @@ export namespace Components {
      * @name TreeView
      * @description A tree view is a hierarchical structure that provides nested levels of navigation.
      * @category Navigation
+     * @subcategory Tree View
      * @img /assets/img/tree-view.webp
      * @imgDark /assets/img/tree-view-dark.webp
      */
@@ -3038,6 +3054,15 @@ declare global {
     interface HTMLGoatTreeNodeElementEventMap {
         "goat-tree-node--click": any;
     }
+    /**
+     * @name TreeNode
+     * @description A tree node is a hierarchical structure that provides nested levels of navigation.
+     * @category Navigation
+     * @subcategory Tree View
+     * @childComponent true
+     * @img /assets/img/tree-view.webp
+     * @imgDark /assets/img/tree-view-dark.webp
+     */
     interface HTMLGoatTreeNodeElement extends Components.GoatTreeNode, HTMLStencilElement {
         addEventListener<K extends keyof HTMLGoatTreeNodeElementEventMap>(type: K, listener: (this: HTMLGoatTreeNodeElement, ev: GoatTreeNodeCustomEvent<HTMLGoatTreeNodeElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3056,6 +3081,7 @@ declare global {
      * @name TreeView
      * @description A tree view is a hierarchical structure that provides nested levels of navigation.
      * @category Navigation
+     * @subcategory Tree View
      * @img /assets/img/tree-view.webp
      * @imgDark /assets/img/tree-view-dark.webp
      */
@@ -3342,11 +3368,13 @@ declare namespace LocalJSX {
     | 'ghost'
     | 'light'
     | 'neo'
+    | 'link'
     | 'default.simple'
     | 'outline.simple'
     | 'ghost.simple'
     | 'light.simple'
-    | 'neo.simple';
+    | 'neo.simple'
+    | 'link.simple';
     }
     /**
      * @name Button Group
@@ -3623,7 +3651,7 @@ declare namespace LocalJSX {
         "content"?: string;
     }
     interface GoatContainer {
-        "vertical"?: boolean;
+        "size"?: 'max' | 'xl' | 'lg' | 'md' | 'sm' | 'full';
     }
     /**
      * @name Current Time
@@ -3870,7 +3898,6 @@ declare namespace LocalJSX {
         "target"?: string;
     }
     interface GoatHeaderBrand {
-        "color"?: string;
         "href"?: string;
         "logo"?: string;
         "name"?: string;
@@ -4921,6 +4948,15 @@ declare namespace LocalJSX {
          */
         "trigger"?: 'hover' | 'manual';
     }
+    /**
+     * @name TreeNode
+     * @description A tree node is a hierarchical structure that provides nested levels of navigation.
+     * @category Navigation
+     * @subcategory Tree View
+     * @childComponent true
+     * @img /assets/img/tree-view.webp
+     * @imgDark /assets/img/tree-view-dark.webp
+     */
     interface GoatTreeNode {
         /**
           * If true, the user cannot interact with the button. Defaults to `false`.
@@ -4946,6 +4982,10 @@ declare namespace LocalJSX {
          */
         "selectedNode"?: string;
         /**
+          * Sets or retrieves the window or frame at which to target content.
+         */
+        "target"?: string;
+        /**
           * The menu item value.
          */
         "value"?: string | number | null;
@@ -4954,6 +4994,7 @@ declare namespace LocalJSX {
      * @name TreeView
      * @description A tree view is a hierarchical structure that provides nested levels of navigation.
      * @category Navigation
+     * @subcategory Tree View
      * @img /assets/img/tree-view.webp
      * @imgDark /assets/img/tree-view-dark.webp
      */
@@ -5517,11 +5558,21 @@ declare module "@stencil/core" {
              * @imgDark /assets/img/tooltip-dark.webp
              */
             "goat-tooltip": LocalJSX.GoatTooltip & JSXBase.HTMLAttributes<HTMLGoatTooltipElement>;
+            /**
+             * @name TreeNode
+             * @description A tree node is a hierarchical structure that provides nested levels of navigation.
+             * @category Navigation
+             * @subcategory Tree View
+             * @childComponent true
+             * @img /assets/img/tree-view.webp
+             * @imgDark /assets/img/tree-view-dark.webp
+             */
             "goat-tree-node": LocalJSX.GoatTreeNode & JSXBase.HTMLAttributes<HTMLGoatTreeNodeElement>;
             /**
              * @name TreeView
              * @description A tree view is a hierarchical structure that provides nested levels of navigation.
              * @category Navigation
+             * @subcategory Tree View
              * @img /assets/img/tree-view.webp
              * @imgDark /assets/img/tree-view-dark.webp
              */

@@ -45,7 +45,7 @@ export class Tab implements ComponentInterface {
   /**
    * Hyperlink to navigate to on click.
    */
-  @Prop() href: string;
+  @Prop({ reflect: true }) href: string;
 
   @Prop({ reflect: true }) type: 'contained' | 'contained-bottom' | 'default' =
     'default';

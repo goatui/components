@@ -14,7 +14,7 @@ import { Component, Element, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class Footer {
-  @Element() elm!: HTMLElement;
+  @Element() host!: HTMLElement;
 
   @Prop({ reflect: true }) variant: 'simple' = 'simple';
 

@@ -52,6 +52,7 @@
 }
 
 .tree-node-content {
+  text-decoration: none !important;
 
   &:hover {
     background: v(--layer-hover);
@@ -87,11 +88,6 @@
     left: -0.125rem;
   }
 
-}
-
-.link {
-  color: inherit !important;
-  text-decoration: none !important;
 }
 
 .tree-node-content.disabled {

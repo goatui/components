@@ -41,9 +41,10 @@ function jumpingSentence(sentence: string) {
 <goat-text type='fluid-heading' heading-size='6' heading-level='1' inline>with</goat-text> ` + jumpingSentence('goat/ui')
       }></div>
 
-      <goat-text class='' type='heading' heading-size='3' heading-level='2'>A light weight web component library</goat-text>
+      <goat-text class='' type='heading' heading-size='3' heading-level='2'>A light weight web component library
+      </goat-text>
       <div class='banner-actions '>
-        <goat-button href='#getting-started' size='lg' color='black' dark-mode-color='white' icon='arrow--right'>Get
+        <goat-button href='#getting-started' size='lg' color='secondary' icon='arrow--right'>Get
           Started
         </goat-button>
         <goat-button href='/components/' size='lg' color='primary' variant='simple'>Browse Components</goat-button>
@@ -89,24 +90,24 @@ function jumpingSentence(sentence: string) {
 
 
   <div class='sections-wrapper layer-01'>
-    <goat-container class='section'>
-      <goat-text type='heading' heading-size='5'>Introduction</goat-text>
-      <goat-text expressive>{site.title} contains most used web components built using Stencil. So you don't need to
-        include any additional framework dependencies, You can simply import required
-        component js, and right away start using it.
-      </goat-text>
-      <goat-text expressive>Can easily be consumed by any other framework, like Vue, React, Angular, etc.</goat-text>
-      <br />
-      <goat-text expressive
-      >{site.title} components are beautiful Open Source web components under MIT license. They are maintained by
-        <goat-link href='https://shivajivarma.com'>Shivaji Varma</goat-link>
-        . Do not miss any updates and announcements, stay tuned on our social pages. You can contribute to the project
-        by creating pull requests or issues.
-      </goat-text>
-    </goat-container>
+    <goat-container size='max'>
+      <div class='section'>
+        <goat-text type='heading' heading-size='5'>Introduction</goat-text>
+        <goat-text expressive>{site.title} contains most used web components built using Stencil. So you don't need to
+          include any additional framework dependencies, You can simply import required
+          component js, and right away start using it.
+        </goat-text>
+        <goat-text expressive>Can easily be consumed by any other framework, like Vue, React, Angular, etc.</goat-text>
+        <br />
+        <goat-text expressive
+        >{site.title} components are beautiful Open Source web components under MIT license. They are maintained by
+          <goat-link href='https://shivajivarma.com'>Shivaji Varma</goat-link>
+          . Do not miss any updates and announcements, stay tuned on our social pages. You can contribute to the project
+          by creating pull requests or issues.
+        </goat-text>
+      </div>
 
-    <div class='section'>
-      <goat-container>
+      <div class='section'>
         <goat-text class='heading-scrollable' type='heading' heading-size='5' id='getting-started'>Getting Started
         </goat-text>
         <ul style='padding-inline-start: 1.5rem'>
@@ -122,18 +123,17 @@ function jumpingSentence(sentence: string) {
             <goat-text expressive>Then you can use the element anywhere in your template, JSX, html etc</goat-text>
           </li>
         </ul>
-      </goat-container>
-      <goat-container class='container-code'>
-        <goat-tabs>
-          <goat-tabs-list>
-            <goat-tab>Usage</goat-tab>
-            <goat-tab selected='true'>Load single component</goat-tab>
-          </goat-tabs-list>
+        <div class='container-code'>
+          <goat-tabs>
+            <goat-tabs-list>
+              <goat-tab>Usage</goat-tab>
+              <goat-tab selected='true'>Load single component</goat-tab>
+            </goat-tabs-list>
 
-          <goat-tab-panel>
-            <goat-code-highlighter language='html' id='get-started-code' class='code-highlighter' />
-            <script is:inline define:vars={{ site, envProps }}>
-              document.getElementById('get-started-code').value = `<!DOCTYPE html>
+            <goat-tab-panel>
+              <goat-code-highlighter language='html' id='get-started-code' class='code-highlighter' />
+              <script is:inline define:vars={{ site, envProps }}>
+                document.getElementById('get-started-code').value = `<!DOCTYPE html>
                  &lt;html>
                  &lt;head>
                   <meta charset='utf-8'>
@@ -158,13 +158,13 @@ function jumpingSentence(sentence: string) {
 
                  &lt;/body>
                  &lt;/html>`;
-            </script>
-          </goat-tab-panel>
+              </script>
+            </goat-tab-panel>
 
-          <goat-tab-panel>
-            <goat-code-highlighter language='html' id='load-single-component-code' class='code-highlighter' />
-            <script is:inline define:vars={{ site, envProps }}>
-              document.getElementById('load-single-component-code').value = `<!DOCTYPE html>
+            <goat-tab-panel>
+              <goat-code-highlighter language='html' id='load-single-component-code' class='code-highlighter' />
+              <script is:inline define:vars={{ site, envProps }}>
+                document.getElementById('load-single-component-code').value = `<!DOCTYPE html>
                  &lt;html>
                  &lt;head>
                   <meta charset='utf-8'>
@@ -192,15 +192,13 @@ function jumpingSentence(sentence: string) {
 
                  &lt;/body>
                  &lt;/html>`;
-            </script>
-          </goat-tab-panel>
-        </goat-tabs>
-      </goat-container>
+              </script>
+            </goat-tab-panel>
+          </goat-tabs>
+        </div>
+      </div>
 
-    </div>
-
-    <div class='sections'>
-      <goat-container>
+      <div class='section'>
         <goat-button color='primary' href='/components/' size='lg' variant='block' icon='arrow--right'>Browse
           Components
         </goat-button>
@@ -208,8 +206,13 @@ function jumpingSentence(sentence: string) {
         <goat-button color='secondary' href='/theme-creator/' size='lg' variant='block' icon='arrow--right'>Theme
           Creator
         </goat-button>
-      </goat-container>
-    </div>
+      </div>
+
+    </goat-container>
+
+
+
+
   </div>
 
   <Footer />
@@ -281,7 +284,7 @@ function jumpingSentence(sentence: string) {
             elm.classList.remove('hover');
           }, 1800);
         }
-      }, {passive: true});
+      }, { passive: true });
     });
   </script>
 

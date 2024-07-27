@@ -1,4 +1,4 @@
-import { Component, Fragment, h, Prop } from '@stencil/core';
+import { Component, Fragment, h, Method, Prop, State } from '@stencil/core';
 
 @Component({
   tag: 'goat-header-brand',
@@ -10,13 +10,27 @@ export class HeaderBrand {
   @Prop() name: string;
   @Prop() href: string = '#';
   @Prop() subTitle: string;
-  @Prop() color: string = 'brand-primary';
+
+  @State() color: any;
+
+  /*
+   * @internal
+   */
+  @Method()
+  async setColor(color: string) {
+    this.color = color;
+  }
 
   render() {
     const isLogoSVG = this.logo.endsWith('.svg');
     return (
       <div class="header-brand">
-        <goat-link class="brand-link no-style" href={this.href}>
+        <goat-button
+          variant={'link'}
+          color={this.color}
+          class="brand-link no-style"
+          href={this.href}
+        >
           <div class="brand">
             {(() => {
               if (this.logo) {
@@ -29,7 +43,7 @@ export class HeaderBrand {
             })()}
             {this.name && <span class="brand-name">{this.name}</span>}
           </div>
-        </goat-link>
+        </goat-button>
         {(() => {
           if (this.subTitle)
             return (

@@ -52,7 +52,7 @@
     z-index: v(--z-index-button);
     background: transparent;
     padding: 0;
-    border-width: var(--goat-button-border-width, var(--internal-button-border-width, 0.0625rem));
+    border-width: var(--goat-button-border-width, var(--internal-button-border-width, 0.125rem));
     border-style: var(--goat-button-border-style);
     border-color: transparent;
     border-radius: var(--goat-button-border-radius);
@@ -113,20 +113,9 @@
     }
   }
 
-  &.has-content.has-icon {
+  &.has-content.has-icon, &.has-content.show-loader {
     .button-content {
-      gap: 2rem;
-    }
-
-    .slot-container {
-      padding-right: 0;
-    }
-  }
-
-
-  &.has-content.show-loader {
-    .button-content {
-      gap: 1rem;
+      gap: var(--internal-button-gap, 2rem);
     }
 
     .slot-container {
@@ -142,7 +131,7 @@
   min-height: var(--goat-button-height, 1.5rem);
 
 
-  &:not(.has-content).has-icon {
+  &:not(.has-content).has-icon, &:not(.has-content).show-loader {
     --internal-button-padding: 0.25rem;
   }
 }
@@ -151,16 +140,18 @@
   min-height: var(--goat-button-height, 2rem);
 
 
-  &:not(.has-content).has-icon {
+  &:not(.has-content).has-icon, &:not(.has-content).show-loader {
     --internal-button-padding: 0.5rem;
   }
 }
 
 
+
+
 .button.size-md, .button.size-medium {
   min-height: var(--goat-button-height, 2.5rem);
 
-  &:not(.has-content).has-icon {
+  &:not(.has-content).has-icon, &:not(.has-content).show-loader {
     --internal-button-padding: 0.75rem;
   }
 }
@@ -199,7 +190,6 @@
 
   .button-content {
     justify-content: center;
-    gap: 1rem !important;
   }
 
   &.has-content {
@@ -392,6 +382,9 @@
 }
 
 .button.variant-ghost {
+
+  --internal-button-gap: .5rem;
+
   .native-button {
     color: var(--internal-button-color);
     border-color: transparent;
@@ -437,13 +430,47 @@
   }
 }
 
+.button.variant-link {
+
+  --internal-button-padding: 0;
+
+  .native-button {
+    color: var(--internal-button-support-contrast-color);
+    border-color: transparent;
+  }
+
+  .button-background {
+    background: transparent;
+  }
+
+  &.has-content .slot-container {
+    padding-right: 0;
+  }
+
+  &.has-focus:not(.active) .native-button {
+    border-color: var(--internal-button-color-focus, v(--color-primary));
+  }
+
+  &.disabled {
+    .native-button {
+      color: var(--disabled-03) !important;
+      border-color: transparent !important;
+    }
+
+    .button-background {
+      background: transparent !important;
+    }
+
+    &.has-focus:not(.active) .native-button {
+      border-color: var(--internal-button-color-focus, v(--color-neutral)) !important;
+    }
+  }
+}
+
 .button.variant-neo {
 
   margin-inline-end: .25rem;
   margin-block-end: .25rem;
-
-  --internal-button-border-width: 0.125rem;
-  --internal-button-inner-padding: 0.125rem;
 
   .native-button {
     color: v(--color-dark);
@@ -577,11 +604,11 @@
 }
 
 .button.color-secondary {
-  --internal-button-color: var(--goat-button-color, #{v(--color-secondary)});
+  --internal-button-color: var(--goat-button-color, #{v(--button-secondary)});
   --internal-button-color-light: var(--goat-button-color-light, #{v(--color-white)});
-  --internal-button-color-neo: var(--goat-button-color-neo, #{v(--color-secondary)});
-  --internal-button-color-hover: var(--goat-button-color-hover, var(--button-secondary-hover));
-  --internal-button-color-active: var(--goat-button-color-active, var(--button-secondary-active));
+  --internal-button-color-neo: var(--goat-button-color-neo, #{v(--button-secondary)});
+  --internal-button-color-hover: var(--goat-button-color-hover, #{v(--button-secondary-hover)});
+  --internal-button-color-active: var(--goat-button-color-active, #{v(--button-secondary-active)});
 }
 
 :host(.rounded) {

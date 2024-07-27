@@ -93,11 +93,13 @@ export class Button implements ComponentInterface {
     | 'ghost'
     | 'light'
     | 'neo'
+    | 'link'
     | 'default.simple'
     | 'outline.simple'
     | 'ghost.simple'
     | 'light.simple'
-    | 'neo.simple' = 'default';
+    | 'neo.simple'
+    | 'link.simple' = 'default';
 
   /**
    * Button selection state.
@@ -158,7 +160,7 @@ export class Button implements ComponentInterface {
   /**
    * Hyperlink to navigate to on click.
    */
-  @Prop() href: string;
+  @Prop({ reflect: true }) href: string;
 
   @Prop({ reflect: true, mutable: true }) configAria: any = {};
 
@@ -292,15 +294,17 @@ export class Button implements ComponentInterface {
 
   #onKeyDown = (evt: KeyboardEvent) => {
     if (!this.disabled && !this.showLoader) {
-      if (!this.href && (evt.key == 'Enter' || evt.key == ' ')) {
-        evt.preventDefault();
-        this.isActive = this.toggle ? !this.isActive : true;
-        this.handleClickWithThrottle();
-      } else if (this.href && (evt.key == 'Enter' || evt.key == ' ')) {
-        evt.preventDefault();
-        this.isActive = true;
-        this.handleClickWithThrottle();
-        window.open(this.href, this.target);
+      if (evt.key == 'Enter' || evt.key == ' ') {
+        if (!this.href) {
+          evt.preventDefault();
+          this.isActive = this.toggle ? !this.isActive : true;
+          this.handleClickWithThrottle();
+        } else {
+          evt.preventDefault();
+          this.isActive = true;
+          this.handleClickWithThrottle();
+          window.open(this.href, this.target);
+        }
       }
     }
   };
@@ -362,14 +366,16 @@ export class Button implements ComponentInterface {
     let color = getComputedStyle(this.buttonElm).getPropertyValue(
       `--internal-button-color`,
     );
-    if (this.hasHover)
-      color = getComputedStyle(this.buttonElm).getPropertyValue(
-        `--internal-button-color-hover`,
-      );
-    if (this.isActive || this.selected)
-      color = getComputedStyle(this.buttonElm).getPropertyValue(
-        `--internal-button-color-active`,
-      );
+    if (this.variant != 'link') {
+      if (this.hasHover)
+        color = getComputedStyle(this.buttonElm).getPropertyValue(
+          `--internal-button-color-hover`,
+        );
+      if (this.isActive || this.selected)
+        color = getComputedStyle(this.buttonElm).getPropertyValue(
+          `--internal-button-color-active`,
+        );
+    }
     return isLightOrDark(color);
   }
 
@@ -392,8 +398,9 @@ export class Button implements ComponentInterface {
 
     const variants = this.variant?.split('.');
     if (
-      ['default', 'outline', 'ghost', 'light', 'neo'].includes(variants[0]) ==
-      false
+      ['default', 'outline', 'ghost', 'light', 'neo', 'link'].includes(
+        variants[0],
+      ) == false
     ) {
       variants.unshift('default');
     }

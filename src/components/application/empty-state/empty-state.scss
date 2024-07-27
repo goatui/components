@@ -71,7 +71,7 @@
   align-items: center;
 }
 
-@container emptystate (min-width: 768px) {
+@container emptystate (min-width: 672px) {
   .empty-state {
     .illustration {
       width: 50%;
@@ -83,7 +83,7 @@
   }
 }
 
-@container emptystate (max-width: 767px) {
+@container emptystate (max-width: 671px) {
   .empty-state {
     .empty-state-container {
       flex-direction: column;

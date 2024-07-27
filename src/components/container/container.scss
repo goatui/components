@@ -2,22 +2,87 @@
 
 :host {
   display: block;
-  --container-padding: v(--spacing-09)
 }
+
+.container-wrapper {
+  container: containerwrapper / inline-size;
+
+  &.size-max .container {
+    max-width: v(--container-max);
+  }
+
+  &.size-xl .container {
+    max-width: v(--container-xl);
+  }
+
+  &.size-sm .container {
+    max-width: v(--container-sm);
+  }
+
+  &.size-md .container {
+    max-width: v(--container-md);
+  }
+
+  &.size-lg .container {
+    max-width: v(--container-lg);
+  }
+}
+
+
 
 .container {
-  max-width: v(--container-xl);
   margin: auto;
   width: 100%;
-  padding: 0 var(--container-padding);
+
+  .content {
+    padding: v(--spacing-05);
+  }
 }
 
+:host(.debug) {
+  border: 1px solid red;
+  border-width: 0 1px;
+  background: var(--color-error-10);
 
-@include for-phone-only {
   .container {
-    padding: 0 v(--spacing-05);
+    border: 1px solid blue;
+    border-width: 0 1px;
+    background: var(--color-blue-10);
+
+    .content {
+      border: 1px solid green;
+      border-width: 0 1px;
+      background: var(--color-green-10);
+    }
   }
-  :host(.container-code) .container {
-    padding: 0;
+}
+
+@container containerwrapper (max-width: 671px) {
+  .content {
+    margin-inline: 0;
+  }
+}
+
+@container containerwrapper (min-width: 672px) {
+  .content {
+    margin-inline: var(--spacing-05);
+  }
+}
+
+@container containerwrapper (min-width: 1056px) {
+  .content {
+    margin-inline: var(--spacing-05);
+  }
+}
+
+@container containerwrapper (min-width: 1312px) {
+  .content {
+    margin-inline: var(--spacing-05);
+  }
+}
+
+@container containerwrapper (min-width: 1584px) {
+  .content {
+    margin-inline: var(--spacing-06);
   }
 }

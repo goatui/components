@@ -32,9 +32,9 @@ export class Text implements ComponentInterface {
 
   @Prop({ reflect: true }) expressive: boolean = false;
 
-  @Prop() headingSize: 1 | 2 | 3 | 4 | 5 | 6 | 7 = 7;
+  @Prop({ reflect: true }) headingSize: 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
-  @Prop() headingLevel: 1 | 2 | 3 | 4 | 5 | 6;
+  @Prop({ reflect: true }) headingLevel: 1 | 2 | 3 | 4 | 5 | 6;
 
   @Prop({ reflect: true }) inline: boolean = false;
 
@@ -63,6 +63,18 @@ export class Text implements ComponentInterface {
     });
   }
 
+  #getHeadingSize() {
+    let headingSize = this.headingSize;
+    if (!headingSize) {
+      if (this.type == 'fluid-heading') {
+        headingSize = 6;
+      } else {
+        headingSize = 7;
+      }
+    }
+    return headingSize;
+  }
+
   render() {
     return (
       <Host>
@@ -71,7 +83,7 @@ export class Text implements ComponentInterface {
             text: true,
             inline: this.inline,
             expressive: this.expressive,
-            [`heading-size-${this.headingSize}`]: true,
+            [`heading-size-${this.#getHeadingSize()}`]: true,
           }}
         >
           {this.renderText()}
@@ -104,7 +116,7 @@ export class Text implements ComponentInterface {
   renderHeading() {
     let headingLevel = this.headingLevel;
     if (!headingLevel) {
-      switch (this.headingSize) {
+      switch (this.#getHeadingSize()) {
         case 7 || 6:
           headingLevel = 1;
           break;

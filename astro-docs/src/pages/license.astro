@@ -1,14 +1,15 @@
 ---
-import Layout from '../layouts/SimplePage.astro';
+import Layout from '../layouts/Base.astro';
 const title = 'License';
 const description = 'Site is copyrighted under The MIT License.';
 import site from '../_data/site.json';
 const year = new Date().getFullYear();
 ---
 <Layout title={title} description={description} keywords='License, MIT'>
-  <goat-container>
-    <goat-text type="heading">
-      License
+  <goat-container class='sections-wrapper'>
+
+    <goat-text type="fluid-heading">
+      {title}
     </goat-text>
 
     <goat-text expressive>
@@ -41,6 +42,9 @@ const year = new Date().getFullYear();
       IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
       CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     </goat-text>
+
+
+    <goat-button class='back-to-home' color='secondary' icon='arrow--left' icon-align='start' href='/#'>Back to home</goat-button>
   </goat-container>
 
 </Layout>

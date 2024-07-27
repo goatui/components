@@ -15,6 +15,7 @@ import { GoatTreeNodeCustomEvent } from '../../../components';
  * @name TreeView
  * @description A tree view is a hierarchical structure that provides nested levels of navigation.
  * @category Navigation
+ * @subcategory Tree View
  * @img /assets/img/tree-view.webp
  * @imgDark /assets/img/tree-view-dark.webp
  */
