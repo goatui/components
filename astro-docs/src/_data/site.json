@@ -12,15 +12,15 @@
   "github_project": "components",
   "npm_package": "@goatui/components",
   "prod": {
-    "script": "https://cdn.jsdelivr.net/npm/@goatui/components@2.18.0/dist/goatui/goatui.esm.js",
-    "themeCss": "https://cdn.jsdelivr.net/npm/@goatui/components@2.18.0/dist/goatui/assets/styles/theme.css",
-    "fallbackScript": "https://cdn.jsdelivr.net/npm/@goatui/components@2.17.13/dist/goatui/goatui.esm.js",
-    "fallbackThemeCss": "https://cdn.jsdelivr.net/npm/@goatui/components@2.17.13/dist/goatui/assets/styles/theme.css",
-    "version": "2.18.0"
+    "script": "https://cdn.jsdelivr.net/npm/@goatui/components@2.19.0/dist/goatui/goatui.esm.js",
+    "themeCss": "https://cdn.jsdelivr.net/npm/@goatui/components@2.19.0/dist/goatui/assets/styles/theme.css",
+    "fallbackScript": "https://cdn.jsdelivr.net/npm/@goatui/components@2.18.0/dist/goatui/goatui.esm.js",
+    "fallbackThemeCss": "https://cdn.jsdelivr.net/npm/@goatui/components@2.18.0/dist/goatui/assets/styles/theme.css",
+    "version": "2.19.0"
   },
   "dev": {
     "script": "/assets/goatui-dev/build/goatui.esm.js",
     "themeCss": "/assets/goatui-dev/build/assets/styles/theme.css",
-    "version": "2.18.0"
+    "version": "2.19.0"
   }
 }
