@@ -317,6 +317,10 @@ export class Button implements ComponentInterface {
     }
   };
 
+  #computeSlotHasContent() {
+    this.slotHasContent = hasSlot(this.host);
+  }
+
   componentWillLoad() {
     // If the goat-button has a tabindex attribute we get the value
     // and pass it down to the native input, then remove it from the
@@ -333,7 +337,7 @@ export class Button implements ComponentInterface {
           this.host.removeAttribute(name);
         }
       });
-    this.slotHasContent = hasSlot(this.host);
+    this.#computeSlotHasContent();
     this.#computedColor();
     observeThemeChange(() => {
       this.#computedColor();
@@ -485,7 +489,7 @@ export class Button implements ComponentInterface {
                 this.#renderIcon(this.icon)}
 
               <div class="slot-container">
-                <slot />
+                <slot onSlotchange={() => this.#computeSlotHasContent()} />
               </div>
 
               {this.showLoader && (
