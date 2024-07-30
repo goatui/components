@@ -83,7 +83,7 @@ $tag-hover-color: var(--tag-hover-color, var(--tag-hover-gray));
 }
 
 @each $color in ['gray', 'blue', 'green', 'red', 'yellow', 'primary', 'success', 'info', 'warning', 'error'] {
-  .tag.color-#{$color} {
+  .tag#{'.color-' + $color} {
     --tag-background-color: var(--tag-background-#{$color});
     --tag-color: var(--tag-color-#{$color});
     --tag-hover-color: var(--tag-hover-#{$color});

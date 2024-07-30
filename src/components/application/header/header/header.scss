@@ -70,7 +70,7 @@
     }
 
     @each $color in [primary, secondary, success, info, warning, error,white, black, brand-primary, brand-secondary] {
-      &.color-#{$color} .header-container {
+      &#{'.color-' + $color} .header-container {
         background: v(--color-#{$color});
       }
     }
@@ -79,7 +79,7 @@
   &:not(.float) {
     @each $color in
       [primary, secondary, success, info, warning, error, white, black, brand-primary, brand-secondary] {
-      &.color-#{$color} {
+      &#{'.color-' + $color} {
         background: v(--color-#{$color});
       }
     }
