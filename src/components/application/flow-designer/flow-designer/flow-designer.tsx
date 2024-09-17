@@ -63,7 +63,7 @@ export class FlowDesigner {
           { x: 1, y: 2 },
           { x: 14, y: 20 },
         ],
-      } /*, {
+      } /*, {P
       start: { x: 1, y: 1, gap: 8, direction: 'down' },
       end: { x: 15, y: 15, direction: 'top' },
       type: 'shape_connector',
@@ -148,11 +148,11 @@ export class FlowDesigner {
 
     return (
       <Host disabled={this.disabled}>
-        <img
+        {/* <img
           src="https://cdn.img42.com/4b6f5e63ac50c95fe147052d8a4db676.jpeg"
           style={{ height: '20px', width: '20px' }}
           draggable={true}
-        />
+        />*/}
         <div class="flow-designer-container">
           <div class="flow-designer" ref={elm => (this.nativeScrollElm = elm)}>
             <div
