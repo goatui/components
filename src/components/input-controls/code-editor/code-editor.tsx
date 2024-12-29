@@ -60,6 +60,8 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
 
   @Prop() language: 'javascript' | 'json' | 'html' = 'javascript';
 
+  @Prop() libSource: any;
+
   @Prop() lineNumbers: 'off' | 'on' = 'on';
 
   @Prop() minimap: boolean = false;
@@ -196,6 +198,10 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
         readOnly: this.disabled || this.readonly,
       },
     );
+
+
+    if (this.libSource)
+      window['monaco'].editor.createModel(this.libSource, this.language);
 
     this.editorMonacoInstance.onDidChangeModelContent(e => {
       if (!e.isFlush) {

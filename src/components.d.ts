@@ -417,6 +417,7 @@ export namespace Components {
         "disabled": boolean;
         "getComponentId": () => Promise<string>;
         "language": 'javascript' | 'json' | 'html';
+        "libSource": any;
         "lineNumbers": 'off' | 'on';
         "minimap": boolean;
         /**
@@ -3586,6 +3587,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         "language"?: 'javascript' | 'json' | 'html';
+        "libSource"?: any;
         "lineNumbers"?: 'off' | 'on';
         "minimap"?: boolean;
         /**
