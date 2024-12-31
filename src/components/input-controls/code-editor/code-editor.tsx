@@ -85,6 +85,17 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
     this.goatChange = debounceEvent(this.goatChange, this.debounce);
   }
 
+  @Watch('libSource')
+  protected libSourceChanged() {
+    if (window['monaco']) {
+      const libModel = window['monaco'].editor.getModel("java://goatui.com/lib.java");
+      if (libModel) {
+        libModel.dispose();
+      }
+      window['monaco'].editor.createModel(this.libSource, this.language, "java://goatui.com/lib.java");
+    }
+  }
+
   @Watch('disabled')
   disabledWatcher(newValue: boolean) {
     this.editorMonacoInstance.updateOptions({
@@ -199,9 +210,11 @@ export class CodeEditor implements ComponentInterface, InputComponentInterface {
       },
     );
 
+    
 
-    if (this.libSource)
-      window['monaco'].editor.createModel(this.libSource, this.language);
+    if (this.libSource) {
+      window['monaco'].editor.createModel(this.libSource, this.language, "java://goatui.com/lib.java");
+    }
 
     this.editorMonacoInstance.onDidChangeModelContent(e => {
       if (!e.isFlush) {
