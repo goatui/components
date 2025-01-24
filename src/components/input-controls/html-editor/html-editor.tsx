@@ -64,12 +64,21 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
 
   @Prop() lineNumbers: 'off' | 'on' = 'on';
 
+  @Prop() showToolbar: boolean = true;
+
   @Prop() mentions: { label: string; value: string }[] = [];
+
+  @Prop() mentionsSearch: 'contains' | 'managed' = 'contains';
 
   /**
    * Emitted when the value has changed..
    */
   @Event({ eventName: 'goat-html-editor--change' }) goatChange: EventEmitter;
+
+   /**
+    * Emitted when a keyboard input occurred.
+    */
+  @Event({ eventName: 'goat-html-editor--search' }) goatSearch: EventEmitter;
 
   /**
    * Set the amount of time, in milliseconds, to wait to trigger the `onChange` event after each keystroke.
@@ -182,7 +191,19 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
           },
           suggestion: {
             allowSpaces: true,
-            items: function ({ query }) {
+            items: async function ({ query }) {
+
+              if (that.mentionsSearch == 'managed') {
+                return new Promise((resolve) => {
+                  that.goatSearch.emit({
+                    callback: function(mentions) {
+                      that.mentions = mentions;
+                      resolve(that.mentions.map(item => item.value));
+                    }
+                  })
+                });
+              }
+
               return that.mentions
                 .filter(item =>
                   item.label.toLowerCase().startsWith(query.toLowerCase()),
@@ -228,7 +249,6 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
                   });
                 },
                 onExit: () => {
-                  console.log('onExit');
                   that.filteredMentionValues = [];
                 },
               };
@@ -421,7 +441,7 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
           }}
         >
           <div class={{ 'wysiwyg-container': true, 'hidden': this.showHtml }}>
-            {!this.readonly && !this.disabled && this.renderToolbar()}
+            {!this.readonly && !this.disabled && this.showToolbar && this.renderToolbar()}
             <div class="editor" ref={el => (this.editorElement = el)}></div>
           </div>
 
@@ -443,21 +463,22 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
             }}
           ></goat-code-editor>
 
-          <div class={'html-editor-footer'}>
-            <div class={'footer-left'}>
-              <goat-toggle
-                onGoat-change={evt => {
-                  this.showHtml = evt.target.value;
-                }}
-              >
-                HTML
-              </goat-toggle>
-            </div>
+          {this.showToolbar && <div class={'html-editor-footer'}>
+              <div class={'footer-left'}>
+                <goat-toggle
+                  goat-toggle--change={evt => {
+                    this.showHtml = evt.target.value;
+                  }}
+                >
+                  HTML
+                </goat-toggle>
+              </div>
 
-            <div class={'footer-right'}>
-              {this.editorInstance && this.editorInstance.getHTML()?.length}
+              <div class={'footer-right'}>
+                {this.editorInstance && this.editorInstance.getHTML()?.length}
+              </div>
             </div>
-          </div>
+          }
         </div>
 
         <goat-menu

@@ -751,6 +751,7 @@ export namespace Components {
         "layer"?: 'background' | '01' | '02';
         "lineNumbers": 'off' | 'on';
         "mentions": { label: string; value: string }[];
+        "mentionsSearch": 'contains' | 'managed';
         /**
           * The input field name.
          */
@@ -768,6 +769,7 @@ export namespace Components {
           * Sets focus on the native `input` in `goat-input`. Use this method instead of the global `input.focus()`.
          */
         "setFocus": () => Promise<void>;
+        "showToolbar": boolean;
         "theme": 'vs-light' | 'vs-dark';
         /**
           * The input field value.
@@ -2442,6 +2444,7 @@ declare global {
     };
     interface HTMLGoatHtmlEditorElementEventMap {
         "goat-html-editor--change": any;
+        "goat-html-editor--search": any;
     }
     /**
      * @name HTML Editor
@@ -3925,6 +3928,7 @@ declare namespace LocalJSX {
         "layer"?: 'background' | '01' | '02';
         "lineNumbers"?: 'off' | 'on';
         "mentions"?: { label: string; value: string }[];
+        "mentionsSearch"?: 'contains' | 'managed';
         /**
           * The input field name.
          */
@@ -3933,11 +3937,16 @@ declare namespace LocalJSX {
           * Emitted when the value has changed..
          */
         "onGoat-html-editor--change"?: (event: GoatHtmlEditorCustomEvent<any>) => void;
+        /**
+          * Emitted when a keyboard input occurred.
+         */
+        "onGoat-html-editor--search"?: (event: GoatHtmlEditorCustomEvent<any>) => void;
         "readonly"?: boolean;
         /**
           * If true, required icon is show. Defaults to `false`.
          */
         "required"?: boolean;
+        "showToolbar"?: boolean;
         "theme"?: 'vs-light' | 'vs-dark';
         /**
           * The input field value.
