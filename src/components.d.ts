@@ -756,6 +756,10 @@ export namespace Components {
           * The input field name.
          */
         "name": string;
+        /**
+          * The input field placeholder.
+         */
+        "placeholder": string;
         "readonly": boolean;
         /**
           * If true, required icon is show. Defaults to `false`.
@@ -769,7 +773,9 @@ export namespace Components {
           * Sets focus on the native `input` in `goat-input`. Use this method instead of the global `input.focus()`.
          */
         "setFocus": () => Promise<void>;
+        "showSuggestionCharacter": boolean;
         "showToolbar": boolean;
+        "suggestionCharacter": string;
         "theme": 'vs-light' | 'vs-dark';
         /**
           * The input field value.
@@ -3941,12 +3947,18 @@ declare namespace LocalJSX {
           * Emitted when a keyboard input occurred.
          */
         "onGoat-html-editor--search"?: (event: GoatHtmlEditorCustomEvent<any>) => void;
+        /**
+          * The input field placeholder.
+         */
+        "placeholder"?: string;
         "readonly"?: boolean;
         /**
           * If true, required icon is show. Defaults to `false`.
          */
         "required"?: boolean;
+        "showSuggestionCharacter"?: boolean;
         "showToolbar"?: boolean;
+        "suggestionCharacter"?: string;
         "theme"?: 'vs-light' | 'vs-dark';
         /**
           * The input field value.

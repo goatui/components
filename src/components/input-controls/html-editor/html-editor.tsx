@@ -16,6 +16,7 @@ import StarterKit from '@tiptap/starter-kit';
 import TextStyle from '@tiptap/extension-text-style';
 import FontFamily from '@tiptap/extension-font-family';
 import Underline from '@tiptap/extension-underline';
+import Placeholder from '@tiptap/extension-placeholder';
 import Mention from '@tiptap/extension-mention';
 import * as beautify from 'js-beautify/js';
 import { computePosition, offset } from '@floating-ui/dom';
@@ -48,10 +49,19 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
 
   @Prop({ reflect: true }) layer?: 'background' | '01' | '02';
 
+   /**
+    * The input field placeholder.
+    */
+  @Prop() placeholder: string;
+
   /**
    * If true, required icon is show. Defaults to `false`.
    */
   @Prop({ reflect: true }) required: boolean = false;
+
+  @Prop({ reflect: true }) suggestionCharacter = '@';
+
+  @Prop({ reflect: true }) showSuggestionCharacter: boolean = true;
 
   /**
    * If true, the user cannot interact with the button. Defaults to `false`.
@@ -66,7 +76,7 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
 
   @Prop() showToolbar: boolean = true;
 
-  @Prop() mentions: { label: string; value: string }[] = [];
+  @Prop({mutable: true}) mentions: { label: string; value: string }[] = [];
 
   @Prop() mentionsSearch: 'contains' | 'managed' = 'contains';
 
@@ -89,6 +99,9 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
 
   @State()
   filteredMentionValues: string[] = [];
+
+  @State()
+  showDropdown: boolean = false;
 
   @Watch('debounce')
   protected debounceChanged() {
@@ -177,6 +190,18 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
         Underline,
         TextStyle,
         FontFamily,
+        Placeholder.configure({
+          // Use a placeholder:
+          placeholder: that.placeholder,
+          // Use different placeholders depending on the node type:
+          // placeholder: ({ node }) => {
+          //   if (node.type.name === 'heading') {
+          //     return 'What’s the title?'
+          //   }
+  
+          //   return 'Can you add some further context?'
+          // },
+        }),
         Mention.configure({
           HTMLAttributes: {
             class: 'mention',
@@ -186,11 +211,12 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
             return [
               'a',
               { ...options.HTMLAttributes },
-              `${options.suggestion.char}${item ? item.label : node.attrs.id}`,
+              `${that.showSuggestionCharacter ? options.suggestion.char : ''}${item ? item.label : node.attrs.id}`,
             ];
           },
           suggestion: {
             allowSpaces: true,
+            char: that.suggestionCharacter,
             items: async function ({ query }) {
 
               if (that.mentionsSearch == 'managed') {
@@ -215,6 +241,7 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
               return {
                 onStart: props => {
                   that.mentionCommand = props.command;
+                  that.showDropdown = true;
                   that.filteredMentionValues = props.items;
                   computePosition(props.decorationNode, that.dropdownContent, {
                     placement: 'bottom-start',
@@ -249,6 +276,7 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
                   });
                 },
                 onExit: () => {
+                  that.showDropdown = false;
                   that.filteredMentionValues = [];
                 },
               };
@@ -482,7 +510,7 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
         </div>
 
         <goat-menu
-          class="mention-menu"
+          class={{"mention-menu":true, "show": this.showDropdown}}
           ref={elm => (this.dropdownContent = elm)}
           onGoat-menu-item--click={evt => {
             this.mentionCommand({ id: evt.detail.value });
