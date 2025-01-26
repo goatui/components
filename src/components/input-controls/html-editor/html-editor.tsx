@@ -8,10 +8,10 @@ import {
   Method,
   Prop,
   State,
-  Watch,
+  Watch
 } from '@stencil/core';
 import { debounceEvent, getComponentIndex } from '../../../utils/utils';
-import { Editor } from '@tiptap/core';
+import { Editor, mergeAttributes } from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
 import TextStyle from '@tiptap/extension-text-style';
 import FontFamily from '@tiptap/extension-font-family';
@@ -210,18 +210,21 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
             const item = that.getMentionItem(node.attrs.id);
             return [
               'a',
-              { ...options.HTMLAttributes },
+              mergeAttributes(
+                {contenteditable: false},
+                options.HTMLAttributes,
+              ),
               `${that.showSuggestionCharacter ? options.suggestion.char : ''}${item ? item.label : node.attrs.id}`,
             ];
           },
           suggestion: {
             allowSpaces: true,
             char: that.suggestionCharacter,
-            items: async function ({ query }) {
-
+            items: async function (props) {
               if (that.mentionsSearch == 'managed') {
                 return new Promise((resolve) => {
                   that.goatSearch.emit({
+                    query: props.query,
                     callback: function(mentions) {
                       that.mentions = mentions;
                       resolve(that.mentions.map(item => item.value));
@@ -232,7 +235,7 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
 
               return that.mentions
                 .filter(item =>
-                  item.label.toLowerCase().startsWith(query.toLowerCase()),
+                  item.label.toLowerCase().startsWith(props.query.toLowerCase()),
                 )
                 .map(item => item.value)
                 .slice(0, 5);
@@ -240,7 +243,8 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
             render: function () {
               return {
                 onStart: props => {
-                  that.mentionCommand = props.command;
+                  that.mentionProps = props;
+                  that.queryRange = props.range;
                   that.showDropdown = true;
                   that.filteredMentionValues = props.items;
                   computePosition(props.decorationNode, that.dropdownContent, {
@@ -256,13 +260,18 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
                   });
                 },
                 onKeyDown(props) {
-                  if (props.event.key === 'Escape') {
+                  if (props.event.key === 'ArrowDown') {
+                    that.dropdownContent.setFocus();
+                  } else if (props.event.key === 'Escape') {
+                    that.showDropdown = false;
+                    that.filteredMentionValues = [];
                     return true;
                   }
                 },
 
                 onUpdate: props => {
                   that.filteredMentionValues = props.items;
+                  that.queryRange = props.range;
                   computePosition(props.decorationNode, that.dropdownContent, {
                     placement: 'bottom-start',
                     // Try removing the middleware. The dropdown will
@@ -513,7 +522,8 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
           class={{"mention-menu":true, "show": this.showDropdown}}
           ref={elm => (this.dropdownContent = elm)}
           onGoat-menu-item--click={evt => {
-            this.mentionCommand({ id: evt.detail.value });
+            this.editorInstance.commands.deleteRange(this.queryRange);
+            this.mentionProps.command({ id: evt.detail.value });
           }}
         >
           {this.filteredMentionValues.map(value => {
@@ -532,6 +542,7 @@ export class HtmlEditor implements ComponentInterface, InputComponentInterface {
     return this.mentions.find(item => item.value == value);
   }
 
-  mentionCommand: any;
-  dropdownContent: HTMLElement;
+  mentionProps: any;
+  queryRange:any;
+  dropdownContent: HTMLGoatMenuElement;
 }
