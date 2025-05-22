@@ -22,22 +22,25 @@ A specialized input component for URL validation. This component provides real-t
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
-| Property      | Attribute     | Description                                                                                       | Type      | Default                      |
-| ------------- | ------------- | ------------------------------------------------------------------------------------------------- | --------- | ---------------------------- |
-| `debounce`    | `debounce`    | Set the amount of time, in milliseconds, to wait to trigger the `valueChange` event after each keystroke. | `number`  | `300`                        |
-| `disabled`    | `disabled`    | If true, the user cannot interact with the input. Defaults to `false`.                            | `boolean` | `false`                      |
-| `name`        | `name`        | The input field name.                                                                             | `string`  | ``goat-url-input-${this.gid}`` |
-| `placeholder` | `placeholder` | The input field placeholder.                                                                      | `string`  | `undefined`                  |
-| `value`       | `value`       | The input field value.                                                                            | `string`  | `undefined`                  |
+| Property      | Attribute     | Description                                                                                               | Type      | Default                        |
+| ------------- | ------------- | --------------------------------------------------------------------------------------------------------- | --------- | ------------------------------ |
+| `debounce`    | `debounce`    | Set the amount of time, in milliseconds, to wait to trigger the `valueChange` event after each keystroke. | `number`  | `300`                          |
+| `disabled`    | `disabled`    | If true, the user cannot interact with the input. Defaults to `false`.                                    | `boolean` | `false`                        |
+| `name`        | `name`        | The input field name.                                                                                     | `string`  | ``goat-url-input-${this.gid}`` |
+| `placeholder` | `placeholder` | The input field placeholder.                                                                              | `string`  | `undefined`                    |
+| `value`       | `value`       | The input field value.                                                                                    | `string`  | `undefined`                    |
+
 
 ## Events
 
-| Event          | Description                                | Type                   |
-| -------------- | ------------------------------------------ | ---------------------- |
-| `inputInvalid` | Emitted when the URL input is invalid.     | `CustomEvent<boolean>` |
-| `valueChange`  | Emitted when a keyboard input occurred.    | `CustomEvent<string>`  |
+| Event          | Description                             | Type                   |
+| -------------- | --------------------------------------- | ---------------------- |
+| `inputInvalid` | Emitted when the URL input is invalid.  | `CustomEvent<boolean>` |
+| `valueChange`  | Emitted when a keyboard input occurred. | `CustomEvent<string>`  |
+
 
 ## Methods
 
@@ -49,6 +52,8 @@ Get the component's unique ID
 
 Type: `Promise<string>`
 
+
+
 ### `setBlur() => Promise<void>`
 
 Sets blur on the native `input`. Use this method instead of the global
@@ -58,6 +63,8 @@ Sets blur on the native `input`. Use this method instead of the global
 
 Type: `Promise<void>`
 
+
+
 ### `setFocus() => Promise<void>`
 
 Sets focus on the native `input`. Use this method instead of the global
@@ -66,6 +73,9 @@ Sets focus on the native `input`. Use this method instead of the global
 #### Returns
 
 Type: `Promise<void>`
+
+
+
 
 ----------------------------------------------
 

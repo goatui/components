@@ -16,13 +16,13 @@ import { debounceEvent, getComponentIndex } from '../../utils/utils';
 /**
  * @name URL Input
  * @description A specialized input field for URL validation.
- * @category Form Inputs
+ * @category Up coming
  * @tags input, form, url
  * @example <goat-url-input placeholder="Enter website URL"></goat-url-input>
  */
 @Component({
   tag: 'goat-url-input',
-  styleUrl: './url-input.css',
+  styleUrl: 'url-input.scss',
   shadow: true,
 })
 export class UrlInput implements ComponentInterface {

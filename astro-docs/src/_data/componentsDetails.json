@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-01-26T09:48:53",
+  "timestamp": "2025-05-22T05:01:02",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.19.2",
@@ -7,11 +7,11 @@
   },
   "components": [
     {
-      "dirPath": "/workspaces/components/src/components/accordion/accordion",
+      "dirPath": "/workspaces/goatui-components/src/components/accordion/accordion",
       "filePath": "src/components/accordion/accordion/accordion.tsx",
       "fileName": "accordion.tsx",
-      "readmePath": "/workspaces/components/src/components/accordion/accordion/readme.md",
-      "usagesDir": "/workspaces/components/src/components/accordion/accordion/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/accordion/accordion/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/accordion/accordion/usage",
       "tag": "goat-accordion",
       "readme": "# goat-avatar\n\n\n",
       "overview": "",
@@ -129,11 +129,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/accordion/accordion-item",
+      "dirPath": "/workspaces/goatui-components/src/components/accordion/accordion-item",
       "filePath": "src/components/accordion/accordion-item/accordion-item.tsx",
       "fileName": "accordion-item.tsx",
-      "readmePath": "/workspaces/components/src/components/accordion/accordion-item/readme.md",
-      "usagesDir": "/workspaces/components/src/components/accordion/accordion-item/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/accordion/accordion-item/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/accordion/accordion-item/usage",
       "tag": "goat-accordion-item",
       "readme": "# goat-menu-item\n\n\n",
       "overview": "",
@@ -233,7 +233,23 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--goat-accordion-item-heading-background - Background color of the accordion item header",
+          "annotation": "prop",
+          "docs": ""
+        },
+        {
+          "name": "--goat-accordion-item-heading-background-hover - Background color of the accordion item header on hover",
+          "annotation": "prop",
+          "docs": ""
+        },
+        {
+          "name": "--goat-accordion-item-title-align - Alignment of the accordion title",
+          "annotation": "prop",
+          "docs": ""
+        }
+      ],
       "slots": [],
       "parts": [
         {
@@ -252,11 +268,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/avatar",
+      "dirPath": "/workspaces/goatui-components/src/components/avatar",
       "filePath": "src/components/avatar/avatar.tsx",
       "fileName": "avatar.tsx",
-      "readmePath": "/workspaces/components/src/components/avatar/readme.md",
-      "usagesDir": "/workspaces/components/src/components/avatar/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/avatar/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/avatar/usage",
       "tag": "goat-avatar",
       "readme": "# goat-avatar\n\n\n",
       "overview": "",
@@ -351,11 +367,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/badge",
+      "dirPath": "/workspaces/goatui-components/src/components/badge",
       "filePath": "src/components/badge/badge.tsx",
       "fileName": "badge.tsx",
-      "readmePath": "/workspaces/components/src/components/badge/readme.md",
-      "usagesDir": "/workspaces/components/src/components/badge/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/badge/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/badge/usage",
       "tag": "goat-badge",
       "readme": "# goat-icon\n\n\n",
       "overview": "",
@@ -442,11 +458,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/breadcrumb",
+      "dirPath": "/workspaces/goatui-components/src/components/breadcrumb",
       "filePath": "src/components/breadcrumb/breadcrumb.tsx",
       "fileName": "breadcrumb.tsx",
-      "readmePath": "/workspaces/components/src/components/breadcrumb/readme.md",
-      "usagesDir": "/workspaces/components/src/components/breadcrumb/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/breadcrumb/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/breadcrumb/usage",
       "tag": "goat-breadcrumb",
       "readme": "# goat-heading\n\n\n",
       "overview": "",
@@ -474,11 +490,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/breadcrumb/breadcrumb-item",
+      "dirPath": "/workspaces/goatui-components/src/components/breadcrumb/breadcrumb-item",
       "filePath": "src/components/breadcrumb/breadcrumb-item/breadcrumb-item.tsx",
       "fileName": "breadcrumb-item.tsx",
-      "readmePath": "/workspaces/components/src/components/breadcrumb/breadcrumb-item/readme.md",
-      "usagesDir": "/workspaces/components/src/components/breadcrumb/breadcrumb-item/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/breadcrumb/breadcrumb-item/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/breadcrumb/breadcrumb-item/usage",
       "tag": "goat-breadcrumb-item",
       "readme": "# goat-tab\n\n\n",
       "overview": "",
@@ -592,11 +608,11 @@
       "metadata": {}
     },
     {
-      "dirPath": "/workspaces/components/src/components/button/button",
+      "dirPath": "/workspaces/goatui-components/src/components/button/button",
       "filePath": "src/components/button/button/button.tsx",
       "fileName": "button.tsx",
-      "readmePath": "/workspaces/components/src/components/button/button/readme.md",
-      "usagesDir": "/workspaces/components/src/components/button/button/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/button/button/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/button/button/usage",
       "tag": "goat-button",
       "readme": "# goat-button\n\n\n",
       "overview": "",
@@ -1265,7 +1281,58 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--goat-button-border-radius",
+          "annotation": "prop",
+          "docs": "Button border radius."
+        },
+        {
+          "name": "--goat-button-border-style",
+          "annotation": "prop",
+          "docs": "Button border style."
+        },
+        {
+          "name": "--goat-button-color",
+          "annotation": "prop",
+          "docs": "Button filling color."
+        },
+        {
+          "name": "--goat-button-color-active",
+          "annotation": "prop",
+          "docs": "Button filling color on active."
+        },
+        {
+          "name": "--goat-button-color-hover",
+          "annotation": "prop",
+          "docs": "Button filling color on hover."
+        },
+        {
+          "name": "--goat-button-color-light",
+          "annotation": "prop",
+          "docs": "Button filling color for light variant."
+        },
+        {
+          "name": "--goat-button-padding",
+          "annotation": "prop",
+          "docs": "Button padding."
+        },
+        {
+          "name": "--goat-button-support-contrast-color",
+          "annotation": "prop",
+          "docs": "Button support color (text or border). Should be white or black based on weight of button filling color."
+        },
+        {
+          "name": "--goat-theme-button-border-radius",
+          "annotation": "prop",
+          "docs": "Theme level button border radius. (applies to all buttons)"
+        },
+        {
+          "name": "--goat-theme-button-border-style",
+          "annotation": "prop",
+          "docs": "Theme level button border style. (applies to all buttons)"
+        }
+      ],
       "slots": [],
       "parts": [],
       "listeners": [
@@ -1294,11 +1361,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/button/button-group",
+      "dirPath": "/workspaces/goatui-components/src/components/button/button-group",
       "filePath": "src/components/button/button-group/button-group.tsx",
       "fileName": "button-group.tsx",
-      "readmePath": "/workspaces/components/src/components/button/button-group/readme.md",
-      "usagesDir": "/workspaces/components/src/components/button/button-group/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/button/button-group/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/button/button-group/usage",
       "tag": "goat-button-group",
       "readme": "# goat-button-group\n\n\n",
       "overview": "",
@@ -1332,11 +1399,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/calendar/calendar",
+      "dirPath": "/workspaces/goatui-components/src/components/application/calendar/calendar",
       "filePath": "src/components/application/calendar/calendar/calendar.tsx",
       "fileName": "calendar.tsx",
-      "readmePath": "/workspaces/components/src/components/application/calendar/calendar/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/calendar/calendar/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/calendar/calendar/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/calendar/calendar/usage",
       "tag": "goat-calendar",
       "readme": "# goat-avatar\n\n\n",
       "overview": "",
@@ -1604,11 +1671,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/calendar/calendar/column-view",
+      "dirPath": "/workspaces/goatui-components/src/components/application/calendar/calendar/column-view",
       "filePath": "src/components/application/calendar/calendar/column-view/column-view.tsx",
       "fileName": "column-view.tsx",
-      "readmePath": "/workspaces/components/src/components/application/calendar/calendar/column-view/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/calendar/calendar/column-view/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/calendar/calendar/column-view/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/calendar/calendar/column-view/usage",
       "tag": "goat-calendar-column-view",
       "readme": "# goat-calendar-column-view\n\n\n",
       "overview": "",
@@ -1806,11 +1873,11 @@
       "metadata": {}
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/calendar/calendar/column-view/column-view-background",
+      "dirPath": "/workspaces/goatui-components/src/components/application/calendar/calendar/column-view/column-view-background",
       "filePath": "src/components/application/calendar/calendar/column-view/column-view-background/column-view-background.tsx",
       "fileName": "column-view-background.tsx",
-      "readmePath": "/workspaces/components/src/components/application/calendar/calendar/column-view/column-view-background/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/calendar/calendar/column-view/column-view-background/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/calendar/calendar/column-view/column-view-background/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/calendar/calendar/column-view/column-view-background/usage",
       "tag": "goat-calendar-column-view-background",
       "readme": "# goat-calendar-column-view-background\n\n\n",
       "overview": "",
@@ -1883,11 +1950,11 @@
       "metadata": {}
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/calendar/calendar/month-view",
+      "dirPath": "/workspaces/goatui-components/src/components/application/calendar/calendar/month-view",
       "filePath": "src/components/application/calendar/calendar/month-view/month-view.tsx",
       "fileName": "month-view.tsx",
-      "readmePath": "/workspaces/components/src/components/application/calendar/calendar/month-view/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/calendar/calendar/month-view/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/calendar/calendar/month-view/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/calendar/calendar/month-view/usage",
       "tag": "goat-calendar-month-view",
       "readme": "# goat-calendar-column-view\n\n\n",
       "overview": "",
@@ -2036,11 +2103,11 @@
       "metadata": {}
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/calendar/calendar/month-view/month-view-background",
+      "dirPath": "/workspaces/goatui-components/src/components/application/calendar/calendar/month-view/month-view-background",
       "filePath": "src/components/application/calendar/calendar/month-view/month-view-background/month-view-background.tsx",
       "fileName": "month-view-background.tsx",
-      "readmePath": "/workspaces/components/src/components/application/calendar/calendar/month-view/month-view-background/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/calendar/calendar/month-view/month-view-background/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/calendar/calendar/month-view/month-view-background/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/calendar/calendar/month-view/month-view-background/usage",
       "tag": "goat-calendar-month-view-background",
       "readme": "# goat-calendar-column-view-background\n\n\n",
       "overview": "",
@@ -2083,11 +2150,11 @@
       "metadata": {}
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/flow-designer/canvas",
+      "dirPath": "/workspaces/goatui-components/src/components/application/flow-designer/canvas",
       "filePath": "src/components/application/flow-designer/canvas/canvas.tsx",
       "fileName": "canvas.tsx",
-      "readmePath": "/workspaces/components/src/components/application/flow-designer/canvas/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/flow-designer/canvas/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/flow-designer/canvas/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/flow-designer/canvas/usage",
       "tag": "goat-canvas",
       "readme": "# goat-flow-designer\n\n\n",
       "overview": "",
@@ -2205,11 +2272,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/card",
+      "dirPath": "/workspaces/goatui-components/src/components/card",
       "filePath": "src/components/card/card.tsx",
       "fileName": "card.tsx",
-      "readmePath": "/workspaces/components/src/components/card/readme.md",
-      "usagesDir": "/workspaces/components/src/components/card/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/card/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/card/usage",
       "tag": "goat-card",
       "readme": "# goat-heading\n\n\n",
       "overview": "",
@@ -2272,11 +2339,11 @@
       "metadata": {}
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/condition-builder/cb-compound-expression",
+      "dirPath": "/workspaces/goatui-components/src/components/application/condition-builder/cb-compound-expression",
       "filePath": "src/components/application/condition-builder/cb-compound-expression/cb-compound-expression.tsx",
       "fileName": "cb-compound-expression.tsx",
-      "readmePath": "/workspaces/components/src/components/application/condition-builder/cb-compound-expression/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/condition-builder/cb-compound-expression/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/condition-builder/cb-compound-expression/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/condition-builder/cb-compound-expression/usage",
       "tag": "goat-cb-compound-expression",
       "readme": "# goat-icon\n\n\n",
       "overview": "",
@@ -2380,11 +2447,11 @@
       "metadata": {}
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/condition-builder/cb-divider",
+      "dirPath": "/workspaces/goatui-components/src/components/application/condition-builder/cb-divider",
       "filePath": "src/components/application/condition-builder/cb-divider/cb-divider.tsx",
       "fileName": "cb-divider.tsx",
-      "readmePath": "/workspaces/components/src/components/application/condition-builder/cb-divider/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/condition-builder/cb-divider/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/condition-builder/cb-divider/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/condition-builder/cb-divider/usage",
       "tag": "goat-cb-divider",
       "readme": "# goat-icon\n\n\n",
       "overview": "",
@@ -2485,11 +2552,11 @@
       "metadata": {}
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/condition-builder/cb-expression",
+      "dirPath": "/workspaces/goatui-components/src/components/application/condition-builder/cb-expression",
       "filePath": "src/components/application/condition-builder/cb-expression/cb-expression.tsx",
       "fileName": "cb-expression.tsx",
-      "readmePath": "/workspaces/components/src/components/application/condition-builder/cb-expression/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/condition-builder/cb-expression/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/condition-builder/cb-expression/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/condition-builder/cb-expression/usage",
       "tag": "goat-cb-expression",
       "readme": "# goat-icon\n\n\n",
       "overview": "",
@@ -2585,11 +2652,11 @@
       "metadata": {}
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/condition-builder/cb-predicate",
+      "dirPath": "/workspaces/goatui-components/src/components/application/condition-builder/cb-predicate",
       "filePath": "src/components/application/condition-builder/cb-predicate/cb-predicate.tsx",
       "fileName": "cb-predicate.tsx",
-      "readmePath": "/workspaces/components/src/components/application/condition-builder/cb-predicate/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/condition-builder/cb-predicate/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/condition-builder/cb-predicate/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/condition-builder/cb-predicate/usage",
       "tag": "goat-cb-predicate",
       "readme": "# goat-icon\n\n\n",
       "overview": "",
@@ -2669,11 +2736,11 @@
       "metadata": {}
     },
     {
-      "dirPath": "/workspaces/components/src/components/charts/chart-doughnut",
+      "dirPath": "/workspaces/goatui-components/src/components/charts/chart-doughnut",
       "filePath": "src/components/charts/chart-doughnut/chart-doughnut.tsx",
       "fileName": "chart-doughnut.tsx",
-      "readmePath": "/workspaces/components/src/components/charts/chart-doughnut/readme.md",
-      "usagesDir": "/workspaces/components/src/components/charts/chart-doughnut/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/charts/chart-doughnut/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/charts/chart-doughnut/usage",
       "tag": "goat-chart-doughnut",
       "readme": "# goat-heading\n\n\n",
       "overview": "",
@@ -2810,11 +2877,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/charts/chart-pie",
+      "dirPath": "/workspaces/goatui-components/src/components/charts/chart-pie",
       "filePath": "src/components/charts/chart-pie/chart-pie.tsx",
       "fileName": "chart-pie.tsx",
-      "readmePath": "/workspaces/components/src/components/charts/chart-pie/readme.md",
-      "usagesDir": "/workspaces/components/src/components/charts/chart-pie/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/charts/chart-pie/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/charts/chart-pie/usage",
       "tag": "goat-chart-pie",
       "readme": "# goat-heading\n\n\n",
       "overview": "",
@@ -2951,11 +3018,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/input-controls/checkbox",
+      "dirPath": "/workspaces/goatui-components/src/components/input-controls/checkbox",
       "filePath": "src/components/input-controls/checkbox/checkbox.tsx",
       "fileName": "checkbox.tsx",
-      "readmePath": "/workspaces/components/src/components/input-controls/checkbox/readme.md",
-      "usagesDir": "/workspaces/components/src/components/input-controls/checkbox/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/input-controls/checkbox/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/input-controls/checkbox/usage",
       "tag": "goat-checkbox",
       "readme": "# goat-checkbox\n\n\n",
       "overview": "",
@@ -3372,11 +3439,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/input-controls/code-editor",
+      "dirPath": "/workspaces/goatui-components/src/components/input-controls/code-editor",
       "filePath": "src/components/input-controls/code-editor/code-editor.tsx",
       "fileName": "code-editor.tsx",
-      "readmePath": "/workspaces/components/src/components/input-controls/code-editor/readme.md",
-      "usagesDir": "/workspaces/components/src/components/input-controls/code-editor/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/input-controls/code-editor/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/input-controls/code-editor/usage",
       "tag": "goat-code-editor",
       "readme": "# goat-code-editor\n\n\n",
       "overview": "",
@@ -3737,11 +3804,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/code-highlighter",
+      "dirPath": "/workspaces/goatui-components/src/components/application/code-highlighter",
       "filePath": "src/components/application/code-highlighter/code-highlighter.tsx",
       "fileName": "code-highlighter.tsx",
-      "readmePath": "/workspaces/components/src/components/application/code-highlighter/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/code-highlighter/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/code-highlighter/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/code-highlighter/usage",
       "tag": "goat-code-highlighter",
       "readme": "# goat-code-editor\n\n\n",
       "overview": "",
@@ -4371,7 +4438,13 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--goat-code-highlighter-background",
+          "annotation": "prop",
+          "docs": "Code Highlighter background color"
+        }
+      ],
       "slots": [],
       "parts": [],
       "listeners": [],
@@ -4385,11 +4458,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/condition-builder/condition-builder",
+      "dirPath": "/workspaces/goatui-components/src/components/application/condition-builder/condition-builder",
       "filePath": "src/components/application/condition-builder/condition-builder/condition-builder.tsx",
       "fileName": "condition-builder.tsx",
-      "readmePath": "/workspaces/components/src/components/application/condition-builder/condition-builder/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/condition-builder/condition-builder/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/condition-builder/condition-builder/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/condition-builder/condition-builder/usage",
       "tag": "goat-condition-builder",
       "readme": "# goat-icon\n\n\n",
       "overview": "",
@@ -4485,11 +4558,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/container",
+      "dirPath": "/workspaces/goatui-components/src/components/container",
       "filePath": "src/components/container/container.tsx",
       "fileName": "container.tsx",
-      "readmePath": "/workspaces/components/src/components/container/readme.md",
-      "usagesDir": "/workspaces/components/src/components/container/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/container/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/container/usage",
       "tag": "goat-container",
       "readme": "# goat-heading\n\n\n",
       "overview": "",
@@ -4553,11 +4626,11 @@
       "metadata": {}
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/current-time",
+      "dirPath": "/workspaces/goatui-components/src/components/application/current-time",
       "filePath": "src/components/application/current-time/current-time.tsx",
       "fileName": "current-time.tsx",
-      "readmePath": "/workspaces/components/src/components/application/current-time/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/current-time/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/current-time/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/current-time/usage",
       "tag": "goat-current-time",
       "readme": "# goat-current-time\n\n\n",
       "overview": "",
@@ -4604,11 +4677,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/input-controls/data-and-time/date/date-picker",
+      "dirPath": "/workspaces/goatui-components/src/components/input-controls/data-and-time/date/date-picker",
       "filePath": "src/components/input-controls/data-and-time/date/date-picker/date-picker.tsx",
       "fileName": "date-picker.tsx",
-      "readmePath": "/workspaces/components/src/components/input-controls/data-and-time/date/date-picker/readme.md",
-      "usagesDir": "/workspaces/components/src/components/input-controls/data-and-time/date/date-picker/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/input-controls/data-and-time/date/date-picker/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/input-controls/data-and-time/date/date-picker/usage",
       "tag": "goat-date-picker",
       "readme": "# goat-date-picker\n\n\n",
       "overview": "",
@@ -5127,11 +5200,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/divider",
+      "dirPath": "/workspaces/goatui-components/src/components/divider",
       "filePath": "src/components/divider/divider.tsx",
       "fileName": "divider.tsx",
-      "readmePath": "/workspaces/components/src/components/divider/readme.md",
-      "usagesDir": "/workspaces/components/src/components/divider/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/divider/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/divider/usage",
       "tag": "goat-divider",
       "readme": "# goat-heading\n\n\n",
       "overview": "",
@@ -5173,7 +5246,18 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--goat-divider-color",
+          "annotation": "prop",
+          "docs": "Color of the divider"
+        },
+        {
+          "name": "--goat-divider-padding",
+          "annotation": "prop",
+          "docs": "Padding of the divider"
+        }
+      ],
       "slots": [],
       "parts": [],
       "listeners": [],
@@ -5185,11 +5269,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/dropdown/dropdown",
+      "dirPath": "/workspaces/goatui-components/src/components/dropdown/dropdown",
       "filePath": "src/components/dropdown/dropdown/dropdown.tsx",
       "fileName": "dropdown.tsx",
-      "readmePath": "/workspaces/components/src/components/dropdown/dropdown/readme.md",
-      "usagesDir": "/workspaces/components/src/components/dropdown/dropdown/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/dropdown/dropdown/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/dropdown/dropdown/usage",
       "tag": "goat-dropdown",
       "readme": "# goat-dropdown\n\n\n",
       "overview": "",
@@ -5415,11 +5499,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/dropdown/dropdown-menu",
+      "dirPath": "/workspaces/goatui-components/src/components/dropdown/dropdown-menu",
       "filePath": "src/components/dropdown/dropdown-menu/dropdown-menu.tsx",
       "fileName": "dropdown-menu.tsx",
-      "readmePath": "/workspaces/components/src/components/dropdown/dropdown-menu/readme.md",
-      "usagesDir": "/workspaces/components/src/components/dropdown/dropdown-menu/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/dropdown/dropdown-menu/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/dropdown/dropdown-menu/usage",
       "tag": "goat-dropdown-menu",
       "readme": "# goat-dropdown\n\n\n",
       "overview": "",
@@ -5472,7 +5556,13 @@
         }
       ],
       "events": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--goat-dropdown-menu-max-height",
+          "annotation": "prop",
+          "docs": "Maximum height of the menu"
+        }
+      ],
       "slots": [],
       "parts": [],
       "listeners": [],
@@ -5485,11 +5575,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/empty-state",
+      "dirPath": "/workspaces/goatui-components/src/components/application/empty-state",
       "filePath": "src/components/application/empty-state/empty-state.tsx",
       "fileName": "empty-state.tsx",
-      "readmePath": "/workspaces/components/src/components/application/empty-state/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/empty-state/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/empty-state/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/empty-state/usage",
       "tag": "goat-empty-state",
       "readme": "# goat-heading\n\n\n",
       "overview": "",
@@ -5712,11 +5802,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/flow-designer/flow-designer",
+      "dirPath": "/workspaces/goatui-components/src/components/application/flow-designer/flow-designer",
       "filePath": "src/components/application/flow-designer/flow-designer/flow-designer.tsx",
       "fileName": "flow-designer.tsx",
-      "readmePath": "/workspaces/components/src/components/application/flow-designer/flow-designer/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/flow-designer/flow-designer/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/flow-designer/flow-designer/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/flow-designer/flow-designer/usage",
       "tag": "goat-flow-designer",
       "readme": "# goat-flow-designer\n\n\n",
       "overview": "",
@@ -5835,11 +5925,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/footer/footer",
+      "dirPath": "/workspaces/goatui-components/src/components/application/footer/footer",
       "filePath": "src/components/application/footer/footer/footer.tsx",
       "fileName": "footer.tsx",
-      "readmePath": "/workspaces/components/src/components/application/footer/footer/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/footer/footer/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/footer/footer/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/footer/footer/usage",
       "tag": "goat-footer",
       "readme": "# p4-top-navigation\n\n\n",
       "overview": "",
@@ -5912,11 +6002,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/footer/footer-copyright",
+      "dirPath": "/workspaces/goatui-components/src/components/application/footer/footer-copyright",
       "filePath": "src/components/application/footer/footer-copyright/footer-copyright.tsx",
       "fileName": "footer-copyright.tsx",
-      "readmePath": "/workspaces/components/src/components/application/footer/footer-copyright/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/footer/footer-copyright/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/footer/footer-copyright/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/footer/footer-copyright/usage",
       "tag": "goat-footer-copyright",
       "readme": "# p4-top-navigation\n\n\n",
       "overview": "",
@@ -6009,11 +6099,11 @@
       "metadata": {}
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/footer/footer-links",
+      "dirPath": "/workspaces/goatui-components/src/components/application/footer/footer-links",
       "filePath": "src/components/application/footer/footer-links/footer-links.tsx",
       "fileName": "footer-links.tsx",
-      "readmePath": "/workspaces/components/src/components/application/footer/footer-links/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/footer/footer-links/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/footer/footer-links/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/footer/footer-links/usage",
       "tag": "goat-footer-links",
       "readme": "# p4-top-navigation\n\n\n",
       "overview": "",
@@ -6061,11 +6151,11 @@
       "metadata": {}
     },
     {
-      "dirPath": "/workspaces/components/src/components/input-controls/form-control",
+      "dirPath": "/workspaces/goatui-components/src/components/input-controls/form-control",
       "filePath": "src/components/input-controls/form-control/form-control.tsx",
       "fileName": "form-control.tsx",
-      "readmePath": "/workspaces/components/src/components/input-controls/form-control/readme.md",
-      "usagesDir": "/workspaces/components/src/components/input-controls/form-control/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/input-controls/form-control/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/input-controls/form-control/usage",
       "tag": "goat-form-control",
       "readme": "# goat-field-group\n\n\n",
       "overview": "",
@@ -6288,11 +6378,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/header/header",
+      "dirPath": "/workspaces/goatui-components/src/components/application/header/header",
       "filePath": "src/components/application/header/header/header.tsx",
       "fileName": "header.tsx",
-      "readmePath": "/workspaces/components/src/components/application/header/header/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/header/header/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/header/header/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/header/header/usage",
       "tag": "goat-header",
       "readme": "# p4-top-navigation\n\n\n",
       "overview": "",
@@ -6371,7 +6461,18 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--goat-header-height",
+          "annotation": "prop",
+          "docs": "Height of the header. Defaults to 3rem."
+        },
+        {
+          "name": "--goat-header-width",
+          "annotation": "prop",
+          "docs": "Width of the header. Defaults to 100%."
+        }
+      ],
       "slots": [],
       "parts": [],
       "listeners": [],
@@ -6384,11 +6485,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/header/header-action",
+      "dirPath": "/workspaces/goatui-components/src/components/application/header/header-action",
       "filePath": "src/components/application/header/header-action/header-action.tsx",
       "fileName": "header-action.tsx",
-      "readmePath": "/workspaces/components/src/components/application/header/header-action/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/header/header-action/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/header/header-action/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/header/header-action/usage",
       "tag": "goat-header-action",
       "readme": "# p4-top-navigation\n\n\n",
       "overview": "",
@@ -6627,11 +6728,11 @@
       "metadata": {}
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/header/header-brand",
+      "dirPath": "/workspaces/goatui-components/src/components/application/header/header-brand",
       "filePath": "src/components/application/header/header-brand/header-brand.tsx",
       "fileName": "header-brand.tsx",
-      "readmePath": "/workspaces/components/src/components/application/header/header-brand/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/header/header-brand/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/header/header-brand/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/header/header-brand/usage",
       "tag": "goat-header-brand",
       "readme": "# p4-top-navigation\n\n\n",
       "overview": "",
@@ -6786,11 +6887,11 @@
       "metadata": {}
     },
     {
-      "dirPath": "/workspaces/components/src/components/input-controls/html-editor",
+      "dirPath": "/workspaces/goatui-components/src/components/input-controls/html-editor",
       "filePath": "src/components/input-controls/html-editor/html-editor.tsx",
       "fileName": "html-editor.tsx",
-      "readmePath": "/workspaces/components/src/components/input-controls/html-editor/readme.md",
-      "usagesDir": "/workspaces/components/src/components/input-controls/html-editor/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/input-controls/html-editor/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/input-controls/html-editor/usage",
       "tag": "goat-html-editor",
       "readme": "# goat-code-editor\n\n\n",
       "overview": "",
@@ -7304,11 +7405,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/icon",
+      "dirPath": "/workspaces/goatui-components/src/components/icon",
       "filePath": "src/components/icon/icon.tsx",
       "fileName": "icon.tsx",
-      "readmePath": "/workspaces/components/src/components/icon/readme.md",
-      "usagesDir": "/workspaces/components/src/components/icon/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/icon/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/icon/usage",
       "tag": "goat-icon",
       "readme": "# goat-icon\n\n\n",
       "overview": "",
@@ -7406,7 +7507,13 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--goat-icon-size - The size of the icon (height and width)",
+          "annotation": "prop",
+          "docs": ""
+        }
+      ],
       "slots": [],
       "parts": [],
       "listeners": [],
@@ -7419,11 +7526,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/image",
+      "dirPath": "/workspaces/goatui-components/src/components/image",
       "filePath": "src/components/image/image.tsx",
       "fileName": "image.tsx",
-      "readmePath": "/workspaces/components/src/components/image/readme.md",
-      "usagesDir": "/workspaces/components/src/components/image/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/image/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/image/usage",
       "tag": "goat-image",
       "readme": "# goat-icon\n\n\n",
       "overview": "",
@@ -7507,11 +7614,11 @@
       "metadata": {}
     },
     {
-      "dirPath": "/workspaces/components/src/components/input-controls/input/input",
+      "dirPath": "/workspaces/goatui-components/src/components/input-controls/input/input",
       "filePath": "src/components/input-controls/input/input/input.tsx",
       "fileName": "input.tsx",
-      "readmePath": "/workspaces/components/src/components/input-controls/input/input/readme.md",
-      "usagesDir": "/workspaces/components/src/components/input-controls/input/input/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/input-controls/input/input/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/input-controls/input/input/usage",
       "tag": "goat-input",
       "readme": "# goat-input\n\n\n",
       "overview": "",
@@ -8125,11 +8232,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/link",
+      "dirPath": "/workspaces/goatui-components/src/components/link",
       "filePath": "src/components/link/link.tsx",
       "fileName": "link.tsx",
-      "readmePath": "/workspaces/components/src/components/link/readme.md",
-      "usagesDir": "/workspaces/components/src/components/link/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/link/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/link/usage",
       "tag": "goat-link",
       "readme": "# goat-button\n\n\n",
       "overview": "",
@@ -8247,11 +8354,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/menu/menu",
+      "dirPath": "/workspaces/goatui-components/src/components/menu/menu",
       "filePath": "src/components/menu/menu/menu.tsx",
       "fileName": "menu.tsx",
-      "readmePath": "/workspaces/components/src/components/menu/menu/readme.md",
-      "usagesDir": "/workspaces/components/src/components/menu/menu/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/menu/menu/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/menu/menu/usage",
       "tag": "goat-menu",
       "readme": "# goat-menu\n\n\n",
       "overview": "",
@@ -8488,7 +8595,23 @@
         }
       ],
       "events": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--goat-menu-background",
+          "annotation": "prop",
+          "docs": "Background color of the menu"
+        },
+        {
+          "name": "--goat-menu-max-height",
+          "annotation": "prop",
+          "docs": "Maximum height of the menu"
+        },
+        {
+          "name": "--goat-menu-shadow",
+          "annotation": "prop",
+          "docs": "Shadow of the menu"
+        }
+      ],
       "slots": [],
       "parts": [],
       "listeners": [
@@ -8509,11 +8632,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/menu/menu-divider",
+      "dirPath": "/workspaces/goatui-components/src/components/menu/menu-divider",
       "filePath": "src/components/menu/menu-divider/menu-divider.tsx",
       "fileName": "menu-divider.tsx",
-      "readmePath": "/workspaces/components/src/components/menu/menu-divider/readme.md",
-      "usagesDir": "/workspaces/components/src/components/menu/menu-divider/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/menu/menu-divider/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/menu/menu-divider/usage",
       "tag": "goat-menu-divider",
       "readme": "# goat-heading\n\n\n",
       "overview": "",
@@ -8540,11 +8663,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/menu/menu-item",
+      "dirPath": "/workspaces/goatui-components/src/components/menu/menu-item",
       "filePath": "src/components/menu/menu-item/menu-item.tsx",
       "fileName": "menu-item.tsx",
-      "readmePath": "/workspaces/components/src/components/menu/menu-item/readme.md",
-      "usagesDir": "/workspaces/components/src/components/menu/menu-item/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/menu/menu-item/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/menu/menu-item/usage",
       "tag": "goat-menu-item",
       "readme": "# goat-menu-item\n\n\n",
       "overview": "",
@@ -8873,11 +8996,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/modal/modal",
+      "dirPath": "/workspaces/goatui-components/src/components/modal/modal",
       "filePath": "src/components/modal/modal/modal.tsx",
       "fileName": "modal.tsx",
-      "readmePath": "/workspaces/components/src/components/modal/modal/readme.md",
-      "usagesDir": "/workspaces/components/src/components/modal/modal/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/modal/modal/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/modal/modal/usage",
       "tag": "goat-modal",
       "readme": "# p4-modal\n\n\n",
       "overview": "",
@@ -9098,11 +9221,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/modal/modal-content",
+      "dirPath": "/workspaces/goatui-components/src/components/modal/modal-content",
       "filePath": "src/components/modal/modal-content/modal-content.tsx",
       "fileName": "modal-content.tsx",
-      "readmePath": "/workspaces/components/src/components/modal/modal-content/readme.md",
-      "usagesDir": "/workspaces/components/src/components/modal/modal-content/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/modal/modal-content/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/modal/modal-content/usage",
       "tag": "goat-modal-content",
       "readme": "# p4-modal\n\n\n",
       "overview": "",
@@ -9160,11 +9283,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/notification",
+      "dirPath": "/workspaces/goatui-components/src/components/notification",
       "filePath": "src/components/notification/notification.tsx",
       "fileName": "notification.tsx",
-      "readmePath": "/workspaces/components/src/components/notification/readme.md",
-      "usagesDir": "/workspaces/components/src/components/notification/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/notification/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/notification/usage",
       "tag": "goat-notification",
       "readme": "# goat-alert\n\n\n",
       "overview": "",
@@ -9383,11 +9506,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/notification-manager",
+      "dirPath": "/workspaces/goatui-components/src/components/notification-manager",
       "filePath": "src/components/notification-manager/notification-manager.tsx",
       "fileName": "notification-manager.tsx",
-      "readmePath": "/workspaces/components/src/components/notification-manager/readme.md",
-      "usagesDir": "/workspaces/components/src/components/notification-manager/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/notification-manager/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/notification-manager/usage",
       "tag": "goat-notification-manager",
       "readme": "# goat-alert\n\n\n",
       "overview": "",
@@ -9501,11 +9624,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/input-controls/input/number",
+      "dirPath": "/workspaces/goatui-components/src/components/input-controls/input/number",
       "filePath": "src/components/input-controls/input/number/number.tsx",
       "fileName": "number.tsx",
-      "readmePath": "/workspaces/components/src/components/input-controls/input/number/readme.md",
-      "usagesDir": "/workspaces/components/src/components/input-controls/input/number/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/input-controls/input/number/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/input-controls/input/number/usage",
       "tag": "goat-number",
       "readme": "# goat-input\n\n\n",
       "overview": "",
@@ -10136,11 +10259,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/popover/popover",
+      "dirPath": "/workspaces/goatui-components/src/components/popover/popover",
       "filePath": "src/components/popover/popover/popover.tsx",
       "fileName": "popover.tsx",
-      "readmePath": "/workspaces/components/src/components/popover/popover/readme.md",
-      "usagesDir": "/workspaces/components/src/components/popover/popover/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/popover/popover/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/popover/popover/usage",
       "tag": "goat-popover",
       "readme": "# goat-dropdown\n\n\n",
       "overview": "",
@@ -10448,11 +10571,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/popover/popover-content",
+      "dirPath": "/workspaces/goatui-components/src/components/popover/popover-content",
       "filePath": "src/components/popover/popover-content/popover-content.tsx",
       "fileName": "popover-content.tsx",
-      "readmePath": "/workspaces/components/src/components/popover/popover-content/readme.md",
-      "usagesDir": "/workspaces/components/src/components/popover/popover-content/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/popover/popover-content/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/popover/popover-content/usage",
       "tag": "goat-popover-content",
       "readme": "# goat-dropdown\n\n\n",
       "overview": "",
@@ -10471,7 +10594,28 @@
       "props": [],
       "methods": [],
       "events": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--goat-menu-shadow",
+          "annotation": "prop",
+          "docs": "Shadow of popover content"
+        },
+        {
+          "name": "--popover-content-background",
+          "annotation": "prop",
+          "docs": "Background color of the popover content"
+        },
+        {
+          "name": "--popover-content-border-radius",
+          "annotation": "prop",
+          "docs": "Border radius of the popover content"
+        },
+        {
+          "name": "--popover-padding",
+          "annotation": "prop",
+          "docs": "Padding of the popover content"
+        }
+      ],
       "slots": [],
       "parts": [],
       "listeners": [],
@@ -10484,11 +10628,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/progress",
+      "dirPath": "/workspaces/goatui-components/src/components/progress",
       "filePath": "src/components/progress/progress.tsx",
       "fileName": "progress.tsx",
-      "readmePath": "/workspaces/components/src/components/progress/readme.md",
-      "usagesDir": "/workspaces/components/src/components/progress/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/progress/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/progress/usage",
       "tag": "goat-progress",
       "readme": "# goat-spinner\n\n\n",
       "overview": "",
@@ -10670,11 +10814,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/input-controls/select",
+      "dirPath": "/workspaces/goatui-components/src/components/input-controls/select",
       "filePath": "src/components/input-controls/select/select.tsx",
       "fileName": "select.tsx",
-      "readmePath": "/workspaces/components/src/components/input-controls/select/readme.md",
-      "usagesDir": "/workspaces/components/src/components/input-controls/select/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/input-controls/select/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/input-controls/select/usage",
       "tag": "goat-select",
       "readme": "# goat-select\n\n\n",
       "overview": "",
@@ -11536,11 +11680,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/sidenav",
+      "dirPath": "/workspaces/goatui-components/src/components/application/sidenav",
       "filePath": "src/components/application/sidenav/sidenav.tsx",
       "fileName": "sidenav.tsx",
-      "readmePath": "/workspaces/components/src/components/application/sidenav/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/sidenav/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/sidenav/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/sidenav/usage",
       "tag": "goat-sidenav",
       "readme": "# goat-menu\n\n\n",
       "overview": "",
@@ -11587,11 +11731,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/sidenav-menu",
+      "dirPath": "/workspaces/goatui-components/src/components/application/sidenav-menu",
       "filePath": "src/components/application/sidenav-menu/sidenav-menu.tsx",
       "fileName": "sidenav-menu.tsx",
-      "readmePath": "/workspaces/components/src/components/application/sidenav-menu/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/sidenav-menu/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/sidenav-menu/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/sidenav-menu/usage",
       "tag": "goat-sidenav-menu",
       "readme": "# goat-menu\n\n\n",
       "overview": "",
@@ -11746,11 +11890,11 @@
       "metadata": {}
     },
     {
-      "dirPath": "/workspaces/components/src/components/application/sidenav-menu-item",
+      "dirPath": "/workspaces/goatui-components/src/components/application/sidenav-menu-item",
       "filePath": "src/components/application/sidenav-menu-item/sidenav-menu-item.tsx",
       "fileName": "sidenav-menu-item.tsx",
-      "readmePath": "/workspaces/components/src/components/application/sidenav-menu-item/readme.md",
-      "usagesDir": "/workspaces/components/src/components/application/sidenav-menu-item/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/application/sidenav-menu-item/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/application/sidenav-menu-item/usage",
       "tag": "goat-sidenav-menu-item",
       "readme": "# goat-menu-item\n\n\n",
       "overview": "",
@@ -11912,11 +12056,11 @@
       "metadata": {}
     },
     {
-      "dirPath": "/workspaces/components/src/components/input-controls/slider",
+      "dirPath": "/workspaces/goatui-components/src/components/input-controls/slider",
       "filePath": "src/components/input-controls/slider/slider.tsx",
       "fileName": "slider.tsx",
-      "readmePath": "/workspaces/components/src/components/input-controls/slider/readme.md",
-      "usagesDir": "/workspaces/components/src/components/input-controls/slider/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/input-controls/slider/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/input-controls/slider/usage",
       "tag": "goat-slider",
       "readme": "# goat-select\n\n\n",
       "overview": "",
@@ -12334,11 +12478,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/spinner",
+      "dirPath": "/workspaces/goatui-components/src/components/spinner",
       "filePath": "src/components/spinner/spinner.tsx",
       "fileName": "spinner.tsx",
-      "readmePath": "/workspaces/components/src/components/spinner/readme.md",
-      "usagesDir": "/workspaces/components/src/components/spinner/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/spinner/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/spinner/usage",
       "tag": "goat-spinner",
       "readme": "# goat-spinner\n\n\n",
       "overview": "",
@@ -12466,11 +12610,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/svg",
+      "dirPath": "/workspaces/goatui-components/src/components/svg",
       "filePath": "src/components/svg/svg.tsx",
       "fileName": "svg.tsx",
-      "readmePath": "/workspaces/components/src/components/svg/readme.md",
-      "usagesDir": "/workspaces/components/src/components/svg/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/svg/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/svg/usage",
       "tag": "goat-svg",
       "readme": "# goat-icon\n\n\n",
       "overview": "",
@@ -12549,11 +12693,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/tabs/tab",
+      "dirPath": "/workspaces/goatui-components/src/components/tabs/tab",
       "filePath": "src/components/tabs/tab/tab.tsx",
       "fileName": "tab.tsx",
-      "readmePath": "/workspaces/components/src/components/tabs/tab/readme.md",
-      "usagesDir": "/workspaces/components/src/components/tabs/tab/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/tabs/tab/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/tabs/tab/usage",
       "tag": "goat-tab",
       "readme": "# goat-tab\n\n\n",
       "overview": "",
@@ -12879,11 +13023,11 @@
       "metadata": {}
     },
     {
-      "dirPath": "/workspaces/components/src/components/tabs/tab-panel",
+      "dirPath": "/workspaces/goatui-components/src/components/tabs/tab-panel",
       "filePath": "src/components/tabs/tab-panel/tab-panel.tsx",
       "fileName": "tab-panel.tsx",
-      "readmePath": "/workspaces/components/src/components/tabs/tab-panel/readme.md",
-      "usagesDir": "/workspaces/components/src/components/tabs/tab-panel/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/tabs/tab-panel/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/tabs/tab-panel/usage",
       "tag": "goat-tab-panel",
       "readme": "# goat-tab\n\n\n",
       "overview": "",
@@ -12977,11 +13121,11 @@
       "metadata": {}
     },
     {
-      "dirPath": "/workspaces/components/src/components/table",
+      "dirPath": "/workspaces/goatui-components/src/components/table",
       "filePath": "src/components/table/table.tsx",
       "fileName": "table.tsx",
-      "readmePath": "/workspaces/components/src/components/table/readme.md",
-      "usagesDir": "/workspaces/components/src/components/table/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/table/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/table/usage",
       "tag": "goat-table",
       "readme": "# goat-table\n\n\n",
       "overview": "",
@@ -13465,11 +13609,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/tabs/tabs",
+      "dirPath": "/workspaces/goatui-components/src/components/tabs/tabs",
       "filePath": "src/components/tabs/tabs/tabs.tsx",
       "fileName": "tabs.tsx",
-      "readmePath": "/workspaces/components/src/components/tabs/tabs/readme.md",
-      "usagesDir": "/workspaces/components/src/components/tabs/tabs/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/tabs/tabs/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/tabs/tabs/usage",
       "tag": "goat-tabs",
       "readme": "# goat-tabs\n\n\n",
       "overview": "",
@@ -13565,11 +13709,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/tabs/tabs-list",
+      "dirPath": "/workspaces/goatui-components/src/components/tabs/tabs-list",
       "filePath": "src/components/tabs/tabs-list/tabs-list.tsx",
       "fileName": "tabs-list.tsx",
-      "readmePath": "/workspaces/components/src/components/tabs/tabs-list/readme.md",
-      "usagesDir": "/workspaces/components/src/components/tabs/tabs-list/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/tabs/tabs-list/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/tabs/tabs-list/usage",
       "tag": "goat-tabs-list",
       "readme": "# goat-tabs\n\n\n",
       "overview": "",
@@ -13649,11 +13793,11 @@
       "metadata": {}
     },
     {
-      "dirPath": "/workspaces/components/src/components/tag",
+      "dirPath": "/workspaces/goatui-components/src/components/tag",
       "filePath": "src/components/tag/tag.tsx",
       "fileName": "tag.tsx",
-      "readmePath": "/workspaces/components/src/components/tag/readme.md",
-      "usagesDir": "/workspaces/components/src/components/tag/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/tag/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/tag/usage",
       "tag": "goat-tag",
       "readme": "# goat-heading\n\n\n",
       "overview": "",
@@ -13913,11 +14057,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/typography/text",
+      "dirPath": "/workspaces/goatui-components/src/components/typography/text",
       "filePath": "src/components/typography/text/text.tsx",
       "fileName": "text.tsx",
-      "readmePath": "/workspaces/components/src/components/typography/text/readme.md",
-      "usagesDir": "/workspaces/components/src/components/typography/text/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/typography/text/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/typography/text/usage",
       "tag": "goat-text",
       "readme": "# goat-heading\n\n\n",
       "overview": "",
@@ -14229,11 +14373,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/input-controls/input/textarea",
+      "dirPath": "/workspaces/goatui-components/src/components/input-controls/input/textarea",
       "filePath": "src/components/input-controls/input/textarea/textarea.tsx",
       "fileName": "textarea.tsx",
-      "readmePath": "/workspaces/components/src/components/input-controls/input/textarea/readme.md",
-      "usagesDir": "/workspaces/components/src/components/input-controls/input/textarea/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/input-controls/input/textarea/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/input-controls/input/textarea/usage",
       "tag": "goat-textarea",
       "readme": "# goat-textarea\n\n\n",
       "overview": "",
@@ -14845,11 +14989,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/input-controls/data-and-time/date/time-picker",
+      "dirPath": "/workspaces/goatui-components/src/components/input-controls/data-and-time/date/time-picker",
       "filePath": "src/components/input-controls/data-and-time/date/time-picker/time-picker.tsx",
       "fileName": "time-picker.tsx",
-      "readmePath": "/workspaces/components/src/components/input-controls/data-and-time/date/time-picker/readme.md",
-      "usagesDir": "/workspaces/components/src/components/input-controls/data-and-time/date/time-picker/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/input-controls/data-and-time/date/time-picker/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/input-controls/data-and-time/date/time-picker/usage",
       "tag": "goat-time-picker",
       "readme": "# goat-time-picker\n\n\n",
       "overview": "",
@@ -15200,11 +15344,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/input-controls/toggle",
+      "dirPath": "/workspaces/goatui-components/src/components/input-controls/toggle",
       "filePath": "src/components/input-controls/toggle/toggle.tsx",
       "fileName": "toggle.tsx",
-      "readmePath": "/workspaces/components/src/components/input-controls/toggle/readme.md",
-      "usagesDir": "/workspaces/components/src/components/input-controls/toggle/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/input-controls/toggle/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/input-controls/toggle/usage",
       "tag": "goat-toggle",
       "readme": "# goat-checkbox\n\n\n",
       "overview": "",
@@ -15565,11 +15709,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/tooltip",
+      "dirPath": "/workspaces/goatui-components/src/components/tooltip",
       "filePath": "src/components/tooltip/tooltip.tsx",
       "fileName": "tooltip.tsx",
-      "readmePath": "/workspaces/components/src/components/tooltip/readme.md",
-      "usagesDir": "/workspaces/components/src/components/tooltip/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/tooltip/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/tooltip/usage",
       "tag": "goat-tooltip",
       "readme": "# goat-icon\n\n\n",
       "overview": "",
@@ -15696,11 +15840,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/tree-view/tree-node",
+      "dirPath": "/workspaces/goatui-components/src/components/tree-view/tree-node",
       "filePath": "src/components/tree-view/tree-node/tree-node.tsx",
       "fileName": "tree-node.tsx",
-      "readmePath": "/workspaces/components/src/components/tree-view/tree-node/readme.md",
-      "usagesDir": "/workspaces/components/src/components/tree-view/tree-node/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/tree-view/tree-node/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/tree-view/tree-node/usage",
       "tag": "goat-tree-node",
       "readme": "# goat-menu\n\n\n",
       "overview": "",
@@ -16005,11 +16149,11 @@
       }
     },
     {
-      "dirPath": "/workspaces/components/src/components/tree-view/tree-view",
+      "dirPath": "/workspaces/goatui-components/src/components/tree-view/tree-view",
       "filePath": "src/components/tree-view/tree-view/tree-view.tsx",
       "fileName": "tree-view.tsx",
-      "readmePath": "/workspaces/components/src/components/tree-view/tree-view/readme.md",
-      "usagesDir": "/workspaces/components/src/components/tree-view/tree-view/usage",
+      "readmePath": "/workspaces/goatui-components/src/components/tree-view/tree-view/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/tree-view/tree-view/usage",
       "tag": "goat-tree-view",
       "readme": "# goat-menu\n\n\n",
       "overview": "",
@@ -16204,6 +16348,245 @@
         "subcategory": "Tree View",
         "img": "/assets/img/tree-view.webp",
         "imgDark": "/assets/img/tree-view-dark.webp"
+      }
+    },
+    {
+      "dirPath": "/workspaces/goatui-components/src/components/url-input",
+      "filePath": "src/components/url-input/url-input.tsx",
+      "fileName": "url-input.tsx",
+      "readmePath": "/workspaces/goatui-components/src/components/url-input/readme.md",
+      "usagesDir": "/workspaces/goatui-components/src/components/url-input/usage",
+      "tag": "goat-url-input",
+      "readme": "# goat-url-input\n\nA specialized input component for URL validation. This component provides real-time validation for URL inputs and visual feedback when an invalid URL is entered.\n\n## Basic Usage\n\n```html\n<goat-url-input placeholder=\"Enter website URL\"></goat-url-input>\n```\n\n## With initial value\n\n```html\n<goat-url-input value=\"https://example.com\" placeholder=\"Enter website URL\"></goat-url-input>\n```\n\n## Disabled state\n\n```html\n<goat-url-input disabled value=\"https://example.com\"></goat-url-input>\n```\n",
+      "overview": "",
+      "usage": {},
+      "docs": "A specialized input component for URL validation. This component provides real-time validation for URL inputs and visual feedback when an invalid URL is entered.",
+      "encapsulation": "shadow",
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {},
+      "props": [
+        {
+          "name": "debounce",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "debounce",
+          "reflectToAttr": false,
+          "docs": "Set the amount of time, in milliseconds, to wait to trigger the `valueChange` event after each keystroke.",
+          "docsTags": [],
+          "default": "300",
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": true,
+          "docs": "If true, the user cannot interact with the input. Defaults to `false`.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "name",
+          "reflectToAttr": false,
+          "docs": "The input field name.",
+          "docsTags": [],
+          "default": "`goat-url-input-${this.gid}`",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "placeholder",
+          "reflectToAttr": false,
+          "docs": "The input field placeholder.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The input field value.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "getComponentId",
+          "returns": {
+            "type": "Promise<string>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<string>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<string>"
+          },
+          "signature": "getComponentId() => Promise<string>",
+          "parameters": [],
+          "docs": "Get the component's unique ID",
+          "docsTags": []
+        },
+        {
+          "name": "setBlur",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setBlur() => Promise<void>",
+          "parameters": [],
+          "docs": "Sets blur on the native `input`. Use this method instead of the global\n`input.blur()`.",
+          "docsTags": []
+        },
+        {
+          "name": "setFocus",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setFocus() => Promise<void>",
+          "parameters": [],
+          "docs": "Sets focus on the native `input`. Use this method instead of the global\n`input.focus()`.",
+          "docsTags": []
+        }
+      ],
+      "events": [
+        {
+          "event": "inputInvalid",
+          "detail": "boolean",
+          "bubbles": true,
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when the URL input is invalid.",
+          "docsTags": []
+        },
+        {
+          "event": "valueChange",
+          "detail": "string",
+          "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emitted when a keyboard input occurred.",
+          "docsTags": []
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "listeners": [],
+      "metadata": {
+        "name": "URL Input",
+        "description": "A specialized input field for URL validation.",
+        "category": "Up coming",
+        "tags": [
+          "input",
+          " form",
+          " url"
+        ],
+        "example": "<goat-url-input placeholder=\"Enter website URL\"></goat-url-input>"
       }
     }
   ],
