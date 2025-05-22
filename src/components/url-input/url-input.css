@@ -1,0 +1,18 @@
+@import "../input-controls/common-input";
+
+:host {
+  display: block;
+}
+
+/* URL-specific styles */
+.input-container.invalid {
+  border-color: var(--support-error);
+}
+
+.input-container.has-focus.invalid {
+  box-shadow: 0 0 0 0.125rem var(--support-error);
+}
+
+.helper.invalid {
+  color: var(--support-error-inverse);
+}
