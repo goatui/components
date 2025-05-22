@@ -22,7 +22,7 @@ import { debounceEvent, getComponentIndex } from '../../utils/utils';
  */
 @Component({
   tag: 'goat-url-input',
-  styleUrl: './url-input.css',
+  styleUrl: './url-input.scss',
   shadow: true,
 })
 export class UrlInput implements ComponentInterface {
