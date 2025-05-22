@@ -1,0 +1,15 @@
+---
+import HighlighterCard from '../../../../components/HighlighterCard.astro';
+---
+<goat-text type='body'>Here are different types of inputs.</goat-text>
+
+<HighlighterCard lang={'html'} cssClasses='demo-input'>
+  <goat-url-input 
+              required
+              clearable
+              label='Text input label'
+              helper-text='Optional help text'
+              placeholder='Optional placeholder text'
+  ></goat-url-input>
+
+</HighlighterCard>
