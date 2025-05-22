@@ -13,6 +13,17 @@ import {
 } from '@stencil/core';
 import { debounceEvent, getComponentIndex } from '../../utils/utils';
 
+// Interface definition matching what's in input.interface.tsx
+interface InputComponentInterface {
+  required?: boolean;
+  disabled?: boolean;
+  name: string;
+
+  getComponentId(): Promise<string>;
+  setFocus(): void;
+  setBlur(): void;
+}
+
 /**
  * @name URL Input
  * @description A specialized input field for URL validation.
@@ -25,7 +36,7 @@ import { debounceEvent, getComponentIndex } from '../../utils/utils';
   styleUrl: './url-input.scss',
   shadow: true,
 })
-export class UrlInput implements ComponentInterface {
+export class UrlInput implements ComponentInterface, InputComponentInterface {
   gid: string = getComponentIndex();
 
   /**
