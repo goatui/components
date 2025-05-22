@@ -1952,10 +1952,6 @@ export interface GoatUrlInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLGoatUrlInputElement;
 }
-export interface GoatUrlInputCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLGoatUrlInputElement;
-}
 declare global {
     /**
      * @name Accordion
@@ -3252,7 +3248,6 @@ declare global {
         "goat-tooltip": HTMLGoatTooltipElement;
         "goat-tree-node": HTMLGoatTreeNodeElement;
         "goat-tree-view": HTMLGoatTreeViewElement;
-        "goat-url-input": HTMLGoatUrlInputElement;
         "goat-url-input": HTMLGoatUrlInputElement;
     }
 }
@@ -5216,7 +5211,6 @@ declare namespace LocalJSX {
         "goat-tooltip": GoatTooltip;
         "goat-tree-node": GoatTreeNode;
         "goat-tree-view": GoatTreeView;
-        "goat-url-input": GoatUrlInput;
         "goat-url-input": GoatUrlInput;
     }
 }
