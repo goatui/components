@@ -71,6 +71,7 @@ menus, checkboxes, and radio buttons.
 | [Checkbox](https://goatui.com/components/checkbox)         | goat-checkbox        | 🟢    |
 | [Date picker](https://goatui.com/components/date-picker)   | goat-date-picker     | 🟡    |
 | Date Time picker                                           | goat-datetime-picker | 🔴    |
+| [Form control](https://goatui.com/components/form-control) | goat-form-control    | 🟡    |
 | File picker                                                | goat-file-picker     | 🔴    |
 | [HTML editor](https://goatui.com/components/html-editor)   | goat-html-editor     | 🟢    |
 | [Input](https://goatui.com/components/input)               | goat-input           | 🟢    |
@@ -79,9 +80,8 @@ menus, checkboxes, and radio buttons.
 | [Select](https://goatui.com/components/select)             | goat-select          | 🟢    |
 | [Textarea](https://goatui.com/components/textarea)         | goat-textarea        | 🟢    |
 | [Time picker](https://goatui.com/components/time-picker)   | goat-time-picker     | 🟡    |
+| [URL input](https://goatui.com/components/url-input)       | goat-url-input.      | 🔴    |
 | Week picker                                                | goat-week-picker     | 🔴    |
-| [Form control](https://goatui.com/components/form-control) | goat-form-control    | 🟡    |
-
 
 ## Navigation
 
