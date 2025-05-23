@@ -1,0 +1,11 @@
+name: Deploy website
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Testing ssh
+    run: |
+      echo "Hello world"
