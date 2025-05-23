@@ -1,5 +1,8 @@
 name: Deploy website
 
+on:
+  workflow_dispatch:
+
 jobs:
   build:
 
@@ -7,5 +10,5 @@ jobs:
 
     steps:
     - name: Testing ssh
-    run: |
-      echo "Hello world"
+      run: |
+        echo "Hello world"
