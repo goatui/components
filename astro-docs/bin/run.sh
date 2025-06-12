@@ -1,0 +1,2 @@
+cd dist
+live-server
