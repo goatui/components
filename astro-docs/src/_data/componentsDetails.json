@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-06-30T05:11:29",
+  "timestamp": "2025-06-30T05:54:47",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.19.2",
@@ -233,23 +233,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--goat-accordion-item-heading-background - Background color of the accordion item header",
-          "annotation": "prop",
-          "docs": ""
-        },
-        {
-          "name": "--goat-accordion-item-heading-background-hover - Background color of the accordion item header on hover",
-          "annotation": "prop",
-          "docs": ""
-        },
-        {
-          "name": "--goat-accordion-item-title-align - Alignment of the accordion title",
-          "annotation": "prop",
-          "docs": ""
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [
         {
@@ -1285,58 +1269,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--goat-button-border-radius",
-          "annotation": "prop",
-          "docs": "Button border radius."
-        },
-        {
-          "name": "--goat-button-border-style",
-          "annotation": "prop",
-          "docs": "Button border style."
-        },
-        {
-          "name": "--goat-button-color",
-          "annotation": "prop",
-          "docs": "Button filling color."
-        },
-        {
-          "name": "--goat-button-color-active",
-          "annotation": "prop",
-          "docs": "Button filling color on active."
-        },
-        {
-          "name": "--goat-button-color-hover",
-          "annotation": "prop",
-          "docs": "Button filling color on hover."
-        },
-        {
-          "name": "--goat-button-color-light",
-          "annotation": "prop",
-          "docs": "Button filling color for light variant."
-        },
-        {
-          "name": "--goat-button-padding",
-          "annotation": "prop",
-          "docs": "Button padding."
-        },
-        {
-          "name": "--goat-button-support-contrast-color",
-          "annotation": "prop",
-          "docs": "Button support color (text or border). Should be white or black based on weight of button filling color."
-        },
-        {
-          "name": "--goat-theme-button-border-radius",
-          "annotation": "prop",
-          "docs": "Theme level button border radius. (applies to all buttons)"
-        },
-        {
-          "name": "--goat-theme-button-border-style",
-          "annotation": "prop",
-          "docs": "Theme level button border style. (applies to all buttons)"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "listeners": [
@@ -4442,13 +4375,7 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [
-        {
-          "name": "--goat-code-highlighter-background",
-          "annotation": "prop",
-          "docs": "Code Highlighter background color"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "listeners": [],
@@ -5250,18 +5177,7 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [
-        {
-          "name": "--goat-divider-color",
-          "annotation": "prop",
-          "docs": "Color of the divider"
-        },
-        {
-          "name": "--goat-divider-padding",
-          "annotation": "prop",
-          "docs": "Padding of the divider"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "listeners": [],
@@ -5560,13 +5476,7 @@
         }
       ],
       "events": [],
-      "styles": [
-        {
-          "name": "--goat-dropdown-menu-max-height",
-          "annotation": "prop",
-          "docs": "Maximum height of the menu"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "listeners": [],
@@ -6465,18 +6375,7 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [
-        {
-          "name": "--goat-header-height",
-          "annotation": "prop",
-          "docs": "Height of the header. Defaults to 3rem."
-        },
-        {
-          "name": "--goat-header-width",
-          "annotation": "prop",
-          "docs": "Width of the header. Defaults to 100%."
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "listeners": [],
@@ -7511,13 +7410,7 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [
-        {
-          "name": "--goat-icon-size - The size of the icon (height and width)",
-          "annotation": "prop",
-          "docs": ""
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "listeners": [],
@@ -8907,23 +8800,7 @@
         }
       ],
       "events": [],
-      "styles": [
-        {
-          "name": "--goat-menu-background",
-          "annotation": "prop",
-          "docs": "Background color of the menu"
-        },
-        {
-          "name": "--goat-menu-max-height",
-          "annotation": "prop",
-          "docs": "Maximum height of the menu"
-        },
-        {
-          "name": "--goat-menu-shadow",
-          "annotation": "prop",
-          "docs": "Shadow of the menu"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "listeners": [
@@ -10906,28 +10783,7 @@
       "props": [],
       "methods": [],
       "events": [],
-      "styles": [
-        {
-          "name": "--goat-menu-shadow",
-          "annotation": "prop",
-          "docs": "Shadow of popover content"
-        },
-        {
-          "name": "--popover-content-background",
-          "annotation": "prop",
-          "docs": "Background color of the popover content"
-        },
-        {
-          "name": "--popover-content-border-radius",
-          "annotation": "prop",
-          "docs": "Border radius of the popover content"
-        },
-        {
-          "name": "--popover-padding",
-          "annotation": "prop",
-          "docs": "Padding of the popover content"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "listeners": [],
