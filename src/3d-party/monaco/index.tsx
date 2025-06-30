@@ -1,7 +1,7 @@
 import { loadScript, waitUntil } from '../../utils/utils';
 import { getAssetPath } from '@stencil/core';
 
-const VERSION = '0.48.0';
+const VERSION = '0.52.2';
 
 let loadMonacoCalled = false;
 
@@ -40,9 +40,6 @@ export default async function loadMonaco() {
     };
     await loadScript(
       `https://cdn.jsdelivr.net/npm/monaco-editor@${VERSION}/min/vs/loader.js`,
-    );
-    await loadScript(
-      `https://cdn.jsdelivr.net/npm/monaco-editor@${VERSION}/min/vs/editor/editor.main.nls.js`,
     );
     await loadScript(
       `https://cdn.jsdelivr.net/npm/monaco-editor@${VERSION}/min/vs/editor/editor.main.min.js`,

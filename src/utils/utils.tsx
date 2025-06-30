@@ -138,13 +138,13 @@ export const debounce = (func: (...args: any[]) => void, wait = 0) => {
 
 export async function loadScriptModule(src) {
   return new Promise(resolve => {
-    const script = document.createElement('script');
-    script.src = src;
-    script.type = 'module';
-    script.addEventListener('load', () => {
-      resolve(true);
-    });
-    document.head.appendChild(script);
+     import(src)
+      .then(module => {
+        resolve(module);
+      })
+      .catch(error => {
+        console.error('Module loading failed:', error);
+      });
   });
 }
 

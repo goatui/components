@@ -14,7 +14,7 @@ const isProd = import.meta.env.PROD;
 let envProps;
 
 if (isProd) {
-  envProps = site['prod'];
+  envProps = true;//site['prod'];
 } else {
   envProps = site['dev'];
 }

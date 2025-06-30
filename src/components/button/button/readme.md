@@ -100,6 +100,7 @@ Type: `Promise<void>`
  - [goat-header-brand](../../application/header/header-brand)
  - [goat-html-editor](../../input-controls/html-editor)
  - [goat-input](../../input-controls/input/input)
+ - [goat-input-url](../../input-controls/input/input-url)
  - [goat-modal](../../modal/modal)
  - [goat-notification](../../notification)
  - [goat-number](../../input-controls/input/number)
@@ -127,6 +128,7 @@ graph TD;
   goat-header-brand --> goat-button
   goat-html-editor --> goat-button
   goat-input --> goat-button
+  goat-input-url --> goat-button
   goat-modal --> goat-button
   goat-notification --> goat-button
   goat-number --> goat-button

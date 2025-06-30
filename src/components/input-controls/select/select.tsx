@@ -189,6 +189,8 @@ export class Select implements ComponentInterface, InputComponentInterface {
 
   @Listen('click', { target: 'window' })
   windowClick(evt) {
+    if (this.open === false)
+      return;
     const path = evt.path || evt.composedPath();
     for (const elm of path) {
       if (elm == this.elm) return;

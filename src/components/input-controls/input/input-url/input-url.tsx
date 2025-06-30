@@ -11,7 +11,7 @@ import {
   State,
   Watch,
 } from '@stencil/core';
-import { debounceEvent, getComponentIndex } from '../../utils/utils';
+import { debounceEvent, getComponentIndex } from '../../../../utils/utils';
 
 // Interface definition matching what's in input.interface.tsx
 interface InputComponentInterface {
@@ -25,24 +25,24 @@ interface InputComponentInterface {
 }
 
 /**
- * @name URL Input
+ * @name Input URL
  * @description A specialized input field for URL validation.
  * @category Up coming
  * @tags input, form, url
- * @example <goat-url-input placeholder="Enter website URL"></goat-url-input>
+ * @example <goat-input-url value="https://shivajivarma.com"></goat-input-url>
  */
 @Component({
-  tag: 'goat-url-input',
-  styleUrl: 'url-input.scss',
+  tag: 'goat-input-url',
+  styleUrl: 'input-url.scss',
   shadow: true,
 })
-export class UrlInput implements ComponentInterface, InputComponentInterface {
+export class InputUrl implements ComponentInterface, InputComponentInterface {
   gid: string = getComponentIndex();
 
   /**
    * The input field name.
    */
-  @Prop() name: string = `goat-url-input-${this.gid}`;
+  @Prop() name: string = `goat-input-url-${this.gid}`;
 
   /**
    * The input field placeholder.
@@ -59,10 +59,18 @@ export class UrlInput implements ComponentInterface, InputComponentInterface {
    */
   @Prop({ reflect: true }) disabled: boolean = false;
 
+  @Prop({ mutable: true, reflect: true }) editing: boolean = false;
+
   /**
    * Set the amount of time, in milliseconds, to wait to trigger the `valueChange` event after each keystroke.
    */
   @Prop() debounce = 300;
+
+  /**
+     * The input field size.
+     * Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+     */
+  @Prop({ reflect: true }) size: 'sm' | 'md' | 'lg' = 'md';
 
   /**
    * Emitted when a keyboard input occurred.
@@ -82,12 +90,25 @@ export class UrlInput implements ComponentInterface, InputComponentInterface {
   @State() endSlotHasContent = false;
   @State() startSlotHasContent = false;
 
+  #startEditing() {
+    this.editing = true;
+    setTimeout(() => this.setFocus(), 80);
+  }
+
+  #closeEditing() {
+    this.isValid = this.validateUrl(this.value);
+    this.inputInvalid.emit(!this.isValid);
+
+    if (this.isValid)
+      this.editing = false;
+  }
+
   /**
    * Validate if the given string is a valid URL
    */
   private validateUrl(url: string): boolean {
     if (!url) return true; // Empty value is considered valid (not invalid)
-    
+
     try {
       // Use built-in URL constructor for validation
       new URL(url);
@@ -100,13 +121,11 @@ export class UrlInput implements ComponentInterface, InputComponentInterface {
   private inputHandler = (ev: Event) => {
     const input = ev.target as HTMLInputElement | null;
     const oldValue = this.value;
-    
+
     if (input) {
       this.value = input.value;
-      this.isValid = this.validateUrl(input.value);
-      this.inputInvalid.emit(!this.isValid);
     }
-    
+
     if (oldValue !== this.value) {
       this.valueChange.emit(this.value);
     }
@@ -114,12 +133,9 @@ export class UrlInput implements ComponentInterface, InputComponentInterface {
 
   private blurHandler = () => {
     this.hasFocus = false;
-    
+
     // Validate on blur for better user experience
-    if (this.value) {
-      this.isValid = this.validateUrl(this.value);
-      this.inputInvalid.emit(!this.isValid);
-    }
+    this.#closeEditing();
   };
 
   private focusHandler = () => {
@@ -174,35 +190,41 @@ export class UrlInput implements ComponentInterface, InputComponentInterface {
 
   renderInput() {
     return (
-      <div
-        class={{
-          'input-container': true,
-          'disabled': this.disabled,
-          'has-focus': this.hasFocus,
-          'invalid': !this.isValid,
-          'start-slot-has-content': this.startSlotHasContent,
-          'end-slot-has-content': this.endSlotHasContent,
-        }}
-      >
-        <div class="slot-container start">
-          <slot name="start" />
+      <div class={{ 'url-input': true, 'editing': this.editing }}>
+
+
+        <div class={{ 'url-container': true }}>
+          <goat-link href={this.value} target="_blank">
+            {this.value}
+          </goat-link>
+          <goat-button size="sm" variant="ghost" icon="edit" onGoat-button--click={() => {
+            this.#startEditing();
+          }}></goat-button>
         </div>
 
-        <input
-          class="input input-native"
-          name={this.name}
-          ref={input => (this.nativeElement = input)}
-          type="url"
-          placeholder={this.placeholder}
-          value={this.value}
-          onInput={evt => this.inputHandler(evt)}
-          onBlur={this.blurHandler}
-          onFocus={this.focusHandler}
-          disabled={this.disabled}
-        />
+        <div
+          class={{
+            'input-container': true,
+            'disabled': this.disabled,
+            'has-focus': this.hasFocus,
+            'invalid': !this.isValid,
+            'start-slot-has-content': this.startSlotHasContent,
+            'end-slot-has-content': this.endSlotHasContent,
+          }}
+        >
 
-        <div class="slot-container end">
-          <slot name="end" />
+          <input
+            class="input input-native"
+            name={this.name}
+            ref={input => (this.nativeElement = input)}
+            type="url"
+            placeholder={this.placeholder}
+            value={this.value}
+            onInput={evt => this.inputHandler(evt)}
+            onBlur={this.blurHandler}
+            onFocus={this.focusHandler}
+            disabled={this.disabled}
+          />
         </div>
       </div>
     );

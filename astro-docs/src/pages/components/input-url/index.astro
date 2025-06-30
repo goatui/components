@@ -3,10 +3,9 @@ import Layout from '../../../layouts/Component.astro';
 import { getComponentDetails } from '../../../_data/getComponentDetails.ts';
 import ApiPanel from '../../../components/ApiPanel.astro';
 import OverviewPanel from '../../../components/OverviewPanel.astro';
-const componentDetails = getComponentDetails('goat-url-input');
+const componentDetails = getComponentDetails('goat-input-url');
 
 import UsageSection from './_sections/usage.astro';
-import SlotsSection from './_sections/slots.astro';
 import SizesSection from './_sections/sizes.astro';
 import StatesSection from './_sections/states.astro';
 import EventsSection from './_sections/events.astro';
@@ -16,17 +15,8 @@ const sections = [
     'title': 'Usage',
     'Component': UsageSection,
   }, {
-    'title': 'Slots',
-    'Component': SlotsSection,
-  }, {
     'title': 'Sizes',
     'Component': SizesSection,
-  }, {
-    'title': 'States',
-    'Component': StatesSection,
-  }, {
-    'title': 'Events',
-    'Component': EventsSection,
   }];
 ---
 <Layout componentDetails={componentDetails}>

@@ -44,6 +44,7 @@ html {
   font-size: 16px;
 }
 
+/*
 html:not(.hydrated)::after {
   content: 'loading...';
   position: fixed;
@@ -59,7 +60,7 @@ html:not(.hydrated)::after {
 
 html.hydrated {
   visibility: visible;
-}
+}*/
 
 .top-nav {
   position: fixed;

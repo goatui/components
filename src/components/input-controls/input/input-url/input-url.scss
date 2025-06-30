@@ -1,4 +1,4 @@
-@import "../../components/input-controls/common-input";
+@import "../../common-input";
 
 :host {
   display: block;
@@ -15,4 +15,25 @@
 
 .helper.invalid {
   color: var(--support-error-inverse);
+}
+
+.input-container {
+  display: none;
+}
+
+.url-container {
+  display: flex;
+
+  goat-link {
+    flex: 1;
+  }
+}
+
+.editing {
+  .url-container {
+    display: none;
+  }
+  .input-container {
+    display: flex;
+  }
 }

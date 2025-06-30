@@ -872,6 +872,52 @@ export namespace Components {
         "warnText": string;
     }
     /**
+     * @name Input URL
+     * @description A specialized input field for URL validation.
+     * @category Up coming
+     * @tags input, form, url
+     * @example <goat-input-url value="https://shivajivarma.com"></goat-input-url>
+     */
+    interface GoatInputUrl {
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `valueChange` event after each keystroke.
+         */
+        "debounce": number;
+        /**
+          * If true, the user cannot interact with the input. Defaults to `false`.
+         */
+        "disabled": boolean;
+        "editing": boolean;
+        /**
+          * Get the component's unique ID
+         */
+        "getComponentId": () => Promise<string>;
+        /**
+          * The input field name.
+         */
+        "name": string;
+        /**
+          * The input field placeholder.
+         */
+        "placeholder": string;
+        /**
+          * Sets blur on the native `input`. Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `input`. Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size": 'sm' | 'md' | 'lg';
+        /**
+          * The input field value.
+         */
+        "value": string;
+    }
+    /**
      * @name Link
      * @description Links allow users to click their way from page to page.
      * @category Navigation
@@ -1802,47 +1848,6 @@ export namespace Components {
         "setFocus": () => Promise<void>;
         "subscribeToSelect": (cb: any) => Promise<void>;
     }
-    /**
-     * @name URL Input
-     * @description A specialized input field for URL validation.
-     * @category Up coming
-     * @tags input, form, url
-     * @example <goat-url-input placeholder="Enter website URL"></goat-url-input>
-     */
-    interface GoatUrlInput {
-        /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `valueChange` event after each keystroke.
-         */
-        "debounce": number;
-        /**
-          * If true, the user cannot interact with the input. Defaults to `false`.
-         */
-        "disabled": boolean;
-        /**
-          * Get the component's unique ID
-         */
-        "getComponentId": () => Promise<string>;
-        /**
-          * The input field name.
-         */
-        "name": string;
-        /**
-          * The input field placeholder.
-         */
-        "placeholder": string;
-        /**
-          * Sets blur on the native `input`. Use this method instead of the global `input.blur()`.
-         */
-        "setBlur": () => Promise<void>;
-        /**
-          * Sets focus on the native `input`. Use this method instead of the global `input.focus()`.
-         */
-        "setFocus": () => Promise<void>;
-        /**
-          * The input field value.
-         */
-        "value": string;
-    }
 }
 export interface GoatAccordionItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1887,6 +1892,10 @@ export interface GoatHtmlEditorCustomEvent<T> extends CustomEvent<T> {
 export interface GoatInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLGoatInputElement;
+}
+export interface GoatInputUrlCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLGoatInputUrlElement;
 }
 export interface GoatMenuItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1947,10 +1956,6 @@ export interface GoatToggleCustomEvent<T> extends CustomEvent<T> {
 export interface GoatTreeNodeCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLGoatTreeNodeElement;
-}
-export interface GoatUrlInputCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLGoatUrlInputElement;
 }
 declare global {
     /**
@@ -2565,6 +2570,31 @@ declare global {
         prototype: HTMLGoatInputElement;
         new (): HTMLGoatInputElement;
     };
+    interface HTMLGoatInputUrlElementEventMap {
+        "valueChange": string;
+        "inputInvalid": boolean;
+    }
+    /**
+     * @name Input URL
+     * @description A specialized input field for URL validation.
+     * @category Up coming
+     * @tags input, form, url
+     * @example <goat-input-url value="https://shivajivarma.com"></goat-input-url>
+     */
+    interface HTMLGoatInputUrlElement extends Components.GoatInputUrl, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLGoatInputUrlElementEventMap>(type: K, listener: (this: HTMLGoatInputUrlElement, ev: GoatInputUrlCustomEvent<HTMLGoatInputUrlElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLGoatInputUrlElementEventMap>(type: K, listener: (this: HTMLGoatInputUrlElement, ev: GoatInputUrlCustomEvent<HTMLGoatInputUrlElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLGoatInputUrlElement: {
+        prototype: HTMLGoatInputUrlElement;
+        new (): HTMLGoatInputUrlElement;
+    };
     /**
      * @name Link
      * @description Links allow users to click their way from page to page.
@@ -3146,31 +3176,6 @@ declare global {
         prototype: HTMLGoatTreeViewElement;
         new (): HTMLGoatTreeViewElement;
     };
-    interface HTMLGoatUrlInputElementEventMap {
-        "valueChange": string;
-        "inputInvalid": boolean;
-    }
-    /**
-     * @name URL Input
-     * @description A specialized input field for URL validation.
-     * @category Up coming
-     * @tags input, form, url
-     * @example <goat-url-input placeholder="Enter website URL"></goat-url-input>
-     */
-    interface HTMLGoatUrlInputElement extends Components.GoatUrlInput, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLGoatUrlInputElementEventMap>(type: K, listener: (this: HTMLGoatUrlInputElement, ev: GoatUrlInputCustomEvent<HTMLGoatUrlInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLGoatUrlInputElementEventMap>(type: K, listener: (this: HTMLGoatUrlInputElement, ev: GoatUrlInputCustomEvent<HTMLGoatUrlInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLGoatUrlInputElement: {
-        prototype: HTMLGoatUrlInputElement;
-        new (): HTMLGoatUrlInputElement;
-    };
     interface HTMLElementTagNameMap {
         "goat-accordion": HTMLGoatAccordionElement;
         "goat-accordion-item": HTMLGoatAccordionItemElement;
@@ -3216,6 +3221,7 @@ declare global {
         "goat-icon": HTMLGoatIconElement;
         "goat-image": HTMLGoatImageElement;
         "goat-input": HTMLGoatInputElement;
+        "goat-input-url": HTMLGoatInputUrlElement;
         "goat-link": HTMLGoatLinkElement;
         "goat-menu": HTMLGoatMenuElement;
         "goat-menu-divider": HTMLGoatMenuDividerElement;
@@ -3248,7 +3254,6 @@ declare global {
         "goat-tooltip": HTMLGoatTooltipElement;
         "goat-tree-node": HTMLGoatTreeNodeElement;
         "goat-tree-view": HTMLGoatTreeViewElement;
-        "goat-url-input": HTMLGoatUrlInputElement;
     }
 }
 declare namespace LocalJSX {
@@ -4131,6 +4136,48 @@ declare namespace LocalJSX {
         "value"?: string;
         "warn"?: boolean;
         "warnText"?: string;
+    }
+    /**
+     * @name Input URL
+     * @description A specialized input field for URL validation.
+     * @category Up coming
+     * @tags input, form, url
+     * @example <goat-input-url value="https://shivajivarma.com"></goat-input-url>
+     */
+    interface GoatInputUrl {
+        /**
+          * Set the amount of time, in milliseconds, to wait to trigger the `valueChange` event after each keystroke.
+         */
+        "debounce"?: number;
+        /**
+          * If true, the user cannot interact with the input. Defaults to `false`.
+         */
+        "disabled"?: boolean;
+        "editing"?: boolean;
+        /**
+          * The input field name.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the URL input is invalid.
+         */
+        "onInputInvalid"?: (event: GoatInputUrlCustomEvent<boolean>) => void;
+        /**
+          * Emitted when a keyboard input occurred.
+         */
+        "onValueChange"?: (event: GoatInputUrlCustomEvent<string>) => void;
+        /**
+          * The input field placeholder.
+         */
+        "placeholder"?: string;
+        /**
+          * The input field size. Possible values are: `"sm"`, `"md"`, `"lg"`. Defaults to `"md"`.
+         */
+        "size"?: 'sm' | 'md' | 'lg';
+        /**
+          * The input field value.
+         */
+        "value"?: string;
     }
     /**
      * @name Link
@@ -5097,43 +5144,6 @@ declare namespace LocalJSX {
         "emptyState"?: string;
         "selectedNode"?: string;
     }
-    /**
-     * @name URL Input
-     * @description A specialized input field for URL validation.
-     * @category Up coming
-     * @tags input, form, url
-     * @example <goat-url-input placeholder="Enter website URL"></goat-url-input>
-     */
-    interface GoatUrlInput {
-        /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `valueChange` event after each keystroke.
-         */
-        "debounce"?: number;
-        /**
-          * If true, the user cannot interact with the input. Defaults to `false`.
-         */
-        "disabled"?: boolean;
-        /**
-          * The input field name.
-         */
-        "name"?: string;
-        /**
-          * Emitted when the URL input is invalid.
-         */
-        "onInputInvalid"?: (event: GoatUrlInputCustomEvent<boolean>) => void;
-        /**
-          * Emitted when a keyboard input occurred.
-         */
-        "onValueChange"?: (event: GoatUrlInputCustomEvent<string>) => void;
-        /**
-          * The input field placeholder.
-         */
-        "placeholder"?: string;
-        /**
-          * The input field value.
-         */
-        "value"?: string;
-    }
     interface IntrinsicElements {
         "goat-accordion": GoatAccordion;
         "goat-accordion-item": GoatAccordionItem;
@@ -5179,6 +5189,7 @@ declare namespace LocalJSX {
         "goat-icon": GoatIcon;
         "goat-image": GoatImage;
         "goat-input": GoatInput;
+        "goat-input-url": GoatInputUrl;
         "goat-link": GoatLink;
         "goat-menu": GoatMenu;
         "goat-menu-divider": GoatMenuDivider;
@@ -5211,7 +5222,6 @@ declare namespace LocalJSX {
         "goat-tooltip": GoatTooltip;
         "goat-tree-node": GoatTreeNode;
         "goat-tree-view": GoatTreeView;
-        "goat-url-input": GoatUrlInput;
     }
 }
 export { LocalJSX as JSX };
@@ -5475,6 +5485,14 @@ declare module "@stencil/core" {
              */
             "goat-input": LocalJSX.GoatInput & JSXBase.HTMLAttributes<HTMLGoatInputElement>;
             /**
+             * @name Input URL
+             * @description A specialized input field for URL validation.
+             * @category Up coming
+             * @tags input, form, url
+             * @example <goat-input-url value="https://shivajivarma.com"></goat-input-url>
+             */
+            "goat-input-url": LocalJSX.GoatInputUrl & JSXBase.HTMLAttributes<HTMLGoatInputUrlElement>;
+            /**
              * @name Link
              * @description Links allow users to click their way from page to page.
              * @category Navigation
@@ -5709,14 +5727,6 @@ declare module "@stencil/core" {
              * @imgDark /assets/img/tree-view-dark.webp
              */
             "goat-tree-view": LocalJSX.GoatTreeView & JSXBase.HTMLAttributes<HTMLGoatTreeViewElement>;
-            /**
-             * @name URL Input
-             * @description A specialized input field for URL validation.
-             * @category Up coming
-             * @tags input, form, url
-             * @example <goat-url-input placeholder="Enter website URL"></goat-url-input>
-             */
-            "goat-url-input": LocalJSX.GoatUrlInput & JSXBase.HTMLAttributes<HTMLGoatUrlInputElement>;
         }
     }
 }

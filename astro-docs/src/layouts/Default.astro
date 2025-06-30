@@ -27,11 +27,11 @@ const searchItems = componentsDetails.components.map(component => ({
         <goat-header-brand logo='/assets/img/logo.svg' href='/#' name={site.title}></goat-header-brand>
 
 
-        <goat-header-action
+        <!--goat-header-action
           class='hide-tablet-portrait-below'
           href='/components#'>
           Docs
-        </goat-header-action>
+        </goat-header-action-->
 
         <goat-header-action
           class='hide-tablet-portrait-below'
@@ -153,13 +153,10 @@ const searchItems = componentsDetails.components.map(component => ({
       const search = document.querySelector('#site-search');
 
       searchBtn.addEventListener('click', function() {
-        const searchContainer = document.querySelector('#search-header-container');
-        searchContainer.toggleAttribute('open');
-        setTimeout(() => {
-          search.openSelectList();
-        }, 300);
+        openSearchContainer();
       });
 
+      
 
       searchContainerOverlay.addEventListener('click', function() {
         const searchContainer = document.querySelector('#search-header-container');
@@ -185,18 +182,25 @@ const searchItems = componentsDetails.components.map(component => ({
           if (e.key === '/') {
             const path = e.composedPath();
             for (const elm of path) {
-              if (elm.tagName === 'GOAT-INPUT' || elm.tagName === 'GOAT-CODE-EDITOR' || elm.tagName === 'GOAT-TEXTAREA') {
+              if (elm.tagName === 'GOAT-INPUT' || elm.tagName === 'GOAT-CODE-EDITOR' || elm.tagName === 'GOAT-TEXTAREA' || elm.tagName === 'INPUT') {
                 return;
               }
             }
             e.preventDefault();
-            search.open = true;
-            setTimeout(() => {
-              search.setFocus();
-            }, 300);
+            openSearchContainer();
           }
         });
       }
+
+
+      function openSearchContainer() {
+        const searchContainer = document.querySelector('#search-header-container');
+        searchContainer.toggleAttribute('open');
+        setTimeout(() => {
+          search.openSelectList();
+        }, 300);
+      }
+
     });
   </script>
 </Layout>
