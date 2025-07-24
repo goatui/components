@@ -1,168 +1,126 @@
-# GOAT UI
+# 🐐 GoatUI Components
 
-[![Build](https://github.com/goatui/components/workflows/Build/badge.svg)](https://github.com/goatui/components/actions?workflow=Build)
-[![GitHub license](https://img.shields.io/github/license/goatui/components.svg)](/LICENSE)
-![Version](https://img.shields.io/npm/v/%40goatui%2Fcomponents)
+[![License](https://img.shields.io/github/license/goatui/components)](LICENSE)
+[![npm version](https://img.shields.io/npm/v/@goatui/components)](https://www.npmjs.com/package/@goatui/components)
 
-GOAT UI contains most used web components built using Stencil. So you don't need to include any additional framework
-dependencies, You can simply import required component js, and right away start using it.
+GoatUI is a lightweight, modular web component library designed to simplify UI development with reusable, accessible, and performant components built using TypeScript, SCSS, and Astro.
 
-Checkout the complete documentation over here -> https://goatui.com
+## 🚀 Quick Start
 
-<div align="center" style="background: #b1fc3f; border-radius: 12px">
-  <img alt="GOAT UI LOGO" src="https://raw.githubusercontent.com/goatui/components/gh-pages/assets/img/logo.png" width="210">
-</div>
+### Installation
 
-## Getting Started
+Install GoatUI components via npm or yarn:
 
-### Script tag
-
-- Put a script tag similar to
-  this `<script type="module" src="https://cdn.jsdelivr.net/npm/@goatui/components@2.0.0-0/dist/goatui/goatui.esm.js"></script>`
-  in
-  the head of your index.html
-- Include default font Roboto in the page
-- Then you can use the element anywhere in your template, JSX, html etc
-
-```html
-<!doctype html>
-<html lang='en'>
-<head>
-  <meta charset='utf-8' />
-  <meta name='viewport' content='width=device-width' />
-  <title>Goat UI Component</title>
-
-  <!-- include your custom theme variable values, view variable names at https://cdn.jsdelivr.net/npm/@goatui/components@2.0.0-0/dist/goatui/assets/styles/theme.css -->
-  <!--link rel="stylesheet" href="/custom-theme.css"></link-->
-  <script type='module'
-          src='https://cdn.jsdelivr.net/npm/@goatui/components@2.0.0-0/dist/goatui/goatui.esm.js'></script>
-
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&family=IBM+Plex+Sans+Condensed:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Serif:ital@0;1&display=swap');
-
-    :root {
-      --font-family-base: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
-    }
-  </style>
-</head>
-<body>
-<goat-button size='lg' color='primary'>Click me</goat-button>
-</body>
-</html>
+```sh
+npm install @goatui/components
+# or
+yarn add @goatui/components
 ```
 
-# Components
+### Basic Usage
 
-- 🟢 ready (feature complete for now)
-- 🟡 beta (changes possible, not feature complete)
-- 🔴 not ready (unstyled / no functions)
-- 🔵 planned (created, but empty files)
+Import the desired component into your application:
 
-## Input Controls
+```typescript
+import '@goatui/components/button';
+```
 
-Input controls are UI design elements that allow users to input information into the system. They are essential for
-collecting data and enabling user interactions. Some common examples of input controls include text fields, dropdown
-menus, checkboxes, and radio buttons.
+Use the component directly in your HTML or JSX:
 
-| Name                                                       | Component            | State |
-|------------------------------------------------------------|----------------------|-------|
-| [Code editor](https://goatui.com/components/code-editor)   | goat-card-editor     | 🟢    |
-| Color picker                                               | goat-color-picker    | 🔴    |
-| [Checkbox](https://goatui.com/components/checkbox)         | goat-checkbox        | 🟢    |
-| [Date picker](https://goatui.com/components/date-picker)   | goat-date-picker     | 🟡    |
-| Date Time picker                                           | goat-datetime-picker | 🔴    |
-| [Form control](https://goatui.com/components/form-control) | goat-form-control    | 🟡    |
-| File picker                                                | goat-file-picker     | 🔴    |
-| [HTML editor](https://goatui.com/components/html-editor)   | goat-html-editor     | 🟢    |
-| [Input](https://goatui.com/components/input)               | goat-input           | 🟢    |
-| Month picker                                               | goat-month-picker    | 🔴    |
-| [Number](https://goatui.com/components/number)             | goat-number          | 🟢    |
-| [Select](https://goatui.com/components/select)             | goat-select          | 🟢    |
-| [Textarea](https://goatui.com/components/textarea)         | goat-textarea        | 🟢    |
-| [Time picker](https://goatui.com/components/time-picker)   | goat-time-picker     | 🟡    |
-| [URL input](https://goatui.com/components/url-input)       | goat-url-input.      | 🔴    |
-| Week picker                                                | goat-week-picker     | 🔴    |
+```html
+<goat-button size="lg" color="primary">Click Me!</goat-button>
+```
 
-## Navigation
+## 📚 Components
 
-Navigational components are UI elements that help users move around the app or website. They provide users with a clear
-and intuitive way to navigate through different sections and pages. Some common examples of navigational components
-include menus, tabs, and breadcrumbs.
+GoatUI components are categorized for easy discovery and usage:
 
-| Name                                                   | Component       | State |
-|--------------------------------------------------------|-----------------|-------|
-| [Breadcrumb](https://goatui.com/components/breadcrumb) | goat-breadcrumb | 🟢    |
-| [Dropdown](https://goatui.com/components/dropdown)     | goat-dropdown   | 🟡    |
-| [Menu](https://goatui.com/components/menu)             | goat-menu       | 🟡    |
-| [Tabs](https://goatui.com/components/tabs)             | goat-tabs       | 🟢    |
+### 🖱️ Inputs & Forms
 
-## Informational
+Components for building interactive forms and capturing user input effectively:
 
-Informational components are UI elements that provide information to users. They communicate important messages,
-updates, or instructions within the app or website. Some common examples of informational components include
-notifications, tooltips, and progress bars.
+- **Button (`goat-button`)**: Actionable buttons with multiple style variants.
+- **Checkbox (`goat-checkbox`)**: Simple, stylable checkboxes for forms.
+- **Input (`goat-input`)**: Text fields supporting various types (email, password, number).
+- **Radio (`goat-radio`)**: Radio buttons for mutually exclusive selections.
+- **Select (`goat-select`)**: Customizable dropdown select components.
+- **Switch (`goat-switch`)**: Toggle switches for boolean inputs.
 
-| Name                                                                               | Component                 | State |
-|------------------------------------------------------------------------------------|---------------------------|-------|
-| [Badge](https://goatui.com/components/badge)                                       | goat-badge                | 🟢    |
-| [Progress](https://goatui.com/components/progress)                                 | goat-progress             | 🟢    |
-| [Spinner](https://goatui.com/components/spinner)                                   | goat-spinner              | 🟢    |
-| [Tooltip](https://goatui.com/components/tooltip)                                   | goat-tooltip              | 🟢    |
-| [Notification](https://goatui.com/components/notification)                         | goat-notification         | 🟢    |
-| [Notification Manager / Toast](https://goatui.com/components/notification-manager) | goat-notification-manager | 🟢    |
+### 📖 Layout & Navigation
 
+Components for structuring your application's layout and simplifying navigation:
 
-## Containers
+- **Navbar (`goat-navbar`)**: Responsive navigation bar component.
+- **Sidebar (`goat-sidebar`)**: Collapsible sidebar for navigation menus.
+- **Tabs (`goat-tabs`)**: Tabbed content navigation with customizable styles.
 
-Containers are UI elements that group similar content together, making it easier for users to navigate and scan through
-the interface. Examples of common containers include cards, carousels, and accordions, which provide structure and
-organization to the content.
+### 🗂️ Data Display
 
-| Name                                                 | Component      | State |
-|------------------------------------------------------|----------------|-------|
-| [Accordion](https://goatui.com/components/accordion) | goat-accordion | 🟢    |
-| Card                                                 | goat-card      | 🟡    |
+Components tailored for displaying structured data clearly:
 
-## General
+- **Table (`goat-table`)**: Versatile tables with sorting, pagination, and responsive features.
+- **List (`goat-list`)**: Styled lists for items and navigation.
+- **Card (`goat-card`)**: Flexible containers for content display.
 
-These components are used for general purpose. They include
+### ⚠️ Feedback & Messaging
 
-| Name                                                                       | Component                 | State |
-|----------------------------------------------------------------------------|---------------------------|-------|
-| [Avatar](https://goatui.com/components/avatar)                             | goat-avatar               | 🟢    |
-| [Button](https://goatui.com/components/button)                             | goat-button               | 🟢    |
-| [Button Group](https://goatui.com/components/button-group)                 | goat-button-group         | 🟢    |
-| [Calendar](https://goatui.com/components/calendar)                         | goat-calendar             | 🟢    |
-| Card Select                                                                | goat-cardselect           | 🔴    |
-| [Code Highlighter](https://goatui.com/components/code-highlighter)         | goat-card-highlighter     | 🟢    |
-| Column                                                                     | goat-col                  | 🔴    |
-| [Empty State](https://goatui.com/components/empty-state)                   | goat-empty-state          | 🟡    |
-| [Flow Designer ](https://goatui.com/components/flow-designer)              | goat-flow-designer        | 🔵    |
-| Grid                                                                       | goat-grid                 | 🔴    |
-| Group                                                                      | goat-group                | 🔴    |
-| [Header](https://goatui.com/components/header)                             | goat-header               | 🟢    |
-| [Icon](https://goatui.com/components/icon)                                 | goat-icon                 | 🟢    |
-| [Link](https://goatui.com/components/link)                                 | goat-link                 | 🟢    |
-| [Modal](https://goatui.com/components/modal)                               | goat-modal                | 🟢    |
-| [Notification Manager](https://goatui.com/components/notification-manager) | goat-notification-manager | 🟡    |
-| Observer                                                                   | goat-observer             | 🔴    |
-| Pagination                                                                 | goat-pagination           | 🔴    |
-| Radio Group                                                                | goat-radiogroup           | 🔴    |
-| Row                                                                        | goat-row                  | 🔴    |
-| [Slider](https://goatui.com/components/slider)                             | goat-slider               | 🟡    |
-| Spoiler                                                                    | goat-spoiler              | 🔴    |
-| Stepper                                                                    | goat-stepper              | 🔴    |
-| [Table](https://goatui.com/components/table)                               | goat-table                | 🟡    |
-| [Tag](https://goatui.com/components/tag) / Chip                            | goat-tag                  | 🟢    |
-| [Text](https://goatui.com/components/text)                                 | goat-text                 | 🟢    |
-| [Tree View](https://goatui.com/components/tree-view)                       | goat-tree-view            | 🟡    |
-| [Toggle](https://goatui.com/components/toggle)                             | goat-toggle               | 🟢    |
+Components designed for user notifications, alerts, and feedback:
 
-## Charts
+- **Alert (`goat-alert`)**: User-friendly notifications and alerts.
+- **Modal (`goat-modal`)**: Accessible dialog windows for content and actions.
+- **Tooltip (`goat-tooltip`)**: Informative tooltips on hover or focus.
 
-These components are used to display data in a graphical format. They include
+### 🔄 Loaders & Progress Indicators
 
-| Name                                                           | Component           | State |
-|----------------------------------------------------------------|---------------------|-------|
-| [Doughnut Chart](https://goatui.com/components/chart-doughnut) | goat-chart-doughnut | 🟢    |
-| [Pie Chart ](https://goatui.com/components/chart-pie)          | goat-chart-pie      | 🟢    |
+Indicate loading states or progress clearly:
+
+- **Loader (`goat-loader`)**: Animated loading spinner.
+- **Progress Bar (`goat-progress`)**: Visual indication of operation progress.
+
+## 🎨 Customization
+
+GoatUI components are fully customizable. Override default styles easily by importing SCSS variables:
+
+```scss
+@import '@goatui/components/styles/variables';
+
+$primary-color: #4a90e2;
+$border-radius: 8px;
+```
+
+## ♿ Accessibility
+
+GoatUI components follow best practices for web accessibility (WCAG 2.1) ensuring your applications are usable by everyone.
+
+## 🛠️ Development & Contribution
+
+### Setup
+
+Clone and install dependencies:
+
+```sh
+git clone https://github.com/goatui/components.git
+cd components
+npm install
+npm run dev
+```
+
+### Contributing
+
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+### Testing
+
+Run tests with Jest:
+
+```sh
+npm test
+```
+
+## 📄 License
+
+GoatUI Components is open-source software licensed under the [MIT License](LICENSE).
+
+---
+
+Made with 💖 by the GoatUI Community.
