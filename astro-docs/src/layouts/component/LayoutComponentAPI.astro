@@ -1,0 +1,153 @@
+---
+interface Props {
+  componentDetails: any;
+}
+
+const { componentDetails } = Astro.props;
+
+import Layout from './LayoutComponentBase.astro';
+const title = componentDetails.metadata.name;
+const overview = componentDetails.metadata.overview ? componentDetails.metadata.overview : componentDetails.metadata.description;
+---
+
+<Layout componentDetails={componentDetails}>
+  <goat-breadcrumb>
+    <goat-breadcrumb-item href="/components">Components</goat-breadcrumb-item>
+    <goat-breadcrumb-item href="./">{title}</goat-breadcrumb-item>
+    <goat-breadcrumb-item active>API Reference</goat-breadcrumb-item>
+  </goat-breadcrumb>
+
+  <div class="comp-header">
+    <goat-text class="comp-title heading-scrollable" type="heading" heading-size="6">{title} - API Reference</goat-text>
+    {componentDetails.metadata.category == 'Up coming' ? <goat-tag color="red">Work in progress</goat-tag> : ''}
+  </div>
+
+  <goat-text type="body" expressive set:html={overview} />
+
+  <div style="margin-bottom: var(--spacing-09)">
+    <goat-button size="xs" variant="light.simple" href="./" icon="arrow--left" icon-align="start"> Back </goat-button>
+  </div>
+
+  <div class="api-section">
+    <goat-text type="heading" heading-size="4">Properties</goat-text>
+    <goat-table id="comp-properties" class="table-auto-height" layer="01" paginate="false"></goat-table>
+  </div>
+
+  <div class="api-section">
+    <goat-text type="heading" heading-size="4">Events</goat-text>
+    <goat-table id="comp-events" class="table-auto-height" layer="01" paginate="false"></goat-table>
+  </div>
+
+  <div class="api-section">
+    <goat-text type="heading" heading-size="4">Methods</goat-text>
+    <goat-table id="comp-methods" class="table-auto-height" layer="01" paginate="false"></goat-table>
+  </div>
+
+  <div class="api-section">
+    <goat-text type="heading" heading-size="4">CSS Custom Properties</goat-text>
+    <goat-table id="comp-css-custom-properties" class="table-auto-height" layer="01" paginate="false"></goat-table>
+  </div>
+
+  <script is:inline define:vars={{ componentDetails }}>
+    const $compProperties = window.document.getElementById('comp-properties');
+    // Columns
+    $compProperties.columns = [
+      {
+        name: 'name',
+        label: 'Property',
+        width: 10,
+      },
+      {
+        name: 'attr',
+        label: 'Attribute',
+        width: 10,
+      },
+      {
+        name: 'docs',
+        label: 'Description',
+        width: 28,
+        template: function (row, column) {
+          if (row[column.name])
+            return `<div class='col-text' title='${row[column.name]}'>${row[column.name]
+              .split('\n')
+              .map(i => `<goat-text>${i}</goat-text>`)
+              .join('')}</div>`;
+          return '';
+        },
+      },
+      {
+        name: 'type',
+        label: 'Type',
+        width: 18,
+        template: function (row, column) {
+          if (row[column.name] && row[column.name].includes('|')) {
+            const types = row[column.name].split('|');
+            const typesHtml = types.map(type => `<goat-tag color='secondary'>${type}</goat-tag>`).join('');
+            return `<div class='col-text' style='display: flex; flex-wrap: wrap; gap:.5rem'>${typesHtml}</div>`;
+          }
+          return `<div class='col-text'>${row[column.name]}</div>`;
+        },
+      },
+      {
+        name: 'default',
+        label: 'Default',
+      },
+    ];
+    // Data
+    $compProperties.data = componentDetails.props;
+
+    const $compEvents = document.getElementById('comp-events');
+    // Columns
+    $compEvents.columns = [
+      {
+        name: 'event',
+        label: 'Event',
+        width: 15,
+      },
+      {
+        name: 'docs',
+        label: 'Description',
+        width: 25,
+      },
+      {
+        name: 'detail',
+        label: 'Type',
+      },
+    ];
+    // Data
+    $compEvents.data = componentDetails.events;
+
+    const $compMethods = document.getElementById('comp-methods');
+    // Columns
+    $compMethods.columns = [
+      {
+        name: 'name',
+        label: 'Name',
+        width: 20,
+      },
+      {
+        name: 'docs',
+        label: 'Description',
+      },
+    ];
+    // Data
+    $compMethods.data = componentDetails.methods;
+
+    const $compCssCustomProperties = document.getElementById('comp-css-custom-properties');
+    // Columns
+    $compCssCustomProperties.columns = [
+      {
+        name: 'name',
+        label: 'Name',
+        width: 20,
+        fixed: true,
+      },
+      {
+        name: 'docs',
+        label: 'Description',
+      },
+    ];
+    // Data
+    $compCssCustomProperties.data = componentDetails.styles;
+  </script>
+</Layout>

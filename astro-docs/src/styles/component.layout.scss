@@ -83,6 +83,7 @@ pre[class*='language-'] {
 
   .section-nav {
     width: 23rem;
+    position: relative;
     height: auto !important;
 
     .link {
@@ -192,6 +193,8 @@ pre[class*='language-'] {
   padding: var(--spacing-09);
   align-items: center;
   justify-content: center;
+  padding-block: var(--spacing-12);
+  background: linear-gradient(120deg, var(--color-red-10), var(--color-yellow-10));
 }
 
 .demo-input .demo-area-inner {
@@ -242,9 +245,9 @@ pre[class*='language-'] {
   }
 }
 
-.js-scroll-nav {
-  color: var(--text-primary);
-  width: 100%
+.section-nav-content {
+  position: sticky;
+  top: 60px;
 }
 
 .adsbygoogle {

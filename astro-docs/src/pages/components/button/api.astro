@@ -1,0 +1,12 @@
+---
+import Layout from '../../../layouts/component/LayoutComponentAPI.astro';
+import { getComponentDetails } from '../../../_data/getComponentDetails.ts';
+import ApiPanel from '../../../components/ApiPanel.astro';
+const componentDetails = getComponentDetails('goat-button');
+---
+
+<Layout componentDetails={componentDetails}>
+
+    <ApiPanel componentDetails={componentDetails} />
+
+</Layout>

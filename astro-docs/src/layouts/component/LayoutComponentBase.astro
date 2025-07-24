@@ -1,0 +1,72 @@
+---
+import site from '../../_data/site.json';
+interface Props {
+  componentDetails: any;
+}
+
+const { componentDetails } = Astro.props;
+
+import Layout from './../Default.astro';
+import '../../styles/component.layout.scss';
+import { getCategoriesTree, getComponentDetails, getNextAndPrevious } from '../../_data/getComponentDetails';
+import Footer from '../../components/Footer.astro';
+
+const title = componentDetails.metadata.name;
+const description = componentDetails.metadata.description;
+const { nextComponent, previousComponent } = getNextAndPrevious(componentDetails.tag);
+---
+
+<Layout title={title} description={description}  classes={'layer-background'}>
+  <div class="sidenav m-hide layer-background" id="component-page">
+    <div class="sidenav-components">
+      <goat-tree-view layer="01" value={title} selected-node={title}>
+        <goat-tree-node label="Overview" href="/components"></goat-tree-node>
+
+        {
+          getCategoriesTree().map(category => {
+            if (!category.hide) {
+              return (
+                <goat-tree-node label={category.name} value={category.name + 'group'}>
+                  {category.children.map(componentName => {
+                    if (typeof componentName === 'string') {
+                      const component = getComponentDetails(componentName);
+                      if (component.metadata.name) {
+                        return <goat-tree-node label={component.metadata.name} value={component.metadata.name} href={`/components/${component.tag.replace('goat-', '')}/`} />;
+                      }
+                    } else if (componentName.children) {
+                      return (
+                        <goat-tree-node label={componentName.name} value={componentName.name + 'group'}>
+                          {componentName.children.map(componentName => {
+                            const component = getComponentDetails(componentName);
+                            if (component.metadata.name) {
+                              return <goat-tree-node label={component.metadata.name} value={component.metadata.name} href={`/components/${component.tag.replace('goat-', '')}/`} />;
+                            }
+                          })}
+                        </goat-tree-node>
+                      );
+                    }
+                  })}
+                </goat-tree-node>
+              );
+            }
+          })
+        }
+      </goat-tree-view>
+    </div>
+  </div>
+  <div class="main-content">
+    <goat-container class="page-wrapper">
+      <slot />
+
+      <div class="previous-next-nav">
+        <goat-button kind="simple" icon="arrow--left" icon-align="start" href={`/components/${previousComponent.tag.replace('goat-', '')}/`}> Previous </goat-button>
+        <goat-button kind="simple" icon="arrow--right" href={`/components/${nextComponent.tag.replace('goat-', '')}/`}> Next </goat-button>
+      </div>
+    </goat-container>
+
+    <div class="footer container">
+      <goat-divider></goat-divider>
+      <Footer />
+    </div>
+  </div>
+</Layout>

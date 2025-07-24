@@ -24,7 +24,7 @@ import { computePosition, offset } from '@floating-ui/dom';
 /**
  * @name HTML Editor
  * @description HTML Editor component is a WYSIWYG editor that allows users to edit HTML content.
- * @category Up coming
+ * @category Form Inputs
  * @tags input, form
  * @img /assets/img/html-editor.webp
  * @imgDark /assets/img/html-editor-dark.webp

@@ -64,7 +64,7 @@ export class GoatTreeNode {
   /**
    * Menu item selection state.
    */
-  @Prop({ reflect: true, mutable: true }) selectedNode: string;
+  @Prop({ reflect: true, mutable: true }) selected: boolean;
 
   @Prop({ reflect: true, mutable: true }) expanded: boolean = true;
 
@@ -145,10 +145,10 @@ export class GoatTreeNode {
     this.isActive = true;
   };
 
-  isSelected() {
+  isSelected(selectedNode: string) {
     if (this.value === undefined && this.label === undefined) return false;
-    else if (this.value === undefined) return this.selectedNode === this.label;
-    else return this.selectedNode === this.value;
+    else if (this.value === undefined) return selectedNode === this.label;
+    else return selectedNode === this.value;
   }
 
   private keyDownHandler = evt => {
@@ -197,12 +197,12 @@ export class GoatTreeNode {
 
     // @ts-ignore
     treeView.getSelectedNode().then((selectedNode: string) => {
-      this.selectedNode = selectedNode;
+      this.selected = this.isSelected(selectedNode);
     });
 
     // @ts-ignore
     treeView.subscribeToSelect((selectedNode: string) => {
-      this.selectedNode = selectedNode;
+      this.selected = this.isSelected(selectedNode);
     });
 
     const childNodes = this.elm.querySelectorAll('goat-tree-node');
@@ -229,7 +229,7 @@ export class GoatTreeNode {
           <NativeElementTag
             class={{
               'tree-node-content': true,
-              'selected': this.isSelected(),
+              'selected': this.selected,
               'active': this.isActive,
               'disabled': this.disabled,
               'has-focus': this.hasFocus,

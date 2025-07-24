@@ -8,7 +8,6 @@ interface Props {
 const { componentDetails, sections } = Astro.props;
 ---
 <div class='component-overview-tab'>
-
   <div class='component-content'>
     <div class='component-description'>
       <goat-text type='body' expressive set:html={componentDetails.metadata.overview ? componentDetails.metadata.overview : componentDetails.metadata.description}></goat-text>

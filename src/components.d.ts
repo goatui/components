@@ -733,7 +733,7 @@ export namespace Components {
     /**
      * @name HTML Editor
      * @description HTML Editor component is a WYSIWYG editor that allows users to edit HTML content.
-     * @category Up coming
+     * @category Form Inputs
      * @tags input, form
      * @img /assets/img/html-editor.webp
      * @imgDark /assets/img/html-editor-dark.webp
@@ -1811,7 +1811,7 @@ export namespace Components {
         /**
           * Menu item selection state.
          */
-        "selectedNode": string;
+        "selected": boolean;
         /**
           * Sets blur on the native `input` in `goat-input`. Use this method instead of the global `input.blur()`.
          */
@@ -2505,7 +2505,7 @@ declare global {
     /**
      * @name HTML Editor
      * @description HTML Editor component is a WYSIWYG editor that allows users to edit HTML content.
-     * @category Up coming
+     * @category Form Inputs
      * @tags input, form
      * @img /assets/img/html-editor.webp
      * @imgDark /assets/img/html-editor-dark.webp
@@ -3993,7 +3993,7 @@ declare namespace LocalJSX {
     /**
      * @name HTML Editor
      * @description HTML Editor component is a WYSIWYG editor that allows users to edit HTML content.
-     * @category Up coming
+     * @category Form Inputs
      * @tags input, form
      * @img /assets/img/html-editor.webp
      * @imgDark /assets/img/html-editor-dark.webp
@@ -5121,7 +5121,7 @@ declare namespace LocalJSX {
         /**
           * Menu item selection state.
          */
-        "selectedNode"?: string;
+        "selected"?: boolean;
         /**
           * Sets or retrieves the window or frame at which to target content.
          */
@@ -5461,7 +5461,7 @@ declare module "@stencil/core" {
             /**
              * @name HTML Editor
              * @description HTML Editor component is a WYSIWYG editor that allows users to edit HTML content.
-             * @category Up coming
+             * @category Form Inputs
              * @tags input, form
              * @img /assets/img/html-editor.webp
              * @imgDark /assets/img/html-editor-dark.webp

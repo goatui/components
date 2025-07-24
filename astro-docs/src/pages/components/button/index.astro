@@ -1,7 +1,6 @@
 ---
-import Layout from '../../../layouts/Component.astro';
+import Layout from '../../../layouts/component/LayoutComponentHome.astro';
 import { getComponentDetails } from '../../../_data/getComponentDetails.ts';
-import ApiPanel from '../../../components/ApiPanel.astro';
 const componentDetails = getComponentDetails('goat-button');
 
 import UsageSection from './_sections/Usage.astro';
@@ -38,18 +37,8 @@ const sections = [
     'Component': EventsSection,
   }];
 ---
-<Layout componentDetails={componentDetails}>
-  <goat-tabs class='page-tabs'>
-    <goat-tabs-list>
-      <goat-tab selected='true'>Overview</goat-tab>
-      <goat-tab>API</goat-tab>
-    </goat-tabs-list>
-    <goat-tab-panel>
-      <OverviewPanel componentDetails={componentDetails} sections={sections} />
-    </goat-tab-panel>
-    <goat-tab-panel>
-      <ApiPanel componentDetails={componentDetails} />
-    </goat-tab-panel>
-  </goat-tabs>
+<Layout componentDetails={componentDetails} sections={sections}>
+
+  
 </Layout>
 

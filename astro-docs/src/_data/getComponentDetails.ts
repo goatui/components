@@ -1,16 +1,16 @@
 import componentsDetails from './componentsDetails.json';
 
-export function getComponentDetails(tagName: string) {
+export function getComponentDetails(tagName: string): any {
   return componentsDetails.components.find((component: any) => component.tag === tagName);
 }
 
 const arr = componentsDetails.components.filter((component: any) => component.metadata.name).map((component: any) => component.tag);
 
-export function getNextAndPrevious(target: string) {
+export function getNextAndPrevious(target: string): {nextComponent?: any, previousComponent?: any} {
   const index = arr.indexOf(target);
   if (index === -1) {
     console.log(`"${target}" not found in the array.`);
-    return;
+    return {};
   }
 
   const nextIndex = (index + 1) % arr.length;
